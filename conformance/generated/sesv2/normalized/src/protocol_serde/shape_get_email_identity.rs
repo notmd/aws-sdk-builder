@@ -98,18 +98,12 @@ pub(crate) fn de_get_email_identity(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "IdentityType" => {
-                    builder = builder.set_identity_type(
+                "ConfigurationSetName" => {
+                    builder = builder.set_configuration_set_name(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::IdentityType::from(u.as_ref())))
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
-                }
-                "FeedbackForwardingStatus" => {
-                    builder = builder.set_feedback_forwarding_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                }
-                "VerifiedForSendingStatus" => {
-                    builder = builder.set_verified_for_sending_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 }
                 "DkimAttributes" => {
                     builder = builder.set_dkim_attributes(super::super::protocol_serde::shape_dkim_attributes::de_dkim_attributes(
@@ -117,6 +111,16 @@ pub(crate) fn de_get_email_identity(
                         _value,
                         depth + 1,
                     )?);
+                }
+                "FeedbackForwardingStatus" => {
+                    builder = builder.set_feedback_forwarding_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                }
+                "IdentityType" => {
+                    builder = builder.set_identity_type(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::IdentityType::from(u.as_ref())))
+                            .transpose()?,
+                    );
                 }
                 "MailFromAttributes" => {
                     builder = builder.set_mail_from_attributes(super::super::protocol_serde::shape_mail_from_attributes::de_mail_from_attributes(
@@ -131,12 +135,12 @@ pub(crate) fn de_get_email_identity(
                 "Tags" => {
                     builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
                 }
-                "ConfigurationSetName" => {
-                    builder = builder.set_configuration_set_name(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
+                "VerificationInfo" => {
+                    builder = builder.set_verification_info(super::super::protocol_serde::shape_verification_info::de_verification_info(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "VerificationStatus" => {
                     builder = builder.set_verification_status(
@@ -145,12 +149,8 @@ pub(crate) fn de_get_email_identity(
                             .transpose()?,
                     );
                 }
-                "VerificationInfo" => {
-                    builder = builder.set_verification_info(super::super::protocol_serde::shape_verification_info::de_verification_info(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                "VerifiedForSendingStatus" => {
+                    builder = builder.set_verified_for_sending_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

@@ -3,14 +3,14 @@ pub fn ser_create_package_group_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_package_group::CreatePackageGroupInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.package_group {
-        object.key("packageGroup").string(var_1.as_str());
+    if let Some(var_1) = &input.contact_info {
+        object.key("contactInfo").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.contact_info {
-        object.key("contactInfo").string(var_2.as_str());
+    if let Some(var_2) = &input.description {
+        object.key("description").string(var_2.as_str());
     }
-    if let Some(var_3) = &input.description {
-        object.key("description").string(var_3.as_str());
+    if let Some(var_3) = &input.package_group {
+        object.key("packageGroup").string(var_3.as_str());
     }
     if let Some(var_4) = &input.tags {
         let mut array_5 = object.key("tags").start_array();

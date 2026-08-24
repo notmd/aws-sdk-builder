@@ -103,15 +103,15 @@ pub(crate) fn de_update_service_environment(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "serviceEnvironmentName" => {
-                    builder = builder.set_service_environment_name(
+                "serviceEnvironmentArn" => {
+                    builder = builder.set_service_environment_arn(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
                 }
-                "serviceEnvironmentArn" => {
-                    builder = builder.set_service_environment_arn(
+                "serviceEnvironmentName" => {
+                    builder = builder.set_service_environment_name(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,

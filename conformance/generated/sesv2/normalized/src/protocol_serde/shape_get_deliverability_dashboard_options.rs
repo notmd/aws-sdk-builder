@@ -113,15 +113,6 @@ pub(crate) fn de_get_deliverability_dashboard_options(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "DashboardEnabled" => {
-                    builder = builder.set_dashboard_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                }
-                "SubscriptionExpiryDate" => {
-                    builder = builder.set_subscription_expiry_date(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-                        tokens.next(),
-                        ::aws_smithy_types::date_time::Format::EpochSeconds,
-                    )?);
-                }
                 "AccountStatus" => {
                     builder = builder.set_account_status(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -141,6 +132,9 @@ pub(crate) fn de_get_deliverability_dashboard_options(
                         )?,
                     );
                 }
+                "DashboardEnabled" => {
+                    builder = builder.set_dashboard_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                }
                 "PendingExpirationSubscribedDomains" => {
                     builder = builder.set_pending_expiration_subscribed_domains(
                         super::super::protocol_serde::shape_domain_deliverability_tracking_options::de_domain_deliverability_tracking_options(
@@ -149,6 +143,12 @@ pub(crate) fn de_get_deliverability_dashboard_options(
                             depth + 1,
                         )?,
                     );
+                }
+                "SubscriptionExpiryDate" => {
+                    builder = builder.set_subscription_expiry_date(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                        tokens.next(),
+                        ::aws_smithy_types::date_time::Format::EpochSeconds,
+                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

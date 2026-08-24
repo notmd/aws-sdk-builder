@@ -140,6 +140,13 @@ pub(crate) fn de_list_package_version_assets(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "assets" => {
+                    builder = builder.set_assets(super::super::protocol_serde::shape_asset_summary_list::de_asset_summary_list(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
                 "format" => {
                     builder = builder.set_format(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -149,6 +156,13 @@ pub(crate) fn de_list_package_version_assets(
                 }
                 "namespace" => {
                     builder = builder.set_namespace(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "nextToken" => {
+                    builder = builder.set_next_token(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
@@ -174,20 +188,6 @@ pub(crate) fn de_list_package_version_assets(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
-                }
-                "nextToken" => {
-                    builder = builder.set_next_token(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "assets" => {
-                    builder = builder.set_assets(super::super::protocol_serde::shape_asset_summary_list::de_asset_summary_list(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

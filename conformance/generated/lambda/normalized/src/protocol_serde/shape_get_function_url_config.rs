@@ -131,20 +131,6 @@ pub(crate) fn de_get_function_url_config(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "FunctionUrl" => {
-                    builder = builder.set_function_url(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "FunctionArn" => {
-                    builder = builder.set_function_arn(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
                 "AuthType" => {
                     builder = builder.set_auth_type(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -162,8 +148,15 @@ pub(crate) fn de_get_function_url_config(
                             .transpose()?,
                     );
                 }
-                "LastModifiedTime" => {
-                    builder = builder.set_last_modified_time(
+                "FunctionArn" => {
+                    builder = builder.set_function_arn(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "FunctionUrl" => {
+                    builder = builder.set_function_url(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
@@ -173,6 +166,13 @@ pub(crate) fn de_get_function_url_config(
                     builder = builder.set_invoke_mode(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::InvokeMode::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
+                "LastModifiedTime" => {
+                    builder = builder.set_last_modified_time(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
                 }

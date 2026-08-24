@@ -3,11 +3,11 @@ pub fn ser_update_event_source_mapping_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_event_source_mapping::UpdateEventSourceMappingInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.function_name {
-        object.key("FunctionName").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.enabled {
-        object.key("Enabled").boolean(*var_2);
+    if let Some(var_1) = &input.amazon_managed_kafka_event_source_config {
+        #[allow(unused_mut)]
+        let mut object_2 = object.key("AmazonManagedKafkaEventSourceConfig").start_object();
+        super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_2, var_1)?;
+        object_2.finish();
     }
     if let Some(var_3) = &input.batch_size {
         object.key("BatchSize").number(
@@ -15,116 +15,116 @@ pub fn ser_update_event_source_mapping_input_input(
             ::aws_smithy_types::Number::NegInt((*var_3).into()),
         );
     }
-    if let Some(var_4) = &input.filter_criteria {
-        #[allow(unused_mut)]
-        let mut object_5 = object.key("FilterCriteria").start_object();
-        super::super::protocol_serde::shape_filter_criteria::ser_filter_criteria(&mut object_5, var_4)?;
-        object_5.finish();
+    if let Some(var_4) = &input.bisect_batch_on_function_error {
+        object.key("BisectBatchOnFunctionError").boolean(*var_4);
     }
-    if let Some(var_6) = &input.kms_key_arn {
-        object.key("KMSKeyArn").string(var_6.as_str());
-    }
-    if let Some(var_7) = &input.metrics_config {
+    if let Some(var_5) = &input.destination_config {
         #[allow(unused_mut)]
-        let mut object_8 = object.key("MetricsConfig").start_object();
-        super::super::protocol_serde::shape_event_source_mapping_metrics_config::ser_event_source_mapping_metrics_config(&mut object_8, var_7)?;
+        let mut object_6 = object.key("DestinationConfig").start_object();
+        super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_6, var_5)?;
+        object_6.finish();
+    }
+    if let Some(var_7) = &input.document_db_event_source_config {
+        #[allow(unused_mut)]
+        let mut object_8 = object.key("DocumentDBEventSourceConfig").start_object();
+        super::super::protocol_serde::shape_document_db_event_source_config::ser_document_db_event_source_config(&mut object_8, var_7)?;
         object_8.finish();
     }
-    if let Some(var_9) = &input.logging_config {
-        #[allow(unused_mut)]
-        let mut object_10 = object.key("LoggingConfig").start_object();
-        super::super::protocol_serde::shape_event_source_mapping_logging_config::ser_event_source_mapping_logging_config(&mut object_10, var_9)?;
-        object_10.finish();
+    if let Some(var_9) = &input.enabled {
+        object.key("Enabled").boolean(*var_9);
     }
-    if let Some(var_11) = &input.scaling_config {
+    if let Some(var_10) = &input.filter_criteria {
         #[allow(unused_mut)]
-        let mut object_12 = object.key("ScalingConfig").start_object();
-        super::super::protocol_serde::shape_scaling_config::ser_scaling_config(&mut object_12, var_11)?;
-        object_12.finish();
+        let mut object_11 = object.key("FilterCriteria").start_object();
+        super::super::protocol_serde::shape_filter_criteria::ser_filter_criteria(&mut object_11, var_10)?;
+        object_11.finish();
     }
-    if let Some(var_13) = &input.maximum_batching_window_in_seconds {
+    if let Some(var_12) = &input.function_name {
+        object.key("FunctionName").string(var_12.as_str());
+    }
+    if let Some(var_13) = &input.function_response_types {
+        let mut array_14 = object.key("FunctionResponseTypes").start_array();
+        for item_15 in var_13 {
+            {
+                array_14.value().string(item_15.as_str());
+            }
+        }
+        array_14.finish();
+    }
+    if let Some(var_16) = &input.kms_key_arn {
+        object.key("KMSKeyArn").string(var_16.as_str());
+    }
+    if let Some(var_17) = &input.logging_config {
+        #[allow(unused_mut)]
+        let mut object_18 = object.key("LoggingConfig").start_object();
+        super::super::protocol_serde::shape_event_source_mapping_logging_config::ser_event_source_mapping_logging_config(&mut object_18, var_17)?;
+        object_18.finish();
+    }
+    if let Some(var_19) = &input.maximum_batching_window_in_seconds {
         object.key("MaximumBatchingWindowInSeconds").number(
-            #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_13).into()),
-        );
-    }
-    if let Some(var_14) = &input.parallelization_factor {
-        object.key("ParallelizationFactor").number(
-            #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_14).into()),
-        );
-    }
-    if let Some(var_15) = &input.destination_config {
-        #[allow(unused_mut)]
-        let mut object_16 = object.key("DestinationConfig").start_object();
-        super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_16, var_15)?;
-        object_16.finish();
-    }
-    if let Some(var_17) = &input.maximum_record_age_in_seconds {
-        object.key("MaximumRecordAgeInSeconds").number(
-            #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_17).into()),
-        );
-    }
-    if let Some(var_18) = &input.bisect_batch_on_function_error {
-        object.key("BisectBatchOnFunctionError").boolean(*var_18);
-    }
-    if let Some(var_19) = &input.maximum_retry_attempts {
-        object.key("MaximumRetryAttempts").number(
             #[allow(clippy::useless_conversion)]
             ::aws_smithy_types::Number::NegInt((*var_19).into()),
         );
     }
-    if let Some(var_20) = &input.tumbling_window_in_seconds {
-        object.key("TumblingWindowInSeconds").number(
+    if let Some(var_20) = &input.maximum_record_age_in_seconds {
+        object.key("MaximumRecordAgeInSeconds").number(
             #[allow(clippy::useless_conversion)]
             ::aws_smithy_types::Number::NegInt((*var_20).into()),
         );
     }
-    if let Some(var_21) = &input.source_access_configurations {
-        let mut array_22 = object.key("SourceAccessConfigurations").start_array();
-        for item_23 in var_21 {
+    if let Some(var_21) = &input.maximum_retry_attempts {
+        object.key("MaximumRetryAttempts").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_21).into()),
+        );
+    }
+    if let Some(var_22) = &input.metrics_config {
+        #[allow(unused_mut)]
+        let mut object_23 = object.key("MetricsConfig").start_object();
+        super::super::protocol_serde::shape_event_source_mapping_metrics_config::ser_event_source_mapping_metrics_config(&mut object_23, var_22)?;
+        object_23.finish();
+    }
+    if let Some(var_24) = &input.parallelization_factor {
+        object.key("ParallelizationFactor").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_24).into()),
+        );
+    }
+    if let Some(var_25) = &input.provisioned_poller_config {
+        #[allow(unused_mut)]
+        let mut object_26 = object.key("ProvisionedPollerConfig").start_object();
+        super::super::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(&mut object_26, var_25)?;
+        object_26.finish();
+    }
+    if let Some(var_27) = &input.scaling_config {
+        #[allow(unused_mut)]
+        let mut object_28 = object.key("ScalingConfig").start_object();
+        super::super::protocol_serde::shape_scaling_config::ser_scaling_config(&mut object_28, var_27)?;
+        object_28.finish();
+    }
+    if let Some(var_29) = &input.self_managed_kafka_event_source_config {
+        #[allow(unused_mut)]
+        let mut object_30 = object.key("SelfManagedKafkaEventSourceConfig").start_object();
+        super::super::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_30, var_29)?;
+        object_30.finish();
+    }
+    if let Some(var_31) = &input.source_access_configurations {
+        let mut array_32 = object.key("SourceAccessConfigurations").start_array();
+        for item_33 in var_31 {
             {
                 #[allow(unused_mut)]
-                let mut object_24 = array_22.value().start_object();
-                super::super::protocol_serde::shape_source_access_configuration::ser_source_access_configuration(&mut object_24, item_23)?;
-                object_24.finish();
+                let mut object_34 = array_32.value().start_object();
+                super::super::protocol_serde::shape_source_access_configuration::ser_source_access_configuration(&mut object_34, item_33)?;
+                object_34.finish();
             }
         }
-        array_22.finish();
+        array_32.finish();
     }
-    if let Some(var_25) = &input.function_response_types {
-        let mut array_26 = object.key("FunctionResponseTypes").start_array();
-        for item_27 in var_25 {
-            {
-                array_26.value().string(item_27.as_str());
-            }
-        }
-        array_26.finish();
-    }
-    if let Some(var_28) = &input.amazon_managed_kafka_event_source_config {
-        #[allow(unused_mut)]
-        let mut object_29 = object.key("AmazonManagedKafkaEventSourceConfig").start_object();
-        super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_29, var_28)?;
-        object_29.finish();
-    }
-    if let Some(var_30) = &input.self_managed_kafka_event_source_config {
-        #[allow(unused_mut)]
-        let mut object_31 = object.key("SelfManagedKafkaEventSourceConfig").start_object();
-        super::super::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_31, var_30)?;
-        object_31.finish();
-    }
-    if let Some(var_32) = &input.document_db_event_source_config {
-        #[allow(unused_mut)]
-        let mut object_33 = object.key("DocumentDBEventSourceConfig").start_object();
-        super::super::protocol_serde::shape_document_db_event_source_config::ser_document_db_event_source_config(&mut object_33, var_32)?;
-        object_33.finish();
-    }
-    if let Some(var_34) = &input.provisioned_poller_config {
-        #[allow(unused_mut)]
-        let mut object_35 = object.key("ProvisionedPollerConfig").start_object();
-        super::super::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(&mut object_35, var_34)?;
-        object_35.finish();
+    if let Some(var_35) = &input.tumbling_window_in_seconds {
+        object.key("TumblingWindowInSeconds").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_35).into()),
+        );
     }
     Ok(())
 }

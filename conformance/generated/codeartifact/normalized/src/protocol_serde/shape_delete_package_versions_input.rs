@@ -3,17 +3,17 @@ pub fn ser_delete_package_versions_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::delete_package_versions::DeletePackageVersionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.versions {
-        let mut array_2 = object.key("versions").start_array();
-        for item_3 in var_1 {
+    if let Some(var_1) = &input.expected_status {
+        object.key("expectedStatus").string(var_1.as_str());
+    }
+    if let Some(var_2) = &input.versions {
+        let mut array_3 = object.key("versions").start_array();
+        for item_4 in var_2 {
             {
-                array_2.value().string(item_3.as_str());
+                array_3.value().string(item_4.as_str());
             }
         }
-        array_2.finish();
-    }
-    if let Some(var_4) = &input.expected_status {
-        object.key("expectedStatus").string(var_4.as_str());
+        array_3.finish();
     }
     Ok(())
 }

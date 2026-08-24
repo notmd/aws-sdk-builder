@@ -3,16 +3,16 @@ pub fn ser_create_import_job_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_import_job::CreateImportJobInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.import_destination {
+    if let Some(var_1) = &input.import_data_source {
         #[allow(unused_mut)]
-        let mut object_2 = object.key("ImportDestination").start_object();
-        super::super::protocol_serde::shape_import_destination::ser_import_destination(&mut object_2, var_1)?;
+        let mut object_2 = object.key("ImportDataSource").start_object();
+        super::super::protocol_serde::shape_import_data_source::ser_import_data_source(&mut object_2, var_1)?;
         object_2.finish();
     }
-    if let Some(var_3) = &input.import_data_source {
+    if let Some(var_3) = &input.import_destination {
         #[allow(unused_mut)]
-        let mut object_4 = object.key("ImportDataSource").start_object();
-        super::super::protocol_serde::shape_import_data_source::ser_import_data_source(&mut object_4, var_3)?;
+        let mut object_4 = object.key("ImportDestination").start_object();
+        super::super::protocol_serde::shape_import_destination::ser_import_destination(&mut object_4, var_3)?;
         object_4.finish();
     }
     Ok(())

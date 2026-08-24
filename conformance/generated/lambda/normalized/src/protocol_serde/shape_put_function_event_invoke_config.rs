@@ -165,10 +165,11 @@ pub(crate) fn de_put_function_event_invoke_config(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "LastModified" => {
-                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-                        tokens.next(),
-                        ::aws_smithy_types::date_time::Format::EpochSeconds,
+                "DestinationConfig" => {
+                    builder = builder.set_destination_config(super::super::protocol_serde::shape_destination_config::de_destination_config(
+                        tokens,
+                        _value,
+                        depth + 1,
                     )?);
                 }
                 "FunctionArn" => {
@@ -178,12 +179,11 @@ pub(crate) fn de_put_function_event_invoke_config(
                             .transpose()?,
                     );
                 }
-                "MaximumRetryAttempts" => {
-                    builder = builder.set_maximum_retry_attempts(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?,
-                    );
+                "LastModified" => {
+                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                        tokens.next(),
+                        ::aws_smithy_types::date_time::Format::EpochSeconds,
+                    )?);
                 }
                 "MaximumEventAgeInSeconds" => {
                     builder = builder.set_maximum_event_age_in_seconds(
@@ -192,12 +192,12 @@ pub(crate) fn de_put_function_event_invoke_config(
                             .transpose()?,
                     );
                 }
-                "DestinationConfig" => {
-                    builder = builder.set_destination_config(super::super::protocol_serde::shape_destination_config::de_destination_config(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                "MaximumRetryAttempts" => {
+                    builder = builder.set_maximum_retry_attempts(
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?,
+                    );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

@@ -3,71 +3,71 @@ pub fn ser_send_email_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::send_email::SendEmailInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.from_email_address {
-        object.key("FromEmailAddress").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.from_email_address_identity_arn {
-        object.key("FromEmailAddressIdentityArn").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.destination {
+    if let Some(var_1) = &input.configuration_overrides {
         #[allow(unused_mut)]
-        let mut object_4 = object.key("Destination").start_object();
-        super::super::protocol_serde::shape_destination::ser_destination(&mut object_4, var_3)?;
-        object_4.finish();
+        let mut object_2 = object.key("ConfigurationOverrides").start_object();
+        super::super::protocol_serde::shape_configuration_overrides::ser_configuration_overrides(&mut object_2, var_1)?;
+        object_2.finish();
     }
-    if let Some(var_5) = &input.reply_to_addresses {
-        let mut array_6 = object.key("ReplyToAddresses").start_array();
-        for item_7 in var_5 {
-            {
-                array_6.value().string(item_7.as_str());
-            }
-        }
-        array_6.finish();
+    if let Some(var_3) = &input.configuration_set_name {
+        object.key("ConfigurationSetName").string(var_3.as_str());
     }
-    if let Some(var_8) = &input.feedback_forwarding_email_address {
-        object.key("FeedbackForwardingEmailAddress").string(var_8.as_str());
-    }
-    if let Some(var_9) = &input.feedback_forwarding_email_address_identity_arn {
-        object.key("FeedbackForwardingEmailAddressIdentityArn").string(var_9.as_str());
-    }
-    if let Some(var_10) = &input.content {
+    if let Some(var_4) = &input.content {
         #[allow(unused_mut)]
-        let mut object_11 = object.key("Content").start_object();
-        super::super::protocol_serde::shape_email_content::ser_email_content(&mut object_11, var_10)?;
-        object_11.finish();
+        let mut object_5 = object.key("Content").start_object();
+        super::super::protocol_serde::shape_email_content::ser_email_content(&mut object_5, var_4)?;
+        object_5.finish();
     }
-    if let Some(var_12) = &input.email_tags {
-        let mut array_13 = object.key("EmailTags").start_array();
-        for item_14 in var_12 {
+    if let Some(var_6) = &input.destination {
+        #[allow(unused_mut)]
+        let mut object_7 = object.key("Destination").start_object();
+        super::super::protocol_serde::shape_destination::ser_destination(&mut object_7, var_6)?;
+        object_7.finish();
+    }
+    if let Some(var_8) = &input.email_tags {
+        let mut array_9 = object.key("EmailTags").start_array();
+        for item_10 in var_8 {
             {
                 #[allow(unused_mut)]
-                let mut object_15 = array_13.value().start_object();
-                super::super::protocol_serde::shape_message_tag::ser_message_tag(&mut object_15, item_14)?;
-                object_15.finish();
+                let mut object_11 = array_9.value().start_object();
+                super::super::protocol_serde::shape_message_tag::ser_message_tag(&mut object_11, item_10)?;
+                object_11.finish();
             }
         }
-        array_13.finish();
+        array_9.finish();
     }
-    if let Some(var_16) = &input.configuration_set_name {
-        object.key("ConfigurationSetName").string(var_16.as_str());
+    if let Some(var_12) = &input.endpoint_id {
+        object.key("EndpointId").string(var_12.as_str());
     }
-    if let Some(var_17) = &input.endpoint_id {
-        object.key("EndpointId").string(var_17.as_str());
+    if let Some(var_13) = &input.feedback_forwarding_email_address {
+        object.key("FeedbackForwardingEmailAddress").string(var_13.as_str());
     }
-    if let Some(var_18) = &input.tenant_name {
-        object.key("TenantName").string(var_18.as_str());
+    if let Some(var_14) = &input.feedback_forwarding_email_address_identity_arn {
+        object.key("FeedbackForwardingEmailAddressIdentityArn").string(var_14.as_str());
     }
-    if let Some(var_19) = &input.list_management_options {
+    if let Some(var_15) = &input.from_email_address {
+        object.key("FromEmailAddress").string(var_15.as_str());
+    }
+    if let Some(var_16) = &input.from_email_address_identity_arn {
+        object.key("FromEmailAddressIdentityArn").string(var_16.as_str());
+    }
+    if let Some(var_17) = &input.list_management_options {
         #[allow(unused_mut)]
-        let mut object_20 = object.key("ListManagementOptions").start_object();
-        super::super::protocol_serde::shape_list_management_options::ser_list_management_options(&mut object_20, var_19)?;
-        object_20.finish();
+        let mut object_18 = object.key("ListManagementOptions").start_object();
+        super::super::protocol_serde::shape_list_management_options::ser_list_management_options(&mut object_18, var_17)?;
+        object_18.finish();
     }
-    if let Some(var_21) = &input.configuration_overrides {
-        #[allow(unused_mut)]
-        let mut object_22 = object.key("ConfigurationOverrides").start_object();
-        super::super::protocol_serde::shape_configuration_overrides::ser_configuration_overrides(&mut object_22, var_21)?;
-        object_22.finish();
+    if let Some(var_19) = &input.reply_to_addresses {
+        let mut array_20 = object.key("ReplyToAddresses").start_array();
+        for item_21 in var_19 {
+            {
+                array_20.value().string(item_21.as_str());
+            }
+        }
+        array_20.finish();
+    }
+    if let Some(var_22) = &input.tenant_name {
+        object.key("TenantName").string(var_22.as_str());
     }
     Ok(())
 }

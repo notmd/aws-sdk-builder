@@ -104,16 +104,16 @@ pub(crate) fn de_list_reputation_entities(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
                 match key.to_unescaped()?.as_ref() {
-                    "ReputationEntities" => {
-                        builder = builder.set_reputation_entities(
-                            super::super::protocol_serde::shape_reputation_entities_list::de_reputation_entities_list(tokens, _value, depth + 1)?,
-                        );
-                    }
                     "NextToken" => {
                         builder = builder.set_next_token(
                             ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                 .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                 .transpose()?,
+                        );
+                    }
+                    "ReputationEntities" => {
+                        builder = builder.set_reputation_entities(
+                            super::super::protocol_serde::shape_reputation_entities_list::de_reputation_entities_list(tokens, _value, depth + 1)?,
                         );
                     }
                     _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

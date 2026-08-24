@@ -103,15 +103,15 @@ pub(crate) fn de_create_compute_environment(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "computeEnvironmentName" => {
-                    builder = builder.set_compute_environment_name(
+                "computeEnvironmentArn" => {
+                    builder = builder.set_compute_environment_arn(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
                 }
-                "computeEnvironmentArn" => {
-                    builder = builder.set_compute_environment_arn(
+                "computeEnvironmentName" => {
+                    builder = builder.set_compute_environment_name(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,

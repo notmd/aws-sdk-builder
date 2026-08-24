@@ -3,30 +3,30 @@ pub fn ser_update_package_versions_status_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.versions {
-        let mut array_2 = object.key("versions").start_array();
-        for item_3 in var_1 {
-            {
-                array_2.value().string(item_3.as_str());
-            }
-        }
-        array_2.finish();
+    if let Some(var_1) = &input.expected_status {
+        object.key("expectedStatus").string(var_1.as_str());
     }
-    if let Some(var_4) = &input.version_revisions {
+    if let Some(var_2) = &input.target_status {
+        object.key("targetStatus").string(var_2.as_str());
+    }
+    if let Some(var_3) = &input.version_revisions {
         #[allow(unused_mut)]
-        let mut object_5 = object.key("versionRevisions").start_object();
-        for (key_6, value_7) in var_4 {
+        let mut object_4 = object.key("versionRevisions").start_object();
+        for (key_5, value_6) in var_3 {
             {
-                object_5.key(key_6.as_str()).string(value_7.as_str());
+                object_4.key(key_5.as_str()).string(value_6.as_str());
             }
         }
-        object_5.finish();
+        object_4.finish();
     }
-    if let Some(var_8) = &input.expected_status {
-        object.key("expectedStatus").string(var_8.as_str());
-    }
-    if let Some(var_9) = &input.target_status {
-        object.key("targetStatus").string(var_9.as_str());
+    if let Some(var_7) = &input.versions {
+        let mut array_8 = object.key("versions").start_array();
+        for item_9 in var_7 {
+            {
+                array_8.value().string(item_9.as_str());
+            }
+        }
+        array_8.finish();
     }
     Ok(())
 }

@@ -104,19 +104,19 @@ pub(crate) fn de_get_configuration_set(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "ArchivingOptions" => {
+                    builder = builder.set_archiving_options(super::super::protocol_serde::shape_archiving_options::de_archiving_options(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
                 "ConfigurationSetName" => {
                     builder = builder.set_configuration_set_name(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
-                }
-                "TrackingOptions" => {
-                    builder = builder.set_tracking_options(super::super::protocol_serde::shape_tracking_options::de_tracking_options(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
                 }
                 "DeliveryOptions" => {
                     builder = builder.set_delivery_options(super::super::protocol_serde::shape_delivery_options::de_delivery_options(
@@ -139,9 +139,6 @@ pub(crate) fn de_get_configuration_set(
                         depth + 1,
                     )?);
                 }
-                "Tags" => {
-                    builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
-                }
                 "SuppressionOptions" => {
                     builder = builder.set_suppression_options(super::super::protocol_serde::shape_suppression_options::de_suppression_options(
                         tokens,
@@ -149,15 +146,18 @@ pub(crate) fn de_get_configuration_set(
                         depth + 1,
                     )?);
                 }
-                "VdmOptions" => {
-                    builder = builder.set_vdm_options(super::super::protocol_serde::shape_vdm_options::de_vdm_options(tokens, _value, depth + 1)?);
+                "Tags" => {
+                    builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
                 }
-                "ArchivingOptions" => {
-                    builder = builder.set_archiving_options(super::super::protocol_serde::shape_archiving_options::de_archiving_options(
+                "TrackingOptions" => {
+                    builder = builder.set_tracking_options(super::super::protocol_serde::shape_tracking_options::de_tracking_options(
                         tokens,
                         _value,
                         depth + 1,
                     )?);
+                }
+                "VdmOptions" => {
+                    builder = builder.set_vdm_options(super::super::protocol_serde::shape_vdm_options::de_vdm_options(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

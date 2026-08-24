@@ -70681,13 +70681,13 @@ pub(crate) fn de_create_compute_environment(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "computeEnvironmentName" => {
-                    builder = builder.set_compute_environment_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "computeEnvironmentArn" => {
+                    builder = builder.set_compute_environment_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "computeEnvironmentArn" => {
-                    builder = builder.set_compute_environment_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "computeEnvironmentName" => {
+                    builder = builder.set_compute_environment_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -70802,13 +70802,13 @@ pub(crate) fn de_create_consumable_resource(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "consumableResourceName" => {
-                    builder = builder.set_consumable_resource_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "consumableResourceArn" => {
+                    builder = builder.set_consumable_resource_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "consumableResourceArn" => {
-                    builder = builder.set_consumable_resource_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "consumableResourceName" => {
+                    builder = builder.set_consumable_resource_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -70923,13 +70923,13 @@ pub(crate) fn de_create_job_queue(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "jobQueueName" => {
-                    builder = builder.set_job_queue_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "jobQueueArn" => {
+                    builder = builder.set_job_queue_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "jobQueueArn" => {
-                    builder = builder.set_job_queue_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "jobQueueName" => {
+                    builder = builder.set_job_queue_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -71043,13 +71043,13 @@ pub(crate) fn de_create_quota_share(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "quotaShareName" => {
-                    builder = builder.set_quota_share_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "quotaShareArn" => {
+                    builder = builder.set_quota_share_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "quotaShareArn" => {
-                    builder = builder.set_quota_share_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "quotaShareName" => {
+                    builder = builder.set_quota_share_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -71164,13 +71164,13 @@ pub(crate) fn de_create_scheduling_policy(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "name" => {
-                    builder = builder.set_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "arn" => {
+                    builder = builder.set_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "arn" => {
-                    builder = builder.set_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "name" => {
+                    builder = builder.set_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -71285,13 +71285,13 @@ pub(crate) fn de_create_service_environment(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "serviceEnvironmentName" => {
-                    builder = builder.set_service_environment_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "serviceEnvironmentArn" => {
+                    builder = builder.set_service_environment_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "serviceEnvironmentArn" => {
-                    builder = builder.set_service_environment_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "serviceEnvironmentName" => {
+                    builder = builder.set_service_environment_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -72063,9 +72063,9 @@ pub(crate) fn de_describe_consumable_resource(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "consumableResourceName" => {
-                    builder = builder.set_consumable_resource_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                "availableQuantity" => {
+                    builder = builder.set_available_quantity(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i64::try_from)
                             .transpose()?);
                 },
                 "consumableResourceArn" => {
@@ -72073,23 +72073,8 @@ pub(crate) fn de_describe_consumable_resource(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "totalQuantity" => {
-                    builder = builder.set_total_quantity(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i64::try_from)
-                            .transpose()?);
-                },
-                "inUseQuantity" => {
-                    builder = builder.set_in_use_quantity(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i64::try_from)
-                            .transpose()?);
-                },
-                "availableQuantity" => {
-                    builder = builder.set_available_quantity(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i64::try_from)
-                            .transpose()?);
-                },
-                "resourceType" => {
-                    builder = builder.set_resource_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "consumableResourceName" => {
+                    builder = builder.set_consumable_resource_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -72098,8 +72083,23 @@ pub(crate) fn de_describe_consumable_resource(
                             .map(i64::try_from)
                             .transpose()?);
                 },
+                "inUseQuantity" => {
+                    builder = builder.set_in_use_quantity(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i64::try_from)
+                            .transpose()?);
+                },
+                "resourceType" => {
+                    builder = builder.set_resource_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
                 "tags" => {
                     builder = builder.set_tags(super::super::protocol_serde::shape_tagris_tags_map::de_tagris_tags_map(tokens, _value, depth + 1)?);
+                },
+                "totalQuantity" => {
+                    builder = builder.set_total_quantity(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i64::try_from)
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -72560,29 +72560,29 @@ pub(crate) fn de_describe_quota_share(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "quotaShareName" => {
-                    builder = builder.set_quota_share_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "quotaShareArn" => {
-                    builder = builder.set_quota_share_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
+                "capacityLimits" => {
+                    builder = builder.set_capacity_limits(super::super::protocol_serde::shape_quota_share_capacity_limits::de_quota_share_capacity_limits(tokens, _value, depth + 1)?);
                 },
                 "jobQueueArn" => {
                     builder = builder.set_job_queue_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "capacityLimits" => {
-                    builder = builder.set_capacity_limits(super::super::protocol_serde::shape_quota_share_capacity_limits::de_quota_share_capacity_limits(tokens, _value, depth + 1)?);
+                "preemptionConfiguration" => {
+                    builder = builder.set_preemption_configuration(super::super::protocol_serde::shape_quota_share_preemption_configuration::de_quota_share_preemption_configuration(tokens, _value, depth + 1)?);
+                },
+                "quotaShareArn" => {
+                    builder = builder.set_quota_share_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "quotaShareName" => {
+                    builder = builder.set_quota_share_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "resourceSharingConfiguration" => {
                     builder = builder.set_resource_sharing_configuration(super::super::protocol_serde::shape_quota_share_resource_sharing_configuration::de_quota_share_resource_sharing_configuration(tokens, _value, depth + 1)?);
-                },
-                "preemptionConfiguration" => {
-                    builder = builder.set_preemption_configuration(super::super::protocol_serde::shape_quota_share_preemption_configuration::de_quota_share_preemption_configuration(tokens, _value, depth + 1)?);
                 },
                 "state" => {
                     builder = builder.set_state(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -72820,13 +72820,13 @@ pub(crate) fn de_describe_service_environments(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "serviceEnvironments" => {
-                    builder = builder.set_service_environments(super::super::protocol_serde::shape_service_environment_detail_list::de_service_environment_detail_list(tokens, _value, depth + 1)?);
-                },
                 "nextToken" => {
                     builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "serviceEnvironments" => {
+                    builder = builder.set_service_environments(super::super::protocol_serde::shape_service_environment_detail_list::de_service_environment_detail_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -72976,6 +72976,17 @@ pub(crate) fn de_describe_service_job(
                 "latestAttempt" => {
                     builder = builder.set_latest_attempt(super::super::protocol_serde::shape_latest_service_job_attempt::de_latest_service_job_attempt(tokens, _value, depth + 1)?);
                 },
+                "preemptionConfiguration" => {
+                    builder = builder.set_preemption_configuration(super::super::protocol_serde::shape_service_job_preemption_configuration::de_service_job_preemption_configuration(tokens, _value, depth + 1)?);
+                },
+                "preemptionSummary" => {
+                    builder = builder.set_preemption_summary(super::super::protocol_serde::shape_service_job_preemption_summary::de_service_job_preemption_summary(tokens, _value, depth + 1)?);
+                },
+                "quotaShareName" => {
+                    builder = builder.set_quota_share_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
                 "retryStrategy" => {
                     builder = builder.set_retry_strategy(super::super::protocol_serde::shape_service_job_retry_strategy::de_service_job_retry_strategy(tokens, _value, depth + 1)?);
                 },
@@ -72989,31 +73000,20 @@ pub(crate) fn de_describe_service_job(
                             .map(i32::try_from)
                             .transpose()?);
                 },
-                "serviceRequestPayload" => {
-                    builder = builder.set_service_request_payload(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
                 "serviceJobType" => {
                     builder = builder.set_service_job_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::ServiceJobType::from(u.as_ref())))
+                            .transpose()?);
+                },
+                "serviceRequestPayload" => {
+                    builder = builder.set_service_request_payload(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
                 "shareIdentifier" => {
                     builder = builder.set_share_identifier(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "quotaShareName" => {
-                    builder = builder.set_quota_share_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "preemptionConfiguration" => {
-                    builder = builder.set_preemption_configuration(super::super::protocol_serde::shape_service_job_preemption_configuration::de_service_job_preemption_configuration(tokens, _value, depth + 1)?);
-                },
-                "preemptionSummary" => {
-                    builder = builder.set_preemption_summary(super::super::protocol_serde::shape_service_job_preemption_summary::de_service_job_preemption_summary(tokens, _value, depth + 1)?);
                 },
                 "startedAt" => {
                     builder = builder.set_started_at(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
@@ -73627,13 +73627,13 @@ pub(crate) fn de_list_quota_shares(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "quotaShares" => {
-                    builder = builder.set_quota_shares(super::super::protocol_serde::shape_quota_share_list::de_quota_share_list(tokens, _value, depth + 1)?);
-                },
                 "nextToken" => {
                     builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "quotaShares" => {
+                    builder = builder.set_quota_shares(super::super::protocol_serde::shape_quota_share_list::de_quota_share_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -73745,13 +73745,13 @@ pub(crate) fn de_list_scheduling_policies(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "schedulingPolicies" => {
-                    builder = builder.set_scheduling_policies(super::super::protocol_serde::shape_scheduling_policy_listing_detail_list::de_scheduling_policy_listing_detail_list(tokens, _value, depth + 1)?);
-                },
                 "nextToken" => {
                     builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "schedulingPolicies" => {
+                    builder = builder.set_scheduling_policies(super::super::protocol_serde::shape_scheduling_policy_listing_detail_list::de_scheduling_policy_listing_detail_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -74085,13 +74085,13 @@ pub(crate) fn de_register_job_definition(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "jobDefinitionName" => {
-                    builder = builder.set_job_definition_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "jobDefinitionArn" => {
+                    builder = builder.set_job_definition_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "jobDefinitionArn" => {
-                    builder = builder.set_job_definition_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "jobDefinitionName" => {
+                    builder = builder.set_job_definition_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -74216,13 +74216,13 @@ pub(crate) fn de_submit_job(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "jobName" => {
-                    builder = builder.set_job_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "jobId" => {
+                    builder = builder.set_job_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "jobId" => {
-                    builder = builder.set_job_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "jobName" => {
+                    builder = builder.set_job_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -74342,13 +74342,13 @@ pub(crate) fn de_submit_service_job(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "jobName" => {
-                    builder = builder.set_job_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "jobId" => {
+                    builder = builder.set_job_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "jobId" => {
-                    builder = builder.set_job_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "jobName" => {
+                    builder = builder.set_job_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -74760,13 +74760,13 @@ pub(crate) fn de_update_compute_environment(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "computeEnvironmentName" => {
-                    builder = builder.set_compute_environment_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "computeEnvironmentArn" => {
+                    builder = builder.set_compute_environment_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "computeEnvironmentArn" => {
-                    builder = builder.set_compute_environment_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "computeEnvironmentName" => {
+                    builder = builder.set_compute_environment_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -74881,13 +74881,13 @@ pub(crate) fn de_update_consumable_resource(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "consumableResourceName" => {
-                    builder = builder.set_consumable_resource_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "consumableResourceArn" => {
+                    builder = builder.set_consumable_resource_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "consumableResourceArn" => {
-                    builder = builder.set_consumable_resource_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "consumableResourceName" => {
+                    builder = builder.set_consumable_resource_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -75006,13 +75006,13 @@ pub(crate) fn de_update_job_queue(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "jobQueueName" => {
-                    builder = builder.set_job_queue_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "jobQueueArn" => {
+                    builder = builder.set_job_queue_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "jobQueueArn" => {
-                    builder = builder.set_job_queue_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "jobQueueName" => {
+                    builder = builder.set_job_queue_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -75126,13 +75126,13 @@ pub(crate) fn de_update_quota_share(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "quotaShareName" => {
-                    builder = builder.set_quota_share_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "quotaShareArn" => {
+                    builder = builder.set_quota_share_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "quotaShareArn" => {
-                    builder = builder.set_quota_share_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "quotaShareName" => {
+                    builder = builder.set_quota_share_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -75324,13 +75324,13 @@ pub(crate) fn de_update_service_environment(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "serviceEnvironmentName" => {
-                    builder = builder.set_service_environment_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "serviceEnvironmentArn" => {
+                    builder = builder.set_service_environment_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "serviceEnvironmentArn" => {
-                    builder = builder.set_service_environment_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "serviceEnvironmentName" => {
+                    builder = builder.set_service_environment_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -75449,13 +75449,13 @@ pub(crate) fn de_update_service_job(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "jobName" => {
-                    builder = builder.set_job_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "jobId" => {
+                    builder = builder.set_job_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "jobId" => {
-                    builder = builder.set_job_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "jobName" => {
+                    builder = builder.set_job_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -75548,51 +75548,51 @@ pub fn ser_create_compute_environment_input_input(
 if let Some(var_1) = &input.compute_environment_name {
     object.key("computeEnvironmentName").string(var_1.as_str());
 }
-if let Some(var_2) = &input.r#type {
-    object.key("type").string(var_2.as_str());
-}
-if let Some(var_3) = &input.state {
-    object.key("state").string(var_3.as_str());
-}
-if let Some(var_4) = &input.unmanagedv_cpus {
-    object.key("unmanagedvCpus").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
-    );
-}
-if let Some(var_5) = &input.compute_resources {
+if let Some(var_2) = &input.compute_resources {
     #[allow(unused_mut)]
-    let mut object_6 = object.key("computeResources").start_object();
-    super::super::protocol_serde::shape_compute_resource::ser_compute_resource(&mut object_6, var_5)?;
+    let mut object_3 = object.key("computeResources").start_object();
+    super::super::protocol_serde::shape_compute_resource::ser_compute_resource(&mut object_3, var_2)?;
+    object_3.finish();
+}
+if let Some(var_4) = &input.context {
+    object.key("context").string(var_4.as_str());
+}
+if let Some(var_5) = &input.ecs_settings {
+    #[allow(unused_mut)]
+    let mut object_6 = object.key("ecsSettings").start_object();
+    super::super::protocol_serde::shape_ecs_settings::ser_ecs_settings(&mut object_6, var_5)?;
     object_6.finish();
 }
-if let Some(var_7) = &input.service_role {
-    object.key("serviceRole").string(var_7.as_str());
-}
-if let Some(var_8) = &input.tags {
+if let Some(var_7) = &input.eks_configuration {
     #[allow(unused_mut)]
-    let mut object_9 = object.key("tags").start_object();
-    for (key_10, value_11) in var_8 {
+    let mut object_8 = object.key("eksConfiguration").start_object();
+    super::super::protocol_serde::shape_eks_configuration::ser_eks_configuration(&mut object_8, var_7)?;
+    object_8.finish();
+}
+if let Some(var_9) = &input.service_role {
+    object.key("serviceRole").string(var_9.as_str());
+}
+if let Some(var_10) = &input.state {
+    object.key("state").string(var_10.as_str());
+}
+if let Some(var_11) = &input.tags {
+    #[allow(unused_mut)]
+    let mut object_12 = object.key("tags").start_object();
+    for (key_13, value_14) in var_11 {
         {
-            object_9.key(key_10.as_str()).string(value_11.as_str());
+            object_12.key(key_13.as_str()).string(value_14.as_str());
         }
     }
-    object_9.finish();
+    object_12.finish();
 }
-if let Some(var_12) = &input.eks_configuration {
-    #[allow(unused_mut)]
-    let mut object_13 = object.key("eksConfiguration").start_object();
-    super::super::protocol_serde::shape_eks_configuration::ser_eks_configuration(&mut object_13, var_12)?;
-    object_13.finish();
+if let Some(var_15) = &input.r#type {
+    object.key("type").string(var_15.as_str());
 }
-if let Some(var_14) = &input.context {
-    object.key("context").string(var_14.as_str());
-}
-if let Some(var_15) = &input.ecs_settings {
-    #[allow(unused_mut)]
-    let mut object_16 = object.key("ecsSettings").start_object();
-    super::super::protocol_serde::shape_ecs_settings::ser_ecs_settings(&mut object_16, var_15)?;
-    object_16.finish();
+if let Some(var_16) = &input.unmanagedv_cpus {
+    object.key("unmanagedvCpus").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_16).into()),
+    );
 }
     Ok(())
 }
@@ -75607,24 +75607,24 @@ pub fn ser_create_consumable_resource_input_input(
 if let Some(var_1) = &input.consumable_resource_name {
     object.key("consumableResourceName").string(var_1.as_str());
 }
-if let Some(var_2) = &input.total_quantity {
-    object.key("totalQuantity").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
-    );
+if let Some(var_2) = &input.resource_type {
+    object.key("resourceType").string(var_2.as_str());
 }
-if let Some(var_3) = &input.resource_type {
-    object.key("resourceType").string(var_3.as_str());
-}
-if let Some(var_4) = &input.tags {
+if let Some(var_3) = &input.tags {
     #[allow(unused_mut)]
-    let mut object_5 = object.key("tags").start_object();
-    for (key_6, value_7) in var_4 {
+    let mut object_4 = object.key("tags").start_object();
+    for (key_5, value_6) in var_3 {
         {
-            object_5.key(key_6.as_str()).string(value_7.as_str());
+            object_4.key(key_5.as_str()).string(value_6.as_str());
         }
     }
-    object_5.finish();
+    object_4.finish();
+}
+if let Some(var_7) = &input.total_quantity {
+    object.key("totalQuantity").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_7).into()),
+    );
 }
     Ok(())
 }
@@ -75636,69 +75636,69 @@ pub fn ser_create_job_queue_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_job_queue::CreateJobQueueInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.job_queue_name {
-    object.key("jobQueueName").string(var_1.as_str());
+if let Some(var_1) = &input.compute_environment_order {
+    let mut array_2 = object.key("computeEnvironmentOrder").start_array();
+    for item_3 in var_1 {
+        {
+            #[allow(unused_mut)]
+            let mut object_4 = array_2.value().start_object();
+            super::super::protocol_serde::shape_compute_environment_order::ser_compute_environment_order(&mut object_4, item_3)?;
+            object_4.finish();
+        }
+    }
+    array_2.finish();
 }
-if let Some(var_2) = &input.state {
-    object.key("state").string(var_2.as_str());
+if let Some(var_5) = &input.job_queue_name {
+    object.key("jobQueueName").string(var_5.as_str());
 }
-if let Some(var_3) = &input.scheduling_policy_arn {
-    object.key("schedulingPolicyArn").string(var_3.as_str());
+if let Some(var_6) = &input.job_queue_type {
+    object.key("jobQueueType").string(var_6.as_str());
 }
-if let Some(var_4) = &input.priority {
+if let Some(var_7) = &input.job_state_time_limit_actions {
+    let mut array_8 = object.key("jobStateTimeLimitActions").start_array();
+    for item_9 in var_7 {
+        {
+            #[allow(unused_mut)]
+            let mut object_10 = array_8.value().start_object();
+            super::super::protocol_serde::shape_job_state_time_limit_action::ser_job_state_time_limit_action(&mut object_10, item_9)?;
+            object_10.finish();
+        }
+    }
+    array_8.finish();
+}
+if let Some(var_11) = &input.priority {
     object.key("priority").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
+        ::aws_smithy_types::Number::NegInt((*var_11).into()),
     );
 }
-if let Some(var_5) = &input.compute_environment_order {
-    let mut array_6 = object.key("computeEnvironmentOrder").start_array();
-    for item_7 in var_5 {
+if let Some(var_12) = &input.scheduling_policy_arn {
+    object.key("schedulingPolicyArn").string(var_12.as_str());
+}
+if let Some(var_13) = &input.service_environment_order {
+    let mut array_14 = object.key("serviceEnvironmentOrder").start_array();
+    for item_15 in var_13 {
         {
             #[allow(unused_mut)]
-            let mut object_8 = array_6.value().start_object();
-            super::super::protocol_serde::shape_compute_environment_order::ser_compute_environment_order(&mut object_8, item_7)?;
-            object_8.finish();
+            let mut object_16 = array_14.value().start_object();
+            super::super::protocol_serde::shape_service_environment_order::ser_service_environment_order(&mut object_16, item_15)?;
+            object_16.finish();
         }
     }
-    array_6.finish();
+    array_14.finish();
 }
-if let Some(var_9) = &input.service_environment_order {
-    let mut array_10 = object.key("serviceEnvironmentOrder").start_array();
-    for item_11 in var_9 {
-        {
-            #[allow(unused_mut)]
-            let mut object_12 = array_10.value().start_object();
-            super::super::protocol_serde::shape_service_environment_order::ser_service_environment_order(&mut object_12, item_11)?;
-            object_12.finish();
-        }
-    }
-    array_10.finish();
+if let Some(var_17) = &input.state {
+    object.key("state").string(var_17.as_str());
 }
-if let Some(var_13) = &input.job_queue_type {
-    object.key("jobQueueType").string(var_13.as_str());
-}
-if let Some(var_14) = &input.tags {
+if let Some(var_18) = &input.tags {
     #[allow(unused_mut)]
-    let mut object_15 = object.key("tags").start_object();
-    for (key_16, value_17) in var_14 {
+    let mut object_19 = object.key("tags").start_object();
+    for (key_20, value_21) in var_18 {
         {
-            object_15.key(key_16.as_str()).string(value_17.as_str());
+            object_19.key(key_20.as_str()).string(value_21.as_str());
         }
     }
-    object_15.finish();
-}
-if let Some(var_18) = &input.job_state_time_limit_actions {
-    let mut array_19 = object.key("jobStateTimeLimitActions").start_array();
-    for item_20 in var_18 {
-        {
-            #[allow(unused_mut)]
-            let mut object_21 = array_19.value().start_object();
-            super::super::protocol_serde::shape_job_state_time_limit_action::ser_job_state_time_limit_action(&mut object_21, item_20)?;
-            object_21.finish();
-        }
-    }
-    array_19.finish();
+    object_19.finish();
 }
     Ok(())
 }
@@ -75710,34 +75710,34 @@ pub fn ser_create_quota_share_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_quota_share::CreateQuotaShareInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.quota_share_name {
-    object.key("quotaShareName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.job_queue {
-    object.key("jobQueue").string(var_2.as_str());
-}
-if let Some(var_3) = &input.capacity_limits {
-    let mut array_4 = object.key("capacityLimits").start_array();
-    for item_5 in var_3 {
+if let Some(var_1) = &input.capacity_limits {
+    let mut array_2 = object.key("capacityLimits").start_array();
+    for item_3 in var_1 {
         {
             #[allow(unused_mut)]
-            let mut object_6 = array_4.value().start_object();
-            super::super::protocol_serde::shape_quota_share_capacity_limit::ser_quota_share_capacity_limit(&mut object_6, item_5)?;
-            object_6.finish();
+            let mut object_4 = array_2.value().start_object();
+            super::super::protocol_serde::shape_quota_share_capacity_limit::ser_quota_share_capacity_limit(&mut object_4, item_3)?;
+            object_4.finish();
         }
     }
-    array_4.finish();
+    array_2.finish();
 }
-if let Some(var_7) = &input.resource_sharing_configuration {
-    #[allow(unused_mut)]
-    let mut object_8 = object.key("resourceSharingConfiguration").start_object();
-    super::super::protocol_serde::shape_quota_share_resource_sharing_configuration::ser_quota_share_resource_sharing_configuration(&mut object_8, var_7)?;
-    object_8.finish();
+if let Some(var_5) = &input.job_queue {
+    object.key("jobQueue").string(var_5.as_str());
 }
-if let Some(var_9) = &input.preemption_configuration {
+if let Some(var_6) = &input.preemption_configuration {
     #[allow(unused_mut)]
-    let mut object_10 = object.key("preemptionConfiguration").start_object();
-    super::super::protocol_serde::shape_quota_share_preemption_configuration::ser_quota_share_preemption_configuration(&mut object_10, var_9)?;
+    let mut object_7 = object.key("preemptionConfiguration").start_object();
+    super::super::protocol_serde::shape_quota_share_preemption_configuration::ser_quota_share_preemption_configuration(&mut object_7, var_6)?;
+    object_7.finish();
+}
+if let Some(var_8) = &input.quota_share_name {
+    object.key("quotaShareName").string(var_8.as_str());
+}
+if let Some(var_9) = &input.resource_sharing_configuration {
+    #[allow(unused_mut)]
+    let mut object_10 = object.key("resourceSharingConfiguration").start_object();
+    super::super::protocol_serde::shape_quota_share_resource_sharing_configuration::ser_quota_share_resource_sharing_configuration(&mut object_10, var_9)?;
     object_10.finish();
 }
 if let Some(var_11) = &input.state {
@@ -75763,19 +75763,19 @@ pub fn ser_create_scheduling_policy_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_scheduling_policy::CreateSchedulingPolicyInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.name {
-    object.key("name").string(var_1.as_str());
-}
-if let Some(var_2) = &input.quota_share_policy {
+if let Some(var_1) = &input.fairshare_policy {
     #[allow(unused_mut)]
-    let mut object_3 = object.key("quotaSharePolicy").start_object();
-    super::super::protocol_serde::shape_quota_share_policy::ser_quota_share_policy(&mut object_3, var_2)?;
-    object_3.finish();
+    let mut object_2 = object.key("fairsharePolicy").start_object();
+    super::super::protocol_serde::shape_fairshare_policy::ser_fairshare_policy(&mut object_2, var_1)?;
+    object_2.finish();
 }
-if let Some(var_4) = &input.fairshare_policy {
+if let Some(var_3) = &input.name {
+    object.key("name").string(var_3.as_str());
+}
+if let Some(var_4) = &input.quota_share_policy {
     #[allow(unused_mut)]
-    let mut object_5 = object.key("fairsharePolicy").start_object();
-    super::super::protocol_serde::shape_fairshare_policy::ser_fairshare_policy(&mut object_5, var_4)?;
+    let mut object_5 = object.key("quotaSharePolicy").start_object();
+    super::super::protocol_serde::shape_quota_share_policy::ser_quota_share_policy(&mut object_5, var_4)?;
     object_5.finish();
 }
 if let Some(var_6) = &input.tags {
@@ -75798,26 +75798,26 @@ pub fn ser_create_service_environment_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_service_environment::CreateServiceEnvironmentInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.service_environment_name {
-    object.key("serviceEnvironmentName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.service_environment_type {
-    object.key("serviceEnvironmentType").string(var_2.as_str());
-}
-if let Some(var_3) = &input.state {
-    object.key("state").string(var_3.as_str());
-}
-if let Some(var_4) = &input.capacity_limits {
-    let mut array_5 = object.key("capacityLimits").start_array();
-    for item_6 in var_4 {
+if let Some(var_1) = &input.capacity_limits {
+    let mut array_2 = object.key("capacityLimits").start_array();
+    for item_3 in var_1 {
         {
             #[allow(unused_mut)]
-            let mut object_7 = array_5.value().start_object();
-            super::super::protocol_serde::shape_capacity_limit::ser_capacity_limit(&mut object_7, item_6)?;
-            object_7.finish();
+            let mut object_4 = array_2.value().start_object();
+            super::super::protocol_serde::shape_capacity_limit::ser_capacity_limit(&mut object_4, item_3)?;
+            object_4.finish();
         }
     }
-    array_5.finish();
+    array_2.finish();
+}
+if let Some(var_5) = &input.service_environment_name {
+    object.key("serviceEnvironmentName").string(var_5.as_str());
+}
+if let Some(var_6) = &input.service_environment_type {
+    object.key("serviceEnvironmentType").string(var_6.as_str());
+}
+if let Some(var_7) = &input.state {
+    object.key("state").string(var_7.as_str());
 }
 if let Some(var_8) = &input.tags {
     #[allow(unused_mut)]
@@ -75971,29 +75971,29 @@ pub fn ser_describe_job_definitions_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::describe_job_definitions::DescribeJobDefinitionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.job_definitions {
-    let mut array_2 = object.key("jobDefinitions").start_array();
-    for item_3 in var_1 {
+if let Some(var_1) = &input.job_definition_name {
+    object.key("jobDefinitionName").string(var_1.as_str());
+}
+if let Some(var_2) = &input.job_definitions {
+    let mut array_3 = object.key("jobDefinitions").start_array();
+    for item_4 in var_2 {
         {
-            array_2.value().string(item_3.as_str());
+            array_3.value().string(item_4.as_str());
         }
     }
-    array_2.finish();
+    array_3.finish();
 }
-if let Some(var_4) = &input.max_results {
+if let Some(var_5) = &input.max_results {
     object.key("maxResults").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
+        ::aws_smithy_types::Number::NegInt((*var_5).into()),
     );
 }
-if let Some(var_5) = &input.job_definition_name {
-    object.key("jobDefinitionName").string(var_5.as_str());
+if let Some(var_6) = &input.next_token {
+    object.key("nextToken").string(var_6.as_str());
 }
-if let Some(var_6) = &input.status {
-    object.key("status").string(var_6.as_str());
-}
-if let Some(var_7) = &input.next_token {
-    object.key("nextToken").string(var_7.as_str());
+if let Some(var_7) = &input.status {
+    object.key("status").string(var_7.as_str());
 }
     Ok(())
 }
@@ -76084,23 +76084,23 @@ pub fn ser_describe_service_environments_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::describe_service_environments::DescribeServiceEnvironmentsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.service_environments {
-    let mut array_2 = object.key("serviceEnvironments").start_array();
-    for item_3 in var_1 {
-        {
-            array_2.value().string(item_3.as_str());
-        }
-    }
-    array_2.finish();
-}
-if let Some(var_4) = &input.max_results {
+if let Some(var_1) = &input.max_results {
     object.key("maxResults").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
+        ::aws_smithy_types::Number::NegInt((*var_1).into()),
     );
 }
-if let Some(var_5) = &input.next_token {
-    object.key("nextToken").string(var_5.as_str());
+if let Some(var_2) = &input.next_token {
+    object.key("nextToken").string(var_2.as_str());
+}
+if let Some(var_3) = &input.service_environments {
+    let mut array_4 = object.key("serviceEnvironments").start_array();
+    for item_5 in var_3 {
+        {
+            array_4.value().string(item_5.as_str());
+        }
+    }
+    array_4.finish();
 }
     Ok(())
 }
@@ -76203,38 +76203,38 @@ pub fn ser_list_jobs_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::list_jobs::ListJobsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.job_queue {
-    object.key("jobQueue").string(var_1.as_str());
+if let Some(var_1) = &input.array_job_id {
+    object.key("arrayJobId").string(var_1.as_str());
 }
-if let Some(var_2) = &input.array_job_id {
-    object.key("arrayJobId").string(var_2.as_str());
-}
-if let Some(var_3) = &input.multi_node_job_id {
-    object.key("multiNodeJobId").string(var_3.as_str());
-}
-if let Some(var_4) = &input.job_status {
-    object.key("jobStatus").string(var_4.as_str());
-}
-if let Some(var_5) = &input.max_results {
-    object.key("maxResults").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_5).into()),
-    );
-}
-if let Some(var_6) = &input.next_token {
-    object.key("nextToken").string(var_6.as_str());
-}
-if let Some(var_7) = &input.filters {
-    let mut array_8 = object.key("filters").start_array();
-    for item_9 in var_7 {
+if let Some(var_2) = &input.filters {
+    let mut array_3 = object.key("filters").start_array();
+    for item_4 in var_2 {
         {
             #[allow(unused_mut)]
-            let mut object_10 = array_8.value().start_object();
-            super::super::protocol_serde::shape_key_values_pair::ser_key_values_pair(&mut object_10, item_9)?;
-            object_10.finish();
+            let mut object_5 = array_3.value().start_object();
+            super::super::protocol_serde::shape_key_values_pair::ser_key_values_pair(&mut object_5, item_4)?;
+            object_5.finish();
         }
     }
-    array_8.finish();
+    array_3.finish();
+}
+if let Some(var_6) = &input.job_queue {
+    object.key("jobQueue").string(var_6.as_str());
+}
+if let Some(var_7) = &input.job_status {
+    object.key("jobStatus").string(var_7.as_str());
+}
+if let Some(var_8) = &input.max_results {
+    object.key("maxResults").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_8).into()),
+    );
+}
+if let Some(var_9) = &input.multi_node_job_id {
+    object.key("multiNodeJobId").string(var_9.as_str());
+}
+if let Some(var_10) = &input.next_token {
+    object.key("nextToken").string(var_10.as_str());
 }
     Ok(())
 }
@@ -76287,32 +76287,32 @@ pub fn ser_list_service_jobs_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::list_service_jobs::ListServiceJobsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.job_queue {
-    object.key("jobQueue").string(var_1.as_str());
-}
-if let Some(var_2) = &input.job_status {
-    object.key("jobStatus").string(var_2.as_str());
-}
-if let Some(var_3) = &input.max_results {
-    object.key("maxResults").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_3).into()),
-    );
-}
-if let Some(var_4) = &input.next_token {
-    object.key("nextToken").string(var_4.as_str());
-}
-if let Some(var_5) = &input.filters {
-    let mut array_6 = object.key("filters").start_array();
-    for item_7 in var_5 {
+if let Some(var_1) = &input.filters {
+    let mut array_2 = object.key("filters").start_array();
+    for item_3 in var_1 {
         {
             #[allow(unused_mut)]
-            let mut object_8 = array_6.value().start_object();
-            super::super::protocol_serde::shape_key_values_pair::ser_key_values_pair(&mut object_8, item_7)?;
-            object_8.finish();
+            let mut object_4 = array_2.value().start_object();
+            super::super::protocol_serde::shape_key_values_pair::ser_key_values_pair(&mut object_4, item_3)?;
+            object_4.finish();
         }
     }
-    array_6.finish();
+    array_2.finish();
+}
+if let Some(var_5) = &input.job_queue {
+    object.key("jobQueue").string(var_5.as_str());
+}
+if let Some(var_6) = &input.job_status {
+    object.key("jobStatus").string(var_6.as_str());
+}
+if let Some(var_7) = &input.max_results {
+    object.key("maxResults").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_7).into()),
+    );
+}
+if let Some(var_8) = &input.next_token {
+    object.key("nextToken").string(var_8.as_str());
 }
     Ok(())
 }
@@ -76324,33 +76324,32 @@ pub fn ser_register_job_definition_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::register_job_definition::RegisterJobDefinitionInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.job_definition_name {
-    object.key("jobDefinitionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.r#type {
-    object.key("type").string(var_2.as_str());
-}
-if let Some(var_3) = &input.parameters {
+if let Some(var_1) = &input.consumable_resource_properties {
     #[allow(unused_mut)]
-    let mut object_4 = object.key("parameters").start_object();
-    for (key_5, value_6) in var_3 {
-        {
-            object_4.key(key_5.as_str()).string(value_6.as_str());
-        }
-    }
+    let mut object_2 = object.key("consumableResourceProperties").start_object();
+    super::super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_2, var_1)?;
+    object_2.finish();
+}
+if let Some(var_3) = &input.container_properties {
+    #[allow(unused_mut)]
+    let mut object_4 = object.key("containerProperties").start_object();
+    super::super::protocol_serde::shape_container_properties::ser_container_properties(&mut object_4, var_3)?;
     object_4.finish();
 }
-if let Some(var_7) = &input.scheduling_priority {
-    object.key("schedulingPriority").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_7).into()),
-    );
-}
-if let Some(var_8) = &input.container_properties {
+if let Some(var_5) = &input.ecs_properties {
     #[allow(unused_mut)]
-    let mut object_9 = object.key("containerProperties").start_object();
-    super::super::protocol_serde::shape_container_properties::ser_container_properties(&mut object_9, var_8)?;
-    object_9.finish();
+    let mut object_6 = object.key("ecsProperties").start_object();
+    super::super::protocol_serde::shape_ecs_properties::ser_ecs_properties(&mut object_6, var_5)?;
+    object_6.finish();
+}
+if let Some(var_7) = &input.eks_properties {
+    #[allow(unused_mut)]
+    let mut object_8 = object.key("eksProperties").start_object();
+    super::super::protocol_serde::shape_eks_properties::ser_eks_properties(&mut object_8, var_7)?;
+    object_8.finish();
+}
+if let Some(var_9) = &input.job_definition_name {
+    object.key("jobDefinitionName").string(var_9.as_str());
 }
 if let Some(var_10) = &input.node_properties {
     #[allow(unused_mut)]
@@ -76358,57 +76357,58 @@ if let Some(var_10) = &input.node_properties {
     super::super::protocol_serde::shape_node_properties::ser_node_properties(&mut object_11, var_10)?;
     object_11.finish();
 }
-if let Some(var_12) = &input.retry_strategy {
+if let Some(var_12) = &input.parameters {
     #[allow(unused_mut)]
-    let mut object_13 = object.key("retryStrategy").start_object();
-    super::super::protocol_serde::shape_retry_strategy::ser_retry_strategy(&mut object_13, var_12)?;
+    let mut object_13 = object.key("parameters").start_object();
+    for (key_14, value_15) in var_12 {
+        {
+            object_13.key(key_14.as_str()).string(value_15.as_str());
+        }
+    }
     object_13.finish();
 }
-if let Some(var_14) = &input.propagate_tags {
-    object.key("propagateTags").boolean(*var_14);
-}
-if let Some(var_15) = &input.timeout {
-    #[allow(unused_mut)]
-    let mut object_16 = object.key("timeout").start_object();
-    super::super::protocol_serde::shape_job_timeout::ser_job_timeout(&mut object_16, var_15)?;
-    object_16.finish();
-}
-if let Some(var_17) = &input.tags {
-    #[allow(unused_mut)]
-    let mut object_18 = object.key("tags").start_object();
-    for (key_19, value_20) in var_17 {
+if let Some(var_16) = &input.platform_capabilities {
+    let mut array_17 = object.key("platformCapabilities").start_array();
+    for item_18 in var_16 {
         {
-            object_18.key(key_19.as_str()).string(value_20.as_str());
+            array_17.value().string(item_18.as_str());
         }
     }
-    object_18.finish();
+    array_17.finish();
 }
-if let Some(var_21) = &input.platform_capabilities {
-    let mut array_22 = object.key("platformCapabilities").start_array();
-    for item_23 in var_21 {
+if let Some(var_19) = &input.propagate_tags {
+    object.key("propagateTags").boolean(*var_19);
+}
+if let Some(var_20) = &input.retry_strategy {
+    #[allow(unused_mut)]
+    let mut object_21 = object.key("retryStrategy").start_object();
+    super::super::protocol_serde::shape_retry_strategy::ser_retry_strategy(&mut object_21, var_20)?;
+    object_21.finish();
+}
+if let Some(var_22) = &input.scheduling_priority {
+    object.key("schedulingPriority").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_22).into()),
+    );
+}
+if let Some(var_23) = &input.tags {
+    #[allow(unused_mut)]
+    let mut object_24 = object.key("tags").start_object();
+    for (key_25, value_26) in var_23 {
         {
-            array_22.value().string(item_23.as_str());
+            object_24.key(key_25.as_str()).string(value_26.as_str());
         }
     }
-    array_22.finish();
+    object_24.finish();
 }
-if let Some(var_24) = &input.eks_properties {
+if let Some(var_27) = &input.timeout {
     #[allow(unused_mut)]
-    let mut object_25 = object.key("eksProperties").start_object();
-    super::super::protocol_serde::shape_eks_properties::ser_eks_properties(&mut object_25, var_24)?;
-    object_25.finish();
+    let mut object_28 = object.key("timeout").start_object();
+    super::super::protocol_serde::shape_job_timeout::ser_job_timeout(&mut object_28, var_27)?;
+    object_28.finish();
 }
-if let Some(var_26) = &input.ecs_properties {
-    #[allow(unused_mut)]
-    let mut object_27 = object.key("ecsProperties").start_object();
-    super::super::protocol_serde::shape_ecs_properties::ser_ecs_properties(&mut object_27, var_26)?;
-    object_27.finish();
-}
-if let Some(var_28) = &input.consumable_resource_properties {
-    #[allow(unused_mut)]
-    let mut object_29 = object.key("consumableResourceProperties").start_object();
-    super::super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_29, var_28)?;
-    object_29.finish();
+if let Some(var_29) = &input.r#type {
+    object.key("type").string(var_29.as_str());
 }
     Ok(())
 }
@@ -76458,25 +76458,22 @@ pub fn ser_submit_job_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::submit_job::SubmitJobInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.job_name {
-    object.key("jobName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.job_queue {
-    object.key("jobQueue").string(var_2.as_str());
-}
-if let Some(var_3) = &input.share_identifier {
-    object.key("shareIdentifier").string(var_3.as_str());
-}
-if let Some(var_4) = &input.scheduling_priority_override {
-    object.key("schedulingPriorityOverride").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
-    );
-}
-if let Some(var_5) = &input.array_properties {
+if let Some(var_1) = &input.array_properties {
     #[allow(unused_mut)]
-    let mut object_6 = object.key("arrayProperties").start_object();
-    super::super::protocol_serde::shape_array_properties::ser_array_properties(&mut object_6, var_5)?;
+    let mut object_2 = object.key("arrayProperties").start_object();
+    super::super::protocol_serde::shape_array_properties::ser_array_properties(&mut object_2, var_1)?;
+    object_2.finish();
+}
+if let Some(var_3) = &input.consumable_resource_properties_override {
+    #[allow(unused_mut)]
+    let mut object_4 = object.key("consumableResourcePropertiesOverride").start_object();
+    super::super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_4, var_3)?;
+    object_4.finish();
+}
+if let Some(var_5) = &input.container_overrides {
+    #[allow(unused_mut)]
+    let mut object_6 = object.key("containerOverrides").start_object();
+    super::super::protocol_serde::shape_container_overrides::ser_container_overrides(&mut object_6, var_5)?;
     object_6.finish();
 }
 if let Some(var_7) = &input.depends_on {
@@ -76491,24 +76488,26 @@ if let Some(var_7) = &input.depends_on {
     }
     array_8.finish();
 }
-if let Some(var_11) = &input.job_definition {
-    object.key("jobDefinition").string(var_11.as_str());
-}
-if let Some(var_12) = &input.parameters {
+if let Some(var_11) = &input.ecs_properties_override {
     #[allow(unused_mut)]
-    let mut object_13 = object.key("parameters").start_object();
-    for (key_14, value_15) in var_12 {
-        {
-            object_13.key(key_14.as_str()).string(value_15.as_str());
-        }
-    }
-    object_13.finish();
+    let mut object_12 = object.key("ecsPropertiesOverride").start_object();
+    super::super::protocol_serde::shape_ecs_properties_override::ser_ecs_properties_override(&mut object_12, var_11)?;
+    object_12.finish();
 }
-if let Some(var_16) = &input.container_overrides {
+if let Some(var_13) = &input.eks_properties_override {
     #[allow(unused_mut)]
-    let mut object_17 = object.key("containerOverrides").start_object();
-    super::super::protocol_serde::shape_container_overrides::ser_container_overrides(&mut object_17, var_16)?;
-    object_17.finish();
+    let mut object_14 = object.key("eksPropertiesOverride").start_object();
+    super::super::protocol_serde::shape_eks_properties_override::ser_eks_properties_override(&mut object_14, var_13)?;
+    object_14.finish();
+}
+if let Some(var_15) = &input.job_definition {
+    object.key("jobDefinition").string(var_15.as_str());
+}
+if let Some(var_16) = &input.job_name {
+    object.key("jobName").string(var_16.as_str());
+}
+if let Some(var_17) = &input.job_queue {
+    object.key("jobQueue").string(var_17.as_str());
 }
 if let Some(var_18) = &input.node_overrides {
     #[allow(unused_mut)]
@@ -76516,47 +76515,48 @@ if let Some(var_18) = &input.node_overrides {
     super::super::protocol_serde::shape_node_overrides::ser_node_overrides(&mut object_19, var_18)?;
     object_19.finish();
 }
-if let Some(var_20) = &input.retry_strategy {
+if let Some(var_20) = &input.parameters {
     #[allow(unused_mut)]
-    let mut object_21 = object.key("retryStrategy").start_object();
-    super::super::protocol_serde::shape_retry_strategy::ser_retry_strategy(&mut object_21, var_20)?;
-    object_21.finish();
-}
-if let Some(var_22) = &input.propagate_tags {
-    object.key("propagateTags").boolean(*var_22);
-}
-if let Some(var_23) = &input.timeout {
-    #[allow(unused_mut)]
-    let mut object_24 = object.key("timeout").start_object();
-    super::super::protocol_serde::shape_job_timeout::ser_job_timeout(&mut object_24, var_23)?;
-    object_24.finish();
-}
-if let Some(var_25) = &input.tags {
-    #[allow(unused_mut)]
-    let mut object_26 = object.key("tags").start_object();
-    for (key_27, value_28) in var_25 {
+    let mut object_21 = object.key("parameters").start_object();
+    for (key_22, value_23) in var_20 {
         {
-            object_26.key(key_27.as_str()).string(value_28.as_str());
+            object_21.key(key_22.as_str()).string(value_23.as_str());
         }
     }
+    object_21.finish();
+}
+if let Some(var_24) = &input.propagate_tags {
+    object.key("propagateTags").boolean(*var_24);
+}
+if let Some(var_25) = &input.retry_strategy {
+    #[allow(unused_mut)]
+    let mut object_26 = object.key("retryStrategy").start_object();
+    super::super::protocol_serde::shape_retry_strategy::ser_retry_strategy(&mut object_26, var_25)?;
     object_26.finish();
 }
-if let Some(var_29) = &input.eks_properties_override {
+if let Some(var_27) = &input.scheduling_priority_override {
+    object.key("schedulingPriorityOverride").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_27).into()),
+    );
+}
+if let Some(var_28) = &input.share_identifier {
+    object.key("shareIdentifier").string(var_28.as_str());
+}
+if let Some(var_29) = &input.tags {
     #[allow(unused_mut)]
-    let mut object_30 = object.key("eksPropertiesOverride").start_object();
-    super::super::protocol_serde::shape_eks_properties_override::ser_eks_properties_override(&mut object_30, var_29)?;
+    let mut object_30 = object.key("tags").start_object();
+    for (key_31, value_32) in var_29 {
+        {
+            object_30.key(key_31.as_str()).string(value_32.as_str());
+        }
+    }
     object_30.finish();
 }
-if let Some(var_31) = &input.ecs_properties_override {
+if let Some(var_33) = &input.timeout {
     #[allow(unused_mut)]
-    let mut object_32 = object.key("ecsPropertiesOverride").start_object();
-    super::super::protocol_serde::shape_ecs_properties_override::ser_ecs_properties_override(&mut object_32, var_31)?;
-    object_32.finish();
-}
-if let Some(var_33) = &input.consumable_resource_properties_override {
-    #[allow(unused_mut)]
-    let mut object_34 = object.key("consumableResourcePropertiesOverride").start_object();
-    super::super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_34, var_33)?;
+    let mut object_34 = object.key("timeout").start_object();
+    super::super::protocol_serde::shape_job_timeout::ser_job_timeout(&mut object_34, var_33)?;
     object_34.finish();
 }
     Ok(())
@@ -76569,60 +76569,60 @@ pub fn ser_submit_service_job_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::submit_service_job::SubmitServiceJobInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.job_name {
-    object.key("jobName").string(var_1.as_str());
+if let Some(var_1) = &input.client_token {
+    object.key("clientToken").string(var_1.as_str());
 }
-if let Some(var_2) = &input.job_queue {
-    object.key("jobQueue").string(var_2.as_str());
+if let Some(var_2) = &input.job_name {
+    object.key("jobName").string(var_2.as_str());
 }
-if let Some(var_3) = &input.retry_strategy {
+if let Some(var_3) = &input.job_queue {
+    object.key("jobQueue").string(var_3.as_str());
+}
+if let Some(var_4) = &input.preemption_configuration {
     #[allow(unused_mut)]
-    let mut object_4 = object.key("retryStrategy").start_object();
-    super::super::protocol_serde::shape_service_job_retry_strategy::ser_service_job_retry_strategy(&mut object_4, var_3)?;
-    object_4.finish();
+    let mut object_5 = object.key("preemptionConfiguration").start_object();
+    super::super::protocol_serde::shape_service_job_preemption_configuration::ser_service_job_preemption_configuration(&mut object_5, var_4)?;
+    object_5.finish();
 }
-if let Some(var_5) = &input.scheduling_priority {
+if let Some(var_6) = &input.quota_share_name {
+    object.key("quotaShareName").string(var_6.as_str());
+}
+if let Some(var_7) = &input.retry_strategy {
+    #[allow(unused_mut)]
+    let mut object_8 = object.key("retryStrategy").start_object();
+    super::super::protocol_serde::shape_service_job_retry_strategy::ser_service_job_retry_strategy(&mut object_8, var_7)?;
+    object_8.finish();
+}
+if let Some(var_9) = &input.scheduling_priority {
     object.key("schedulingPriority").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_5).into()),
+        ::aws_smithy_types::Number::NegInt((*var_9).into()),
     );
 }
-if let Some(var_6) = &input.service_request_payload {
-    object.key("serviceRequestPayload").string(var_6.as_str());
+if let Some(var_10) = &input.service_job_type {
+    object.key("serviceJobType").string(var_10.as_str());
 }
-if let Some(var_7) = &input.service_job_type {
-    object.key("serviceJobType").string(var_7.as_str());
+if let Some(var_11) = &input.service_request_payload {
+    object.key("serviceRequestPayload").string(var_11.as_str());
 }
-if let Some(var_8) = &input.share_identifier {
-    object.key("shareIdentifier").string(var_8.as_str());
+if let Some(var_12) = &input.share_identifier {
+    object.key("shareIdentifier").string(var_12.as_str());
 }
-if let Some(var_9) = &input.quota_share_name {
-    object.key("quotaShareName").string(var_9.as_str());
-}
-if let Some(var_10) = &input.preemption_configuration {
+if let Some(var_13) = &input.tags {
     #[allow(unused_mut)]
-    let mut object_11 = object.key("preemptionConfiguration").start_object();
-    super::super::protocol_serde::shape_service_job_preemption_configuration::ser_service_job_preemption_configuration(&mut object_11, var_10)?;
-    object_11.finish();
-}
-if let Some(var_12) = &input.timeout_config {
-    #[allow(unused_mut)]
-    let mut object_13 = object.key("timeoutConfig").start_object();
-    super::super::protocol_serde::shape_service_job_timeout::ser_service_job_timeout(&mut object_13, var_12)?;
-    object_13.finish();
-}
-if let Some(var_14) = &input.tags {
-    #[allow(unused_mut)]
-    let mut object_15 = object.key("tags").start_object();
-    for (key_16, value_17) in var_14 {
+    let mut object_14 = object.key("tags").start_object();
+    for (key_15, value_16) in var_13 {
         {
-            object_15.key(key_16.as_str()).string(value_17.as_str());
+            object_14.key(key_15.as_str()).string(value_16.as_str());
         }
     }
-    object_15.finish();
+    object_14.finish();
 }
-if let Some(var_18) = &input.client_token {
-    object.key("clientToken").string(var_18.as_str());
+if let Some(var_17) = &input.timeout_config {
+    #[allow(unused_mut)]
+    let mut object_18 = object.key("timeoutConfig").start_object();
+    super::super::protocol_serde::shape_service_job_timeout::ser_service_job_timeout(&mut object_18, var_17)?;
+    object_18.finish();
 }
     Ok(())
 }
@@ -76689,37 +76689,37 @@ pub fn ser_update_compute_environment_input_input(
 if let Some(var_1) = &input.compute_environment {
     object.key("computeEnvironment").string(var_1.as_str());
 }
-if let Some(var_2) = &input.state {
-    object.key("state").string(var_2.as_str());
+if let Some(var_2) = &input.compute_resources {
+    #[allow(unused_mut)]
+    let mut object_3 = object.key("computeResources").start_object();
+    super::super::protocol_serde::shape_compute_resource_update::ser_compute_resource_update(&mut object_3, var_2)?;
+    object_3.finish();
 }
-if let Some(var_3) = &input.unmanagedv_cpus {
+if let Some(var_4) = &input.context {
+    object.key("context").string(var_4.as_str());
+}
+if let Some(var_5) = &input.ecs_settings {
+    #[allow(unused_mut)]
+    let mut object_6 = object.key("ecsSettings").start_object();
+    super::super::protocol_serde::shape_ecs_settings::ser_ecs_settings(&mut object_6, var_5)?;
+    object_6.finish();
+}
+if let Some(var_7) = &input.service_role {
+    object.key("serviceRole").string(var_7.as_str());
+}
+if let Some(var_8) = &input.state {
+    object.key("state").string(var_8.as_str());
+}
+if let Some(var_9) = &input.unmanagedv_cpus {
     object.key("unmanagedvCpus").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_3).into()),
+        ::aws_smithy_types::Number::NegInt((*var_9).into()),
     );
 }
-if let Some(var_4) = &input.compute_resources {
+if let Some(var_10) = &input.update_policy {
     #[allow(unused_mut)]
-    let mut object_5 = object.key("computeResources").start_object();
-    super::super::protocol_serde::shape_compute_resource_update::ser_compute_resource_update(&mut object_5, var_4)?;
-    object_5.finish();
-}
-if let Some(var_6) = &input.service_role {
-    object.key("serviceRole").string(var_6.as_str());
-}
-if let Some(var_7) = &input.update_policy {
-    #[allow(unused_mut)]
-    let mut object_8 = object.key("updatePolicy").start_object();
-    super::super::protocol_serde::shape_update_policy::ser_update_policy(&mut object_8, var_7)?;
-    object_8.finish();
-}
-if let Some(var_9) = &input.context {
-    object.key("context").string(var_9.as_str());
-}
-if let Some(var_10) = &input.ecs_settings {
-    #[allow(unused_mut)]
-    let mut object_11 = object.key("ecsSettings").start_object();
-    super::super::protocol_serde::shape_ecs_settings::ser_ecs_settings(&mut object_11, var_10)?;
+    let mut object_11 = object.key("updatePolicy").start_object();
+    super::super::protocol_serde::shape_update_policy::ser_update_policy(&mut object_11, var_10)?;
     object_11.finish();
 }
     Ok(())
@@ -76732,20 +76732,20 @@ pub fn ser_update_consumable_resource_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_consumable_resource::UpdateConsumableResourceInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.consumable_resource {
-    object.key("consumableResource").string(var_1.as_str());
+if let Some(var_1) = &input.client_token {
+    object.key("clientToken").string(var_1.as_str());
 }
-if let Some(var_2) = &input.operation {
-    object.key("operation").string(var_2.as_str());
+if let Some(var_2) = &input.consumable_resource {
+    object.key("consumableResource").string(var_2.as_str());
 }
-if let Some(var_3) = &input.quantity {
+if let Some(var_3) = &input.operation {
+    object.key("operation").string(var_3.as_str());
+}
+if let Some(var_4) = &input.quantity {
     object.key("quantity").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_3).into()),
+        ::aws_smithy_types::Number::NegInt((*var_4).into()),
     );
-}
-if let Some(var_4) = &input.client_token {
-    object.key("clientToken").string(var_4.as_str());
 }
     Ok(())
 }
@@ -76757,56 +76757,56 @@ pub fn ser_update_job_queue_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_job_queue::UpdateJobQueueInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.job_queue {
-    object.key("jobQueue").string(var_1.as_str());
+if let Some(var_1) = &input.compute_environment_order {
+    let mut array_2 = object.key("computeEnvironmentOrder").start_array();
+    for item_3 in var_1 {
+        {
+            #[allow(unused_mut)]
+            let mut object_4 = array_2.value().start_object();
+            super::super::protocol_serde::shape_compute_environment_order::ser_compute_environment_order(&mut object_4, item_3)?;
+            object_4.finish();
+        }
+    }
+    array_2.finish();
 }
-if let Some(var_2) = &input.state {
-    object.key("state").string(var_2.as_str());
+if let Some(var_5) = &input.job_queue {
+    object.key("jobQueue").string(var_5.as_str());
 }
-if let Some(var_3) = &input.scheduling_policy_arn {
-    object.key("schedulingPolicyArn").string(var_3.as_str());
+if let Some(var_6) = &input.job_state_time_limit_actions {
+    let mut array_7 = object.key("jobStateTimeLimitActions").start_array();
+    for item_8 in var_6 {
+        {
+            #[allow(unused_mut)]
+            let mut object_9 = array_7.value().start_object();
+            super::super::protocol_serde::shape_job_state_time_limit_action::ser_job_state_time_limit_action(&mut object_9, item_8)?;
+            object_9.finish();
+        }
+    }
+    array_7.finish();
 }
-if let Some(var_4) = &input.priority {
+if let Some(var_10) = &input.priority {
     object.key("priority").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
+        ::aws_smithy_types::Number::NegInt((*var_10).into()),
     );
 }
-if let Some(var_5) = &input.compute_environment_order {
-    let mut array_6 = object.key("computeEnvironmentOrder").start_array();
-    for item_7 in var_5 {
-        {
-            #[allow(unused_mut)]
-            let mut object_8 = array_6.value().start_object();
-            super::super::protocol_serde::shape_compute_environment_order::ser_compute_environment_order(&mut object_8, item_7)?;
-            object_8.finish();
-        }
-    }
-    array_6.finish();
+if let Some(var_11) = &input.scheduling_policy_arn {
+    object.key("schedulingPolicyArn").string(var_11.as_str());
 }
-if let Some(var_9) = &input.service_environment_order {
-    let mut array_10 = object.key("serviceEnvironmentOrder").start_array();
-    for item_11 in var_9 {
+if let Some(var_12) = &input.service_environment_order {
+    let mut array_13 = object.key("serviceEnvironmentOrder").start_array();
+    for item_14 in var_12 {
         {
             #[allow(unused_mut)]
-            let mut object_12 = array_10.value().start_object();
-            super::super::protocol_serde::shape_service_environment_order::ser_service_environment_order(&mut object_12, item_11)?;
-            object_12.finish();
+            let mut object_15 = array_13.value().start_object();
+            super::super::protocol_serde::shape_service_environment_order::ser_service_environment_order(&mut object_15, item_14)?;
+            object_15.finish();
         }
     }
-    array_10.finish();
+    array_13.finish();
 }
-if let Some(var_13) = &input.job_state_time_limit_actions {
-    let mut array_14 = object.key("jobStateTimeLimitActions").start_array();
-    for item_15 in var_13 {
-        {
-            #[allow(unused_mut)]
-            let mut object_16 = array_14.value().start_object();
-            super::super::protocol_serde::shape_job_state_time_limit_action::ser_job_state_time_limit_action(&mut object_16, item_15)?;
-            object_16.finish();
-        }
-    }
-    array_14.finish();
+if let Some(var_16) = &input.state {
+    object.key("state").string(var_16.as_str());
 }
     Ok(())
 }
@@ -76818,31 +76818,31 @@ pub fn ser_update_quota_share_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_quota_share::UpdateQuotaShareInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.quota_share_arn {
-    object.key("quotaShareArn").string(var_1.as_str());
-}
-if let Some(var_2) = &input.capacity_limits {
-    let mut array_3 = object.key("capacityLimits").start_array();
-    for item_4 in var_2 {
+if let Some(var_1) = &input.capacity_limits {
+    let mut array_2 = object.key("capacityLimits").start_array();
+    for item_3 in var_1 {
         {
             #[allow(unused_mut)]
-            let mut object_5 = array_3.value().start_object();
-            super::super::protocol_serde::shape_quota_share_capacity_limit::ser_quota_share_capacity_limit(&mut object_5, item_4)?;
-            object_5.finish();
+            let mut object_4 = array_2.value().start_object();
+            super::super::protocol_serde::shape_quota_share_capacity_limit::ser_quota_share_capacity_limit(&mut object_4, item_3)?;
+            object_4.finish();
         }
     }
-    array_3.finish();
+    array_2.finish();
 }
-if let Some(var_6) = &input.resource_sharing_configuration {
+if let Some(var_5) = &input.preemption_configuration {
     #[allow(unused_mut)]
-    let mut object_7 = object.key("resourceSharingConfiguration").start_object();
-    super::super::protocol_serde::shape_quota_share_resource_sharing_configuration::ser_quota_share_resource_sharing_configuration(&mut object_7, var_6)?;
-    object_7.finish();
+    let mut object_6 = object.key("preemptionConfiguration").start_object();
+    super::super::protocol_serde::shape_quota_share_preemption_configuration::ser_quota_share_preemption_configuration(&mut object_6, var_5)?;
+    object_6.finish();
 }
-if let Some(var_8) = &input.preemption_configuration {
+if let Some(var_7) = &input.quota_share_arn {
+    object.key("quotaShareArn").string(var_7.as_str());
+}
+if let Some(var_8) = &input.resource_sharing_configuration {
     #[allow(unused_mut)]
-    let mut object_9 = object.key("preemptionConfiguration").start_object();
-    super::super::protocol_serde::shape_quota_share_preemption_configuration::ser_quota_share_preemption_configuration(&mut object_9, var_8)?;
+    let mut object_9 = object.key("resourceSharingConfiguration").start_object();
+    super::super::protocol_serde::shape_quota_share_resource_sharing_configuration::ser_quota_share_resource_sharing_configuration(&mut object_9, var_8)?;
     object_9.finish();
 }
 if let Some(var_10) = &input.state {
@@ -76861,16 +76861,16 @@ pub fn ser_update_scheduling_policy_input_input(
 if let Some(var_1) = &input.arn {
     object.key("arn").string(var_1.as_str());
 }
-if let Some(var_2) = &input.quota_share_policy {
+if let Some(var_2) = &input.fairshare_policy {
     #[allow(unused_mut)]
-    let mut object_3 = object.key("quotaSharePolicy").start_object();
-    super::super::protocol_serde::shape_quota_share_policy::ser_quota_share_policy(&mut object_3, var_2)?;
+    let mut object_3 = object.key("fairsharePolicy").start_object();
+    super::super::protocol_serde::shape_fairshare_policy::ser_fairshare_policy(&mut object_3, var_2)?;
     object_3.finish();
 }
-if let Some(var_4) = &input.fairshare_policy {
+if let Some(var_4) = &input.quota_share_policy {
     #[allow(unused_mut)]
-    let mut object_5 = object.key("fairsharePolicy").start_object();
-    super::super::protocol_serde::shape_fairshare_policy::ser_fairshare_policy(&mut object_5, var_4)?;
+    let mut object_5 = object.key("quotaSharePolicy").start_object();
+    super::super::protocol_serde::shape_quota_share_policy::ser_quota_share_policy(&mut object_5, var_4)?;
     object_5.finish();
 }
     Ok(())
@@ -76883,23 +76883,23 @@ pub fn ser_update_service_environment_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_service_environment::UpdateServiceEnvironmentInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.service_environment {
-    object.key("serviceEnvironment").string(var_1.as_str());
-}
-if let Some(var_2) = &input.state {
-    object.key("state").string(var_2.as_str());
-}
-if let Some(var_3) = &input.capacity_limits {
-    let mut array_4 = object.key("capacityLimits").start_array();
-    for item_5 in var_3 {
+if let Some(var_1) = &input.capacity_limits {
+    let mut array_2 = object.key("capacityLimits").start_array();
+    for item_3 in var_1 {
         {
             #[allow(unused_mut)]
-            let mut object_6 = array_4.value().start_object();
-            super::super::protocol_serde::shape_capacity_limit::ser_capacity_limit(&mut object_6, item_5)?;
-            object_6.finish();
+            let mut object_4 = array_2.value().start_object();
+            super::super::protocol_serde::shape_capacity_limit::ser_capacity_limit(&mut object_4, item_3)?;
+            object_4.finish();
         }
     }
-    array_4.finish();
+    array_2.finish();
+}
+if let Some(var_5) = &input.service_environment {
+    object.key("serviceEnvironment").string(var_5.as_str());
+}
+if let Some(var_6) = &input.state {
+    object.key("state").string(var_6.as_str());
 }
     Ok(())
 }

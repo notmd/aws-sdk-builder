@@ -3,32 +3,32 @@ pub fn ser_list_service_jobs_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::list_service_jobs::ListServiceJobsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.job_queue {
-        object.key("jobQueue").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.job_status {
-        object.key("jobStatus").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.max_results {
-        object.key("maxResults").number(
-            #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_3).into()),
-        );
-    }
-    if let Some(var_4) = &input.next_token {
-        object.key("nextToken").string(var_4.as_str());
-    }
-    if let Some(var_5) = &input.filters {
-        let mut array_6 = object.key("filters").start_array();
-        for item_7 in var_5 {
+    if let Some(var_1) = &input.filters {
+        let mut array_2 = object.key("filters").start_array();
+        for item_3 in var_1 {
             {
                 #[allow(unused_mut)]
-                let mut object_8 = array_6.value().start_object();
-                super::super::protocol_serde::shape_key_values_pair::ser_key_values_pair(&mut object_8, item_7)?;
-                object_8.finish();
+                let mut object_4 = array_2.value().start_object();
+                super::super::protocol_serde::shape_key_values_pair::ser_key_values_pair(&mut object_4, item_3)?;
+                object_4.finish();
             }
         }
-        array_6.finish();
+        array_2.finish();
+    }
+    if let Some(var_5) = &input.job_queue {
+        object.key("jobQueue").string(var_5.as_str());
+    }
+    if let Some(var_6) = &input.job_status {
+        object.key("jobStatus").string(var_6.as_str());
+    }
+    if let Some(var_7) = &input.max_results {
+        object.key("maxResults").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_7).into()),
+        );
+    }
+    if let Some(var_8) = &input.next_token {
+        object.key("nextToken").string(var_8.as_str());
     }
     Ok(())
 }

@@ -119,19 +119,19 @@ pub(crate) fn de_list_associated_packages(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "packages" => {
-                    builder = builder.set_packages(super::super::protocol_serde::shape_associated_package_list::de_associated_package_list(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
                 "nextToken" => {
                     builder = builder.set_next_token(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
+                }
+                "packages" => {
+                    builder = builder.set_packages(super::super::protocol_serde::shape_associated_package_list::de_associated_package_list(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

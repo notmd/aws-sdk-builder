@@ -100,18 +100,9 @@ pub(crate) fn de_describe_quota_share(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
                 match key.to_unescaped()?.as_ref() {
-                    "quotaShareName" => {
-                        builder = builder.set_quota_share_name(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                        );
-                    }
-                    "quotaShareArn" => {
-                        builder = builder.set_quota_share_arn(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
+                    "capacityLimits" => {
+                        builder = builder.set_capacity_limits(
+                            super::super::protocol_serde::shape_quota_share_capacity_limits::de_quota_share_capacity_limits(tokens, _value, depth + 1)?,
                         );
                     }
                     "jobQueueArn" => {
@@ -121,23 +112,32 @@ pub(crate) fn de_describe_quota_share(
                                 .transpose()?,
                         );
                     }
-                    "capacityLimits" => {
-                        builder = builder.set_capacity_limits(
-                            super::super::protocol_serde::shape_quota_share_capacity_limits::de_quota_share_capacity_limits(tokens, _value, depth + 1)?,
-                        );
-                    }
-                    "resourceSharingConfiguration" => {
-                        builder = builder.set_resource_sharing_configuration(
-                            super::super::protocol_serde::shape_quota_share_resource_sharing_configuration::de_quota_share_resource_sharing_configuration(
+                    "preemptionConfiguration" => {
+                        builder = builder.set_preemption_configuration(
+                            super::super::protocol_serde::shape_quota_share_preemption_configuration::de_quota_share_preemption_configuration(
                                 tokens,
                                 _value,
                                 depth + 1,
                             )?,
                         );
                     }
-                    "preemptionConfiguration" => {
-                        builder = builder.set_preemption_configuration(
-                            super::super::protocol_serde::shape_quota_share_preemption_configuration::de_quota_share_preemption_configuration(
+                    "quotaShareArn" => {
+                        builder = builder.set_quota_share_arn(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?,
+                        );
+                    }
+                    "quotaShareName" => {
+                        builder = builder.set_quota_share_name(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?,
+                        );
+                    }
+                    "resourceSharingConfiguration" => {
+                        builder = builder.set_resource_sharing_configuration(
+                            super::super::protocol_serde::shape_quota_share_resource_sharing_configuration::de_quota_share_resource_sharing_configuration(
                                 tokens,
                                 _value,
                                 depth + 1,

@@ -89,16 +89,16 @@ pub(crate) fn de_list_email_templates(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "TemplatesMetadata" => {
-                    builder = builder.set_templates_metadata(
-                        super::super::protocol_serde::shape_email_template_metadata_list::de_email_template_metadata_list(tokens, _value, depth + 1)?,
-                    );
-                }
                 "NextToken" => {
                     builder = builder.set_next_token(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
+                    );
+                }
+                "TemplatesMetadata" => {
+                    builder = builder.set_templates_metadata(
+                        super::super::protocol_serde::shape_email_template_metadata_list::de_email_template_metadata_list(tokens, _value, depth + 1)?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

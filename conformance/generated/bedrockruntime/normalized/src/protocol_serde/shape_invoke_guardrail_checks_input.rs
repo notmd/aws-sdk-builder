@@ -3,23 +3,23 @@ pub fn ser_invoke_guardrail_checks_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::invoke_guardrail_checks::InvokeGuardrailChecksInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.messages {
-        let mut array_2 = object.key("messages").start_array();
-        for item_3 in var_1 {
+    if let Some(var_1) = &input.checks {
+        #[allow(unused_mut)]
+        let mut object_2 = object.key("checks").start_object();
+        super::super::protocol_serde::shape_guardrail_checks_config::ser_guardrail_checks_config(&mut object_2, var_1)?;
+        object_2.finish();
+    }
+    if let Some(var_3) = &input.messages {
+        let mut array_4 = object.key("messages").start_array();
+        for item_5 in var_3 {
             {
                 #[allow(unused_mut)]
-                let mut object_4 = array_2.value().start_object();
-                super::super::protocol_serde::shape_guardrail_checks_message::ser_guardrail_checks_message(&mut object_4, item_3)?;
-                object_4.finish();
+                let mut object_6 = array_4.value().start_object();
+                super::super::protocol_serde::shape_guardrail_checks_message::ser_guardrail_checks_message(&mut object_6, item_5)?;
+                object_6.finish();
             }
         }
-        array_2.finish();
-    }
-    if let Some(var_5) = &input.checks {
-        #[allow(unused_mut)]
-        let mut object_6 = object.key("checks").start_object();
-        super::super::protocol_serde::shape_guardrail_checks_config::ser_guardrail_checks_config(&mut object_6, var_5)?;
-        object_6.finish();
+        array_4.finish();
     }
     Ok(())
 }

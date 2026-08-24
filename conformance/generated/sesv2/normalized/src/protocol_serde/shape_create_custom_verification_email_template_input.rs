@@ -3,35 +3,35 @@ pub fn ser_create_custom_verification_email_template_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.template_name {
-        object.key("TemplateName").string(var_1.as_str());
+    if let Some(var_1) = &input.failure_redirection_url {
+        object.key("FailureRedirectionURL").string(var_1.as_str());
     }
     if let Some(var_2) = &input.from_email_address {
         object.key("FromEmailAddress").string(var_2.as_str());
     }
-    if let Some(var_3) = &input.template_subject {
-        object.key("TemplateSubject").string(var_3.as_str());
+    if let Some(var_3) = &input.success_redirection_url {
+        object.key("SuccessRedirectionURL").string(var_3.as_str());
     }
-    if let Some(var_4) = &input.template_content {
-        object.key("TemplateContent").string(var_4.as_str());
-    }
-    if let Some(var_5) = &input.tags {
-        let mut array_6 = object.key("Tags").start_array();
-        for item_7 in var_5 {
+    if let Some(var_4) = &input.tags {
+        let mut array_5 = object.key("Tags").start_array();
+        for item_6 in var_4 {
             {
                 #[allow(unused_mut)]
-                let mut object_8 = array_6.value().start_object();
-                super::super::protocol_serde::shape_tag::ser_tag(&mut object_8, item_7)?;
-                object_8.finish();
+                let mut object_7 = array_5.value().start_object();
+                super::super::protocol_serde::shape_tag::ser_tag(&mut object_7, item_6)?;
+                object_7.finish();
             }
         }
-        array_6.finish();
+        array_5.finish();
     }
-    if let Some(var_9) = &input.success_redirection_url {
-        object.key("SuccessRedirectionURL").string(var_9.as_str());
+    if let Some(var_8) = &input.template_content {
+        object.key("TemplateContent").string(var_8.as_str());
     }
-    if let Some(var_10) = &input.failure_redirection_url {
-        object.key("FailureRedirectionURL").string(var_10.as_str());
+    if let Some(var_9) = &input.template_name {
+        object.key("TemplateName").string(var_9.as_str());
+    }
+    if let Some(var_10) = &input.template_subject {
+        object.key("TemplateSubject").string(var_10.as_str());
     }
     Ok(())
 }

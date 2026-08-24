@@ -191,6 +191,9 @@ pub(crate) fn de_get_durable_execution(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "DurableConfig" => {
+                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
+                }
                 "DurableExecutionArn" => {
                     builder = builder.set_durable_execution_arn(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -204,6 +207,18 @@ pub(crate) fn de_get_durable_execution(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
+                }
+                "EndTimestamp" => {
+                    builder = builder.set_end_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                        tokens.next(),
+                        ::aws_smithy_types::date_time::Format::EpochSeconds,
+                    )?);
+                }
+                "Error" => {
+                    builder = builder.set_error(super::super::protocol_serde::shape_error_object::de_error_object(tokens, _value, depth + 1)?);
+                }
+                "ExecutionDataIncluded" => {
+                    builder = builder.set_execution_data_included(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 }
                 "FunctionArn" => {
                     builder = builder.set_function_arn(
@@ -226,9 +241,6 @@ pub(crate) fn de_get_durable_execution(
                             .transpose()?,
                     );
                 }
-                "Error" => {
-                    builder = builder.set_error(super::super::protocol_serde::shape_error_object::de_error_object(tokens, _value, depth + 1)?);
-                }
                 "StartTimestamp" => {
                     builder = builder.set_start_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
                         tokens.next(),
@@ -242,11 +254,8 @@ pub(crate) fn de_get_durable_execution(
                             .transpose()?,
                     );
                 }
-                "EndTimestamp" => {
-                    builder = builder.set_end_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-                        tokens.next(),
-                        ::aws_smithy_types::date_time::Format::EpochSeconds,
-                    )?);
+                "TraceHeader" => {
+                    builder = builder.set_trace_header(super::super::protocol_serde::shape_trace_header::de_trace_header(tokens, _value, depth + 1)?);
                 }
                 "Version" => {
                     builder = builder.set_version(
@@ -254,15 +263,6 @@ pub(crate) fn de_get_durable_execution(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
-                }
-                "TraceHeader" => {
-                    builder = builder.set_trace_header(super::super::protocol_serde::shape_trace_header::de_trace_header(tokens, _value, depth + 1)?);
-                }
-                "ExecutionDataIncluded" => {
-                    builder = builder.set_execution_data_included(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                }
-                "DurableConfig" => {
-                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

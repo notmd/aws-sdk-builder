@@ -3,27 +3,27 @@ pub fn ser_dispose_package_versions_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::dispose_package_versions::DisposePackageVersionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.versions {
-        let mut array_2 = object.key("versions").start_array();
-        for item_3 in var_1 {
-            {
-                array_2.value().string(item_3.as_str());
-            }
-        }
-        array_2.finish();
+    if let Some(var_1) = &input.expected_status {
+        object.key("expectedStatus").string(var_1.as_str());
     }
-    if let Some(var_4) = &input.version_revisions {
+    if let Some(var_2) = &input.version_revisions {
         #[allow(unused_mut)]
-        let mut object_5 = object.key("versionRevisions").start_object();
-        for (key_6, value_7) in var_4 {
+        let mut object_3 = object.key("versionRevisions").start_object();
+        for (key_4, value_5) in var_2 {
             {
-                object_5.key(key_6.as_str()).string(value_7.as_str());
+                object_3.key(key_4.as_str()).string(value_5.as_str());
             }
         }
-        object_5.finish();
+        object_3.finish();
     }
-    if let Some(var_8) = &input.expected_status {
-        object.key("expectedStatus").string(var_8.as_str());
+    if let Some(var_6) = &input.versions {
+        let mut array_7 = object.key("versions").start_array();
+        for item_8 in var_6 {
+            {
+                array_7.value().string(item_8.as_str());
+            }
+        }
+        array_7.finish();
     }
     Ok(())
 }

@@ -91,19 +91,19 @@ pub(crate) fn de_list_tenants(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "Tenants" => {
-                    builder = builder.set_tenants(super::super::protocol_serde::shape_tenant_info_list::de_tenant_info_list(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
                 "NextToken" => {
                     builder = builder.set_next_token(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
+                }
+                "Tenants" => {
+                    builder = builder.set_tenants(super::super::protocol_serde::shape_tenant_info_list::de_tenant_info_list(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

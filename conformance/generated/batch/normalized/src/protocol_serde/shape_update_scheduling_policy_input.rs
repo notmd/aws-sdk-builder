@@ -6,16 +6,16 @@ pub fn ser_update_scheduling_policy_input_input(
     if let Some(var_1) = &input.arn {
         object.key("arn").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.quota_share_policy {
+    if let Some(var_2) = &input.fairshare_policy {
         #[allow(unused_mut)]
-        let mut object_3 = object.key("quotaSharePolicy").start_object();
-        super::super::protocol_serde::shape_quota_share_policy::ser_quota_share_policy(&mut object_3, var_2)?;
+        let mut object_3 = object.key("fairsharePolicy").start_object();
+        super::super::protocol_serde::shape_fairshare_policy::ser_fairshare_policy(&mut object_3, var_2)?;
         object_3.finish();
     }
-    if let Some(var_4) = &input.fairshare_policy {
+    if let Some(var_4) = &input.quota_share_policy {
         #[allow(unused_mut)]
-        let mut object_5 = object.key("fairsharePolicy").start_object();
-        super::super::protocol_serde::shape_fairshare_policy::ser_fairshare_policy(&mut object_5, var_4)?;
+        let mut object_5 = object.key("quotaSharePolicy").start_object();
+        super::super::protocol_serde::shape_quota_share_policy::ser_quota_share_policy(&mut object_5, var_4)?;
         object_5.finish();
     }
     Ok(())

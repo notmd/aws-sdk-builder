@@ -6,28 +6,28 @@ pub fn ser_create_contact_list_input_input(
     if let Some(var_1) = &input.contact_list_name {
         object.key("ContactListName").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.topics {
-        let mut array_3 = object.key("Topics").start_array();
-        for item_4 in var_2 {
+    if let Some(var_2) = &input.description {
+        object.key("Description").string(var_2.as_str());
+    }
+    if let Some(var_3) = &input.tags {
+        let mut array_4 = object.key("Tags").start_array();
+        for item_5 in var_3 {
             {
                 #[allow(unused_mut)]
-                let mut object_5 = array_3.value().start_object();
-                super::super::protocol_serde::shape_topic::ser_topic(&mut object_5, item_4)?;
-                object_5.finish();
+                let mut object_6 = array_4.value().start_object();
+                super::super::protocol_serde::shape_tag::ser_tag(&mut object_6, item_5)?;
+                object_6.finish();
             }
         }
-        array_3.finish();
+        array_4.finish();
     }
-    if let Some(var_6) = &input.description {
-        object.key("Description").string(var_6.as_str());
-    }
-    if let Some(var_7) = &input.tags {
-        let mut array_8 = object.key("Tags").start_array();
+    if let Some(var_7) = &input.topics {
+        let mut array_8 = object.key("Topics").start_array();
         for item_9 in var_7 {
             {
                 #[allow(unused_mut)]
                 let mut object_10 = array_8.value().start_object();
-                super::super::protocol_serde::shape_tag::ser_tag(&mut object_10, item_9)?;
+                super::super::protocol_serde::shape_topic::ser_topic(&mut object_10, item_9)?;
                 object_10.finish();
             }
         }

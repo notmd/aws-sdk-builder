@@ -174,13 +174,6 @@ pub(crate) fn de_apply_guardrail(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "usage" => {
-                    builder = builder.set_usage(super::super::protocol_serde::shape_guardrail_usage::de_guardrail_usage(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
                 "action" => {
                     builder = builder.set_action(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -195,11 +188,6 @@ pub(crate) fn de_apply_guardrail(
                             .transpose()?,
                     );
                 }
-                "outputs" => {
-                    builder = builder.set_outputs(
-                        super::super::protocol_serde::shape_guardrail_output_content_list::de_guardrail_output_content_list(tokens, _value, depth + 1)?,
-                    );
-                }
                 "assessments" => {
                     builder = builder.set_assessments(super::super::protocol_serde::shape_guardrail_assessment_list::de_guardrail_assessment_list(
                         tokens,
@@ -209,6 +197,18 @@ pub(crate) fn de_apply_guardrail(
                 }
                 "guardrailCoverage" => {
                     builder = builder.set_guardrail_coverage(super::super::protocol_serde::shape_guardrail_coverage::de_guardrail_coverage(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                "outputs" => {
+                    builder = builder.set_outputs(
+                        super::super::protocol_serde::shape_guardrail_output_content_list::de_guardrail_output_content_list(tokens, _value, depth + 1)?,
+                    );
+                }
+                "usage" => {
+                    builder = builder.set_usage(super::super::protocol_serde::shape_guardrail_usage::de_guardrail_usage(
                         tokens,
                         _value,
                         depth + 1,

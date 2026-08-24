@@ -114997,11 +114997,11 @@ pub(crate) fn de_batch_get_metric_data(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "Results" => {
-                    builder = builder.set_results(super::super::protocol_serde::shape_metric_data_result_list::de_metric_data_result_list(tokens, _value, depth + 1)?);
-                },
                 "Errors" => {
                     builder = builder.set_errors(super::super::protocol_serde::shape_metric_data_error_list::de_metric_data_error_list(tokens, _value, depth + 1)?);
+                },
+                "Results" => {
+                    builder = builder.set_results(super::super::protocol_serde::shape_metric_data_result_list::de_metric_data_result_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -115994,14 +115994,14 @@ pub(crate) fn de_create_deliverability_test_report(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "ReportId" => {
-                    builder = builder.set_report_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
                 "DeliverabilityTestStatus" => {
                     builder = builder.set_deliverability_test_status(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::DeliverabilityTestStatus::from(u.as_ref())))
+                            .transpose()?);
+                },
+                "ReportId" => {
+                    builder = builder.set_report_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -116170,6 +116170,9 @@ pub(crate) fn de_create_email_identity(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "DkimAttributes" => {
+                    builder = builder.set_dkim_attributes(super::super::protocol_serde::shape_dkim_attributes::de_dkim_attributes(tokens, _value, depth + 1)?);
+                },
                 "IdentityType" => {
                     builder = builder.set_identity_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::IdentityType::from(u.as_ref())))
@@ -116177,9 +116180,6 @@ pub(crate) fn de_create_email_identity(
                 },
                 "VerifiedForSendingStatus" => {
                     builder = builder.set_verified_for_sending_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                },
-                "DkimAttributes" => {
-                    builder = builder.set_dkim_attributes(super::super::protocol_serde::shape_dkim_attributes::de_dkim_attributes(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -116815,14 +116815,14 @@ pub(crate) fn de_create_multi_region_endpoint(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "Status" => {
-                    builder = builder.set_status(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::Status::from(u.as_ref())))
-                            .transpose()?);
-                },
                 "EndpointId" => {
                     builder = builder.set_endpoint_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "Status" => {
+                    builder = builder.set_status(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::Status::from(u.as_ref())))
                             .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -116963,26 +116963,8 @@ pub(crate) fn de_create_tenant(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "TenantName" => {
-                    builder = builder.set_tenant_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "TenantId" => {
-                    builder = builder.set_tenant_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "TenantArn" => {
-                    builder = builder.set_tenant_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
                 "CreatedTimestamp" => {
                     builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
-                },
-                "Tags" => {
-                    builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
                 },
                 "SendingStatus" => {
                     builder = builder.set_sending_status(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -116991,6 +116973,24 @@ pub(crate) fn de_create_tenant(
                 },
                 "SuppressionAttributes" => {
                     builder = builder.set_suppression_attributes(super::super::protocol_serde::shape_tenant_suppression_attributes::de_tenant_suppression_attributes(tokens, _value, depth + 1)?);
+                },
+                "Tags" => {
+                    builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
+                },
+                "TenantArn" => {
+                    builder = builder.set_tenant_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "TenantId" => {
+                    builder = builder.set_tenant_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "TenantName" => {
+                    builder = builder.set_tenant_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -118379,10 +118379,16 @@ pub(crate) fn de_get_account(
                 "DedicatedIpAutoWarmupEnabled" => {
                     builder = builder.set_dedicated_ip_auto_warmup_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 },
+                "Details" => {
+                    builder = builder.set_details(super::super::protocol_serde::shape_account_details::de_account_details(tokens, _value, depth + 1)?);
+                },
                 "EnforcementStatus" => {
                     builder = builder.set_enforcement_status(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "PricingAttributes" => {
+                    builder = builder.set_pricing_attributes(super::super::protocol_serde::shape_pricing_attributes::de_pricing_attributes(tokens, _value, depth + 1)?);
                 },
                 "ProductionAccessEnabled" => {
                     builder = builder.set_production_access_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
@@ -118396,14 +118402,8 @@ pub(crate) fn de_get_account(
                 "SuppressionAttributes" => {
                     builder = builder.set_suppression_attributes(super::super::protocol_serde::shape_suppression_attributes::de_suppression_attributes(tokens, _value, depth + 1)?);
                 },
-                "Details" => {
-                    builder = builder.set_details(super::super::protocol_serde::shape_account_details::de_account_details(tokens, _value, depth + 1)?);
-                },
                 "VdmAttributes" => {
                     builder = builder.set_vdm_attributes(super::super::protocol_serde::shape_vdm_attributes::de_vdm_attributes(tokens, _value, depth + 1)?);
-                },
-                "PricingAttributes" => {
-                    builder = builder.set_pricing_attributes(super::super::protocol_serde::shape_pricing_attributes::de_pricing_attributes(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -118636,13 +118636,13 @@ pub(crate) fn de_get_configuration_set(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "ArchivingOptions" => {
+                    builder = builder.set_archiving_options(super::super::protocol_serde::shape_archiving_options::de_archiving_options(tokens, _value, depth + 1)?);
+                },
                 "ConfigurationSetName" => {
                     builder = builder.set_configuration_set_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "TrackingOptions" => {
-                    builder = builder.set_tracking_options(super::super::protocol_serde::shape_tracking_options::de_tracking_options(tokens, _value, depth + 1)?);
                 },
                 "DeliveryOptions" => {
                     builder = builder.set_delivery_options(super::super::protocol_serde::shape_delivery_options::de_delivery_options(tokens, _value, depth + 1)?);
@@ -118653,17 +118653,17 @@ pub(crate) fn de_get_configuration_set(
                 "SendingOptions" => {
                     builder = builder.set_sending_options(super::super::protocol_serde::shape_sending_options::de_sending_options(tokens, _value, depth + 1)?);
                 },
-                "Tags" => {
-                    builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
-                },
                 "SuppressionOptions" => {
                     builder = builder.set_suppression_options(super::super::protocol_serde::shape_suppression_options::de_suppression_options(tokens, _value, depth + 1)?);
                 },
+                "Tags" => {
+                    builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
+                },
+                "TrackingOptions" => {
+                    builder = builder.set_tracking_options(super::super::protocol_serde::shape_tracking_options::de_tracking_options(tokens, _value, depth + 1)?);
+                },
                 "VdmOptions" => {
                     builder = builder.set_vdm_options(super::super::protocol_serde::shape_vdm_options::de_vdm_options(tokens, _value, depth + 1)?);
-                },
-                "ArchivingOptions" => {
-                    builder = builder.set_archiving_options(super::super::protocol_serde::shape_archiving_options::de_archiving_options(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -118894,35 +118894,35 @@ pub(crate) fn de_get_contact(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "ContactListName" => {
-                    builder = builder.set_contact_list_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "EmailAddress" => {
-                    builder = builder.set_email_address(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "TopicPreferences" => {
-                    builder = builder.set_topic_preferences(super::super::protocol_serde::shape_topic_preference_list::de_topic_preference_list(tokens, _value, depth + 1)?);
-                },
-                "TopicDefaultPreferences" => {
-                    builder = builder.set_topic_default_preferences(super::super::protocol_serde::shape_topic_preference_list::de_topic_preference_list(tokens, _value, depth + 1)?);
-                },
-                "UnsubscribeAll" => {
-                    builder = builder.set_unsubscribe_all(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                },
                 "AttributesData" => {
                     builder = builder.set_attributes_data(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "ContactListName" => {
+                    builder = builder.set_contact_list_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
                 "CreatedTimestamp" => {
                     builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
                 },
+                "EmailAddress" => {
+                    builder = builder.set_email_address(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
                 "LastUpdatedTimestamp" => {
                     builder = builder.set_last_updated_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
+                },
+                "TopicDefaultPreferences" => {
+                    builder = builder.set_topic_default_preferences(super::super::protocol_serde::shape_topic_preference_list::de_topic_preference_list(tokens, _value, depth + 1)?);
+                },
+                "TopicPreferences" => {
+                    builder = builder.set_topic_preferences(super::super::protocol_serde::shape_topic_preference_list::de_topic_preference_list(tokens, _value, depth + 1)?);
+                },
+                "UnsubscribeAll" => {
+                    builder = builder.set_unsubscribe_all(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -119042,22 +119042,22 @@ pub(crate) fn de_get_contact_list(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "Topics" => {
-                    builder = builder.set_topics(super::super::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
+                "CreatedTimestamp" => {
+                    builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
                 },
                 "Description" => {
                     builder = builder.set_description(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "CreatedTimestamp" => {
-                    builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
-                },
                 "LastUpdatedTimestamp" => {
                     builder = builder.set_last_updated_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
                 },
                 "Tags" => {
                     builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
+                },
+                "Topics" => {
+                    builder = builder.set_topics(super::super::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -119172,8 +119172,8 @@ pub(crate) fn de_get_custom_verification_email_template(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "TemplateName" => {
-                    builder = builder.set_template_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "FailureRedirectionURL" => {
+                    builder = builder.set_failure_redirection_url(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -119182,26 +119182,26 @@ pub(crate) fn de_get_custom_verification_email_template(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "TemplateSubject" => {
-                    builder = builder.set_template_subject(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "TemplateContent" => {
-                    builder = builder.set_template_content(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "SuccessRedirectionURL" => {
+                    builder = builder.set_success_redirection_url(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
                 "Tags" => {
                     builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
                 },
-                "SuccessRedirectionURL" => {
-                    builder = builder.set_success_redirection_url(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "TemplateContent" => {
+                    builder = builder.set_template_content(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "FailureRedirectionURL" => {
-                    builder = builder.set_failure_redirection_url(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "TemplateName" => {
+                    builder = builder.set_template_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "TemplateSubject" => {
+                    builder = builder.set_template_subject(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -119673,12 +119673,6 @@ pub(crate) fn de_get_deliverability_dashboard_options(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "DashboardEnabled" => {
-                    builder = builder.set_dashboard_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                },
-                "SubscriptionExpiryDate" => {
-                    builder = builder.set_subscription_expiry_date(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
-                },
                 "AccountStatus" => {
                     builder = builder.set_account_status(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::DeliverabilityDashboardAccountStatus::from(u.as_ref())))
@@ -119687,8 +119681,14 @@ pub(crate) fn de_get_deliverability_dashboard_options(
                 "ActiveSubscribedDomains" => {
                     builder = builder.set_active_subscribed_domains(super::super::protocol_serde::shape_domain_deliverability_tracking_options::de_domain_deliverability_tracking_options(tokens, _value, depth + 1)?);
                 },
+                "DashboardEnabled" => {
+                    builder = builder.set_dashboard_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                },
                 "PendingExpirationSubscribedDomains" => {
                     builder = builder.set_pending_expiration_subscribed_domains(super::super::protocol_serde::shape_domain_deliverability_tracking_options::de_domain_deliverability_tracking_options(tokens, _value, depth + 1)?);
+                },
+                "SubscriptionExpiryDate" => {
+                    builder = builder.set_subscription_expiry_date(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -119808,9 +119808,6 @@ pub(crate) fn de_get_deliverability_test_report(
                 "DeliverabilityTestReport" => {
                     builder = builder.set_deliverability_test_report(super::super::protocol_serde::shape_deliverability_test_report::de_deliverability_test_report(tokens, _value, depth + 1)?);
                 },
-                "OverallPlacement" => {
-                    builder = builder.set_overall_placement(super::super::protocol_serde::shape_placement_statistics::de_placement_statistics(tokens, _value, depth + 1)?);
-                },
                 "IspPlacements" => {
                     builder = builder.set_isp_placements(super::super::protocol_serde::shape_isp_placements::de_isp_placements(tokens, _value, depth + 1)?);
                 },
@@ -119818,6 +119815,9 @@ pub(crate) fn de_get_deliverability_test_report(
                     builder = builder.set_message(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "OverallPlacement" => {
+                    builder = builder.set_overall_placement(super::super::protocol_serde::shape_placement_statistics::de_placement_statistics(tokens, _value, depth + 1)?);
                 },
                 "Tags" => {
                     builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
@@ -120054,11 +120054,11 @@ pub(crate) fn de_get_domain_statistics_report(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "OverallVolume" => {
-                    builder = builder.set_overall_volume(super::super::protocol_serde::shape_overall_volume::de_overall_volume(tokens, _value, depth + 1)?);
-                },
                 "DailyVolumes" => {
                     builder = builder.set_daily_volumes(super::super::protocol_serde::shape_daily_volumes::de_daily_volumes(tokens, _value, depth + 1)?);
+                },
+                "OverallVolume" => {
+                    builder = builder.set_overall_volume(super::super::protocol_serde::shape_overall_volume::de_overall_volume(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -120286,19 +120286,21 @@ pub(crate) fn de_get_email_identity(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "IdentityType" => {
-                    builder = builder.set_identity_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::IdentityType::from(u.as_ref())))
+                "ConfigurationSetName" => {
+                    builder = builder.set_configuration_set_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "DkimAttributes" => {
+                    builder = builder.set_dkim_attributes(super::super::protocol_serde::shape_dkim_attributes::de_dkim_attributes(tokens, _value, depth + 1)?);
                 },
                 "FeedbackForwardingStatus" => {
                     builder = builder.set_feedback_forwarding_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 },
-                "VerifiedForSendingStatus" => {
-                    builder = builder.set_verified_for_sending_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                },
-                "DkimAttributes" => {
-                    builder = builder.set_dkim_attributes(super::super::protocol_serde::shape_dkim_attributes::de_dkim_attributes(tokens, _value, depth + 1)?);
+                "IdentityType" => {
+                    builder = builder.set_identity_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::IdentityType::from(u.as_ref())))
+                            .transpose()?);
                 },
                 "MailFromAttributes" => {
                     builder = builder.set_mail_from_attributes(super::super::protocol_serde::shape_mail_from_attributes::de_mail_from_attributes(tokens, _value, depth + 1)?);
@@ -120309,18 +120311,16 @@ pub(crate) fn de_get_email_identity(
                 "Tags" => {
                     builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
                 },
-                "ConfigurationSetName" => {
-                    builder = builder.set_configuration_set_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
+                "VerificationInfo" => {
+                    builder = builder.set_verification_info(super::super::protocol_serde::shape_verification_info::de_verification_info(tokens, _value, depth + 1)?);
                 },
                 "VerificationStatus" => {
                     builder = builder.set_verification_status(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::VerificationStatus::from(u.as_ref())))
                             .transpose()?);
                 },
-                "VerificationInfo" => {
-                    builder = builder.set_verification_info(super::super::protocol_serde::shape_verification_info::de_verification_info(tokens, _value, depth + 1)?);
+                "VerifiedForSendingStatus" => {
+                    builder = builder.set_verified_for_sending_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -120553,16 +120553,16 @@ pub(crate) fn de_get_email_template(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "TemplateName" => {
-                    builder = builder.set_template_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
+                "Tags" => {
+                    builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
                 },
                 "TemplateContent" => {
                     builder = builder.set_template_content(super::super::protocol_serde::shape_email_template_content::de_email_template_content(tokens, _value, depth + 1)?);
                 },
-                "Tags" => {
-                    builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
+                "TemplateName" => {
+                    builder = builder.set_template_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -120677,35 +120677,35 @@ pub(crate) fn de_get_export_job(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "JobId" => {
-                    builder = builder.set_job_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
+                "CompletedTimestamp" => {
+                    builder = builder.set_completed_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
+                },
+                "CreatedTimestamp" => {
+                    builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
+                },
+                "ExportDataSource" => {
+                    builder = builder.set_export_data_source(super::super::protocol_serde::shape_export_data_source::de_export_data_source(tokens, _value, depth + 1)?);
+                },
+                "ExportDestination" => {
+                    builder = builder.set_export_destination(super::super::protocol_serde::shape_export_destination::de_export_destination(tokens, _value, depth + 1)?);
                 },
                 "ExportSourceType" => {
                     builder = builder.set_export_source_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::ExportSourceType::from(u.as_ref())))
                             .transpose()?);
                 },
+                "FailureInfo" => {
+                    builder = builder.set_failure_info(super::super::protocol_serde::shape_failure_info::de_failure_info(tokens, _value, depth + 1)?);
+                },
+                "JobId" => {
+                    builder = builder.set_job_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
                 "JobStatus" => {
                     builder = builder.set_job_status(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::JobStatus::from(u.as_ref())))
                             .transpose()?);
-                },
-                "ExportDestination" => {
-                    builder = builder.set_export_destination(super::super::protocol_serde::shape_export_destination::de_export_destination(tokens, _value, depth + 1)?);
-                },
-                "ExportDataSource" => {
-                    builder = builder.set_export_data_source(super::super::protocol_serde::shape_export_data_source::de_export_data_source(tokens, _value, depth + 1)?);
-                },
-                "CreatedTimestamp" => {
-                    builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
-                },
-                "CompletedTimestamp" => {
-                    builder = builder.set_completed_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
-                },
-                "FailureInfo" => {
-                    builder = builder.set_failure_info(super::super::protocol_serde::shape_failure_info::de_failure_info(tokens, _value, depth + 1)?);
                 },
                 "Statistics" => {
                     builder = builder.set_statistics(super::super::protocol_serde::shape_export_statistics::de_export_statistics(tokens, _value, depth + 1)?);
@@ -120823,38 +120823,38 @@ pub(crate) fn de_get_import_job(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "JobId" => {
-                    builder = builder.set_job_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                "CompletedTimestamp" => {
+                    builder = builder.set_completed_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
+                },
+                "CreatedTimestamp" => {
+                    builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
+                },
+                "FailedRecordsCount" => {
+                    builder = builder.set_failed_records_count(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
                             .transpose()?);
                 },
-                "ImportDestination" => {
-                    builder = builder.set_import_destination(super::super::protocol_serde::shape_import_destination::de_import_destination(tokens, _value, depth + 1)?);
+                "FailureInfo" => {
+                    builder = builder.set_failure_info(super::super::protocol_serde::shape_failure_info::de_failure_info(tokens, _value, depth + 1)?);
                 },
                 "ImportDataSource" => {
                     builder = builder.set_import_data_source(super::super::protocol_serde::shape_import_data_source::de_import_data_source(tokens, _value, depth + 1)?);
                 },
-                "FailureInfo" => {
-                    builder = builder.set_failure_info(super::super::protocol_serde::shape_failure_info::de_failure_info(tokens, _value, depth + 1)?);
+                "ImportDestination" => {
+                    builder = builder.set_import_destination(super::super::protocol_serde::shape_import_destination::de_import_destination(tokens, _value, depth + 1)?);
+                },
+                "JobId" => {
+                    builder = builder.set_job_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "JobStatus" => {
                     builder = builder.set_job_status(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::JobStatus::from(u.as_ref())))
                             .transpose()?);
                 },
-                "CreatedTimestamp" => {
-                    builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
-                },
-                "CompletedTimestamp" => {
-                    builder = builder.set_completed_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
-                },
                 "ProcessedRecordsCount" => {
                     builder = builder.set_processed_records_count(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
-                "FailedRecordsCount" => {
-                    builder = builder.set_failed_records_count(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?);
                 },
@@ -120971,13 +120971,19 @@ pub(crate) fn de_get_message_insights(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "MessageId" => {
-                    builder = builder.set_message_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
+                "EmailTags" => {
+                    builder = builder.set_email_tags(super::super::protocol_serde::shape_message_tag_list::de_message_tag_list(tokens, _value, depth + 1)?);
                 },
                 "FromEmailAddress" => {
                     builder = builder.set_from_email_address(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "Insights" => {
+                    builder = builder.set_insights(super::super::protocol_serde::shape_email_insights_list::de_email_insights_list(tokens, _value, depth + 1)?);
+                },
+                "MessageId" => {
+                    builder = builder.set_message_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -120985,12 +120991,6 @@ pub(crate) fn de_get_message_insights(
                     builder = builder.set_subject(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "EmailTags" => {
-                    builder = builder.set_email_tags(super::super::protocol_serde::shape_message_tag_list::de_message_tag_list(tokens, _value, depth + 1)?);
-                },
-                "Insights" => {
-                    builder = builder.set_insights(super::super::protocol_serde::shape_email_insights_list::de_email_insights_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -121105,15 +121105,21 @@ pub(crate) fn de_get_multi_region_endpoint(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "EndpointName" => {
-                    builder = builder.set_endpoint_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
+                "CreatedTimestamp" => {
+                    builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
                 },
                 "EndpointId" => {
                     builder = builder.set_endpoint_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "EndpointName" => {
+                    builder = builder.set_endpoint_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "LastUpdatedTimestamp" => {
+                    builder = builder.set_last_updated_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
                 },
                 "Routes" => {
                     builder = builder.set_routes(super::super::protocol_serde::shape_routes::de_routes(tokens, _value, depth + 1)?);
@@ -121122,12 +121128,6 @@ pub(crate) fn de_get_multi_region_endpoint(
                     builder = builder.set_status(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::Status::from(u.as_ref())))
                             .transpose()?);
-                },
-                "CreatedTimestamp" => {
-                    builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
-                },
-                "LastUpdatedTimestamp" => {
-                    builder = builder.set_last_updated_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -122501,13 +122501,13 @@ pub(crate) fn de_list_email_templates(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "TemplatesMetadata" => {
-                    builder = builder.set_templates_metadata(super::super::protocol_serde::shape_email_template_metadata_list::de_email_template_metadata_list(tokens, _value, depth + 1)?);
-                },
                 "NextToken" => {
                     builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "TemplatesMetadata" => {
+                    builder = builder.set_templates_metadata(super::super::protocol_serde::shape_email_template_metadata_list::de_email_template_metadata_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -122976,13 +122976,13 @@ pub(crate) fn de_list_recommendations(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "Recommendations" => {
-                    builder = builder.set_recommendations(super::super::protocol_serde::shape_recommendations_list::de_recommendations_list(tokens, _value, depth + 1)?);
-                },
                 "NextToken" => {
                     builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "Recommendations" => {
+                    builder = builder.set_recommendations(super::super::protocol_serde::shape_recommendations_list::de_recommendations_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -123094,13 +123094,13 @@ pub(crate) fn de_list_reputation_entities(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "ReputationEntities" => {
-                    builder = builder.set_reputation_entities(super::super::protocol_serde::shape_reputation_entities_list::de_reputation_entities_list(tokens, _value, depth + 1)?);
-                },
                 "NextToken" => {
                     builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "ReputationEntities" => {
+                    builder = builder.set_reputation_entities(super::super::protocol_serde::shape_reputation_entities_list::de_reputation_entities_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -123226,13 +123226,13 @@ pub(crate) fn de_list_resource_tenants(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "ResourceTenants" => {
-                    builder = builder.set_resource_tenants(super::super::protocol_serde::shape_resource_tenant_metadata_list::de_resource_tenant_metadata_list(tokens, _value, depth + 1)?);
-                },
                 "NextToken" => {
                     builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "ResourceTenants" => {
+                    builder = builder.set_resource_tenants(super::super::protocol_serde::shape_resource_tenant_metadata_list::de_resource_tenant_metadata_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -123361,13 +123361,13 @@ pub(crate) fn de_list_suppressed_destinations(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "SuppressedDestinationSummaries" => {
-                    builder = builder.set_suppressed_destination_summaries(super::super::protocol_serde::shape_suppressed_destination_summaries::de_suppressed_destination_summaries(tokens, _value, depth + 1)?);
-                },
                 "NextToken" => {
                     builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "SuppressedDestinationSummaries" => {
+                    builder = builder.set_suppressed_destination_summaries(super::super::protocol_serde::shape_suppressed_destination_summaries::de_suppressed_destination_summaries(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -123611,13 +123611,13 @@ pub(crate) fn de_list_tenant_resources(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "TenantResources" => {
-                    builder = builder.set_tenant_resources(super::super::protocol_serde::shape_tenant_resource_list::de_tenant_resource_list(tokens, _value, depth + 1)?);
-                },
                 "NextToken" => {
                     builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "TenantResources" => {
+                    builder = builder.set_tenant_resources(super::super::protocol_serde::shape_tenant_resource_list::de_tenant_resource_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -123729,13 +123729,13 @@ pub(crate) fn de_list_tenants(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "Tenants" => {
-                    builder = builder.set_tenants(super::super::protocol_serde::shape_tenant_info_list::de_tenant_info_list(tokens, _value, depth + 1)?);
-                },
                 "NextToken" => {
                     builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "Tenants" => {
+                    builder = builder.set_tenants(super::super::protocol_serde::shape_tenant_info_list::de_tenant_info_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -127867,14 +127867,14 @@ pub fn ser_create_configuration_set_event_destination_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.event_destination_name {
-    object.key("EventDestinationName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.event_destination {
+if let Some(var_1) = &input.event_destination {
     #[allow(unused_mut)]
-    let mut object_3 = object.key("EventDestination").start_object();
-    super::super::protocol_serde::shape_event_destination_definition::ser_event_destination_definition(&mut object_3, var_2)?;
-    object_3.finish();
+    let mut object_2 = object.key("EventDestination").start_object();
+    super::super::protocol_serde::shape_event_destination_definition::ser_event_destination_definition(&mut object_2, var_1)?;
+    object_2.finish();
+}
+if let Some(var_3) = &input.event_destination_name {
+    object.key("EventDestinationName").string(var_3.as_str());
 }
     Ok(())
 }
@@ -127886,14 +127886,14 @@ pub fn ser_create_configuration_set_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_configuration_set::CreateConfigurationSetInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.configuration_set_name {
-    object.key("ConfigurationSetName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.tracking_options {
+if let Some(var_1) = &input.archiving_options {
     #[allow(unused_mut)]
-    let mut object_3 = object.key("TrackingOptions").start_object();
-    super::super::protocol_serde::shape_tracking_options::ser_tracking_options(&mut object_3, var_2)?;
-    object_3.finish();
+    let mut object_2 = object.key("ArchivingOptions").start_object();
+    super::super::protocol_serde::shape_archiving_options::ser_archiving_options(&mut object_2, var_1)?;
+    object_2.finish();
+}
+if let Some(var_3) = &input.configuration_set_name {
+    object.key("ConfigurationSetName").string(var_3.as_str());
 }
 if let Some(var_4) = &input.delivery_options {
     #[allow(unused_mut)]
@@ -127913,34 +127913,34 @@ if let Some(var_8) = &input.sending_options {
     super::super::protocol_serde::shape_sending_options::ser_sending_options(&mut object_9, var_8)?;
     object_9.finish();
 }
-if let Some(var_10) = &input.tags {
-    let mut array_11 = object.key("Tags").start_array();
-    for item_12 in var_10 {
+if let Some(var_10) = &input.suppression_options {
+    #[allow(unused_mut)]
+    let mut object_11 = object.key("SuppressionOptions").start_object();
+    super::super::protocol_serde::shape_suppression_options::ser_suppression_options(&mut object_11, var_10)?;
+    object_11.finish();
+}
+if let Some(var_12) = &input.tags {
+    let mut array_13 = object.key("Tags").start_array();
+    for item_14 in var_12 {
         {
             #[allow(unused_mut)]
-            let mut object_13 = array_11.value().start_object();
-            super::super::protocol_serde::shape_tag::ser_tag(&mut object_13, item_12)?;
-            object_13.finish();
+            let mut object_15 = array_13.value().start_object();
+            super::super::protocol_serde::shape_tag::ser_tag(&mut object_15, item_14)?;
+            object_15.finish();
         }
     }
-    array_11.finish();
+    array_13.finish();
 }
-if let Some(var_14) = &input.suppression_options {
+if let Some(var_16) = &input.tracking_options {
     #[allow(unused_mut)]
-    let mut object_15 = object.key("SuppressionOptions").start_object();
-    super::super::protocol_serde::shape_suppression_options::ser_suppression_options(&mut object_15, var_14)?;
-    object_15.finish();
-}
-if let Some(var_16) = &input.vdm_options {
-    #[allow(unused_mut)]
-    let mut object_17 = object.key("VdmOptions").start_object();
-    super::super::protocol_serde::shape_vdm_options::ser_vdm_options(&mut object_17, var_16)?;
+    let mut object_17 = object.key("TrackingOptions").start_object();
+    super::super::protocol_serde::shape_tracking_options::ser_tracking_options(&mut object_17, var_16)?;
     object_17.finish();
 }
-if let Some(var_18) = &input.archiving_options {
+if let Some(var_18) = &input.vdm_options {
     #[allow(unused_mut)]
-    let mut object_19 = object.key("ArchivingOptions").start_object();
-    super::super::protocol_serde::shape_archiving_options::ser_archiving_options(&mut object_19, var_18)?;
+    let mut object_19 = object.key("VdmOptions").start_object();
+    super::super::protocol_serde::shape_vdm_options::ser_vdm_options(&mut object_19, var_18)?;
     object_19.finish();
 }
     Ok(())
@@ -127953,26 +127953,26 @@ pub fn ser_create_contact_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_contact::CreateContactInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.email_address {
-    object.key("EmailAddress").string(var_1.as_str());
+if let Some(var_1) = &input.attributes_data {
+    object.key("AttributesData").string(var_1.as_str());
 }
-if let Some(var_2) = &input.topic_preferences {
-    let mut array_3 = object.key("TopicPreferences").start_array();
-    for item_4 in var_2 {
+if let Some(var_2) = &input.email_address {
+    object.key("EmailAddress").string(var_2.as_str());
+}
+if let Some(var_3) = &input.topic_preferences {
+    let mut array_4 = object.key("TopicPreferences").start_array();
+    for item_5 in var_3 {
         {
             #[allow(unused_mut)]
-            let mut object_5 = array_3.value().start_object();
-            super::super::protocol_serde::shape_topic_preference::ser_topic_preference(&mut object_5, item_4)?;
-            object_5.finish();
+            let mut object_6 = array_4.value().start_object();
+            super::super::protocol_serde::shape_topic_preference::ser_topic_preference(&mut object_6, item_5)?;
+            object_6.finish();
         }
     }
-    array_3.finish();
+    array_4.finish();
 }
-if let Some(var_6) = &input.unsubscribe_all {
-    object.key("UnsubscribeAll").boolean(*var_6);
-}
-if let Some(var_7) = &input.attributes_data {
-    object.key("AttributesData").string(var_7.as_str());
+if let Some(var_7) = &input.unsubscribe_all {
+    object.key("UnsubscribeAll").boolean(*var_7);
 }
     Ok(())
 }
@@ -127987,28 +127987,28 @@ pub fn ser_create_contact_list_input_input(
 if let Some(var_1) = &input.contact_list_name {
     object.key("ContactListName").string(var_1.as_str());
 }
-if let Some(var_2) = &input.topics {
-    let mut array_3 = object.key("Topics").start_array();
-    for item_4 in var_2 {
+if let Some(var_2) = &input.description {
+    object.key("Description").string(var_2.as_str());
+}
+if let Some(var_3) = &input.tags {
+    let mut array_4 = object.key("Tags").start_array();
+    for item_5 in var_3 {
         {
             #[allow(unused_mut)]
-            let mut object_5 = array_3.value().start_object();
-            super::super::protocol_serde::shape_topic::ser_topic(&mut object_5, item_4)?;
-            object_5.finish();
+            let mut object_6 = array_4.value().start_object();
+            super::super::protocol_serde::shape_tag::ser_tag(&mut object_6, item_5)?;
+            object_6.finish();
         }
     }
-    array_3.finish();
+    array_4.finish();
 }
-if let Some(var_6) = &input.description {
-    object.key("Description").string(var_6.as_str());
-}
-if let Some(var_7) = &input.tags {
-    let mut array_8 = object.key("Tags").start_array();
+if let Some(var_7) = &input.topics {
+    let mut array_8 = object.key("Topics").start_array();
     for item_9 in var_7 {
         {
             #[allow(unused_mut)]
             let mut object_10 = array_8.value().start_object();
-            super::super::protocol_serde::shape_tag::ser_tag(&mut object_10, item_9)?;
+            super::super::protocol_serde::shape_topic::ser_topic(&mut object_10, item_9)?;
             object_10.finish();
         }
     }
@@ -128024,35 +128024,35 @@ pub fn ser_create_custom_verification_email_template_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.template_name {
-    object.key("TemplateName").string(var_1.as_str());
+if let Some(var_1) = &input.failure_redirection_url {
+    object.key("FailureRedirectionURL").string(var_1.as_str());
 }
 if let Some(var_2) = &input.from_email_address {
     object.key("FromEmailAddress").string(var_2.as_str());
 }
-if let Some(var_3) = &input.template_subject {
-    object.key("TemplateSubject").string(var_3.as_str());
+if let Some(var_3) = &input.success_redirection_url {
+    object.key("SuccessRedirectionURL").string(var_3.as_str());
 }
-if let Some(var_4) = &input.template_content {
-    object.key("TemplateContent").string(var_4.as_str());
-}
-if let Some(var_5) = &input.tags {
-    let mut array_6 = object.key("Tags").start_array();
-    for item_7 in var_5 {
+if let Some(var_4) = &input.tags {
+    let mut array_5 = object.key("Tags").start_array();
+    for item_6 in var_4 {
         {
             #[allow(unused_mut)]
-            let mut object_8 = array_6.value().start_object();
-            super::super::protocol_serde::shape_tag::ser_tag(&mut object_8, item_7)?;
-            object_8.finish();
+            let mut object_7 = array_5.value().start_object();
+            super::super::protocol_serde::shape_tag::ser_tag(&mut object_7, item_6)?;
+            object_7.finish();
         }
     }
-    array_6.finish();
+    array_5.finish();
 }
-if let Some(var_9) = &input.success_redirection_url {
-    object.key("SuccessRedirectionURL").string(var_9.as_str());
+if let Some(var_8) = &input.template_content {
+    object.key("TemplateContent").string(var_8.as_str());
 }
-if let Some(var_10) = &input.failure_redirection_url {
-    object.key("FailureRedirectionURL").string(var_10.as_str());
+if let Some(var_9) = &input.template_name {
+    object.key("TemplateName").string(var_9.as_str());
+}
+if let Some(var_10) = &input.template_subject {
+    object.key("TemplateSubject").string(var_10.as_str());
 }
     Ok(())
 }
@@ -128067,20 +128067,20 @@ pub fn ser_create_dedicated_ip_pool_input_input(
 if let Some(var_1) = &input.pool_name {
     object.key("PoolName").string(var_1.as_str());
 }
-if let Some(var_2) = &input.tags {
-    let mut array_3 = object.key("Tags").start_array();
-    for item_4 in var_2 {
+if let Some(var_2) = &input.scaling_mode {
+    object.key("ScalingMode").string(var_2.as_str());
+}
+if let Some(var_3) = &input.tags {
+    let mut array_4 = object.key("Tags").start_array();
+    for item_5 in var_3 {
         {
             #[allow(unused_mut)]
-            let mut object_5 = array_3.value().start_object();
-            super::super::protocol_serde::shape_tag::ser_tag(&mut object_5, item_4)?;
-            object_5.finish();
+            let mut object_6 = array_4.value().start_object();
+            super::super::protocol_serde::shape_tag::ser_tag(&mut object_6, item_5)?;
+            object_6.finish();
         }
     }
-    array_3.finish();
-}
-if let Some(var_6) = &input.scaling_mode {
-    object.key("ScalingMode").string(var_6.as_str());
+    array_4.finish();
 }
     Ok(())
 }
@@ -128092,17 +128092,17 @@ pub fn ser_create_deliverability_test_report_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.report_name {
-    object.key("ReportName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.from_email_address {
-    object.key("FromEmailAddress").string(var_2.as_str());
-}
-if let Some(var_3) = &input.content {
+if let Some(var_1) = &input.content {
     #[allow(unused_mut)]
-    let mut object_4 = object.key("Content").start_object();
-    super::super::protocol_serde::shape_email_content::ser_email_content(&mut object_4, var_3)?;
-    object_4.finish();
+    let mut object_2 = object.key("Content").start_object();
+    super::super::protocol_serde::shape_email_content::ser_email_content(&mut object_2, var_1)?;
+    object_2.finish();
+}
+if let Some(var_3) = &input.from_email_address {
+    object.key("FromEmailAddress").string(var_3.as_str());
+}
+if let Some(var_4) = &input.report_name {
+    object.key("ReportName").string(var_4.as_str());
 }
 if let Some(var_5) = &input.tags {
     let mut array_6 = object.key("Tags").start_array();
@@ -128126,29 +128126,29 @@ pub fn ser_create_email_identity_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_email_identity::CreateEmailIdentityInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.email_identity {
-    object.key("EmailIdentity").string(var_1.as_str());
+if let Some(var_1) = &input.configuration_set_name {
+    object.key("ConfigurationSetName").string(var_1.as_str());
 }
-if let Some(var_2) = &input.tags {
-    let mut array_3 = object.key("Tags").start_array();
-    for item_4 in var_2 {
+if let Some(var_2) = &input.dkim_signing_attributes {
+    #[allow(unused_mut)]
+    let mut object_3 = object.key("DkimSigningAttributes").start_object();
+    super::super::protocol_serde::shape_dkim_signing_attributes::ser_dkim_signing_attributes(&mut object_3, var_2)?;
+    object_3.finish();
+}
+if let Some(var_4) = &input.email_identity {
+    object.key("EmailIdentity").string(var_4.as_str());
+}
+if let Some(var_5) = &input.tags {
+    let mut array_6 = object.key("Tags").start_array();
+    for item_7 in var_5 {
         {
             #[allow(unused_mut)]
-            let mut object_5 = array_3.value().start_object();
-            super::super::protocol_serde::shape_tag::ser_tag(&mut object_5, item_4)?;
-            object_5.finish();
+            let mut object_8 = array_6.value().start_object();
+            super::super::protocol_serde::shape_tag::ser_tag(&mut object_8, item_7)?;
+            object_8.finish();
         }
     }
-    array_3.finish();
-}
-if let Some(var_6) = &input.dkim_signing_attributes {
-    #[allow(unused_mut)]
-    let mut object_7 = object.key("DkimSigningAttributes").start_object();
-    super::super::protocol_serde::shape_dkim_signing_attributes::ser_dkim_signing_attributes(&mut object_7, var_6)?;
-    object_7.finish();
-}
-if let Some(var_8) = &input.configuration_set_name {
-    object.key("ConfigurationSetName").string(var_8.as_str());
+    array_6.finish();
 }
     Ok(())
 }
@@ -128173,26 +128173,26 @@ pub fn ser_create_email_template_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_email_template::CreateEmailTemplateInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.template_name {
-    object.key("TemplateName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.template_content {
-    #[allow(unused_mut)]
-    let mut object_3 = object.key("TemplateContent").start_object();
-    super::super::protocol_serde::shape_email_template_content::ser_email_template_content(&mut object_3, var_2)?;
-    object_3.finish();
-}
-if let Some(var_4) = &input.tags {
-    let mut array_5 = object.key("Tags").start_array();
-    for item_6 in var_4 {
+if let Some(var_1) = &input.tags {
+    let mut array_2 = object.key("Tags").start_array();
+    for item_3 in var_1 {
         {
             #[allow(unused_mut)]
-            let mut object_7 = array_5.value().start_object();
-            super::super::protocol_serde::shape_tag::ser_tag(&mut object_7, item_6)?;
-            object_7.finish();
+            let mut object_4 = array_2.value().start_object();
+            super::super::protocol_serde::shape_tag::ser_tag(&mut object_4, item_3)?;
+            object_4.finish();
         }
     }
-    array_5.finish();
+    array_2.finish();
+}
+if let Some(var_5) = &input.template_content {
+    #[allow(unused_mut)]
+    let mut object_6 = object.key("TemplateContent").start_object();
+    super::super::protocol_serde::shape_email_template_content::ser_email_template_content(&mut object_6, var_5)?;
+    object_6.finish();
+}
+if let Some(var_7) = &input.template_name {
+    object.key("TemplateName").string(var_7.as_str());
 }
     Ok(())
 }
@@ -128226,16 +128226,16 @@ pub fn ser_create_import_job_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_import_job::CreateImportJobInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.import_destination {
+if let Some(var_1) = &input.import_data_source {
     #[allow(unused_mut)]
-    let mut object_2 = object.key("ImportDestination").start_object();
-    super::super::protocol_serde::shape_import_destination::ser_import_destination(&mut object_2, var_1)?;
+    let mut object_2 = object.key("ImportDataSource").start_object();
+    super::super::protocol_serde::shape_import_data_source::ser_import_data_source(&mut object_2, var_1)?;
     object_2.finish();
 }
-if let Some(var_3) = &input.import_data_source {
+if let Some(var_3) = &input.import_destination {
     #[allow(unused_mut)]
-    let mut object_4 = object.key("ImportDataSource").start_object();
-    super::super::protocol_serde::shape_import_data_source::ser_import_data_source(&mut object_4, var_3)?;
+    let mut object_4 = object.key("ImportDestination").start_object();
+    super::super::protocol_serde::shape_import_destination::ser_import_destination(&mut object_4, var_3)?;
     object_4.finish();
 }
     Ok(())
@@ -128248,14 +128248,14 @@ pub fn ser_create_multi_region_endpoint_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_multi_region_endpoint::CreateMultiRegionEndpointInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.endpoint_name {
-    object.key("EndpointName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.details {
+if let Some(var_1) = &input.details {
     #[allow(unused_mut)]
-    let mut object_3 = object.key("Details").start_object();
-    super::super::protocol_serde::shape_details::ser_details(&mut object_3, var_2)?;
-    object_3.finish();
+    let mut object_2 = object.key("Details").start_object();
+    super::super::protocol_serde::shape_details::ser_details(&mut object_2, var_1)?;
+    object_2.finish();
+}
+if let Some(var_3) = &input.endpoint_name {
+    object.key("EndpointName").string(var_3.as_str());
 }
 if let Some(var_4) = &input.tags {
     let mut array_5 = object.key("Tags").start_array();
@@ -128279,26 +128279,26 @@ pub fn ser_create_tenant_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_tenant::CreateTenantInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.tenant_name {
-    object.key("TenantName").string(var_1.as_str());
+if let Some(var_1) = &input.suppression_attributes {
+    #[allow(unused_mut)]
+    let mut object_2 = object.key("SuppressionAttributes").start_object();
+    super::super::protocol_serde::shape_tenant_suppression_attributes::ser_tenant_suppression_attributes(&mut object_2, var_1)?;
+    object_2.finish();
 }
-if let Some(var_2) = &input.tags {
-    let mut array_3 = object.key("Tags").start_array();
-    for item_4 in var_2 {
+if let Some(var_3) = &input.tags {
+    let mut array_4 = object.key("Tags").start_array();
+    for item_5 in var_3 {
         {
             #[allow(unused_mut)]
-            let mut object_5 = array_3.value().start_object();
-            super::super::protocol_serde::shape_tag::ser_tag(&mut object_5, item_4)?;
-            object_5.finish();
+            let mut object_6 = array_4.value().start_object();
+            super::super::protocol_serde::shape_tag::ser_tag(&mut object_6, item_5)?;
+            object_6.finish();
         }
     }
-    array_3.finish();
+    array_4.finish();
 }
-if let Some(var_6) = &input.suppression_attributes {
-    #[allow(unused_mut)]
-    let mut object_7 = object.key("SuppressionAttributes").start_object();
-    super::super::protocol_serde::shape_tenant_suppression_attributes::ser_tenant_suppression_attributes(&mut object_7, var_6)?;
-    object_7.finish();
+if let Some(var_7) = &input.tenant_name {
+    object.key("TenantName").string(var_7.as_str());
 }
     Ok(())
 }
@@ -128310,11 +128310,11 @@ pub fn ser_create_tenant_resource_association_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociationInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.tenant_name {
-    object.key("TenantName").string(var_1.as_str());
+if let Some(var_1) = &input.resource_arn {
+    object.key("ResourceArn").string(var_1.as_str());
 }
-if let Some(var_2) = &input.resource_arn {
-    object.key("ResourceArn").string(var_2.as_str());
+if let Some(var_2) = &input.tenant_name {
+    object.key("TenantName").string(var_2.as_str());
 }
     Ok(())
 }
@@ -128339,11 +128339,11 @@ pub fn ser_delete_tenant_resource_association_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.tenant_name {
-    object.key("TenantName").string(var_1.as_str());
+if let Some(var_1) = &input.resource_arn {
+    object.key("ResourceArn").string(var_1.as_str());
 }
-if let Some(var_2) = &input.resource_arn {
-    object.key("ResourceArn").string(var_2.as_str());
+if let Some(var_2) = &input.tenant_name {
+    object.key("TenantName").string(var_2.as_str());
 }
     Ok(())
 }
@@ -128501,14 +128501,14 @@ if let Some(var_1) = &input.filter {
     super::super::protocol_serde::shape_list_contacts_filter::ser_list_contacts_filter(&mut object_2, var_1)?;
     object_2.finish();
 }
-if let Some(var_3) = &input.page_size {
+if let Some(var_3) = &input.next_token {
+    object.key("NextToken").string(var_3.as_str());
+}
+if let Some(var_4) = &input.page_size {
     object.key("PageSize").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_3).into()),
+        ::aws_smithy_types::Number::NegInt((*var_4).into()),
     );
-}
-if let Some(var_4) = &input.next_token {
-    object.key("NextToken").string(var_4.as_str());
 }
     Ok(())
 }
@@ -128520,20 +128520,20 @@ pub fn ser_list_export_jobs_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::list_export_jobs::ListExportJobsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.next_token {
-    object.key("NextToken").string(var_1.as_str());
+if let Some(var_1) = &input.export_source_type {
+    object.key("ExportSourceType").string(var_1.as_str());
 }
-if let Some(var_2) = &input.page_size {
+if let Some(var_2) = &input.job_status {
+    object.key("JobStatus").string(var_2.as_str());
+}
+if let Some(var_3) = &input.next_token {
+    object.key("NextToken").string(var_3.as_str());
+}
+if let Some(var_4) = &input.page_size {
     object.key("PageSize").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
+        ::aws_smithy_types::Number::NegInt((*var_4).into()),
     );
-}
-if let Some(var_3) = &input.export_source_type {
-    object.key("ExportSourceType").string(var_3.as_str());
-}
-if let Some(var_4) = &input.job_status {
-    object.key("JobStatus").string(var_4.as_str());
 }
     Ok(())
 }
@@ -128625,8 +128625,8 @@ pub fn ser_list_resource_tenants_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::list_resource_tenants::ListResourceTenantsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.resource_arn {
-    object.key("ResourceArn").string(var_1.as_str());
+if let Some(var_1) = &input.next_token {
+    object.key("NextToken").string(var_1.as_str());
 }
 if let Some(var_2) = &input.page_size {
     object.key("PageSize").number(
@@ -128634,8 +128634,8 @@ if let Some(var_2) = &input.page_size {
         ::aws_smithy_types::Number::NegInt((*var_2).into()),
     );
 }
-if let Some(var_3) = &input.next_token {
-    object.key("NextToken").string(var_3.as_str());
+if let Some(var_3) = &input.resource_arn {
+    object.key("ResourceArn").string(var_3.as_str());
 }
     Ok(())
 }
@@ -128647,18 +128647,18 @@ pub fn ser_list_tenant_resources_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::list_tenant_resources::ListTenantResourcesInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.tenant_name {
-    object.key("TenantName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.filter {
+if let Some(var_1) = &input.filter {
     #[allow(unused_mut)]
-    let mut object_3 = object.key("Filter").start_object();
-    for (key_4, value_5) in var_2 {
+    let mut object_2 = object.key("Filter").start_object();
+    for (key_3, value_4) in var_1 {
         {
-            object_3.key(key_4.as_str()).string(value_5.as_str());
+            object_2.key(key_3.as_str()).string(value_4.as_str());
         }
     }
-    object_3.finish();
+    object_2.finish();
+}
+if let Some(var_5) = &input.next_token {
+    object.key("NextToken").string(var_5.as_str());
 }
 if let Some(var_6) = &input.page_size {
     object.key("PageSize").number(
@@ -128666,8 +128666,8 @@ if let Some(var_6) = &input.page_size {
         ::aws_smithy_types::Number::NegInt((*var_6).into()),
     );
 }
-if let Some(var_7) = &input.next_token {
-    object.key("NextToken").string(var_7.as_str());
+if let Some(var_7) = &input.tenant_name {
+    object.key("TenantName").string(var_7.as_str());
 }
     Ok(())
 }
@@ -128825,29 +128825,29 @@ pub fn ser_put_account_details_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_account_details::PutAccountDetailsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.mail_type {
-    object.key("MailType").string(var_1.as_str());
-}
-if let Some(var_2) = &input.website_url {
-    object.key("WebsiteURL").string(var_2.as_str());
-}
-if let Some(var_3) = &input.contact_language {
-    object.key("ContactLanguage").string(var_3.as_str());
-}
-if let Some(var_4) = &input.use_case_description {
-    object.key("UseCaseDescription").string(var_4.as_str());
-}
-if let Some(var_5) = &input.additional_contact_email_addresses {
-    let mut array_6 = object.key("AdditionalContactEmailAddresses").start_array();
-    for item_7 in var_5 {
+if let Some(var_1) = &input.additional_contact_email_addresses {
+    let mut array_2 = object.key("AdditionalContactEmailAddresses").start_array();
+    for item_3 in var_1 {
         {
-            array_6.value().string(item_7.as_str());
+            array_2.value().string(item_3.as_str());
         }
     }
-    array_6.finish();
+    array_2.finish();
 }
-if let Some(var_8) = &input.production_access_enabled {
-    object.key("ProductionAccessEnabled").boolean(*var_8);
+if let Some(var_4) = &input.contact_language {
+    object.key("ContactLanguage").string(var_4.as_str());
+}
+if let Some(var_5) = &input.mail_type {
+    object.key("MailType").string(var_5.as_str());
+}
+if let Some(var_6) = &input.production_access_enabled {
+    object.key("ProductionAccessEnabled").boolean(*var_6);
+}
+if let Some(var_7) = &input.use_case_description {
+    object.key("UseCaseDescription").string(var_7.as_str());
+}
+if let Some(var_8) = &input.website_url {
+    object.key("WebsiteURL").string(var_8.as_str());
 }
     Ok(())
 }
@@ -128939,17 +128939,17 @@ pub fn ser_put_configuration_set_delivery_options_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.tls_policy {
-    object.key("TlsPolicy").string(var_1.as_str());
+if let Some(var_1) = &input.max_delivery_seconds {
+    object.key("MaxDeliverySeconds").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_1).into()),
+    );
 }
 if let Some(var_2) = &input.sending_pool_name {
     object.key("SendingPoolName").string(var_2.as_str());
 }
-if let Some(var_3) = &input.max_delivery_seconds {
-    object.key("MaxDeliverySeconds").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_3).into()),
-    );
+if let Some(var_3) = &input.tls_policy {
+    object.key("TlsPolicy").string(var_3.as_str());
 }
     Ok(())
 }
@@ -128987,17 +128987,17 @@ pub fn ser_put_configuration_set_suppression_options_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.suppression_scope {
-    object.key("SuppressionScope").string(var_1.as_str());
-}
-if let Some(var_2) = &input.suppressed_reasons {
-    let mut array_3 = object.key("SuppressedReasons").start_array();
-    for item_4 in var_2 {
+if let Some(var_1) = &input.suppressed_reasons {
+    let mut array_2 = object.key("SuppressedReasons").start_array();
+    for item_3 in var_1 {
         {
-            array_3.value().string(item_4.as_str());
+            array_2.value().string(item_3.as_str());
         }
     }
-    array_3.finish();
+    array_2.finish();
+}
+if let Some(var_4) = &input.suppression_scope {
+    object.key("SuppressionScope").string(var_4.as_str());
 }
 if let Some(var_5) = &input.validation_options {
     #[allow(unused_mut)]
@@ -129140,14 +129140,14 @@ pub fn ser_put_email_identity_dkim_signing_attributes_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.signing_attributes_origin {
-    object.key("SigningAttributesOrigin").string(var_1.as_str());
-}
-if let Some(var_2) = &input.signing_attributes {
+if let Some(var_1) = &input.signing_attributes {
     #[allow(unused_mut)]
-    let mut object_3 = object.key("SigningAttributes").start_object();
-    super::super::protocol_serde::shape_dkim_signing_attributes::ser_dkim_signing_attributes(&mut object_3, var_2)?;
-    object_3.finish();
+    let mut object_2 = object.key("SigningAttributes").start_object();
+    super::super::protocol_serde::shape_dkim_signing_attributes::ser_dkim_signing_attributes(&mut object_2, var_1)?;
+    object_2.finish();
+}
+if let Some(var_3) = &input.signing_attributes_origin {
+    object.key("SigningAttributesOrigin").string(var_3.as_str());
 }
     Ok(())
 }
@@ -129172,11 +129172,11 @@ pub fn ser_put_email_identity_mail_from_attributes_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.mail_from_domain {
-    object.key("MailFromDomain").string(var_1.as_str());
+if let Some(var_1) = &input.behavior_on_mx_failure {
+    object.key("BehaviorOnMxFailure").string(var_1.as_str());
 }
-if let Some(var_2) = &input.behavior_on_mx_failure {
-    object.key("BehaviorOnMxFailure").string(var_2.as_str());
+if let Some(var_2) = &input.mail_from_domain {
+    object.key("MailFromDomain").string(var_2.as_str());
 }
     Ok(())
 }
@@ -129207,20 +129207,20 @@ pub fn ser_put_tenant_suppression_attributes_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.tenant_name {
-    object.key("TenantName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.suppressed_reasons {
-    let mut array_3 = object.key("SuppressedReasons").start_array();
-    for item_4 in var_2 {
+if let Some(var_1) = &input.suppressed_reasons {
+    let mut array_2 = object.key("SuppressedReasons").start_array();
+    for item_3 in var_1 {
         {
-            array_3.value().string(item_4.as_str());
+            array_2.value().string(item_3.as_str());
         }
     }
-    array_3.finish();
+    array_2.finish();
 }
-if let Some(var_5) = &input.suppression_scope {
-    object.key("SuppressionScope").string(var_5.as_str());
+if let Some(var_4) = &input.suppression_scope {
+    object.key("SuppressionScope").string(var_4.as_str());
+}
+if let Some(var_5) = &input.tenant_name {
+    object.key("TenantName").string(var_5.as_str());
 }
     Ok(())
 }
@@ -129232,71 +129232,71 @@ pub fn ser_send_bulk_email_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::send_bulk_email::SendBulkEmailInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.from_email_address {
-    object.key("FromEmailAddress").string(var_1.as_str());
-}
-if let Some(var_2) = &input.from_email_address_identity_arn {
-    object.key("FromEmailAddressIdentityArn").string(var_2.as_str());
-}
-if let Some(var_3) = &input.reply_to_addresses {
-    let mut array_4 = object.key("ReplyToAddresses").start_array();
-    for item_5 in var_3 {
-        {
-            array_4.value().string(item_5.as_str());
-        }
-    }
-    array_4.finish();
-}
-if let Some(var_6) = &input.feedback_forwarding_email_address {
-    object.key("FeedbackForwardingEmailAddress").string(var_6.as_str());
-}
-if let Some(var_7) = &input.feedback_forwarding_email_address_identity_arn {
-    object.key("FeedbackForwardingEmailAddressIdentityArn").string(var_7.as_str());
-}
-if let Some(var_8) = &input.default_email_tags {
-    let mut array_9 = object.key("DefaultEmailTags").start_array();
-    for item_10 in var_8 {
+if let Some(var_1) = &input.bulk_email_entries {
+    let mut array_2 = object.key("BulkEmailEntries").start_array();
+    for item_3 in var_1 {
         {
             #[allow(unused_mut)]
-            let mut object_11 = array_9.value().start_object();
-            super::super::protocol_serde::shape_message_tag::ser_message_tag(&mut object_11, item_10)?;
-            object_11.finish();
+            let mut object_4 = array_2.value().start_object();
+            super::super::protocol_serde::shape_bulk_email_entry::ser_bulk_email_entry(&mut object_4, item_3)?;
+            object_4.finish();
         }
     }
-    array_9.finish();
+    array_2.finish();
 }
-if let Some(var_12) = &input.default_content {
+if let Some(var_5) = &input.configuration_overrides {
     #[allow(unused_mut)]
-    let mut object_13 = object.key("DefaultContent").start_object();
-    super::super::protocol_serde::shape_bulk_email_content::ser_bulk_email_content(&mut object_13, var_12)?;
-    object_13.finish();
+    let mut object_6 = object.key("ConfigurationOverrides").start_object();
+    super::super::protocol_serde::shape_configuration_overrides::ser_configuration_overrides(&mut object_6, var_5)?;
+    object_6.finish();
 }
-if let Some(var_14) = &input.bulk_email_entries {
-    let mut array_15 = object.key("BulkEmailEntries").start_array();
-    for item_16 in var_14 {
+if let Some(var_7) = &input.configuration_set_name {
+    object.key("ConfigurationSetName").string(var_7.as_str());
+}
+if let Some(var_8) = &input.default_content {
+    #[allow(unused_mut)]
+    let mut object_9 = object.key("DefaultContent").start_object();
+    super::super::protocol_serde::shape_bulk_email_content::ser_bulk_email_content(&mut object_9, var_8)?;
+    object_9.finish();
+}
+if let Some(var_10) = &input.default_email_tags {
+    let mut array_11 = object.key("DefaultEmailTags").start_array();
+    for item_12 in var_10 {
         {
             #[allow(unused_mut)]
-            let mut object_17 = array_15.value().start_object();
-            super::super::protocol_serde::shape_bulk_email_entry::ser_bulk_email_entry(&mut object_17, item_16)?;
-            object_17.finish();
+            let mut object_13 = array_11.value().start_object();
+            super::super::protocol_serde::shape_message_tag::ser_message_tag(&mut object_13, item_12)?;
+            object_13.finish();
         }
     }
-    array_15.finish();
+    array_11.finish();
 }
-if let Some(var_18) = &input.configuration_set_name {
-    object.key("ConfigurationSetName").string(var_18.as_str());
+if let Some(var_14) = &input.endpoint_id {
+    object.key("EndpointId").string(var_14.as_str());
 }
-if let Some(var_19) = &input.endpoint_id {
-    object.key("EndpointId").string(var_19.as_str());
+if let Some(var_15) = &input.feedback_forwarding_email_address {
+    object.key("FeedbackForwardingEmailAddress").string(var_15.as_str());
 }
-if let Some(var_20) = &input.tenant_name {
-    object.key("TenantName").string(var_20.as_str());
+if let Some(var_16) = &input.feedback_forwarding_email_address_identity_arn {
+    object.key("FeedbackForwardingEmailAddressIdentityArn").string(var_16.as_str());
 }
-if let Some(var_21) = &input.configuration_overrides {
-    #[allow(unused_mut)]
-    let mut object_22 = object.key("ConfigurationOverrides").start_object();
-    super::super::protocol_serde::shape_configuration_overrides::ser_configuration_overrides(&mut object_22, var_21)?;
-    object_22.finish();
+if let Some(var_17) = &input.from_email_address {
+    object.key("FromEmailAddress").string(var_17.as_str());
+}
+if let Some(var_18) = &input.from_email_address_identity_arn {
+    object.key("FromEmailAddressIdentityArn").string(var_18.as_str());
+}
+if let Some(var_19) = &input.reply_to_addresses {
+    let mut array_20 = object.key("ReplyToAddresses").start_array();
+    for item_21 in var_19 {
+        {
+            array_20.value().string(item_21.as_str());
+        }
+    }
+    array_20.finish();
+}
+if let Some(var_22) = &input.tenant_name {
+    object.key("TenantName").string(var_22.as_str());
 }
     Ok(())
 }
@@ -129308,14 +129308,14 @@ pub fn ser_send_custom_verification_email_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::send_custom_verification_email::SendCustomVerificationEmailInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.email_address {
-    object.key("EmailAddress").string(var_1.as_str());
+if let Some(var_1) = &input.configuration_set_name {
+    object.key("ConfigurationSetName").string(var_1.as_str());
 }
-if let Some(var_2) = &input.template_name {
-    object.key("TemplateName").string(var_2.as_str());
+if let Some(var_2) = &input.email_address {
+    object.key("EmailAddress").string(var_2.as_str());
 }
-if let Some(var_3) = &input.configuration_set_name {
-    object.key("ConfigurationSetName").string(var_3.as_str());
+if let Some(var_3) = &input.template_name {
+    object.key("TemplateName").string(var_3.as_str());
 }
     Ok(())
 }
@@ -129327,71 +129327,71 @@ pub fn ser_send_email_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::send_email::SendEmailInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.from_email_address {
-    object.key("FromEmailAddress").string(var_1.as_str());
-}
-if let Some(var_2) = &input.from_email_address_identity_arn {
-    object.key("FromEmailAddressIdentityArn").string(var_2.as_str());
-}
-if let Some(var_3) = &input.destination {
+if let Some(var_1) = &input.configuration_overrides {
     #[allow(unused_mut)]
-    let mut object_4 = object.key("Destination").start_object();
-    super::super::protocol_serde::shape_destination::ser_destination(&mut object_4, var_3)?;
-    object_4.finish();
+    let mut object_2 = object.key("ConfigurationOverrides").start_object();
+    super::super::protocol_serde::shape_configuration_overrides::ser_configuration_overrides(&mut object_2, var_1)?;
+    object_2.finish();
 }
-if let Some(var_5) = &input.reply_to_addresses {
-    let mut array_6 = object.key("ReplyToAddresses").start_array();
-    for item_7 in var_5 {
-        {
-            array_6.value().string(item_7.as_str());
-        }
-    }
-    array_6.finish();
+if let Some(var_3) = &input.configuration_set_name {
+    object.key("ConfigurationSetName").string(var_3.as_str());
 }
-if let Some(var_8) = &input.feedback_forwarding_email_address {
-    object.key("FeedbackForwardingEmailAddress").string(var_8.as_str());
-}
-if let Some(var_9) = &input.feedback_forwarding_email_address_identity_arn {
-    object.key("FeedbackForwardingEmailAddressIdentityArn").string(var_9.as_str());
-}
-if let Some(var_10) = &input.content {
+if let Some(var_4) = &input.content {
     #[allow(unused_mut)]
-    let mut object_11 = object.key("Content").start_object();
-    super::super::protocol_serde::shape_email_content::ser_email_content(&mut object_11, var_10)?;
-    object_11.finish();
+    let mut object_5 = object.key("Content").start_object();
+    super::super::protocol_serde::shape_email_content::ser_email_content(&mut object_5, var_4)?;
+    object_5.finish();
 }
-if let Some(var_12) = &input.email_tags {
-    let mut array_13 = object.key("EmailTags").start_array();
-    for item_14 in var_12 {
+if let Some(var_6) = &input.destination {
+    #[allow(unused_mut)]
+    let mut object_7 = object.key("Destination").start_object();
+    super::super::protocol_serde::shape_destination::ser_destination(&mut object_7, var_6)?;
+    object_7.finish();
+}
+if let Some(var_8) = &input.email_tags {
+    let mut array_9 = object.key("EmailTags").start_array();
+    for item_10 in var_8 {
         {
             #[allow(unused_mut)]
-            let mut object_15 = array_13.value().start_object();
-            super::super::protocol_serde::shape_message_tag::ser_message_tag(&mut object_15, item_14)?;
-            object_15.finish();
+            let mut object_11 = array_9.value().start_object();
+            super::super::protocol_serde::shape_message_tag::ser_message_tag(&mut object_11, item_10)?;
+            object_11.finish();
         }
     }
-    array_13.finish();
+    array_9.finish();
 }
-if let Some(var_16) = &input.configuration_set_name {
-    object.key("ConfigurationSetName").string(var_16.as_str());
+if let Some(var_12) = &input.endpoint_id {
+    object.key("EndpointId").string(var_12.as_str());
 }
-if let Some(var_17) = &input.endpoint_id {
-    object.key("EndpointId").string(var_17.as_str());
+if let Some(var_13) = &input.feedback_forwarding_email_address {
+    object.key("FeedbackForwardingEmailAddress").string(var_13.as_str());
 }
-if let Some(var_18) = &input.tenant_name {
-    object.key("TenantName").string(var_18.as_str());
+if let Some(var_14) = &input.feedback_forwarding_email_address_identity_arn {
+    object.key("FeedbackForwardingEmailAddressIdentityArn").string(var_14.as_str());
 }
-if let Some(var_19) = &input.list_management_options {
+if let Some(var_15) = &input.from_email_address {
+    object.key("FromEmailAddress").string(var_15.as_str());
+}
+if let Some(var_16) = &input.from_email_address_identity_arn {
+    object.key("FromEmailAddressIdentityArn").string(var_16.as_str());
+}
+if let Some(var_17) = &input.list_management_options {
     #[allow(unused_mut)]
-    let mut object_20 = object.key("ListManagementOptions").start_object();
-    super::super::protocol_serde::shape_list_management_options::ser_list_management_options(&mut object_20, var_19)?;
-    object_20.finish();
+    let mut object_18 = object.key("ListManagementOptions").start_object();
+    super::super::protocol_serde::shape_list_management_options::ser_list_management_options(&mut object_18, var_17)?;
+    object_18.finish();
 }
-if let Some(var_21) = &input.configuration_overrides {
-    #[allow(unused_mut)]
-    let mut object_22 = object.key("ConfigurationOverrides").start_object();
-    super::super::protocol_serde::shape_configuration_overrides::ser_configuration_overrides(&mut object_22, var_21)?;
-    object_22.finish();
+if let Some(var_19) = &input.reply_to_addresses {
+    let mut array_20 = object.key("ReplyToAddresses").start_array();
+    for item_21 in var_19 {
+        {
+            array_20.value().string(item_21.as_str());
+        }
+    }
+    array_20.finish();
+}
+if let Some(var_22) = &input.tenant_name {
+    object.key("TenantName").string(var_22.as_str());
 }
     Ok(())
 }
@@ -129533,23 +129533,23 @@ pub fn ser_update_contact_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_contact::UpdateContactInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.topic_preferences {
-    let mut array_2 = object.key("TopicPreferences").start_array();
-    for item_3 in var_1 {
+if let Some(var_1) = &input.attributes_data {
+    object.key("AttributesData").string(var_1.as_str());
+}
+if let Some(var_2) = &input.topic_preferences {
+    let mut array_3 = object.key("TopicPreferences").start_array();
+    for item_4 in var_2 {
         {
             #[allow(unused_mut)]
-            let mut object_4 = array_2.value().start_object();
-            super::super::protocol_serde::shape_topic_preference::ser_topic_preference(&mut object_4, item_3)?;
-            object_4.finish();
+            let mut object_5 = array_3.value().start_object();
+            super::super::protocol_serde::shape_topic_preference::ser_topic_preference(&mut object_5, item_4)?;
+            object_5.finish();
         }
     }
-    array_2.finish();
+    array_3.finish();
 }
-if let Some(var_5) = &input.unsubscribe_all {
-    object.key("UnsubscribeAll").boolean(*var_5);
-}
-if let Some(var_6) = &input.attributes_data {
-    object.key("AttributesData").string(var_6.as_str());
+if let Some(var_6) = &input.unsubscribe_all {
+    object.key("UnsubscribeAll").boolean(*var_6);
 }
     Ok(())
 }
@@ -129561,20 +129561,20 @@ pub fn ser_update_contact_list_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_contact_list::UpdateContactListInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.topics {
-    let mut array_2 = object.key("Topics").start_array();
-    for item_3 in var_1 {
+if let Some(var_1) = &input.description {
+    object.key("Description").string(var_1.as_str());
+}
+if let Some(var_2) = &input.topics {
+    let mut array_3 = object.key("Topics").start_array();
+    for item_4 in var_2 {
         {
             #[allow(unused_mut)]
-            let mut object_4 = array_2.value().start_object();
-            super::super::protocol_serde::shape_topic::ser_topic(&mut object_4, item_3)?;
-            object_4.finish();
+            let mut object_5 = array_3.value().start_object();
+            super::super::protocol_serde::shape_topic::ser_topic(&mut object_5, item_4)?;
+            object_5.finish();
         }
     }
-    array_2.finish();
-}
-if let Some(var_5) = &input.description {
-    object.key("Description").string(var_5.as_str());
+    array_3.finish();
 }
     Ok(())
 }
@@ -129586,20 +129586,20 @@ pub fn ser_update_custom_verification_email_template_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.from_email_address {
-    object.key("FromEmailAddress").string(var_1.as_str());
+if let Some(var_1) = &input.failure_redirection_url {
+    object.key("FailureRedirectionURL").string(var_1.as_str());
 }
-if let Some(var_2) = &input.template_subject {
-    object.key("TemplateSubject").string(var_2.as_str());
+if let Some(var_2) = &input.from_email_address {
+    object.key("FromEmailAddress").string(var_2.as_str());
 }
-if let Some(var_3) = &input.template_content {
-    object.key("TemplateContent").string(var_3.as_str());
+if let Some(var_3) = &input.success_redirection_url {
+    object.key("SuccessRedirectionURL").string(var_3.as_str());
 }
-if let Some(var_4) = &input.success_redirection_url {
-    object.key("SuccessRedirectionURL").string(var_4.as_str());
+if let Some(var_4) = &input.template_content {
+    object.key("TemplateContent").string(var_4.as_str());
 }
-if let Some(var_5) = &input.failure_redirection_url {
-    object.key("FailureRedirectionURL").string(var_5.as_str());
+if let Some(var_5) = &input.template_subject {
+    object.key("TemplateSubject").string(var_5.as_str());
 }
     Ok(())
 }

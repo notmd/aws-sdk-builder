@@ -167,6 +167,9 @@ pub(crate) fn de_publish_package_version(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "asset" => {
+                    builder = builder.set_asset(super::super::protocol_serde::shape_asset_summary::de_asset_summary(tokens, _value, depth + 1)?);
+                }
                 "format" => {
                     builder = builder.set_format(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -188,6 +191,13 @@ pub(crate) fn de_publish_package_version(
                             .transpose()?,
                     );
                 }
+                "status" => {
+                    builder = builder.set_status(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::PackageVersionStatus::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
                 "version" => {
                     builder = builder.set_version(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -201,16 +211,6 @@ pub(crate) fn de_publish_package_version(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
-                }
-                "status" => {
-                    builder = builder.set_status(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::PackageVersionStatus::from(u.as_ref())))
-                            .transpose()?,
-                    );
-                }
-                "asset" => {
-                    builder = builder.set_asset(super::super::protocol_serde::shape_asset_summary::de_asset_summary(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

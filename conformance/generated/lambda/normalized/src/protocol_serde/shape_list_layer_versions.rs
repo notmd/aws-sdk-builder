@@ -125,19 +125,19 @@ pub(crate) fn de_list_layer_versions(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "NextMarker" => {
-                    builder = builder.set_next_marker(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
                 "LayerVersions" => {
                     builder = builder.set_layer_versions(super::super::protocol_serde::shape_layer_versions_list::de_layer_versions_list(
                         tokens,
                         _value,
                         depth + 1,
                     )?);
+                }
+                "NextMarker" => {
+                    builder = builder.set_next_marker(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

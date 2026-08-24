@@ -6,24 +6,24 @@ pub fn ser_create_consumable_resource_input_input(
     if let Some(var_1) = &input.consumable_resource_name {
         object.key("consumableResourceName").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.total_quantity {
-        object.key("totalQuantity").number(
-            #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_2).into()),
-        );
+    if let Some(var_2) = &input.resource_type {
+        object.key("resourceType").string(var_2.as_str());
     }
-    if let Some(var_3) = &input.resource_type {
-        object.key("resourceType").string(var_3.as_str());
-    }
-    if let Some(var_4) = &input.tags {
+    if let Some(var_3) = &input.tags {
         #[allow(unused_mut)]
-        let mut object_5 = object.key("tags").start_object();
-        for (key_6, value_7) in var_4 {
+        let mut object_4 = object.key("tags").start_object();
+        for (key_5, value_6) in var_3 {
             {
-                object_5.key(key_6.as_str()).string(value_7.as_str());
+                object_4.key(key_5.as_str()).string(value_6.as_str());
             }
         }
-        object_5.finish();
+        object_4.finish();
+    }
+    if let Some(var_7) = &input.total_quantity {
+        object.key("totalQuantity").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_7).into()),
+        );
     }
     Ok(())
 }

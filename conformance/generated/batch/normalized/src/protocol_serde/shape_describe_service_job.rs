@@ -160,6 +160,27 @@ pub(crate) fn de_describe_service_job(
                         depth + 1,
                     )?);
                 }
+                "preemptionConfiguration" => {
+                    builder = builder.set_preemption_configuration(
+                        super::super::protocol_serde::shape_service_job_preemption_configuration::de_service_job_preemption_configuration(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
+                }
+                "preemptionSummary" => {
+                    builder = builder.set_preemption_summary(
+                        super::super::protocol_serde::shape_service_job_preemption_summary::de_service_job_preemption_summary(tokens, _value, depth + 1)?,
+                    );
+                }
+                "quotaShareName" => {
+                    builder = builder.set_quota_share_name(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
                 "retryStrategy" => {
                     builder = builder.set_retry_strategy(super::super::protocol_serde::shape_service_job_retry_strategy::de_service_job_retry_strategy(
                         tokens,
@@ -181,17 +202,17 @@ pub(crate) fn de_describe_service_job(
                             .transpose()?,
                     );
                 }
-                "serviceRequestPayload" => {
-                    builder = builder.set_service_request_payload(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
                 "serviceJobType" => {
                     builder = builder.set_service_job_type(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::ServiceJobType::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
+                "serviceRequestPayload" => {
+                    builder = builder.set_service_request_payload(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
                 }
@@ -200,27 +221,6 @@ pub(crate) fn de_describe_service_job(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                    );
-                }
-                "quotaShareName" => {
-                    builder = builder.set_quota_share_name(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "preemptionConfiguration" => {
-                    builder = builder.set_preemption_configuration(
-                        super::super::protocol_serde::shape_service_job_preemption_configuration::de_service_job_preemption_configuration(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
-                    );
-                }
-                "preemptionSummary" => {
-                    builder = builder.set_preemption_summary(
-                        super::super::protocol_serde::shape_service_job_preemption_summary::de_service_job_preemption_summary(tokens, _value, depth + 1)?,
                     );
                 }
                 "startedAt" => {

@@ -36521,9 +36521,6 @@ pub(crate) fn de_apply_guardrail(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "usage" => {
-                    builder = builder.set_usage(super::super::protocol_serde::shape_guardrail_usage::de_guardrail_usage(tokens, _value, depth + 1)?);
-                },
                 "action" => {
                     builder = builder.set_action(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::GuardrailAction::from(u.as_ref())))
@@ -36534,14 +36531,17 @@ pub(crate) fn de_apply_guardrail(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "outputs" => {
-                    builder = builder.set_outputs(super::super::protocol_serde::shape_guardrail_output_content_list::de_guardrail_output_content_list(tokens, _value, depth + 1)?);
-                },
                 "assessments" => {
                     builder = builder.set_assessments(super::super::protocol_serde::shape_guardrail_assessment_list::de_guardrail_assessment_list(tokens, _value, depth + 1)?);
                 },
                 "guardrailCoverage" => {
                     builder = builder.set_guardrail_coverage(super::super::protocol_serde::shape_guardrail_coverage::de_guardrail_coverage(tokens, _value, depth + 1)?);
+                },
+                "outputs" => {
+                    builder = builder.set_outputs(super::super::protocol_serde::shape_guardrail_output_content_list::de_guardrail_output_content_list(tokens, _value, depth + 1)?);
+                },
+                "usage" => {
+                    builder = builder.set_usage(super::super::protocol_serde::shape_guardrail_usage::de_guardrail_usage(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -36753,31 +36753,31 @@ pub(crate) fn de_converse(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "output" => {
-                    builder = builder.set_output(super::super::protocol_serde::shape_converse_output::de_converse_output(tokens, _value, depth + 1)?);
-                },
-                "stopReason" => {
-                    builder = builder.set_stop_reason(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::StopReason::from(u.as_ref())))
-                            .transpose()?);
-                },
-                "usage" => {
-                    builder = builder.set_usage(super::super::protocol_serde::shape_token_usage::de_token_usage(tokens, _value, depth + 1)?);
+                "additionalModelResponseFields" => {
+                    builder = builder.set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
                 },
                 "metrics" => {
                     builder = builder.set_metrics(super::super::protocol_serde::shape_converse_metrics::de_converse_metrics(tokens, _value, depth + 1)?);
                 },
-                "additionalModelResponseFields" => {
-                    builder = builder.set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
-                },
-                "trace" => {
-                    builder = builder.set_trace(super::super::protocol_serde::shape_converse_trace::de_converse_trace(tokens, _value, depth + 1)?);
+                "output" => {
+                    builder = builder.set_output(super::super::protocol_serde::shape_converse_output::de_converse_output(tokens, _value, depth + 1)?);
                 },
                 "performanceConfig" => {
                     builder = builder.set_performance_config(super::super::protocol_serde::shape_performance_configuration::de_performance_configuration(tokens, _value, depth + 1)?);
                 },
                 "serviceTier" => {
                     builder = builder.set_service_tier(super::super::protocol_serde::shape_service_tier::de_service_tier(tokens, _value, depth + 1)?);
+                },
+                "stopReason" => {
+                    builder = builder.set_stop_reason(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::StopReason::from(u.as_ref())))
+                            .transpose()?);
+                },
+                "trace" => {
+                    builder = builder.set_trace(super::super::protocol_serde::shape_converse_trace::de_converse_trace(tokens, _value, depth + 1)?);
+                },
+                "usage" => {
+                    builder = builder.set_usage(super::super::protocol_serde::shape_token_usage::de_token_usage(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -37263,42 +37263,42 @@ pub(crate) fn de_get_async_invoke(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "invocationArn" => {
-                    builder = builder.set_invocation_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "modelArn" => {
-                    builder = builder.set_model_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
                 "clientRequestToken" => {
                     builder = builder.set_client_request_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "status" => {
-                    builder = builder.set_status(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::AsyncInvokeStatus::from(u.as_ref())))
-                            .transpose()?);
+                "endTime" => {
+                    builder = builder.set_end_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::DateTimeWithOffset)?);
                 },
                 "failureMessage" => {
                     builder = builder.set_failure_message(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "submitTime" => {
-                    builder = builder.set_submit_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::DateTimeWithOffset)?);
+                "invocationArn" => {
+                    builder = builder.set_invocation_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "lastModifiedTime" => {
                     builder = builder.set_last_modified_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::DateTimeWithOffset)?);
                 },
-                "endTime" => {
-                    builder = builder.set_end_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::DateTimeWithOffset)?);
+                "modelArn" => {
+                    builder = builder.set_model_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "outputDataConfig" => {
                     builder = builder.set_output_data_config(super::super::protocol_serde::shape_async_invoke_output_data_config::de_async_invoke_output_data_config(tokens, _value, depth + 1)?);
+                },
+                "status" => {
+                    builder = builder.set_status(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::AsyncInvokeStatus::from(u.as_ref())))
+                            .transpose()?);
+                },
+                "submitTime" => {
+                    builder = builder.set_submit_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::DateTimeWithOffset)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -38172,13 +38172,13 @@ pub(crate) fn de_list_async_invokes(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "asyncInvokeSummaries" => {
+                    builder = builder.set_async_invoke_summaries(super::super::protocol_serde::shape_async_invoke_summaries::de_async_invoke_summaries(tokens, _value, depth + 1)?);
+                },
                 "nextToken" => {
                     builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "asyncInvokeSummaries" => {
-                    builder = builder.set_async_invoke_summaries(super::super::protocol_serde::shape_async_invoke_summaries::de_async_invoke_summaries(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -38451,23 +38451,23 @@ pub fn ser_apply_guardrail_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::apply_guardrail::ApplyGuardrailInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.source {
-    object.key("source").string(var_1.as_str());
-}
-if let Some(var_2) = &input.content {
-    let mut array_3 = object.key("content").start_array();
-    for item_4 in var_2 {
+if let Some(var_1) = &input.content {
+    let mut array_2 = object.key("content").start_array();
+    for item_3 in var_1 {
         {
             #[allow(unused_mut)]
-            let mut object_5 = array_3.value().start_object();
-            super::super::protocol_serde::shape_guardrail_content_block::ser_guardrail_content_block(&mut object_5, item_4)?;
-            object_5.finish();
+            let mut object_4 = array_2.value().start_object();
+            super::super::protocol_serde::shape_guardrail_content_block::ser_guardrail_content_block(&mut object_4, item_3)?;
+            object_4.finish();
         }
     }
-    array_3.finish();
+    array_2.finish();
 }
-if let Some(var_6) = &input.output_scope {
-    object.key("outputScope").string(var_6.as_str());
+if let Some(var_5) = &input.output_scope {
+    object.key("outputScope").string(var_5.as_str());
+}
+if let Some(var_6) = &input.source {
+    object.key("source").string(var_6.as_str());
 }
     Ok(())
 }
@@ -38517,99 +38517,99 @@ pub fn ser_converse_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::converse::ConverseInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.messages {
-    let mut array_2 = object.key("messages").start_array();
-    for item_3 in var_1 {
+if let Some(var_1) = &input.additional_model_request_fields {
+    object.key("additionalModelRequestFields").document(var_1);
+}
+if let Some(var_2) = &input.additional_model_response_field_paths {
+    let mut array_3 = object.key("additionalModelResponseFieldPaths").start_array();
+    for item_4 in var_2 {
         {
-            #[allow(unused_mut)]
-            let mut object_4 = array_2.value().start_object();
-            super::super::protocol_serde::shape_message::ser_message(&mut object_4, item_3)?;
-            object_4.finish();
+            array_3.value().string(item_4.as_str());
         }
     }
-    array_2.finish();
+    array_3.finish();
 }
-if let Some(var_5) = &input.system {
-    let mut array_6 = object.key("system").start_array();
-    for item_7 in var_5 {
+if let Some(var_5) = &input.guardrail_config {
+    #[allow(unused_mut)]
+    let mut object_6 = object.key("guardrailConfig").start_object();
+    super::super::protocol_serde::shape_guardrail_configuration::ser_guardrail_configuration(&mut object_6, var_5)?;
+    object_6.finish();
+}
+if let Some(var_7) = &input.inference_config {
+    #[allow(unused_mut)]
+    let mut object_8 = object.key("inferenceConfig").start_object();
+    super::super::protocol_serde::shape_inference_configuration::ser_inference_configuration(&mut object_8, var_7)?;
+    object_8.finish();
+}
+if let Some(var_9) = &input.messages {
+    let mut array_10 = object.key("messages").start_array();
+    for item_11 in var_9 {
         {
             #[allow(unused_mut)]
-            let mut object_8 = array_6.value().start_object();
-            super::super::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_8, item_7)?;
-            object_8.finish();
+            let mut object_12 = array_10.value().start_object();
+            super::super::protocol_serde::shape_message::ser_message(&mut object_12, item_11)?;
+            object_12.finish();
         }
     }
-    array_6.finish();
+    array_10.finish();
 }
-if let Some(var_9) = &input.inference_config {
+if let Some(var_13) = &input.output_config {
     #[allow(unused_mut)]
-    let mut object_10 = object.key("inferenceConfig").start_object();
-    super::super::protocol_serde::shape_inference_configuration::ser_inference_configuration(&mut object_10, var_9)?;
-    object_10.finish();
-}
-if let Some(var_11) = &input.tool_config {
-    #[allow(unused_mut)]
-    let mut object_12 = object.key("toolConfig").start_object();
-    super::super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_12, var_11)?;
-    object_12.finish();
-}
-if let Some(var_13) = &input.guardrail_config {
-    #[allow(unused_mut)]
-    let mut object_14 = object.key("guardrailConfig").start_object();
-    super::super::protocol_serde::shape_guardrail_configuration::ser_guardrail_configuration(&mut object_14, var_13)?;
+    let mut object_14 = object.key("outputConfig").start_object();
+    super::super::protocol_serde::shape_output_config::ser_output_config(&mut object_14, var_13)?;
     object_14.finish();
 }
-if let Some(var_15) = &input.additional_model_request_fields {
-    object.key("additionalModelRequestFields").document(var_15);
-}
-if let Some(var_16) = &input.prompt_variables {
+if let Some(var_15) = &input.performance_config {
     #[allow(unused_mut)]
-    let mut object_17 = object.key("promptVariables").start_object();
-    for (key_18, value_19) in var_16 {
+    let mut object_16 = object.key("performanceConfig").start_object();
+    super::super::protocol_serde::shape_performance_configuration::ser_performance_configuration(&mut object_16, var_15)?;
+    object_16.finish();
+}
+if let Some(var_17) = &input.prompt_variables {
+    #[allow(unused_mut)]
+    let mut object_18 = object.key("promptVariables").start_object();
+    for (key_19, value_20) in var_17 {
         {
             #[allow(unused_mut)]
-            let mut object_20 = object_17.key(key_18.as_str()).start_object();
-            super::super::protocol_serde::shape_prompt_variable_values::ser_prompt_variable_values(&mut object_20, value_19)?;
-            object_20.finish();
+            let mut object_21 = object_18.key(key_19.as_str()).start_object();
+            super::super::protocol_serde::shape_prompt_variable_values::ser_prompt_variable_values(&mut object_21, value_20)?;
+            object_21.finish();
         }
     }
-    object_17.finish();
+    object_18.finish();
 }
-if let Some(var_21) = &input.additional_model_response_field_paths {
-    let mut array_22 = object.key("additionalModelResponseFieldPaths").start_array();
-    for item_23 in var_21 {
+if let Some(var_22) = &input.request_metadata {
+    #[allow(unused_mut)]
+    let mut object_23 = object.key("requestMetadata").start_object();
+    for (key_24, value_25) in var_22 {
         {
-            array_22.value().string(item_23.as_str());
+            object_23.key(key_24.as_str()).string(value_25.as_str());
         }
     }
-    array_22.finish();
+    object_23.finish();
 }
-if let Some(var_24) = &input.request_metadata {
+if let Some(var_26) = &input.service_tier {
     #[allow(unused_mut)]
-    let mut object_25 = object.key("requestMetadata").start_object();
-    for (key_26, value_27) in var_24 {
+    let mut object_27 = object.key("serviceTier").start_object();
+    super::super::protocol_serde::shape_service_tier::ser_service_tier(&mut object_27, var_26)?;
+    object_27.finish();
+}
+if let Some(var_28) = &input.system {
+    let mut array_29 = object.key("system").start_array();
+    for item_30 in var_28 {
         {
-            object_25.key(key_26.as_str()).string(value_27.as_str());
+            #[allow(unused_mut)]
+            let mut object_31 = array_29.value().start_object();
+            super::super::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_31, item_30)?;
+            object_31.finish();
         }
     }
-    object_25.finish();
+    array_29.finish();
 }
-if let Some(var_28) = &input.performance_config {
+if let Some(var_32) = &input.tool_config {
     #[allow(unused_mut)]
-    let mut object_29 = object.key("performanceConfig").start_object();
-    super::super::protocol_serde::shape_performance_configuration::ser_performance_configuration(&mut object_29, var_28)?;
-    object_29.finish();
-}
-if let Some(var_30) = &input.service_tier {
-    #[allow(unused_mut)]
-    let mut object_31 = object.key("serviceTier").start_object();
-    super::super::protocol_serde::shape_service_tier::ser_service_tier(&mut object_31, var_30)?;
-    object_31.finish();
-}
-if let Some(var_32) = &input.output_config {
-    #[allow(unused_mut)]
-    let mut object_33 = object.key("outputConfig").start_object();
-    super::super::protocol_serde::shape_output_config::ser_output_config(&mut object_33, var_32)?;
+    let mut object_33 = object.key("toolConfig").start_object();
+    super::super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_33, var_32)?;
     object_33.finish();
 }
     Ok(())
@@ -38622,99 +38622,99 @@ pub fn ser_converse_stream_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::converse_stream::ConverseStreamInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.messages {
-    let mut array_2 = object.key("messages").start_array();
-    for item_3 in var_1 {
+if let Some(var_1) = &input.additional_model_request_fields {
+    object.key("additionalModelRequestFields").document(var_1);
+}
+if let Some(var_2) = &input.additional_model_response_field_paths {
+    let mut array_3 = object.key("additionalModelResponseFieldPaths").start_array();
+    for item_4 in var_2 {
         {
-            #[allow(unused_mut)]
-            let mut object_4 = array_2.value().start_object();
-            super::super::protocol_serde::shape_message::ser_message(&mut object_4, item_3)?;
-            object_4.finish();
+            array_3.value().string(item_4.as_str());
         }
     }
-    array_2.finish();
+    array_3.finish();
 }
-if let Some(var_5) = &input.system {
-    let mut array_6 = object.key("system").start_array();
-    for item_7 in var_5 {
+if let Some(var_5) = &input.guardrail_config {
+    #[allow(unused_mut)]
+    let mut object_6 = object.key("guardrailConfig").start_object();
+    super::super::protocol_serde::shape_guardrail_stream_configuration::ser_guardrail_stream_configuration(&mut object_6, var_5)?;
+    object_6.finish();
+}
+if let Some(var_7) = &input.inference_config {
+    #[allow(unused_mut)]
+    let mut object_8 = object.key("inferenceConfig").start_object();
+    super::super::protocol_serde::shape_inference_configuration::ser_inference_configuration(&mut object_8, var_7)?;
+    object_8.finish();
+}
+if let Some(var_9) = &input.messages {
+    let mut array_10 = object.key("messages").start_array();
+    for item_11 in var_9 {
         {
             #[allow(unused_mut)]
-            let mut object_8 = array_6.value().start_object();
-            super::super::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_8, item_7)?;
-            object_8.finish();
+            let mut object_12 = array_10.value().start_object();
+            super::super::protocol_serde::shape_message::ser_message(&mut object_12, item_11)?;
+            object_12.finish();
         }
     }
-    array_6.finish();
+    array_10.finish();
 }
-if let Some(var_9) = &input.inference_config {
+if let Some(var_13) = &input.output_config {
     #[allow(unused_mut)]
-    let mut object_10 = object.key("inferenceConfig").start_object();
-    super::super::protocol_serde::shape_inference_configuration::ser_inference_configuration(&mut object_10, var_9)?;
-    object_10.finish();
-}
-if let Some(var_11) = &input.tool_config {
-    #[allow(unused_mut)]
-    let mut object_12 = object.key("toolConfig").start_object();
-    super::super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_12, var_11)?;
-    object_12.finish();
-}
-if let Some(var_13) = &input.guardrail_config {
-    #[allow(unused_mut)]
-    let mut object_14 = object.key("guardrailConfig").start_object();
-    super::super::protocol_serde::shape_guardrail_stream_configuration::ser_guardrail_stream_configuration(&mut object_14, var_13)?;
+    let mut object_14 = object.key("outputConfig").start_object();
+    super::super::protocol_serde::shape_output_config::ser_output_config(&mut object_14, var_13)?;
     object_14.finish();
 }
-if let Some(var_15) = &input.additional_model_request_fields {
-    object.key("additionalModelRequestFields").document(var_15);
-}
-if let Some(var_16) = &input.prompt_variables {
+if let Some(var_15) = &input.performance_config {
     #[allow(unused_mut)]
-    let mut object_17 = object.key("promptVariables").start_object();
-    for (key_18, value_19) in var_16 {
+    let mut object_16 = object.key("performanceConfig").start_object();
+    super::super::protocol_serde::shape_performance_configuration::ser_performance_configuration(&mut object_16, var_15)?;
+    object_16.finish();
+}
+if let Some(var_17) = &input.prompt_variables {
+    #[allow(unused_mut)]
+    let mut object_18 = object.key("promptVariables").start_object();
+    for (key_19, value_20) in var_17 {
         {
             #[allow(unused_mut)]
-            let mut object_20 = object_17.key(key_18.as_str()).start_object();
-            super::super::protocol_serde::shape_prompt_variable_values::ser_prompt_variable_values(&mut object_20, value_19)?;
-            object_20.finish();
+            let mut object_21 = object_18.key(key_19.as_str()).start_object();
+            super::super::protocol_serde::shape_prompt_variable_values::ser_prompt_variable_values(&mut object_21, value_20)?;
+            object_21.finish();
         }
     }
-    object_17.finish();
+    object_18.finish();
 }
-if let Some(var_21) = &input.additional_model_response_field_paths {
-    let mut array_22 = object.key("additionalModelResponseFieldPaths").start_array();
-    for item_23 in var_21 {
+if let Some(var_22) = &input.request_metadata {
+    #[allow(unused_mut)]
+    let mut object_23 = object.key("requestMetadata").start_object();
+    for (key_24, value_25) in var_22 {
         {
-            array_22.value().string(item_23.as_str());
+            object_23.key(key_24.as_str()).string(value_25.as_str());
         }
     }
-    array_22.finish();
+    object_23.finish();
 }
-if let Some(var_24) = &input.request_metadata {
+if let Some(var_26) = &input.service_tier {
     #[allow(unused_mut)]
-    let mut object_25 = object.key("requestMetadata").start_object();
-    for (key_26, value_27) in var_24 {
+    let mut object_27 = object.key("serviceTier").start_object();
+    super::super::protocol_serde::shape_service_tier::ser_service_tier(&mut object_27, var_26)?;
+    object_27.finish();
+}
+if let Some(var_28) = &input.system {
+    let mut array_29 = object.key("system").start_array();
+    for item_30 in var_28 {
         {
-            object_25.key(key_26.as_str()).string(value_27.as_str());
+            #[allow(unused_mut)]
+            let mut object_31 = array_29.value().start_object();
+            super::super::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_31, item_30)?;
+            object_31.finish();
         }
     }
-    object_25.finish();
+    array_29.finish();
 }
-if let Some(var_28) = &input.performance_config {
+if let Some(var_32) = &input.tool_config {
     #[allow(unused_mut)]
-    let mut object_29 = object.key("performanceConfig").start_object();
-    super::super::protocol_serde::shape_performance_configuration::ser_performance_configuration(&mut object_29, var_28)?;
-    object_29.finish();
-}
-if let Some(var_30) = &input.service_tier {
-    #[allow(unused_mut)]
-    let mut object_31 = object.key("serviceTier").start_object();
-    super::super::protocol_serde::shape_service_tier::ser_service_tier(&mut object_31, var_30)?;
-    object_31.finish();
-}
-if let Some(var_32) = &input.output_config {
-    #[allow(unused_mut)]
-    let mut object_33 = object.key("outputConfig").start_object();
-    super::super::protocol_serde::shape_output_config::ser_output_config(&mut object_33, var_32)?;
+    let mut object_33 = object.key("toolConfig").start_object();
+    super::super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_33, var_32)?;
     object_33.finish();
 }
     Ok(())
@@ -38815,23 +38815,23 @@ pub fn ser_invoke_guardrail_checks_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::invoke_guardrail_checks::InvokeGuardrailChecksInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.messages {
-    let mut array_2 = object.key("messages").start_array();
-    for item_3 in var_1 {
+if let Some(var_1) = &input.checks {
+    #[allow(unused_mut)]
+    let mut object_2 = object.key("checks").start_object();
+    super::super::protocol_serde::shape_guardrail_checks_config::ser_guardrail_checks_config(&mut object_2, var_1)?;
+    object_2.finish();
+}
+if let Some(var_3) = &input.messages {
+    let mut array_4 = object.key("messages").start_array();
+    for item_5 in var_3 {
         {
             #[allow(unused_mut)]
-            let mut object_4 = array_2.value().start_object();
-            super::super::protocol_serde::shape_guardrail_checks_message::ser_guardrail_checks_message(&mut object_4, item_3)?;
-            object_4.finish();
+            let mut object_6 = array_4.value().start_object();
+            super::super::protocol_serde::shape_guardrail_checks_message::ser_guardrail_checks_message(&mut object_6, item_5)?;
+            object_6.finish();
         }
     }
-    array_2.finish();
-}
-if let Some(var_5) = &input.checks {
-    #[allow(unused_mut)]
-    let mut object_6 = object.key("checks").start_object();
-    super::super::protocol_serde::shape_guardrail_checks_config::ser_guardrail_checks_config(&mut object_6, var_5)?;
-    object_6.finish();
+    array_4.finish();
 }
     Ok(())
 }

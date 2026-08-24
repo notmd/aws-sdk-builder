@@ -3,33 +3,32 @@ pub fn ser_register_job_definition_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::register_job_definition::RegisterJobDefinitionInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.job_definition_name {
-        object.key("jobDefinitionName").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.r#type {
-        object.key("type").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.parameters {
+    if let Some(var_1) = &input.consumable_resource_properties {
         #[allow(unused_mut)]
-        let mut object_4 = object.key("parameters").start_object();
-        for (key_5, value_6) in var_3 {
-            {
-                object_4.key(key_5.as_str()).string(value_6.as_str());
-            }
-        }
+        let mut object_2 = object.key("consumableResourceProperties").start_object();
+        super::super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_2, var_1)?;
+        object_2.finish();
+    }
+    if let Some(var_3) = &input.container_properties {
+        #[allow(unused_mut)]
+        let mut object_4 = object.key("containerProperties").start_object();
+        super::super::protocol_serde::shape_container_properties::ser_container_properties(&mut object_4, var_3)?;
         object_4.finish();
     }
-    if let Some(var_7) = &input.scheduling_priority {
-        object.key("schedulingPriority").number(
-            #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_7).into()),
-        );
-    }
-    if let Some(var_8) = &input.container_properties {
+    if let Some(var_5) = &input.ecs_properties {
         #[allow(unused_mut)]
-        let mut object_9 = object.key("containerProperties").start_object();
-        super::super::protocol_serde::shape_container_properties::ser_container_properties(&mut object_9, var_8)?;
-        object_9.finish();
+        let mut object_6 = object.key("ecsProperties").start_object();
+        super::super::protocol_serde::shape_ecs_properties::ser_ecs_properties(&mut object_6, var_5)?;
+        object_6.finish();
+    }
+    if let Some(var_7) = &input.eks_properties {
+        #[allow(unused_mut)]
+        let mut object_8 = object.key("eksProperties").start_object();
+        super::super::protocol_serde::shape_eks_properties::ser_eks_properties(&mut object_8, var_7)?;
+        object_8.finish();
+    }
+    if let Some(var_9) = &input.job_definition_name {
+        object.key("jobDefinitionName").string(var_9.as_str());
     }
     if let Some(var_10) = &input.node_properties {
         #[allow(unused_mut)]
@@ -37,57 +36,58 @@ pub fn ser_register_job_definition_input_input(
         super::super::protocol_serde::shape_node_properties::ser_node_properties(&mut object_11, var_10)?;
         object_11.finish();
     }
-    if let Some(var_12) = &input.retry_strategy {
+    if let Some(var_12) = &input.parameters {
         #[allow(unused_mut)]
-        let mut object_13 = object.key("retryStrategy").start_object();
-        super::super::protocol_serde::shape_retry_strategy::ser_retry_strategy(&mut object_13, var_12)?;
+        let mut object_13 = object.key("parameters").start_object();
+        for (key_14, value_15) in var_12 {
+            {
+                object_13.key(key_14.as_str()).string(value_15.as_str());
+            }
+        }
         object_13.finish();
     }
-    if let Some(var_14) = &input.propagate_tags {
-        object.key("propagateTags").boolean(*var_14);
-    }
-    if let Some(var_15) = &input.timeout {
-        #[allow(unused_mut)]
-        let mut object_16 = object.key("timeout").start_object();
-        super::super::protocol_serde::shape_job_timeout::ser_job_timeout(&mut object_16, var_15)?;
-        object_16.finish();
-    }
-    if let Some(var_17) = &input.tags {
-        #[allow(unused_mut)]
-        let mut object_18 = object.key("tags").start_object();
-        for (key_19, value_20) in var_17 {
+    if let Some(var_16) = &input.platform_capabilities {
+        let mut array_17 = object.key("platformCapabilities").start_array();
+        for item_18 in var_16 {
             {
-                object_18.key(key_19.as_str()).string(value_20.as_str());
+                array_17.value().string(item_18.as_str());
             }
         }
-        object_18.finish();
+        array_17.finish();
     }
-    if let Some(var_21) = &input.platform_capabilities {
-        let mut array_22 = object.key("platformCapabilities").start_array();
-        for item_23 in var_21 {
+    if let Some(var_19) = &input.propagate_tags {
+        object.key("propagateTags").boolean(*var_19);
+    }
+    if let Some(var_20) = &input.retry_strategy {
+        #[allow(unused_mut)]
+        let mut object_21 = object.key("retryStrategy").start_object();
+        super::super::protocol_serde::shape_retry_strategy::ser_retry_strategy(&mut object_21, var_20)?;
+        object_21.finish();
+    }
+    if let Some(var_22) = &input.scheduling_priority {
+        object.key("schedulingPriority").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_22).into()),
+        );
+    }
+    if let Some(var_23) = &input.tags {
+        #[allow(unused_mut)]
+        let mut object_24 = object.key("tags").start_object();
+        for (key_25, value_26) in var_23 {
             {
-                array_22.value().string(item_23.as_str());
+                object_24.key(key_25.as_str()).string(value_26.as_str());
             }
         }
-        array_22.finish();
+        object_24.finish();
     }
-    if let Some(var_24) = &input.eks_properties {
+    if let Some(var_27) = &input.timeout {
         #[allow(unused_mut)]
-        let mut object_25 = object.key("eksProperties").start_object();
-        super::super::protocol_serde::shape_eks_properties::ser_eks_properties(&mut object_25, var_24)?;
-        object_25.finish();
+        let mut object_28 = object.key("timeout").start_object();
+        super::super::protocol_serde::shape_job_timeout::ser_job_timeout(&mut object_28, var_27)?;
+        object_28.finish();
     }
-    if let Some(var_26) = &input.ecs_properties {
-        #[allow(unused_mut)]
-        let mut object_27 = object.key("ecsProperties").start_object();
-        super::super::protocol_serde::shape_ecs_properties::ser_ecs_properties(&mut object_27, var_26)?;
-        object_27.finish();
-    }
-    if let Some(var_28) = &input.consumable_resource_properties {
-        #[allow(unused_mut)]
-        let mut object_29 = object.key("consumableResourceProperties").start_object();
-        super::super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_29, var_28)?;
-        object_29.finish();
+    if let Some(var_29) = &input.r#type {
+        object.key("type").string(var_29.as_str());
     }
     Ok(())
 }

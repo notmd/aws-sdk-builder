@@ -115,12 +115,38 @@ pub(crate) fn de_get_async_invoke(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "clientRequestToken" => {
+                    builder = builder.set_client_request_token(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "endTime" => {
+                    builder = builder.set_end_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                        tokens.next(),
+                        ::aws_smithy_types::date_time::Format::DateTimeWithOffset,
+                    )?);
+                }
+                "failureMessage" => {
+                    builder = builder.set_failure_message(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
                 "invocationArn" => {
                     builder = builder.set_invocation_arn(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
+                }
+                "lastModifiedTime" => {
+                    builder = builder.set_last_modified_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                        tokens.next(),
+                        ::aws_smithy_types::date_time::Format::DateTimeWithOffset,
+                    )?);
                 }
                 "modelArn" => {
                     builder = builder.set_model_arn(
@@ -129,11 +155,9 @@ pub(crate) fn de_get_async_invoke(
                             .transpose()?,
                     );
                 }
-                "clientRequestToken" => {
-                    builder = builder.set_client_request_token(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
+                "outputDataConfig" => {
+                    builder = builder.set_output_data_config(
+                        super::super::protocol_serde::shape_async_invoke_output_data_config::de_async_invoke_output_data_config(tokens, _value, depth + 1)?,
                     );
                 }
                 "status" => {
@@ -143,35 +167,11 @@ pub(crate) fn de_get_async_invoke(
                             .transpose()?,
                     );
                 }
-                "failureMessage" => {
-                    builder = builder.set_failure_message(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
                 "submitTime" => {
                     builder = builder.set_submit_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
                         tokens.next(),
                         ::aws_smithy_types::date_time::Format::DateTimeWithOffset,
                     )?);
-                }
-                "lastModifiedTime" => {
-                    builder = builder.set_last_modified_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-                        tokens.next(),
-                        ::aws_smithy_types::date_time::Format::DateTimeWithOffset,
-                    )?);
-                }
-                "endTime" => {
-                    builder = builder.set_end_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-                        tokens.next(),
-                        ::aws_smithy_types::date_time::Format::DateTimeWithOffset,
-                    )?);
-                }
-                "outputDataConfig" => {
-                    builder = builder.set_output_data_config(
-                        super::super::protocol_serde::shape_async_invoke_output_data_config::de_async_invoke_output_data_config(tokens, _value, depth + 1)?,
-                    );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

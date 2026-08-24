@@ -93,15 +93,15 @@ pub(crate) fn de_create_quota_share(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "quotaShareName" => {
-                    builder = builder.set_quota_share_name(
+                "quotaShareArn" => {
+                    builder = builder.set_quota_share_arn(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
                 }
-                "quotaShareArn" => {
-                    builder = builder.set_quota_share_arn(
+                "quotaShareName" => {
+                    builder = builder.set_quota_share_name(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,

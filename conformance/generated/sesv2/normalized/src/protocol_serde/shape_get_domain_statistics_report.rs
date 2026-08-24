@@ -110,11 +110,11 @@ pub(crate) fn de_get_domain_statistics_report(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "OverallVolume" => {
-                    builder = builder.set_overall_volume(super::super::protocol_serde::shape_overall_volume::de_overall_volume(tokens, _value, depth + 1)?);
-                }
                 "DailyVolumes" => {
                     builder = builder.set_daily_volumes(super::super::protocol_serde::shape_daily_volumes::de_daily_volumes(tokens, _value, depth + 1)?);
+                }
+                "OverallVolume" => {
+                    builder = builder.set_overall_volume(super::super::protocol_serde::shape_overall_volume::de_overall_volume(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

@@ -199,22 +199,9 @@ pub(crate) fn de_converse(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
                 match key.to_unescaped()?.as_ref() {
-                    "output" => {
-                        builder = builder.set_output(super::super::protocol_serde::shape_converse_output::de_converse_output(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?);
-                    }
-                    "stopReason" => {
-                        builder = builder.set_stop_reason(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| super::super::types::StopReason::from(u.as_ref())))
-                                .transpose()?,
-                        );
-                    }
-                    "usage" => {
-                        builder = builder.set_usage(super::super::protocol_serde::shape_token_usage::de_token_usage(tokens, _value, depth + 1)?);
+                    "additionalModelResponseFields" => {
+                        builder = builder
+                            .set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
                     }
                     "metrics" => {
                         builder = builder.set_metrics(super::super::protocol_serde::shape_converse_metrics::de_converse_metrics(
@@ -223,12 +210,12 @@ pub(crate) fn de_converse(
                             depth + 1,
                         )?);
                     }
-                    "additionalModelResponseFields" => {
-                        builder = builder
-                            .set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
-                    }
-                    "trace" => {
-                        builder = builder.set_trace(super::super::protocol_serde::shape_converse_trace::de_converse_trace(tokens, _value, depth + 1)?);
+                    "output" => {
+                        builder = builder.set_output(super::super::protocol_serde::shape_converse_output::de_converse_output(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?);
                     }
                     "performanceConfig" => {
                         builder = builder.set_performance_config(
@@ -237,6 +224,19 @@ pub(crate) fn de_converse(
                     }
                     "serviceTier" => {
                         builder = builder.set_service_tier(super::super::protocol_serde::shape_service_tier::de_service_tier(tokens, _value, depth + 1)?);
+                    }
+                    "stopReason" => {
+                        builder = builder.set_stop_reason(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| super::super::types::StopReason::from(u.as_ref())))
+                                .transpose()?,
+                        );
+                    }
+                    "trace" => {
+                        builder = builder.set_trace(super::super::protocol_serde::shape_converse_trace::de_converse_trace(tokens, _value, depth + 1)?);
+                    }
+                    "usage" => {
+                        builder = builder.set_usage(super::super::protocol_serde::shape_token_usage::de_token_usage(tokens, _value, depth + 1)?);
                     }
                     _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }

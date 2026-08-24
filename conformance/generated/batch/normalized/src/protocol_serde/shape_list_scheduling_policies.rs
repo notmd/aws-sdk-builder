@@ -103,6 +103,13 @@ pub(crate) fn de_list_scheduling_policies(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "nextToken" => {
+                    builder = builder.set_next_token(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
                 "schedulingPolicies" => {
                     builder = builder.set_scheduling_policies(
                         super::super::protocol_serde::shape_scheduling_policy_listing_detail_list::de_scheduling_policy_listing_detail_list(
@@ -110,13 +117,6 @@ pub(crate) fn de_list_scheduling_policies(
                             _value,
                             depth + 1,
                         )?,
-                    );
-                }
-                "nextToken" => {
-                    builder = builder.set_next_token(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

@@ -3,18 +3,18 @@ pub fn ser_list_tenant_resources_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::list_tenant_resources::ListTenantResourcesInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.tenant_name {
-        object.key("TenantName").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.filter {
+    if let Some(var_1) = &input.filter {
         #[allow(unused_mut)]
-        let mut object_3 = object.key("Filter").start_object();
-        for (key_4, value_5) in var_2 {
+        let mut object_2 = object.key("Filter").start_object();
+        for (key_3, value_4) in var_1 {
             {
-                object_3.key(key_4.as_str()).string(value_5.as_str());
+                object_2.key(key_3.as_str()).string(value_4.as_str());
             }
         }
-        object_3.finish();
+        object_2.finish();
+    }
+    if let Some(var_5) = &input.next_token {
+        object.key("NextToken").string(var_5.as_str());
     }
     if let Some(var_6) = &input.page_size {
         object.key("PageSize").number(
@@ -22,8 +22,8 @@ pub fn ser_list_tenant_resources_input_input(
             ::aws_smithy_types::Number::NegInt((*var_6).into()),
         );
     }
-    if let Some(var_7) = &input.next_token {
-        object.key("NextToken").string(var_7.as_str());
+    if let Some(var_7) = &input.tenant_name {
+        object.key("TenantName").string(var_7.as_str());
     }
     Ok(())
 }

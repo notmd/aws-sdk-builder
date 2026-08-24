@@ -99,15 +99,15 @@ pub(crate) fn de_register_job_definition(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "jobDefinitionName" => {
-                    builder = builder.set_job_definition_name(
+                "jobDefinitionArn" => {
+                    builder = builder.set_job_definition_arn(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
                 }
-                "jobDefinitionArn" => {
-                    builder = builder.set_job_definition_arn(
+                "jobDefinitionName" => {
+                    builder = builder.set_job_definition_name(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,

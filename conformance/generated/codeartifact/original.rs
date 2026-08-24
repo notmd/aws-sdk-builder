@@ -59581,11 +59581,11 @@ pub(crate) fn de_copy_package_versions(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "successfulVersions" => {
-                    builder = builder.set_successful_versions(super::super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(tokens, _value, depth + 1)?);
-                },
                 "failedVersions" => {
                     builder = builder.set_failed_versions(super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(tokens, _value, depth + 1)?);
+                },
+                "successfulVersions" => {
+                    builder = builder.set_successful_versions(super::super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -60821,11 +60821,11 @@ pub(crate) fn de_delete_package_versions(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "successfulVersions" => {
-                    builder = builder.set_successful_versions(super::super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(tokens, _value, depth + 1)?);
-                },
                 "failedVersions" => {
                     builder = builder.set_failed_versions(super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(tokens, _value, depth + 1)?);
+                },
+                "successfulVersions" => {
+                    builder = builder.set_successful_versions(super::super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -62109,11 +62109,11 @@ pub(crate) fn de_dispose_package_versions(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "successfulVersions" => {
-                    builder = builder.set_successful_versions(super::super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(tokens, _value, depth + 1)?);
-                },
                 "failedVersions" => {
                     builder = builder.set_failed_versions(super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(tokens, _value, depth + 1)?);
+                },
+                "successfulVersions" => {
+                    builder = builder.set_successful_versions(super::super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -62230,13 +62230,13 @@ pub(crate) fn de_get_associated_package_group(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "packageGroup" => {
-                    builder = builder.set_package_group(super::super::protocol_serde::shape_package_group_description::de_package_group_description(tokens, _value, depth + 1)?);
-                },
                 "associationType" => {
                     builder = builder.set_association_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::PackageGroupAssociationType::from(u.as_ref())))
                             .transpose()?);
+                },
+                "packageGroup" => {
+                    builder = builder.set_package_group(super::super::protocol_serde::shape_package_group_description::de_package_group_description(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -62774,6 +62774,11 @@ pub(crate) fn de_get_package_version_readme(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
+                "readme" => {
+                    builder = builder.set_readme(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
                 "version" => {
                     builder = builder.set_version(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
@@ -62781,11 +62786,6 @@ pub(crate) fn de_get_package_version_readme(
                 },
                 "versionRevision" => {
                     builder = builder.set_version_revision(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "readme" => {
-                    builder = builder.set_readme(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -63324,13 +63324,13 @@ pub(crate) fn de_list_associated_packages(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "packages" => {
-                    builder = builder.set_packages(super::super::protocol_serde::shape_associated_package_list::de_associated_package_list(tokens, _value, depth + 1)?);
-                },
                 "nextToken" => {
                     builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "packages" => {
+                    builder = builder.set_packages(super::super::protocol_serde::shape_associated_package_list::de_associated_package_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -63602,13 +63602,13 @@ pub(crate) fn de_list_package_groups(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "packageGroups" => {
-                    builder = builder.set_package_groups(super::super::protocol_serde::shape_package_group_summary_list::de_package_group_summary_list(tokens, _value, depth + 1)?);
-                },
                 "nextToken" => {
                     builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "packageGroups" => {
+                    builder = builder.set_package_groups(super::super::protocol_serde::shape_package_group_summary_list::de_package_group_summary_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -63741,6 +63741,9 @@ pub(crate) fn de_list_package_version_assets(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "assets" => {
+                    builder = builder.set_assets(super::super::protocol_serde::shape_asset_summary_list::de_asset_summary_list(tokens, _value, depth + 1)?);
+                },
                 "format" => {
                     builder = builder.set_format(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::PackageFormat::from(u.as_ref())))
@@ -63748,6 +63751,11 @@ pub(crate) fn de_list_package_version_assets(
                 },
                 "namespace" => {
                     builder = builder.set_namespace(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "nextToken" => {
+                    builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -63765,14 +63773,6 @@ pub(crate) fn de_list_package_version_assets(
                     builder = builder.set_version_revision(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "nextToken" => {
-                    builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "assets" => {
-                    builder = builder.set_assets(super::super::protocol_serde::shape_asset_summary_list::de_asset_summary_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -63905,6 +63905,9 @@ pub(crate) fn de_list_package_version_dependencies(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "dependencies" => {
+                    builder = builder.set_dependencies(super::super::protocol_serde::shape_package_dependency_list::de_package_dependency_list(tokens, _value, depth + 1)?);
+                },
                 "format" => {
                     builder = builder.set_format(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::PackageFormat::from(u.as_ref())))
@@ -63912,6 +63915,11 @@ pub(crate) fn de_list_package_version_dependencies(
                 },
                 "namespace" => {
                     builder = builder.set_namespace(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "nextToken" => {
+                    builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -63929,14 +63937,6 @@ pub(crate) fn de_list_package_version_dependencies(
                     builder = builder.set_version_revision(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "nextToken" => {
-                    builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "dependencies" => {
-                    builder = builder.set_dependencies(super::super::protocol_serde::shape_package_dependency_list::de_package_dependency_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -64084,6 +64084,11 @@ pub(crate) fn de_list_package_versions(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
+                "nextToken" => {
+                    builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
                 "package" => {
                     builder = builder.set_package(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
@@ -64091,11 +64096,6 @@ pub(crate) fn de_list_package_versions(
                 },
                 "versions" => {
                     builder = builder.set_versions(super::super::protocol_serde::shape_package_version_summary_list::de_package_version_summary_list(tokens, _value, depth + 1)?);
-                },
-                "nextToken" => {
-                    builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -64228,13 +64228,13 @@ pub(crate) fn de_list_packages(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "packages" => {
-                    builder = builder.set_packages(super::super::protocol_serde::shape_package_summary_list::de_package_summary_list(tokens, _value, depth + 1)?);
-                },
                 "nextToken" => {
                     builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "packages" => {
+                    builder = builder.set_packages(super::super::protocol_serde::shape_package_summary_list::de_package_summary_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -64356,13 +64356,13 @@ pub(crate) fn de_list_repositories(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "repositories" => {
-                    builder = builder.set_repositories(super::super::protocol_serde::shape_repository_summary_list::de_repository_summary_list(tokens, _value, depth + 1)?);
-                },
                 "nextToken" => {
                     builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "repositories" => {
+                    builder = builder.set_repositories(super::super::protocol_serde::shape_repository_summary_list::de_repository_summary_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -64495,13 +64495,13 @@ pub(crate) fn de_list_repositories_in_domain(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "repositories" => {
-                    builder = builder.set_repositories(super::super::protocol_serde::shape_repository_summary_list::de_repository_summary_list(tokens, _value, depth + 1)?);
-                },
                 "nextToken" => {
                     builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "repositories" => {
+                    builder = builder.set_repositories(super::super::protocol_serde::shape_repository_summary_list::de_repository_summary_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -64634,13 +64634,13 @@ pub(crate) fn de_list_sub_package_groups(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "packageGroups" => {
-                    builder = builder.set_package_groups(super::super::protocol_serde::shape_package_group_summary_list::de_package_group_summary_list(tokens, _value, depth + 1)?);
-                },
                 "nextToken" => {
                     builder = builder.set_next_token(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "packageGroups" => {
+                    builder = builder.set_package_groups(super::super::protocol_serde::shape_package_group_summary_list::de_package_group_summary_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -64918,6 +64918,9 @@ pub(crate) fn de_publish_package_version(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "asset" => {
+                    builder = builder.set_asset(super::super::protocol_serde::shape_asset_summary::de_asset_summary(tokens, _value, depth + 1)?);
+                },
                 "format" => {
                     builder = builder.set_format(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::PackageFormat::from(u.as_ref())))
@@ -64933,6 +64936,11 @@ pub(crate) fn de_publish_package_version(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
+                "status" => {
+                    builder = builder.set_status(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::PackageVersionStatus::from(u.as_ref())))
+                            .transpose()?);
+                },
                 "version" => {
                     builder = builder.set_version(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
@@ -64942,14 +64950,6 @@ pub(crate) fn de_publish_package_version(
                     builder = builder.set_version_revision(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "status" => {
-                    builder = builder.set_status(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::PackageVersionStatus::from(u.as_ref())))
-                            .transpose()?);
-                },
-                "asset" => {
-                    builder = builder.set_asset(super::super::protocol_serde::shape_asset_summary::de_asset_summary(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -65946,11 +65946,11 @@ pub(crate) fn de_update_package_group_origin_configuration(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "packageGroup" => {
-                    builder = builder.set_package_group(super::super::protocol_serde::shape_package_group_description::de_package_group_description(tokens, _value, depth + 1)?);
-                },
                 "allowedRepositoryUpdates" => {
                     builder = builder.set_allowed_repository_updates(super::super::protocol_serde::shape_package_group_allowed_repository_updates::de_package_group_allowed_repository_updates(tokens, _value, depth + 1)?);
+                },
+                "packageGroup" => {
+                    builder = builder.set_package_group(super::super::protocol_serde::shape_package_group_description::de_package_group_description(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -66105,11 +66105,11 @@ pub(crate) fn de_update_package_versions_status(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "successfulVersions" => {
-                    builder = builder.set_successful_versions(super::super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(tokens, _value, depth + 1)?);
-                },
                 "failedVersions" => {
                     builder = builder.set_failed_versions(super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(tokens, _value, depth + 1)?);
+                },
+                "successfulVersions" => {
+                    builder = builder.set_successful_versions(super::super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -66396,30 +66396,30 @@ pub fn ser_copy_package_versions_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::copy_package_versions::CopyPackageVersionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.versions {
-    let mut array_2 = object.key("versions").start_array();
-    for item_3 in var_1 {
-        {
-            array_2.value().string(item_3.as_str());
-        }
-    }
-    array_2.finish();
+if let Some(var_1) = &input.allow_overwrite {
+    object.key("allowOverwrite").boolean(*var_1);
 }
-if let Some(var_4) = &input.version_revisions {
+if let Some(var_2) = &input.include_from_upstream {
+    object.key("includeFromUpstream").boolean(*var_2);
+}
+if let Some(var_3) = &input.version_revisions {
     #[allow(unused_mut)]
-    let mut object_5 = object.key("versionRevisions").start_object();
-    for (key_6, value_7) in var_4 {
+    let mut object_4 = object.key("versionRevisions").start_object();
+    for (key_5, value_6) in var_3 {
         {
-            object_5.key(key_6.as_str()).string(value_7.as_str());
+            object_4.key(key_5.as_str()).string(value_6.as_str());
         }
     }
-    object_5.finish();
+    object_4.finish();
 }
-if let Some(var_8) = &input.allow_overwrite {
-    object.key("allowOverwrite").boolean(*var_8);
-}
-if let Some(var_9) = &input.include_from_upstream {
-    object.key("includeFromUpstream").boolean(*var_9);
+if let Some(var_7) = &input.versions {
+    let mut array_8 = object.key("versions").start_array();
+    for item_9 in var_7 {
+        {
+            array_8.value().string(item_9.as_str());
+        }
+    }
+    array_8.finish();
 }
     Ok(())
 }
@@ -66456,14 +66456,14 @@ pub fn ser_create_package_group_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_package_group::CreatePackageGroupInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.package_group {
-    object.key("packageGroup").string(var_1.as_str());
+if let Some(var_1) = &input.contact_info {
+    object.key("contactInfo").string(var_1.as_str());
 }
-if let Some(var_2) = &input.contact_info {
-    object.key("contactInfo").string(var_2.as_str());
+if let Some(var_2) = &input.description {
+    object.key("description").string(var_2.as_str());
 }
-if let Some(var_3) = &input.description {
-    object.key("description").string(var_3.as_str());
+if let Some(var_3) = &input.package_group {
+    object.key("packageGroup").string(var_3.as_str());
 }
 if let Some(var_4) = &input.tags {
     let mut array_5 = object.key("tags").start_array();
@@ -66490,25 +66490,25 @@ pub fn ser_create_repository_input_input(
 if let Some(var_1) = &input.description {
     object.key("description").string(var_1.as_str());
 }
-if let Some(var_2) = &input.upstreams {
-    let mut array_3 = object.key("upstreams").start_array();
+if let Some(var_2) = &input.tags {
+    let mut array_3 = object.key("tags").start_array();
     for item_4 in var_2 {
         {
             #[allow(unused_mut)]
             let mut object_5 = array_3.value().start_object();
-            super::super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_5, item_4)?;
+            super::super::protocol_serde::shape_tag::ser_tag(&mut object_5, item_4)?;
             object_5.finish();
         }
     }
     array_3.finish();
 }
-if let Some(var_6) = &input.tags {
-    let mut array_7 = object.key("tags").start_array();
+if let Some(var_6) = &input.upstreams {
+    let mut array_7 = object.key("upstreams").start_array();
     for item_8 in var_6 {
         {
             #[allow(unused_mut)]
             let mut object_9 = array_7.value().start_object();
-            super::super::protocol_serde::shape_tag::ser_tag(&mut object_9, item_8)?;
+            super::super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_9, item_8)?;
             object_9.finish();
         }
     }
@@ -66524,17 +66524,17 @@ pub fn ser_delete_package_versions_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::delete_package_versions::DeletePackageVersionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.versions {
-    let mut array_2 = object.key("versions").start_array();
-    for item_3 in var_1 {
+if let Some(var_1) = &input.expected_status {
+    object.key("expectedStatus").string(var_1.as_str());
+}
+if let Some(var_2) = &input.versions {
+    let mut array_3 = object.key("versions").start_array();
+    for item_4 in var_2 {
         {
-            array_2.value().string(item_3.as_str());
+            array_3.value().string(item_4.as_str());
         }
     }
-    array_2.finish();
-}
-if let Some(var_4) = &input.expected_status {
-    object.key("expectedStatus").string(var_4.as_str());
+    array_3.finish();
 }
     Ok(())
 }
@@ -66546,27 +66546,27 @@ pub fn ser_dispose_package_versions_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::dispose_package_versions::DisposePackageVersionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.versions {
-    let mut array_2 = object.key("versions").start_array();
-    for item_3 in var_1 {
-        {
-            array_2.value().string(item_3.as_str());
-        }
-    }
-    array_2.finish();
+if let Some(var_1) = &input.expected_status {
+    object.key("expectedStatus").string(var_1.as_str());
 }
-if let Some(var_4) = &input.version_revisions {
+if let Some(var_2) = &input.version_revisions {
     #[allow(unused_mut)]
-    let mut object_5 = object.key("versionRevisions").start_object();
-    for (key_6, value_7) in var_4 {
+    let mut object_3 = object.key("versionRevisions").start_object();
+    for (key_4, value_5) in var_2 {
         {
-            object_5.key(key_6.as_str()).string(value_7.as_str());
+            object_3.key(key_4.as_str()).string(value_5.as_str());
         }
     }
-    object_5.finish();
+    object_3.finish();
 }
-if let Some(var_8) = &input.expected_status {
-    object.key("expectedStatus").string(var_8.as_str());
+if let Some(var_6) = &input.versions {
+    let mut array_7 = object.key("versions").start_array();
+    for item_8 in var_6 {
+        {
+            array_7.value().string(item_8.as_str());
+        }
+    }
+    array_7.finish();
 }
     Ok(())
 }
@@ -66683,11 +66683,11 @@ if let Some(var_1) = &input.domain {
 if let Some(var_2) = &input.domain_owner {
     object.key("domainOwner").string(var_2.as_str());
 }
-if let Some(var_3) = &input.policy_revision {
-    object.key("policyRevision").string(var_3.as_str());
+if let Some(var_3) = &input.policy_document {
+    object.key("policyDocument").string(var_3.as_str());
 }
-if let Some(var_4) = &input.policy_document {
-    object.key("policyDocument").string(var_4.as_str());
+if let Some(var_4) = &input.policy_revision {
+    object.key("policyRevision").string(var_4.as_str());
 }
     Ok(())
 }
@@ -66715,11 +66715,11 @@ pub fn ser_put_repository_permissions_policy_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.policy_revision {
-    object.key("policyRevision").string(var_1.as_str());
+if let Some(var_1) = &input.policy_document {
+    object.key("policyDocument").string(var_1.as_str());
 }
-if let Some(var_2) = &input.policy_document {
-    object.key("policyDocument").string(var_2.as_str());
+if let Some(var_2) = &input.policy_revision {
+    object.key("policyRevision").string(var_2.as_str());
 }
     Ok(())
 }
@@ -66928,14 +66928,14 @@ pub fn ser_update_package_group_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_package_group::UpdatePackageGroupInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.package_group {
-    object.key("packageGroup").string(var_1.as_str());
+if let Some(var_1) = &input.contact_info {
+    object.key("contactInfo").string(var_1.as_str());
 }
-if let Some(var_2) = &input.contact_info {
-    object.key("contactInfo").string(var_2.as_str());
+if let Some(var_2) = &input.description {
+    object.key("description").string(var_2.as_str());
 }
-if let Some(var_3) = &input.description {
-    object.key("description").string(var_3.as_str());
+if let Some(var_3) = &input.package_group {
+    object.key("packageGroup").string(var_3.as_str());
 }
     Ok(())
 }
@@ -66947,18 +66947,20 @@ pub fn ser_update_package_group_origin_configuration_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.restrictions {
-    #[allow(unused_mut)]
-    let mut object_2 = object.key("restrictions").start_object();
-    for (key_3, value_4) in var_1 {
+if let Some(var_1) = &input.add_allowed_repositories {
+    let mut array_2 = object.key("addAllowedRepositories").start_array();
+    for item_3 in var_1 {
         {
-            object_2.key(key_3.as_str()).string(value_4.as_str());
+            #[allow(unused_mut)]
+            let mut object_4 = array_2.value().start_object();
+            super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_4, item_3)?;
+            object_4.finish();
         }
     }
-    object_2.finish();
+    array_2.finish();
 }
-if let Some(var_5) = &input.add_allowed_repositories {
-    let mut array_6 = object.key("addAllowedRepositories").start_array();
+if let Some(var_5) = &input.remove_allowed_repositories {
+    let mut array_6 = object.key("removeAllowedRepositories").start_array();
     for item_7 in var_5 {
         {
             #[allow(unused_mut)]
@@ -66969,17 +66971,15 @@ if let Some(var_5) = &input.add_allowed_repositories {
     }
     array_6.finish();
 }
-if let Some(var_9) = &input.remove_allowed_repositories {
-    let mut array_10 = object.key("removeAllowedRepositories").start_array();
-    for item_11 in var_9 {
+if let Some(var_9) = &input.restrictions {
+    #[allow(unused_mut)]
+    let mut object_10 = object.key("restrictions").start_object();
+    for (key_11, value_12) in var_9 {
         {
-            #[allow(unused_mut)]
-            let mut object_12 = array_10.value().start_object();
-            super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_12, item_11)?;
-            object_12.finish();
+            object_10.key(key_11.as_str()).string(value_12.as_str());
         }
     }
-    array_10.finish();
+    object_10.finish();
 }
     Ok(())
 }
@@ -66991,30 +66991,30 @@ pub fn ser_update_package_versions_status_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.versions {
-    let mut array_2 = object.key("versions").start_array();
-    for item_3 in var_1 {
-        {
-            array_2.value().string(item_3.as_str());
-        }
-    }
-    array_2.finish();
+if let Some(var_1) = &input.expected_status {
+    object.key("expectedStatus").string(var_1.as_str());
 }
-if let Some(var_4) = &input.version_revisions {
+if let Some(var_2) = &input.target_status {
+    object.key("targetStatus").string(var_2.as_str());
+}
+if let Some(var_3) = &input.version_revisions {
     #[allow(unused_mut)]
-    let mut object_5 = object.key("versionRevisions").start_object();
-    for (key_6, value_7) in var_4 {
+    let mut object_4 = object.key("versionRevisions").start_object();
+    for (key_5, value_6) in var_3 {
         {
-            object_5.key(key_6.as_str()).string(value_7.as_str());
+            object_4.key(key_5.as_str()).string(value_6.as_str());
         }
     }
-    object_5.finish();
+    object_4.finish();
 }
-if let Some(var_8) = &input.expected_status {
-    object.key("expectedStatus").string(var_8.as_str());
-}
-if let Some(var_9) = &input.target_status {
-    object.key("targetStatus").string(var_9.as_str());
+if let Some(var_7) = &input.versions {
+    let mut array_8 = object.key("versions").start_array();
+    for item_9 in var_7 {
+        {
+            array_8.value().string(item_9.as_str());
+        }
+    }
+    array_8.finish();
 }
     Ok(())
 }

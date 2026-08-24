@@ -106,15 +106,15 @@ pub(crate) fn de_list_functions(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "Functions" => {
+                    builder = builder.set_functions(super::super::protocol_serde::shape_function_list::de_function_list(tokens, _value, depth + 1)?);
+                }
                 "NextMarker" => {
                     builder = builder.set_next_marker(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
-                }
-                "Functions" => {
-                    builder = builder.set_functions(super::super::protocol_serde::shape_function_list::de_function_list(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

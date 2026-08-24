@@ -119,6 +119,13 @@ pub(crate) fn de_list_suppressed_destinations(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "NextToken" => {
+                    builder = builder.set_next_token(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
                 "SuppressedDestinationSummaries" => {
                     builder = builder.set_suppressed_destination_summaries(
                         super::super::protocol_serde::shape_suppressed_destination_summaries::de_suppressed_destination_summaries(
@@ -126,13 +133,6 @@ pub(crate) fn de_list_suppressed_destinations(
                             _value,
                             depth + 1,
                         )?,
-                    );
-                }
-                "NextToken" => {
-                    builder = builder.set_next_token(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

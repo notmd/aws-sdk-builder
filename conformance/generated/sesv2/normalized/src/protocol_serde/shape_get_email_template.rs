@@ -100,12 +100,8 @@ pub(crate) fn de_get_email_template(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "TemplateName" => {
-                    builder = builder.set_template_name(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
+                "Tags" => {
+                    builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
                 }
                 "TemplateContent" => {
                     builder = builder.set_template_content(super::super::protocol_serde::shape_email_template_content::de_email_template_content(
@@ -114,8 +110,12 @@ pub(crate) fn de_get_email_template(
                         depth + 1,
                     )?);
                 }
-                "Tags" => {
-                    builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
+                "TemplateName" => {
+                    builder = builder.set_template_name(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

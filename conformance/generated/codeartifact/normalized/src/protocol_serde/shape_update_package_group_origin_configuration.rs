@@ -193,13 +193,6 @@ pub(crate) fn de_update_package_group_origin_configuration(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "packageGroup" => {
-                    builder = builder.set_package_group(super::super::protocol_serde::shape_package_group_description::de_package_group_description(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
                 "allowedRepositoryUpdates" => {
                     builder = builder.set_allowed_repository_updates(
                         super::super::protocol_serde::shape_package_group_allowed_repository_updates::de_package_group_allowed_repository_updates(
@@ -208,6 +201,13 @@ pub(crate) fn de_update_package_group_origin_configuration(
                             depth + 1,
                         )?,
                     );
+                }
+                "packageGroup" => {
+                    builder = builder.set_package_group(super::super::protocol_serde::shape_package_group_description::de_package_group_description(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

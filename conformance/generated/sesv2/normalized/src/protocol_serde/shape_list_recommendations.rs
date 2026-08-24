@@ -114,19 +114,19 @@ pub(crate) fn de_list_recommendations(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "Recommendations" => {
-                    builder = builder.set_recommendations(super::super::protocol_serde::shape_recommendations_list::de_recommendations_list(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
                 "NextToken" => {
                     builder = builder.set_next_token(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
+                }
+                "Recommendations" => {
+                    builder = builder.set_recommendations(super::super::protocol_serde::shape_recommendations_list::de_recommendations_list(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

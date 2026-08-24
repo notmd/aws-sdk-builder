@@ -121787,13 +121787,13 @@ pub(crate) fn de_add_layer_version_permission(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "Statement" => {
-                    builder = builder.set_statement(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "RevisionId" => {
+                    builder = builder.set_revision_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "RevisionId" => {
-                    builder = builder.set_revision_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "Statement" => {
+                    builder = builder.set_statement(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -122371,8 +122371,8 @@ pub(crate) fn de_create_alias(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "Name" => {
-                    builder = builder.set_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "Description" => {
+                    builder = builder.set_description(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -122381,18 +122381,18 @@ pub(crate) fn de_create_alias(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "Description" => {
-                    builder = builder.set_description(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "Name" => {
+                    builder = builder.set_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "RoutingConfig" => {
-                    builder = builder.set_routing_config(super::super::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?);
                 },
                 "RevisionId" => {
                     builder = builder.set_revision_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "RoutingConfig" => {
+                    builder = builder.set_routing_config(super::super::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -122826,36 +122826,30 @@ pub(crate) fn de_create_event_source_mapping(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "UUID" => {
-                    builder = builder.set_uuid(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "StartingPosition" => {
-                    builder = builder.set_starting_position(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::EventSourcePosition::from(u.as_ref())))
-                            .transpose()?);
-                },
-                "StartingPositionTimestamp" => {
-                    builder = builder.set_starting_position_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
+                "AmazonManagedKafkaEventSourceConfig" => {
+                    builder = builder.set_amazon_managed_kafka_event_source_config(super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
                 },
                 "BatchSize" => {
                     builder = builder.set_batch_size(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?);
                 },
-                "MaximumBatchingWindowInSeconds" => {
-                    builder = builder.set_maximum_batching_window_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
+                "BisectBatchOnFunctionError" => {
+                    builder = builder.set_bisect_batch_on_function_error(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 },
-                "ParallelizationFactor" => {
-                    builder = builder.set_parallelization_factor(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
+                "DestinationConfig" => {
+                    builder = builder.set_destination_config(super::super::protocol_serde::shape_destination_config::de_destination_config(tokens, _value, depth + 1)?);
+                },
+                "DocumentDBEventSourceConfig" => {
+                    builder = builder.set_document_db_event_source_config(super::super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?);
                 },
                 "EventSourceArn" => {
                     builder = builder.set_event_source_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "EventSourceMappingArn" => {
+                    builder = builder.set_event_source_mapping_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -122865,22 +122859,16 @@ pub(crate) fn de_create_event_source_mapping(
                 "FilterCriteriaError" => {
                     builder = builder.set_filter_criteria_error(super::super::protocol_serde::shape_filter_criteria_error::de_filter_criteria_error(tokens, _value, depth + 1)?);
                 },
-                "KMSKeyArn" => {
-                    builder = builder.set_kms_key_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "FunctionArn" => {
+                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "MetricsConfig" => {
-                    builder = builder.set_metrics_config(super::super::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(tokens, _value, depth + 1)?);
+                "FunctionResponseTypes" => {
+                    builder = builder.set_function_response_types(super::super::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?);
                 },
-                "LoggingConfig" => {
-                    builder = builder.set_logging_config(super::super::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(tokens, _value, depth + 1)?);
-                },
-                "ScalingConfig" => {
-                    builder = builder.set_scaling_config(super::super::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
-                },
-                "FunctionArn" => {
-                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "KMSKeyArn" => {
+                    builder = builder.set_kms_key_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -122892,6 +122880,58 @@ pub(crate) fn de_create_event_source_mapping(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
+                "LoggingConfig" => {
+                    builder = builder.set_logging_config(super::super::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(tokens, _value, depth + 1)?);
+                },
+                "MaximumBatchingWindowInSeconds" => {
+                    builder = builder.set_maximum_batching_window_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
+                },
+                "MaximumRecordAgeInSeconds" => {
+                    builder = builder.set_maximum_record_age_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
+                },
+                "MaximumRetryAttempts" => {
+                    builder = builder.set_maximum_retry_attempts(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
+                },
+                "MetricsConfig" => {
+                    builder = builder.set_metrics_config(super::super::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(tokens, _value, depth + 1)?);
+                },
+                "ParallelizationFactor" => {
+                    builder = builder.set_parallelization_factor(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
+                },
+                "ProvisionedPollerConfig" => {
+                    builder = builder.set_provisioned_poller_config(super::super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?);
+                },
+                "Queues" => {
+                    builder = builder.set_queues(super::super::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
+                },
+                "ScalingConfig" => {
+                    builder = builder.set_scaling_config(super::super::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
+                },
+                "SelfManagedEventSource" => {
+                    builder = builder.set_self_managed_event_source(super::super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?);
+                },
+                "SelfManagedKafkaEventSourceConfig" => {
+                    builder = builder.set_self_managed_kafka_event_source_config(super::super::protocol_serde::shape_self_managed_kafka_event_source_config::de_self_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
+                },
+                "SourceAccessConfigurations" => {
+                    builder = builder.set_source_access_configurations(super::super::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?);
+                },
+                "StartingPosition" => {
+                    builder = builder.set_starting_position(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::EventSourcePosition::from(u.as_ref())))
+                            .transpose()?);
+                },
+                "StartingPositionTimestamp" => {
+                    builder = builder.set_starting_position_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
+                },
                 "State" => {
                     builder = builder.set_state(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
@@ -122902,58 +122942,18 @@ pub(crate) fn de_create_event_source_mapping(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "DestinationConfig" => {
-                    builder = builder.set_destination_config(super::super::protocol_serde::shape_destination_config::de_destination_config(tokens, _value, depth + 1)?);
-                },
                 "Topics" => {
                     builder = builder.set_topics(super::super::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
-                },
-                "Queues" => {
-                    builder = builder.set_queues(super::super::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
-                },
-                "SourceAccessConfigurations" => {
-                    builder = builder.set_source_access_configurations(super::super::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?);
-                },
-                "SelfManagedEventSource" => {
-                    builder = builder.set_self_managed_event_source(super::super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?);
-                },
-                "MaximumRecordAgeInSeconds" => {
-                    builder = builder.set_maximum_record_age_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
-                "BisectBatchOnFunctionError" => {
-                    builder = builder.set_bisect_batch_on_function_error(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                },
-                "MaximumRetryAttempts" => {
-                    builder = builder.set_maximum_retry_attempts(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
                 },
                 "TumblingWindowInSeconds" => {
                     builder = builder.set_tumbling_window_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?);
                 },
-                "FunctionResponseTypes" => {
-                    builder = builder.set_function_response_types(super::super::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?);
-                },
-                "AmazonManagedKafkaEventSourceConfig" => {
-                    builder = builder.set_amazon_managed_kafka_event_source_config(super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
-                },
-                "SelfManagedKafkaEventSourceConfig" => {
-                    builder = builder.set_self_managed_kafka_event_source_config(super::super::protocol_serde::shape_self_managed_kafka_event_source_config::de_self_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
-                },
-                "DocumentDBEventSourceConfig" => {
-                    builder = builder.set_document_db_event_source_config(super::super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?);
-                },
-                "EventSourceMappingArn" => {
-                    builder = builder.set_event_source_mapping_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "UUID" => {
+                    builder = builder.set_uuid(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "ProvisionedPollerConfig" => {
-                    builder = builder.set_provisioned_poller_config(super::super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -123182,28 +123182,14 @@ pub(crate) fn de_create_function(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "FunctionName" => {
-                    builder = builder.set_function_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
+                "Architectures" => {
+                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(tokens, _value, depth + 1)?);
                 },
-                "FunctionArn" => {
-                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
+                "CapacityProviderConfig" => {
+                    builder = builder.set_capacity_provider_config(super::super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?);
                 },
-                "Runtime" => {
-                    builder = builder.set_runtime(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::Runtime::from(u.as_ref())))
-                            .transpose()?);
-                },
-                "Role" => {
-                    builder = builder.set_role(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "Handler" => {
-                    builder = builder.set_handler(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "CodeSha256" => {
+                    builder = builder.set_code_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -123212,79 +123198,57 @@ pub(crate) fn de_create_function(
                             .map(i64::try_from)
                             .transpose()?);
                 },
+                "ConfigSha256" => {
+                    builder = builder.set_config_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "DeadLetterConfig" => {
+                    builder = builder.set_dead_letter_config(super::super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(tokens, _value, depth + 1)?);
+                },
                 "Description" => {
                     builder = builder.set_description(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "Timeout" => {
-                    builder = builder.set_timeout(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
-                "MemorySize" => {
-                    builder = builder.set_memory_size(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
-                "LastModified" => {
-                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "CodeSha256" => {
-                    builder = builder.set_code_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "Version" => {
-                    builder = builder.set_version(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "VpcConfig" => {
-                    builder = builder.set_vpc_config(super::super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(tokens, _value, depth + 1)?);
-                },
-                "DeadLetterConfig" => {
-                    builder = builder.set_dead_letter_config(super::super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(tokens, _value, depth + 1)?);
+                "DurableConfig" => {
+                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
                 },
                 "Environment" => {
                     builder = builder.set_environment(super::super::protocol_serde::shape_environment_response::de_environment_response(tokens, _value, depth + 1)?);
+                },
+                "EphemeralStorage" => {
+                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(tokens, _value, depth + 1)?);
+                },
+                "FileSystemConfigs" => {
+                    builder = builder.set_file_system_configs(super::super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(tokens, _value, depth + 1)?);
+                },
+                "FunctionArn" => {
+                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "FunctionName" => {
+                    builder = builder.set_function_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "Handler" => {
+                    builder = builder.set_handler(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "ImageConfigResponse" => {
+                    builder = builder.set_image_config_response(super::super::protocol_serde::shape_image_config_response::de_image_config_response(tokens, _value, depth + 1)?);
                 },
                 "KMSKeyArn" => {
                     builder = builder.set_kms_key_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "TracingConfig" => {
-                    builder = builder.set_tracing_config(super::super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(tokens, _value, depth + 1)?);
-                },
-                "MasterArn" => {
-                    builder = builder.set_master_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "LastModified" => {
+                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "RevisionId" => {
-                    builder = builder.set_revision_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "Layers" => {
-                    builder = builder.set_layers(super::super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(tokens, _value, depth + 1)?);
-                },
-                "State" => {
-                    builder = builder.set_state(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::State::from(u.as_ref())))
-                            .transpose()?);
-                },
-                "StateReason" => {
-                    builder = builder.set_state_reason(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "StateReasonCode" => {
-                    builder = builder.set_state_reason_code(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
                             .transpose()?);
                 },
                 "LastUpdateStatus" => {
@@ -123302,17 +123266,20 @@ pub(crate) fn de_create_function(
                             .map(|s| s.to_unescaped().map(|u| super::super::types::LastUpdateStatusReasonCode::from(u.as_ref())))
                             .transpose()?);
                 },
-                "FileSystemConfigs" => {
-                    builder = builder.set_file_system_configs(super::super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(tokens, _value, depth + 1)?);
+                "Layers" => {
+                    builder = builder.set_layers(super::super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(tokens, _value, depth + 1)?);
                 },
-                "SigningProfileVersionArn" => {
-                    builder = builder.set_signing_profile_version_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "LoggingConfig" => {
+                    builder = builder.set_logging_config(super::super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
+                },
+                "MasterArn" => {
+                    builder = builder.set_master_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "SigningJobArn" => {
-                    builder = builder.set_signing_job_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                "MemorySize" => {
+                    builder = builder.set_memory_size(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
                             .transpose()?);
                 },
                 "PackageType" => {
@@ -123320,37 +123287,70 @@ pub(crate) fn de_create_function(
                             .map(|s| s.to_unescaped().map(|u| super::super::types::PackageType::from(u.as_ref())))
                             .transpose()?);
                 },
-                "ImageConfigResponse" => {
-                    builder = builder.set_image_config_response(super::super::protocol_serde::shape_image_config_response::de_image_config_response(tokens, _value, depth + 1)?);
+                "RevisionId" => {
+                    builder = builder.set_revision_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
-                "Architectures" => {
-                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(tokens, _value, depth + 1)?);
+                "Role" => {
+                    builder = builder.set_role(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
-                "EphemeralStorage" => {
-                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(tokens, _value, depth + 1)?);
-                },
-                "SnapStart" => {
-                    builder = builder.set_snap_start(super::super::protocol_serde::shape_snap_start_response::de_snap_start_response(tokens, _value, depth + 1)?);
+                "Runtime" => {
+                    builder = builder.set_runtime(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::Runtime::from(u.as_ref())))
+                            .transpose()?);
                 },
                 "RuntimeVersionConfig" => {
                     builder = builder.set_runtime_version_config(super::super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(tokens, _value, depth + 1)?);
                 },
-                "LoggingConfig" => {
-                    builder = builder.set_logging_config(super::super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
+                "SigningJobArn" => {
+                    builder = builder.set_signing_job_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "SigningProfileVersionArn" => {
+                    builder = builder.set_signing_profile_version_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "SnapStart" => {
+                    builder = builder.set_snap_start(super::super::protocol_serde::shape_snap_start_response::de_snap_start_response(tokens, _value, depth + 1)?);
+                },
+                "State" => {
+                    builder = builder.set_state(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::State::from(u.as_ref())))
+                            .transpose()?);
+                },
+                "StateReason" => {
+                    builder = builder.set_state_reason(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "StateReasonCode" => {
+                    builder = builder.set_state_reason_code(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
+                            .transpose()?);
                 },
                 "TenancyConfig" => {
                     builder = builder.set_tenancy_config(super::super::protocol_serde::shape_tenancy_config::de_tenancy_config(tokens, _value, depth + 1)?);
                 },
-                "CapacityProviderConfig" => {
-                    builder = builder.set_capacity_provider_config(super::super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?);
+                "Timeout" => {
+                    builder = builder.set_timeout(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
-                "ConfigSha256" => {
-                    builder = builder.set_config_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "TracingConfig" => {
+                    builder = builder.set_tracing_config(super::super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(tokens, _value, depth + 1)?);
+                },
+                "Version" => {
+                    builder = builder.set_version(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "DurableConfig" => {
-                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
+                "VpcConfig" => {
+                    builder = builder.set_vpc_config(super::super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -123511,16 +123511,6 @@ pub(crate) fn de_create_function_url_config(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "FunctionUrl" => {
-                    builder = builder.set_function_url(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "FunctionArn" => {
-                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
                 "AuthType" => {
                     builder = builder.set_auth_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::FunctionUrlAuthType::from(u.as_ref())))
@@ -123531,6 +123521,16 @@ pub(crate) fn de_create_function_url_config(
                 },
                 "CreationTime" => {
                     builder = builder.set_creation_time(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "FunctionArn" => {
+                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "FunctionUrl" => {
+                    builder = builder.set_function_url(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -124058,36 +124058,30 @@ pub(crate) fn de_delete_event_source_mapping(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "UUID" => {
-                    builder = builder.set_uuid(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "StartingPosition" => {
-                    builder = builder.set_starting_position(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::EventSourcePosition::from(u.as_ref())))
-                            .transpose()?);
-                },
-                "StartingPositionTimestamp" => {
-                    builder = builder.set_starting_position_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
+                "AmazonManagedKafkaEventSourceConfig" => {
+                    builder = builder.set_amazon_managed_kafka_event_source_config(super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
                 },
                 "BatchSize" => {
                     builder = builder.set_batch_size(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?);
                 },
-                "MaximumBatchingWindowInSeconds" => {
-                    builder = builder.set_maximum_batching_window_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
+                "BisectBatchOnFunctionError" => {
+                    builder = builder.set_bisect_batch_on_function_error(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 },
-                "ParallelizationFactor" => {
-                    builder = builder.set_parallelization_factor(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
+                "DestinationConfig" => {
+                    builder = builder.set_destination_config(super::super::protocol_serde::shape_destination_config::de_destination_config(tokens, _value, depth + 1)?);
+                },
+                "DocumentDBEventSourceConfig" => {
+                    builder = builder.set_document_db_event_source_config(super::super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?);
                 },
                 "EventSourceArn" => {
                     builder = builder.set_event_source_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "EventSourceMappingArn" => {
+                    builder = builder.set_event_source_mapping_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -124097,22 +124091,16 @@ pub(crate) fn de_delete_event_source_mapping(
                 "FilterCriteriaError" => {
                     builder = builder.set_filter_criteria_error(super::super::protocol_serde::shape_filter_criteria_error::de_filter_criteria_error(tokens, _value, depth + 1)?);
                 },
-                "KMSKeyArn" => {
-                    builder = builder.set_kms_key_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "FunctionArn" => {
+                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "MetricsConfig" => {
-                    builder = builder.set_metrics_config(super::super::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(tokens, _value, depth + 1)?);
+                "FunctionResponseTypes" => {
+                    builder = builder.set_function_response_types(super::super::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?);
                 },
-                "LoggingConfig" => {
-                    builder = builder.set_logging_config(super::super::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(tokens, _value, depth + 1)?);
-                },
-                "ScalingConfig" => {
-                    builder = builder.set_scaling_config(super::super::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
-                },
-                "FunctionArn" => {
-                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "KMSKeyArn" => {
+                    builder = builder.set_kms_key_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -124124,6 +124112,58 @@ pub(crate) fn de_delete_event_source_mapping(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
+                "LoggingConfig" => {
+                    builder = builder.set_logging_config(super::super::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(tokens, _value, depth + 1)?);
+                },
+                "MaximumBatchingWindowInSeconds" => {
+                    builder = builder.set_maximum_batching_window_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
+                },
+                "MaximumRecordAgeInSeconds" => {
+                    builder = builder.set_maximum_record_age_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
+                },
+                "MaximumRetryAttempts" => {
+                    builder = builder.set_maximum_retry_attempts(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
+                },
+                "MetricsConfig" => {
+                    builder = builder.set_metrics_config(super::super::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(tokens, _value, depth + 1)?);
+                },
+                "ParallelizationFactor" => {
+                    builder = builder.set_parallelization_factor(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
+                },
+                "ProvisionedPollerConfig" => {
+                    builder = builder.set_provisioned_poller_config(super::super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?);
+                },
+                "Queues" => {
+                    builder = builder.set_queues(super::super::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
+                },
+                "ScalingConfig" => {
+                    builder = builder.set_scaling_config(super::super::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
+                },
+                "SelfManagedEventSource" => {
+                    builder = builder.set_self_managed_event_source(super::super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?);
+                },
+                "SelfManagedKafkaEventSourceConfig" => {
+                    builder = builder.set_self_managed_kafka_event_source_config(super::super::protocol_serde::shape_self_managed_kafka_event_source_config::de_self_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
+                },
+                "SourceAccessConfigurations" => {
+                    builder = builder.set_source_access_configurations(super::super::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?);
+                },
+                "StartingPosition" => {
+                    builder = builder.set_starting_position(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::EventSourcePosition::from(u.as_ref())))
+                            .transpose()?);
+                },
+                "StartingPositionTimestamp" => {
+                    builder = builder.set_starting_position_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
+                },
                 "State" => {
                     builder = builder.set_state(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
@@ -124134,58 +124174,18 @@ pub(crate) fn de_delete_event_source_mapping(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "DestinationConfig" => {
-                    builder = builder.set_destination_config(super::super::protocol_serde::shape_destination_config::de_destination_config(tokens, _value, depth + 1)?);
-                },
                 "Topics" => {
                     builder = builder.set_topics(super::super::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
-                },
-                "Queues" => {
-                    builder = builder.set_queues(super::super::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
-                },
-                "SourceAccessConfigurations" => {
-                    builder = builder.set_source_access_configurations(super::super::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?);
-                },
-                "SelfManagedEventSource" => {
-                    builder = builder.set_self_managed_event_source(super::super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?);
-                },
-                "MaximumRecordAgeInSeconds" => {
-                    builder = builder.set_maximum_record_age_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
-                "BisectBatchOnFunctionError" => {
-                    builder = builder.set_bisect_batch_on_function_error(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                },
-                "MaximumRetryAttempts" => {
-                    builder = builder.set_maximum_retry_attempts(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
                 },
                 "TumblingWindowInSeconds" => {
                     builder = builder.set_tumbling_window_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?);
                 },
-                "FunctionResponseTypes" => {
-                    builder = builder.set_function_response_types(super::super::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?);
-                },
-                "AmazonManagedKafkaEventSourceConfig" => {
-                    builder = builder.set_amazon_managed_kafka_event_source_config(super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
-                },
-                "SelfManagedKafkaEventSourceConfig" => {
-                    builder = builder.set_self_managed_kafka_event_source_config(super::super::protocol_serde::shape_self_managed_kafka_event_source_config::de_self_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
-                },
-                "DocumentDBEventSourceConfig" => {
-                    builder = builder.set_document_db_event_source_config(super::super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?);
-                },
-                "EventSourceMappingArn" => {
-                    builder = builder.set_event_source_mapping_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "UUID" => {
+                    builder = builder.set_uuid(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "ProvisionedPollerConfig" => {
-                    builder = builder.set_provisioned_poller_config(super::super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -125361,8 +125361,8 @@ pub(crate) fn de_get_alias(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "Name" => {
-                    builder = builder.set_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "Description" => {
+                    builder = builder.set_description(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -125371,18 +125371,18 @@ pub(crate) fn de_get_alias(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "Description" => {
-                    builder = builder.set_description(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "Name" => {
+                    builder = builder.set_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "RoutingConfig" => {
-                    builder = builder.set_routing_config(super::super::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?);
                 },
                 "RevisionId" => {
                     builder = builder.set_revision_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "RoutingConfig" => {
+                    builder = builder.set_routing_config(super::super::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -125827,6 +125827,9 @@ pub(crate) fn de_get_durable_execution(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "DurableConfig" => {
+                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
+                },
                 "DurableExecutionArn" => {
                     builder = builder.set_durable_execution_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
@@ -125836,6 +125839,15 @@ pub(crate) fn de_get_durable_execution(
                     builder = builder.set_durable_execution_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "EndTimestamp" => {
+                    builder = builder.set_end_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
+                },
+                "Error" => {
+                    builder = builder.set_error(super::super::protocol_serde::shape_error_object::de_error_object(tokens, _value, depth + 1)?);
+                },
+                "ExecutionDataIncluded" => {
+                    builder = builder.set_execution_data_included(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 },
                 "FunctionArn" => {
                     builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -125852,9 +125864,6 @@ pub(crate) fn de_get_durable_execution(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "Error" => {
-                    builder = builder.set_error(super::super::protocol_serde::shape_error_object::de_error_object(tokens, _value, depth + 1)?);
-                },
                 "StartTimestamp" => {
                     builder = builder.set_start_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
                 },
@@ -125863,22 +125872,13 @@ pub(crate) fn de_get_durable_execution(
                             .map(|s| s.to_unescaped().map(|u| super::super::types::ExecutionStatus::from(u.as_ref())))
                             .transpose()?);
                 },
-                "EndTimestamp" => {
-                    builder = builder.set_end_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
+                "TraceHeader" => {
+                    builder = builder.set_trace_header(super::super::protocol_serde::shape_trace_header::de_trace_header(tokens, _value, depth + 1)?);
                 },
                 "Version" => {
                     builder = builder.set_version(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "TraceHeader" => {
-                    builder = builder.set_trace_header(super::super::protocol_serde::shape_trace_header::de_trace_header(tokens, _value, depth + 1)?);
-                },
-                "ExecutionDataIncluded" => {
-                    builder = builder.set_execution_data_included(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                },
-                "DurableConfig" => {
-                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -126254,13 +126254,13 @@ pub(crate) fn de_get_durable_execution_state(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "Operations" => {
-                    builder = builder.set_operations(super::super::protocol_serde::shape_operations::de_operations(tokens, _value, depth + 1)?);
-                },
                 "NextMarker" => {
                     builder = builder.set_next_marker(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "Operations" => {
+                    builder = builder.set_operations(super::super::protocol_serde::shape_operations::de_operations(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -126394,36 +126394,30 @@ pub(crate) fn de_get_event_source_mapping(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "UUID" => {
-                    builder = builder.set_uuid(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "StartingPosition" => {
-                    builder = builder.set_starting_position(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::EventSourcePosition::from(u.as_ref())))
-                            .transpose()?);
-                },
-                "StartingPositionTimestamp" => {
-                    builder = builder.set_starting_position_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
+                "AmazonManagedKafkaEventSourceConfig" => {
+                    builder = builder.set_amazon_managed_kafka_event_source_config(super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
                 },
                 "BatchSize" => {
                     builder = builder.set_batch_size(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?);
                 },
-                "MaximumBatchingWindowInSeconds" => {
-                    builder = builder.set_maximum_batching_window_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
+                "BisectBatchOnFunctionError" => {
+                    builder = builder.set_bisect_batch_on_function_error(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 },
-                "ParallelizationFactor" => {
-                    builder = builder.set_parallelization_factor(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
+                "DestinationConfig" => {
+                    builder = builder.set_destination_config(super::super::protocol_serde::shape_destination_config::de_destination_config(tokens, _value, depth + 1)?);
+                },
+                "DocumentDBEventSourceConfig" => {
+                    builder = builder.set_document_db_event_source_config(super::super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?);
                 },
                 "EventSourceArn" => {
                     builder = builder.set_event_source_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "EventSourceMappingArn" => {
+                    builder = builder.set_event_source_mapping_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -126433,22 +126427,16 @@ pub(crate) fn de_get_event_source_mapping(
                 "FilterCriteriaError" => {
                     builder = builder.set_filter_criteria_error(super::super::protocol_serde::shape_filter_criteria_error::de_filter_criteria_error(tokens, _value, depth + 1)?);
                 },
-                "KMSKeyArn" => {
-                    builder = builder.set_kms_key_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "FunctionArn" => {
+                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "MetricsConfig" => {
-                    builder = builder.set_metrics_config(super::super::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(tokens, _value, depth + 1)?);
+                "FunctionResponseTypes" => {
+                    builder = builder.set_function_response_types(super::super::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?);
                 },
-                "LoggingConfig" => {
-                    builder = builder.set_logging_config(super::super::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(tokens, _value, depth + 1)?);
-                },
-                "ScalingConfig" => {
-                    builder = builder.set_scaling_config(super::super::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
-                },
-                "FunctionArn" => {
-                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "KMSKeyArn" => {
+                    builder = builder.set_kms_key_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -126460,6 +126448,58 @@ pub(crate) fn de_get_event_source_mapping(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
+                "LoggingConfig" => {
+                    builder = builder.set_logging_config(super::super::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(tokens, _value, depth + 1)?);
+                },
+                "MaximumBatchingWindowInSeconds" => {
+                    builder = builder.set_maximum_batching_window_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
+                },
+                "MaximumRecordAgeInSeconds" => {
+                    builder = builder.set_maximum_record_age_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
+                },
+                "MaximumRetryAttempts" => {
+                    builder = builder.set_maximum_retry_attempts(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
+                },
+                "MetricsConfig" => {
+                    builder = builder.set_metrics_config(super::super::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(tokens, _value, depth + 1)?);
+                },
+                "ParallelizationFactor" => {
+                    builder = builder.set_parallelization_factor(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
+                },
+                "ProvisionedPollerConfig" => {
+                    builder = builder.set_provisioned_poller_config(super::super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?);
+                },
+                "Queues" => {
+                    builder = builder.set_queues(super::super::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
+                },
+                "ScalingConfig" => {
+                    builder = builder.set_scaling_config(super::super::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
+                },
+                "SelfManagedEventSource" => {
+                    builder = builder.set_self_managed_event_source(super::super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?);
+                },
+                "SelfManagedKafkaEventSourceConfig" => {
+                    builder = builder.set_self_managed_kafka_event_source_config(super::super::protocol_serde::shape_self_managed_kafka_event_source_config::de_self_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
+                },
+                "SourceAccessConfigurations" => {
+                    builder = builder.set_source_access_configurations(super::super::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?);
+                },
+                "StartingPosition" => {
+                    builder = builder.set_starting_position(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::EventSourcePosition::from(u.as_ref())))
+                            .transpose()?);
+                },
+                "StartingPositionTimestamp" => {
+                    builder = builder.set_starting_position_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
+                },
                 "State" => {
                     builder = builder.set_state(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
@@ -126470,58 +126510,18 @@ pub(crate) fn de_get_event_source_mapping(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "DestinationConfig" => {
-                    builder = builder.set_destination_config(super::super::protocol_serde::shape_destination_config::de_destination_config(tokens, _value, depth + 1)?);
-                },
                 "Topics" => {
                     builder = builder.set_topics(super::super::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
-                },
-                "Queues" => {
-                    builder = builder.set_queues(super::super::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
-                },
-                "SourceAccessConfigurations" => {
-                    builder = builder.set_source_access_configurations(super::super::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?);
-                },
-                "SelfManagedEventSource" => {
-                    builder = builder.set_self_managed_event_source(super::super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?);
-                },
-                "MaximumRecordAgeInSeconds" => {
-                    builder = builder.set_maximum_record_age_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
-                "BisectBatchOnFunctionError" => {
-                    builder = builder.set_bisect_batch_on_function_error(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                },
-                "MaximumRetryAttempts" => {
-                    builder = builder.set_maximum_retry_attempts(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
                 },
                 "TumblingWindowInSeconds" => {
                     builder = builder.set_tumbling_window_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?);
                 },
-                "FunctionResponseTypes" => {
-                    builder = builder.set_function_response_types(super::super::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?);
-                },
-                "AmazonManagedKafkaEventSourceConfig" => {
-                    builder = builder.set_amazon_managed_kafka_event_source_config(super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
-                },
-                "SelfManagedKafkaEventSourceConfig" => {
-                    builder = builder.set_self_managed_kafka_event_source_config(super::super::protocol_serde::shape_self_managed_kafka_event_source_config::de_self_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
-                },
-                "DocumentDBEventSourceConfig" => {
-                    builder = builder.set_document_db_event_source_config(super::super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?);
-                },
-                "EventSourceMappingArn" => {
-                    builder = builder.set_event_source_mapping_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "UUID" => {
+                    builder = builder.set_uuid(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "ProvisionedPollerConfig" => {
-                    builder = builder.set_provisioned_poller_config(super::super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -126655,20 +126655,20 @@ pub(crate) fn de_get_function(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "Configuration" => {
-                    builder = builder.set_configuration(super::super::protocol_serde::shape_function_configuration::de_function_configuration(tokens, _value, depth + 1)?);
-                },
                 "Code" => {
                     builder = builder.set_code(super::super::protocol_serde::shape_function_code_location::de_function_code_location(tokens, _value, depth + 1)?);
+                },
+                "Concurrency" => {
+                    builder = builder.set_concurrency(super::super::protocol_serde::shape_concurrency::de_concurrency(tokens, _value, depth + 1)?);
+                },
+                "Configuration" => {
+                    builder = builder.set_configuration(super::super::protocol_serde::shape_function_configuration::de_function_configuration(tokens, _value, depth + 1)?);
                 },
                 "Tags" => {
                     builder = builder.set_tags(super::super::protocol_serde::shape_tags::de_tags(tokens, _value, depth + 1)?);
                 },
                 "TagsError" => {
                     builder = builder.set_tags_error(super::super::protocol_serde::shape_tags_error::de_tags_error(tokens, _value, depth + 1)?);
-                },
-                "Concurrency" => {
-                    builder = builder.set_concurrency(super::super::protocol_serde::shape_concurrency::de_concurrency(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -127097,28 +127097,14 @@ pub(crate) fn de_get_function_configuration(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "FunctionName" => {
-                    builder = builder.set_function_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
+                "Architectures" => {
+                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(tokens, _value, depth + 1)?);
                 },
-                "FunctionArn" => {
-                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
+                "CapacityProviderConfig" => {
+                    builder = builder.set_capacity_provider_config(super::super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?);
                 },
-                "Runtime" => {
-                    builder = builder.set_runtime(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::Runtime::from(u.as_ref())))
-                            .transpose()?);
-                },
-                "Role" => {
-                    builder = builder.set_role(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "Handler" => {
-                    builder = builder.set_handler(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "CodeSha256" => {
+                    builder = builder.set_code_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -127127,79 +127113,57 @@ pub(crate) fn de_get_function_configuration(
                             .map(i64::try_from)
                             .transpose()?);
                 },
+                "ConfigSha256" => {
+                    builder = builder.set_config_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "DeadLetterConfig" => {
+                    builder = builder.set_dead_letter_config(super::super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(tokens, _value, depth + 1)?);
+                },
                 "Description" => {
                     builder = builder.set_description(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "Timeout" => {
-                    builder = builder.set_timeout(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
-                "MemorySize" => {
-                    builder = builder.set_memory_size(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
-                "LastModified" => {
-                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "CodeSha256" => {
-                    builder = builder.set_code_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "Version" => {
-                    builder = builder.set_version(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "VpcConfig" => {
-                    builder = builder.set_vpc_config(super::super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(tokens, _value, depth + 1)?);
-                },
-                "DeadLetterConfig" => {
-                    builder = builder.set_dead_letter_config(super::super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(tokens, _value, depth + 1)?);
+                "DurableConfig" => {
+                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
                 },
                 "Environment" => {
                     builder = builder.set_environment(super::super::protocol_serde::shape_environment_response::de_environment_response(tokens, _value, depth + 1)?);
+                },
+                "EphemeralStorage" => {
+                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(tokens, _value, depth + 1)?);
+                },
+                "FileSystemConfigs" => {
+                    builder = builder.set_file_system_configs(super::super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(tokens, _value, depth + 1)?);
+                },
+                "FunctionArn" => {
+                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "FunctionName" => {
+                    builder = builder.set_function_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "Handler" => {
+                    builder = builder.set_handler(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "ImageConfigResponse" => {
+                    builder = builder.set_image_config_response(super::super::protocol_serde::shape_image_config_response::de_image_config_response(tokens, _value, depth + 1)?);
                 },
                 "KMSKeyArn" => {
                     builder = builder.set_kms_key_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "TracingConfig" => {
-                    builder = builder.set_tracing_config(super::super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(tokens, _value, depth + 1)?);
-                },
-                "MasterArn" => {
-                    builder = builder.set_master_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "LastModified" => {
+                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "RevisionId" => {
-                    builder = builder.set_revision_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "Layers" => {
-                    builder = builder.set_layers(super::super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(tokens, _value, depth + 1)?);
-                },
-                "State" => {
-                    builder = builder.set_state(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::State::from(u.as_ref())))
-                            .transpose()?);
-                },
-                "StateReason" => {
-                    builder = builder.set_state_reason(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "StateReasonCode" => {
-                    builder = builder.set_state_reason_code(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
                             .transpose()?);
                 },
                 "LastUpdateStatus" => {
@@ -127217,17 +127181,20 @@ pub(crate) fn de_get_function_configuration(
                             .map(|s| s.to_unescaped().map(|u| super::super::types::LastUpdateStatusReasonCode::from(u.as_ref())))
                             .transpose()?);
                 },
-                "FileSystemConfigs" => {
-                    builder = builder.set_file_system_configs(super::super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(tokens, _value, depth + 1)?);
+                "Layers" => {
+                    builder = builder.set_layers(super::super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(tokens, _value, depth + 1)?);
                 },
-                "SigningProfileVersionArn" => {
-                    builder = builder.set_signing_profile_version_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "LoggingConfig" => {
+                    builder = builder.set_logging_config(super::super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
+                },
+                "MasterArn" => {
+                    builder = builder.set_master_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "SigningJobArn" => {
-                    builder = builder.set_signing_job_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                "MemorySize" => {
+                    builder = builder.set_memory_size(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
                             .transpose()?);
                 },
                 "PackageType" => {
@@ -127235,37 +127202,70 @@ pub(crate) fn de_get_function_configuration(
                             .map(|s| s.to_unescaped().map(|u| super::super::types::PackageType::from(u.as_ref())))
                             .transpose()?);
                 },
-                "ImageConfigResponse" => {
-                    builder = builder.set_image_config_response(super::super::protocol_serde::shape_image_config_response::de_image_config_response(tokens, _value, depth + 1)?);
+                "RevisionId" => {
+                    builder = builder.set_revision_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
-                "Architectures" => {
-                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(tokens, _value, depth + 1)?);
+                "Role" => {
+                    builder = builder.set_role(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
-                "EphemeralStorage" => {
-                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(tokens, _value, depth + 1)?);
-                },
-                "SnapStart" => {
-                    builder = builder.set_snap_start(super::super::protocol_serde::shape_snap_start_response::de_snap_start_response(tokens, _value, depth + 1)?);
+                "Runtime" => {
+                    builder = builder.set_runtime(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::Runtime::from(u.as_ref())))
+                            .transpose()?);
                 },
                 "RuntimeVersionConfig" => {
                     builder = builder.set_runtime_version_config(super::super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(tokens, _value, depth + 1)?);
                 },
-                "LoggingConfig" => {
-                    builder = builder.set_logging_config(super::super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
+                "SigningJobArn" => {
+                    builder = builder.set_signing_job_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "SigningProfileVersionArn" => {
+                    builder = builder.set_signing_profile_version_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "SnapStart" => {
+                    builder = builder.set_snap_start(super::super::protocol_serde::shape_snap_start_response::de_snap_start_response(tokens, _value, depth + 1)?);
+                },
+                "State" => {
+                    builder = builder.set_state(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::State::from(u.as_ref())))
+                            .transpose()?);
+                },
+                "StateReason" => {
+                    builder = builder.set_state_reason(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "StateReasonCode" => {
+                    builder = builder.set_state_reason_code(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
+                            .transpose()?);
                 },
                 "TenancyConfig" => {
                     builder = builder.set_tenancy_config(super::super::protocol_serde::shape_tenancy_config::de_tenancy_config(tokens, _value, depth + 1)?);
                 },
-                "CapacityProviderConfig" => {
-                    builder = builder.set_capacity_provider_config(super::super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?);
+                "Timeout" => {
+                    builder = builder.set_timeout(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
-                "ConfigSha256" => {
-                    builder = builder.set_config_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "TracingConfig" => {
+                    builder = builder.set_tracing_config(super::super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(tokens, _value, depth + 1)?);
+                },
+                "Version" => {
+                    builder = builder.set_version(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "DurableConfig" => {
-                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
+                "VpcConfig" => {
+                    builder = builder.set_vpc_config(super::super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -127399,26 +127399,26 @@ pub(crate) fn de_get_function_event_invoke_config(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "LastModified" => {
-                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
+                "DestinationConfig" => {
+                    builder = builder.set_destination_config(super::super::protocol_serde::shape_destination_config::de_destination_config(tokens, _value, depth + 1)?);
                 },
                 "FunctionArn" => {
                     builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "MaximumRetryAttempts" => {
-                    builder = builder.set_maximum_retry_attempts(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
+                "LastModified" => {
+                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
                 },
                 "MaximumEventAgeInSeconds" => {
                     builder = builder.set_maximum_event_age_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?);
                 },
-                "DestinationConfig" => {
-                    builder = builder.set_destination_config(super::super::protocol_serde::shape_destination_config::de_destination_config(tokens, _value, depth + 1)?);
+                "MaximumRetryAttempts" => {
+                    builder = builder.set_maximum_retry_attempts(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -127689,13 +127689,13 @@ pub(crate) fn de_get_function_scaling_config(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "AppliedFunctionScalingConfig" => {
+                    builder = builder.set_applied_function_scaling_config(super::super::protocol_serde::shape_function_scaling_config::de_function_scaling_config(tokens, _value, depth + 1)?);
+                },
                 "FunctionArn" => {
                     builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "AppliedFunctionScalingConfig" => {
-                    builder = builder.set_applied_function_scaling_config(super::super::protocol_serde::shape_function_scaling_config::de_function_scaling_config(tokens, _value, depth + 1)?);
                 },
                 "RequestedFunctionScalingConfig" => {
                     builder = builder.set_requested_function_scaling_config(super::super::protocol_serde::shape_function_scaling_config::de_function_scaling_config(tokens, _value, depth + 1)?);
@@ -127834,16 +127834,6 @@ pub(crate) fn de_get_function_url_config(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "FunctionUrl" => {
-                    builder = builder.set_function_url(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "FunctionArn" => {
-                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
                 "AuthType" => {
                     builder = builder.set_auth_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::FunctionUrlAuthType::from(u.as_ref())))
@@ -127857,14 +127847,24 @@ pub(crate) fn de_get_function_url_config(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "LastModifiedTime" => {
-                    builder = builder.set_last_modified_time(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "FunctionArn" => {
+                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "FunctionUrl" => {
+                    builder = builder.set_function_url(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
                 "InvokeMode" => {
                     builder = builder.set_invoke_mode(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::InvokeMode::from(u.as_ref())))
+                            .transpose()?);
+                },
+                "LastModifiedTime" => {
+                    builder = builder.set_last_modified_time(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -127999,8 +127999,24 @@ pub(crate) fn de_get_layer_version(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "CompatibleArchitectures" => {
+                    builder = builder.set_compatible_architectures(super::super::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?);
+                },
+                "CompatibleRuntimes" => {
+                    builder = builder.set_compatible_runtimes(super::super::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(tokens, _value, depth + 1)?);
+                },
                 "Content" => {
                     builder = builder.set_content(super::super::protocol_serde::shape_layer_version_content_output::de_layer_version_content_output(tokens, _value, depth + 1)?);
+                },
+                "CreatedDate" => {
+                    builder = builder.set_created_date(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "Description" => {
+                    builder = builder.set_description(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "LayerArn" => {
                     builder = builder.set_layer_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -128012,30 +128028,14 @@ pub(crate) fn de_get_layer_version(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "Description" => {
-                    builder = builder.set_description(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "CreatedDate" => {
-                    builder = builder.set_created_date(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "LicenseInfo" => {
+                    builder = builder.set_license_info(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
                 "Version" => {
                     builder = builder.set_version(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i64::try_from)
-                            .transpose()?);
-                },
-                "CompatibleArchitectures" => {
-                    builder = builder.set_compatible_architectures(super::super::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?);
-                },
-                "CompatibleRuntimes" => {
-                    builder = builder.set_compatible_runtimes(super::super::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(tokens, _value, depth + 1)?);
-                },
-                "LicenseInfo" => {
-                    builder = builder.set_license_info(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -128170,8 +128170,24 @@ pub(crate) fn de_get_layer_version_by_arn(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "CompatibleArchitectures" => {
+                    builder = builder.set_compatible_architectures(super::super::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?);
+                },
+                "CompatibleRuntimes" => {
+                    builder = builder.set_compatible_runtimes(super::super::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(tokens, _value, depth + 1)?);
+                },
                 "Content" => {
                     builder = builder.set_content(super::super::protocol_serde::shape_layer_version_content_output::de_layer_version_content_output(tokens, _value, depth + 1)?);
+                },
+                "CreatedDate" => {
+                    builder = builder.set_created_date(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "Description" => {
+                    builder = builder.set_description(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "LayerArn" => {
                     builder = builder.set_layer_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -128183,30 +128199,14 @@ pub(crate) fn de_get_layer_version_by_arn(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "Description" => {
-                    builder = builder.set_description(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "CreatedDate" => {
-                    builder = builder.set_created_date(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "LicenseInfo" => {
+                    builder = builder.set_license_info(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
                 "Version" => {
                     builder = builder.set_version(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i64::try_from)
-                            .transpose()?);
-                },
-                "CompatibleArchitectures" => {
-                    builder = builder.set_compatible_architectures(super::super::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?);
-                },
-                "CompatibleRuntimes" => {
-                    builder = builder.set_compatible_runtimes(super::super::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(tokens, _value, depth + 1)?);
-                },
-                "LicenseInfo" => {
-                    builder = builder.set_license_info(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -128639,8 +128639,8 @@ pub(crate) fn de_get_provisioned_concurrency_config(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "RequestedProvisionedConcurrentExecutions" => {
-                    builder = builder.set_requested_provisioned_concurrent_executions(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                "AllocatedProvisionedConcurrentExecutions" => {
+                    builder = builder.set_allocated_provisioned_concurrent_executions(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?);
                 },
@@ -128649,8 +128649,13 @@ pub(crate) fn de_get_provisioned_concurrency_config(
                             .map(i32::try_from)
                             .transpose()?);
                 },
-                "AllocatedProvisionedConcurrentExecutions" => {
-                    builder = builder.set_allocated_provisioned_concurrent_executions(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                "LastModified" => {
+                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "RequestedProvisionedConcurrentExecutions" => {
+                    builder = builder.set_requested_provisioned_concurrent_executions(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?);
                 },
@@ -128661,11 +128666,6 @@ pub(crate) fn de_get_provisioned_concurrency_config(
                 },
                 "StatusReason" => {
                     builder = builder.set_status_reason(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "LastModified" => {
-                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -128943,11 +128943,6 @@ pub(crate) fn de_get_runtime_management_config(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "UpdateRuntimeOn" => {
-                    builder = builder.set_update_runtime_on(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::UpdateRuntimeOn::from(u.as_ref())))
-                            .transpose()?);
-                },
                 "FunctionArn" => {
                     builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
@@ -128956,6 +128951,11 @@ pub(crate) fn de_get_runtime_management_config(
                 "RuntimeVersionArn" => {
                     builder = builder.set_runtime_version_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "UpdateRuntimeOn" => {
+                    builder = builder.set_update_runtime_on(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::UpdateRuntimeOn::from(u.as_ref())))
                             .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -130759,13 +130759,13 @@ pub(crate) fn de_list_aliases(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "Aliases" => {
+                    builder = builder.set_aliases(super::super::protocol_serde::shape_alias_list::de_alias_list(tokens, _value, depth + 1)?);
+                },
                 "NextMarker" => {
                     builder = builder.set_next_marker(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "Aliases" => {
-                    builder = builder.set_aliases(super::super::protocol_serde::shape_alias_list::de_alias_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -130994,13 +130994,13 @@ pub(crate) fn de_list_code_signing_configs(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "CodeSigningConfigs" => {
+                    builder = builder.set_code_signing_configs(super::super::protocol_serde::shape_code_signing_config_list::de_code_signing_config_list(tokens, _value, depth + 1)?);
+                },
                 "NextMarker" => {
                     builder = builder.set_next_marker(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "CodeSigningConfigs" => {
-                    builder = builder.set_code_signing_configs(super::super::protocol_serde::shape_code_signing_config_list::de_code_signing_config_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -131274,13 +131274,13 @@ pub(crate) fn de_list_event_source_mappings(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "EventSourceMappings" => {
+                    builder = builder.set_event_source_mappings(super::super::protocol_serde::shape_event_source_mappings_list::de_event_source_mappings_list(tokens, _value, depth + 1)?);
+                },
                 "NextMarker" => {
                     builder = builder.set_next_marker(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "EventSourceMappings" => {
-                    builder = builder.set_event_source_mappings(super::super::protocol_serde::shape_event_source_mappings_list::de_event_source_mappings_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -131829,13 +131829,13 @@ pub(crate) fn de_list_functions(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "Functions" => {
+                    builder = builder.set_functions(super::super::protocol_serde::shape_function_list::de_function_list(tokens, _value, depth + 1)?);
+                },
                 "NextMarker" => {
                     builder = builder.set_next_marker(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "Functions" => {
-                    builder = builder.set_functions(super::super::protocol_serde::shape_function_list::de_function_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -131950,13 +131950,13 @@ pub(crate) fn de_list_functions_by_code_signing_config(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "FunctionArns" => {
+                    builder = builder.set_function_arns(super::super::protocol_serde::shape_function_arn_list::de_function_arn_list(tokens, _value, depth + 1)?);
+                },
                 "NextMarker" => {
                     builder = builder.set_next_marker(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "FunctionArns" => {
-                    builder = builder.set_function_arns(super::super::protocol_serde::shape_function_arn_list::de_function_arn_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -132090,13 +132090,13 @@ pub(crate) fn de_list_layer_versions(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "LayerVersions" => {
+                    builder = builder.set_layer_versions(super::super::protocol_serde::shape_layer_versions_list::de_layer_versions_list(tokens, _value, depth + 1)?);
+                },
                 "NextMarker" => {
                     builder = builder.set_next_marker(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "LayerVersions" => {
-                    builder = builder.set_layer_versions(super::super::protocol_serde::shape_layer_versions_list::de_layer_versions_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -132216,13 +132216,13 @@ pub(crate) fn de_list_layers(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "Layers" => {
+                    builder = builder.set_layers(super::super::protocol_serde::shape_layers_list::de_layers_list(tokens, _value, depth + 1)?);
+                },
                 "NextMarker" => {
                     builder = builder.set_next_marker(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "Layers" => {
-                    builder = builder.set_layers(super::super::protocol_serde::shape_layers_list::de_layers_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -132356,13 +132356,13 @@ pub(crate) fn de_list_provisioned_concurrency_configs(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "ProvisionedConcurrencyConfigs" => {
-                    builder = builder.set_provisioned_concurrency_configs(super::super::protocol_serde::shape_provisioned_concurrency_config_list::de_provisioned_concurrency_config_list(tokens, _value, depth + 1)?);
-                },
                 "NextMarker" => {
                     builder = builder.set_next_marker(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "ProvisionedConcurrencyConfigs" => {
+                    builder = builder.set_provisioned_concurrency_configs(super::super::protocol_serde::shape_provisioned_concurrency_config_list::de_provisioned_concurrency_config_list(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -132796,8 +132796,24 @@ pub(crate) fn de_publish_layer_version(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "CompatibleArchitectures" => {
+                    builder = builder.set_compatible_architectures(super::super::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?);
+                },
+                "CompatibleRuntimes" => {
+                    builder = builder.set_compatible_runtimes(super::super::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(tokens, _value, depth + 1)?);
+                },
                 "Content" => {
                     builder = builder.set_content(super::super::protocol_serde::shape_layer_version_content_output::de_layer_version_content_output(tokens, _value, depth + 1)?);
+                },
+                "CreatedDate" => {
+                    builder = builder.set_created_date(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "Description" => {
+                    builder = builder.set_description(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "LayerArn" => {
                     builder = builder.set_layer_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -132809,30 +132825,14 @@ pub(crate) fn de_publish_layer_version(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "Description" => {
-                    builder = builder.set_description(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "CreatedDate" => {
-                    builder = builder.set_created_date(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "LicenseInfo" => {
+                    builder = builder.set_license_info(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
                 "Version" => {
                     builder = builder.set_version(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i64::try_from)
-                            .transpose()?);
-                },
-                "CompatibleArchitectures" => {
-                    builder = builder.set_compatible_architectures(super::super::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?);
-                },
-                "CompatibleRuntimes" => {
-                    builder = builder.set_compatible_runtimes(super::super::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(tokens, _value, depth + 1)?);
-                },
-                "LicenseInfo" => {
-                    builder = builder.set_license_info(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -133034,28 +133034,14 @@ pub(crate) fn de_publish_version(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "FunctionName" => {
-                    builder = builder.set_function_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
+                "Architectures" => {
+                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(tokens, _value, depth + 1)?);
                 },
-                "FunctionArn" => {
-                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
+                "CapacityProviderConfig" => {
+                    builder = builder.set_capacity_provider_config(super::super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?);
                 },
-                "Runtime" => {
-                    builder = builder.set_runtime(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::Runtime::from(u.as_ref())))
-                            .transpose()?);
-                },
-                "Role" => {
-                    builder = builder.set_role(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "Handler" => {
-                    builder = builder.set_handler(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "CodeSha256" => {
+                    builder = builder.set_code_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -133064,79 +133050,57 @@ pub(crate) fn de_publish_version(
                             .map(i64::try_from)
                             .transpose()?);
                 },
+                "ConfigSha256" => {
+                    builder = builder.set_config_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "DeadLetterConfig" => {
+                    builder = builder.set_dead_letter_config(super::super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(tokens, _value, depth + 1)?);
+                },
                 "Description" => {
                     builder = builder.set_description(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "Timeout" => {
-                    builder = builder.set_timeout(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
-                "MemorySize" => {
-                    builder = builder.set_memory_size(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
-                "LastModified" => {
-                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "CodeSha256" => {
-                    builder = builder.set_code_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "Version" => {
-                    builder = builder.set_version(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "VpcConfig" => {
-                    builder = builder.set_vpc_config(super::super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(tokens, _value, depth + 1)?);
-                },
-                "DeadLetterConfig" => {
-                    builder = builder.set_dead_letter_config(super::super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(tokens, _value, depth + 1)?);
+                "DurableConfig" => {
+                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
                 },
                 "Environment" => {
                     builder = builder.set_environment(super::super::protocol_serde::shape_environment_response::de_environment_response(tokens, _value, depth + 1)?);
+                },
+                "EphemeralStorage" => {
+                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(tokens, _value, depth + 1)?);
+                },
+                "FileSystemConfigs" => {
+                    builder = builder.set_file_system_configs(super::super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(tokens, _value, depth + 1)?);
+                },
+                "FunctionArn" => {
+                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "FunctionName" => {
+                    builder = builder.set_function_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "Handler" => {
+                    builder = builder.set_handler(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "ImageConfigResponse" => {
+                    builder = builder.set_image_config_response(super::super::protocol_serde::shape_image_config_response::de_image_config_response(tokens, _value, depth + 1)?);
                 },
                 "KMSKeyArn" => {
                     builder = builder.set_kms_key_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "TracingConfig" => {
-                    builder = builder.set_tracing_config(super::super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(tokens, _value, depth + 1)?);
-                },
-                "MasterArn" => {
-                    builder = builder.set_master_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "LastModified" => {
+                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "RevisionId" => {
-                    builder = builder.set_revision_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "Layers" => {
-                    builder = builder.set_layers(super::super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(tokens, _value, depth + 1)?);
-                },
-                "State" => {
-                    builder = builder.set_state(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::State::from(u.as_ref())))
-                            .transpose()?);
-                },
-                "StateReason" => {
-                    builder = builder.set_state_reason(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "StateReasonCode" => {
-                    builder = builder.set_state_reason_code(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
                             .transpose()?);
                 },
                 "LastUpdateStatus" => {
@@ -133154,17 +133118,20 @@ pub(crate) fn de_publish_version(
                             .map(|s| s.to_unescaped().map(|u| super::super::types::LastUpdateStatusReasonCode::from(u.as_ref())))
                             .transpose()?);
                 },
-                "FileSystemConfigs" => {
-                    builder = builder.set_file_system_configs(super::super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(tokens, _value, depth + 1)?);
+                "Layers" => {
+                    builder = builder.set_layers(super::super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(tokens, _value, depth + 1)?);
                 },
-                "SigningProfileVersionArn" => {
-                    builder = builder.set_signing_profile_version_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "LoggingConfig" => {
+                    builder = builder.set_logging_config(super::super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
+                },
+                "MasterArn" => {
+                    builder = builder.set_master_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "SigningJobArn" => {
-                    builder = builder.set_signing_job_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                "MemorySize" => {
+                    builder = builder.set_memory_size(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
                             .transpose()?);
                 },
                 "PackageType" => {
@@ -133172,37 +133139,70 @@ pub(crate) fn de_publish_version(
                             .map(|s| s.to_unescaped().map(|u| super::super::types::PackageType::from(u.as_ref())))
                             .transpose()?);
                 },
-                "ImageConfigResponse" => {
-                    builder = builder.set_image_config_response(super::super::protocol_serde::shape_image_config_response::de_image_config_response(tokens, _value, depth + 1)?);
+                "RevisionId" => {
+                    builder = builder.set_revision_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
-                "Architectures" => {
-                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(tokens, _value, depth + 1)?);
+                "Role" => {
+                    builder = builder.set_role(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
-                "EphemeralStorage" => {
-                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(tokens, _value, depth + 1)?);
-                },
-                "SnapStart" => {
-                    builder = builder.set_snap_start(super::super::protocol_serde::shape_snap_start_response::de_snap_start_response(tokens, _value, depth + 1)?);
+                "Runtime" => {
+                    builder = builder.set_runtime(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::Runtime::from(u.as_ref())))
+                            .transpose()?);
                 },
                 "RuntimeVersionConfig" => {
                     builder = builder.set_runtime_version_config(super::super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(tokens, _value, depth + 1)?);
                 },
-                "LoggingConfig" => {
-                    builder = builder.set_logging_config(super::super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
+                "SigningJobArn" => {
+                    builder = builder.set_signing_job_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "SigningProfileVersionArn" => {
+                    builder = builder.set_signing_profile_version_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "SnapStart" => {
+                    builder = builder.set_snap_start(super::super::protocol_serde::shape_snap_start_response::de_snap_start_response(tokens, _value, depth + 1)?);
+                },
+                "State" => {
+                    builder = builder.set_state(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::State::from(u.as_ref())))
+                            .transpose()?);
+                },
+                "StateReason" => {
+                    builder = builder.set_state_reason(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "StateReasonCode" => {
+                    builder = builder.set_state_reason_code(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
+                            .transpose()?);
                 },
                 "TenancyConfig" => {
                     builder = builder.set_tenancy_config(super::super::protocol_serde::shape_tenancy_config::de_tenancy_config(tokens, _value, depth + 1)?);
                 },
-                "CapacityProviderConfig" => {
-                    builder = builder.set_capacity_provider_config(super::super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?);
+                "Timeout" => {
+                    builder = builder.set_timeout(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
-                "ConfigSha256" => {
-                    builder = builder.set_config_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "TracingConfig" => {
+                    builder = builder.set_tracing_config(super::super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(tokens, _value, depth + 1)?);
+                },
+                "Version" => {
+                    builder = builder.set_version(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "DurableConfig" => {
-                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
+                "VpcConfig" => {
+                    builder = builder.set_vpc_config(super::super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -133706,26 +133706,26 @@ pub(crate) fn de_put_function_event_invoke_config(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "LastModified" => {
-                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
+                "DestinationConfig" => {
+                    builder = builder.set_destination_config(super::super::protocol_serde::shape_destination_config::de_destination_config(tokens, _value, depth + 1)?);
                 },
                 "FunctionArn" => {
                     builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "MaximumRetryAttempts" => {
-                    builder = builder.set_maximum_retry_attempts(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
+                "LastModified" => {
+                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
                 },
                 "MaximumEventAgeInSeconds" => {
                     builder = builder.set_maximum_event_age_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?);
                 },
-                "DestinationConfig" => {
-                    builder = builder.set_destination_config(super::super::protocol_serde::shape_destination_config::de_destination_config(tokens, _value, depth + 1)?);
+                "MaximumRetryAttempts" => {
+                    builder = builder.set_maximum_retry_attempts(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -134208,11 +134208,6 @@ pub(crate) fn de_put_provisioned_concurrency_config(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "RequestedProvisionedConcurrentExecutions" => {
-                    builder = builder.set_requested_provisioned_concurrent_executions(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
                 "AllocatedProvisionedConcurrentExecutions" => {
                     builder = builder.set_allocated_provisioned_concurrent_executions(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
@@ -134223,6 +134218,16 @@ pub(crate) fn de_put_provisioned_concurrency_config(
                             .map(i32::try_from)
                             .transpose()?);
                 },
+                "LastModified" => {
+                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "RequestedProvisionedConcurrentExecutions" => {
+                    builder = builder.set_requested_provisioned_concurrent_executions(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
+                },
                 "Status" => {
                     builder = builder.set_status(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::ProvisionedConcurrencyStatusEnum::from(u.as_ref())))
@@ -134230,11 +134235,6 @@ pub(crate) fn de_put_provisioned_concurrency_config(
                 },
                 "StatusReason" => {
                     builder = builder.set_status_reason(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "LastModified" => {
-                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -134606,11 +134606,6 @@ pub(crate) fn de_put_runtime_management_config(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "UpdateRuntimeOn" => {
-                    builder = builder.set_update_runtime_on(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::UpdateRuntimeOn::from(u.as_ref())))
-                            .transpose()?);
-                },
                 "FunctionArn" => {
                     builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
@@ -134619,6 +134614,11 @@ pub(crate) fn de_put_runtime_management_config(
                 "RuntimeVersionArn" => {
                     builder = builder.set_runtime_version_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "UpdateRuntimeOn" => {
+                    builder = builder.set_update_runtime_on(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::UpdateRuntimeOn::from(u.as_ref())))
                             .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -135924,8 +135924,8 @@ pub(crate) fn de_update_alias(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "Name" => {
-                    builder = builder.set_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "Description" => {
+                    builder = builder.set_description(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -135934,18 +135934,18 @@ pub(crate) fn de_update_alias(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "Description" => {
-                    builder = builder.set_description(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "Name" => {
+                    builder = builder.set_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "RoutingConfig" => {
-                    builder = builder.set_routing_config(super::super::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?);
                 },
                 "RevisionId" => {
                     builder = builder.set_revision_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
+                },
+                "RoutingConfig" => {
+                    builder = builder.set_routing_config(super::super::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -136407,36 +136407,30 @@ pub(crate) fn de_update_event_source_mapping(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "UUID" => {
-                    builder = builder.set_uuid(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "StartingPosition" => {
-                    builder = builder.set_starting_position(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::EventSourcePosition::from(u.as_ref())))
-                            .transpose()?);
-                },
-                "StartingPositionTimestamp" => {
-                    builder = builder.set_starting_position_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
+                "AmazonManagedKafkaEventSourceConfig" => {
+                    builder = builder.set_amazon_managed_kafka_event_source_config(super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
                 },
                 "BatchSize" => {
                     builder = builder.set_batch_size(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?);
                 },
-                "MaximumBatchingWindowInSeconds" => {
-                    builder = builder.set_maximum_batching_window_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
+                "BisectBatchOnFunctionError" => {
+                    builder = builder.set_bisect_batch_on_function_error(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 },
-                "ParallelizationFactor" => {
-                    builder = builder.set_parallelization_factor(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
+                "DestinationConfig" => {
+                    builder = builder.set_destination_config(super::super::protocol_serde::shape_destination_config::de_destination_config(tokens, _value, depth + 1)?);
+                },
+                "DocumentDBEventSourceConfig" => {
+                    builder = builder.set_document_db_event_source_config(super::super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?);
                 },
                 "EventSourceArn" => {
                     builder = builder.set_event_source_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "EventSourceMappingArn" => {
+                    builder = builder.set_event_source_mapping_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -136446,22 +136440,16 @@ pub(crate) fn de_update_event_source_mapping(
                 "FilterCriteriaError" => {
                     builder = builder.set_filter_criteria_error(super::super::protocol_serde::shape_filter_criteria_error::de_filter_criteria_error(tokens, _value, depth + 1)?);
                 },
-                "KMSKeyArn" => {
-                    builder = builder.set_kms_key_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "FunctionArn" => {
+                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "MetricsConfig" => {
-                    builder = builder.set_metrics_config(super::super::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(tokens, _value, depth + 1)?);
+                "FunctionResponseTypes" => {
+                    builder = builder.set_function_response_types(super::super::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?);
                 },
-                "LoggingConfig" => {
-                    builder = builder.set_logging_config(super::super::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(tokens, _value, depth + 1)?);
-                },
-                "ScalingConfig" => {
-                    builder = builder.set_scaling_config(super::super::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
-                },
-                "FunctionArn" => {
-                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "KMSKeyArn" => {
+                    builder = builder.set_kms_key_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -136473,6 +136461,58 @@ pub(crate) fn de_update_event_source_mapping(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
+                "LoggingConfig" => {
+                    builder = builder.set_logging_config(super::super::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(tokens, _value, depth + 1)?);
+                },
+                "MaximumBatchingWindowInSeconds" => {
+                    builder = builder.set_maximum_batching_window_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
+                },
+                "MaximumRecordAgeInSeconds" => {
+                    builder = builder.set_maximum_record_age_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
+                },
+                "MaximumRetryAttempts" => {
+                    builder = builder.set_maximum_retry_attempts(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
+                },
+                "MetricsConfig" => {
+                    builder = builder.set_metrics_config(super::super::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(tokens, _value, depth + 1)?);
+                },
+                "ParallelizationFactor" => {
+                    builder = builder.set_parallelization_factor(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
+                },
+                "ProvisionedPollerConfig" => {
+                    builder = builder.set_provisioned_poller_config(super::super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?);
+                },
+                "Queues" => {
+                    builder = builder.set_queues(super::super::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
+                },
+                "ScalingConfig" => {
+                    builder = builder.set_scaling_config(super::super::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
+                },
+                "SelfManagedEventSource" => {
+                    builder = builder.set_self_managed_event_source(super::super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?);
+                },
+                "SelfManagedKafkaEventSourceConfig" => {
+                    builder = builder.set_self_managed_kafka_event_source_config(super::super::protocol_serde::shape_self_managed_kafka_event_source_config::de_self_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
+                },
+                "SourceAccessConfigurations" => {
+                    builder = builder.set_source_access_configurations(super::super::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?);
+                },
+                "StartingPosition" => {
+                    builder = builder.set_starting_position(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::EventSourcePosition::from(u.as_ref())))
+                            .transpose()?);
+                },
+                "StartingPositionTimestamp" => {
+                    builder = builder.set_starting_position_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
+                },
                 "State" => {
                     builder = builder.set_state(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
@@ -136483,58 +136523,18 @@ pub(crate) fn de_update_event_source_mapping(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "DestinationConfig" => {
-                    builder = builder.set_destination_config(super::super::protocol_serde::shape_destination_config::de_destination_config(tokens, _value, depth + 1)?);
-                },
                 "Topics" => {
                     builder = builder.set_topics(super::super::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
-                },
-                "Queues" => {
-                    builder = builder.set_queues(super::super::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
-                },
-                "SourceAccessConfigurations" => {
-                    builder = builder.set_source_access_configurations(super::super::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?);
-                },
-                "SelfManagedEventSource" => {
-                    builder = builder.set_self_managed_event_source(super::super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?);
-                },
-                "MaximumRecordAgeInSeconds" => {
-                    builder = builder.set_maximum_record_age_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
-                "BisectBatchOnFunctionError" => {
-                    builder = builder.set_bisect_batch_on_function_error(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                },
-                "MaximumRetryAttempts" => {
-                    builder = builder.set_maximum_retry_attempts(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
                 },
                 "TumblingWindowInSeconds" => {
                     builder = builder.set_tumbling_window_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?);
                 },
-                "FunctionResponseTypes" => {
-                    builder = builder.set_function_response_types(super::super::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?);
-                },
-                "AmazonManagedKafkaEventSourceConfig" => {
-                    builder = builder.set_amazon_managed_kafka_event_source_config(super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
-                },
-                "SelfManagedKafkaEventSourceConfig" => {
-                    builder = builder.set_self_managed_kafka_event_source_config(super::super::protocol_serde::shape_self_managed_kafka_event_source_config::de_self_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
-                },
-                "DocumentDBEventSourceConfig" => {
-                    builder = builder.set_document_db_event_source_config(super::super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?);
-                },
-                "EventSourceMappingArn" => {
-                    builder = builder.set_event_source_mapping_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "UUID" => {
+                    builder = builder.set_uuid(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
-                },
-                "ProvisionedPollerConfig" => {
-                    builder = builder.set_provisioned_poller_config(super::super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -136763,28 +136763,14 @@ pub(crate) fn de_update_function_code(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "FunctionName" => {
-                    builder = builder.set_function_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
+                "Architectures" => {
+                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(tokens, _value, depth + 1)?);
                 },
-                "FunctionArn" => {
-                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
+                "CapacityProviderConfig" => {
+                    builder = builder.set_capacity_provider_config(super::super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?);
                 },
-                "Runtime" => {
-                    builder = builder.set_runtime(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::Runtime::from(u.as_ref())))
-                            .transpose()?);
-                },
-                "Role" => {
-                    builder = builder.set_role(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "Handler" => {
-                    builder = builder.set_handler(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "CodeSha256" => {
+                    builder = builder.set_code_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -136793,79 +136779,57 @@ pub(crate) fn de_update_function_code(
                             .map(i64::try_from)
                             .transpose()?);
                 },
+                "ConfigSha256" => {
+                    builder = builder.set_config_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "DeadLetterConfig" => {
+                    builder = builder.set_dead_letter_config(super::super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(tokens, _value, depth + 1)?);
+                },
                 "Description" => {
                     builder = builder.set_description(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "Timeout" => {
-                    builder = builder.set_timeout(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
-                "MemorySize" => {
-                    builder = builder.set_memory_size(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
-                "LastModified" => {
-                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "CodeSha256" => {
-                    builder = builder.set_code_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "Version" => {
-                    builder = builder.set_version(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "VpcConfig" => {
-                    builder = builder.set_vpc_config(super::super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(tokens, _value, depth + 1)?);
-                },
-                "DeadLetterConfig" => {
-                    builder = builder.set_dead_letter_config(super::super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(tokens, _value, depth + 1)?);
+                "DurableConfig" => {
+                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
                 },
                 "Environment" => {
                     builder = builder.set_environment(super::super::protocol_serde::shape_environment_response::de_environment_response(tokens, _value, depth + 1)?);
+                },
+                "EphemeralStorage" => {
+                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(tokens, _value, depth + 1)?);
+                },
+                "FileSystemConfigs" => {
+                    builder = builder.set_file_system_configs(super::super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(tokens, _value, depth + 1)?);
+                },
+                "FunctionArn" => {
+                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "FunctionName" => {
+                    builder = builder.set_function_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "Handler" => {
+                    builder = builder.set_handler(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "ImageConfigResponse" => {
+                    builder = builder.set_image_config_response(super::super::protocol_serde::shape_image_config_response::de_image_config_response(tokens, _value, depth + 1)?);
                 },
                 "KMSKeyArn" => {
                     builder = builder.set_kms_key_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "TracingConfig" => {
-                    builder = builder.set_tracing_config(super::super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(tokens, _value, depth + 1)?);
-                },
-                "MasterArn" => {
-                    builder = builder.set_master_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "LastModified" => {
+                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "RevisionId" => {
-                    builder = builder.set_revision_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "Layers" => {
-                    builder = builder.set_layers(super::super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(tokens, _value, depth + 1)?);
-                },
-                "State" => {
-                    builder = builder.set_state(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::State::from(u.as_ref())))
-                            .transpose()?);
-                },
-                "StateReason" => {
-                    builder = builder.set_state_reason(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "StateReasonCode" => {
-                    builder = builder.set_state_reason_code(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
                             .transpose()?);
                 },
                 "LastUpdateStatus" => {
@@ -136883,17 +136847,20 @@ pub(crate) fn de_update_function_code(
                             .map(|s| s.to_unescaped().map(|u| super::super::types::LastUpdateStatusReasonCode::from(u.as_ref())))
                             .transpose()?);
                 },
-                "FileSystemConfigs" => {
-                    builder = builder.set_file_system_configs(super::super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(tokens, _value, depth + 1)?);
+                "Layers" => {
+                    builder = builder.set_layers(super::super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(tokens, _value, depth + 1)?);
                 },
-                "SigningProfileVersionArn" => {
-                    builder = builder.set_signing_profile_version_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "LoggingConfig" => {
+                    builder = builder.set_logging_config(super::super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
+                },
+                "MasterArn" => {
+                    builder = builder.set_master_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "SigningJobArn" => {
-                    builder = builder.set_signing_job_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                "MemorySize" => {
+                    builder = builder.set_memory_size(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
                             .transpose()?);
                 },
                 "PackageType" => {
@@ -136901,37 +136868,70 @@ pub(crate) fn de_update_function_code(
                             .map(|s| s.to_unescaped().map(|u| super::super::types::PackageType::from(u.as_ref())))
                             .transpose()?);
                 },
-                "ImageConfigResponse" => {
-                    builder = builder.set_image_config_response(super::super::protocol_serde::shape_image_config_response::de_image_config_response(tokens, _value, depth + 1)?);
+                "RevisionId" => {
+                    builder = builder.set_revision_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
-                "Architectures" => {
-                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(tokens, _value, depth + 1)?);
+                "Role" => {
+                    builder = builder.set_role(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
-                "EphemeralStorage" => {
-                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(tokens, _value, depth + 1)?);
-                },
-                "SnapStart" => {
-                    builder = builder.set_snap_start(super::super::protocol_serde::shape_snap_start_response::de_snap_start_response(tokens, _value, depth + 1)?);
+                "Runtime" => {
+                    builder = builder.set_runtime(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::Runtime::from(u.as_ref())))
+                            .transpose()?);
                 },
                 "RuntimeVersionConfig" => {
                     builder = builder.set_runtime_version_config(super::super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(tokens, _value, depth + 1)?);
                 },
-                "LoggingConfig" => {
-                    builder = builder.set_logging_config(super::super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
+                "SigningJobArn" => {
+                    builder = builder.set_signing_job_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "SigningProfileVersionArn" => {
+                    builder = builder.set_signing_profile_version_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "SnapStart" => {
+                    builder = builder.set_snap_start(super::super::protocol_serde::shape_snap_start_response::de_snap_start_response(tokens, _value, depth + 1)?);
+                },
+                "State" => {
+                    builder = builder.set_state(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::State::from(u.as_ref())))
+                            .transpose()?);
+                },
+                "StateReason" => {
+                    builder = builder.set_state_reason(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "StateReasonCode" => {
+                    builder = builder.set_state_reason_code(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
+                            .transpose()?);
                 },
                 "TenancyConfig" => {
                     builder = builder.set_tenancy_config(super::super::protocol_serde::shape_tenancy_config::de_tenancy_config(tokens, _value, depth + 1)?);
                 },
-                "CapacityProviderConfig" => {
-                    builder = builder.set_capacity_provider_config(super::super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?);
+                "Timeout" => {
+                    builder = builder.set_timeout(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
-                "ConfigSha256" => {
-                    builder = builder.set_config_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "TracingConfig" => {
+                    builder = builder.set_tracing_config(super::super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(tokens, _value, depth + 1)?);
+                },
+                "Version" => {
+                    builder = builder.set_version(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "DurableConfig" => {
-                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
+                "VpcConfig" => {
+                    builder = builder.set_vpc_config(super::super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -137146,28 +137146,14 @@ pub(crate) fn de_update_function_configuration(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "FunctionName" => {
-                    builder = builder.set_function_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
+                "Architectures" => {
+                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(tokens, _value, depth + 1)?);
                 },
-                "FunctionArn" => {
-                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
+                "CapacityProviderConfig" => {
+                    builder = builder.set_capacity_provider_config(super::super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?);
                 },
-                "Runtime" => {
-                    builder = builder.set_runtime(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::Runtime::from(u.as_ref())))
-                            .transpose()?);
-                },
-                "Role" => {
-                    builder = builder.set_role(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "Handler" => {
-                    builder = builder.set_handler(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "CodeSha256" => {
+                    builder = builder.set_code_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
@@ -137176,79 +137162,57 @@ pub(crate) fn de_update_function_configuration(
                             .map(i64::try_from)
                             .transpose()?);
                 },
+                "ConfigSha256" => {
+                    builder = builder.set_config_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "DeadLetterConfig" => {
+                    builder = builder.set_dead_letter_config(super::super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(tokens, _value, depth + 1)?);
+                },
                 "Description" => {
                     builder = builder.set_description(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "Timeout" => {
-                    builder = builder.set_timeout(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
-                "MemorySize" => {
-                    builder = builder.set_memory_size(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
-                "LastModified" => {
-                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "CodeSha256" => {
-                    builder = builder.set_code_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "Version" => {
-                    builder = builder.set_version(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "VpcConfig" => {
-                    builder = builder.set_vpc_config(super::super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(tokens, _value, depth + 1)?);
-                },
-                "DeadLetterConfig" => {
-                    builder = builder.set_dead_letter_config(super::super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(tokens, _value, depth + 1)?);
+                "DurableConfig" => {
+                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
                 },
                 "Environment" => {
                     builder = builder.set_environment(super::super::protocol_serde::shape_environment_response::de_environment_response(tokens, _value, depth + 1)?);
+                },
+                "EphemeralStorage" => {
+                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(tokens, _value, depth + 1)?);
+                },
+                "FileSystemConfigs" => {
+                    builder = builder.set_file_system_configs(super::super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(tokens, _value, depth + 1)?);
+                },
+                "FunctionArn" => {
+                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "FunctionName" => {
+                    builder = builder.set_function_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "Handler" => {
+                    builder = builder.set_handler(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "ImageConfigResponse" => {
+                    builder = builder.set_image_config_response(super::super::protocol_serde::shape_image_config_response::de_image_config_response(tokens, _value, depth + 1)?);
                 },
                 "KMSKeyArn" => {
                     builder = builder.set_kms_key_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "TracingConfig" => {
-                    builder = builder.set_tracing_config(super::super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(tokens, _value, depth + 1)?);
-                },
-                "MasterArn" => {
-                    builder = builder.set_master_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "LastModified" => {
+                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "RevisionId" => {
-                    builder = builder.set_revision_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "Layers" => {
-                    builder = builder.set_layers(super::super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(tokens, _value, depth + 1)?);
-                },
-                "State" => {
-                    builder = builder.set_state(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::State::from(u.as_ref())))
-                            .transpose()?);
-                },
-                "StateReason" => {
-                    builder = builder.set_state_reason(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "StateReasonCode" => {
-                    builder = builder.set_state_reason_code(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
                             .transpose()?);
                 },
                 "LastUpdateStatus" => {
@@ -137266,17 +137230,20 @@ pub(crate) fn de_update_function_configuration(
                             .map(|s| s.to_unescaped().map(|u| super::super::types::LastUpdateStatusReasonCode::from(u.as_ref())))
                             .transpose()?);
                 },
-                "FileSystemConfigs" => {
-                    builder = builder.set_file_system_configs(super::super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(tokens, _value, depth + 1)?);
+                "Layers" => {
+                    builder = builder.set_layers(super::super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(tokens, _value, depth + 1)?);
                 },
-                "SigningProfileVersionArn" => {
-                    builder = builder.set_signing_profile_version_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "LoggingConfig" => {
+                    builder = builder.set_logging_config(super::super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
+                },
+                "MasterArn" => {
+                    builder = builder.set_master_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "SigningJobArn" => {
-                    builder = builder.set_signing_job_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                "MemorySize" => {
+                    builder = builder.set_memory_size(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
                             .transpose()?);
                 },
                 "PackageType" => {
@@ -137284,37 +137251,70 @@ pub(crate) fn de_update_function_configuration(
                             .map(|s| s.to_unescaped().map(|u| super::super::types::PackageType::from(u.as_ref())))
                             .transpose()?);
                 },
-                "ImageConfigResponse" => {
-                    builder = builder.set_image_config_response(super::super::protocol_serde::shape_image_config_response::de_image_config_response(tokens, _value, depth + 1)?);
+                "RevisionId" => {
+                    builder = builder.set_revision_id(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
-                "Architectures" => {
-                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(tokens, _value, depth + 1)?);
+                "Role" => {
+                    builder = builder.set_role(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
-                "EphemeralStorage" => {
-                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(tokens, _value, depth + 1)?);
-                },
-                "SnapStart" => {
-                    builder = builder.set_snap_start(super::super::protocol_serde::shape_snap_start_response::de_snap_start_response(tokens, _value, depth + 1)?);
+                "Runtime" => {
+                    builder = builder.set_runtime(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::Runtime::from(u.as_ref())))
+                            .transpose()?);
                 },
                 "RuntimeVersionConfig" => {
                     builder = builder.set_runtime_version_config(super::super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(tokens, _value, depth + 1)?);
                 },
-                "LoggingConfig" => {
-                    builder = builder.set_logging_config(super::super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
+                "SigningJobArn" => {
+                    builder = builder.set_signing_job_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "SigningProfileVersionArn" => {
+                    builder = builder.set_signing_profile_version_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "SnapStart" => {
+                    builder = builder.set_snap_start(super::super::protocol_serde::shape_snap_start_response::de_snap_start_response(tokens, _value, depth + 1)?);
+                },
+                "State" => {
+                    builder = builder.set_state(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::State::from(u.as_ref())))
+                            .transpose()?);
+                },
+                "StateReason" => {
+                    builder = builder.set_state_reason(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "StateReasonCode" => {
+                    builder = builder.set_state_reason_code(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
+                            .transpose()?);
                 },
                 "TenancyConfig" => {
                     builder = builder.set_tenancy_config(super::super::protocol_serde::shape_tenancy_config::de_tenancy_config(tokens, _value, depth + 1)?);
                 },
-                "CapacityProviderConfig" => {
-                    builder = builder.set_capacity_provider_config(super::super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?);
+                "Timeout" => {
+                    builder = builder.set_timeout(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
-                "ConfigSha256" => {
-                    builder = builder.set_config_sha256(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "TracingConfig" => {
+                    builder = builder.set_tracing_config(super::super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(tokens, _value, depth + 1)?);
+                },
+                "Version" => {
+                    builder = builder.set_version(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "DurableConfig" => {
-                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
+                "VpcConfig" => {
+                    builder = builder.set_vpc_config(super::super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(tokens, _value, depth + 1)?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -137473,26 +137473,26 @@ pub(crate) fn de_update_function_event_invoke_config(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "LastModified" => {
-                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
+                "DestinationConfig" => {
+                    builder = builder.set_destination_config(super::super::protocol_serde::shape_destination_config::de_destination_config(tokens, _value, depth + 1)?);
                 },
                 "FunctionArn" => {
                     builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "MaximumRetryAttempts" => {
-                    builder = builder.set_maximum_retry_attempts(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
+                "LastModified" => {
+                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(tokens.next(), ::aws_smithy_types::date_time::Format::EpochSeconds)?);
                 },
                 "MaximumEventAgeInSeconds" => {
                     builder = builder.set_maximum_event_age_in_seconds(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?);
                 },
-                "DestinationConfig" => {
-                    builder = builder.set_destination_config(super::super::protocol_serde::shape_destination_config::de_destination_config(tokens, _value, depth + 1)?);
+                "MaximumRetryAttempts" => {
+                    builder = builder.set_maximum_retry_attempts(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -137653,16 +137653,6 @@ pub(crate) fn de_update_function_url_config(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "FunctionUrl" => {
-                    builder = builder.set_function_url(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "FunctionArn" => {
-                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
                 "AuthType" => {
                     builder = builder.set_auth_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::FunctionUrlAuthType::from(u.as_ref())))
@@ -137676,14 +137666,24 @@ pub(crate) fn de_update_function_url_config(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
-                "LastModifiedTime" => {
-                    builder = builder.set_last_modified_time(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                "FunctionArn" => {
+                    builder = builder.set_function_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
+                },
+                "FunctionUrl" => {
+                    builder = builder.set_function_url(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
                 "InvokeMode" => {
                     builder = builder.set_invoke_mode(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| super::super::types::InvokeMode::from(u.as_ref())))
+                            .transpose()?);
+                },
+                "LastModifiedTime" => {
+                    builder = builder.set_last_modified_time(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -137718,17 +137718,17 @@ pub fn ser_add_layer_version_permission_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::add_layer_version_permission::AddLayerVersionPermissionInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.statement_id {
-    object.key("StatementId").string(var_1.as_str());
+if let Some(var_1) = &input.action {
+    object.key("Action").string(var_1.as_str());
 }
-if let Some(var_2) = &input.action {
-    object.key("Action").string(var_2.as_str());
+if let Some(var_2) = &input.organization_id {
+    object.key("OrganizationId").string(var_2.as_str());
 }
 if let Some(var_3) = &input.principal {
     object.key("Principal").string(var_3.as_str());
 }
-if let Some(var_4) = &input.organization_id {
-    object.key("OrganizationId").string(var_4.as_str());
+if let Some(var_4) = &input.statement_id {
+    object.key("StatementId").string(var_4.as_str());
 }
     Ok(())
 }
@@ -137740,35 +137740,35 @@ pub fn ser_add_permission_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::add_permission::AddPermissionInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.statement_id {
-    object.key("StatementId").string(var_1.as_str());
+if let Some(var_1) = &input.action {
+    object.key("Action").string(var_1.as_str());
 }
-if let Some(var_2) = &input.action {
-    object.key("Action").string(var_2.as_str());
+if let Some(var_2) = &input.event_source_token {
+    object.key("EventSourceToken").string(var_2.as_str());
 }
-if let Some(var_3) = &input.principal {
-    object.key("Principal").string(var_3.as_str());
+if let Some(var_3) = &input.function_url_auth_type {
+    object.key("FunctionUrlAuthType").string(var_3.as_str());
 }
-if let Some(var_4) = &input.source_arn {
-    object.key("SourceArn").string(var_4.as_str());
+if let Some(var_4) = &input.invoked_via_function_url {
+    object.key("InvokedViaFunctionUrl").boolean(*var_4);
 }
-if let Some(var_5) = &input.function_url_auth_type {
-    object.key("FunctionUrlAuthType").string(var_5.as_str());
+if let Some(var_5) = &input.principal {
+    object.key("Principal").string(var_5.as_str());
 }
-if let Some(var_6) = &input.invoked_via_function_url {
-    object.key("InvokedViaFunctionUrl").boolean(*var_6);
+if let Some(var_6) = &input.principal_org_id {
+    object.key("PrincipalOrgID").string(var_6.as_str());
 }
-if let Some(var_7) = &input.source_account {
-    object.key("SourceAccount").string(var_7.as_str());
+if let Some(var_7) = &input.revision_id {
+    object.key("RevisionId").string(var_7.as_str());
 }
-if let Some(var_8) = &input.event_source_token {
-    object.key("EventSourceToken").string(var_8.as_str());
+if let Some(var_8) = &input.source_account {
+    object.key("SourceAccount").string(var_8.as_str());
 }
-if let Some(var_9) = &input.revision_id {
-    object.key("RevisionId").string(var_9.as_str());
+if let Some(var_9) = &input.source_arn {
+    object.key("SourceArn").string(var_9.as_str());
 }
-if let Some(var_10) = &input.principal_org_id {
-    object.key("PrincipalOrgID").string(var_10.as_str());
+if let Some(var_10) = &input.statement_id {
+    object.key("StatementId").string(var_10.as_str());
 }
     Ok(())
 }
@@ -137912,20 +137912,20 @@ pub fn ser_checkpoint_durable_execution_input_input(
 if let Some(var_1) = &input.checkpoint_token {
     object.key("CheckpointToken").string(var_1.as_str());
 }
-if let Some(var_2) = &input.updates {
-    let mut array_3 = object.key("Updates").start_array();
-    for item_4 in var_2 {
+if let Some(var_2) = &input.client_token {
+    object.key("ClientToken").string(var_2.as_str());
+}
+if let Some(var_3) = &input.updates {
+    let mut array_4 = object.key("Updates").start_array();
+    for item_5 in var_3 {
         {
             #[allow(unused_mut)]
-            let mut object_5 = array_3.value().start_object();
-            super::super::protocol_serde::shape_operation_update::ser_operation_update(&mut object_5, item_4)?;
-            object_5.finish();
+            let mut object_6 = array_4.value().start_object();
+            super::super::protocol_serde::shape_operation_update::ser_operation_update(&mut object_6, item_5)?;
+            object_6.finish();
         }
     }
-    array_3.finish();
-}
-if let Some(var_6) = &input.client_token {
-    object.key("ClientToken").string(var_6.as_str());
+    array_4.finish();
 }
     Ok(())
 }
@@ -138195,14 +138195,14 @@ pub fn ser_create_alias_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_alias::CreateAliasInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.name {
-    object.key("Name").string(var_1.as_str());
+if let Some(var_1) = &input.description {
+    object.key("Description").string(var_1.as_str());
 }
 if let Some(var_2) = &input.function_version {
     object.key("FunctionVersion").string(var_2.as_str());
 }
-if let Some(var_3) = &input.description {
-    object.key("Description").string(var_3.as_str());
+if let Some(var_3) = &input.name {
+    object.key("Name").string(var_3.as_str());
 }
 if let Some(var_4) = &input.routing_config {
     #[allow(unused_mut)]
@@ -138223,32 +138223,32 @@ pub fn ser_create_capacity_provider_input_input(
 if let Some(var_1) = &input.capacity_provider_name {
     object.key("CapacityProviderName").string(var_1.as_str());
 }
-if let Some(var_2) = &input.vpc_config {
+if let Some(var_2) = &input.capacity_provider_scaling_config {
     #[allow(unused_mut)]
-    let mut object_3 = object.key("VpcConfig").start_object();
-    super::super::protocol_serde::shape_capacity_provider_vpc_config::ser_capacity_provider_vpc_config(&mut object_3, var_2)?;
+    let mut object_3 = object.key("CapacityProviderScalingConfig").start_object();
+    super::super::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_3, var_2)?;
     object_3.finish();
 }
-if let Some(var_4) = &input.permissions_config {
+if let Some(var_4) = &input.instance_requirements {
     #[allow(unused_mut)]
-    let mut object_5 = object.key("PermissionsConfig").start_object();
-    super::super::protocol_serde::shape_capacity_provider_permissions_config::ser_capacity_provider_permissions_config(&mut object_5, var_4)?;
+    let mut object_5 = object.key("InstanceRequirements").start_object();
+    super::super::protocol_serde::shape_instance_requirements::ser_instance_requirements(&mut object_5, var_4)?;
     object_5.finish();
 }
-if let Some(var_6) = &input.instance_requirements {
-    #[allow(unused_mut)]
-    let mut object_7 = object.key("InstanceRequirements").start_object();
-    super::super::protocol_serde::shape_instance_requirements::ser_instance_requirements(&mut object_7, var_6)?;
-    object_7.finish();
+if let Some(var_6) = &input.kms_key_arn {
+    object.key("KmsKeyArn").string(var_6.as_str());
 }
-if let Some(var_8) = &input.capacity_provider_scaling_config {
+if let Some(var_7) = &input.permissions_config {
     #[allow(unused_mut)]
-    let mut object_9 = object.key("CapacityProviderScalingConfig").start_object();
-    super::super::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_9, var_8)?;
-    object_9.finish();
+    let mut object_8 = object.key("PermissionsConfig").start_object();
+    super::super::protocol_serde::shape_capacity_provider_permissions_config::ser_capacity_provider_permissions_config(&mut object_8, var_7)?;
+    object_8.finish();
 }
-if let Some(var_10) = &input.kms_key_arn {
-    object.key("KmsKeyArn").string(var_10.as_str());
+if let Some(var_9) = &input.propagate_tags {
+    #[allow(unused_mut)]
+    let mut object_10 = object.key("PropagateTags").start_object();
+    super::super::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_10, var_9)?;
+    object_10.finish();
 }
 if let Some(var_11) = &input.tags {
     #[allow(unused_mut)]
@@ -138260,16 +138260,16 @@ if let Some(var_11) = &input.tags {
     }
     object_12.finish();
 }
-if let Some(var_15) = &input.propagate_tags {
+if let Some(var_15) = &input.telemetry_config {
     #[allow(unused_mut)]
-    let mut object_16 = object.key("PropagateTags").start_object();
-    super::super::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_16, var_15)?;
+    let mut object_16 = object.key("TelemetryConfig").start_object();
+    super::super::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_16, var_15)?;
     object_16.finish();
 }
-if let Some(var_17) = &input.telemetry_config {
+if let Some(var_17) = &input.vpc_config {
     #[allow(unused_mut)]
-    let mut object_18 = object.key("TelemetryConfig").start_object();
-    super::super::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_18, var_17)?;
+    let mut object_18 = object.key("VpcConfig").start_object();
+    super::super::protocol_serde::shape_capacity_provider_vpc_config::ser_capacity_provider_vpc_config(&mut object_18, var_17)?;
     object_18.finish();
 }
     Ok(())
@@ -138282,20 +138282,20 @@ pub fn ser_create_code_signing_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_code_signing_config::CreateCodeSigningConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.description {
-    object.key("Description").string(var_1.as_str());
-}
-if let Some(var_2) = &input.allowed_publishers {
+if let Some(var_1) = &input.allowed_publishers {
     #[allow(unused_mut)]
-    let mut object_3 = object.key("AllowedPublishers").start_object();
-    super::super::protocol_serde::shape_allowed_publishers::ser_allowed_publishers(&mut object_3, var_2)?;
-    object_3.finish();
+    let mut object_2 = object.key("AllowedPublishers").start_object();
+    super::super::protocol_serde::shape_allowed_publishers::ser_allowed_publishers(&mut object_2, var_1)?;
+    object_2.finish();
 }
-if let Some(var_4) = &input.code_signing_policies {
+if let Some(var_3) = &input.code_signing_policies {
     #[allow(unused_mut)]
-    let mut object_5 = object.key("CodeSigningPolicies").start_object();
-    super::super::protocol_serde::shape_code_signing_policies::ser_code_signing_policies(&mut object_5, var_4)?;
-    object_5.finish();
+    let mut object_4 = object.key("CodeSigningPolicies").start_object();
+    super::super::protocol_serde::shape_code_signing_policies::ser_code_signing_policies(&mut object_4, var_3)?;
+    object_4.finish();
+}
+if let Some(var_5) = &input.description {
+    object.key("Description").string(var_5.as_str());
 }
 if let Some(var_6) = &input.tags {
     #[allow(unused_mut)]
@@ -138317,80 +138317,77 @@ pub fn ser_create_event_source_mapping_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_event_source_mapping::CreateEventSourceMappingInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.event_source_arn {
-    object.key("EventSourceArn").string(var_1.as_str());
+if let Some(var_1) = &input.amazon_managed_kafka_event_source_config {
+    #[allow(unused_mut)]
+    let mut object_2 = object.key("AmazonManagedKafkaEventSourceConfig").start_object();
+    super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_2, var_1)?;
+    object_2.finish();
 }
-if let Some(var_2) = &input.function_name {
-    object.key("FunctionName").string(var_2.as_str());
-}
-if let Some(var_3) = &input.enabled {
-    object.key("Enabled").boolean(*var_3);
-}
-if let Some(var_4) = &input.batch_size {
+if let Some(var_3) = &input.batch_size {
     object.key("BatchSize").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
+        ::aws_smithy_types::Number::NegInt((*var_3).into()),
     );
 }
-if let Some(var_5) = &input.filter_criteria {
+if let Some(var_4) = &input.bisect_batch_on_function_error {
+    object.key("BisectBatchOnFunctionError").boolean(*var_4);
+}
+if let Some(var_5) = &input.destination_config {
     #[allow(unused_mut)]
-    let mut object_6 = object.key("FilterCriteria").start_object();
-    super::super::protocol_serde::shape_filter_criteria::ser_filter_criteria(&mut object_6, var_5)?;
+    let mut object_6 = object.key("DestinationConfig").start_object();
+    super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_6, var_5)?;
     object_6.finish();
 }
-if let Some(var_7) = &input.kms_key_arn {
-    object.key("KMSKeyArn").string(var_7.as_str());
-}
-if let Some(var_8) = &input.metrics_config {
+if let Some(var_7) = &input.document_db_event_source_config {
     #[allow(unused_mut)]
-    let mut object_9 = object.key("MetricsConfig").start_object();
-    super::super::protocol_serde::shape_event_source_mapping_metrics_config::ser_event_source_mapping_metrics_config(&mut object_9, var_8)?;
-    object_9.finish();
+    let mut object_8 = object.key("DocumentDBEventSourceConfig").start_object();
+    super::super::protocol_serde::shape_document_db_event_source_config::ser_document_db_event_source_config(&mut object_8, var_7)?;
+    object_8.finish();
 }
-if let Some(var_10) = &input.logging_config {
+if let Some(var_9) = &input.enabled {
+    object.key("Enabled").boolean(*var_9);
+}
+if let Some(var_10) = &input.event_source_arn {
+    object.key("EventSourceArn").string(var_10.as_str());
+}
+if let Some(var_11) = &input.filter_criteria {
     #[allow(unused_mut)]
-    let mut object_11 = object.key("LoggingConfig").start_object();
-    super::super::protocol_serde::shape_event_source_mapping_logging_config::ser_event_source_mapping_logging_config(&mut object_11, var_10)?;
-    object_11.finish();
+    let mut object_12 = object.key("FilterCriteria").start_object();
+    super::super::protocol_serde::shape_filter_criteria::ser_filter_criteria(&mut object_12, var_11)?;
+    object_12.finish();
 }
-if let Some(var_12) = &input.scaling_config {
+if let Some(var_13) = &input.function_name {
+    object.key("FunctionName").string(var_13.as_str());
+}
+if let Some(var_14) = &input.function_response_types {
+    let mut array_15 = object.key("FunctionResponseTypes").start_array();
+    for item_16 in var_14 {
+        {
+            array_15.value().string(item_16.as_str());
+        }
+    }
+    array_15.finish();
+}
+if let Some(var_17) = &input.kms_key_arn {
+    object.key("KMSKeyArn").string(var_17.as_str());
+}
+if let Some(var_18) = &input.logging_config {
     #[allow(unused_mut)]
-    let mut object_13 = object.key("ScalingConfig").start_object();
-    super::super::protocol_serde::shape_scaling_config::ser_scaling_config(&mut object_13, var_12)?;
-    object_13.finish();
-}
-if let Some(var_14) = &input.maximum_batching_window_in_seconds {
-    object.key("MaximumBatchingWindowInSeconds").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_14).into()),
-    );
-}
-if let Some(var_15) = &input.parallelization_factor {
-    object.key("ParallelizationFactor").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_15).into()),
-    );
-}
-if let Some(var_16) = &input.starting_position {
-    object.key("StartingPosition").string(var_16.as_str());
-}
-if let Some(var_17) = &input.starting_position_timestamp {
-    object.key("StartingPositionTimestamp").date_time(var_17, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
-}
-if let Some(var_18) = &input.destination_config {
-    #[allow(unused_mut)]
-    let mut object_19 = object.key("DestinationConfig").start_object();
-    super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_19, var_18)?;
+    let mut object_19 = object.key("LoggingConfig").start_object();
+    super::super::protocol_serde::shape_event_source_mapping_logging_config::ser_event_source_mapping_logging_config(&mut object_19, var_18)?;
     object_19.finish();
 }
-if let Some(var_20) = &input.maximum_record_age_in_seconds {
-    object.key("MaximumRecordAgeInSeconds").number(
+if let Some(var_20) = &input.maximum_batching_window_in_seconds {
+    object.key("MaximumBatchingWindowInSeconds").number(
         #[allow(clippy::useless_conversion)]
         ::aws_smithy_types::Number::NegInt((*var_20).into()),
     );
 }
-if let Some(var_21) = &input.bisect_batch_on_function_error {
-    object.key("BisectBatchOnFunctionError").boolean(*var_21);
+if let Some(var_21) = &input.maximum_record_age_in_seconds {
+    object.key("MaximumRecordAgeInSeconds").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_21).into()),
+    );
 }
 if let Some(var_22) = &input.maximum_retry_attempts {
     object.key("MaximumRetryAttempts").number(
@@ -138398,24 +138395,26 @@ if let Some(var_22) = &input.maximum_retry_attempts {
         ::aws_smithy_types::Number::NegInt((*var_22).into()),
     );
 }
-if let Some(var_23) = &input.tags {
+if let Some(var_23) = &input.metrics_config {
     #[allow(unused_mut)]
-    let mut object_24 = object.key("Tags").start_object();
-    for (key_25, value_26) in var_23 {
-        {
-            object_24.key(key_25.as_str()).string(value_26.as_str());
-        }
-    }
+    let mut object_24 = object.key("MetricsConfig").start_object();
+    super::super::protocol_serde::shape_event_source_mapping_metrics_config::ser_event_source_mapping_metrics_config(&mut object_24, var_23)?;
     object_24.finish();
 }
-if let Some(var_27) = &input.tumbling_window_in_seconds {
-    object.key("TumblingWindowInSeconds").number(
+if let Some(var_25) = &input.parallelization_factor {
+    object.key("ParallelizationFactor").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_27).into()),
+        ::aws_smithy_types::Number::NegInt((*var_25).into()),
     );
 }
-if let Some(var_28) = &input.topics {
-    let mut array_29 = object.key("Topics").start_array();
+if let Some(var_26) = &input.provisioned_poller_config {
+    #[allow(unused_mut)]
+    let mut object_27 = object.key("ProvisionedPollerConfig").start_object();
+    super::super::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(&mut object_27, var_26)?;
+    object_27.finish();
+}
+if let Some(var_28) = &input.queues {
+    let mut array_29 = object.key("Queues").start_array();
     for item_30 in var_28 {
         {
             array_29.value().string(item_30.as_str());
@@ -138423,65 +138422,66 @@ if let Some(var_28) = &input.topics {
     }
     array_29.finish();
 }
-if let Some(var_31) = &input.queues {
-    let mut array_32 = object.key("Queues").start_array();
-    for item_33 in var_31 {
-        {
-            array_32.value().string(item_33.as_str());
-        }
-    }
-    array_32.finish();
+if let Some(var_31) = &input.scaling_config {
+    #[allow(unused_mut)]
+    let mut object_32 = object.key("ScalingConfig").start_object();
+    super::super::protocol_serde::shape_scaling_config::ser_scaling_config(&mut object_32, var_31)?;
+    object_32.finish();
 }
-if let Some(var_34) = &input.source_access_configurations {
-    let mut array_35 = object.key("SourceAccessConfigurations").start_array();
-    for item_36 in var_34 {
+if let Some(var_33) = &input.self_managed_event_source {
+    #[allow(unused_mut)]
+    let mut object_34 = object.key("SelfManagedEventSource").start_object();
+    super::super::protocol_serde::shape_self_managed_event_source::ser_self_managed_event_source(&mut object_34, var_33)?;
+    object_34.finish();
+}
+if let Some(var_35) = &input.self_managed_kafka_event_source_config {
+    #[allow(unused_mut)]
+    let mut object_36 = object.key("SelfManagedKafkaEventSourceConfig").start_object();
+    super::super::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_36, var_35)?;
+    object_36.finish();
+}
+if let Some(var_37) = &input.source_access_configurations {
+    let mut array_38 = object.key("SourceAccessConfigurations").start_array();
+    for item_39 in var_37 {
         {
             #[allow(unused_mut)]
-            let mut object_37 = array_35.value().start_object();
-            super::super::protocol_serde::shape_source_access_configuration::ser_source_access_configuration(&mut object_37, item_36)?;
-            object_37.finish();
+            let mut object_40 = array_38.value().start_object();
+            super::super::protocol_serde::shape_source_access_configuration::ser_source_access_configuration(&mut object_40, item_39)?;
+            object_40.finish();
         }
     }
-    array_35.finish();
+    array_38.finish();
 }
-if let Some(var_38) = &input.self_managed_event_source {
+if let Some(var_41) = &input.starting_position {
+    object.key("StartingPosition").string(var_41.as_str());
+}
+if let Some(var_42) = &input.starting_position_timestamp {
+    object.key("StartingPositionTimestamp").date_time(var_42, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
+}
+if let Some(var_43) = &input.tags {
     #[allow(unused_mut)]
-    let mut object_39 = object.key("SelfManagedEventSource").start_object();
-    super::super::protocol_serde::shape_self_managed_event_source::ser_self_managed_event_source(&mut object_39, var_38)?;
-    object_39.finish();
-}
-if let Some(var_40) = &input.function_response_types {
-    let mut array_41 = object.key("FunctionResponseTypes").start_array();
-    for item_42 in var_40 {
+    let mut object_44 = object.key("Tags").start_object();
+    for (key_45, value_46) in var_43 {
         {
-            array_41.value().string(item_42.as_str());
+            object_44.key(key_45.as_str()).string(value_46.as_str());
         }
     }
-    array_41.finish();
-}
-if let Some(var_43) = &input.amazon_managed_kafka_event_source_config {
-    #[allow(unused_mut)]
-    let mut object_44 = object.key("AmazonManagedKafkaEventSourceConfig").start_object();
-    super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_44, var_43)?;
     object_44.finish();
 }
-if let Some(var_45) = &input.self_managed_kafka_event_source_config {
-    #[allow(unused_mut)]
-    let mut object_46 = object.key("SelfManagedKafkaEventSourceConfig").start_object();
-    super::super::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_46, var_45)?;
-    object_46.finish();
+if let Some(var_47) = &input.topics {
+    let mut array_48 = object.key("Topics").start_array();
+    for item_49 in var_47 {
+        {
+            array_48.value().string(item_49.as_str());
+        }
+    }
+    array_48.finish();
 }
-if let Some(var_47) = &input.document_db_event_source_config {
-    #[allow(unused_mut)]
-    let mut object_48 = object.key("DocumentDBEventSourceConfig").start_object();
-    super::super::protocol_serde::shape_document_db_event_source_config::ser_document_db_event_source_config(&mut object_48, var_47)?;
-    object_48.finish();
-}
-if let Some(var_49) = &input.provisioned_poller_config {
-    #[allow(unused_mut)]
-    let mut object_50 = object.key("ProvisionedPollerConfig").start_object();
-    super::super::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(&mut object_50, var_49)?;
-    object_50.finish();
+if let Some(var_50) = &input.tumbling_window_in_seconds {
+    object.key("TumblingWindowInSeconds").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_50).into()),
+    );
 }
     Ok(())
 }
@@ -138493,158 +138493,158 @@ pub fn ser_create_function_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_function::CreateFunctionInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
+if let Some(var_1) = &input.architectures {
+    let mut array_2 = object.key("Architectures").start_array();
+    for item_3 in var_1 {
+        {
+            array_2.value().string(item_3.as_str());
+        }
+    }
+    array_2.finish();
 }
-if let Some(var_2) = &input.runtime {
-    object.key("Runtime").string(var_2.as_str());
-}
-if let Some(var_3) = &input.role {
-    object.key("Role").string(var_3.as_str());
-}
-if let Some(var_4) = &input.handler {
-    object.key("Handler").string(var_4.as_str());
-}
-if let Some(var_5) = &input.code {
+if let Some(var_4) = &input.capacity_provider_config {
     #[allow(unused_mut)]
-    let mut object_6 = object.key("Code").start_object();
-    super::super::protocol_serde::shape_function_code::ser_function_code(&mut object_6, var_5)?;
-    object_6.finish();
+    let mut object_5 = object.key("CapacityProviderConfig").start_object();
+    super::super::protocol_serde::shape_capacity_provider_config::ser_capacity_provider_config(&mut object_5, var_4)?;
+    object_5.finish();
 }
-if let Some(var_7) = &input.description {
-    object.key("Description").string(var_7.as_str());
-}
-if let Some(var_8) = &input.timeout {
-    object.key("Timeout").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_8).into()),
-    );
-}
-if let Some(var_9) = &input.memory_size {
-    object.key("MemorySize").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_9).into()),
-    );
-}
-if let Some(var_10) = &input.publish {
-    object.key("Publish").boolean(*var_10);
-}
-if let Some(var_11) = &input.publish_to {
-    object.key("PublishTo").string(var_11.as_str());
-}
-if let Some(var_12) = &input.vpc_config {
+if let Some(var_6) = &input.code {
     #[allow(unused_mut)]
-    let mut object_13 = object.key("VpcConfig").start_object();
-    super::super::protocol_serde::shape_vpc_config::ser_vpc_config(&mut object_13, var_12)?;
+    let mut object_7 = object.key("Code").start_object();
+    super::super::protocol_serde::shape_function_code::ser_function_code(&mut object_7, var_6)?;
+    object_7.finish();
+}
+if let Some(var_8) = &input.code_signing_config_arn {
+    object.key("CodeSigningConfigArn").string(var_8.as_str());
+}
+if let Some(var_9) = &input.dead_letter_config {
+    #[allow(unused_mut)]
+    let mut object_10 = object.key("DeadLetterConfig").start_object();
+    super::super::protocol_serde::shape_dead_letter_config::ser_dead_letter_config(&mut object_10, var_9)?;
+    object_10.finish();
+}
+if let Some(var_11) = &input.description {
+    object.key("Description").string(var_11.as_str());
+}
+if let Some(var_12) = &input.durable_config {
+    #[allow(unused_mut)]
+    let mut object_13 = object.key("DurableConfig").start_object();
+    super::super::protocol_serde::shape_durable_config::ser_durable_config(&mut object_13, var_12)?;
     object_13.finish();
 }
-if let Some(var_14) = &input.package_type {
-    object.key("PackageType").string(var_14.as_str());
-}
-if let Some(var_15) = &input.dead_letter_config {
+if let Some(var_14) = &input.environment {
     #[allow(unused_mut)]
-    let mut object_16 = object.key("DeadLetterConfig").start_object();
-    super::super::protocol_serde::shape_dead_letter_config::ser_dead_letter_config(&mut object_16, var_15)?;
-    object_16.finish();
+    let mut object_15 = object.key("Environment").start_object();
+    super::super::protocol_serde::shape_environment::ser_environment(&mut object_15, var_14)?;
+    object_15.finish();
 }
-if let Some(var_17) = &input.environment {
+if let Some(var_16) = &input.ephemeral_storage {
     #[allow(unused_mut)]
-    let mut object_18 = object.key("Environment").start_object();
-    super::super::protocol_serde::shape_environment::ser_environment(&mut object_18, var_17)?;
-    object_18.finish();
+    let mut object_17 = object.key("EphemeralStorage").start_object();
+    super::super::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_17, var_16)?;
+    object_17.finish();
 }
-if let Some(var_19) = &input.kms_key_arn {
-    object.key("KMSKeyArn").string(var_19.as_str());
-}
-if let Some(var_20) = &input.tracing_config {
-    #[allow(unused_mut)]
-    let mut object_21 = object.key("TracingConfig").start_object();
-    super::super::protocol_serde::shape_tracing_config::ser_tracing_config(&mut object_21, var_20)?;
-    object_21.finish();
-}
-if let Some(var_22) = &input.tags {
-    #[allow(unused_mut)]
-    let mut object_23 = object.key("Tags").start_object();
-    for (key_24, value_25) in var_22 {
-        {
-            object_23.key(key_24.as_str()).string(value_25.as_str());
-        }
-    }
-    object_23.finish();
-}
-if let Some(var_26) = &input.layers {
-    let mut array_27 = object.key("Layers").start_array();
-    for item_28 in var_26 {
-        {
-            array_27.value().string(item_28.as_str());
-        }
-    }
-    array_27.finish();
-}
-if let Some(var_29) = &input.file_system_configs {
-    let mut array_30 = object.key("FileSystemConfigs").start_array();
-    for item_31 in var_29 {
+if let Some(var_18) = &input.file_system_configs {
+    let mut array_19 = object.key("FileSystemConfigs").start_array();
+    for item_20 in var_18 {
         {
             #[allow(unused_mut)]
-            let mut object_32 = array_30.value().start_object();
-            super::super::protocol_serde::shape_file_system_config::ser_file_system_config(&mut object_32, item_31)?;
-            object_32.finish();
+            let mut object_21 = array_19.value().start_object();
+            super::super::protocol_serde::shape_file_system_config::ser_file_system_config(&mut object_21, item_20)?;
+            object_21.finish();
         }
     }
-    array_30.finish();
+    array_19.finish();
 }
-if let Some(var_33) = &input.code_signing_config_arn {
-    object.key("CodeSigningConfigArn").string(var_33.as_str());
+if let Some(var_22) = &input.function_name {
+    object.key("FunctionName").string(var_22.as_str());
 }
-if let Some(var_34) = &input.image_config {
+if let Some(var_23) = &input.handler {
+    object.key("Handler").string(var_23.as_str());
+}
+if let Some(var_24) = &input.image_config {
     #[allow(unused_mut)]
-    let mut object_35 = object.key("ImageConfig").start_object();
-    super::super::protocol_serde::shape_image_config::ser_image_config(&mut object_35, var_34)?;
-    object_35.finish();
+    let mut object_25 = object.key("ImageConfig").start_object();
+    super::super::protocol_serde::shape_image_config::ser_image_config(&mut object_25, var_24)?;
+    object_25.finish();
 }
-if let Some(var_36) = &input.architectures {
-    let mut array_37 = object.key("Architectures").start_array();
-    for item_38 in var_36 {
+if let Some(var_26) = &input.kms_key_arn {
+    object.key("KMSKeyArn").string(var_26.as_str());
+}
+if let Some(var_27) = &input.layers {
+    let mut array_28 = object.key("Layers").start_array();
+    for item_29 in var_27 {
         {
-            array_37.value().string(item_38.as_str());
+            array_28.value().string(item_29.as_str());
         }
     }
-    array_37.finish();
+    array_28.finish();
 }
-if let Some(var_39) = &input.ephemeral_storage {
+if let Some(var_30) = &input.logging_config {
     #[allow(unused_mut)]
-    let mut object_40 = object.key("EphemeralStorage").start_object();
-    super::super::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_40, var_39)?;
-    object_40.finish();
+    let mut object_31 = object.key("LoggingConfig").start_object();
+    super::super::protocol_serde::shape_logging_config::ser_logging_config(&mut object_31, var_30)?;
+    object_31.finish();
 }
-if let Some(var_41) = &input.snap_start {
-    #[allow(unused_mut)]
-    let mut object_42 = object.key("SnapStart").start_object();
-    super::super::protocol_serde::shape_snap_start::ser_snap_start(&mut object_42, var_41)?;
-    object_42.finish();
+if let Some(var_32) = &input.memory_size {
+    object.key("MemorySize").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_32).into()),
+    );
 }
-if let Some(var_43) = &input.logging_config {
-    #[allow(unused_mut)]
-    let mut object_44 = object.key("LoggingConfig").start_object();
-    super::super::protocol_serde::shape_logging_config::ser_logging_config(&mut object_44, var_43)?;
-    object_44.finish();
+if let Some(var_33) = &input.package_type {
+    object.key("PackageType").string(var_33.as_str());
 }
-if let Some(var_45) = &input.tenancy_config {
-    #[allow(unused_mut)]
-    let mut object_46 = object.key("TenancyConfig").start_object();
-    super::super::protocol_serde::shape_tenancy_config::ser_tenancy_config(&mut object_46, var_45)?;
-    object_46.finish();
+if let Some(var_34) = &input.publish {
+    object.key("Publish").boolean(*var_34);
 }
-if let Some(var_47) = &input.capacity_provider_config {
+if let Some(var_35) = &input.publish_to {
+    object.key("PublishTo").string(var_35.as_str());
+}
+if let Some(var_36) = &input.role {
+    object.key("Role").string(var_36.as_str());
+}
+if let Some(var_37) = &input.runtime {
+    object.key("Runtime").string(var_37.as_str());
+}
+if let Some(var_38) = &input.snap_start {
     #[allow(unused_mut)]
-    let mut object_48 = object.key("CapacityProviderConfig").start_object();
-    super::super::protocol_serde::shape_capacity_provider_config::ser_capacity_provider_config(&mut object_48, var_47)?;
+    let mut object_39 = object.key("SnapStart").start_object();
+    super::super::protocol_serde::shape_snap_start::ser_snap_start(&mut object_39, var_38)?;
+    object_39.finish();
+}
+if let Some(var_40) = &input.tags {
+    #[allow(unused_mut)]
+    let mut object_41 = object.key("Tags").start_object();
+    for (key_42, value_43) in var_40 {
+        {
+            object_41.key(key_42.as_str()).string(value_43.as_str());
+        }
+    }
+    object_41.finish();
+}
+if let Some(var_44) = &input.tenancy_config {
+    #[allow(unused_mut)]
+    let mut object_45 = object.key("TenancyConfig").start_object();
+    super::super::protocol_serde::shape_tenancy_config::ser_tenancy_config(&mut object_45, var_44)?;
+    object_45.finish();
+}
+if let Some(var_46) = &input.timeout {
+    object.key("Timeout").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_46).into()),
+    );
+}
+if let Some(var_47) = &input.tracing_config {
+    #[allow(unused_mut)]
+    let mut object_48 = object.key("TracingConfig").start_object();
+    super::super::protocol_serde::shape_tracing_config::ser_tracing_config(&mut object_48, var_47)?;
     object_48.finish();
 }
-if let Some(var_49) = &input.durable_config {
+if let Some(var_49) = &input.vpc_config {
     #[allow(unused_mut)]
-    let mut object_50 = object.key("DurableConfig").start_object();
-    super::super::protocol_serde::shape_durable_config::ser_durable_config(&mut object_50, var_49)?;
+    let mut object_50 = object.key("VpcConfig").start_object();
+    super::super::protocol_serde::shape_vpc_config::ser_vpc_config(&mut object_50, var_49)?;
     object_50.finish();
 }
     Ok(())
@@ -139988,17 +139988,17 @@ pub fn ser_publish_layer_version_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::publish_layer_version::PublishLayerVersionInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.description {
-    object.key("Description").string(var_1.as_str());
+if let Some(var_1) = &input.compatible_architectures {
+    let mut array_2 = object.key("CompatibleArchitectures").start_array();
+    for item_3 in var_1 {
+        {
+            array_2.value().string(item_3.as_str());
+        }
+    }
+    array_2.finish();
 }
-if let Some(var_2) = &input.content {
-    #[allow(unused_mut)]
-    let mut object_3 = object.key("Content").start_object();
-    super::super::protocol_serde::shape_layer_version_content_input::ser_layer_version_content_input(&mut object_3, var_2)?;
-    object_3.finish();
-}
-if let Some(var_4) = &input.compatible_architectures {
-    let mut array_5 = object.key("CompatibleArchitectures").start_array();
+if let Some(var_4) = &input.compatible_runtimes {
+    let mut array_5 = object.key("CompatibleRuntimes").start_array();
     for item_6 in var_4 {
         {
             array_5.value().string(item_6.as_str());
@@ -140006,14 +140006,14 @@ if let Some(var_4) = &input.compatible_architectures {
     }
     array_5.finish();
 }
-if let Some(var_7) = &input.compatible_runtimes {
-    let mut array_8 = object.key("CompatibleRuntimes").start_array();
-    for item_9 in var_7 {
-        {
-            array_8.value().string(item_9.as_str());
-        }
-    }
-    array_8.finish();
+if let Some(var_7) = &input.content {
+    #[allow(unused_mut)]
+    let mut object_8 = object.key("Content").start_object();
+    super::super::protocol_serde::shape_layer_version_content_input::ser_layer_version_content_input(&mut object_8, var_7)?;
+    object_8.finish();
+}
+if let Some(var_9) = &input.description {
+    object.key("Description").string(var_9.as_str());
 }
 if let Some(var_10) = &input.license_info {
     object.key("LicenseInfo").string(var_10.as_str());
@@ -140034,11 +140034,11 @@ if let Some(var_1) = &input.code_sha256 {
 if let Some(var_2) = &input.description {
     object.key("Description").string(var_2.as_str());
 }
-if let Some(var_3) = &input.revision_id {
-    object.key("RevisionId").string(var_3.as_str());
+if let Some(var_3) = &input.publish_to {
+    object.key("PublishTo").string(var_3.as_str());
 }
-if let Some(var_4) = &input.publish_to {
-    object.key("PublishTo").string(var_4.as_str());
+if let Some(var_4) = &input.revision_id {
+    object.key("RevisionId").string(var_4.as_str());
 }
     Ok(())
 }
@@ -140079,23 +140079,23 @@ pub fn ser_put_function_event_invoke_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.maximum_retry_attempts {
-    object.key("MaximumRetryAttempts").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_1).into()),
-    );
+if let Some(var_1) = &input.destination_config {
+    #[allow(unused_mut)]
+    let mut object_2 = object.key("DestinationConfig").start_object();
+    super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_2, var_1)?;
+    object_2.finish();
 }
-if let Some(var_2) = &input.maximum_event_age_in_seconds {
+if let Some(var_3) = &input.maximum_event_age_in_seconds {
     object.key("MaximumEventAgeInSeconds").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
+        ::aws_smithy_types::Number::NegInt((*var_3).into()),
     );
 }
-if let Some(var_3) = &input.destination_config {
-    #[allow(unused_mut)]
-    let mut object_4 = object.key("DestinationConfig").start_object();
-    super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_4, var_3)?;
-    object_4.finish();
+if let Some(var_4) = &input.maximum_retry_attempts {
+    object.key("MaximumRetryAttempts").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_4).into()),
+    );
 }
     Ok(())
 }
@@ -140168,11 +140168,11 @@ pub fn ser_put_runtime_management_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_runtime_management_config::PutRuntimeManagementConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.update_runtime_on {
-    object.key("UpdateRuntimeOn").string(var_1.as_str());
+if let Some(var_1) = &input.runtime_version_arn {
+    object.key("RuntimeVersionArn").string(var_1.as_str());
 }
-if let Some(var_2) = &input.runtime_version_arn {
-    object.key("RuntimeVersionArn").string(var_2.as_str());
+if let Some(var_2) = &input.update_runtime_on {
+    object.key("UpdateRuntimeOn").string(var_2.as_str());
 }
     Ok(())
 }
@@ -141101,20 +141101,20 @@ pub fn ser_update_alias_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_alias::UpdateAliasInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_version {
-    object.key("FunctionVersion").string(var_1.as_str());
+if let Some(var_1) = &input.description {
+    object.key("Description").string(var_1.as_str());
 }
-if let Some(var_2) = &input.description {
-    object.key("Description").string(var_2.as_str());
+if let Some(var_2) = &input.function_version {
+    object.key("FunctionVersion").string(var_2.as_str());
 }
-if let Some(var_3) = &input.routing_config {
+if let Some(var_3) = &input.revision_id {
+    object.key("RevisionId").string(var_3.as_str());
+}
+if let Some(var_4) = &input.routing_config {
     #[allow(unused_mut)]
-    let mut object_4 = object.key("RoutingConfig").start_object();
-    super::super::protocol_serde::shape_alias_routing_configuration::ser_alias_routing_configuration(&mut object_4, var_3)?;
-    object_4.finish();
-}
-if let Some(var_5) = &input.revision_id {
-    object.key("RevisionId").string(var_5.as_str());
+    let mut object_5 = object.key("RoutingConfig").start_object();
+    super::super::protocol_serde::shape_alias_routing_configuration::ser_alias_routing_configuration(&mut object_5, var_4)?;
+    object_5.finish();
 }
     Ok(())
 }
@@ -141154,20 +141154,20 @@ pub fn ser_update_code_signing_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_code_signing_config::UpdateCodeSigningConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.description {
-    object.key("Description").string(var_1.as_str());
-}
-if let Some(var_2) = &input.allowed_publishers {
+if let Some(var_1) = &input.allowed_publishers {
     #[allow(unused_mut)]
-    let mut object_3 = object.key("AllowedPublishers").start_object();
-    super::super::protocol_serde::shape_allowed_publishers::ser_allowed_publishers(&mut object_3, var_2)?;
-    object_3.finish();
+    let mut object_2 = object.key("AllowedPublishers").start_object();
+    super::super::protocol_serde::shape_allowed_publishers::ser_allowed_publishers(&mut object_2, var_1)?;
+    object_2.finish();
 }
-if let Some(var_4) = &input.code_signing_policies {
+if let Some(var_3) = &input.code_signing_policies {
     #[allow(unused_mut)]
-    let mut object_5 = object.key("CodeSigningPolicies").start_object();
-    super::super::protocol_serde::shape_code_signing_policies::ser_code_signing_policies(&mut object_5, var_4)?;
-    object_5.finish();
+    let mut object_4 = object.key("CodeSigningPolicies").start_object();
+    super::super::protocol_serde::shape_code_signing_policies::ser_code_signing_policies(&mut object_4, var_3)?;
+    object_4.finish();
+}
+if let Some(var_5) = &input.description {
+    object.key("Description").string(var_5.as_str());
 }
     Ok(())
 }
@@ -141179,11 +141179,11 @@ pub fn ser_update_event_source_mapping_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_event_source_mapping::UpdateEventSourceMappingInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.enabled {
-    object.key("Enabled").boolean(*var_2);
+if let Some(var_1) = &input.amazon_managed_kafka_event_source_config {
+    #[allow(unused_mut)]
+    let mut object_2 = object.key("AmazonManagedKafkaEventSourceConfig").start_object();
+    super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_2, var_1)?;
+    object_2.finish();
 }
 if let Some(var_3) = &input.batch_size {
     object.key("BatchSize").number(
@@ -141191,116 +141191,116 @@ if let Some(var_3) = &input.batch_size {
         ::aws_smithy_types::Number::NegInt((*var_3).into()),
     );
 }
-if let Some(var_4) = &input.filter_criteria {
-    #[allow(unused_mut)]
-    let mut object_5 = object.key("FilterCriteria").start_object();
-    super::super::protocol_serde::shape_filter_criteria::ser_filter_criteria(&mut object_5, var_4)?;
-    object_5.finish();
+if let Some(var_4) = &input.bisect_batch_on_function_error {
+    object.key("BisectBatchOnFunctionError").boolean(*var_4);
 }
-if let Some(var_6) = &input.kms_key_arn {
-    object.key("KMSKeyArn").string(var_6.as_str());
-}
-if let Some(var_7) = &input.metrics_config {
+if let Some(var_5) = &input.destination_config {
     #[allow(unused_mut)]
-    let mut object_8 = object.key("MetricsConfig").start_object();
-    super::super::protocol_serde::shape_event_source_mapping_metrics_config::ser_event_source_mapping_metrics_config(&mut object_8, var_7)?;
+    let mut object_6 = object.key("DestinationConfig").start_object();
+    super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_6, var_5)?;
+    object_6.finish();
+}
+if let Some(var_7) = &input.document_db_event_source_config {
+    #[allow(unused_mut)]
+    let mut object_8 = object.key("DocumentDBEventSourceConfig").start_object();
+    super::super::protocol_serde::shape_document_db_event_source_config::ser_document_db_event_source_config(&mut object_8, var_7)?;
     object_8.finish();
 }
-if let Some(var_9) = &input.logging_config {
-    #[allow(unused_mut)]
-    let mut object_10 = object.key("LoggingConfig").start_object();
-    super::super::protocol_serde::shape_event_source_mapping_logging_config::ser_event_source_mapping_logging_config(&mut object_10, var_9)?;
-    object_10.finish();
+if let Some(var_9) = &input.enabled {
+    object.key("Enabled").boolean(*var_9);
 }
-if let Some(var_11) = &input.scaling_config {
+if let Some(var_10) = &input.filter_criteria {
     #[allow(unused_mut)]
-    let mut object_12 = object.key("ScalingConfig").start_object();
-    super::super::protocol_serde::shape_scaling_config::ser_scaling_config(&mut object_12, var_11)?;
-    object_12.finish();
+    let mut object_11 = object.key("FilterCriteria").start_object();
+    super::super::protocol_serde::shape_filter_criteria::ser_filter_criteria(&mut object_11, var_10)?;
+    object_11.finish();
 }
-if let Some(var_13) = &input.maximum_batching_window_in_seconds {
+if let Some(var_12) = &input.function_name {
+    object.key("FunctionName").string(var_12.as_str());
+}
+if let Some(var_13) = &input.function_response_types {
+    let mut array_14 = object.key("FunctionResponseTypes").start_array();
+    for item_15 in var_13 {
+        {
+            array_14.value().string(item_15.as_str());
+        }
+    }
+    array_14.finish();
+}
+if let Some(var_16) = &input.kms_key_arn {
+    object.key("KMSKeyArn").string(var_16.as_str());
+}
+if let Some(var_17) = &input.logging_config {
+    #[allow(unused_mut)]
+    let mut object_18 = object.key("LoggingConfig").start_object();
+    super::super::protocol_serde::shape_event_source_mapping_logging_config::ser_event_source_mapping_logging_config(&mut object_18, var_17)?;
+    object_18.finish();
+}
+if let Some(var_19) = &input.maximum_batching_window_in_seconds {
     object.key("MaximumBatchingWindowInSeconds").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_13).into()),
-    );
-}
-if let Some(var_14) = &input.parallelization_factor {
-    object.key("ParallelizationFactor").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_14).into()),
-    );
-}
-if let Some(var_15) = &input.destination_config {
-    #[allow(unused_mut)]
-    let mut object_16 = object.key("DestinationConfig").start_object();
-    super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_16, var_15)?;
-    object_16.finish();
-}
-if let Some(var_17) = &input.maximum_record_age_in_seconds {
-    object.key("MaximumRecordAgeInSeconds").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_17).into()),
-    );
-}
-if let Some(var_18) = &input.bisect_batch_on_function_error {
-    object.key("BisectBatchOnFunctionError").boolean(*var_18);
-}
-if let Some(var_19) = &input.maximum_retry_attempts {
-    object.key("MaximumRetryAttempts").number(
         #[allow(clippy::useless_conversion)]
         ::aws_smithy_types::Number::NegInt((*var_19).into()),
     );
 }
-if let Some(var_20) = &input.tumbling_window_in_seconds {
-    object.key("TumblingWindowInSeconds").number(
+if let Some(var_20) = &input.maximum_record_age_in_seconds {
+    object.key("MaximumRecordAgeInSeconds").number(
         #[allow(clippy::useless_conversion)]
         ::aws_smithy_types::Number::NegInt((*var_20).into()),
     );
 }
-if let Some(var_21) = &input.source_access_configurations {
-    let mut array_22 = object.key("SourceAccessConfigurations").start_array();
-    for item_23 in var_21 {
+if let Some(var_21) = &input.maximum_retry_attempts {
+    object.key("MaximumRetryAttempts").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_21).into()),
+    );
+}
+if let Some(var_22) = &input.metrics_config {
+    #[allow(unused_mut)]
+    let mut object_23 = object.key("MetricsConfig").start_object();
+    super::super::protocol_serde::shape_event_source_mapping_metrics_config::ser_event_source_mapping_metrics_config(&mut object_23, var_22)?;
+    object_23.finish();
+}
+if let Some(var_24) = &input.parallelization_factor {
+    object.key("ParallelizationFactor").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_24).into()),
+    );
+}
+if let Some(var_25) = &input.provisioned_poller_config {
+    #[allow(unused_mut)]
+    let mut object_26 = object.key("ProvisionedPollerConfig").start_object();
+    super::super::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(&mut object_26, var_25)?;
+    object_26.finish();
+}
+if let Some(var_27) = &input.scaling_config {
+    #[allow(unused_mut)]
+    let mut object_28 = object.key("ScalingConfig").start_object();
+    super::super::protocol_serde::shape_scaling_config::ser_scaling_config(&mut object_28, var_27)?;
+    object_28.finish();
+}
+if let Some(var_29) = &input.self_managed_kafka_event_source_config {
+    #[allow(unused_mut)]
+    let mut object_30 = object.key("SelfManagedKafkaEventSourceConfig").start_object();
+    super::super::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_30, var_29)?;
+    object_30.finish();
+}
+if let Some(var_31) = &input.source_access_configurations {
+    let mut array_32 = object.key("SourceAccessConfigurations").start_array();
+    for item_33 in var_31 {
         {
             #[allow(unused_mut)]
-            let mut object_24 = array_22.value().start_object();
-            super::super::protocol_serde::shape_source_access_configuration::ser_source_access_configuration(&mut object_24, item_23)?;
-            object_24.finish();
+            let mut object_34 = array_32.value().start_object();
+            super::super::protocol_serde::shape_source_access_configuration::ser_source_access_configuration(&mut object_34, item_33)?;
+            object_34.finish();
         }
     }
-    array_22.finish();
+    array_32.finish();
 }
-if let Some(var_25) = &input.function_response_types {
-    let mut array_26 = object.key("FunctionResponseTypes").start_array();
-    for item_27 in var_25 {
-        {
-            array_26.value().string(item_27.as_str());
-        }
-    }
-    array_26.finish();
-}
-if let Some(var_28) = &input.amazon_managed_kafka_event_source_config {
-    #[allow(unused_mut)]
-    let mut object_29 = object.key("AmazonManagedKafkaEventSourceConfig").start_object();
-    super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_29, var_28)?;
-    object_29.finish();
-}
-if let Some(var_30) = &input.self_managed_kafka_event_source_config {
-    #[allow(unused_mut)]
-    let mut object_31 = object.key("SelfManagedKafkaEventSourceConfig").start_object();
-    super::super::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_31, var_30)?;
-    object_31.finish();
-}
-if let Some(var_32) = &input.document_db_event_source_config {
-    #[allow(unused_mut)]
-    let mut object_33 = object.key("DocumentDBEventSourceConfig").start_object();
-    super::super::protocol_serde::shape_document_db_event_source_config::ser_document_db_event_source_config(&mut object_33, var_32)?;
-    object_33.finish();
-}
-if let Some(var_34) = &input.provisioned_poller_config {
-    #[allow(unused_mut)]
-    let mut object_35 = object.key("ProvisionedPollerConfig").start_object();
-    super::super::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(&mut object_35, var_34)?;
-    object_35.finish();
+if let Some(var_35) = &input.tumbling_window_in_seconds {
+    object.key("TumblingWindowInSeconds").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_35).into()),
+    );
 }
     Ok(())
 }
@@ -141312,47 +141312,47 @@ pub fn ser_update_function_code_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_function_code::UpdateFunctionCodeInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.zip_file {
-    object.key("ZipFile").string_unchecked(&::aws_smithy_types::base64::encode(var_1));
-}
-if let Some(var_2) = &input.s3_bucket {
-    object.key("S3Bucket").string(var_2.as_str());
-}
-if let Some(var_3) = &input.s3_key {
-    object.key("S3Key").string(var_3.as_str());
-}
-if let Some(var_4) = &input.s3_object_version {
-    object.key("S3ObjectVersion").string(var_4.as_str());
-}
-if let Some(var_5) = &input.s3_object_storage_mode {
-    object.key("S3ObjectStorageMode").string(var_5.as_str());
-}
-if let Some(var_6) = &input.image_uri {
-    object.key("ImageUri").string(var_6.as_str());
-}
-if let Some(var_7) = &input.architectures {
-    let mut array_8 = object.key("Architectures").start_array();
-    for item_9 in var_7 {
+if let Some(var_1) = &input.architectures {
+    let mut array_2 = object.key("Architectures").start_array();
+    for item_3 in var_1 {
         {
-            array_8.value().string(item_9.as_str());
+            array_2.value().string(item_3.as_str());
         }
     }
-    array_8.finish();
+    array_2.finish();
 }
-if let Some(var_10) = &input.publish {
-    object.key("Publish").boolean(*var_10);
+if let Some(var_4) = &input.dry_run {
+    object.key("DryRun").boolean(*var_4);
 }
-if let Some(var_11) = &input.publish_to {
-    object.key("PublishTo").string(var_11.as_str());
+if let Some(var_5) = &input.image_uri {
+    object.key("ImageUri").string(var_5.as_str());
 }
-if let Some(var_12) = &input.dry_run {
-    object.key("DryRun").boolean(*var_12);
+if let Some(var_6) = &input.publish {
+    object.key("Publish").boolean(*var_6);
 }
-if let Some(var_13) = &input.revision_id {
-    object.key("RevisionId").string(var_13.as_str());
+if let Some(var_7) = &input.publish_to {
+    object.key("PublishTo").string(var_7.as_str());
 }
-if let Some(var_14) = &input.source_kms_key_arn {
-    object.key("SourceKMSKeyArn").string(var_14.as_str());
+if let Some(var_8) = &input.revision_id {
+    object.key("RevisionId").string(var_8.as_str());
+}
+if let Some(var_9) = &input.s3_bucket {
+    object.key("S3Bucket").string(var_9.as_str());
+}
+if let Some(var_10) = &input.s3_key {
+    object.key("S3Key").string(var_10.as_str());
+}
+if let Some(var_11) = &input.s3_object_storage_mode {
+    object.key("S3ObjectStorageMode").string(var_11.as_str());
+}
+if let Some(var_12) = &input.s3_object_version {
+    object.key("S3ObjectVersion").string(var_12.as_str());
+}
+if let Some(var_13) = &input.source_kms_key_arn {
+    object.key("SourceKMSKeyArn").string(var_13.as_str());
+}
+if let Some(var_14) = &input.zip_file {
+    object.key("ZipFile").string_unchecked(&::aws_smithy_types::base64::encode(var_14));
 }
     Ok(())
 }
@@ -141364,31 +141364,25 @@ pub fn ser_update_function_configuration_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_function_configuration::UpdateFunctionConfigurationInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.role {
-    object.key("Role").string(var_1.as_str());
-}
-if let Some(var_2) = &input.handler {
-    object.key("Handler").string(var_2.as_str());
-}
-if let Some(var_3) = &input.description {
-    object.key("Description").string(var_3.as_str());
-}
-if let Some(var_4) = &input.timeout {
-    object.key("Timeout").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
-    );
-}
-if let Some(var_5) = &input.memory_size {
-    object.key("MemorySize").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_5).into()),
-    );
-}
-if let Some(var_6) = &input.vpc_config {
+if let Some(var_1) = &input.capacity_provider_config {
     #[allow(unused_mut)]
-    let mut object_7 = object.key("VpcConfig").start_object();
-    super::super::protocol_serde::shape_vpc_config::ser_vpc_config(&mut object_7, var_6)?;
+    let mut object_2 = object.key("CapacityProviderConfig").start_object();
+    super::super::protocol_serde::shape_capacity_provider_config::ser_capacity_provider_config(&mut object_2, var_1)?;
+    object_2.finish();
+}
+if let Some(var_3) = &input.dead_letter_config {
+    #[allow(unused_mut)]
+    let mut object_4 = object.key("DeadLetterConfig").start_object();
+    super::super::protocol_serde::shape_dead_letter_config::ser_dead_letter_config(&mut object_4, var_3)?;
+    object_4.finish();
+}
+if let Some(var_5) = &input.description {
+    object.key("Description").string(var_5.as_str());
+}
+if let Some(var_6) = &input.durable_config {
+    #[allow(unused_mut)]
+    let mut object_7 = object.key("DurableConfig").start_object();
+    super::super::protocol_serde::shape_durable_config::ser_durable_config(&mut object_7, var_6)?;
     object_7.finish();
 }
 if let Some(var_8) = &input.environment {
@@ -141397,82 +141391,88 @@ if let Some(var_8) = &input.environment {
     super::super::protocol_serde::shape_environment::ser_environment(&mut object_9, var_8)?;
     object_9.finish();
 }
-if let Some(var_10) = &input.runtime {
-    object.key("Runtime").string(var_10.as_str());
-}
-if let Some(var_11) = &input.dead_letter_config {
+if let Some(var_10) = &input.ephemeral_storage {
     #[allow(unused_mut)]
-    let mut object_12 = object.key("DeadLetterConfig").start_object();
-    super::super::protocol_serde::shape_dead_letter_config::ser_dead_letter_config(&mut object_12, var_11)?;
-    object_12.finish();
+    let mut object_11 = object.key("EphemeralStorage").start_object();
+    super::super::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_11, var_10)?;
+    object_11.finish();
 }
-if let Some(var_13) = &input.kms_key_arn {
-    object.key("KMSKeyArn").string(var_13.as_str());
-}
-if let Some(var_14) = &input.tracing_config {
-    #[allow(unused_mut)]
-    let mut object_15 = object.key("TracingConfig").start_object();
-    super::super::protocol_serde::shape_tracing_config::ser_tracing_config(&mut object_15, var_14)?;
-    object_15.finish();
-}
-if let Some(var_16) = &input.revision_id {
-    object.key("RevisionId").string(var_16.as_str());
-}
-if let Some(var_17) = &input.layers {
-    let mut array_18 = object.key("Layers").start_array();
-    for item_19 in var_17 {
-        {
-            array_18.value().string(item_19.as_str());
-        }
-    }
-    array_18.finish();
-}
-if let Some(var_20) = &input.file_system_configs {
-    let mut array_21 = object.key("FileSystemConfigs").start_array();
-    for item_22 in var_20 {
+if let Some(var_12) = &input.file_system_configs {
+    let mut array_13 = object.key("FileSystemConfigs").start_array();
+    for item_14 in var_12 {
         {
             #[allow(unused_mut)]
-            let mut object_23 = array_21.value().start_object();
-            super::super::protocol_serde::shape_file_system_config::ser_file_system_config(&mut object_23, item_22)?;
-            object_23.finish();
+            let mut object_15 = array_13.value().start_object();
+            super::super::protocol_serde::shape_file_system_config::ser_file_system_config(&mut object_15, item_14)?;
+            object_15.finish();
+        }
+    }
+    array_13.finish();
+}
+if let Some(var_16) = &input.handler {
+    object.key("Handler").string(var_16.as_str());
+}
+if let Some(var_17) = &input.image_config {
+    #[allow(unused_mut)]
+    let mut object_18 = object.key("ImageConfig").start_object();
+    super::super::protocol_serde::shape_image_config::ser_image_config(&mut object_18, var_17)?;
+    object_18.finish();
+}
+if let Some(var_19) = &input.kms_key_arn {
+    object.key("KMSKeyArn").string(var_19.as_str());
+}
+if let Some(var_20) = &input.layers {
+    let mut array_21 = object.key("Layers").start_array();
+    for item_22 in var_20 {
+        {
+            array_21.value().string(item_22.as_str());
         }
     }
     array_21.finish();
 }
-if let Some(var_24) = &input.image_config {
+if let Some(var_23) = &input.logging_config {
     #[allow(unused_mut)]
-    let mut object_25 = object.key("ImageConfig").start_object();
-    super::super::protocol_serde::shape_image_config::ser_image_config(&mut object_25, var_24)?;
-    object_25.finish();
+    let mut object_24 = object.key("LoggingConfig").start_object();
+    super::super::protocol_serde::shape_logging_config::ser_logging_config(&mut object_24, var_23)?;
+    object_24.finish();
 }
-if let Some(var_26) = &input.ephemeral_storage {
-    #[allow(unused_mut)]
-    let mut object_27 = object.key("EphemeralStorage").start_object();
-    super::super::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_27, var_26)?;
-    object_27.finish();
+if let Some(var_25) = &input.memory_size {
+    object.key("MemorySize").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_25).into()),
+    );
 }
-if let Some(var_28) = &input.snap_start {
-    #[allow(unused_mut)]
-    let mut object_29 = object.key("SnapStart").start_object();
-    super::super::protocol_serde::shape_snap_start::ser_snap_start(&mut object_29, var_28)?;
-    object_29.finish();
+if let Some(var_26) = &input.revision_id {
+    object.key("RevisionId").string(var_26.as_str());
 }
-if let Some(var_30) = &input.logging_config {
-    #[allow(unused_mut)]
-    let mut object_31 = object.key("LoggingConfig").start_object();
-    super::super::protocol_serde::shape_logging_config::ser_logging_config(&mut object_31, var_30)?;
-    object_31.finish();
+if let Some(var_27) = &input.role {
+    object.key("Role").string(var_27.as_str());
 }
-if let Some(var_32) = &input.capacity_provider_config {
+if let Some(var_28) = &input.runtime {
+    object.key("Runtime").string(var_28.as_str());
+}
+if let Some(var_29) = &input.snap_start {
     #[allow(unused_mut)]
-    let mut object_33 = object.key("CapacityProviderConfig").start_object();
-    super::super::protocol_serde::shape_capacity_provider_config::ser_capacity_provider_config(&mut object_33, var_32)?;
+    let mut object_30 = object.key("SnapStart").start_object();
+    super::super::protocol_serde::shape_snap_start::ser_snap_start(&mut object_30, var_29)?;
+    object_30.finish();
+}
+if let Some(var_31) = &input.timeout {
+    object.key("Timeout").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_31).into()),
+    );
+}
+if let Some(var_32) = &input.tracing_config {
+    #[allow(unused_mut)]
+    let mut object_33 = object.key("TracingConfig").start_object();
+    super::super::protocol_serde::shape_tracing_config::ser_tracing_config(&mut object_33, var_32)?;
     object_33.finish();
 }
-if let Some(var_34) = &input.durable_config {
+if let Some(var_34) = &input.vpc_config {
     #[allow(unused_mut)]
-    let mut object_35 = object.key("DurableConfig").start_object();
-    super::super::protocol_serde::shape_durable_config::ser_durable_config(&mut object_35, var_34)?;
+    let mut object_35 = object.key("VpcConfig").start_object();
+    super::super::protocol_serde::shape_vpc_config::ser_vpc_config(&mut object_35, var_34)?;
     object_35.finish();
 }
     Ok(())
@@ -141485,23 +141485,23 @@ pub fn ser_update_function_event_invoke_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.maximum_retry_attempts {
-    object.key("MaximumRetryAttempts").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_1).into()),
-    );
+if let Some(var_1) = &input.destination_config {
+    #[allow(unused_mut)]
+    let mut object_2 = object.key("DestinationConfig").start_object();
+    super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_2, var_1)?;
+    object_2.finish();
 }
-if let Some(var_2) = &input.maximum_event_age_in_seconds {
+if let Some(var_3) = &input.maximum_event_age_in_seconds {
     object.key("MaximumEventAgeInSeconds").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
+        ::aws_smithy_types::Number::NegInt((*var_3).into()),
     );
 }
-if let Some(var_3) = &input.destination_config {
-    #[allow(unused_mut)]
-    let mut object_4 = object.key("DestinationConfig").start_object();
-    super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_4, var_3)?;
-    object_4.finish();
+if let Some(var_4) = &input.maximum_retry_attempts {
+    object.key("MaximumRetryAttempts").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_4).into()),
+    );
 }
     Ok(())
 }

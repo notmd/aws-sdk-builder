@@ -97,37 +97,15 @@ pub(crate) fn de_get_contact(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
                 match key.to_unescaped()?.as_ref() {
-                    "ContactListName" => {
-                        builder = builder.set_contact_list_name(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                        );
-                    }
-                    "EmailAddress" => {
-                        builder = builder.set_email_address(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                        );
-                    }
-                    "TopicPreferences" => {
-                        builder = builder.set_topic_preferences(super::super::protocol_serde::shape_topic_preference_list::de_topic_preference_list(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?);
-                    }
-                    "TopicDefaultPreferences" => {
-                        builder = builder.set_topic_default_preferences(
-                            super::super::protocol_serde::shape_topic_preference_list::de_topic_preference_list(tokens, _value, depth + 1)?,
-                        );
-                    }
-                    "UnsubscribeAll" => {
-                        builder = builder.set_unsubscribe_all(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                    }
                     "AttributesData" => {
                         builder = builder.set_attributes_data(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?,
+                        );
+                    }
+                    "ContactListName" => {
+                        builder = builder.set_contact_list_name(
                             ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                 .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                 .transpose()?,
@@ -139,11 +117,33 @@ pub(crate) fn de_get_contact(
                             ::aws_smithy_types::date_time::Format::EpochSeconds,
                         )?);
                     }
+                    "EmailAddress" => {
+                        builder = builder.set_email_address(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?,
+                        );
+                    }
                     "LastUpdatedTimestamp" => {
                         builder = builder.set_last_updated_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
                             tokens.next(),
                             ::aws_smithy_types::date_time::Format::EpochSeconds,
                         )?);
+                    }
+                    "TopicDefaultPreferences" => {
+                        builder = builder.set_topic_default_preferences(
+                            super::super::protocol_serde::shape_topic_preference_list::de_topic_preference_list(tokens, _value, depth + 1)?,
+                        );
+                    }
+                    "TopicPreferences" => {
+                        builder = builder.set_topic_preferences(super::super::protocol_serde::shape_topic_preference_list::de_topic_preference_list(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?);
+                    }
+                    "UnsubscribeAll" => {
+                        builder = builder.set_unsubscribe_all(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                     }
                     _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }

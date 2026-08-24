@@ -3,26 +3,26 @@ pub fn ser_create_tenant_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_tenant::CreateTenantInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.tenant_name {
-        object.key("TenantName").string(var_1.as_str());
+    if let Some(var_1) = &input.suppression_attributes {
+        #[allow(unused_mut)]
+        let mut object_2 = object.key("SuppressionAttributes").start_object();
+        super::super::protocol_serde::shape_tenant_suppression_attributes::ser_tenant_suppression_attributes(&mut object_2, var_1)?;
+        object_2.finish();
     }
-    if let Some(var_2) = &input.tags {
-        let mut array_3 = object.key("Tags").start_array();
-        for item_4 in var_2 {
+    if let Some(var_3) = &input.tags {
+        let mut array_4 = object.key("Tags").start_array();
+        for item_5 in var_3 {
             {
                 #[allow(unused_mut)]
-                let mut object_5 = array_3.value().start_object();
-                super::super::protocol_serde::shape_tag::ser_tag(&mut object_5, item_4)?;
-                object_5.finish();
+                let mut object_6 = array_4.value().start_object();
+                super::super::protocol_serde::shape_tag::ser_tag(&mut object_6, item_5)?;
+                object_6.finish();
             }
         }
-        array_3.finish();
+        array_4.finish();
     }
-    if let Some(var_6) = &input.suppression_attributes {
-        #[allow(unused_mut)]
-        let mut object_7 = object.key("SuppressionAttributes").start_object();
-        super::super::protocol_serde::shape_tenant_suppression_attributes::ser_tenant_suppression_attributes(&mut object_7, var_6)?;
-        object_7.finish();
+    if let Some(var_7) = &input.tenant_name {
+        object.key("TenantName").string(var_7.as_str());
     }
     Ok(())
 }

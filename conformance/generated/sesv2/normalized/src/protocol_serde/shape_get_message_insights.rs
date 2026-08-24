@@ -104,15 +104,29 @@ pub(crate) fn de_get_message_insights(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "MessageId" => {
-                    builder = builder.set_message_id(
+                "EmailTags" => {
+                    builder = builder.set_email_tags(super::super::protocol_serde::shape_message_tag_list::de_message_tag_list(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                "FromEmailAddress" => {
+                    builder = builder.set_from_email_address(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
                 }
-                "FromEmailAddress" => {
-                    builder = builder.set_from_email_address(
+                "Insights" => {
+                    builder = builder.set_insights(super::super::protocol_serde::shape_email_insights_list::de_email_insights_list(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                "MessageId" => {
+                    builder = builder.set_message_id(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
@@ -124,20 +138,6 @@ pub(crate) fn de_get_message_insights(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
-                }
-                "EmailTags" => {
-                    builder = builder.set_email_tags(super::super::protocol_serde::shape_message_tag_list::de_message_tag_list(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
-                "Insights" => {
-                    builder = builder.set_insights(super::super::protocol_serde::shape_email_insights_list::de_email_insights_list(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

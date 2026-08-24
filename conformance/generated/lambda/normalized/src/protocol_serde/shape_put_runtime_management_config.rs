@@ -158,13 +158,6 @@ pub(crate) fn de_put_runtime_management_config(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "UpdateRuntimeOn" => {
-                    builder = builder.set_update_runtime_on(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::UpdateRuntimeOn::from(u.as_ref())))
-                            .transpose()?,
-                    );
-                }
                 "FunctionArn" => {
                     builder = builder.set_function_arn(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -176,6 +169,13 @@ pub(crate) fn de_put_runtime_management_config(
                     builder = builder.set_runtime_version_arn(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "UpdateRuntimeOn" => {
+                    builder = builder.set_update_runtime_on(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::UpdateRuntimeOn::from(u.as_ref())))
                             .transpose()?,
                     );
                 }

@@ -3,23 +3,23 @@ pub fn ser_update_service_environment_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_service_environment::UpdateServiceEnvironmentInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.service_environment {
-        object.key("serviceEnvironment").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.state {
-        object.key("state").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.capacity_limits {
-        let mut array_4 = object.key("capacityLimits").start_array();
-        for item_5 in var_3 {
+    if let Some(var_1) = &input.capacity_limits {
+        let mut array_2 = object.key("capacityLimits").start_array();
+        for item_3 in var_1 {
             {
                 #[allow(unused_mut)]
-                let mut object_6 = array_4.value().start_object();
-                super::super::protocol_serde::shape_capacity_limit::ser_capacity_limit(&mut object_6, item_5)?;
-                object_6.finish();
+                let mut object_4 = array_2.value().start_object();
+                super::super::protocol_serde::shape_capacity_limit::ser_capacity_limit(&mut object_4, item_3)?;
+                object_4.finish();
             }
         }
-        array_4.finish();
+        array_2.finish();
+    }
+    if let Some(var_5) = &input.service_environment {
+        object.key("serviceEnvironment").string(var_5.as_str());
+    }
+    if let Some(var_6) = &input.state {
+        object.key("state").string(var_6.as_str());
     }
     Ok(())
 }

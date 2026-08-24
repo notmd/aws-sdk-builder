@@ -198,15 +198,15 @@ pub(crate) fn de_add_layer_version_permission(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "Statement" => {
-                    builder = builder.set_statement(
+                "RevisionId" => {
+                    builder = builder.set_revision_id(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
                 }
-                "RevisionId" => {
-                    builder = builder.set_revision_id(
+                "Statement" => {
+                    builder = builder.set_statement(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,

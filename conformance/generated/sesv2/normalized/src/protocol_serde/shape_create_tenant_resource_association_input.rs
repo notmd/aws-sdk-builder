@@ -3,11 +3,11 @@ pub fn ser_create_tenant_resource_association_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociationInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.tenant_name {
-        object.key("TenantName").string(var_1.as_str());
+    if let Some(var_1) = &input.resource_arn {
+        object.key("ResourceArn").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.resource_arn {
-        object.key("ResourceArn").string(var_2.as_str());
+    if let Some(var_2) = &input.tenant_name {
+        object.key("TenantName").string(var_2.as_str());
     }
     Ok(())
 }

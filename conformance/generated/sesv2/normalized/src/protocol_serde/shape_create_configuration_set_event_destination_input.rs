@@ -3,14 +3,14 @@ pub fn ser_create_configuration_set_event_destination_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.event_destination_name {
-        object.key("EventDestinationName").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.event_destination {
+    if let Some(var_1) = &input.event_destination {
         #[allow(unused_mut)]
-        let mut object_3 = object.key("EventDestination").start_object();
-        super::super::protocol_serde::shape_event_destination_definition::ser_event_destination_definition(&mut object_3, var_2)?;
-        object_3.finish();
+        let mut object_2 = object.key("EventDestination").start_object();
+        super::super::protocol_serde::shape_event_destination_definition::ser_event_destination_definition(&mut object_2, var_1)?;
+        object_2.finish();
+    }
+    if let Some(var_3) = &input.event_destination_name {
+        object.key("EventDestinationName").string(var_3.as_str());
     }
     Ok(())
 }

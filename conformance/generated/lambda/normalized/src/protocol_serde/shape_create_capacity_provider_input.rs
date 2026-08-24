@@ -6,32 +6,32 @@ pub fn ser_create_capacity_provider_input_input(
     if let Some(var_1) = &input.capacity_provider_name {
         object.key("CapacityProviderName").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.vpc_config {
+    if let Some(var_2) = &input.capacity_provider_scaling_config {
         #[allow(unused_mut)]
-        let mut object_3 = object.key("VpcConfig").start_object();
-        super::super::protocol_serde::shape_capacity_provider_vpc_config::ser_capacity_provider_vpc_config(&mut object_3, var_2)?;
+        let mut object_3 = object.key("CapacityProviderScalingConfig").start_object();
+        super::super::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_3, var_2)?;
         object_3.finish();
     }
-    if let Some(var_4) = &input.permissions_config {
+    if let Some(var_4) = &input.instance_requirements {
         #[allow(unused_mut)]
-        let mut object_5 = object.key("PermissionsConfig").start_object();
-        super::super::protocol_serde::shape_capacity_provider_permissions_config::ser_capacity_provider_permissions_config(&mut object_5, var_4)?;
+        let mut object_5 = object.key("InstanceRequirements").start_object();
+        super::super::protocol_serde::shape_instance_requirements::ser_instance_requirements(&mut object_5, var_4)?;
         object_5.finish();
     }
-    if let Some(var_6) = &input.instance_requirements {
-        #[allow(unused_mut)]
-        let mut object_7 = object.key("InstanceRequirements").start_object();
-        super::super::protocol_serde::shape_instance_requirements::ser_instance_requirements(&mut object_7, var_6)?;
-        object_7.finish();
+    if let Some(var_6) = &input.kms_key_arn {
+        object.key("KmsKeyArn").string(var_6.as_str());
     }
-    if let Some(var_8) = &input.capacity_provider_scaling_config {
+    if let Some(var_7) = &input.permissions_config {
         #[allow(unused_mut)]
-        let mut object_9 = object.key("CapacityProviderScalingConfig").start_object();
-        super::super::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_9, var_8)?;
-        object_9.finish();
+        let mut object_8 = object.key("PermissionsConfig").start_object();
+        super::super::protocol_serde::shape_capacity_provider_permissions_config::ser_capacity_provider_permissions_config(&mut object_8, var_7)?;
+        object_8.finish();
     }
-    if let Some(var_10) = &input.kms_key_arn {
-        object.key("KmsKeyArn").string(var_10.as_str());
+    if let Some(var_9) = &input.propagate_tags {
+        #[allow(unused_mut)]
+        let mut object_10 = object.key("PropagateTags").start_object();
+        super::super::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_10, var_9)?;
+        object_10.finish();
     }
     if let Some(var_11) = &input.tags {
         #[allow(unused_mut)]
@@ -43,16 +43,16 @@ pub fn ser_create_capacity_provider_input_input(
         }
         object_12.finish();
     }
-    if let Some(var_15) = &input.propagate_tags {
+    if let Some(var_15) = &input.telemetry_config {
         #[allow(unused_mut)]
-        let mut object_16 = object.key("PropagateTags").start_object();
-        super::super::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_16, var_15)?;
+        let mut object_16 = object.key("TelemetryConfig").start_object();
+        super::super::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_16, var_15)?;
         object_16.finish();
     }
-    if let Some(var_17) = &input.telemetry_config {
+    if let Some(var_17) = &input.vpc_config {
         #[allow(unused_mut)]
-        let mut object_18 = object.key("TelemetryConfig").start_object();
-        super::super::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_18, var_17)?;
+        let mut object_18 = object.key("VpcConfig").start_object();
+        super::super::protocol_serde::shape_capacity_provider_vpc_config::ser_capacity_provider_vpc_config(&mut object_18, var_17)?;
         object_18.finish();
     }
     Ok(())

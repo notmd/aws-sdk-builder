@@ -3,23 +3,23 @@ pub fn ser_describe_service_environments_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::describe_service_environments::DescribeServiceEnvironmentsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.service_environments {
-        let mut array_2 = object.key("serviceEnvironments").start_array();
-        for item_3 in var_1 {
-            {
-                array_2.value().string(item_3.as_str());
-            }
-        }
-        array_2.finish();
-    }
-    if let Some(var_4) = &input.max_results {
+    if let Some(var_1) = &input.max_results {
         object.key("maxResults").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_4).into()),
+            ::aws_smithy_types::Number::NegInt((*var_1).into()),
         );
     }
-    if let Some(var_5) = &input.next_token {
-        object.key("nextToken").string(var_5.as_str());
+    if let Some(var_2) = &input.next_token {
+        object.key("nextToken").string(var_2.as_str());
+    }
+    if let Some(var_3) = &input.service_environments {
+        let mut array_4 = object.key("serviceEnvironments").start_array();
+        for item_5 in var_3 {
+            {
+                array_4.value().string(item_5.as_str());
+            }
+        }
+        array_4.finish();
     }
     Ok(())
 }

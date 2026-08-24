@@ -162,6 +162,13 @@ pub(crate) fn de_create_email_identity(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "DkimAttributes" => {
+                    builder = builder.set_dkim_attributes(super::super::protocol_serde::shape_dkim_attributes::de_dkim_attributes(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
                 "IdentityType" => {
                     builder = builder.set_identity_type(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -171,13 +178,6 @@ pub(crate) fn de_create_email_identity(
                 }
                 "VerifiedForSendingStatus" => {
                     builder = builder.set_verified_for_sending_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                }
-                "DkimAttributes" => {
-                    builder = builder.set_dkim_attributes(super::super::protocol_serde::shape_dkim_attributes::de_dkim_attributes(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

@@ -165,13 +165,6 @@ pub(crate) fn de_put_provisioned_concurrency_config(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "RequestedProvisionedConcurrentExecutions" => {
-                    builder = builder.set_requested_provisioned_concurrent_executions(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?,
-                    );
-                }
                 "AllocatedProvisionedConcurrentExecutions" => {
                     builder = builder.set_allocated_provisioned_concurrent_executions(
                         ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
@@ -186,6 +179,20 @@ pub(crate) fn de_put_provisioned_concurrency_config(
                             .transpose()?,
                     );
                 }
+                "LastModified" => {
+                    builder = builder.set_last_modified(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "RequestedProvisionedConcurrentExecutions" => {
+                    builder = builder.set_requested_provisioned_concurrent_executions(
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?,
+                    );
+                }
                 "Status" => {
                     builder = builder.set_status(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -195,13 +202,6 @@ pub(crate) fn de_put_provisioned_concurrency_config(
                 }
                 "StatusReason" => {
                     builder = builder.set_status_reason(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "LastModified" => {
-                    builder = builder.set_last_modified(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,

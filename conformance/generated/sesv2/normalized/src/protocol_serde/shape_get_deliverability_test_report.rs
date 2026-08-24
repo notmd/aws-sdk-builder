@@ -111,13 +111,6 @@ pub(crate) fn de_get_deliverability_test_report(
                         super::super::protocol_serde::shape_deliverability_test_report::de_deliverability_test_report(tokens, _value, depth + 1)?,
                     );
                 }
-                "OverallPlacement" => {
-                    builder = builder.set_overall_placement(super::super::protocol_serde::shape_placement_statistics::de_placement_statistics(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
                 "IspPlacements" => {
                     builder = builder.set_isp_placements(super::super::protocol_serde::shape_isp_placements::de_isp_placements(tokens, _value, depth + 1)?);
                 }
@@ -127,6 +120,13 @@ pub(crate) fn de_get_deliverability_test_report(
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
+                }
+                "OverallPlacement" => {
+                    builder = builder.set_overall_placement(super::super::protocol_serde::shape_placement_statistics::de_placement_statistics(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "Tags" => {
                     builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);

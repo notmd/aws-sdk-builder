@@ -132,15 +132,15 @@ pub(crate) fn de_batch_get_metric_data(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "Results" => {
-                    builder = builder.set_results(super::super::protocol_serde::shape_metric_data_result_list::de_metric_data_result_list(
+                "Errors" => {
+                    builder = builder.set_errors(super::super::protocol_serde::shape_metric_data_error_list::de_metric_data_error_list(
                         tokens,
                         _value,
                         depth + 1,
                     )?);
                 }
-                "Errors" => {
-                    builder = builder.set_errors(super::super::protocol_serde::shape_metric_data_error_list::de_metric_data_error_list(
+                "Results" => {
+                    builder = builder.set_results(super::super::protocol_serde::shape_metric_data_result_list::de_metric_data_result_list(
                         tokens,
                         _value,
                         depth + 1,

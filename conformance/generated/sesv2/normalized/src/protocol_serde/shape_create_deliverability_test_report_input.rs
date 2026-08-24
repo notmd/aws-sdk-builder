@@ -3,17 +3,17 @@ pub fn ser_create_deliverability_test_report_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.report_name {
-        object.key("ReportName").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.from_email_address {
-        object.key("FromEmailAddress").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.content {
+    if let Some(var_1) = &input.content {
         #[allow(unused_mut)]
-        let mut object_4 = object.key("Content").start_object();
-        super::super::protocol_serde::shape_email_content::ser_email_content(&mut object_4, var_3)?;
-        object_4.finish();
+        let mut object_2 = object.key("Content").start_object();
+        super::super::protocol_serde::shape_email_content::ser_email_content(&mut object_2, var_1)?;
+        object_2.finish();
+    }
+    if let Some(var_3) = &input.from_email_address {
+        object.key("FromEmailAddress").string(var_3.as_str());
+    }
+    if let Some(var_4) = &input.report_name {
+        object.key("ReportName").string(var_4.as_str());
     }
     if let Some(var_5) = &input.tags {
         let mut array_6 = object.key("Tags").start_array();

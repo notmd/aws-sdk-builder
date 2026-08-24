@@ -9572,6 +9572,7 @@ fn render_json_protocol_operation_input_and_parser(
         "depth",
         None,
         true,
+        json_operation_members_are_sorted(selected),
     );
     output.push_str("    if tokens.next().is_some() {\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"found more JSON tokens after completing parsing\",\n        ));\n    }\n    Ok(builder)\n}\n");
 }
@@ -9609,6 +9610,7 @@ fn render_json_protocol_operation_input_file(
             &mut state,
             true,
             true,
+            json_operation_members_are_sorted(selected),
         );
         output.push_str("}\n");
     }
@@ -9653,6 +9655,13 @@ fn render_json_protocol_operation_input_file(
         }
     }
     output
+}
+
+fn json_operation_members_are_sorted(selected: &SelectedModel) -> bool {
+    selected
+        .model
+        .protocol()
+        .is_ok_and(|protocol| protocol == ProtocolKind::RestJson1)
 }
 
 fn render_json_payload_serializer(
@@ -9961,6 +9970,7 @@ fn render_json_protocol_error_file(selected: &SelectedModel, shape_id: &str) -> 
         "depth",
         Some("error"),
         false,
+        false,
     );
     output.push_str("    if tokens.next().is_some() {\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"found more JSON tokens after completing parsing\",\n        ));\n    }\n");
     if serde_util_shape_needs_correction(shape) {
@@ -10041,7 +10051,7 @@ fn render_json_shared_structure_serializer(
     .unwrap();
     let mut state = JsonRenderState::default();
     render_json_structure_serializer_body(
-        output, selected, shape, "object", "input", &mut state, false, false,
+        output, selected, shape, "object", "input", &mut state, false, false, false,
     );
     output.push_str("}\n");
 }
@@ -10056,8 +10066,14 @@ fn render_json_structure_serializer_body(
     state: &mut JsonRenderState,
     force_optional: bool,
     document_only: bool,
+    sort_by_member_name: bool,
 ) {
-    for (name, member) in members(shape) {
+    let ordered_members = if sort_by_member_name {
+        sorted_members(shape).into_iter().collect()
+    } else {
+        members(shape)
+    };
+    for (name, member) in ordered_members {
         if document_only && !is_json_document_member(member) {
             continue;
         }
@@ -10375,6 +10391,7 @@ fn render_json_shared_structure_deserializer(
         "depth",
         None,
         false,
+        false,
     );
     let result = json_builder_result(selected, shape_id, "builder", "Response was invalid");
     writeln!(output, "            Ok(Some({result}))").unwrap();
@@ -10478,6 +10495,7 @@ fn render_json_union_deserializer(
     output.push_str("),\n                    };\n                }\n                other => {\n                    return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(\n                        \"expected object key or end object, found: {other:?}\"\n                    )))\n                }\n            }\n        },\n        _ => {\n            return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n                \"expected start object or null\",\n            ))\n        }\n    }\n    if variant.is_none() {\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"Union did not contain a valid variant.\",\n        ));\n    }\n    Ok(variant)\n}\n");
 }
 
+#[allow(clippy::too_many_arguments)]
 fn render_json_structure_deserializer_loop(
     output: &mut String,
     selected: &SelectedModel,
@@ -10486,10 +10504,16 @@ fn render_json_structure_deserializer_loop(
     depth: &str,
     _context: Option<&str>,
     document_only: bool,
+    sort_by_member_name: bool,
 ) {
     output.push_str("    loop {\n        match tokens.next().transpose()? {\n            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,\n            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {\n");
     if let Some(shape) = shape {
-        for (name, member) in members(shape) {
+        let ordered_members = if sort_by_member_name {
+            sorted_members(shape).into_iter().collect()
+        } else {
+            members(shape)
+        };
+        for (name, member) in ordered_members {
             if document_only && !is_json_document_member(member) {
                 continue;
             }
@@ -16371,6 +16395,61 @@ mod tests {
             assert_eq!(normalize_protocol_shape_kind(input), expected);
         }
         assert_eq!(normalize_protocol_shape_kind("structure"), "structure");
+    }
+
+    #[test]
+    fn json_operation_document_members_are_sorted_by_member_name() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "input": {"target": "example#Input"},
+                        "output": {"target": "example#Output"},
+                        "traits": {"smithy.api#http": {"method": "POST", "uri": "/", "code": 200}}
+                    },
+                    "example#Input": {
+                        "type": "structure",
+                        "members": {
+                            "zeta": {"target": "smithy.api#String"},
+                            "alpha": {"target": "smithy.api#String"}
+                        },
+                        "traits": {"smithy.api#input": {}}
+                    },
+                    "example#Output": {
+                        "type": "structure",
+                        "members": {
+                            "zeta": {"target": "smithy.api#String"},
+                            "alpha": {"target": "smithy.api#String"}
+                        }
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+
+        let input = render_json_protocol_operation_input_file(&selected, "Get");
+        assert!(
+            input.find("object.key(\"alpha\")").unwrap()
+                < input.find("object.key(\"zeta\")").unwrap()
+        );
+
+        let output = render_json_protocol_operation_file(&selected, "Get");
+        assert!(output.find("\"alpha\" =>").unwrap() < output.find("\"zeta\" =>").unwrap());
     }
 
     #[test]

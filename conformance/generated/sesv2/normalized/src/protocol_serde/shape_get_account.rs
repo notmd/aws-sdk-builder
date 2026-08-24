@@ -85,12 +85,26 @@ pub(crate) fn de_get_account(
                     builder =
                         builder.set_dedicated_ip_auto_warmup_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 }
+                "Details" => {
+                    builder = builder.set_details(super::super::protocol_serde::shape_account_details::de_account_details(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
                 "EnforcementStatus" => {
                     builder = builder.set_enforcement_status(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
+                }
+                "PricingAttributes" => {
+                    builder = builder.set_pricing_attributes(super::super::protocol_serde::shape_pricing_attributes::de_pricing_attributes(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "ProductionAccessEnabled" => {
                     builder = builder.set_production_access_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
@@ -108,22 +122,8 @@ pub(crate) fn de_get_account(
                         depth + 1,
                     )?);
                 }
-                "Details" => {
-                    builder = builder.set_details(super::super::protocol_serde::shape_account_details::de_account_details(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
                 "VdmAttributes" => {
                     builder = builder.set_vdm_attributes(super::super::protocol_serde::shape_vdm_attributes::de_vdm_attributes(tokens, _value, depth + 1)?);
-                }
-                "PricingAttributes" => {
-                    builder = builder.set_pricing_attributes(super::super::protocol_serde::shape_pricing_attributes::de_pricing_attributes(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

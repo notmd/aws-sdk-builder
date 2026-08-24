@@ -129,9 +129,35 @@ pub(crate) fn de_get_layer_version_by_arn(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "CompatibleArchitectures" => {
+                    builder = builder.set_compatible_architectures(
+                        super::super::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
+                    );
+                }
+                "CompatibleRuntimes" => {
+                    builder = builder.set_compatible_runtimes(super::super::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
                 "Content" => {
                     builder = builder.set_content(
                         super::super::protocol_serde::shape_layer_version_content_output::de_layer_version_content_output(tokens, _value, depth + 1)?,
+                    );
+                }
+                "CreatedDate" => {
+                    builder = builder.set_created_date(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "Description" => {
+                    builder = builder.set_description(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
                     );
                 }
                 "LayerArn" => {
@@ -148,15 +174,8 @@ pub(crate) fn de_get_layer_version_by_arn(
                             .transpose()?,
                     );
                 }
-                "Description" => {
-                    builder = builder.set_description(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "CreatedDate" => {
-                    builder = builder.set_created_date(
+                "LicenseInfo" => {
+                    builder = builder.set_license_info(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
@@ -166,25 +185,6 @@ pub(crate) fn de_get_layer_version_by_arn(
                     builder = builder.set_version(
                         ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i64::try_from)
-                            .transpose()?,
-                    );
-                }
-                "CompatibleArchitectures" => {
-                    builder = builder.set_compatible_architectures(
-                        super::super::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
-                    );
-                }
-                "CompatibleRuntimes" => {
-                    builder = builder.set_compatible_runtimes(super::super::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
-                "LicenseInfo" => {
-                    builder = builder.set_license_info(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
                 }

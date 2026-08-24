@@ -123,8 +123,29 @@ pub(crate) fn de_create_tenant(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "TenantName" => {
-                    builder = builder.set_tenant_name(
+                "CreatedTimestamp" => {
+                    builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                        tokens.next(),
+                        ::aws_smithy_types::date_time::Format::EpochSeconds,
+                    )?);
+                }
+                "SendingStatus" => {
+                    builder = builder.set_sending_status(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::SendingStatus::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
+                "SuppressionAttributes" => {
+                    builder = builder.set_suppression_attributes(
+                        super::super::protocol_serde::shape_tenant_suppression_attributes::de_tenant_suppression_attributes(tokens, _value, depth + 1)?,
+                    );
+                }
+                "Tags" => {
+                    builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
+                }
+                "TenantArn" => {
+                    builder = builder.set_tenant_arn(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
@@ -137,32 +158,11 @@ pub(crate) fn de_create_tenant(
                             .transpose()?,
                     );
                 }
-                "TenantArn" => {
-                    builder = builder.set_tenant_arn(
+                "TenantName" => {
+                    builder = builder.set_tenant_name(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                    );
-                }
-                "CreatedTimestamp" => {
-                    builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-                        tokens.next(),
-                        ::aws_smithy_types::date_time::Format::EpochSeconds,
-                    )?);
-                }
-                "Tags" => {
-                    builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
-                }
-                "SendingStatus" => {
-                    builder = builder.set_sending_status(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::SendingStatus::from(u.as_ref())))
-                            .transpose()?,
-                    );
-                }
-                "SuppressionAttributes" => {
-                    builder = builder.set_suppression_attributes(
-                        super::super::protocol_serde::shape_tenant_suppression_attributes::de_tenant_suppression_attributes(tokens, _value, depth + 1)?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

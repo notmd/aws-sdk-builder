@@ -99,10 +99,10 @@ pub(crate) fn de_describe_consumable_resource(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "consumableResourceName" => {
-                    builder = builder.set_consumable_resource_name(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                "availableQuantity" => {
+                    builder = builder.set_available_quantity(
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i64::try_from)
                             .transpose()?,
                     );
                 }
@@ -113,29 +113,8 @@ pub(crate) fn de_describe_consumable_resource(
                             .transpose()?,
                     );
                 }
-                "totalQuantity" => {
-                    builder = builder.set_total_quantity(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i64::try_from)
-                            .transpose()?,
-                    );
-                }
-                "inUseQuantity" => {
-                    builder = builder.set_in_use_quantity(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i64::try_from)
-                            .transpose()?,
-                    );
-                }
-                "availableQuantity" => {
-                    builder = builder.set_available_quantity(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i64::try_from)
-                            .transpose()?,
-                    );
-                }
-                "resourceType" => {
-                    builder = builder.set_resource_type(
+                "consumableResourceName" => {
+                    builder = builder.set_consumable_resource_name(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
@@ -148,12 +127,33 @@ pub(crate) fn de_describe_consumable_resource(
                             .transpose()?,
                     );
                 }
+                "inUseQuantity" => {
+                    builder = builder.set_in_use_quantity(
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i64::try_from)
+                            .transpose()?,
+                    );
+                }
+                "resourceType" => {
+                    builder = builder.set_resource_type(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
                 "tags" => {
                     builder = builder.set_tags(super::super::protocol_serde::shape_tagris_tags_map::de_tagris_tags_map(
                         tokens,
                         _value,
                         depth + 1,
                     )?);
+                }
+                "totalQuantity" => {
+                    builder = builder.set_total_quantity(
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i64::try_from)
+                            .transpose()?,
+                    );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

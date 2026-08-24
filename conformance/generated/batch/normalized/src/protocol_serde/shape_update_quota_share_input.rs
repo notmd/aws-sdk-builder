@@ -3,34 +3,34 @@ pub fn ser_update_quota_share_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_quota_share::UpdateQuotaShareInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.quota_share_arn {
-        object.key("quotaShareArn").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.capacity_limits {
-        let mut array_3 = object.key("capacityLimits").start_array();
-        for item_4 in var_2 {
+    if let Some(var_1) = &input.capacity_limits {
+        let mut array_2 = object.key("capacityLimits").start_array();
+        for item_3 in var_1 {
             {
                 #[allow(unused_mut)]
-                let mut object_5 = array_3.value().start_object();
-                super::super::protocol_serde::shape_quota_share_capacity_limit::ser_quota_share_capacity_limit(&mut object_5, item_4)?;
-                object_5.finish();
+                let mut object_4 = array_2.value().start_object();
+                super::super::protocol_serde::shape_quota_share_capacity_limit::ser_quota_share_capacity_limit(&mut object_4, item_3)?;
+                object_4.finish();
             }
         }
-        array_3.finish();
+        array_2.finish();
     }
-    if let Some(var_6) = &input.resource_sharing_configuration {
+    if let Some(var_5) = &input.preemption_configuration {
         #[allow(unused_mut)]
-        let mut object_7 = object.key("resourceSharingConfiguration").start_object();
+        let mut object_6 = object.key("preemptionConfiguration").start_object();
+        super::super::protocol_serde::shape_quota_share_preemption_configuration::ser_quota_share_preemption_configuration(&mut object_6, var_5)?;
+        object_6.finish();
+    }
+    if let Some(var_7) = &input.quota_share_arn {
+        object.key("quotaShareArn").string(var_7.as_str());
+    }
+    if let Some(var_8) = &input.resource_sharing_configuration {
+        #[allow(unused_mut)]
+        let mut object_9 = object.key("resourceSharingConfiguration").start_object();
         super::super::protocol_serde::shape_quota_share_resource_sharing_configuration::ser_quota_share_resource_sharing_configuration(
-            &mut object_7,
-            var_6,
+            &mut object_9,
+            var_8,
         )?;
-        object_7.finish();
-    }
-    if let Some(var_8) = &input.preemption_configuration {
-        #[allow(unused_mut)]
-        let mut object_9 = object.key("preemptionConfiguration").start_object();
-        super::super::protocol_serde::shape_quota_share_preemption_configuration::ser_quota_share_preemption_configuration(&mut object_9, var_8)?;
         object_9.finish();
     }
     if let Some(var_10) = &input.state {

@@ -98,32 +98,16 @@ pub(crate) fn de_get_export_job(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "JobId" => {
-                    builder = builder.set_job_id(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
+                "CompletedTimestamp" => {
+                    builder = builder.set_completed_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                        tokens.next(),
+                        ::aws_smithy_types::date_time::Format::EpochSeconds,
+                    )?);
                 }
-                "ExportSourceType" => {
-                    builder = builder.set_export_source_type(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::ExportSourceType::from(u.as_ref())))
-                            .transpose()?,
-                    );
-                }
-                "JobStatus" => {
-                    builder = builder.set_job_status(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::JobStatus::from(u.as_ref())))
-                            .transpose()?,
-                    );
-                }
-                "ExportDestination" => {
-                    builder = builder.set_export_destination(super::super::protocol_serde::shape_export_destination::de_export_destination(
-                        tokens,
-                        _value,
-                        depth + 1,
+                "CreatedTimestamp" => {
+                    builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                        tokens.next(),
+                        ::aws_smithy_types::date_time::Format::EpochSeconds,
                     )?);
                 }
                 "ExportDataSource" => {
@@ -133,20 +117,36 @@ pub(crate) fn de_get_export_job(
                         depth + 1,
                     )?);
                 }
-                "CreatedTimestamp" => {
-                    builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-                        tokens.next(),
-                        ::aws_smithy_types::date_time::Format::EpochSeconds,
+                "ExportDestination" => {
+                    builder = builder.set_export_destination(super::super::protocol_serde::shape_export_destination::de_export_destination(
+                        tokens,
+                        _value,
+                        depth + 1,
                     )?);
                 }
-                "CompletedTimestamp" => {
-                    builder = builder.set_completed_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-                        tokens.next(),
-                        ::aws_smithy_types::date_time::Format::EpochSeconds,
-                    )?);
+                "ExportSourceType" => {
+                    builder = builder.set_export_source_type(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::ExportSourceType::from(u.as_ref())))
+                            .transpose()?,
+                    );
                 }
                 "FailureInfo" => {
                     builder = builder.set_failure_info(super::super::protocol_serde::shape_failure_info::de_failure_info(tokens, _value, depth + 1)?);
+                }
+                "JobId" => {
+                    builder = builder.set_job_id(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "JobStatus" => {
+                    builder = builder.set_job_status(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::JobStatus::from(u.as_ref())))
+                            .transpose()?,
+                    );
                 }
                 "Statistics" => {
                     builder = builder.set_statistics(super::super::protocol_serde::shape_export_statistics::de_export_statistics(

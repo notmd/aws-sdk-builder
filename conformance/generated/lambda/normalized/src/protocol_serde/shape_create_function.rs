@@ -234,36 +234,20 @@ pub(crate) fn de_create_function(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "FunctionName" => {
-                    builder = builder.set_function_name(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
+                "Architectures" => {
+                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                "CapacityProviderConfig" => {
+                    builder = builder.set_capacity_provider_config(
+                        super::super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
                     );
                 }
-                "FunctionArn" => {
-                    builder = builder.set_function_arn(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "Runtime" => {
-                    builder = builder.set_runtime(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::Runtime::from(u.as_ref())))
-                            .transpose()?,
-                    );
-                }
-                "Role" => {
-                    builder = builder.set_role(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "Handler" => {
-                    builder = builder.set_handler(
+                "CodeSha256" => {
+                    builder = builder.set_code_sha256(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
@@ -276,54 +260,12 @@ pub(crate) fn de_create_function(
                             .transpose()?,
                     );
                 }
-                "Description" => {
-                    builder = builder.set_description(
+                "ConfigSha256" => {
+                    builder = builder.set_config_sha256(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
-                }
-                "Timeout" => {
-                    builder = builder.set_timeout(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?,
-                    );
-                }
-                "MemorySize" => {
-                    builder = builder.set_memory_size(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?,
-                    );
-                }
-                "LastModified" => {
-                    builder = builder.set_last_modified(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "CodeSha256" => {
-                    builder = builder.set_code_sha256(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "Version" => {
-                    builder = builder.set_version(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "VpcConfig" => {
-                    builder = builder.set_vpc_config(super::super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
                 }
                 "DeadLetterConfig" => {
                     builder = builder.set_dead_letter_config(super::super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
@@ -332,8 +274,60 @@ pub(crate) fn de_create_function(
                         depth + 1,
                     )?);
                 }
+                "Description" => {
+                    builder = builder.set_description(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "DurableConfig" => {
+                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
+                }
                 "Environment" => {
                     builder = builder.set_environment(super::super::protocol_serde::shape_environment_response::de_environment_response(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                "EphemeralStorage" => {
+                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                "FileSystemConfigs" => {
+                    builder = builder.set_file_system_configs(super::super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                "FunctionArn" => {
+                    builder = builder.set_function_arn(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "FunctionName" => {
+                    builder = builder.set_function_name(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "Handler" => {
+                    builder = builder.set_handler(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "ImageConfigResponse" => {
+                    builder = builder.set_image_config_response(super::super::protocol_serde::shape_image_config_response::de_image_config_response(
                         tokens,
                         _value,
                         depth + 1,
@@ -346,17 +340,62 @@ pub(crate) fn de_create_function(
                             .transpose()?,
                     );
                 }
-                "TracingConfig" => {
-                    builder = builder.set_tracing_config(super::super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
+                "LastModified" => {
+                    builder = builder.set_last_modified(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "LastUpdateStatus" => {
+                    builder = builder.set_last_update_status(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::LastUpdateStatus::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
+                "LastUpdateStatusReason" => {
+                    builder = builder.set_last_update_status_reason(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "LastUpdateStatusReasonCode" => {
+                    builder = builder.set_last_update_status_reason_code(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::LastUpdateStatusReasonCode::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
+                "Layers" => {
+                    builder = builder.set_layers(super::super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
                         tokens,
                         _value,
                         depth + 1,
                     )?);
                 }
+                "LoggingConfig" => {
+                    builder = builder.set_logging_config(super::super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
+                }
                 "MasterArn" => {
                     builder = builder.set_master_arn(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "MemorySize" => {
+                    builder = builder.set_memory_size(
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?,
+                    );
+                }
+                "PackageType" => {
+                    builder = builder.set_package_type(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::PackageType::from(u.as_ref())))
                             .transpose()?,
                     );
                 }
@@ -367,8 +406,43 @@ pub(crate) fn de_create_function(
                             .transpose()?,
                     );
                 }
-                "Layers" => {
-                    builder = builder.set_layers(super::super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
+                "Role" => {
+                    builder = builder.set_role(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "Runtime" => {
+                    builder = builder.set_runtime(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::Runtime::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
+                "RuntimeVersionConfig" => {
+                    builder = builder.set_runtime_version_config(super::super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                "SigningJobArn" => {
+                    builder = builder.set_signing_job_arn(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "SigningProfileVersionArn" => {
+                    builder = builder.set_signing_profile_version_arn(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "SnapStart" => {
+                    builder = builder.set_snap_start(super::super::protocol_serde::shape_snap_start_response::de_snap_start_response(
                         tokens,
                         _value,
                         depth + 1,
@@ -395,110 +469,36 @@ pub(crate) fn de_create_function(
                             .transpose()?,
                     );
                 }
-                "LastUpdateStatus" => {
-                    builder = builder.set_last_update_status(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::LastUpdateStatus::from(u.as_ref())))
-                            .transpose()?,
-                    );
-                }
-                "LastUpdateStatusReason" => {
-                    builder = builder.set_last_update_status_reason(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "LastUpdateStatusReasonCode" => {
-                    builder = builder.set_last_update_status_reason_code(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::LastUpdateStatusReasonCode::from(u.as_ref())))
-                            .transpose()?,
-                    );
-                }
-                "FileSystemConfigs" => {
-                    builder = builder.set_file_system_configs(super::super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
-                "SigningProfileVersionArn" => {
-                    builder = builder.set_signing_profile_version_arn(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "SigningJobArn" => {
-                    builder = builder.set_signing_job_arn(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "PackageType" => {
-                    builder = builder.set_package_type(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::PackageType::from(u.as_ref())))
-                            .transpose()?,
-                    );
-                }
-                "ImageConfigResponse" => {
-                    builder = builder.set_image_config_response(super::super::protocol_serde::shape_image_config_response::de_image_config_response(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
-                "Architectures" => {
-                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
-                "EphemeralStorage" => {
-                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
-                "SnapStart" => {
-                    builder = builder.set_snap_start(super::super::protocol_serde::shape_snap_start_response::de_snap_start_response(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
-                "RuntimeVersionConfig" => {
-                    builder = builder.set_runtime_version_config(super::super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
-                "LoggingConfig" => {
-                    builder = builder.set_logging_config(super::super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
-                }
                 "TenancyConfig" => {
                     builder = builder.set_tenancy_config(super::super::protocol_serde::shape_tenancy_config::de_tenancy_config(tokens, _value, depth + 1)?);
                 }
-                "CapacityProviderConfig" => {
-                    builder = builder.set_capacity_provider_config(
-                        super::super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
+                "Timeout" => {
+                    builder = builder.set_timeout(
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?,
                     );
                 }
-                "ConfigSha256" => {
-                    builder = builder.set_config_sha256(
+                "TracingConfig" => {
+                    builder = builder.set_tracing_config(super::super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                "Version" => {
+                    builder = builder.set_version(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
                 }
-                "DurableConfig" => {
-                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
+                "VpcConfig" => {
+                    builder = builder.set_vpc_config(super::super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

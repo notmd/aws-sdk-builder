@@ -163,6 +163,13 @@ pub(crate) fn de_update_package_versions_status(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "failedVersions" => {
+                    builder = builder.set_failed_versions(super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
                 "successfulVersions" => {
                     builder = builder.set_successful_versions(
                         super::super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(
@@ -171,13 +178,6 @@ pub(crate) fn de_update_package_versions_status(
                             depth + 1,
                         )?,
                     );
-                }
-                "failedVersions" => {
-                    builder = builder.set_failed_versions(super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

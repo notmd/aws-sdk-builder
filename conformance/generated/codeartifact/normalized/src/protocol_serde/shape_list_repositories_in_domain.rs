@@ -140,19 +140,19 @@ pub(crate) fn de_list_repositories_in_domain(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "repositories" => {
-                    builder = builder.set_repositories(super::super::protocol_serde::shape_repository_summary_list::de_repository_summary_list(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
                 "nextToken" => {
                     builder = builder.set_next_token(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
+                }
+                "repositories" => {
+                    builder = builder.set_repositories(super::super::protocol_serde::shape_repository_summary_list::de_repository_summary_list(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

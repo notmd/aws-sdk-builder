@@ -100,15 +100,15 @@ pub(crate) fn de_submit_service_job(
                             .transpose()?,
                     );
                 }
-                "jobName" => {
-                    builder = builder.set_job_name(
+                "jobId" => {
+                    builder = builder.set_job_id(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
                 }
-                "jobId" => {
-                    builder = builder.set_job_id(
+                "jobName" => {
+                    builder = builder.set_job_name(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,

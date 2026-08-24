@@ -137,6 +137,13 @@ pub(crate) fn de_list_provisioned_concurrency_configs(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "NextMarker" => {
+                    builder = builder.set_next_marker(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
                 "ProvisionedConcurrencyConfigs" => {
                     builder = builder.set_provisioned_concurrency_configs(
                         super::super::protocol_serde::shape_provisioned_concurrency_config_list::de_provisioned_concurrency_config_list(
@@ -144,13 +151,6 @@ pub(crate) fn de_list_provisioned_concurrency_configs(
                             _value,
                             depth + 1,
                         )?,
-                    );
-                }
-                "NextMarker" => {
-                    builder = builder.set_next_marker(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

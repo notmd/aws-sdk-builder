@@ -3,23 +3,23 @@ pub fn ser_apply_guardrail_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::apply_guardrail::ApplyGuardrailInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.source {
-        object.key("source").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.content {
-        let mut array_3 = object.key("content").start_array();
-        for item_4 in var_2 {
+    if let Some(var_1) = &input.content {
+        let mut array_2 = object.key("content").start_array();
+        for item_3 in var_1 {
             {
                 #[allow(unused_mut)]
-                let mut object_5 = array_3.value().start_object();
-                super::super::protocol_serde::shape_guardrail_content_block::ser_guardrail_content_block(&mut object_5, item_4)?;
-                object_5.finish();
+                let mut object_4 = array_2.value().start_object();
+                super::super::protocol_serde::shape_guardrail_content_block::ser_guardrail_content_block(&mut object_4, item_3)?;
+                object_4.finish();
             }
         }
-        array_3.finish();
+        array_2.finish();
     }
-    if let Some(var_6) = &input.output_scope {
-        object.key("outputScope").string(var_6.as_str());
+    if let Some(var_5) = &input.output_scope {
+        object.key("outputScope").string(var_5.as_str());
+    }
+    if let Some(var_6) = &input.source {
+        object.key("source").string(var_6.as_str());
     }
     Ok(())
 }

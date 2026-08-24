@@ -3,18 +3,20 @@ pub fn ser_update_package_group_origin_configuration_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.restrictions {
-        #[allow(unused_mut)]
-        let mut object_2 = object.key("restrictions").start_object();
-        for (key_3, value_4) in var_1 {
+    if let Some(var_1) = &input.add_allowed_repositories {
+        let mut array_2 = object.key("addAllowedRepositories").start_array();
+        for item_3 in var_1 {
             {
-                object_2.key(key_3.as_str()).string(value_4.as_str());
+                #[allow(unused_mut)]
+                let mut object_4 = array_2.value().start_object();
+                super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_4, item_3)?;
+                object_4.finish();
             }
         }
-        object_2.finish();
+        array_2.finish();
     }
-    if let Some(var_5) = &input.add_allowed_repositories {
-        let mut array_6 = object.key("addAllowedRepositories").start_array();
+    if let Some(var_5) = &input.remove_allowed_repositories {
+        let mut array_6 = object.key("removeAllowedRepositories").start_array();
         for item_7 in var_5 {
             {
                 #[allow(unused_mut)]
@@ -25,17 +27,15 @@ pub fn ser_update_package_group_origin_configuration_input_input(
         }
         array_6.finish();
     }
-    if let Some(var_9) = &input.remove_allowed_repositories {
-        let mut array_10 = object.key("removeAllowedRepositories").start_array();
-        for item_11 in var_9 {
+    if let Some(var_9) = &input.restrictions {
+        #[allow(unused_mut)]
+        let mut object_10 = object.key("restrictions").start_object();
+        for (key_11, value_12) in var_9 {
             {
-                #[allow(unused_mut)]
-                let mut object_12 = array_10.value().start_object();
-                super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_12, item_11)?;
-                object_12.finish();
+                object_10.key(key_11.as_str()).string(value_12.as_str());
             }
         }
-        array_10.finish();
+        object_10.finish();
     }
     Ok(())
 }

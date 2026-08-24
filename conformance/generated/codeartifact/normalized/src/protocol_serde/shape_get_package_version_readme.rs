@@ -161,6 +161,13 @@ pub(crate) fn de_get_package_version_readme(
                             .transpose()?,
                     );
                 }
+                "readme" => {
+                    builder = builder.set_readme(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
                 "version" => {
                     builder = builder.set_version(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -170,13 +177,6 @@ pub(crate) fn de_get_package_version_readme(
                 }
                 "versionRevision" => {
                     builder = builder.set_version_revision(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "readme" => {
-                    builder = builder.set_readme(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,

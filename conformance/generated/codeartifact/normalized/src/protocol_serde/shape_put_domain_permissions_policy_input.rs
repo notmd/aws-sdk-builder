@@ -9,11 +9,11 @@ pub fn ser_put_domain_permissions_policy_input_input(
     if let Some(var_2) = &input.domain_owner {
         object.key("domainOwner").string(var_2.as_str());
     }
-    if let Some(var_3) = &input.policy_revision {
-        object.key("policyRevision").string(var_3.as_str());
+    if let Some(var_3) = &input.policy_document {
+        object.key("policyDocument").string(var_3.as_str());
     }
-    if let Some(var_4) = &input.policy_document {
-        object.key("policyDocument").string(var_4.as_str());
+    if let Some(var_4) = &input.policy_revision {
+        object.key("policyRevision").string(var_4.as_str());
     }
     Ok(())
 }

@@ -119,15 +119,18 @@ pub(crate) fn de_get_function(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "Configuration" => {
-                    builder = builder.set_configuration(super::super::protocol_serde::shape_function_configuration::de_function_configuration(
+                "Code" => {
+                    builder = builder.set_code(super::super::protocol_serde::shape_function_code_location::de_function_code_location(
                         tokens,
                         _value,
                         depth + 1,
                     )?);
                 }
-                "Code" => {
-                    builder = builder.set_code(super::super::protocol_serde::shape_function_code_location::de_function_code_location(
+                "Concurrency" => {
+                    builder = builder.set_concurrency(super::super::protocol_serde::shape_concurrency::de_concurrency(tokens, _value, depth + 1)?);
+                }
+                "Configuration" => {
+                    builder = builder.set_configuration(super::super::protocol_serde::shape_function_configuration::de_function_configuration(
                         tokens,
                         _value,
                         depth + 1,
@@ -138,9 +141,6 @@ pub(crate) fn de_get_function(
                 }
                 "TagsError" => {
                     builder = builder.set_tags_error(super::super::protocol_serde::shape_tags_error::de_tags_error(tokens, _value, depth + 1)?);
-                }
-                "Concurrency" => {
-                    builder = builder.set_concurrency(super::super::protocol_serde::shape_concurrency::de_concurrency(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

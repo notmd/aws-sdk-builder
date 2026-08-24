@@ -3,26 +3,26 @@ pub fn ser_create_service_environment_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_service_environment::CreateServiceEnvironmentInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.service_environment_name {
-        object.key("serviceEnvironmentName").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.service_environment_type {
-        object.key("serviceEnvironmentType").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.state {
-        object.key("state").string(var_3.as_str());
-    }
-    if let Some(var_4) = &input.capacity_limits {
-        let mut array_5 = object.key("capacityLimits").start_array();
-        for item_6 in var_4 {
+    if let Some(var_1) = &input.capacity_limits {
+        let mut array_2 = object.key("capacityLimits").start_array();
+        for item_3 in var_1 {
             {
                 #[allow(unused_mut)]
-                let mut object_7 = array_5.value().start_object();
-                super::super::protocol_serde::shape_capacity_limit::ser_capacity_limit(&mut object_7, item_6)?;
-                object_7.finish();
+                let mut object_4 = array_2.value().start_object();
+                super::super::protocol_serde::shape_capacity_limit::ser_capacity_limit(&mut object_4, item_3)?;
+                object_4.finish();
             }
         }
-        array_5.finish();
+        array_2.finish();
+    }
+    if let Some(var_5) = &input.service_environment_name {
+        object.key("serviceEnvironmentName").string(var_5.as_str());
+    }
+    if let Some(var_6) = &input.service_environment_type {
+        object.key("serviceEnvironmentType").string(var_6.as_str());
+    }
+    if let Some(var_7) = &input.state {
+        object.key("state").string(var_7.as_str());
     }
     if let Some(var_8) = &input.tags {
         #[allow(unused_mut)]

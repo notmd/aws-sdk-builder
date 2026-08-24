@@ -113,8 +113,8 @@ pub(crate) fn de_get_custom_verification_email_template(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "TemplateName" => {
-                    builder = builder.set_template_name(
+                "FailureRedirectionURL" => {
+                    builder = builder.set_failure_redirection_url(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
@@ -127,15 +127,8 @@ pub(crate) fn de_get_custom_verification_email_template(
                             .transpose()?,
                     );
                 }
-                "TemplateSubject" => {
-                    builder = builder.set_template_subject(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "TemplateContent" => {
-                    builder = builder.set_template_content(
+                "SuccessRedirectionURL" => {
+                    builder = builder.set_success_redirection_url(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
@@ -144,15 +137,22 @@ pub(crate) fn de_get_custom_verification_email_template(
                 "Tags" => {
                     builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
                 }
-                "SuccessRedirectionURL" => {
-                    builder = builder.set_success_redirection_url(
+                "TemplateContent" => {
+                    builder = builder.set_template_content(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
                     );
                 }
-                "FailureRedirectionURL" => {
-                    builder = builder.set_failure_redirection_url(
+                "TemplateName" => {
+                    builder = builder.set_template_name(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "TemplateSubject" => {
+                    builder = builder.set_template_subject(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,

@@ -157,6 +157,13 @@ pub(crate) fn de_list_package_versions(
                             .transpose()?,
                     );
                 }
+                "nextToken" => {
+                    builder = builder.set_next_token(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
                 "package" => {
                     builder = builder.set_package(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -167,13 +174,6 @@ pub(crate) fn de_list_package_versions(
                 "versions" => {
                     builder = builder.set_versions(
                         super::super::protocol_serde::shape_package_version_summary_list::de_package_version_summary_list(tokens, _value, depth + 1)?,
-                    );
-                }
-                "nextToken" => {
-                    builder = builder.set_next_token(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

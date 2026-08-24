@@ -4,6 +4,24 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match RestJson operation document member ordering
+- State: in progress
+- Changed: RestJson operation-level JSON serializers and deserializers now iterate HTTP
+  document bindings in member-name order, matching Smithy-RS `HttpBindingResolver`.
+  AWS JSON keeps its model-defined member order through the protocol-specific binding
+  behavior. Nested structure and modeled-error helpers retain their model order. A
+  focused regression covers both operation input serialization and output parsing.
+- Conformance: `just conformance` generated 15 services and 1,133 operations,
+  formatted 13,164 generated Rust files, and compared `13,168` files: `12,583`
+  matched, `580` mismatched, `4` missing, and `1` extra (`94.05%` average match).
+  This is `+184` exact files and `-184` mismatches from the `12,399/764` checkpoint.
+  Generation and snapshot parsing completed without generated-source parse errors.
+  The command exits 1 only because broader parity gaps remain.
+- Verification: focused ordering regression, `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`, formatting, and
+  `git diff --check` pass.
+- Next action: continue with the remaining generic protocol and service parity gaps.
+
 ### Checkpoint: 2026-08-25 — Match HTTP query collection and timestamp bindings
 - State: in progress
 - Changed: standalone HTTP request serializers now recursively emit one query parameter

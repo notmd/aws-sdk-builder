@@ -98,19 +98,27 @@ pub(crate) fn de_get_import_job(
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "JobId" => {
-                    builder = builder.set_job_id(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                "CompletedTimestamp" => {
+                    builder = builder.set_completed_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                        tokens.next(),
+                        ::aws_smithy_types::date_time::Format::EpochSeconds,
+                    )?);
+                }
+                "CreatedTimestamp" => {
+                    builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                        tokens.next(),
+                        ::aws_smithy_types::date_time::Format::EpochSeconds,
+                    )?);
+                }
+                "FailedRecordsCount" => {
+                    builder = builder.set_failed_records_count(
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
                             .transpose()?,
                     );
                 }
-                "ImportDestination" => {
-                    builder = builder.set_import_destination(super::super::protocol_serde::shape_import_destination::de_import_destination(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                "FailureInfo" => {
+                    builder = builder.set_failure_info(super::super::protocol_serde::shape_failure_info::de_failure_info(tokens, _value, depth + 1)?);
                 }
                 "ImportDataSource" => {
                     builder = builder.set_import_data_source(super::super::protocol_serde::shape_import_data_source::de_import_data_source(
@@ -119,8 +127,19 @@ pub(crate) fn de_get_import_job(
                         depth + 1,
                     )?);
                 }
-                "FailureInfo" => {
-                    builder = builder.set_failure_info(super::super::protocol_serde::shape_failure_info::de_failure_info(tokens, _value, depth + 1)?);
+                "ImportDestination" => {
+                    builder = builder.set_import_destination(super::super::protocol_serde::shape_import_destination::de_import_destination(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                "JobId" => {
+                    builder = builder.set_job_id(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
                 }
                 "JobStatus" => {
                     builder = builder.set_job_status(
@@ -129,27 +148,8 @@ pub(crate) fn de_get_import_job(
                             .transpose()?,
                     );
                 }
-                "CreatedTimestamp" => {
-                    builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-                        tokens.next(),
-                        ::aws_smithy_types::date_time::Format::EpochSeconds,
-                    )?);
-                }
-                "CompletedTimestamp" => {
-                    builder = builder.set_completed_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-                        tokens.next(),
-                        ::aws_smithy_types::date_time::Format::EpochSeconds,
-                    )?);
-                }
                 "ProcessedRecordsCount" => {
                     builder = builder.set_processed_records_count(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?,
-                    );
-                }
-                "FailedRecordsCount" => {
-                    builder = builder.set_failed_records_count(
                         ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?,

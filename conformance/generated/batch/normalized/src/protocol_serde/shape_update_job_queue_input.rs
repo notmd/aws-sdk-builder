@@ -3,56 +3,56 @@ pub fn ser_update_job_queue_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_job_queue::UpdateJobQueueInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.job_queue {
-        object.key("jobQueue").string(var_1.as_str());
+    if let Some(var_1) = &input.compute_environment_order {
+        let mut array_2 = object.key("computeEnvironmentOrder").start_array();
+        for item_3 in var_1 {
+            {
+                #[allow(unused_mut)]
+                let mut object_4 = array_2.value().start_object();
+                super::super::protocol_serde::shape_compute_environment_order::ser_compute_environment_order(&mut object_4, item_3)?;
+                object_4.finish();
+            }
+        }
+        array_2.finish();
     }
-    if let Some(var_2) = &input.state {
-        object.key("state").string(var_2.as_str());
+    if let Some(var_5) = &input.job_queue {
+        object.key("jobQueue").string(var_5.as_str());
     }
-    if let Some(var_3) = &input.scheduling_policy_arn {
-        object.key("schedulingPolicyArn").string(var_3.as_str());
+    if let Some(var_6) = &input.job_state_time_limit_actions {
+        let mut array_7 = object.key("jobStateTimeLimitActions").start_array();
+        for item_8 in var_6 {
+            {
+                #[allow(unused_mut)]
+                let mut object_9 = array_7.value().start_object();
+                super::super::protocol_serde::shape_job_state_time_limit_action::ser_job_state_time_limit_action(&mut object_9, item_8)?;
+                object_9.finish();
+            }
+        }
+        array_7.finish();
     }
-    if let Some(var_4) = &input.priority {
+    if let Some(var_10) = &input.priority {
         object.key("priority").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_4).into()),
+            ::aws_smithy_types::Number::NegInt((*var_10).into()),
         );
     }
-    if let Some(var_5) = &input.compute_environment_order {
-        let mut array_6 = object.key("computeEnvironmentOrder").start_array();
-        for item_7 in var_5 {
-            {
-                #[allow(unused_mut)]
-                let mut object_8 = array_6.value().start_object();
-                super::super::protocol_serde::shape_compute_environment_order::ser_compute_environment_order(&mut object_8, item_7)?;
-                object_8.finish();
-            }
-        }
-        array_6.finish();
+    if let Some(var_11) = &input.scheduling_policy_arn {
+        object.key("schedulingPolicyArn").string(var_11.as_str());
     }
-    if let Some(var_9) = &input.service_environment_order {
-        let mut array_10 = object.key("serviceEnvironmentOrder").start_array();
-        for item_11 in var_9 {
+    if let Some(var_12) = &input.service_environment_order {
+        let mut array_13 = object.key("serviceEnvironmentOrder").start_array();
+        for item_14 in var_12 {
             {
                 #[allow(unused_mut)]
-                let mut object_12 = array_10.value().start_object();
-                super::super::protocol_serde::shape_service_environment_order::ser_service_environment_order(&mut object_12, item_11)?;
-                object_12.finish();
+                let mut object_15 = array_13.value().start_object();
+                super::super::protocol_serde::shape_service_environment_order::ser_service_environment_order(&mut object_15, item_14)?;
+                object_15.finish();
             }
         }
-        array_10.finish();
+        array_13.finish();
     }
-    if let Some(var_13) = &input.job_state_time_limit_actions {
-        let mut array_14 = object.key("jobStateTimeLimitActions").start_array();
-        for item_15 in var_13 {
-            {
-                #[allow(unused_mut)]
-                let mut object_16 = array_14.value().start_object();
-                super::super::protocol_serde::shape_job_state_time_limit_action::ser_job_state_time_limit_action(&mut object_16, item_15)?;
-                object_16.finish();
-            }
-        }
-        array_14.finish();
+    if let Some(var_16) = &input.state {
+        object.key("state").string(var_16.as_str());
     }
     Ok(())
 }

@@ -168,8 +168,8 @@ pub(crate) fn de_create_alias(
                                 .transpose()?,
                         );
                     }
-                    "Name" => {
-                        builder = builder.set_name(
+                    "Description" => {
+                        builder = builder.set_description(
                             ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                 .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                 .transpose()?,
@@ -182,8 +182,15 @@ pub(crate) fn de_create_alias(
                                 .transpose()?,
                         );
                     }
-                    "Description" => {
-                        builder = builder.set_description(
+                    "Name" => {
+                        builder = builder.set_name(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?,
+                        );
+                    }
+                    "RevisionId" => {
+                        builder = builder.set_revision_id(
                             ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                 .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                 .transpose()?,
@@ -192,13 +199,6 @@ pub(crate) fn de_create_alias(
                     "RoutingConfig" => {
                         builder = builder.set_routing_config(
                             super::super::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?,
-                        );
-                    }
-                    "RevisionId" => {
-                        builder = builder.set_revision_id(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
                         );
                     }
                     _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
