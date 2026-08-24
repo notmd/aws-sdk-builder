@@ -4,6 +4,27 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Qualify empty JSON structure deserializers once
+- State: in progress
+- Changed: the shared JSON structure deserializer now uses the complete model-derived
+  type expression for empty structures and derives the builder name separately. This
+  prevents `crate::types::crate::types::...` and `crate::types::builders::crate::types::...`
+  paths in generated helpers. The rule follows the pinned Smithy-RS
+  `JsonParserGenerator` symbol-based structure parser at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`, and has a focused regression test.
+- Evidence: the focused regression, `just conformance` generation and formatting,
+  `cargo test --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass. Conformance generated and
+  formatted all `13,166` snapshot files without generated-source parse errors.
+- Conformance: `12,859/13,168` exact, `306` mismatches, `2` missing, and `1` extra
+  (`97.40%`) -> `12,863/13,168` exact, `302` mismatches, `2` missing, and `1` extra
+  (`97.44%`). Bedrock Runtime improved from `485/51` to `487/49`; Lambda from
+  `1,022/54` to `1,024/52`.
+- Blocker: broader protocol, shape, documentation, and runtime parity gaps remain; no
+  blocker in this checkpoint.
+- Next action: continue with the next largest generic parity mismatch after committing
+  this checkpoint.
+
 ### Checkpoint: 2026-08-25 — Handle AwsJson event-stream initial responses
 - State: in progress
 - Changed: the shared model/protocol planner now recognizes AwsJson operations whose

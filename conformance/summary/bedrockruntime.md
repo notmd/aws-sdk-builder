@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `485` matched · `51` mismatches · `0` missing · `0` extra · `90.49%` match (100.00% means fully matched)
+**Progress:** `536/536` files compared · `487` matched · `49` mismatches · `0` missing · `0` extra · `90.86%` match (100.00% means fully matched)
 
 ### `src/protocol_serde/shape_citation_location.rs`
 
@@ -378,59 +378,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
                  other => {
                      return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-```
-
-### `src/protocol_serde/shape_guardrail_automated_reasoning_no_translations_finding.rs`
-
-```diff
---- reference/src/protocol_serde/shape_guardrail_automated_reasoning_no_translations_finding.rs
-+++ generated/src/protocol_serde/shape_guardrail_automated_reasoning_no_translations_finding.rs
-@@ -4,7 +4,7 @@
-     _value: &'a [u8],
-     depth: u32,
- ) -> ::std::result::Result<
--    Option<super::super::types::GuardrailAutomatedReasoningNoTranslationsFinding>,
-+    Option<super::super::types::crate::types::GuardrailAutomatedReasoningNoTranslationsFinding>,
-     ::aws_smithy_json::deserialize::error::DeserializeError,
- >
- where
-@@ -19,7 +19,7 @@
-         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
-         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
-             #[allow(unused_mut)]
--            let mut builder = super::super::types::builders::GuardrailAutomatedReasoningNoTranslationsFindingBuilder::default();
-+            let mut builder = super::super::types::builders::crate::types::GuardrailAutomatedReasoningNoTranslationsFindingBuilder::default();
-             ::aws_smithy_json::deserialize::token::skip_to_end(tokens)?;
-             Ok(Some(builder.build()))
-         }
-```
-
-### `src/protocol_serde/shape_guardrail_automated_reasoning_too_complex_finding.rs`
-
-```diff
---- reference/src/protocol_serde/shape_guardrail_automated_reasoning_too_complex_finding.rs
-+++ generated/src/protocol_serde/shape_guardrail_automated_reasoning_too_complex_finding.rs
-@@ -3,7 +3,10 @@
-     tokens: &mut ::std::iter::Peekable<I>,
-     _value: &'a [u8],
-     depth: u32,
--) -> ::std::result::Result<Option<super::super::types::GuardrailAutomatedReasoningTooComplexFinding>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<
-+    Option<super::super::types::crate::types::GuardrailAutomatedReasoningTooComplexFinding>,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+>
- where
-     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
- {
-@@ -16,7 +19,7 @@
-         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
-         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
-             #[allow(unused_mut)]
--            let mut builder = super::super::types::builders::GuardrailAutomatedReasoningTooComplexFindingBuilder::default();
-+            let mut builder = super::super::types::builders::crate::types::GuardrailAutomatedReasoningTooComplexFindingBuilder::default();
-             ::aws_smithy_json::deserialize::token::skip_to_end(tokens)?;
-             Ok(Some(builder.build()))
-         }
 ```
 
 ### `src/protocol_serde/shape_internal_server_exception.rs`

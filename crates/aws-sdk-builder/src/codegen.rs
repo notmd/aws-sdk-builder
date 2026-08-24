@@ -10802,9 +10802,10 @@ fn render_json_shared_structure_deserializer(
     let module = names::rust_module_name(terminal(shape_id));
     let type_name = protocol_shape_type(selected, shape_id);
     if members(shape).is_empty() {
+        let builder_name = rust_type_name(terminal(shape_id));
         writeln!(
             output,
-            "pub(crate) fn de_{module}<'a, I>(\n    tokens: &mut ::std::iter::Peekable<I>,\n    _value: &'a [u8],\n    depth: u32,\n) -> ::std::result::Result<Option<crate::types::{type_name}>, ::aws_smithy_json::deserialize::error::DeserializeError>\nwhere\n    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,\n{{\n    if depth >= 128u32 {{\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"maximum nesting depth exceeded\",\n        ));\n    }}\n    match tokens.next().transpose()? {{\n        Some(::aws_smithy_json::deserialize::Token::ValueNull {{ .. }}) => Ok(None),\n        Some(::aws_smithy_json::deserialize::Token::StartObject {{ .. }}) => {{\n            #[allow(unused_mut)]\n            let mut builder = crate::types::builders::{type_name}Builder::default();\n            ::aws_smithy_json::deserialize::token::skip_to_end(tokens)?;\n            Ok(Some(builder.build()))\n        }}\n        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"expected start object or null\",\n        )),\n    }}\n}}"
+            "pub(crate) fn de_{module}<'a, I>(\n    tokens: &mut ::std::iter::Peekable<I>,\n    _value: &'a [u8],\n    depth: u32,\n) -> ::std::result::Result<Option<{type_name}>, ::aws_smithy_json::deserialize::error::DeserializeError>\nwhere\n    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,\n{{\n    if depth >= 128u32 {{\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"maximum nesting depth exceeded\",\n        ));\n    }}\n    match tokens.next().transpose()? {{\n        Some(::aws_smithy_json::deserialize::Token::ValueNull {{ .. }}) => Ok(None),\n        Some(::aws_smithy_json::deserialize::Token::StartObject {{ .. }}) => {{\n            #[allow(unused_mut)]\n            let mut builder = crate::types::builders::{builder_name}Builder::default();\n            ::aws_smithy_json::deserialize::token::skip_to_end(tokens)?;\n            Ok(Some(builder.build()))\n        }}\n        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"expected start object or null\",\n        )),\n    }}\n}}"
         )
         .unwrap();
         return;
@@ -17905,6 +17906,49 @@ mod tests {
 
         let operation = render_json_protocol_operation_file(&selected, "Invoke");
         assert!(operation.contains("de_events_payload"));
+    }
+
+    #[test]
+    fn json_empty_structure_deserializer_uses_qualified_type_once() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "output": {"target": "example#GetOutput"}
+                    },
+                    "example#GetOutput": {
+                        "type": "structure",
+                        "members": {"value": {"target": "example#Empty"}}
+                    },
+                    "example#Empty": {"type": "structure", "members": {}}
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let roles = json_protocol_serde_roles(&selected);
+        let rendered = render_json_protocol_shape_file(
+            &selected,
+            "example#Empty",
+            roles.get("example#Empty").copied().unwrap(),
+        );
+
+        assert!(rendered.contains("Option<crate::types::Empty>"));
+        assert!(!rendered.contains("crate::types::crate::types::"));
     }
 
     #[test]

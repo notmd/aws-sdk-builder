@@ -3,10 +3,7 @@ pub(crate) fn de_guardrail_automated_reasoning_too_complex_finding<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<super::super::types::crate::types::GuardrailAutomatedReasoningTooComplexFinding>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<super::super::types::GuardrailAutomatedReasoningTooComplexFinding>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -19,7 +16,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = super::super::types::builders::crate::types::GuardrailAutomatedReasoningTooComplexFindingBuilder::default();
+            let mut builder = super::super::types::builders::GuardrailAutomatedReasoningTooComplexFindingBuilder::default();
             ::aws_smithy_json::deserialize::token::skip_to_end(tokens)?;
             Ok(Some(builder.build()))
         }

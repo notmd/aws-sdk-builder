@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1077/1077` files compared · `1022` matched · `54` mismatches · `0` missing · `1` extra · `94.89%` match (100.00% means fully matched)
+**Progress:** `1077/1077` files compared · `1024` matched · `52` mismatches · `0` missing · `1` extra · `95.08%` match (100.00% means fully matched)
 
 ### `src/client/get_function_event_invoke_config.rs`
 
@@ -358,31 +358,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 -    Ok(())
 -}
-```
-
-### `src/protocol_serde/shape_context_started_details.rs`
-
-```diff
---- reference/src/protocol_serde/shape_context_started_details.rs
-+++ generated/src/protocol_serde/shape_context_started_details.rs
-@@ -3,7 +3,7 @@
-     tokens: &mut ::std::iter::Peekable<I>,
-     _value: &'a [u8],
-     depth: u32,
--) -> ::std::result::Result<Option<super::super::types::ContextStartedDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::super::types::crate::types::ContextStartedDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
- where
-     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
- {
-@@ -16,7 +16,7 @@
-         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
-         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
-             #[allow(unused_mut)]
--            let mut builder = super::super::types::builders::ContextStartedDetailsBuilder::default();
-+            let mut builder = super::super::types::builders::crate::types::ContextStartedDetailsBuilder::default();
-             ::aws_smithy_json::deserialize::token::skip_to_end(tokens)?;
-             Ok(Some(builder.build()))
-         }
 ```
 
 ### `src/protocol_serde/shape_cors.rs`
@@ -2078,31 +2053,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
      super::super::protocol_serde::shape_error_object::ser_error_object(&mut object, input)?;
-```
-
-### `src/protocol_serde/shape_step_started_details.rs`
-
-```diff
---- reference/src/protocol_serde/shape_step_started_details.rs
-+++ generated/src/protocol_serde/shape_step_started_details.rs
-@@ -3,7 +3,7 @@
-     tokens: &mut ::std::iter::Peekable<I>,
-     _value: &'a [u8],
-     depth: u32,
--) -> ::std::result::Result<Option<super::super::types::StepStartedDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<Option<super::super::types::crate::types::StepStartedDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
- where
-     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
- {
-@@ -16,7 +16,7 @@
-         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
-         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
-             #[allow(unused_mut)]
--            let mut builder = super::super::types::builders::StepStartedDetailsBuilder::default();
-+            let mut builder = super::super::types::builders::crate::types::StepStartedDetailsBuilder::default();
-             ::aws_smithy_json::deserialize::token::skip_to_end(tokens)?;
-             Ok(Some(builder.build()))
-         }
 ```
 
 ### `src/protocol_serde/shape_stop_durable_execution_input.rs`
