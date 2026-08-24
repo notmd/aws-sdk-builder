@@ -4,6 +4,27 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match Smithy note boundaries after HTML lists
+- State: in progress
+- Changed: shared client documentation normalization now keeps custom note tags
+  adjacent to the preceding `ul`/`ol` closing tag, matching the Jsoup-based
+  `normalizeHtml` behavior in the pinned Smithy-RS `RustWriter`. The model-independent
+  rule has a focused regression and applies to all services.
+- Evidence: focused documentation regressions, `just conformance` regeneration and
+  formatting, `cargo test --workspace`, `cargo clippy --workspace --all-targets --
+  -D warnings`, `cargo fmt --all -- --check`, and `git diff --check` pass. Conformance
+  generated and formatted all `13,166` snapshot files without generated-source parse
+  errors.
+- Conformance: `12,916/13,168` exact, `249` mismatches, `2` missing, and `1` extra
+  (`97.94%`) -> `12,936/13,168` exact, `229` mismatches, `2` missing, and `1` extra
+  (`98.15%`). Batch improved from `760/2` to `761/1`; DynamoDB from `862/20` to
+  `870/12`; IAM from `1,595/31` to `1,597/29`; KMS from `583/8` to `585/6`; Lambda
+  from `1,027/49` to `1,030/46`; and SQS from `283/10` to `287/6`.
+- Blocker: broader protocol, shape, documentation, and runtime parity gaps remain; no
+  blocker in this checkpoint.
+- Next action: continue with the next highest-impact generic parity mismatch after
+  committing this checkpoint.
+
 ### Checkpoint: 2026-08-25 — Match Smithy documentation normalization for anchors and lists
 - State: in progress
 - Changed: shared client documentation normalization now renders anchors with missing or

@@ -16574,6 +16574,10 @@ fn documentation_gap(
             {
                 return "".to_owned();
             }
+            if matches!(previous_name.as_str(), "ul" | "ol") && documentation_custom_tag(&next_name)
+            {
+                return "".to_owned();
+            }
             if previous_name == "p"
                 && matches!(next_name.as_str(), "ul" | "ol")
                 && stack
@@ -17762,6 +17766,12 @@ mod tests {
             normalized,
             "<ul><li><p>Text</p><note><p>Nested text</p>    <ul><li><p>Nested item</p></li></ul></note></li></ul>"
         );
+    }
+
+    #[test]
+    fn normalize_client_documentation_joins_notes_after_lists() {
+        let normalized = normalize_client_documentation("<ul></ul> <note></note>");
+        assert_eq!(normalized, "<ul></ul><note></note>");
     }
 
     #[test]
