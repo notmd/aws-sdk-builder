@@ -2097,19 +2097,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              Self::Unhandled(_inner) => &_inner.meta,
          }
      }
-@@ -144,6 +144,11 @@
+@@ -143,7 +143,6 @@
+         self.meta().request_id()
      }
  }
-
-+impl ::aws_types::request_id::RequestId for super::super::types::error::GetLogObjectResponseStreamError {
-+    fn request_id(&self) -> Option<&str> {
-+        self.meta().request_id()
-+    }
-+}
+-
  /// Error type for the `StartLiveTailResponseStreamError` operation.
  #[non_exhaustive]
  #[derive(::std::fmt::Debug)]
-@@ -190,11 +195,11 @@
+@@ -190,11 +189,11 @@
              Self::Unhandled(e) => &e.meta,
          }
      }
@@ -2123,7 +2119,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn is_session_streaming_exception(&self) -> bool {
          matches!(self, Self::SessionStreamingException(_))
      }
-@@ -234,8 +239,8 @@
+@@ -234,8 +233,8 @@
  impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for StartLiveTailResponseStreamError {
      fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
          match self {
@@ -2134,15 +2130,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              Self::Unhandled(_inner) => &_inner.meta,
          }
      }
-@@ -257,6 +262,11 @@
+@@ -256,7 +255,6 @@
+         self.meta().request_id()
      }
  }
-
-+impl ::aws_types::request_id::RequestId for super::super::types::error::StartLiveTailResponseStreamError {
-+    fn request_id(&self) -> Option<&str> {
-+        self.meta().request_id()
-+    }
-+}
+-
  mod _access_denied_exception;
 
  mod _conflict_exception;

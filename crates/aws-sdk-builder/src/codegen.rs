@@ -1791,11 +1791,15 @@ fn event_stream_output_union_ids(selected: &SelectedModel) -> BTreeSet<String> {
 }
 
 fn render_event_stream_error_marshaller(output: &mut String, union_name: &str) {
+    let mut rendered = String::new();
     writeln!(
-        output,
+        &mut rendered,
         "#[non_exhaustive]\n#[derive(Debug)]\npub struct {union_name}InputErrorMarshaller;\n\nimpl {union_name}InputErrorMarshaller {{\n    pub fn new() -> Self {{\n        {union_name}InputErrorMarshaller\n    }}\n}}\nimpl ::aws_smithy_eventstream::frame::MarshallMessage for {union_name}InputErrorMarshaller {{\n    type Input = crate::types::error::{union_name}InputError;\n    fn marshall(\n        &self,\n        _input: Self::Input,\n    ) -> std::result::Result<::aws_smithy_types::event_stream::Message, ::aws_smithy_eventstream::error::Error> {{\n        let mut headers = Vec::new();\n        headers.push(::aws_smithy_types::event_stream::Header::new(\n            \":message-type\",\n            ::aws_smithy_types::event_stream::HeaderValue::String(\"exception\".into()),\n        ));\n        let payload = ::bytes::Bytes::new();\n        Ok(::aws_smithy_types::event_stream::Message::new_from_parts(headers, payload))\n    }}\n}}\n"
     )
     .unwrap();
+    let legacy_name = format!("{union_name}InputError");
+    let corrected_name = format!("{union_name}Error");
+    output.push_str(&rendered.replace(&legacy_name, &corrected_name));
 }
 
 fn render_event_stream_marshaller(
@@ -1805,11 +1809,15 @@ fn render_event_stream_marshaller(
     union_id: &str,
     shape: &Value,
 ) {
+    let mut rendered = String::new();
     writeln!(
-        output,
+        &mut rendered,
         "#[non_exhaustive]\n#[derive(Debug)]\npub struct {union_name}InputMarshaller;\n\nimpl {union_name}InputMarshaller {{\n    pub fn new() -> Self {{\n        {union_name}InputMarshaller\n    }}\n}}\nimpl ::aws_smithy_eventstream::frame::MarshallMessage for {union_name}InputMarshaller {{\n    type Input = crate::types::{union_name};\n    fn marshall(&self, input: Self::Input) -> std::result::Result<::aws_smithy_types::event_stream::Message, ::aws_smithy_eventstream::error::Error> {{\n        let mut headers = Vec::new();\n        headers.push(::aws_smithy_types::event_stream::Header::new(\n            \":message-type\",\n            ::aws_smithy_types::event_stream::HeaderValue::String(\"event\".into()),\n        ));\n        let payload = match input {{"
     )
     .unwrap();
+    let legacy_name = format!("{union_name}InputMarshaller");
+    let corrected_name = format!("{union_name}Marshaller");
+    output.push_str(&rendered.replace(&legacy_name, &corrected_name));
     let type_name = format!("crate::types::{union_name}");
     for (member_name, member) in members(shape) {
         let variant = rust_type_name(&member_name);
@@ -2162,19 +2170,18 @@ fn render_environment_token_provider(selected: &SelectedModel) -> String {
     if signing_name != "bedrock" {
         return String::new();
     }
-    format!(
-        r#"        if let ::std::option::Option::Some(val) = input.service_config().and_then(|conf| {{
+    r#"        if let ::std::option::Option::Some(val) = input.service_config().and_then(|conf| {
             // Passing an empty string for the last argument of `service_config_key`,
             // since shared config/profile for environment token provider is not supported.
             ::aws_types::service_config::LoadServiceConfig::load_config(conf, service_config_key("bedrock", "AWS_BEARER_TOKEN", ""))
                 .and_then(|it| it.parse::<::std::string::String>().ok())
-        }}) {{
-            if !input.get_origin("auth_scheme_preference").is_client_config() {{
+        }) {
+            if !input.get_origin("auth_scheme_preference").is_client_config() {
                 builder.set_auth_scheme_preference(::std::option::Option::Some(
                     [::aws_smithy_runtime_api::client::auth::http::HTTP_BEARER_AUTH_SCHEME_ID].into(),
                 ));
-            }}
-            if !input.get_origin("token_provider").is_client_config() {{
+            }
+            if !input.get_origin("token_provider").is_client_config() {
                 let mut layer = ::aws_smithy_types::config_bag::Layer::new("AwsBearerTokenBedrock");
                 layer.store_append(::aws_credential_types::credential_feature::AwsCredentialFeature::BearerServiceEnvVars);
                 let identity = ::aws_smithy_runtime_api::client::identity::Identity::builder()
@@ -2185,9 +2192,9 @@ fn render_environment_token_provider(selected: &SelectedModel) -> String {
                 builder
                     .runtime_components
                     .set_identity_resolver(::aws_smithy_runtime_api::client::auth::http::HTTP_BEARER_AUTH_SCHEME_ID, identity);
-            }}
-        }}"#
-    )
+            }
+        }"#
+        .to_owned()
 }
 
 fn render_config_file(selected: &SelectedModel) -> String {
@@ -3874,12 +3881,6 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for __ERROR_
         })
     }
 }
-impl ::aws_types::request_id::RequestId for __ERROR_TYPE_PATH__ {
-    fn request_id(&self) -> Option<&str> {
-        self.meta().request_id()
-    }
-}
-
 "###;
     let mut modeled_variants = String::new();
     for error in &errors {
@@ -4861,9 +4862,11 @@ fn standalone_request_body(
     }) {
         let field = names::rust_identifier(&name);
         let union_name = rust_type_name(terminal(member_target(member).unwrap_or_default()));
+        let error_marshaller = format!("{union_name}ErrorMarshaller");
+        let marshaller = format!("{union_name}Marshaller");
         return (
             format!(
-                "::aws_smithy_types::body::SdkBody::from({{\n            let error_marshaller = crate::event_stream_serde::{union_name}InputErrorMarshaller::new();\n            let marshaller = crate::event_stream_serde::{union_name}InputMarshaller::new();\n\n            let (signer, signer_sender) = ::aws_smithy_eventstream::frame::DeferredSigner::new();\n            _cfg.interceptor_state().store_put(signer_sender);\n            ::aws_smithy_types::body::SdkBody::from_body_1_x(::http_body_util::StreamBody::new(input.{field}.into_body_stream(\n                marshaller,\n                error_marshaller,\n                signer,\n            )))\n        }})"
+                "::aws_smithy_types::body::SdkBody::from({{\n            let error_marshaller = crate::event_stream_serde::{error_marshaller}::new();\n            let marshaller = crate::event_stream_serde::{marshaller}::new();\n\n            let (signer, signer_sender) = ::aws_smithy_eventstream::frame::DeferredSigner::new();\n            _cfg.interceptor_state().store_put(signer_sender);\n            ::aws_smithy_types::body::SdkBody::from_body_1_x(::http_body_util::StreamBody::new(input.{field}.into_body_stream(\n                marshaller,\n                error_marshaller,\n                signer,\n            )))\n        }})"
             ),
             Some("application/vnd.amazon.eventstream".to_owned()),
         );

@@ -11592,8 +11592,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for InvokeModelW
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from({
-            let error_marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputInputErrorMarshaller::new();
-            let marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputInputMarshaller::new();
+            let error_marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputErrorMarshaller::new();
+            let marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputMarshaller::new();
 
             let (signer, signer_sender) = ::aws_smithy_eventstream::frame::DeferredSigner::new();
             _cfg.interceptor_state().store_put(signer_sender);
@@ -34545,12 +34545,6 @@ impl ::aws_types::request_id::RequestId for super::super::types::error::Converse
         self.meta().request_id()
     }
 }
-
-impl ::aws_types::request_id::RequestId for super::super::types::error::ConverseStreamOutputError {
-    fn request_id(&self) -> Option<&str> {
-        self.meta().request_id()
-    }
-}
 /// Error type for the `InvokeModelWithBidirectionalStreamInputError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -34638,12 +34632,6 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for InvokeMo
         })
     }
 }
-impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeModelWithBidirectionalStreamInputError {
-    fn request_id(&self) -> Option<&str> {
-        self.meta().request_id()
-    }
-}
-
 impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeModelWithBidirectionalStreamInputError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
@@ -34801,12 +34789,6 @@ impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeMo
         self.meta().request_id()
     }
 }
-
-impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeModelWithBidirectionalStreamOutputError {
-    fn request_id(&self) -> Option<&str> {
-        self.meta().request_id()
-    }
-}
 /// Error type for the `ResponseStreamError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -34954,12 +34936,6 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for Response
         })
     }
 }
-impl ::aws_types::request_id::RequestId for super::super::types::error::ResponseStreamError {
-    fn request_id(&self) -> Option<&str> {
-        self.meta().request_id()
-    }
-}
-
 impl ::aws_types::request_id::RequestId for super::super::types::error::ResponseStreamError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
@@ -51051,15 +51027,15 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
 }
 #[non_exhaustive]
 #[derive(Debug)]
-pub struct InvokeModelWithBidirectionalStreamInputInputErrorMarshaller;
+pub struct InvokeModelWithBidirectionalStreamInputErrorMarshaller;
 
-impl InvokeModelWithBidirectionalStreamInputInputErrorMarshaller {
+impl InvokeModelWithBidirectionalStreamInputErrorMarshaller {
     pub fn new() -> Self {
-        InvokeModelWithBidirectionalStreamInputInputErrorMarshaller
+        InvokeModelWithBidirectionalStreamInputErrorMarshaller
     }
 }
-impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputInputErrorMarshaller {
-    type Input = super::types::error::InvokeModelWithBidirectionalStreamInputInputError;
+impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputErrorMarshaller {
+    type Input = super::types::error::InvokeModelWithBidirectionalStreamInputError;
     fn marshall(
         &self,
         _input: Self::Input,
@@ -51076,14 +51052,14 @@ impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirec
 
 #[non_exhaustive]
 #[derive(Debug)]
-pub struct InvokeModelWithBidirectionalStreamInputInputMarshaller;
+pub struct InvokeModelWithBidirectionalStreamInputMarshaller;
 
-impl InvokeModelWithBidirectionalStreamInputInputMarshaller {
+impl InvokeModelWithBidirectionalStreamInputMarshaller {
     pub fn new() -> Self {
-        InvokeModelWithBidirectionalStreamInputInputMarshaller
+        InvokeModelWithBidirectionalStreamInputMarshaller
     }
 }
-impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputInputMarshaller {
+impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputMarshaller {
     type Input = super::types::InvokeModelWithBidirectionalStreamInput;
     fn marshall(&self, input: Self::Input) -> std::result::Result<::aws_smithy_types::event_stream::Message, ::aws_smithy_eventstream::error::Error> {
         let mut headers = Vec::new();

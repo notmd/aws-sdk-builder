@@ -165,12 +165,6 @@ impl ::aws_types::request_id::RequestId for super::super::types::error::Converse
         self.meta().request_id()
     }
 }
-
-impl ::aws_types::request_id::RequestId for super::super::types::error::ConverseStreamOutputError {
-    fn request_id(&self) -> Option<&str> {
-        self.meta().request_id()
-    }
-}
 /// Error type for the `InvokeModelWithBidirectionalStreamInputError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -258,12 +252,6 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for InvokeMo
         })
     }
 }
-impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeModelWithBidirectionalStreamInputError {
-    fn request_id(&self) -> Option<&str> {
-        self.meta().request_id()
-    }
-}
-
 impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeModelWithBidirectionalStreamInputError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
@@ -421,12 +409,6 @@ impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeMo
         self.meta().request_id()
     }
 }
-
-impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeModelWithBidirectionalStreamOutputError {
-    fn request_id(&self) -> Option<&str> {
-        self.meta().request_id()
-    }
-}
 /// Error type for the `ResponseStreamError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -574,12 +556,6 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for Response
         })
     }
 }
-impl ::aws_types::request_id::RequestId for super::super::types::error::ResponseStreamError {
-    fn request_id(&self) -> Option<&str> {
-        self.meta().request_id()
-    }
-}
-
 impl ::aws_types::request_id::RequestId for super::super::types::error::ResponseStreamError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()

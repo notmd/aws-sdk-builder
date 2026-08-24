@@ -285,8 +285,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for InvokeModelW
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from({
-            let error_marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputInputErrorMarshaller::new();
-            let marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputInputMarshaller::new();
+            let error_marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputErrorMarshaller::new();
+            let marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputMarshaller::new();
 
             let (signer, signer_sender) = ::aws_smithy_eventstream::frame::DeferredSigner::new();
             _cfg.interceptor_state().store_put(signer_sender);

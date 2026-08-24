@@ -165,15 +165,15 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
 }
 #[non_exhaustive]
 #[derive(Debug)]
-pub struct InvokeModelWithBidirectionalStreamInputInputErrorMarshaller;
+pub struct InvokeModelWithBidirectionalStreamInputErrorMarshaller;
 
-impl InvokeModelWithBidirectionalStreamInputInputErrorMarshaller {
+impl InvokeModelWithBidirectionalStreamInputErrorMarshaller {
     pub fn new() -> Self {
-        InvokeModelWithBidirectionalStreamInputInputErrorMarshaller
+        InvokeModelWithBidirectionalStreamInputErrorMarshaller
     }
 }
-impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputInputErrorMarshaller {
-    type Input = super::types::error::InvokeModelWithBidirectionalStreamInputInputError;
+impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputErrorMarshaller {
+    type Input = super::types::error::InvokeModelWithBidirectionalStreamInputError;
     fn marshall(
         &self,
         _input: Self::Input,
@@ -190,14 +190,14 @@ impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirec
 
 #[non_exhaustive]
 #[derive(Debug)]
-pub struct InvokeModelWithBidirectionalStreamInputInputMarshaller;
+pub struct InvokeModelWithBidirectionalStreamInputMarshaller;
 
-impl InvokeModelWithBidirectionalStreamInputInputMarshaller {
+impl InvokeModelWithBidirectionalStreamInputMarshaller {
     pub fn new() -> Self {
-        InvokeModelWithBidirectionalStreamInputInputMarshaller
+        InvokeModelWithBidirectionalStreamInputMarshaller
     }
 }
-impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputInputMarshaller {
+impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputMarshaller {
     type Input = super::types::InvokeModelWithBidirectionalStreamInput;
     fn marshall(&self, input: Self::Input) -> std::result::Result<::aws_smithy_types::event_stream::Message, ::aws_smithy_eventstream::error::Error> {
         let mut headers = Vec::new();

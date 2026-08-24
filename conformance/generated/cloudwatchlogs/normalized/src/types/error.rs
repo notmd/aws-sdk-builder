@@ -143,12 +143,6 @@ impl ::aws_types::request_id::RequestId for super::super::types::error::GetLogOb
         self.meta().request_id()
     }
 }
-
-impl ::aws_types::request_id::RequestId for super::super::types::error::GetLogObjectResponseStreamError {
-    fn request_id(&self) -> Option<&str> {
-        self.meta().request_id()
-    }
-}
 /// Error type for the `StartLiveTailResponseStreamError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -256,12 +250,6 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for StartLiv
         })
     }
 }
-impl ::aws_types::request_id::RequestId for super::super::types::error::StartLiveTailResponseStreamError {
-    fn request_id(&self) -> Option<&str> {
-        self.meta().request_id()
-    }
-}
-
 impl ::aws_types::request_id::RequestId for super::super::types::error::StartLiveTailResponseStreamError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()

@@ -200,15 +200,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 +#[non_exhaustive]
 +#[derive(Debug)]
-+pub struct InvokeModelWithBidirectionalStreamInputInputErrorMarshaller;
++pub struct InvokeModelWithBidirectionalStreamInputErrorMarshaller;
 
-+impl InvokeModelWithBidirectionalStreamInputInputErrorMarshaller {
++impl InvokeModelWithBidirectionalStreamInputErrorMarshaller {
 +    pub fn new() -> Self {
-+        InvokeModelWithBidirectionalStreamInputInputErrorMarshaller
++        InvokeModelWithBidirectionalStreamInputErrorMarshaller
 +    }
 +}
-+impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputInputErrorMarshaller {
-+    type Input = super::types::error::InvokeModelWithBidirectionalStreamInputInputError;
++impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputErrorMarshaller {
++    type Input = super::types::error::InvokeModelWithBidirectionalStreamInputError;
 +    fn marshall(
 +        &self,
 +        _input: Self::Input,
@@ -225,14 +225,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
  #[non_exhaustive]
  #[derive(Debug)]
-+pub struct InvokeModelWithBidirectionalStreamInputInputMarshaller;
++pub struct InvokeModelWithBidirectionalStreamInputMarshaller;
 +
-+impl InvokeModelWithBidirectionalStreamInputInputMarshaller {
++impl InvokeModelWithBidirectionalStreamInputMarshaller {
 +    pub fn new() -> Self {
-+        InvokeModelWithBidirectionalStreamInputInputMarshaller
++        InvokeModelWithBidirectionalStreamInputMarshaller
 +    }
 +}
-+impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputInputMarshaller {
++impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputMarshaller {
 +    type Input = super::types::InvokeModelWithBidirectionalStreamInput;
 +    fn marshall(&self, input: Self::Input) -> std::result::Result<::aws_smithy_types::event_stream::Message, ::aws_smithy_eventstream::error::Error> {
 +        let mut headers = Vec::new();
@@ -810,17 +810,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
 
          // If this is an error, defer to the non-streaming parser
-@@ -284,8 +285,8 @@
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from({
--            let error_marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputErrorMarshaller::new();
--            let marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputMarshaller::new();
-+            let error_marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputInputErrorMarshaller::new();
-+            let marshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamInputInputMarshaller::new();
-
-             let (signer, signer_sender) = ::aws_smithy_eventstream::frame::DeferredSigner::new();
-             _cfg.interceptor_state().store_put(signer_sender);
 ```
 
 ### `src/operation/invoke_model_with_response_stream/_invoke_model_with_response_stream_input.rs`
@@ -8916,31 +8905,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              Self::Unhandled(_inner) => &_inner.meta,
          }
      }
-@@ -166,6 +166,11 @@
+@@ -165,7 +165,6 @@
+         self.meta().request_id()
      }
  }
-
-+impl ::aws_types::request_id::RequestId for super::super::types::error::ConverseStreamOutputError {
-+    fn request_id(&self) -> Option<&str> {
-+        self.meta().request_id()
-+    }
-+}
+-
  /// Error type for the `InvokeModelWithBidirectionalStreamInputError` operation.
  #[non_exhaustive]
  #[derive(::std::fmt::Debug)]
-@@ -259,6 +264,11 @@
+@@ -258,7 +257,6 @@
+         self.meta().request_id()
      }
  }
-
-+impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeModelWithBidirectionalStreamInputError {
-+    fn request_id(&self) -> Option<&str> {
-+        self.meta().request_id()
-+    }
-+}
+-
  /// Error type for the `InvokeModelWithBidirectionalStreamOutputError` operation.
  #[non_exhaustive]
  #[derive(::std::fmt::Debug)]
-@@ -317,27 +327,27 @@
+@@ -317,27 +315,27 @@
              Self::Unhandled(e) => &e.meta,
          }
      }
@@ -8974,7 +8955,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn is_service_unavailable_exception(&self) -> bool {
          matches!(self, Self::ServiceUnavailableException(_))
      }
-@@ -385,12 +395,12 @@
+@@ -385,12 +383,12 @@
  impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvokeModelWithBidirectionalStreamOutputError {
      fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
          match self {
@@ -8993,19 +8974,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              Self::Unhandled(_inner) => &_inner.meta,
          }
      }
-@@ -412,6 +422,11 @@
+@@ -411,7 +409,6 @@
+         self.meta().request_id()
      }
  }
-
-+impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeModelWithBidirectionalStreamOutputError {
-+    fn request_id(&self) -> Option<&str> {
-+        self.meta().request_id()
-+    }
-+}
+-
  /// Error type for the `ResponseStreamError` operation.
  #[non_exhaustive]
  #[derive(::std::fmt::Debug)]
-@@ -470,27 +485,27 @@
+@@ -470,27 +467,27 @@
              Self::Unhandled(e) => &e.meta,
          }
      }
@@ -9039,7 +9016,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn is_service_unavailable_exception(&self) -> bool {
          matches!(self, Self::ServiceUnavailableException(_))
      }
-@@ -538,12 +553,12 @@
+@@ -538,12 +535,12 @@
  impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ResponseStreamError {
      fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
          match self {
@@ -9058,15 +9035,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              Self::Unhandled(_inner) => &_inner.meta,
          }
      }
-@@ -565,6 +580,11 @@
+@@ -564,7 +561,6 @@
+         self.meta().request_id()
      }
  }
-
-+impl ::aws_types::request_id::RequestId for super::super::types::error::ResponseStreamError {
-+    fn request_id(&self) -> Option<&str> {
-+        self.meta().request_id()
-+    }
-+}
+-
  mod _access_denied_exception;
 
  mod _conflict_exception;

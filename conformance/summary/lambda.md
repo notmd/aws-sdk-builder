@@ -9870,15 +9870,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
  /// Error type for the `InvokeWithResponseStreamResponseEventError` operation.
  #[non_exhaustive]
-@@ -204,6 +204,11 @@
+@@ -203,7 +203,6 @@
+         self.meta().request_id()
      }
  }
-
-+impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeWithResponseStreamResponseEventError {
-+    fn request_id(&self) -> Option<&str> {
-+        self.meta().request_id()
-+    }
-+}
+-
  mod _alias_limit_exceeded_exception;
 
  mod _callback_timeout_exception;

@@ -203,12 +203,6 @@ impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeWi
         self.meta().request_id()
     }
 }
-
-impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeWithResponseStreamResponseEventError {
-    fn request_id(&self) -> Option<&str> {
-        self.meta().request_id()
-    }
-}
 mod _alias_limit_exceeded_exception;
 
 mod _callback_timeout_exception;

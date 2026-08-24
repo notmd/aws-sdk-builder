@@ -4,6 +4,24 @@ Updated 2026-08-24. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Fix generated event-stream Rust symbols and duplicate request IDs
+- State: in progress
+- Changed: event-stream marshaller and error-marshaller names now follow the union symbol
+  (`UnionMarshaller` and `UnionErrorMarshaller`) as in the pinned Smithy-RS
+  `EventStreamMarshallerGenerator`; event-stream error types emit the standard request-ID
+  implementation only once. The static Bedrock bearer-token renderer was also simplified to
+  satisfy workspace Clippy.
+- Conformance: `just conformance` generated 15 services and 1,133 operations,
+  formatted 13,164 generated Rust files, and compared `13,168` files: `12,215` matched,
+  `948` mismatched, `4` missing, and `1` extra (`90.88%` average match). This restores
+  `+1` exact file from the pre-fix event-stream run (`12,214` matched); generation and
+  snapshot parsing complete without generated-source parse errors. The command exits 1
+  only because broader parity gaps remain.
+- Verification: focused event-stream and bearer-auth tests, `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`, formatting, and
+  `git diff --check` pass.
+- Next action: continue with the largest remaining generic protocol mismatch.
+
 ### Checkpoint: 2026-08-24 — Use Smithy Document runtime type
 - State: in progress
 - Changed: Smithy `Document` shapes now map to
