@@ -56,3 +56,10 @@ pub(crate) fn de_too_many_requests_exception_json_err(
     }
     Ok(builder)
 }
+
+pub(crate) fn de_retry_after_seconds_header(
+    header_map: &::aws_smithy_runtime_api::http::Headers,
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
+    let headers = header_map.get_all("Retry-After");
+    ::aws_smithy_http::header::one_or_none(headers)
+}

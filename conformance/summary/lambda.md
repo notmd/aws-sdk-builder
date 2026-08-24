@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1077/1077` files compared · `891` matched · `185` mismatches · `0` missing · `1` extra · `82.73%` match (100.00% means fully matched)
+**Progress:** `1077/1077` files compared · `935` matched · `141` mismatches · `0` missing · `1` extra · `86.82%` match (100.00% means fully matched)
 
 ### `src/client/delete_resource_policy.rs`
 
@@ -833,21 +833,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_add_layer_version_permission.rs
 +++ generated/src/protocol_serde/shape_add_layer_version_permission.rs
-@@ -134,13 +134,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::add_layer_version_permission::AddLayerVersionPermissionError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::add_layer_version_permission::AddLayerVersionPermissionError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -198,15 +191,15 @@
+@@ -198,15 +198,15 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -898,25 +884,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-```
-
-### `src/protocol_serde/shape_add_permission.rs`
-
-```diff
---- reference/src/protocol_serde/shape_add_permission.rs
-+++ generated/src/protocol_serde/shape_add_permission.rs
-@@ -136,11 +136,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::add_permission::AddPermissionError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::add_permission::AddPermissionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
 ```
 
 ### `src/protocol_serde/shape_add_permission_input.rs`
@@ -1168,27 +1135,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 ```
 
-### `src/protocol_serde/shape_checkpoint_durable_execution.rs`
-
-```diff
---- reference/src/protocol_serde/shape_checkpoint_durable_execution.rs
-+++ generated/src/protocol_serde/shape_checkpoint_durable_execution.rs
-@@ -122,13 +122,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
 ### `src/protocol_serde/shape_checkpoint_durable_execution_input.rs`
 
 ```diff
@@ -1377,19 +1323,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_alias.rs
 +++ generated/src/protocol_serde/shape_create_alias.rs
-@@ -103,11 +103,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::create_alias::CreateAliasError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::create_alias::CreateAliasError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -168,8 +163,8 @@
+@@ -168,8 +168,8 @@
                                  .transpose()?,
                          );
                      }
@@ -1400,7 +1334,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                              ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                  .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                  .transpose()?,
-@@ -182,13 +177,18 @@
+@@ -182,13 +182,18 @@
                                  .transpose()?,
                          );
                      }
@@ -1421,7 +1355,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      "RevisionId" => {
                          builder = builder.set_revision_id(
                              ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -196,11 +196,6 @@
+@@ -196,11 +201,6 @@
                                  .transpose()?,
                          );
                      }
@@ -1459,27 +1393,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      if let Some(var_4) = &input.routing_config {
          #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_create_capacity_provider.rs`
-
-```diff
---- reference/src/protocol_serde/shape_create_capacity_provider.rs
-+++ generated/src/protocol_serde/shape_create_capacity_provider.rs
-@@ -97,13 +97,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::create_capacity_provider::CreateCapacityProviderError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::create_capacity_provider::CreateCapacityProviderError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
 ```
 
 ### `src/protocol_serde/shape_create_capacity_provider_input.rs`
@@ -1606,21 +1519,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_event_source_mapping.rs
 +++ generated/src/protocol_serde/shape_create_event_source_mapping.rs
-@@ -96,13 +96,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::create_event_source_mapping::CreateEventSourceMappingError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::create_event_source_mapping::CreateEventSourceMappingError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -160,15 +153,26 @@
+@@ -160,15 +160,26 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -1636,15 +1535,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 +                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 +                            .transpose()?,
-+                    );
-+                }
+                     );
+                 }
 +                "StartingPosition" => {
 +                    builder = builder.set_starting_position(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 +                            .map(|s| s.to_unescaped().map(|u| super::super::types::EventSourcePosition::from(u.as_ref())))
 +                            .transpose()?,
-                     );
-                 }
++                    );
++                }
 +                "StartingPositionTimestamp" => {
 +                    builder = builder.set_starting_position_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
 +                        tokens.next(),
@@ -1654,7 +1553,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "BatchSize" => {
                      builder = builder.set_batch_size(
                          ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-@@ -176,30 +180,22 @@
+@@ -176,30 +187,22 @@
                              .transpose()?,
                      );
                  }
@@ -1696,7 +1595,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
-@@ -219,20 +215,36 @@
+@@ -219,20 +222,36 @@
                          depth + 1,
                      )?);
                  }
@@ -1740,7 +1639,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
-@@ -251,22 +263,43 @@
+@@ -251,22 +270,43 @@
                              .transpose()?,
                      );
                  }
@@ -1795,7 +1694,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "MaximumRecordAgeInSeconds" => {
                      builder = builder.set_maximum_record_age_in_seconds(
                          ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-@@ -274,6 +307,9 @@
+@@ -274,6 +314,9 @@
                              .transpose()?,
                      );
                  }
@@ -1805,7 +1704,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "MaximumRetryAttempts" => {
                      builder = builder.set_maximum_retry_attempts(
                          ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-@@ -281,36 +317,25 @@
+@@ -281,36 +324,25 @@
                              .transpose()?,
                      );
                  }
@@ -1854,7 +1753,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
                  "SelfManagedKafkaEventSourceConfig" => {
-@@ -322,53 +347,21 @@
+@@ -322,53 +354,21 @@
                          )?,
                      );
                  }
@@ -2215,21 +2114,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_function.rs
 +++ generated/src/protocol_serde/shape_create_function.rs
-@@ -173,13 +173,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::create_function::CreateFunctionError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::create_function::CreateFunctionError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -234,20 +227,36 @@
+@@ -234,20 +234,36 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -2277,7 +2162,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
-@@ -260,93 +269,125 @@
+@@ -260,90 +276,122 @@
                              .transpose()?,
                      );
                  }
@@ -2302,18 +2187,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                            .map(i32::try_from)
 +                            .transpose()?,
 +                    );
-                 }
--                "Description" => {
--                    builder = builder.set_description(
++                }
 +                "MemorySize" => {
 +                    builder = builder.set_memory_size(
 +                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
 +                            .map(i32::try_from)
 +                            .transpose()?,
 +                    );
-+                }
+                 }
+-                "Description" => {
+-                    builder = builder.set_description(
 +                "LastModified" => {
 +                    builder = builder.set_last_modified(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
++                "CodeSha256" => {
++                    builder = builder.set_code_sha256(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
@@ -2321,8 +2213,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "DurableConfig" => {
 -                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
-+                "CodeSha256" => {
-+                    builder = builder.set_code_sha256(
++                "Version" => {
++                    builder = builder.set_version(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 +                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 +                            .transpose()?,
@@ -2330,13 +2222,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "Environment" => {
 -                    builder = builder.set_environment(super::super::protocol_serde::shape_environment_response::de_environment_response(
-+                "Version" => {
-+                    builder = builder.set_version(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
-+                }
 +                "VpcConfig" => {
 +                    builder = builder.set_vpc_config(super::super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
                          tokens,
@@ -2410,31 +2295,28 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "State" => {
 +                    builder = builder.set_state(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 +                            .map(|s| s.to_unescaped().map(|u| super::super::types::State::from(u.as_ref())))
++                            .transpose()?,
++                    );
++                }
++                "StateReason" => {
++                    builder = builder.set_state_reason(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
                      );
                  }
 -                "LastModified" => {
 -                    builder = builder.set_last_modified(
-+                "StateReason" => {
-+                    builder = builder.set_state_reason(
++                "StateReasonCode" => {
++                    builder = builder.set_state_reason_code(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
                              .transpose()?,
                      );
                  }
-+                "StateReasonCode" => {
-+                    builder = builder.set_state_reason_code(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
-+                            .transpose()?,
-+                    );
-+                }
-                 "LastUpdateStatus" => {
-                     builder = builder.set_last_update_status(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -368,27 +409,24 @@
+@@ -368,27 +416,24 @@
                              .transpose()?,
                      );
                  }
@@ -2470,7 +2352,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                              .transpose()?,
                      );
                  }
-@@ -399,48 +437,27 @@
+@@ -399,47 +444,26 @@
                              .transpose()?,
                      );
                  }
@@ -2493,13 +2375,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                            .transpose()?,
 -                    );
-+                "Architectures" => {
-+                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-                 }
+-                }
 -                "Runtime" => {
 -                    builder = builder.set_runtime(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -2509,8 +2385,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                }
 -                "RuntimeVersionConfig" => {
 -                    builder = builder.set_runtime_version_config(super::super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
-+                "EphemeralStorage" => {
-+                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
++                "Architectures" => {
++                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(
                          tokens,
                          _value,
                          depth + 1,
@@ -2529,11 +2405,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                            .transpose()?,
 -                    );
--                }
++                "EphemeralStorage" => {
++                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
++                        tokens,
++                        _value,
++                        depth + 1,
++                    )?);
+                 }
                  "SnapStart" => {
                      builder = builder.set_snap_start(super::super::protocol_serde::shape_snap_start_response::de_snap_start_response(
-                         tokens,
-@@ -448,57 +465,33 @@
+@@ -448,57 +472,33 @@
                          depth + 1,
                      )?);
                  }
@@ -2893,21 +2774,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_function_url_config.rs
 +++ generated/src/protocol_serde/shape_create_function_url_config.rs
-@@ -96,13 +96,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::create_function_url_config::CreateFunctionUrlConfigError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::create_function_url_config::CreateFunctionUrlConfigError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -162,32 +155,32 @@
+@@ -162,32 +162,32 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -2991,66 +2858,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 ```
 
-### `src/protocol_serde/shape_delete_alias.rs`
-
-```diff
---- reference/src/protocol_serde/shape_delete_alias.rs
-+++ generated/src/protocol_serde/shape_delete_alias.rs
-@@ -87,11 +87,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::delete_alias::DeleteAliasError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::delete_alias::DeleteAliasError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
-### `src/protocol_serde/shape_delete_capacity_provider.rs`
-
-```diff
---- reference/src/protocol_serde/shape_delete_capacity_provider.rs
-+++ generated/src/protocol_serde/shape_delete_capacity_provider.rs
-@@ -96,13 +96,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::delete_capacity_provider::DeleteCapacityProviderError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::delete_capacity_provider::DeleteCapacityProviderError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
 ### `src/protocol_serde/shape_delete_event_source_mapping.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_delete_event_source_mapping.rs
 +++ generated/src/protocol_serde/shape_delete_event_source_mapping.rs
-@@ -111,13 +111,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::delete_event_source_mapping::DeleteEventSourceMappingError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::delete_event_source_mapping::DeleteEventSourceMappingError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -165,15 +158,26 @@
+@@ -165,15 +165,26 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -3066,15 +2879,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 +                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 +                            .transpose()?,
-+                    );
-+                }
+                     );
+                 }
 +                "StartingPosition" => {
 +                    builder = builder.set_starting_position(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 +                            .map(|s| s.to_unescaped().map(|u| super::super::types::EventSourcePosition::from(u.as_ref())))
 +                            .transpose()?,
-                     );
-                 }
++                    );
++                }
 +                "StartingPositionTimestamp" => {
 +                    builder = builder.set_starting_position_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
 +                        tokens.next(),
@@ -3084,7 +2897,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "BatchSize" => {
                      builder = builder.set_batch_size(
                          ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-@@ -181,30 +185,22 @@
+@@ -181,30 +192,22 @@
                              .transpose()?,
                      );
                  }
@@ -3126,7 +2939,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
-@@ -224,20 +220,36 @@
+@@ -224,20 +227,36 @@
                          depth + 1,
                      )?);
                  }
@@ -3170,7 +2983,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
-@@ -256,22 +268,43 @@
+@@ -256,22 +275,43 @@
                              .transpose()?,
                      );
                  }
@@ -3225,7 +3038,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "MaximumRecordAgeInSeconds" => {
                      builder = builder.set_maximum_record_age_in_seconds(
                          ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-@@ -279,6 +312,9 @@
+@@ -279,6 +319,9 @@
                              .transpose()?,
                      );
                  }
@@ -3235,7 +3048,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "MaximumRetryAttempts" => {
                      builder = builder.set_maximum_retry_attempts(
                          ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-@@ -286,36 +322,25 @@
+@@ -286,36 +329,25 @@
                              .transpose()?,
                      );
                  }
@@ -3284,7 +3097,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
                  "SelfManagedKafkaEventSourceConfig" => {
-@@ -327,53 +352,21 @@
+@@ -327,53 +359,21 @@
                          )?,
                      );
                  }
@@ -3346,174 +3159,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-```
-
-### `src/protocol_serde/shape_delete_function.rs`
-
-```diff
---- reference/src/protocol_serde/shape_delete_function.rs
-+++ generated/src/protocol_serde/shape_delete_function.rs
-@@ -87,13 +87,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::delete_function::DeleteFunctionError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::delete_function::DeleteFunctionError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
-### `src/protocol_serde/shape_delete_function_code_signing_config.rs`
-
-```diff
---- reference/src/protocol_serde/shape_delete_function_code_signing_config.rs
-+++ generated/src/protocol_serde/shape_delete_function_code_signing_config.rs
-@@ -121,13 +121,6 @@
-                     output =
-                         super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(super::super::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigError::unhandled)?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-```
-
-### `src/protocol_serde/shape_delete_function_concurrency.rs`
-
-```diff
---- reference/src/protocol_serde/shape_delete_function_concurrency.rs
-+++ generated/src/protocol_serde/shape_delete_function_concurrency.rs
-@@ -96,13 +96,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::delete_function_concurrency::DeleteFunctionConcurrencyError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::delete_function_concurrency::DeleteFunctionConcurrencyError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
-### `src/protocol_serde/shape_delete_function_event_invoke_config.rs`
-
-```diff
---- reference/src/protocol_serde/shape_delete_function_event_invoke_config.rs
-+++ generated/src/protocol_serde/shape_delete_function_event_invoke_config.rs
-@@ -100,13 +100,6 @@
-                     output =
-                         super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(super::super::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigError::unhandled)?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-```
-
-### `src/protocol_serde/shape_delete_function_url_config.rs`
-
-```diff
---- reference/src/protocol_serde/shape_delete_function_url_config.rs
-+++ generated/src/protocol_serde/shape_delete_function_url_config.rs
-@@ -96,13 +96,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
-### `src/protocol_serde/shape_delete_layer_version.rs`
-
-```diff
---- reference/src/protocol_serde/shape_delete_layer_version.rs
-+++ generated/src/protocol_serde/shape_delete_layer_version.rs
-@@ -75,13 +75,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::delete_layer_version::DeleteLayerVersionError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::delete_layer_version::DeleteLayerVersionError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
-### `src/protocol_serde/shape_delete_provisioned_concurrency_config.rs`
-
-```diff
---- reference/src/protocol_serde/shape_delete_provisioned_concurrency_config.rs
-+++ generated/src/protocol_serde/shape_delete_provisioned_concurrency_config.rs
-@@ -100,13 +100,6 @@
-                     output =
-                         super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(super::super::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigError::unhandled)?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-```
-
-### `src/protocol_serde/shape_delete_resource_policy.rs`
-
-```diff
---- reference/src/protocol_serde/shape_delete_resource_policy.rs
-+++ generated/src/protocol_serde/shape_delete_resource_policy.rs
-@@ -106,13 +106,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
 ```
 
 ### `src/protocol_serde/shape_destination_config.rs`
@@ -4448,45 +4093,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 ```
 
-### `src/protocol_serde/shape_get_account_settings.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_account_settings.rs
-+++ generated/src/protocol_serde/shape_get_account_settings.rs
-@@ -42,13 +42,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_account_settings::GetAccountSettingsError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_account_settings::GetAccountSettingsError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
 ### `src/protocol_serde/shape_get_alias.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_get_alias.rs
 +++ generated/src/protocol_serde/shape_get_alias.rs
-@@ -72,11 +72,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_alias::GetAliasError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_alias::GetAliasError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -126,8 +121,8 @@
+@@ -126,8 +126,8 @@
                                  .transpose()?,
                          );
                      }
@@ -4497,7 +4109,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                              ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                  .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                  .transpose()?,
-@@ -140,13 +135,18 @@
+@@ -140,13 +140,18 @@
                                  .transpose()?,
                          );
                      }
@@ -4518,7 +4130,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      "RevisionId" => {
                          builder = builder.set_revision_id(
                              ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -154,11 +154,6 @@
+@@ -154,11 +159,6 @@
                                  .transpose()?,
                          );
                      }
@@ -4532,47 +4144,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
 ```
 
-### `src/protocol_serde/shape_get_capacity_provider.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_capacity_provider.rs
-+++ generated/src/protocol_serde/shape_get_capacity_provider.rs
-@@ -75,13 +75,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_capacity_provider::GetCapacityProviderError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_capacity_provider::GetCapacityProviderError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
 ### `src/protocol_serde/shape_get_durable_execution.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_get_durable_execution.rs
 +++ generated/src/protocol_serde/shape_get_durable_execution.rs
-@@ -135,13 +135,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_durable_execution::GetDurableExecutionError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_durable_execution::GetDurableExecutionError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -191,9 +184,6 @@
+@@ -191,9 +191,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -4582,7 +4159,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "DurableExecutionArn" => {
                      builder = builder.set_durable_execution_arn(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -208,18 +198,6 @@
+@@ -208,18 +205,6 @@
                              .transpose()?,
                      );
                  }
@@ -4601,7 +4178,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "FunctionArn" => {
                      builder = builder.set_function_arn(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -241,6 +219,9 @@
+@@ -241,6 +226,9 @@
                              .transpose()?,
                      );
                  }
@@ -4611,7 +4188,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "StartTimestamp" => {
                      builder = builder.set_start_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
                          tokens.next(),
-@@ -254,8 +235,11 @@
+@@ -254,8 +242,11 @@
                              .transpose()?,
                      );
                  }
@@ -4625,7 +4202,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
                  "Version" => {
                      builder = builder.set_version(
-@@ -264,6 +248,15 @@
+@@ -264,6 +255,15 @@
                              .transpose()?,
                      );
                  }
@@ -4643,47 +4220,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              other => {
 ```
 
-### `src/protocol_serde/shape_get_durable_execution_history.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_durable_execution_history.rs
-+++ generated/src/protocol_serde/shape_get_durable_execution_history.rs
-@@ -137,13 +137,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
 ### `src/protocol_serde/shape_get_durable_execution_state.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_get_durable_execution_state.rs
 +++ generated/src/protocol_serde/shape_get_durable_execution_state.rs
-@@ -126,13 +126,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_durable_execution_state::GetDurableExecutionStateError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_durable_execution_state::GetDurableExecutionStateError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -182,6 +175,9 @@
+@@ -182,6 +182,9 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -4693,7 +4235,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "NextMarker" => {
                      builder = builder.set_next_marker(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -189,9 +185,6 @@
+@@ -189,9 +192,6 @@
                              .transpose()?,
                      );
                  }
@@ -4710,21 +4252,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_event_source_mapping.rs
 +++ generated/src/protocol_serde/shape_get_event_source_mapping.rs
-@@ -75,13 +75,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_event_source_mapping::GetEventSourceMappingError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_event_source_mapping::GetEventSourceMappingError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -129,15 +122,26 @@
+@@ -129,15 +129,26 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -4740,15 +4268,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 +                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 +                            .transpose()?,
-+                    );
-+                }
+                     );
+                 }
 +                "StartingPosition" => {
 +                    builder = builder.set_starting_position(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 +                            .map(|s| s.to_unescaped().map(|u| super::super::types::EventSourcePosition::from(u.as_ref())))
 +                            .transpose()?,
-                     );
-                 }
++                    );
++                }
 +                "StartingPositionTimestamp" => {
 +                    builder = builder.set_starting_position_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
 +                        tokens.next(),
@@ -4758,7 +4286,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "BatchSize" => {
                      builder = builder.set_batch_size(
                          ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-@@ -145,30 +149,22 @@
+@@ -145,30 +156,22 @@
                              .transpose()?,
                      );
                  }
@@ -4800,7 +4328,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
-@@ -188,20 +184,36 @@
+@@ -188,20 +191,36 @@
                          depth + 1,
                      )?);
                  }
@@ -4844,7 +4372,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
-@@ -220,22 +232,43 @@
+@@ -220,22 +239,43 @@
                              .transpose()?,
                      );
                  }
@@ -4899,7 +4427,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "MaximumRecordAgeInSeconds" => {
                      builder = builder.set_maximum_record_age_in_seconds(
                          ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-@@ -243,6 +276,9 @@
+@@ -243,6 +283,9 @@
                              .transpose()?,
                      );
                  }
@@ -4909,7 +4437,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "MaximumRetryAttempts" => {
                      builder = builder.set_maximum_retry_attempts(
                          ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-@@ -250,36 +286,25 @@
+@@ -250,36 +293,25 @@
                              .transpose()?,
                      );
                  }
@@ -4958,7 +4486,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
                  "SelfManagedKafkaEventSourceConfig" => {
-@@ -291,53 +316,21 @@
+@@ -291,53 +323,21 @@
                          )?,
                      );
                  }
@@ -5027,19 +4555,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_function.rs
 +++ generated/src/protocol_serde/shape_get_function.rs
-@@ -72,11 +72,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_function::GetFunctionError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_function::GetFunctionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -119,18 +114,15 @@
+@@ -119,18 +119,15 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -5062,7 +4578,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          tokens,
                          _value,
                          depth + 1,
-@@ -142,6 +134,9 @@
+@@ -142,6 +139,9 @@
                  "TagsError" => {
                      builder = builder.set_tags_error(super::super::protocol_serde::shape_tags_error::de_tags_error(tokens, _value, depth + 1)?);
                  }
@@ -5074,68 +4590,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              other => {
 ```
 
-### `src/protocol_serde/shape_get_function_code_signing_config.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_function_code_signing_config.rs
-+++ generated/src/protocol_serde/shape_get_function_code_signing_config.rs
-@@ -103,13 +103,6 @@
-                     output =
-                         super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(super::super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigError::unhandled)?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-```
-
-### `src/protocol_serde/shape_get_function_concurrency.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_function_concurrency.rs
-+++ generated/src/protocol_serde/shape_get_function_concurrency.rs
-@@ -81,13 +81,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_function_concurrency::GetFunctionConcurrencyError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_function_concurrency::GetFunctionConcurrencyError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
 ### `src/protocol_serde/shape_get_function_configuration.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_get_function_configuration.rs
 +++ generated/src/protocol_serde/shape_get_function_configuration.rs
-@@ -81,13 +81,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_function_configuration::GetFunctionConfigurationError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_function_configuration::GetFunctionConfigurationError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -135,20 +128,36 @@
+@@ -135,20 +135,36 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -5183,7 +4643,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
-@@ -161,93 +170,125 @@
+@@ -161,90 +177,122 @@
                              .transpose()?,
                      );
                  }
@@ -5208,18 +4668,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                            .map(i32::try_from)
 +                            .transpose()?,
 +                    );
-                 }
--                "Description" => {
--                    builder = builder.set_description(
++                }
 +                "MemorySize" => {
 +                    builder = builder.set_memory_size(
 +                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
 +                            .map(i32::try_from)
 +                            .transpose()?,
 +                    );
-+                }
+                 }
+-                "Description" => {
+-                    builder = builder.set_description(
 +                "LastModified" => {
 +                    builder = builder.set_last_modified(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
++                "CodeSha256" => {
++                    builder = builder.set_code_sha256(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
@@ -5227,8 +4694,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "DurableConfig" => {
 -                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
-+                "CodeSha256" => {
-+                    builder = builder.set_code_sha256(
++                "Version" => {
++                    builder = builder.set_version(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 +                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 +                            .transpose()?,
@@ -5236,13 +4703,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "Environment" => {
 -                    builder = builder.set_environment(super::super::protocol_serde::shape_environment_response::de_environment_response(
-+                "Version" => {
-+                    builder = builder.set_version(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
-+                }
 +                "VpcConfig" => {
 +                    builder = builder.set_vpc_config(super::super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
                          tokens,
@@ -5316,31 +4776,28 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "State" => {
 +                    builder = builder.set_state(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 +                            .map(|s| s.to_unescaped().map(|u| super::super::types::State::from(u.as_ref())))
++                            .transpose()?,
++                    );
++                }
++                "StateReason" => {
++                    builder = builder.set_state_reason(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
                      );
                  }
 -                "LastModified" => {
 -                    builder = builder.set_last_modified(
-+                "StateReason" => {
-+                    builder = builder.set_state_reason(
++                "StateReasonCode" => {
++                    builder = builder.set_state_reason_code(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
                              .transpose()?,
                      );
                  }
-+                "StateReasonCode" => {
-+                    builder = builder.set_state_reason_code(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
-+                            .transpose()?,
-+                    );
-+                }
-                 "LastUpdateStatus" => {
-                     builder = builder.set_last_update_status(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -269,27 +310,24 @@
+@@ -269,27 +317,24 @@
                              .transpose()?,
                      );
                  }
@@ -5376,7 +4833,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                              .transpose()?,
                      );
                  }
-@@ -300,48 +338,27 @@
+@@ -300,47 +345,26 @@
                              .transpose()?,
                      );
                  }
@@ -5399,13 +4856,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                            .transpose()?,
 -                    );
-+                "Architectures" => {
-+                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-                 }
+-                }
 -                "Runtime" => {
 -                    builder = builder.set_runtime(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -5415,8 +4866,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                }
 -                "RuntimeVersionConfig" => {
 -                    builder = builder.set_runtime_version_config(super::super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
-+                "EphemeralStorage" => {
-+                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
++                "Architectures" => {
++                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(
                          tokens,
                          _value,
                          depth + 1,
@@ -5435,11 +4886,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                            .transpose()?,
 -                    );
--                }
++                "EphemeralStorage" => {
++                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
++                        tokens,
++                        _value,
++                        depth + 1,
++                    )?);
+                 }
                  "SnapStart" => {
                      builder = builder.set_snap_start(super::super::protocol_serde::shape_snap_start_response::de_snap_start_response(
-                         tokens,
-@@ -349,57 +366,33 @@
+@@ -349,57 +373,33 @@
                          depth + 1,
                      )?);
                  }
@@ -5519,21 +4975,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_function_event_invoke_config.rs
 +++ generated/src/protocol_serde/shape_get_function_event_invoke_config.rs
-@@ -82,13 +82,6 @@
-                     output =
-                         super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(super::super::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError::unhandled)?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -137,11 +130,10 @@
+@@ -137,11 +137,10 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -5549,7 +4991,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      )?);
                  }
                  "FunctionArn" => {
-@@ -151,26 +143,27 @@
+@@ -151,26 +150,27 @@
                              .transpose()?,
                      );
                  }
@@ -5589,47 +5031,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              other => {
 ```
 
-### `src/protocol_serde/shape_get_function_recursion_config.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_function_recursion_config.rs
-+++ generated/src/protocol_serde/shape_get_function_recursion_config.rs
-@@ -77,13 +77,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_function_recursion_config::GetFunctionRecursionConfigError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_function_recursion_config::GetFunctionRecursionConfigError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
 ### `src/protocol_serde/shape_get_function_scaling_config.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_get_function_scaling_config.rs
 +++ generated/src/protocol_serde/shape_get_function_scaling_config.rs
-@@ -81,13 +81,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_function_scaling_config::GetFunctionScalingConfigError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_function_scaling_config::GetFunctionScalingConfigError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -135,11 +128,6 @@
+@@ -135,11 +135,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -5641,7 +5048,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "FunctionArn" => {
                      builder = builder.set_function_arn(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -147,6 +135,11 @@
+@@ -147,6 +142,11 @@
                              .transpose()?,
                      );
                  }
@@ -5660,21 +5067,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_function_url_config.rs
 +++ generated/src/protocol_serde/shape_get_function_url_config.rs
-@@ -75,13 +75,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_function_url_config::GetFunctionUrlConfigError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_function_url_config::GetFunctionUrlConfigError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -131,6 +124,20 @@
+@@ -131,6 +131,20 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -5695,7 +5088,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "AuthType" => {
                      builder = builder.set_auth_type(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -148,15 +155,8 @@
+@@ -148,15 +162,8 @@
                              .transpose()?,
                      );
                  }
@@ -5713,7 +5106,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
-@@ -169,13 +169,6 @@
+@@ -169,13 +176,6 @@
                              .transpose()?,
                      );
                  }
@@ -5734,21 +5127,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_layer_version.rs
 +++ generated/src/protocol_serde/shape_get_layer_version.rs
-@@ -72,13 +72,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_layer_version::GetLayerVersionError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_layer_version::GetLayerVersionError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -123,53 +116,34 @@
+@@ -123,30 +123,25 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -5771,13 +5150,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "CreatedDate" => {
 -                    builder = builder.set_created_date(
--                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                            .transpose()?,
--                    );
--                }
--                "Description" => {
--                    builder = builder.set_description(
 +                "LayerArn" => {
 +                    builder = builder.set_layer_arn(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -5785,10 +5157,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                              .transpose()?,
                      );
                  }
--                "LayerArn" => {
--                    builder = builder.set_layer_arn(
 +                "LayerVersionArn" => {
 +                    builder = builder.set_layer_version_arn(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
+                 "Description" => {
+                     builder = builder.set_description(
+                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+@@ -154,20 +149,32 @@
+                             .transpose()?,
+                     );
+                 }
+-                "LayerArn" => {
+-                    builder = builder.set_layer_arn(
++                "CreatedDate" => {
++                    builder = builder.set_created_date(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
@@ -5796,21 +5182,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "LayerVersionArn" => {
 -                    builder = builder.set_layer_version_arn(
-+                "Description" => {
-+                    builder = builder.set_description(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                             .transpose()?,
-                     );
-                 }
--                "LicenseInfo" => {
--                    builder = builder.set_license_info(
-+                "CreatedDate" => {
-+                    builder = builder.set_created_date(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                             .transpose()?,
-@@ -182,6 +156,25 @@
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                "Version" => {
++                    builder = builder.set_version(
++                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                            .map(i64::try_from)
                              .transpose()?,
                      );
                  }
@@ -5826,13 +5203,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                        depth + 1,
 +                    )?);
 +                }
-+                "LicenseInfo" => {
-+                    builder = builder.set_license_info(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
-+                }
+                 "LicenseInfo" => {
+                     builder = builder.set_license_info(
+                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+@@ -175,13 +182,6 @@
+                             .transpose()?,
+                     );
+                 }
+-                "Version" => {
+-                    builder = builder.set_version(
+-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                            .map(i64::try_from)
+-                            .transpose()?,
+-                    );
+-                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
              other => {
@@ -5843,21 +5227,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_layer_version_by_arn.rs
 +++ generated/src/protocol_serde/shape_get_layer_version_by_arn.rs
-@@ -75,13 +75,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_layer_version_by_arn::GetLayerVersionByArnError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_layer_version_by_arn::GetLayerVersionByArnError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -129,53 +122,34 @@
+@@ -129,30 +129,25 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -5880,13 +5250,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "CreatedDate" => {
 -                    builder = builder.set_created_date(
--                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                            .transpose()?,
--                    );
--                }
--                "Description" => {
--                    builder = builder.set_description(
 +                "LayerArn" => {
 +                    builder = builder.set_layer_arn(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -5894,10 +5257,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                              .transpose()?,
                      );
                  }
--                "LayerArn" => {
--                    builder = builder.set_layer_arn(
 +                "LayerVersionArn" => {
 +                    builder = builder.set_layer_version_arn(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
+                 "Description" => {
+                     builder = builder.set_description(
+                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+@@ -160,20 +155,32 @@
+                             .transpose()?,
+                     );
+                 }
+-                "LayerArn" => {
+-                    builder = builder.set_layer_arn(
++                "CreatedDate" => {
++                    builder = builder.set_created_date(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
@@ -5905,21 +5282,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "LayerVersionArn" => {
 -                    builder = builder.set_layer_version_arn(
-+                "Description" => {
-+                    builder = builder.set_description(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                             .transpose()?,
-                     );
-                 }
--                "LicenseInfo" => {
--                    builder = builder.set_license_info(
-+                "CreatedDate" => {
-+                    builder = builder.set_created_date(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                             .transpose()?,
-@@ -188,6 +162,25 @@
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                "Version" => {
++                    builder = builder.set_version(
++                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                            .map(i64::try_from)
                              .transpose()?,
                      );
                  }
@@ -5935,56 +5303,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                        depth + 1,
 +                    )?);
 +                }
-+                "LicenseInfo" => {
-+                    builder = builder.set_license_info(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
-+                }
+                 "LicenseInfo" => {
+                     builder = builder.set_license_info(
+                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+@@ -181,13 +188,6 @@
+                             .transpose()?,
+                     );
+                 }
+-                "Version" => {
+-                    builder = builder.set_version(
+-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                            .map(i64::try_from)
+-                            .transpose()?,
+-                    );
+-                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
              other => {
-```
-
-### `src/protocol_serde/shape_get_layer_version_policy.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_layer_version_policy.rs
-+++ generated/src/protocol_serde/shape_get_layer_version_policy.rs
-@@ -75,13 +75,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_layer_version_policy::GetLayerVersionPolicyError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_layer_version_policy::GetLayerVersionPolicyError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
-### `src/protocol_serde/shape_get_policy.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_policy.rs
-+++ generated/src/protocol_serde/shape_get_policy.rs
-@@ -72,11 +72,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_policy::GetPolicyError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_policy::GetPolicyError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
 ```
 
 ### `src/protocol_serde/shape_get_provisioned_concurrency_config.rs`
@@ -5992,21 +5327,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_provisioned_concurrency_config.rs
 +++ generated/src/protocol_serde/shape_get_provisioned_concurrency_config.rs
-@@ -100,13 +100,6 @@
-                     output =
-                         super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(super::super::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigError::unhandled)?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -155,8 +148,8 @@
+@@ -155,8 +155,8 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -6017,7 +5338,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                              .map(i32::try_from)
                              .transpose()?,
-@@ -169,15 +162,8 @@
+@@ -169,15 +169,8 @@
                              .transpose()?,
                      );
                  }
@@ -6035,7 +5356,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                              .map(i32::try_from)
                              .transpose()?,
-@@ -197,6 +183,13 @@
+@@ -197,6 +190,13 @@
                              .transpose()?,
                      );
                  }
@@ -6051,47 +5372,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              other => {
 ```
 
-### `src/protocol_serde/shape_get_resource_policy.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_resource_policy.rs
-+++ generated/src/protocol_serde/shape_get_resource_policy.rs
-@@ -73,13 +73,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_resource_policy::GetResourcePolicyError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_resource_policy::GetResourcePolicyError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
 ### `src/protocol_serde/shape_get_runtime_management_config.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_get_runtime_management_config.rs
 +++ generated/src/protocol_serde/shape_get_runtime_management_config.rs
-@@ -77,13 +77,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_runtime_management_config::GetRuntimeManagementConfigError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_runtime_management_config::GetRuntimeManagementConfigError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -131,6 +124,13 @@
+@@ -131,6 +131,13 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -6105,7 +5391,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "FunctionArn" => {
                      builder = builder.set_function_arn(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -145,13 +145,6 @@
+@@ -145,13 +152,6 @@
                              .transpose()?,
                      );
                  }
@@ -6126,19 +5412,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_invoke.rs
 +++ generated/src/protocol_serde/shape_invoke.rs
-@@ -675,11 +675,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::invoke::InvokeError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -743,65 +738,3 @@
+@@ -743,65 +743,3 @@
          output.build()
      })
  }
@@ -6295,21 +5569,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(clippy::unnecessary_wraps)]
  pub fn de_invoke_with_response_stream_http_error(
      _response_status: u16,
-@@ -649,13 +648,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -687,54 +679,3 @@
+@@ -687,54 +686,3 @@
          _ => super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::generic(generic),
      })
  }
@@ -6574,19 +5834,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_aliases.rs
 +++ generated/src/protocol_serde/shape_list_aliases.rs
-@@ -72,11 +72,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_aliases::ListAliasesError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_aliases::ListAliasesError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -119,9 +114,6 @@
+@@ -119,9 +119,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -6596,7 +5844,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "NextMarker" => {
                      builder = builder.set_next_marker(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -129,6 +121,9 @@
+@@ -129,6 +126,9 @@
                              .transpose()?,
                      );
                  }
@@ -6606,27 +5854,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
              other => {
-```
-
-### `src/protocol_serde/shape_list_capacity_providers.rs`
-
-```diff
---- reference/src/protocol_serde/shape_list_capacity_providers.rs
-+++ generated/src/protocol_serde/shape_list_capacity_providers.rs
-@@ -60,13 +60,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_capacity_providers::ListCapacityProvidersError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_capacity_providers::ListCapacityProvidersError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
 ```
 
 ### `src/protocol_serde/shape_list_code_signing_configs.rs`
@@ -6660,47 +5887,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
 ```
 
-### `src/protocol_serde/shape_list_durable_executions_by_function.rs`
-
-```diff
---- reference/src/protocol_serde/shape_list_durable_executions_by_function.rs
-+++ generated/src/protocol_serde/shape_list_durable_executions_by_function.rs
-@@ -82,13 +82,6 @@
-                     output =
-                         super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(super::super::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError::unhandled)?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-```
-
 ### `src/protocol_serde/shape_list_event_source_mappings.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_list_event_source_mappings.rs
 +++ generated/src/protocol_serde/shape_list_event_source_mappings.rs
-@@ -81,13 +81,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_event_source_mappings::ListEventSourceMappingsError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_event_source_mappings::ListEventSourceMappingsError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -135,11 +128,6 @@
+@@ -135,11 +135,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -6712,7 +5904,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "NextMarker" => {
                      builder = builder.set_next_marker(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -147,6 +135,11 @@
+@@ -147,6 +142,11 @@
                              .transpose()?,
                      );
                  }
@@ -6726,87 +5918,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              other => {
 ```
 
-### `src/protocol_serde/shape_list_function_event_invoke_configs.rs`
-
-```diff
---- reference/src/protocol_serde/shape_list_function_event_invoke_configs.rs
-+++ generated/src/protocol_serde/shape_list_function_event_invoke_configs.rs
-@@ -82,13 +82,6 @@
-                     output =
-                         super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(super::super::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsError::unhandled)?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-```
-
-### `src/protocol_serde/shape_list_function_url_configs.rs`
-
-```diff
---- reference/src/protocol_serde/shape_list_function_url_configs.rs
-+++ generated/src/protocol_serde/shape_list_function_url_configs.rs
-@@ -81,13 +81,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_function_url_configs::ListFunctionUrlConfigsError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_function_url_configs::ListFunctionUrlConfigsError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
-### `src/protocol_serde/shape_list_function_versions_by_capacity_provider.rs`
-
-```diff
---- reference/src/protocol_serde/shape_list_function_versions_by_capacity_provider.rs
-+++ generated/src/protocol_serde/shape_list_function_versions_by_capacity_provider.rs
-@@ -97,13 +97,6 @@
-                             .map_err(
-                                 super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::unhandled,
-                             )?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-```
-
 ### `src/protocol_serde/shape_list_functions.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_list_functions.rs
 +++ generated/src/protocol_serde/shape_list_functions.rs
-@@ -57,11 +57,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_functions::ListFunctionsError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_functions::ListFunctionsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -106,9 +101,6 @@
+@@ -106,9 +106,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -6816,7 +5933,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "NextMarker" => {
                      builder = builder.set_next_marker(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -116,6 +108,9 @@
+@@ -116,6 +113,9 @@
                              .transpose()?,
                      );
                  }
@@ -6868,45 +5985,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_layer_versions.rs
 +++ generated/src/protocol_serde/shape_list_layer_versions.rs
-@@ -73,13 +73,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_layer_versions::ListLayerVersionsError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_layer_versions::ListLayerVersionsError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -125,13 +118,6 @@
+@@ -125,6 +125,13 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
--                "LayerVersions" => {
--                    builder = builder.set_layer_versions(super::super::protocol_serde::shape_layer_versions_list::de_layer_versions_list(
--                        tokens,
--                        _value,
--                        depth + 1,
--                    )?);
--                }
-                 "NextMarker" => {
-                     builder = builder.set_next_marker(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -139,6 +125,13 @@
-                             .transpose()?,
-                     );
-                 }
-+                "LayerVersions" => {
-+                    builder = builder.set_layer_versions(super::super::protocol_serde::shape_layer_versions_list::de_layer_versions_list(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
++                "NextMarker" => {
++                    builder = builder.set_next_marker(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
 +                }
+                 "LayerVersions" => {
+                     builder = builder.set_layer_versions(super::super::protocol_serde::shape_layer_versions_list::de_layer_versions_list(
+                         tokens,
+@@ -132,13 +139,6 @@
+                         depth + 1,
+                     )?);
+                 }
+-                "NextMarker" => {
+-                    builder = builder.set_next_marker(
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                            .transpose()?,
+-                    );
+-                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
              other => {
@@ -6917,19 +6020,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_layers.rs
 +++ generated/src/protocol_serde/shape_list_layers.rs
-@@ -57,11 +57,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_layers::ListLayersError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_layers::ListLayersError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -104,9 +99,6 @@
+@@ -104,9 +104,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -6939,7 +6030,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "NextMarker" => {
                      builder = builder.set_next_marker(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -114,6 +106,9 @@
+@@ -114,6 +111,9 @@
                              .transpose()?,
                      );
                  }
@@ -6956,21 +6047,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_provisioned_concurrency_configs.rs
 +++ generated/src/protocol_serde/shape_list_provisioned_concurrency_configs.rs
-@@ -82,13 +82,6 @@
-                     output =
-                         super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(super::super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError::unhandled)?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -137,13 +130,6 @@
+@@ -137,13 +137,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -6984,7 +6061,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "ProvisionedConcurrencyConfigs" => {
                      builder = builder.set_provisioned_concurrency_configs(
                          super::super::protocol_serde::shape_provisioned_concurrency_config_list::de_provisioned_concurrency_config_list(
-@@ -153,6 +139,13 @@
+@@ -153,6 +146,13 @@
                          )?,
                      );
                  }
@@ -6998,46 +6075,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
              other => {
-```
-
-### `src/protocol_serde/shape_list_tags.rs`
-
-```diff
---- reference/src/protocol_serde/shape_list_tags.rs
-+++ generated/src/protocol_serde/shape_list_tags.rs
-@@ -72,11 +72,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_tags::ListTagsError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_tags::ListTagsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
-### `src/protocol_serde/shape_list_versions_by_function.rs`
-
-```diff
---- reference/src/protocol_serde/shape_list_versions_by_function.rs
-+++ generated/src/protocol_serde/shape_list_versions_by_function.rs
-@@ -81,13 +81,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_versions_by_function::ListVersionsByFunctionError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_versions_by_function::ListVersionsByFunctionError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
 ```
 
 ### `src/protocol_serde/shape_logging_config.rs`
@@ -7231,21 +6268,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_publish_layer_version.rs
 +++ generated/src/protocol_serde/shape_publish_layer_version.rs
-@@ -91,13 +91,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::publish_layer_version::PublishLayerVersionError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::publish_layer_version::PublishLayerVersionError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -155,53 +148,34 @@
+@@ -155,30 +155,25 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -7268,13 +6291,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "CreatedDate" => {
 -                    builder = builder.set_created_date(
--                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                            .transpose()?,
--                    );
--                }
--                "Description" => {
--                    builder = builder.set_description(
 +                "LayerArn" => {
 +                    builder = builder.set_layer_arn(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -7282,10 +6298,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                              .transpose()?,
                      );
                  }
--                "LayerArn" => {
--                    builder = builder.set_layer_arn(
 +                "LayerVersionArn" => {
 +                    builder = builder.set_layer_version_arn(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
+                 "Description" => {
+                     builder = builder.set_description(
+                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+@@ -186,20 +181,32 @@
+                             .transpose()?,
+                     );
+                 }
+-                "LayerArn" => {
+-                    builder = builder.set_layer_arn(
++                "CreatedDate" => {
++                    builder = builder.set_created_date(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
@@ -7293,21 +6323,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "LayerVersionArn" => {
 -                    builder = builder.set_layer_version_arn(
-+                "Description" => {
-+                    builder = builder.set_description(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                             .transpose()?,
-                     );
-                 }
--                "LicenseInfo" => {
--                    builder = builder.set_license_info(
-+                "CreatedDate" => {
-+                    builder = builder.set_created_date(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                             .transpose()?,
-@@ -214,6 +188,25 @@
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                "Version" => {
++                    builder = builder.set_version(
++                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
++                            .map(i64::try_from)
                              .transpose()?,
                      );
                  }
@@ -7323,13 +6344,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                        depth + 1,
 +                    )?);
 +                }
-+                "LicenseInfo" => {
-+                    builder = builder.set_license_info(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
-+                }
+                 "LicenseInfo" => {
+                     builder = builder.set_license_info(
+                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+@@ -207,13 +214,6 @@
+                             .transpose()?,
+                     );
+                 }
+-                "Version" => {
+-                    builder = builder.set_version(
+-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+-                            .map(i64::try_from)
+-                            .transpose()?,
+-                    );
+-                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
              other => {
@@ -7398,21 +6426,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_publish_version.rs
 +++ generated/src/protocol_serde/shape_publish_version.rs
-@@ -135,13 +135,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::publish_version::PublishVersionError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::publish_version::PublishVersionError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -196,20 +189,36 @@
+@@ -196,20 +196,36 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -7460,7 +6474,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
-@@ -222,93 +231,125 @@
+@@ -222,90 +238,122 @@
                              .transpose()?,
                      );
                  }
@@ -7485,18 +6499,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                            .map(i32::try_from)
 +                            .transpose()?,
 +                    );
-                 }
--                "Description" => {
--                    builder = builder.set_description(
++                }
 +                "MemorySize" => {
 +                    builder = builder.set_memory_size(
 +                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
 +                            .map(i32::try_from)
 +                            .transpose()?,
 +                    );
-+                }
+                 }
+-                "Description" => {
+-                    builder = builder.set_description(
 +                "LastModified" => {
 +                    builder = builder.set_last_modified(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
++                "CodeSha256" => {
++                    builder = builder.set_code_sha256(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
@@ -7504,8 +6525,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "DurableConfig" => {
 -                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
-+                "CodeSha256" => {
-+                    builder = builder.set_code_sha256(
++                "Version" => {
++                    builder = builder.set_version(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 +                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 +                            .transpose()?,
@@ -7513,13 +6534,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "Environment" => {
 -                    builder = builder.set_environment(super::super::protocol_serde::shape_environment_response::de_environment_response(
-+                "Version" => {
-+                    builder = builder.set_version(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
-+                }
 +                "VpcConfig" => {
 +                    builder = builder.set_vpc_config(super::super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
                          tokens,
@@ -7593,31 +6607,28 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "State" => {
 +                    builder = builder.set_state(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 +                            .map(|s| s.to_unescaped().map(|u| super::super::types::State::from(u.as_ref())))
++                            .transpose()?,
++                    );
++                }
++                "StateReason" => {
++                    builder = builder.set_state_reason(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
                      );
                  }
 -                "LastModified" => {
 -                    builder = builder.set_last_modified(
-+                "StateReason" => {
-+                    builder = builder.set_state_reason(
++                "StateReasonCode" => {
++                    builder = builder.set_state_reason_code(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
                              .transpose()?,
                      );
                  }
-+                "StateReasonCode" => {
-+                    builder = builder.set_state_reason_code(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
-+                            .transpose()?,
-+                    );
-+                }
-                 "LastUpdateStatus" => {
-                     builder = builder.set_last_update_status(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -330,27 +371,24 @@
+@@ -330,27 +378,24 @@
                              .transpose()?,
                      );
                  }
@@ -7653,7 +6664,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                              .transpose()?,
                      );
                  }
-@@ -361,48 +399,27 @@
+@@ -361,47 +406,26 @@
                              .transpose()?,
                      );
                  }
@@ -7676,13 +6687,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                            .transpose()?,
 -                    );
-+                "Architectures" => {
-+                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-                 }
+-                }
 -                "Runtime" => {
 -                    builder = builder.set_runtime(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -7692,8 +6697,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                }
 -                "RuntimeVersionConfig" => {
 -                    builder = builder.set_runtime_version_config(super::super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
-+                "EphemeralStorage" => {
-+                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
++                "Architectures" => {
++                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(
                          tokens,
                          _value,
                          depth + 1,
@@ -7712,11 +6717,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                            .transpose()?,
 -                    );
--                }
++                "EphemeralStorage" => {
++                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
++                        tokens,
++                        _value,
++                        depth + 1,
++                    )?);
+                 }
                  "SnapStart" => {
                      builder = builder.set_snap_start(super::super::protocol_serde::shape_snap_start_response::de_snap_start_response(
-                         tokens,
-@@ -410,57 +427,33 @@
+@@ -410,57 +434,33 @@
                          depth + 1,
                      )?);
                  }
@@ -7814,68 +6824,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/protocol_serde/shape_put_function_code_signing_config.rs`
-
-```diff
---- reference/src/protocol_serde/shape_put_function_code_signing_config.rs
-+++ generated/src/protocol_serde/shape_put_function_code_signing_config.rs
-@@ -121,13 +121,6 @@
-                     output =
-                         super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(super::super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError::unhandled)?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-```
-
-### `src/protocol_serde/shape_put_function_concurrency.rs`
-
-```diff
---- reference/src/protocol_serde/shape_put_function_concurrency.rs
-+++ generated/src/protocol_serde/shape_put_function_concurrency.rs
-@@ -96,13 +96,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::put_function_concurrency::PutFunctionConcurrencyError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::put_function_concurrency::PutFunctionConcurrencyError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
 ### `src/protocol_serde/shape_put_function_event_invoke_config.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_put_function_event_invoke_config.rs
 +++ generated/src/protocol_serde/shape_put_function_event_invoke_config.rs
-@@ -100,13 +100,6 @@
-                     output =
-                         super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(super::super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled)?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -165,11 +158,10 @@
+@@ -165,11 +165,10 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -7891,7 +6845,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      )?);
                  }
                  "FunctionArn" => {
-@@ -179,26 +171,27 @@
+@@ -179,26 +178,27 @@
                              .transpose()?,
                      );
                  }
@@ -7974,68 +6928,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/protocol_serde/shape_put_function_recursion_config.rs`
-
-```diff
---- reference/src/protocol_serde/shape_put_function_recursion_config.rs
-+++ generated/src/protocol_serde/shape_put_function_recursion_config.rs
-@@ -92,13 +92,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::put_function_recursion_config::PutFunctionRecursionConfigError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::put_function_recursion_config::PutFunctionRecursionConfigError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
-### `src/protocol_serde/shape_put_function_scaling_config.rs`
-
-```diff
---- reference/src/protocol_serde/shape_put_function_scaling_config.rs
-+++ generated/src/protocol_serde/shape_put_function_scaling_config.rs
-@@ -96,13 +96,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::put_function_scaling_config::PutFunctionScalingConfigError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::put_function_scaling_config::PutFunctionScalingConfigError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
 ### `src/protocol_serde/shape_put_provisioned_concurrency_config.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_put_provisioned_concurrency_config.rs
 +++ generated/src/protocol_serde/shape_put_provisioned_concurrency_config.rs
-@@ -100,13 +100,6 @@
-                     output =
-                         super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(super::super::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled)?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -165,29 +158,22 @@
+@@ -165,29 +165,22 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -8071,7 +6969,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                              .map(i32::try_from)
                              .transpose()?,
-@@ -207,6 +193,13 @@
+@@ -207,6 +200,13 @@
                              .transpose()?,
                      );
                  }
@@ -8087,47 +6985,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              other => {
 ```
 
-### `src/protocol_serde/shape_put_resource_policy.rs`
-
-```diff
---- reference/src/protocol_serde/shape_put_resource_policy.rs
-+++ generated/src/protocol_serde/shape_put_resource_policy.rs
-@@ -137,13 +137,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::put_resource_policy::PutResourcePolicyError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::put_resource_policy::PutResourcePolicyError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
 ### `src/protocol_serde/shape_put_runtime_management_config.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_put_runtime_management_config.rs
 +++ generated/src/protocol_serde/shape_put_runtime_management_config.rs
-@@ -92,13 +92,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::put_runtime_management_config::PutRuntimeManagementConfigError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::put_runtime_management_config::PutRuntimeManagementConfigError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -158,6 +151,13 @@
+@@ -158,6 +158,13 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -8141,7 +7004,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "FunctionArn" => {
                      builder = builder.set_function_arn(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -172,13 +172,6 @@
+@@ -172,13 +179,6 @@
                              .transpose()?,
                      );
                  }
@@ -8178,48 +7041,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-```
-
-### `src/protocol_serde/shape_remove_layer_version_permission.rs`
-
-```diff
---- reference/src/protocol_serde/shape_remove_layer_version_permission.rs
-+++ generated/src/protocol_serde/shape_remove_layer_version_permission.rs
-@@ -100,13 +100,6 @@
-                     output =
-                         super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::unhandled)?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-```
-
-### `src/protocol_serde/shape_remove_permission.rs`
-
-```diff
---- reference/src/protocol_serde/shape_remove_permission.rs
-+++ generated/src/protocol_serde/shape_remove_permission.rs
-@@ -103,13 +103,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::remove_permission::RemovePermissionError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::remove_permission::RemovePermissionError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
 ```
 
 ### `src/protocol_serde/shape_scaling_config.rs`
@@ -8374,27 +7195,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 ```
 
-### `src/protocol_serde/shape_send_durable_execution_callback_failure.rs`
-
-```diff
---- reference/src/protocol_serde/shape_send_durable_execution_callback_failure.rs
-+++ generated/src/protocol_serde/shape_send_durable_execution_callback_failure.rs
-@@ -177,13 +177,6 @@
-                             .map_err(
-                                 super::super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled,
-                             )?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-```
-
 ### `src/protocol_serde/shape_send_durable_execution_callback_failure_input.rs`
 
 ```diff
@@ -8409,48 +7209,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
      super::super::protocol_serde::shape_error_object::ser_error_object(&mut object, input)?;
-```
-
-### `src/protocol_serde/shape_send_durable_execution_callback_heartbeat.rs`
-
-```diff
---- reference/src/protocol_serde/shape_send_durable_execution_callback_heartbeat.rs
-+++ generated/src/protocol_serde/shape_send_durable_execution_callback_heartbeat.rs
-@@ -110,13 +110,6 @@
-                             .map_err(
-                                 super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
-                             )?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-```
-
-### `src/protocol_serde/shape_send_durable_execution_callback_success.rs`
-
-```diff
---- reference/src/protocol_serde/shape_send_durable_execution_callback_success.rs
-+++ generated/src/protocol_serde/shape_send_durable_execution_callback_success.rs
-@@ -177,13 +177,6 @@
-                             .map_err(
-                                 super::super::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::unhandled,
-                             )?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
-                     let output = output.meta(generic);
-                     output.build()
-                 };
 ```
 
 ### `src/protocol_serde/shape_step_started_details.rs`
@@ -8478,27 +7236,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
 ```
 
-### `src/protocol_serde/shape_stop_durable_execution.rs`
-
-```diff
---- reference/src/protocol_serde/shape_stop_durable_execution.rs
-+++ generated/src/protocol_serde/shape_stop_durable_execution.rs
-@@ -135,13 +135,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::stop_durable_execution::StopDurableExecutionError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::stop_durable_execution::StopDurableExecutionError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
 ### `src/protocol_serde/shape_stop_durable_execution_input.rs`
 
 ```diff
@@ -8513,25 +7250,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      let mut out = String::new();
      let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
      super::super::protocol_serde::shape_error_object::ser_error_object(&mut object, input)?;
-```
-
-### `src/protocol_serde/shape_tag_resource.rs`
-
-```diff
---- reference/src/protocol_serde/shape_tag_resource.rs
-+++ generated/src/protocol_serde/shape_tag_resource.rs
-@@ -87,11 +87,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::tag_resource::TagResourceError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
 ```
 
 ### `src/protocol_serde/shape_tenancy_config.rs`
@@ -8570,61 +7288,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 ```
 
-### `src/protocol_serde/shape_too_many_requests_exception.rs`
-
-```diff
---- reference/src/protocol_serde/shape_too_many_requests_exception.rs
-+++ generated/src/protocol_serde/shape_too_many_requests_exception.rs
-@@ -56,10 +56,3 @@
-     }
-     Ok(builder)
- }
--
--pub(crate) fn de_retry_after_seconds_header(
--    header_map: &::aws_smithy_runtime_api::http::Headers,
--) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
--    let headers = header_map.get_all("Retry-After");
--    ::aws_smithy_http::header::one_or_none(headers)
--}
-```
-
-### `src/protocol_serde/shape_untag_resource.rs`
-
-```diff
---- reference/src/protocol_serde/shape_untag_resource.rs
-+++ generated/src/protocol_serde/shape_untag_resource.rs
-@@ -87,11 +87,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::untag_resource::UntagResourceError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
 ### `src/protocol_serde/shape_update_alias.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_update_alias.rs
 +++ generated/src/protocol_serde/shape_update_alias.rs
-@@ -103,11 +103,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::update_alias::UpdateAliasError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::update_alias::UpdateAliasError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -168,8 +163,8 @@
+@@ -168,8 +168,8 @@
                                  .transpose()?,
                          );
                      }
@@ -8635,7 +7304,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                              ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                  .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                  .transpose()?,
-@@ -182,13 +177,18 @@
+@@ -182,13 +182,18 @@
                                  .transpose()?,
                          );
                      }
@@ -8656,7 +7325,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      "RevisionId" => {
                          builder = builder.set_revision_id(
                              ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -196,11 +196,6 @@
+@@ -196,11 +201,6 @@
                                  .transpose()?,
                          );
                      }
@@ -8709,27 +7378,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/protocol_serde/shape_update_capacity_provider.rs`
-
-```diff
---- reference/src/protocol_serde/shape_update_capacity_provider.rs
-+++ generated/src/protocol_serde/shape_update_capacity_provider.rs
-@@ -96,13 +96,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::update_capacity_provider::UpdateCapacityProviderError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::update_capacity_provider::UpdateCapacityProviderError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
 ### `src/protocol_serde/shape_update_code_signing_config_input.rs`
 
 ```diff
@@ -8774,21 +7422,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_event_source_mapping.rs
 +++ generated/src/protocol_serde/shape_update_event_source_mapping.rs
-@@ -111,13 +111,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -175,15 +168,26 @@
+@@ -175,15 +175,26 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -8804,15 +7438,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 +                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 +                            .transpose()?,
-+                    );
-+                }
+                     );
+                 }
 +                "StartingPosition" => {
 +                    builder = builder.set_starting_position(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 +                            .map(|s| s.to_unescaped().map(|u| super::super::types::EventSourcePosition::from(u.as_ref())))
 +                            .transpose()?,
-                     );
-                 }
++                    );
++                }
 +                "StartingPositionTimestamp" => {
 +                    builder = builder.set_starting_position_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
 +                        tokens.next(),
@@ -8822,7 +7456,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "BatchSize" => {
                      builder = builder.set_batch_size(
                          ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-@@ -191,30 +195,22 @@
+@@ -191,30 +202,22 @@
                              .transpose()?,
                      );
                  }
@@ -8864,7 +7498,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
-@@ -234,20 +230,36 @@
+@@ -234,20 +237,36 @@
                          depth + 1,
                      )?);
                  }
@@ -8908,7 +7542,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
-@@ -266,22 +278,43 @@
+@@ -266,22 +285,43 @@
                              .transpose()?,
                      );
                  }
@@ -8963,7 +7597,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "MaximumRecordAgeInSeconds" => {
                      builder = builder.set_maximum_record_age_in_seconds(
                          ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-@@ -289,6 +322,9 @@
+@@ -289,6 +329,9 @@
                              .transpose()?,
                      );
                  }
@@ -8973,7 +7607,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "MaximumRetryAttempts" => {
                      builder = builder.set_maximum_retry_attempts(
                          ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-@@ -296,36 +332,25 @@
+@@ -296,36 +339,25 @@
                              .transpose()?,
                      );
                  }
@@ -9022,7 +7656,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
                  "SelfManagedKafkaEventSourceConfig" => {
-@@ -337,53 +362,21 @@
+@@ -337,53 +369,21 @@
                          )?,
                      );
                  }
@@ -9313,21 +7947,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_function_code.rs
 +++ generated/src/protocol_serde/shape_update_function_code.rs
-@@ -179,13 +179,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::update_function_code::UpdateFunctionCodeError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::update_function_code::UpdateFunctionCodeError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -243,20 +236,36 @@
+@@ -243,20 +243,36 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -9375,7 +7995,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
-@@ -269,93 +278,125 @@
+@@ -269,90 +285,122 @@
                              .transpose()?,
                      );
                  }
@@ -9400,18 +8020,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                            .map(i32::try_from)
 +                            .transpose()?,
 +                    );
-                 }
--                "Description" => {
--                    builder = builder.set_description(
++                }
 +                "MemorySize" => {
 +                    builder = builder.set_memory_size(
 +                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
 +                            .map(i32::try_from)
 +                            .transpose()?,
 +                    );
-+                }
+                 }
+-                "Description" => {
+-                    builder = builder.set_description(
 +                "LastModified" => {
 +                    builder = builder.set_last_modified(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
++                "CodeSha256" => {
++                    builder = builder.set_code_sha256(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
@@ -9419,8 +8046,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "DurableConfig" => {
 -                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
-+                "CodeSha256" => {
-+                    builder = builder.set_code_sha256(
++                "Version" => {
++                    builder = builder.set_version(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 +                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 +                            .transpose()?,
@@ -9428,13 +8055,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "Environment" => {
 -                    builder = builder.set_environment(super::super::protocol_serde::shape_environment_response::de_environment_response(
-+                "Version" => {
-+                    builder = builder.set_version(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
-+                }
 +                "VpcConfig" => {
 +                    builder = builder.set_vpc_config(super::super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
                          tokens,
@@ -9508,31 +8128,28 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "State" => {
 +                    builder = builder.set_state(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 +                            .map(|s| s.to_unescaped().map(|u| super::super::types::State::from(u.as_ref())))
++                            .transpose()?,
++                    );
++                }
++                "StateReason" => {
++                    builder = builder.set_state_reason(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
                      );
                  }
 -                "LastModified" => {
 -                    builder = builder.set_last_modified(
-+                "StateReason" => {
-+                    builder = builder.set_state_reason(
++                "StateReasonCode" => {
++                    builder = builder.set_state_reason_code(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
                              .transpose()?,
                      );
                  }
-+                "StateReasonCode" => {
-+                    builder = builder.set_state_reason_code(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
-+                            .transpose()?,
-+                    );
-+                }
-                 "LastUpdateStatus" => {
-                     builder = builder.set_last_update_status(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -377,27 +418,24 @@
+@@ -377,27 +425,24 @@
                              .transpose()?,
                      );
                  }
@@ -9568,7 +8185,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                              .transpose()?,
                      );
                  }
-@@ -408,48 +446,27 @@
+@@ -408,47 +453,26 @@
                              .transpose()?,
                      );
                  }
@@ -9591,13 +8208,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                            .transpose()?,
 -                    );
-+                "Architectures" => {
-+                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-                 }
+-                }
 -                "Runtime" => {
 -                    builder = builder.set_runtime(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -9607,8 +8218,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                }
 -                "RuntimeVersionConfig" => {
 -                    builder = builder.set_runtime_version_config(super::super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
-+                "EphemeralStorage" => {
-+                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
++                "Architectures" => {
++                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(
                          tokens,
                          _value,
                          depth + 1,
@@ -9627,11 +8238,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                            .transpose()?,
 -                    );
--                }
++                "EphemeralStorage" => {
++                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
++                        tokens,
++                        _value,
++                        depth + 1,
++                    )?);
+                 }
                  "SnapStart" => {
                      builder = builder.set_snap_start(super::super::protocol_serde::shape_snap_start_response::de_snap_start_response(
-                         tokens,
-@@ -457,57 +474,33 @@
+@@ -457,57 +481,33 @@
                          depth + 1,
                      )?);
                  }
@@ -9796,21 +8412,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_function_configuration.rs
 +++ generated/src/protocol_serde/shape_update_function_configuration.rs
-@@ -177,13 +177,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::update_function_configuration::UpdateFunctionConfigurationError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::update_function_configuration::UpdateFunctionConfigurationError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -241,20 +234,36 @@
+@@ -241,20 +241,36 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -9858,7 +8460,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
-@@ -267,93 +276,125 @@
+@@ -267,90 +283,122 @@
                              .transpose()?,
                      );
                  }
@@ -9883,18 +8485,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                            .map(i32::try_from)
 +                            .transpose()?,
 +                    );
-                 }
--                "Description" => {
--                    builder = builder.set_description(
++                }
 +                "MemorySize" => {
 +                    builder = builder.set_memory_size(
 +                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
 +                            .map(i32::try_from)
 +                            .transpose()?,
 +                    );
-+                }
+                 }
+-                "Description" => {
+-                    builder = builder.set_description(
 +                "LastModified" => {
 +                    builder = builder.set_last_modified(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
++                "CodeSha256" => {
++                    builder = builder.set_code_sha256(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
@@ -9902,8 +8511,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "DurableConfig" => {
 -                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
-+                "CodeSha256" => {
-+                    builder = builder.set_code_sha256(
++                "Version" => {
++                    builder = builder.set_version(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 +                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 +                            .transpose()?,
@@ -9911,13 +8520,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "Environment" => {
 -                    builder = builder.set_environment(super::super::protocol_serde::shape_environment_response::de_environment_response(
-+                "Version" => {
-+                    builder = builder.set_version(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
-+                }
 +                "VpcConfig" => {
 +                    builder = builder.set_vpc_config(super::super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
                          tokens,
@@ -9991,31 +8593,28 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "State" => {
 +                    builder = builder.set_state(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 +                            .map(|s| s.to_unescaped().map(|u| super::super::types::State::from(u.as_ref())))
++                            .transpose()?,
++                    );
++                }
++                "StateReason" => {
++                    builder = builder.set_state_reason(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
                      );
                  }
 -                "LastModified" => {
 -                    builder = builder.set_last_modified(
-+                "StateReason" => {
-+                    builder = builder.set_state_reason(
++                "StateReasonCode" => {
++                    builder = builder.set_state_reason_code(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
                              .transpose()?,
                      );
                  }
-+                "StateReasonCode" => {
-+                    builder = builder.set_state_reason_code(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| super::super::types::StateReasonCode::from(u.as_ref())))
-+                            .transpose()?,
-+                    );
-+                }
-                 "LastUpdateStatus" => {
-                     builder = builder.set_last_update_status(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -375,27 +416,24 @@
+@@ -375,27 +423,24 @@
                              .transpose()?,
                      );
                  }
@@ -10051,7 +8650,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                              .transpose()?,
                      );
                  }
-@@ -406,48 +444,27 @@
+@@ -406,47 +451,26 @@
                              .transpose()?,
                      );
                  }
@@ -10074,13 +8673,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                            .transpose()?,
 -                    );
-+                "Architectures" => {
-+                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-                 }
+-                }
 -                "Runtime" => {
 -                    builder = builder.set_runtime(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -10090,8 +8683,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                }
 -                "RuntimeVersionConfig" => {
 -                    builder = builder.set_runtime_version_config(super::super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
-+                "EphemeralStorage" => {
-+                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
++                "Architectures" => {
++                    builder = builder.set_architectures(super::super::protocol_serde::shape_architectures_list::de_architectures_list(
                          tokens,
                          _value,
                          depth + 1,
@@ -10110,11 +8703,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                            .transpose()?,
 -                    );
--                }
++                "EphemeralStorage" => {
++                    builder = builder.set_ephemeral_storage(super::super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
++                        tokens,
++                        _value,
++                        depth + 1,
++                    )?);
+                 }
                  "SnapStart" => {
                      builder = builder.set_snap_start(super::super::protocol_serde::shape_snap_start_response::de_snap_start_response(
-                         tokens,
-@@ -455,57 +472,33 @@
+@@ -455,57 +479,33 @@
                          depth + 1,
                      )?);
                  }
@@ -10391,21 +8989,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_function_event_invoke_config.rs
 +++ generated/src/protocol_serde/shape_update_function_event_invoke_config.rs
-@@ -100,13 +100,6 @@
-                     output =
-                         super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(super::super::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigError::unhandled)?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -165,11 +158,10 @@
+@@ -165,11 +165,10 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -10421,7 +9005,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      )?);
                  }
                  "FunctionArn" => {
-@@ -179,26 +171,27 @@
+@@ -179,26 +178,27 @@
                              .transpose()?,
                      );
                  }
@@ -10509,21 +9093,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_function_url_config.rs
 +++ generated/src/protocol_serde/shape_update_function_url_config.rs
-@@ -96,13 +96,6 @@
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::update_function_url_config::UpdateFunctionUrlConfigError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::update_function_url_config::UpdateFunctionUrlConfigError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -162,6 +155,20 @@
+@@ -162,6 +162,20 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -10544,7 +9114,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "AuthType" => {
                      builder = builder.set_auth_type(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -179,15 +186,8 @@
+@@ -179,15 +193,8 @@
                              .transpose()?,
                      );
                  }
@@ -10562,7 +9132,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
-@@ -200,13 +200,6 @@
+@@ -200,13 +207,6 @@
                              .transpose()?,
                      );
                  }

@@ -4,6 +4,28 @@ Updated 2026-08-24. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-24 — Deserialize modeled HTTP headers on protocol errors
+- State: in progress
+- Changed: JSON and XML protocol error files now emit the same model-driven HTTP header
+  and prefix-header deserializers used by response outputs. Operation error arms apply
+  those parsed values to the modeled error builders and map parse failures to the
+  operation error. This covers Lambda's `TooManyRequestsException.retryAfterSeconds`
+  and CodeArtifact's equivalent `ThrottlingException` without service-specific logic.
+  The rule follows Smithy-RS `ProtocolParserGenerator` and
+  `HttpBindingGenerator` at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Evidence: focused modeled-error-header regression passes; conformance regeneration
+  completed all 15 services and 1,133 operations without generated-source parse
+  errors. Workspace tests, workspace Clippy with `-D warnings`, formatting, and
+  `git diff --check` pass.
+- Conformance: `12,149/13,168` matched, `1,014` mismatched, `4` missing, and `1`
+  extra -> `12,193/13,168` matched, `970` mismatched, `4` missing, and `1` extra
+  (`90.66%` average). `just conformance` exits 1 only for the remaining parity gaps.
+- Blocker: remaining mismatches are broader generic codegen parity gaps, primarily
+  Bedrock Runtime and the residual Lambda/SESv2 differences; no blocker in this
+  modeled-header implementation.
+- Next action: continue with the largest remaining generic protocol mismatch.
+
 ### Checkpoint: 2026-08-24 — Match lazy query protocol helper ordering
 - State: in progress
 - Changed: query-protocol `protocol_serde` modules now register the first lazy wave as

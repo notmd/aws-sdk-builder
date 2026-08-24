@@ -109,6 +109,13 @@ pub fn de_update_package_group_origin_configuration_http_error(
                     output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(
                         super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
                     )?;
+                    output = output.set_retry_after_seconds(
+                        super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled(
+                                "Failed to parse retryAfterSeconds from header `Retry-After",
+                            )
+                        })?,
+                    );
                     let output = output.meta(generic);
                     output.build()
                 };

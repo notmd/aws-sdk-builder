@@ -59375,6 +59375,11 @@ pub fn de_associate_external_connection_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -59547,6 +59552,11 @@ pub fn de_copy_package_versions_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -59733,6 +59743,11 @@ pub fn de_create_domain_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::create_domain::CreateDomainError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -59916,6 +59931,11 @@ pub fn de_create_package_group_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::create_package_group::CreatePackageGroupError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -60099,6 +60119,11 @@ pub fn de_create_repository_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::create_repository::CreateRepositoryError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -60254,6 +60279,11 @@ pub fn de_delete_domain_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::delete_domain::DeleteDomainError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -60412,6 +60442,11 @@ pub fn de_delete_domain_permissions_policy_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -60570,6 +60605,11 @@ pub fn de_delete_package_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::delete_package::DeletePackageError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -60742,6 +60782,11 @@ pub fn de_delete_package_group_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::delete_package_group::DeletePackageGroupError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -60900,6 +60945,11 @@ pub fn de_delete_package_versions_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -61072,6 +61122,11 @@ pub fn de_delete_repository_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::delete_repository::DeleteRepositoryError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -61230,6 +61285,11 @@ pub fn de_delete_repository_permissions_policy_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -61374,6 +61434,11 @@ pub fn de_describe_domain_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::describe_domain::DescribeDomainError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -61518,6 +61583,11 @@ pub fn de_describe_package_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::describe_package::DescribePackageError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -61663,6 +61733,11 @@ pub fn de_describe_package_group_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::describe_package_group::DescribePackageGroupError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -61821,6 +61896,11 @@ pub fn de_describe_package_version_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::describe_package_version::DescribePackageVersionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -61966,6 +62046,11 @@ pub fn de_describe_repository_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::describe_repository::DescribeRepositoryError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -62138,6 +62223,11 @@ pub fn de_disassociate_external_connection_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -62296,6 +62386,11 @@ pub fn de_dispose_package_versions_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -62589,6 +62684,11 @@ pub fn de_get_authorization_token_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -62738,6 +62838,11 @@ pub fn de_get_domain_permissions_policy_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -62917,6 +63022,11 @@ pub fn de_get_package_version_asset_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -63012,6 +63122,11 @@ pub fn de_get_package_version_readme_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -63183,6 +63298,11 @@ pub fn de_get_repository_endpoint_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -63329,6 +63449,11 @@ pub fn de_get_repository_permissions_policy_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -63487,6 +63612,11 @@ pub fn de_list_allowed_repositories_for_group_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -63757,6 +63887,11 @@ pub fn de_list_domains_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::list_domains::ListDomainsError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_domains::ListDomainsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -63917,6 +64052,11 @@ pub fn de_list_package_groups_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_package_groups::ListPackageGroupsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -64066,6 +64206,11 @@ pub fn de_list_package_version_assets_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -64240,6 +64385,11 @@ pub fn de_list_package_version_dependencies_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -64414,6 +64564,11 @@ pub fn de_list_package_versions_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_package_versions::ListPackageVersionsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -64583,6 +64738,11 @@ pub fn de_list_packages_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_packages::ListPackagesError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -64718,6 +64878,11 @@ pub fn de_list_repositories_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::list_repositories::ListRepositoriesError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_repositories::ListRepositoriesError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -64867,6 +65032,11 @@ pub fn de_list_repositories_in_domain_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65016,6 +65186,11 @@ pub fn de_list_sub_package_groups_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65151,6 +65326,11 @@ pub fn de_list_tags_for_resource_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65323,6 +65503,11 @@ pub fn de_publish_package_version_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::publish_package_version::PublishPackageVersionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65525,6 +65710,11 @@ pub fn de_put_domain_permissions_policy_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65680,6 +65870,11 @@ pub fn de_put_package_origin_configuration_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65863,6 +66058,11 @@ pub fn de_put_repository_permissions_policy_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -66018,6 +66218,11 @@ pub fn de_tag_resource_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::tag_resource::TagResourceError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -66123,6 +66328,11 @@ pub fn de_untag_resource_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::untag_resource::UntagResourceError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -66256,6 +66466,11 @@ pub fn de_update_package_group_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::update_package_group::UpdatePackageGroupError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -66425,6 +66640,11 @@ pub fn de_update_package_group_origin_configuration_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -66597,6 +66817,11 @@ pub fn de_update_package_versions_status_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -66783,6 +67008,11 @@ pub fn de_update_repository_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::update_repository::UpdateRepositoryError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -67457,6 +67687,23 @@ pub(crate) fn de_throttling_exception_json_err(
         ));
     }
     Ok(super::super::serde_util::throttling_exception_correct_errors(builder).build().map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom("missing field"))?)
+}
+
+
+pub(crate) fn de_retry_after_seconds_header(
+    header_map: &::aws_smithy_runtime_api::http::Headers,
+) -> ::std::result::Result<::std::option::Option<i32>, ::aws_smithy_http::header::ParseError> {
+    let headers = header_map.get_all("Retry-After");
+    let var_1 = ::aws_smithy_http::header::read_many_primitive::<i32>(headers)?;
+    if var_1.len() > 1 {
+        Err(::aws_smithy_http::header::ParseError::new(format!(
+            "expected one item but found {}",
+            var_1.len()
+        )))
+    } else {
+        let mut var_1 = var_1;
+        Ok(var_1.pop())
+    }
 }
 }
 

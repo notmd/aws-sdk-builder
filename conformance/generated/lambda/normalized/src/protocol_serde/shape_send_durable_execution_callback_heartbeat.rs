@@ -110,6 +110,13 @@ pub fn de_send_durable_execution_callback_heartbeat_http_error(
                             .map_err(
                                 super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
                             )?;
+                    output = output.set_retry_after_seconds(
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                            super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled(
+                                "Failed to parse retryAfterSeconds from header `Retry-After",
+                            )
+                        })?,
+                    );
                     let output = output.meta(generic);
                     output.build()
                 };

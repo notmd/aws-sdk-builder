@@ -121732,6 +121732,11 @@ pub fn de_add_layer_version_permission_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::add_layer_version_permission::AddLayerVersionPermissionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::add_layer_version_permission::AddLayerVersionPermissionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -121936,6 +121941,11 @@ pub fn de_add_permission_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::add_permission::AddPermissionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::add_permission::AddPermissionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -122121,6 +122131,11 @@ pub fn de_checkpoint_durable_execution_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -122296,6 +122311,11 @@ pub fn de_create_alias_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::create_alias::CreateAliasError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::create_alias::CreateAliasError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -122476,6 +122496,11 @@ pub fn de_create_capacity_provider_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::create_capacity_provider::CreateCapacityProviderError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::create_capacity_provider::CreateCapacityProviderError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -122746,6 +122771,11 @@ pub fn de_create_event_source_mapping_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::create_event_source_mapping::CreateEventSourceMappingError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::create_event_source_mapping::CreateEventSourceMappingError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -123097,6 +123127,11 @@ pub fn de_create_function_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::create_function::CreateFunctionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::create_function::CreateFunctionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -123419,6 +123454,11 @@ pub fn de_create_function_url_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::create_function_url_config::CreateFunctionUrlConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::create_function_url_config::CreateFunctionUrlConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -123601,6 +123641,11 @@ pub fn de_delete_alias_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::delete_alias::DeleteAliasError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::delete_alias::DeleteAliasError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -123710,6 +123755,11 @@ pub fn de_delete_capacity_provider_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::delete_capacity_provider::DeleteCapacityProviderError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::delete_capacity_provider::DeleteCapacityProviderError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -123964,6 +124014,11 @@ pub fn de_delete_event_source_mapping_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::delete_event_source_mapping::DeleteEventSourceMappingError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::delete_event_source_mapping::DeleteEventSourceMappingError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -124234,6 +124289,11 @@ pub fn de_delete_function_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::delete_function::DeleteFunctionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::delete_function::DeleteFunctionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -124358,6 +124418,11 @@ pub fn de_delete_function_code_signing_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -124467,6 +124532,11 @@ pub fn de_delete_function_concurrency_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::delete_function_concurrency::DeleteFunctionConcurrencyError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::delete_function_concurrency::DeleteFunctionConcurrencyError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -124576,6 +124646,11 @@ pub fn de_delete_function_event_invoke_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -124685,6 +124760,11 @@ pub fn de_delete_function_url_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -124780,6 +124860,11 @@ pub fn de_delete_layer_version_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::delete_layer_version::DeleteLayerVersionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::delete_layer_version::DeleteLayerVersionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -124889,6 +124974,11 @@ pub fn de_delete_provisioned_concurrency_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -125012,6 +125102,11 @@ pub fn de_delete_resource_policy_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -125079,6 +125174,11 @@ pub fn de_get_account_settings_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_account_settings::GetAccountSettingsError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_account_settings::GetAccountSettingsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -125212,6 +125312,11 @@ pub fn de_get_alias_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_alias::GetAliasError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_alias::GetAliasError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -125367,6 +125472,11 @@ pub fn de_get_capacity_provider_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_capacity_provider::GetCapacityProviderError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_capacity_provider::GetCapacityProviderError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -125671,6 +125781,11 @@ pub fn de_get_durable_execution_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_durable_execution::GetDurableExecutionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_durable_execution::GetDurableExecutionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -125909,6 +126024,11 @@ pub fn de_get_durable_execution_history_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -126088,6 +126208,11 @@ pub fn de_get_durable_execution_state_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_durable_execution_state::GetDurableExecutionStateError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_durable_execution_state::GetDurableExecutionStateError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -126225,6 +126350,11 @@ pub fn de_get_event_source_mapping_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_event_source_mapping::GetEventSourceMappingError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_event_source_mapping::GetEventSourceMappingError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -126481,6 +126611,11 @@ pub fn de_get_function_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_function::GetFunctionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_function::GetFunctionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -126637,6 +126772,11 @@ pub fn de_get_function_code_signing_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -126776,6 +126916,11 @@ pub fn de_get_function_concurrency_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_function_concurrency::GetFunctionConcurrencyError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_function_concurrency::GetFunctionConcurrencyError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -126908,6 +127053,11 @@ pub fn de_get_function_configuration_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_function_configuration::GetFunctionConfigurationError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_function_configuration::GetFunctionConfigurationError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -127205,6 +127355,11 @@ pub fn de_get_function_event_invoke_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -127353,6 +127508,11 @@ pub fn de_get_function_recursion_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_function_recursion_config::GetFunctionRecursionConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_function_recursion_config::GetFunctionRecursionConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -127485,6 +127645,11 @@ pub fn de_get_function_scaling_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_function_scaling_config::GetFunctionScalingConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_function_scaling_config::GetFunctionScalingConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -127623,6 +127788,11 @@ pub fn de_get_function_url_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_function_url_config::GetFunctionUrlConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_function_url_config::GetFunctionUrlConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -127785,6 +127955,11 @@ pub fn de_get_layer_version_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_layer_version::GetLayerVersionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_layer_version::GetLayerVersionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -127951,6 +128126,11 @@ pub fn de_get_layer_version_by_arn_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_layer_version_by_arn::GetLayerVersionByArnError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_layer_version_by_arn::GetLayerVersionByArnError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -128117,6 +128297,11 @@ pub fn de_get_layer_version_policy_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_layer_version_policy::GetLayerVersionPolicyError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_layer_version_policy::GetLayerVersionPolicyError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -128254,6 +128439,11 @@ pub fn de_get_policy_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_policy::GetPolicyError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_policy::GetPolicyError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -128405,6 +128595,11 @@ pub fn de_get_provisioned_concurrency_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -128562,6 +128757,11 @@ pub fn de_get_resource_policy_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_resource_policy::GetResourcePolicyError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_resource_policy::GetResourcePolicyError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -128699,6 +128899,11 @@ pub fn de_get_runtime_management_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_runtime_management_config::GetRuntimeManagementConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::get_runtime_management_config::GetRuntimeManagementConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -129373,6 +129578,11 @@ pub fn de_invoke_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::invoke::InvokeError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -130405,6 +130615,11 @@ pub fn de_invoke_with_response_stream_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -130500,6 +130715,11 @@ pub fn de_list_aliases_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::list_aliases::ListAliasesError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_aliases::ListAliasesError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -130621,6 +130841,11 @@ pub fn de_list_capacity_providers_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::list_capacity_providers::ListCapacityProvidersError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_capacity_providers::ListCapacityProvidersError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -130865,6 +131090,11 @@ pub fn de_list_durable_executions_by_function_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -131000,6 +131230,11 @@ pub fn de_list_event_source_mappings_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::list_event_source_mappings::ListEventSourceMappingsError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_event_source_mappings::ListEventSourceMappingsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -131135,6 +131370,11 @@ pub fn de_list_function_event_invoke_configs_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -131270,6 +131510,11 @@ pub fn de_list_function_url_configs_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::list_function_url_configs::ListFunctionUrlConfigsError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_function_url_configs::ListFunctionUrlConfigsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -131407,6 +131652,11 @@ pub fn de_list_function_versions_by_capacity_provider_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -131535,6 +131785,11 @@ pub fn de_list_functions_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::list_functions::ListFunctionsError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_functions::ListFunctionsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -131791,6 +132046,11 @@ pub fn de_list_layer_versions_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::list_layer_versions::ListLayerVersionsError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_layer_versions::ListLayerVersionsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -131912,6 +132172,11 @@ pub fn de_list_layers_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::list_layers::ListLayersError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_layers::ListLayersError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -132047,6 +132312,11 @@ pub fn de_list_provisioned_concurrency_configs_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -132182,6 +132452,11 @@ pub fn de_list_tags_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::list_tags::ListTagsError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_tags::ListTagsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -132312,6 +132587,11 @@ pub fn de_list_versions_by_function_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::list_versions_by_function::ListVersionsByFunctionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_versions_by_function::ListVersionsByFunctionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -132461,6 +132741,11 @@ pub fn de_publish_layer_version_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::publish_layer_version::PublishLayerVersionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::publish_layer_version::PublishLayerVersionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -132694,6 +132979,11 @@ pub fn de_publish_version_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::publish_version::PublishVersionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::publish_version::PublishVersionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -133030,6 +133320,11 @@ pub fn de_put_function_code_signing_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -133194,6 +133489,11 @@ pub fn de_put_function_concurrency_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::put_function_concurrency::PutFunctionConcurrencyError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::put_function_concurrency::PutFunctionConcurrencyError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -133351,6 +133651,11 @@ pub fn de_put_function_event_invoke_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -133524,6 +133829,11 @@ pub fn de_put_function_recursion_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::put_function_recursion_config::PutFunctionRecursionConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::put_function_recursion_config::PutFunctionRecursionConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -133681,6 +133991,11 @@ pub fn de_put_function_scaling_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::put_function_scaling_config::PutFunctionScalingConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::put_function_scaling_config::PutFunctionScalingConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -133838,6 +134153,11 @@ pub fn de_put_provisioned_concurrency_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -134062,6 +134382,11 @@ pub fn de_put_resource_policy_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::put_resource_policy::PutResourcePolicyError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::put_resource_policy::PutResourcePolicyError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -134224,6 +134549,11 @@ pub fn de_put_runtime_management_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::put_runtime_management_config::PutRuntimeManagementConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::put_runtime_management_config::PutRuntimeManagementConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -134393,6 +134723,11 @@ pub fn de_remove_layer_version_permission_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -134516,6 +134851,11 @@ pub fn de_remove_permission_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::remove_permission::RemovePermissionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::remove_permission::RemovePermissionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -134681,6 +135021,11 @@ pub fn de_send_durable_execution_callback_failure_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -134790,6 +135135,11 @@ pub fn de_send_durable_execution_callback_heartbeat_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -134955,6 +135305,11 @@ pub fn de_send_durable_execution_callback_success_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -135106,6 +135461,11 @@ pub fn de_stop_durable_execution_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::stop_durable_execution::StopDurableExecutionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::stop_durable_execution::StopDurableExecutionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -135252,6 +135612,11 @@ pub fn de_tag_resource_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::tag_resource::TagResourceError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -135371,6 +135736,11 @@ pub fn de_untag_resource_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::untag_resource::UntagResourceError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -135494,6 +135864,11 @@ pub fn de_update_alias_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::update_alias::UpdateAliasError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::update_alias::UpdateAliasError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -135674,6 +136049,11 @@ pub fn de_update_capacity_provider_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::update_capacity_provider::UpdateCapacityProviderError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::update_capacity_provider::UpdateCapacityProviderError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -135972,6 +136352,11 @@ pub fn de_update_event_source_mapping_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -136323,6 +136708,11 @@ pub fn de_update_function_code_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::update_function_code::UpdateFunctionCodeError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::update_function_code::UpdateFunctionCodeError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -136701,6 +137091,11 @@ pub fn de_update_function_configuration_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::update_function_configuration::UpdateFunctionConfigurationError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::update_function_configuration::UpdateFunctionConfigurationError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -137023,6 +137418,11 @@ pub fn de_update_function_event_invoke_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -137196,6 +137596,11 @@ pub fn de_update_function_url_config_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::update_function_url_config::UpdateFunctionUrlConfigError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::update_function_url_config::UpdateFunctionUrlConfigError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };
@@ -140639,6 +141044,13 @@ pub(crate) fn de_too_many_requests_exception_json_err(
         ));
     }
     Ok(builder)
+}
+
+pub(crate) fn de_retry_after_seconds_header(
+    header_map: &::aws_smithy_runtime_api::http::Headers,
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
+    let headers = header_map.get_all("Retry-After");
+    ::aws_smithy_http::header::one_or_none(headers)
 }
 }
 

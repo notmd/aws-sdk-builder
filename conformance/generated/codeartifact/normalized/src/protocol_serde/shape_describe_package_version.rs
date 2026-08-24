@@ -91,6 +91,13 @@ pub fn de_describe_package_version_http_error(
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::describe_package_version::DescribePackageVersionError::unhandled(
+                            "Failed to parse retryAfterSeconds from header `Retry-After",
+                        )
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };

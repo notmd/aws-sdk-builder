@@ -185,17 +185,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -105,18 +110,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -113,10 +118,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -208,7 +200,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::associate_external_connection::AssociateExternalConnectionError::ValidationException({
-@@ -127,10 +126,11 @@
+@@ -127,10 +133,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
                  let output = output.meta(generic);
@@ -321,17 +313,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::copy_package_versions::CopyPackageVersionsError::ThrottlingException({
-@@ -100,18 +105,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -108,10 +113,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -344,7 +328,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::copy_package_versions::CopyPackageVersionsError::ValidationException({
-@@ -122,10 +121,11 @@
+@@ -122,10 +128,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
@@ -359,7 +343,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::copy_package_versions::CopyPackageVersionsError::generic(generic),
-@@ -177,13 +177,6 @@
+@@ -177,13 +184,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -373,7 +357,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "successfulVersions" => {
                      builder = builder.set_successful_versions(
                          super::super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(
-@@ -193,6 +186,13 @@
+@@ -193,6 +193,13 @@
                          )?,
                      );
                  }
@@ -524,15 +508,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::create_domain::CreateDomainError::ThrottlingException({
-@@ -97,16 +102,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::create_domain::CreateDomainError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
+@@ -103,10 +108,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -545,7 +523,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::create_domain::CreateDomainError::ValidationException({
-@@ -117,10 +118,11 @@
+@@ -117,10 +123,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?;
                  let output = output.meta(generic);
@@ -642,17 +620,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::create_package_group::CreatePackageGroupError::ThrottlingException({
-@@ -100,18 +105,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::create_package_group::CreatePackageGroupError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -108,10 +113,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -665,7 +635,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::create_package_group::CreatePackageGroupError::ValidationException({
-@@ -122,10 +121,11 @@
+@@ -122,10 +128,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
@@ -790,17 +760,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::create_repository::CreateRepositoryError::ThrottlingException({
-@@ -97,18 +102,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::create_repository::CreateRepositoryError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -105,10 +110,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -813,7 +775,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::create_repository::CreateRepositoryError::ValidationException({
-@@ -119,10 +118,11 @@
+@@ -119,10 +125,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?;
                  let output = output.meta(generic);
@@ -919,15 +881,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::delete_domain::DeleteDomainError::ThrottlingException({
-@@ -66,16 +69,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::delete_domain::DeleteDomainError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
+@@ -72,10 +75,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -940,7 +896,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::delete_domain::DeleteDomainError::ValidationException({
-@@ -86,10 +85,11 @@
+@@ -86,10 +90,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?;
                  let output = output.meta(generic);
@@ -1022,17 +978,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -88,18 +92,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -96,10 +100,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -1045,7 +993,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::ValidationException({
-@@ -110,10 +108,11 @@
+@@ -110,10 +115,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
                  let output = output.meta(generic);
@@ -1127,15 +1075,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::delete_package::DeletePackageError::ThrottlingException({
-@@ -80,16 +84,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::delete_package::DeletePackageError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
+@@ -86,10 +90,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -1148,7 +1090,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::delete_package::DeletePackageError::ValidationException({
-@@ -100,10 +100,11 @@
+@@ -100,10 +105,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?;
                  let output = output.meta(generic);
@@ -1245,17 +1187,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::delete_package_group::DeletePackageGroupError::ThrottlingException({
-@@ -100,18 +105,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::delete_package_group::DeletePackageGroupError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -108,10 +113,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -1268,7 +1202,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::delete_package_group::DeletePackageGroupError::ValidationException({
-@@ -122,10 +121,11 @@
+@@ -122,10 +128,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
@@ -1350,17 +1284,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::delete_package_versions::DeletePackageVersionsError::ThrottlingException({
-@@ -83,18 +87,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -91,10 +95,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -1373,7 +1299,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::delete_package_versions::DeletePackageVersionsError::ValidationException({
-@@ -105,10 +103,11 @@
+@@ -105,10 +110,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
@@ -1388,7 +1314,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::delete_package_versions::DeletePackageVersionsError::generic(generic),
-@@ -160,13 +159,6 @@
+@@ -160,13 +166,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -1402,7 +1328,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "successfulVersions" => {
                      builder = builder.set_successful_versions(
                          super::super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(
-@@ -176,6 +168,13 @@
+@@ -176,6 +175,13 @@
                          )?,
                      );
                  }
@@ -1516,17 +1442,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::delete_repository::DeleteRepositoryError::ThrottlingException({
-@@ -80,18 +84,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::delete_repository::DeleteRepositoryError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -88,10 +92,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -1539,7 +1457,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::delete_repository::DeleteRepositoryError::ValidationException({
-@@ -102,10 +100,11 @@
+@@ -102,10 +107,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
                  let output = output.meta(generic);
@@ -1621,17 +1539,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -91,18 +95,12 @@
-                     let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                     output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                         .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
+@@ -99,10 +103,11 @@
+                         })?,
+                     );
                      let output = output.meta(generic);
 -                    super::super::serde_util::throttling_exception_correct_errors(output)
 -                        .build()
@@ -1644,7 +1554,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -115,10 +113,11 @@
+@@ -115,10 +120,11 @@
                      output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                          .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
                      let output = output.meta(generic);
@@ -1711,17 +1621,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::describe_domain::DescribeDomainError::ThrottlingException({
-@@ -66,18 +69,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::describe_domain::DescribeDomainError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -74,10 +77,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -1734,7 +1636,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::describe_domain::DescribeDomainError::ValidationException({
-@@ -88,10 +85,11 @@
+@@ -88,10 +92,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?;
                  let output = output.meta(generic);
@@ -1801,17 +1703,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::describe_package::DescribePackageError::ThrottlingException({
-@@ -66,18 +69,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::describe_package::DescribePackageError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -74,10 +77,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -1824,7 +1718,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::describe_package::DescribePackageError::ValidationException({
-@@ -88,10 +85,11 @@
+@@ -88,10 +92,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?;
                  let output = output.meta(generic);
@@ -1891,17 +1785,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::describe_package_group::DescribePackageGroupError::ThrottlingException({
-@@ -69,18 +72,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::describe_package_group::DescribePackageGroupError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -77,10 +80,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -1914,7 +1800,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::describe_package_group::DescribePackageGroupError::ValidationException({
-@@ -91,10 +88,11 @@
+@@ -91,10 +95,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
@@ -1996,17 +1882,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::describe_package_version::DescribePackageVersionError::ThrottlingException({
-@@ -87,18 +91,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::describe_package_version::DescribePackageVersionError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -95,10 +99,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -2019,7 +1897,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::describe_package_version::DescribePackageVersionError::ValidationException({
-@@ -109,10 +107,11 @@
+@@ -109,10 +114,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
                  let output = output.meta(generic);
@@ -2086,17 +1964,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::describe_repository::DescribeRepositoryError::ThrottlingException({
-@@ -69,18 +72,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::describe_repository::DescribeRepositoryError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -77,10 +80,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -2109,7 +1979,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::describe_repository::DescribeRepositoryError::ValidationException({
-@@ -91,10 +88,11 @@
+@@ -91,10 +95,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?;
                  let output = output.meta(generic);
@@ -2206,17 +2076,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -107,18 +112,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -115,10 +120,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -2229,7 +2091,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::ValidationException({
-@@ -129,10 +128,11 @@
+@@ -129,10 +135,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
                  let output = output.meta(generic);
@@ -2311,17 +2173,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::dispose_package_versions::DisposePackageVersionsError::ThrottlingException({
-@@ -87,18 +91,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -95,10 +99,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -2334,7 +2188,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::dispose_package_versions::DisposePackageVersionsError::ValidationException({
-@@ -109,10 +107,11 @@
+@@ -109,10 +114,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
@@ -2349,7 +2203,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::dispose_package_versions::DisposePackageVersionsError::generic(generic),
-@@ -164,13 +163,6 @@
+@@ -164,13 +170,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -2363,7 +2217,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "successfulVersions" => {
                      builder = builder.set_successful_versions(
                          super::super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(
-@@ -180,6 +172,13 @@
+@@ -180,6 +179,13 @@
                          )?,
                      );
                  }
@@ -2573,17 +2427,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::get_authorization_token::GetAuthorizationTokenError::ThrottlingException({
-@@ -69,18 +72,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -77,10 +80,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -2596,7 +2442,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::get_authorization_token::GetAuthorizationTokenError::ValidationException({
-@@ -91,10 +88,11 @@
+@@ -91,10 +95,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?;
                  let output = output.meta(generic);
@@ -2663,17 +2509,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ThrottlingException({
-@@ -69,18 +72,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -77,10 +80,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -2686,7 +2524,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ValidationException({
-@@ -91,10 +88,11 @@
+@@ -91,10 +95,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
                  let output = output.meta(generic);
@@ -2776,17 +2614,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::get_package_version_asset::GetPackageVersionAssetError::ThrottlingException({
-@@ -132,18 +135,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -140,10 +143,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -2799,7 +2629,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::get_package_version_asset::GetPackageVersionAssetError::ValidationException({
-@@ -154,10 +151,11 @@
+@@ -154,10 +158,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
                  let output = output.meta(generic);
@@ -2890,17 +2720,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::ThrottlingException({
-@@ -73,18 +76,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -81,10 +84,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -2913,7 +2735,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::ValidationException({
-@@ -95,10 +92,11 @@
+@@ -95,10 +99,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?;
                  let output = output.meta(generic);
@@ -2928,7 +2750,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::generic(generic),
-@@ -161,22 +159,22 @@
+@@ -161,22 +166,22 @@
                              .transpose()?,
                      );
                  }
@@ -3009,17 +2831,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::ThrottlingException({
-@@ -69,18 +72,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -77,10 +80,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -3032,7 +2846,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::ValidationException({
-@@ -91,10 +88,11 @@
+@@ -91,10 +95,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?;
                  let output = output.meta(generic);
@@ -3099,17 +2913,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -74,18 +77,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -82,10 +85,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -3122,7 +2928,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::ValidationException({
-@@ -96,10 +93,11 @@
+@@ -96,10 +100,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
                  let output = output.meta(generic);
@@ -3220,17 +3026,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -95,18 +99,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -103,10 +107,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -3243,7 +3041,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ValidationException({
-@@ -117,10 +115,11 @@
+@@ -117,10 +122,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
                  let output = output.meta(generic);
@@ -3390,15 +3188,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::list_domains::ListDomainsError::ThrottlingException({
-@@ -52,16 +54,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_domains::ListDomainsError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_domains::ListDomainsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
+@@ -58,10 +60,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -3411,7 +3203,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::list_domains::ListDomainsError::ValidationException({
-@@ -72,10 +70,11 @@
+@@ -72,10 +75,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::list_domains::ListDomainsError::unhandled)?;
                  let output = output.meta(generic);
@@ -3478,17 +3270,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::list_package_groups::ListPackageGroupsError::ThrottlingException({
-@@ -67,18 +70,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_package_groups::ListPackageGroupsError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -75,10 +78,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -3501,7 +3285,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::list_package_groups::ListPackageGroupsError::ValidationException({
-@@ -89,10 +86,11 @@
+@@ -89,10 +93,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?;
                  let output = output.meta(generic);
@@ -3516,7 +3300,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::list_package_groups::ListPackageGroupsError::generic(generic),
-@@ -132,6 +130,13 @@
+@@ -132,6 +137,13 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -3530,7 +3314,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "nextToken" => {
                      builder = builder.set_next_token(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -139,13 +144,6 @@
+@@ -139,13 +151,6 @@
                              .transpose()?,
                      );
                  }
@@ -3596,17 +3380,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::ThrottlingException({
-@@ -73,18 +76,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -81,10 +84,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -3619,7 +3395,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::ValidationException({
-@@ -95,10 +92,11 @@
+@@ -95,10 +99,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?;
                  let output = output.meta(generic);
@@ -3634,7 +3410,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::generic(generic),
-@@ -140,13 +138,6 @@
+@@ -140,13 +145,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -3648,7 +3424,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "format" => {
                      builder = builder.set_format(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -161,13 +152,6 @@
+@@ -161,13 +159,6 @@
                              .transpose()?,
                      );
                  }
@@ -3662,7 +3438,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "package" => {
                      builder = builder.set_package(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -189,6 +173,20 @@
+@@ -189,6 +180,20 @@
                              .transpose()?,
                      );
                  }
@@ -3735,17 +3511,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -74,18 +77,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -82,10 +85,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -3758,7 +3526,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::ValidationException({
-@@ -96,10 +93,11 @@
+@@ -96,10 +100,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
                  let output = output.meta(generic);
@@ -3773,7 +3541,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::generic(generic),
-@@ -141,13 +139,6 @@
+@@ -141,13 +146,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -3787,7 +3555,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "format" => {
                      builder = builder.set_format(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -162,13 +153,6 @@
+@@ -162,13 +160,6 @@
                              .transpose()?,
                      );
                  }
@@ -3801,7 +3569,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "package" => {
                      builder = builder.set_package(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -190,6 +174,20 @@
+@@ -190,6 +181,20 @@
                              .transpose()?,
                      );
                  }
@@ -3874,17 +3642,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::list_package_versions::ListPackageVersionsError::ThrottlingException({
-@@ -69,18 +72,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_package_versions::ListPackageVersionsError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -77,10 +80,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -3897,7 +3657,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::list_package_versions::ListPackageVersionsError::ValidationException({
-@@ -91,10 +88,11 @@
+@@ -91,10 +95,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?;
                  let output = output.meta(generic);
@@ -3912,7 +3672,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::list_package_versions::ListPackageVersionsError::generic(generic),
-@@ -157,13 +155,6 @@
+@@ -157,13 +162,6 @@
                              .transpose()?,
                      );
                  }
@@ -3926,7 +3686,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "package" => {
                      builder = builder.set_package(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -176,6 +167,13 @@
+@@ -176,6 +174,13 @@
                          super::super::protocol_serde::shape_package_version_summary_list::de_package_version_summary_list(tokens, _value, depth + 1)?,
                      );
                  }
@@ -3992,15 +3752,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::list_packages::ListPackagesError::ThrottlingException({
-@@ -66,16 +69,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_packages::ListPackagesError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
+@@ -72,10 +75,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -4013,7 +3767,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::list_packages::ListPackagesError::ValidationException({
-@@ -86,10 +85,11 @@
+@@ -86,10 +90,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?;
                  let output = output.meta(generic);
@@ -4028,31 +3782,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::list_packages::ListPackagesError::generic(generic),
-@@ -128,13 +128,6 @@
+@@ -128,6 +133,13 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
--                "nextToken" => {
--                    builder = builder.set_next_token(
--                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                            .transpose()?,
--                    );
--                }
-                 "packages" => {
-                     builder = builder.set_packages(super::super::protocol_serde::shape_package_summary_list::de_package_summary_list(
-                         tokens,
-@@ -142,6 +135,13 @@
-                         depth + 1,
-                     )?);
-                 }
-+                "nextToken" => {
-+                    builder = builder.set_next_token(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
++                "packages" => {
++                    builder = builder.set_packages(super::super::protocol_serde::shape_package_summary_list::de_package_summary_list(
++                        tokens,
++                        _value,
++                        depth + 1,
++                    )?);
 +                }
+                 "nextToken" => {
+                     builder = builder.set_next_token(
+                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+@@ -135,13 +147,6 @@
+                             .transpose()?,
+                     );
+                 }
+-                "packages" => {
+-                    builder = builder.set_packages(super::super::protocol_serde::shape_package_summary_list::de_package_summary_list(
+-                        tokens,
+-                        _value,
+-                        depth + 1,
+-                    )?);
+-                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
              other => {
@@ -4093,17 +3847,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::list_repositories::ListRepositoriesError::ThrottlingException({
-@@ -52,18 +54,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_repositories::ListRepositoriesError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_repositories::ListRepositoriesError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -60,10 +62,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -4116,7 +3862,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::list_repositories::ListRepositoriesError::ValidationException({
-@@ -74,10 +70,11 @@
+@@ -74,10 +77,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::list_repositories::ListRepositoriesError::unhandled)?;
                  let output = output.meta(generic);
@@ -4131,31 +3877,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::list_repositories::ListRepositoriesError::generic(generic),
-@@ -116,6 +113,13 @@
+@@ -116,13 +120,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                "repositories" => {
-+                    builder = builder.set_repositories(super::super::protocol_serde::shape_repository_summary_list::de_repository_summary_list(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-+                }
-                 "nextToken" => {
-                     builder = builder.set_next_token(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -123,13 +127,6 @@
-                             .transpose()?,
-                     );
-                 }
--                "repositories" => {
--                    builder = builder.set_repositories(super::super::protocol_serde::shape_repository_summary_list::de_repository_summary_list(
--                        tokens,
--                        _value,
--                        depth + 1,
--                    )?);
+-                "nextToken" => {
+-                    builder = builder.set_next_token(
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                            .transpose()?,
+-                    );
 -                }
+                 "repositories" => {
+                     builder = builder.set_repositories(super::super::protocol_serde::shape_repository_summary_list::de_repository_summary_list(
+                         tokens,
+@@ -130,6 +127,13 @@
+                         depth + 1,
+                     )?);
+                 }
++                "nextToken" => {
++                    builder = builder.set_next_token(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
              other => {
@@ -4211,17 +3957,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::ThrottlingException({
-@@ -73,18 +76,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -81,10 +84,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -4234,7 +3972,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::ValidationException({
-@@ -95,10 +92,11 @@
+@@ -95,10 +99,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?;
                  let output = output.meta(generic);
@@ -4249,7 +3987,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::generic(generic),
-@@ -140,6 +138,13 @@
+@@ -140,6 +145,13 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -4263,7 +4001,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "nextToken" => {
                      builder = builder.set_next_token(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -147,13 +152,6 @@
+@@ -147,13 +159,6 @@
                              .transpose()?,
                      );
                  }
@@ -4329,17 +4067,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::ThrottlingException({
-@@ -69,18 +72,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -77,10 +80,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -4352,7 +4082,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::ValidationException({
-@@ -91,10 +88,11 @@
+@@ -91,10 +95,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?;
                  let output = output.meta(generic);
@@ -4367,7 +4097,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::generic(generic),
-@@ -136,6 +134,13 @@
+@@ -136,6 +141,13 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -4381,7 +4111,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "nextToken" => {
                      builder = builder.set_next_token(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -143,13 +148,6 @@
+@@ -143,13 +155,6 @@
                              .transpose()?,
                      );
                  }
@@ -4432,17 +4162,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::list_tags_for_resource::ListTagsForResourceError::ThrottlingException({
-@@ -55,18 +57,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -63,10 +65,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -4455,7 +4177,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::list_tags_for_resource::ListTagsForResourceError::ValidationException({
-@@ -77,10 +73,11 @@
+@@ -77,10 +80,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
                  let output = output.meta(generic);
@@ -4606,17 +4328,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::publish_package_version::PublishPackageVersionError::ThrottlingException({
-@@ -100,18 +105,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::publish_package_version::PublishPackageVersionError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -108,10 +113,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -4629,7 +4343,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::publish_package_version::PublishPackageVersionError::ValidationException({
-@@ -122,10 +121,11 @@
+@@ -122,10 +128,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
                  let output = output.meta(generic);
@@ -4644,7 +4358,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::publish_package_version::PublishPackageVersionError::generic(generic),
-@@ -151,24 +151,6 @@
+@@ -151,24 +158,6 @@
      })
  }
 
@@ -4669,7 +4383,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_publish_package_version(
      _value: &[u8],
      mut builder: super::super::operation::publish_package_version::builders::PublishPackageVersionOutputBuilder,
-@@ -185,9 +167,6 @@
+@@ -185,9 +174,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -4679,7 +4393,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "format" => {
                      builder = builder.set_format(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -209,13 +188,6 @@
+@@ -209,13 +195,6 @@
                              .transpose()?,
                      );
                  }
@@ -4693,7 +4407,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "version" => {
                      builder = builder.set_version(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -230,6 +202,16 @@
+@@ -230,6 +209,16 @@
                              .transpose()?,
                      );
                  }
@@ -4813,17 +4527,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -102,18 +107,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -110,10 +115,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -4836,7 +4542,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::ValidationException({
-@@ -124,10 +123,11 @@
+@@ -124,10 +130,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
                  let output = output.meta(generic);
@@ -4926,17 +4632,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -74,18 +77,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -82,10 +85,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -4949,7 +4647,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::ValidationException({
-@@ -96,10 +93,11 @@
+@@ -96,10 +100,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
                  let output = output.meta(generic);
@@ -5046,17 +4744,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -107,18 +112,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -115,10 +120,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -5069,7 +4759,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::ValidationException({
-@@ -129,10 +128,11 @@
+@@ -129,10 +135,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
                  let output = output.meta(generic);
@@ -5191,15 +4881,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::tag_resource::TagResourceError::ThrottlingException({
-@@ -69,16 +72,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::tag_resource::TagResourceError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
+@@ -75,10 +78,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -5212,7 +4896,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::tag_resource::TagResourceError::ValidationException({
-@@ -89,10 +88,11 @@
+@@ -89,10 +93,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
                  let output = output.meta(generic);
@@ -5234,31 +4918,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_throttling_exception.rs
 +++ generated/src/protocol_serde/shape_throttling_exception.rs
-@@ -40,21 +40,7 @@
+@@ -40,7 +40,9 @@
              "found more JSON tokens after completing parsing",
          ));
      }
 -    Ok(builder)
--}
--
--pub(crate) fn de_retry_after_seconds_header(
--    header_map: &::aws_smithy_runtime_api::http::Headers,
--) -> ::std::result::Result<::std::option::Option<i32>, ::aws_smithy_http::header::ParseError> {
--    let headers = header_map.get_all("Retry-After");
--    let var_1 = ::aws_smithy_http::header::read_many_primitive::<i32>(headers)?;
--    if var_1.len() > 1 {
--        Err(::aws_smithy_http::header::ParseError::new(format!(
--            "expected one item but found {}",
--            var_1.len()
--        )))
--    } else {
--        let mut var_1 = var_1;
--        Ok(var_1.pop())
--    }
 +    Ok(super::super::serde_util::throttling_exception_correct_errors(builder)
 +        .build()
 +        .map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom("missing field"))?)
  }
+
+ pub(crate) fn de_retry_after_seconds_header(
 ```
 
 ### `src/protocol_serde/shape_untag_resource.rs`
@@ -5296,15 +4966,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::untag_resource::UntagResourceError::ThrottlingException({
-@@ -52,16 +54,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::untag_resource::UntagResourceError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
--                    })?,
--                );
+@@ -58,10 +60,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -5317,7 +4981,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::untag_resource::UntagResourceError::ValidationException({
-@@ -72,10 +70,11 @@
+@@ -72,10 +75,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
                  let output = output.meta(generic);
@@ -5399,17 +5063,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::update_package_group::UpdatePackageGroupError::ThrottlingException({
-@@ -86,18 +90,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::update_package_group::UpdatePackageGroupError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -94,10 +98,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -5422,7 +5078,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::update_package_group::UpdatePackageGroupError::ValidationException({
-@@ -108,10 +106,11 @@
+@@ -108,10 +113,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
                  let output = output.meta(generic);
@@ -5532,17 +5188,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -105,18 +109,12 @@
-                     output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(
-                         super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
-                     )?;
--                    output = output.set_retry_after_seconds(
--                        super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled(
--                                "Failed to parse retryAfterSeconds from header `Retry-After",
--                            )
--                        })?,
--                    );
+@@ -113,10 +117,11 @@
+                         })?,
+                     );
                      let output = output.meta(generic);
 -                    super::super::serde_util::throttling_exception_correct_errors(output)
 -                        .build()
@@ -5555,7 +5203,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -130,10 +128,11 @@
+@@ -130,10 +135,11 @@
                          super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
                      )?;
                      let output = output.meta(generic);
@@ -5570,7 +5218,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -193,6 +192,13 @@
+@@ -193,6 +199,13 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -5584,7 +5232,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "allowedRepositoryUpdates" => {
                      builder = builder.set_allowed_repository_updates(
                          super::super::protocol_serde::shape_package_group_allowed_repository_updates::de_package_group_allowed_repository_updates(
-@@ -202,13 +208,6 @@
+@@ -202,13 +215,6 @@
                          )?,
                      );
                  }
@@ -5725,17 +5373,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -86,18 +90,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -94,10 +98,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -5748,7 +5388,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::ValidationException({
-@@ -108,10 +106,11 @@
+@@ -108,10 +113,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
                  let output = output.meta(generic);
@@ -5763,7 +5403,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::generic(generic),
-@@ -163,13 +162,6 @@
+@@ -163,13 +169,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -5777,7 +5417,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "successfulVersions" => {
                      builder = builder.set_successful_versions(
                          super::super::protocol_serde::shape_successful_package_version_info_map::de_successful_package_version_info_map(
-@@ -179,6 +171,13 @@
+@@ -179,6 +178,13 @@
                          )?,
                      );
                  }
@@ -5928,17 +5568,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ThrottlingException" => super::super::operation::update_repository::UpdateRepositoryError::ThrottlingException({
-@@ -97,18 +102,12 @@
-                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                     .map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?;
--                output = output.set_retry_after_seconds(
--                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        super::super::operation::update_repository::UpdateRepositoryError::unhandled(
--                            "Failed to parse retryAfterSeconds from header `Retry-After",
--                        )
--                    })?,
--                );
+@@ -105,10 +110,11 @@
+                     })?,
+                 );
                  let output = output.meta(generic);
 -                super::super::serde_util::throttling_exception_correct_errors(output)
 -                    .build()
@@ -5951,7 +5583,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::update_repository::UpdateRepositoryError::ValidationException({
-@@ -119,10 +118,11 @@
+@@ -119,10 +125,11 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?;
                  let output = output.meta(generic);

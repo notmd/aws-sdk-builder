@@ -82,6 +82,13 @@ pub fn de_get_function_event_invoke_config_http_error(
                     output =
                         super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                             .map_err(super::super::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError::unhandled)?;
+                    output = output.set_retry_after_seconds(
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                            super::super::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError::unhandled(
+                                "Failed to parse retryAfterSeconds from header `Retry-After",
+                            )
+                        })?,
+                    );
                     let output = output.meta(generic);
                     output.build()
                 };

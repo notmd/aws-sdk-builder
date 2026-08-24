@@ -9407,7 +9407,7 @@ fn render_json_protocol_http_error(
     writeln!(output, "{error_path}::unhandled(generic)),").unwrap();
     output.push_str("    };\n\n    let _error_message = generic.message().map(|msg| msg.to_owned());\n    Err(match error_code {\n");
     for error in errors {
-        render_json_protocol_error_arm(output, &error_path, error);
+        render_json_protocol_error_arm(output, selected, &error_path, error);
     }
     writeln!(
         output,
@@ -9416,7 +9416,12 @@ fn render_json_protocol_http_error(
     .unwrap();
 }
 
-fn render_json_protocol_error_arm(output: &mut String, error_path: &str, error: &str) {
+fn render_json_protocol_error_arm(
+    output: &mut String,
+    selected: &SelectedModel,
+    error_path: &str,
+    error: &str,
+) {
     let error_name = rust_type_name(terminal(error));
     let error_module = names::rust_module_name(terminal(error));
     writeln!(
@@ -9428,9 +9433,11 @@ fn render_json_protocol_error_arm(output: &mut String, error_path: &str, error: 
     output.push_str("            #[allow(unused_mut)]\n            let mut tmp = {\n");
     writeln!(
         output,
-        "                #[allow(unused_mut)]\n                let mut output = crate::types::error::builders::{error_name}Builder::default();\n                output = crate::protocol_serde::shape_{error_module}::de_{error_module}_json_err(_response_body, output).map_err({error_path}::unhandled)?;\n                let output = output.meta(generic);\n                output.build()\n            }};"
+        "                #[allow(unused_mut)]\n                let mut output = crate::types::error::builders::{error_name}Builder::default();\n                output = crate::protocol_serde::shape_{error_module}::de_{error_module}_json_err(_response_body, output).map_err({error_path}::unhandled)?;"
     )
     .unwrap();
+    render_protocol_error_header_assignments(output, selected, error, &error_module, error_path);
+    output.push_str("                let output = output.meta(generic);\n                output.build()\n            };\n");
     output.push_str("            if tmp.message.is_none() {\n                tmp.message = _error_message;\n            }\n            tmp\n        }),\n");
 }
 
@@ -9465,6 +9472,7 @@ fn render_json_protocol_error_file(selected: &SelectedModel, shape_id: &str) -> 
     } else {
         output.push_str("    Ok(builder)\n}\n");
     }
+    render_protocol_error_header_parsers(&mut output, selected, shape, &module);
     output
 }
 
@@ -11763,7 +11771,132 @@ fn render_protocol_error_file(
         .unwrap();
     }
     output.push_str("            _ => {}\n        }\n    }\n    Ok(builder)\n}\n");
+    let module = names::rust_module_name(terminal(shape_id));
+    render_protocol_error_header_parsers(&mut output, selected, shape, &module);
     output
+}
+
+fn render_protocol_error_header_parsers(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape: &Value,
+    module: &str,
+) {
+    let has_headers = members(shape).iter().any(|(_, member)| {
+        has_trait(member, "smithy.api#httpHeader")
+            || has_trait(member, "smithy.api#httpPrefixHeaders")
+    });
+    if !has_headers {
+        return;
+    }
+    output.push('\n');
+    let mut index = 1usize;
+    let mut prefix_headers = Vec::new();
+    for (name, member) in sorted_members(shape) {
+        let Some(target) = member_target(member) else {
+            continue;
+        };
+        let Some(traits) = member.get("traits").and_then(Value::as_object) else {
+            continue;
+        };
+        if let Some(prefix) = traits
+            .get("smithy.api#httpPrefixHeaders")
+            .and_then(Value::as_str)
+        {
+            render_protocol_error_prefix_header(output, selected, module, &name, target, prefix);
+            prefix_headers.push((name, target.to_owned()));
+            continue;
+        }
+        let Some(header_name) = traits.get("smithy.api#httpHeader").and_then(Value::as_str) else {
+            continue;
+        };
+        render_protocol_response_header(output, selected, &name, target, header_name, index);
+        if response_header_uses_variable(selected, target) {
+            index += 1;
+        }
+    }
+    for (name, target) in prefix_headers {
+        render_protocol_error_prefix_inner(output, selected, &name, &target);
+    }
+}
+
+fn render_protocol_error_header_assignments(
+    output: &mut String,
+    selected: &SelectedModel,
+    error: &str,
+    module: &str,
+    error_path: &str,
+) {
+    let Some(shape) = selected.model.shapes.get(error) else {
+        return;
+    };
+    for (name, member) in sorted_members(shape) {
+        let Some(traits) = member.get("traits").and_then(Value::as_object) else {
+            continue;
+        };
+        let field = names::rust_identifier(&name);
+        let field_method = rust_method_name(&name);
+        if let Some(prefix) = traits
+            .get("smithy.api#httpPrefixHeaders")
+            .and_then(Value::as_str)
+        {
+            writeln!(
+                output,
+                "                output = output.set_{field_method}(\n                    crate::protocol_serde::shape_{module}::de_{field}_prefix_header(_response_headers).map_err(|_| {{\n                        {error_path}::unhandled(\"Failed to parse {name} from prefix header `{prefix}\")\n                    }})?,\n                );"
+            )
+            .unwrap();
+        } else if let Some(header) = traits.get("smithy.api#httpHeader").and_then(Value::as_str) {
+            writeln!(
+                output,
+                "                output = output.set_{field_method}(\n                    crate::protocol_serde::shape_{module}::de_{field}_header(_response_headers).map_err(|_| {{\n                        {error_path}::unhandled(\"Failed to parse {name} from header `{header}\")\n                    }})?,\n                );"
+            )
+            .unwrap();
+        }
+    }
+}
+
+fn render_protocol_error_prefix_header(
+    output: &mut String,
+    selected: &SelectedModel,
+    module: &str,
+    name: &str,
+    target: &str,
+    prefix: &str,
+) {
+    let field = names::rust_identifier(name);
+    let Some(map_shape) = selected.model.shapes.get(target) else {
+        return;
+    };
+    let Some(value_target) = map_shape.get("value").and_then(member_target) else {
+        return;
+    };
+    let value_type = type_expr(selected, value_target, Context::Types {});
+    writeln!(
+        output,
+        "pub(crate) fn de_{field}_prefix_header(\n    header_map: &::aws_smithy_runtime_api::http::Headers,\n) -> std::result::Result<::std::option::Option<::std::collections::HashMap<::std::string::String, {value_type}>>, ::aws_smithy_http::header::ParseError> {{\n    let headers = ::aws_smithy_http::header::headers_for_prefix(header_map.iter().map(|(k, _)| k), {prefix:?});\n    let out: std::result::Result<_, _> = headers.map(|(key, header_name)| {{\n        let values = header_map.get_all(header_name);\n        crate::protocol_serde::shape_{module}::de_{field}_inner(values).map(|v| (key.to_string(), v.expect(\"we have checked there is at least one value for this header name; please file a bug report under https://github.com/smithy-lang/smithy-rs/issues\")))\n    }}).collect();\n    out.map(Some)\n}}\n\n"
+    )
+    .unwrap();
+}
+
+fn render_protocol_error_prefix_inner(
+    output: &mut String,
+    selected: &SelectedModel,
+    name: &str,
+    target: &str,
+) {
+    let field = names::rust_identifier(name);
+    let Some(map_shape) = selected.model.shapes.get(target) else {
+        return;
+    };
+    let Some(value_target) = map_shape.get("value").and_then(member_target) else {
+        return;
+    };
+    let value_type = type_expr(selected, value_target, Context::Types {});
+    writeln!(
+        output,
+        "pub fn de_{field}_inner<'a>(\n    headers: impl ::std::iter::Iterator<Item = &'a str>,\n) -> ::std::result::Result<Option<{value_type}>, ::aws_smithy_http::header::ParseError> {{\n    ::aws_smithy_http::header::one_or_none(headers)\n}}\n"
+    )
+    .unwrap();
 }
 
 fn xml_namespace(selected: &SelectedModel) -> (String, Option<String>) {
@@ -11875,6 +12008,7 @@ fn render_protocol_error_arm(
         "                output = crate::protocol_serde::shape_{error_module}::de_{error_module}_xml_err(_response_body, output)\n                    .map_err({error_path}::unhandled)?;"
     )
     .unwrap();
+    render_protocol_error_header_assignments(output, selected, error, &error_module, error_path);
     output.push_str("                let output = output.meta(generic);\n");
     if let Some(shape) = selected.model.shapes.get(error)
         && serde_util_shape_needs_correction(shape)
@@ -15768,6 +15902,60 @@ mod tests {
 
         assert_eq!(body, "::aws_smithy_types::body::SdkBody::from(\"\")");
         assert_eq!(content_type, None);
+    }
+
+    #[test]
+    fn json_modeled_error_headers_are_deserialized_from_response_headers() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "output": {"target": "smithy.api#Unit"},
+                        "errors": [{"target": "example#TooMany"}],
+                        "traits": {
+                            "smithy.api#http": {
+                                "method": "GET",
+                                "uri": "/",
+                                "code": 200
+                            }
+                        }
+                    },
+                    "example#TooMany": {
+                        "type": "structure",
+                        "members": {
+                            "retryAfterSeconds": {
+                                "target": "smithy.api#String",
+                                "traits": {"smithy.api#httpHeader": "Retry-After"}
+                            }
+                        },
+                        "traits": {"smithy.api#error": "client"}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+
+        let operation = render_json_protocol_operation_file(&selected, "Get");
+        let error = render_json_protocol_error_file(&selected, "example#TooMany");
+
+        assert!(operation.contains("output = output.set_retry_after_seconds("));
+        assert!(operation.contains("de_retry_after_seconds_header(_response_headers)"));
+        assert!(error.contains("pub(crate) fn de_retry_after_seconds_header("));
     }
 
     #[test]

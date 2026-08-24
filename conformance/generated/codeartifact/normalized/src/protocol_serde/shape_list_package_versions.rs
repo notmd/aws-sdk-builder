@@ -72,6 +72,13 @@ pub fn de_list_package_versions_http_error(
                 let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?;
+                output = output.set_retry_after_seconds(
+                    super::super::protocol_serde::shape_throttling_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                        super::super::operation::list_package_versions::ListPackageVersionsError::unhandled(
+                            "Failed to parse retryAfterSeconds from header `Retry-After",
+                        )
+                    })?,
+                );
                 let output = output.meta(generic);
                 output.build()
             };

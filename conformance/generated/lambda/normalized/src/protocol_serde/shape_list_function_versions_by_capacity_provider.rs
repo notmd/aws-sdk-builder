@@ -97,6 +97,13 @@ pub fn de_list_function_versions_by_capacity_provider_http_error(
                             .map_err(
                                 super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::unhandled,
                             )?;
+                    output = output.set_retry_after_seconds(
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+                            super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::unhandled(
+                                "Failed to parse retryAfterSeconds from header `Retry-After",
+                            )
+                        })?,
+                    );
                     let output = output.meta(generic);
                     output.build()
                 };
