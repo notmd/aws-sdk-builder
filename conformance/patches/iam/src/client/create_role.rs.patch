@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -13,7 +13,7 @@
+     /// - On success, responds with [`CreateRoleOutput`](crate::operation::create_role::CreateRoleOutput) with field(s):
+     ///   - [`role(Option<Role>)`](crate::operation::create_role::CreateRoleOutput::role): <p>A structure containing details about the new role.</p>
+     /// - On failure, responds with [`SdkError<CreateRoleError>`](crate::operation::create_role::CreateRoleError)
+-    pub fn create_role(&self) -> crate::operation::create_role::builders::CreateRoleFluentBuilder {
+-        crate::operation::create_role::builders::CreateRoleFluentBuilder::new(self.handle.clone())
++    pub fn create_role(&self) -> super::operation::create_role::builders::CreateRoleFluentBuilder {
++        super::operation::create_role::builders::CreateRoleFluentBuilder::new(self.handle.clone())
+     }
+ }

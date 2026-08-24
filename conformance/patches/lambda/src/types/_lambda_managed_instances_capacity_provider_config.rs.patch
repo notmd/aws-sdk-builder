@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -28,8 +28,8 @@
+ }
+ impl LambdaManagedInstancesCapacityProviderConfig {
+     /// Creates a new builder-style object to manufacture [`LambdaManagedInstancesCapacityProviderConfig`](crate::types::LambdaManagedInstancesCapacityProviderConfig).
+-    pub fn builder() -> crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder {
+-        crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder::default()
++    pub fn builder() -> super::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder {
++        super::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder::default()
+     }
+ }
+
+@@ -90,8 +90,8 @@
+     /// - [`capacity_provider_arn`](crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder::capacity_provider_arn)
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::types::LambdaManagedInstancesCapacityProviderConfig, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::LambdaManagedInstancesCapacityProviderConfig {
++    ) -> ::std::result::Result<super::types::LambdaManagedInstancesCapacityProviderConfig, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::LambdaManagedInstancesCapacityProviderConfig {
+             capacity_provider_arn: self.capacity_provider_arn.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "capacity_provider_arn",

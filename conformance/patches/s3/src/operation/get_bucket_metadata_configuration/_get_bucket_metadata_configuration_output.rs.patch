@@ -1,0 +1,77 @@
+--- original
++++ modified
+@@ -4,17 +4,17 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct GetBucketMetadataConfigurationOutput {
+     /// <p>The metadata configuration for the general purpose bucket.</p>
+-    pub get_bucket_metadata_configuration_result: ::std::option::Option<crate::types::GetBucketMetadataConfigurationResult>,
++    pub get_bucket_metadata_configuration_result: ::std::option::Option<super::types::GetBucketMetadataConfigurationResult>,
+     _extended_request_id: Option<String>,
+     _request_id: Option<String>,
+ }
+ impl GetBucketMetadataConfigurationOutput {
+     /// <p>The metadata configuration for the general purpose bucket.</p>
+-    pub fn get_bucket_metadata_configuration_result(&self) -> ::std::option::Option<&crate::types::GetBucketMetadataConfigurationResult> {
++    pub fn get_bucket_metadata_configuration_result(&self) -> ::std::option::Option<&super::types::GetBucketMetadataConfigurationResult> {
+         self.get_bucket_metadata_configuration_result.as_ref()
+     }
+ }
+-impl crate::s3_request_id::RequestIdExt for GetBucketMetadataConfigurationOutput {
++impl super::s3_request_id::RequestIdExt for GetBucketMetadataConfigurationOutput {
+     fn extended_request_id(&self) -> Option<&str> {
+         self._extended_request_id.as_deref()
+     }
+@@ -26,8 +26,8 @@
+ }
+ impl GetBucketMetadataConfigurationOutput {
+     /// Creates a new builder-style object to manufacture [`GetBucketMetadataConfigurationOutput`](crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationOutput).
+-    pub fn builder() -> crate::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationOutputBuilder {
+-        crate::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationOutputBuilder::default()
++    pub fn builder() -> super::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationOutputBuilder {
++        super::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationOutputBuilder::default()
+     }
+ }
+
+@@ -35,13 +35,13 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct GetBucketMetadataConfigurationOutputBuilder {
+-    pub(crate) get_bucket_metadata_configuration_result: ::std::option::Option<crate::types::GetBucketMetadataConfigurationResult>,
++    pub(crate) get_bucket_metadata_configuration_result: ::std::option::Option<super::types::GetBucketMetadataConfigurationResult>,
+     _extended_request_id: Option<String>,
+     _request_id: Option<String>,
+ }
+ impl GetBucketMetadataConfigurationOutputBuilder {
+     /// <p>The metadata configuration for the general purpose bucket.</p>
+-    pub fn get_bucket_metadata_configuration_result(mut self, input: crate::types::GetBucketMetadataConfigurationResult) -> Self {
++    pub fn get_bucket_metadata_configuration_result(mut self, input: super::types::GetBucketMetadataConfigurationResult) -> Self {
+         self.get_bucket_metadata_configuration_result = ::std::option::Option::Some(input);
+         self
+     }
+@@ -48,13 +48,13 @@
+     /// <p>The metadata configuration for the general purpose bucket.</p>
+     pub fn set_get_bucket_metadata_configuration_result(
+         mut self,
+-        input: ::std::option::Option<crate::types::GetBucketMetadataConfigurationResult>,
++        input: ::std::option::Option<super::types::GetBucketMetadataConfigurationResult>,
+     ) -> Self {
+         self.get_bucket_metadata_configuration_result = input;
+         self
+     }
+     /// <p>The metadata configuration for the general purpose bucket.</p>
+-    pub fn get_get_bucket_metadata_configuration_result(&self) -> &::std::option::Option<crate::types::GetBucketMetadataConfigurationResult> {
++    pub fn get_get_bucket_metadata_configuration_result(&self) -> &::std::option::Option<super::types::GetBucketMetadataConfigurationResult> {
+         &self.get_bucket_metadata_configuration_result
+     }
+     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+@@ -76,8 +76,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`GetBucketMetadataConfigurationOutput`](crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationOutput).
+-    pub fn build(self) -> crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationOutput {
+-        crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationOutput {
++    pub fn build(self) -> super::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationOutput {
++        super::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationOutput {
+             get_bucket_metadata_configuration_result: self.get_bucket_metadata_configuration_result,
+             _extended_request_id: self._extended_request_id,
+             _request_id: self._request_id,

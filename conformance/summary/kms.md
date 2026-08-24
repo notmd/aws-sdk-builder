@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## kms
-**Progress:** `594/594` files compared · `475` matched · `115` mismatches · `2` missing · `2` extra · `79.97%` match (100.00% means fully matched)
+**Progress:** `591/591` files compared · `519` matched · `72` mismatches · `0` missing · `0` extra · `87.82%` match (100.00% means fully matched)
 
 ### `src/client/cancel_key_deletion.rs`
 
@@ -34,7 +34,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`custom_key_store_id(impl Into<String>)`](crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreFluentBuilder::custom_key_store_id) / [`set_custom_key_store_id(Option<String>)`](crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreFluentBuilder::set_custom_key_store_id):<br>required: **true**<br><p>Enter the key store ID of the custom key store that you want to connect. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p><br>
      /// - On success, responds with [`ConnectCustomKeyStoreOutput`](crate::operation::connect_custom_key_store::ConnectCustomKeyStoreOutput)
      /// - On failure, responds with [`SdkError<ConnectCustomKeyStoreError>`](crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError)
-     pub fn connect_custom_key_store(&self) -> crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreFluentBuilder {
+     pub fn connect_custom_key_store(&self) -> super::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreFluentBuilder {
 ```
 
 ### `src/client/create_alias.rs`
@@ -50,7 +50,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`target_key_id(impl Into<String>)`](crate::operation::create_alias::builders::CreateAliasFluentBuilder::target_key_id) / [`set_target_key_id(Option<String>)`](crate::operation::create_alias::builders::CreateAliasFluentBuilder::set_target_key_id):<br>required: **true**<br><p>Associates the alias with the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a>. The KMS key must be in the same Amazon Web Services Region.</p> <p>A valid key ID is required. If you supply a null or empty string value, this operation returns an error.</p> <p>For help finding the key ID and ARN, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/find-cmk-id-arn.html">Find the key ID and key ARN</a> in the <i> <i>Key Management Service Developer Guide</i></i>.</p> <p>Specify the key ID or key ARN of the KMS key.</p> <p>For example:</p> <ul>  <li>   <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>  <li>   <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li> </ul> <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p><br>
      /// - On success, responds with [`CreateAliasOutput`](crate::operation::create_alias::CreateAliasOutput)
      /// - On failure, responds with [`SdkError<CreateAliasError>`](crate::operation::create_alias::CreateAliasError)
-     pub fn create_alias(&self) -> crate::operation::create_alias::builders::CreateAliasFluentBuilder {
+     pub fn create_alias(&self) -> super::operation::create_alias::builders::CreateAliasFluentBuilder {
 ```
 
 ### `src/client/create_custom_key_store.rs`
@@ -104,8 +104,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    ///   - [`grant_id(Option<String>)`](crate::operation::create_grant::CreateGrantOutput::grant_id): <p>The unique identifier for the grant.</p> <p>You can use the <code>GrantId</code> in a <code>ListGrants</code>, <code>RetireGrant</code>, or <code>RevokeGrant</code> operation.</p>
 +    ///   - [`grant_id(Option<String>)`](crate::operation::create_grant::CreateGrantOutput::grant_id): <p>The unique identifier for the grant.</p> <p>You can use the <code>GrantId</code> in a <a>ListGrants</a>, <a>RetireGrant</a>, or <a>RevokeGrant</a> operation.</p>
      /// - On failure, responds with [`SdkError<CreateGrantError>`](crate::operation::create_grant::CreateGrantError)
-     pub fn create_grant(&self) -> crate::operation::create_grant::builders::CreateGrantFluentBuilder {
-         crate::operation::create_grant::builders::CreateGrantFluentBuilder::new(self.handle.clone())
+     pub fn create_grant(&self) -> super::operation::create_grant::builders::CreateGrantFluentBuilder {
+         super::operation::create_grant::builders::CreateGrantFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/create_key.rs`
@@ -167,7 +167,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`custom_key_store_id(impl Into<String>)`](crate::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreFluentBuilder::custom_key_store_id) / [`set_custom_key_store_id(Option<String>)`](crate::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreFluentBuilder::set_custom_key_store_id):<br>required: **true**<br><p>Enter the ID of the custom key store you want to delete. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p><br>
      /// - On success, responds with [`DeleteCustomKeyStoreOutput`](crate::operation::delete_custom_key_store::DeleteCustomKeyStoreOutput)
      /// - On failure, responds with [`SdkError<DeleteCustomKeyStoreError>`](crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError)
-     pub fn delete_custom_key_store(&self) -> crate::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreFluentBuilder {
+     pub fn delete_custom_key_store(&self) -> super::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreFluentBuilder {
 ```
 
 ### `src/client/delete_imported_key_material.rs`
@@ -236,7 +236,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`key_id(impl Into<String>)`](crate::operation::disable_key::builders::DisableKeyFluentBuilder::key_id) / [`set_key_id(Option<String>)`](crate::operation::disable_key::builders::DisableKeyFluentBuilder::set_key_id):<br>required: **true**<br><p>Identifies the KMS key to disable.</p> <p>Specify the key ID or key ARN of the KMS key.</p> <p>For example:</p> <ul>  <li>   <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>  <li>   <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li> </ul> <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p><br>
      /// - On success, responds with [`DisableKeyOutput`](crate::operation::disable_key::DisableKeyOutput)
      /// - On failure, responds with [`SdkError<DisableKeyError>`](crate::operation::disable_key::DisableKeyError)
-     pub fn disable_key(&self) -> crate::operation::disable_key::builders::DisableKeyFluentBuilder {
+     pub fn disable_key(&self) -> super::operation::disable_key::builders::DisableKeyFluentBuilder {
 ```
 
 ### `src/client/disable_key_rotation.rs`
@@ -252,7 +252,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`key_id(impl Into<String>)`](crate::operation::disable_key_rotation::builders::DisableKeyRotationFluentBuilder::key_id) / [`set_key_id(Option<String>)`](crate::operation::disable_key_rotation::builders::DisableKeyRotationFluentBuilder::set_key_id):<br>required: **true**<br><p>Identifies a symmetric encryption KMS key. You cannot enable or disable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#asymmetric-cmks">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>.</p> <p>Specify the key ID or key ARN of the KMS key.</p> <p>For example:</p> <ul>  <li>   <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>  <li>   <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li> </ul> <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p><br>
      /// - On success, responds with [`DisableKeyRotationOutput`](crate::operation::disable_key_rotation::DisableKeyRotationOutput)
      /// - On failure, responds with [`SdkError<DisableKeyRotationError>`](crate::operation::disable_key_rotation::DisableKeyRotationError)
-     pub fn disable_key_rotation(&self) -> crate::operation::disable_key_rotation::builders::DisableKeyRotationFluentBuilder {
+     pub fn disable_key_rotation(&self) -> super::operation::disable_key_rotation::builders::DisableKeyRotationFluentBuilder {
 ```
 
 ### `src/client/disconnect_custom_key_store.rs`
@@ -268,7 +268,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`custom_key_store_id(impl Into<String>)`](crate::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreFluentBuilder::custom_key_store_id) / [`set_custom_key_store_id(Option<String>)`](crate::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreFluentBuilder::set_custom_key_store_id):<br>required: **true**<br><p>Enter the ID of the custom key store you want to disconnect. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p><br>
      /// - On success, responds with [`DisconnectCustomKeyStoreOutput`](crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreOutput)
      /// - On failure, responds with [`SdkError<DisconnectCustomKeyStoreError>`](crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError)
-     pub fn disconnect_custom_key_store(&self) -> crate::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreFluentBuilder {
+     pub fn disconnect_custom_key_store(&self) -> super::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreFluentBuilder {
 ```
 
 ### `src/client/enable_key.rs`
@@ -284,7 +284,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`key_id(impl Into<String>)`](crate::operation::enable_key::builders::EnableKeyFluentBuilder::key_id) / [`set_key_id(Option<String>)`](crate::operation::enable_key::builders::EnableKeyFluentBuilder::set_key_id):<br>required: **true**<br><p>Identifies the KMS key to enable.</p> <p>Specify the key ID or key ARN of the KMS key.</p> <p>For example:</p> <ul>  <li>   <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>  <li>   <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li> </ul> <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p><br>
      /// - On success, responds with [`EnableKeyOutput`](crate::operation::enable_key::EnableKeyOutput)
      /// - On failure, responds with [`SdkError<EnableKeyError>`](crate::operation::enable_key::EnableKeyError)
-     pub fn enable_key(&self) -> crate::operation::enable_key::builders::EnableKeyFluentBuilder {
+     pub fn enable_key(&self) -> super::operation::enable_key::builders::EnableKeyFluentBuilder {
 ```
 
 ### `src/client/enable_key_rotation.rs`
@@ -472,8 +472,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    ///   - [`on_demand_rotation_start_date(Option<DateTime>)`](crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput::on_demand_rotation_start_date): <p>Identifies the date and time that an in progress on-demand rotation was initiated.</p> <p>KMS uses a background process to perform rotations. As a result, there might be a slight delay between initiating on-demand key rotation and the rotation's completion. Once the on-demand rotation is complete, KMS removes this field from the response. You can use <code>ListKeyRotations</code> to view the details of the completed on-demand rotation.</p>
 +    ///   - [`on_demand_rotation_start_date(Option<DateTime>)`](crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput::on_demand_rotation_start_date): <p>Identifies the date and time that an in progress on-demand rotation was initiated.</p> <p>KMS uses a background process to perform rotations. As a result, there might be a slight delay between initiating on-demand key rotation and the rotation's completion. Once the on-demand rotation is complete, KMS removes this field from the response. You can use <a>ListKeyRotations</a> to view the details of the completed on-demand rotation.</p>
      /// - On failure, responds with [`SdkError<GetKeyRotationStatusError>`](crate::operation::get_key_rotation_status::GetKeyRotationStatusError)
-     pub fn get_key_rotation_status(&self) -> crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusFluentBuilder {
-         crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusFluentBuilder::new(self.handle.clone())
+     pub fn get_key_rotation_status(&self) -> super::operation::get_key_rotation_status::builders::GetKeyRotationStatusFluentBuilder {
+         super::operation::get_key_rotation_status::builders::GetKeyRotationStatusFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/get_parameters_for_import.rs`
@@ -499,8 +499,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`public_key(Option<Blob>)`](crate::operation::get_parameters_for_import::GetParametersForImportOutput::public_key): <p>The public key to use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.</p>
 +    ///   - [`parameters_valid_to(Option<DateTime>)`](crate::operation::get_parameters_for_import::GetParametersForImportOutput::parameters_valid_to): <p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <a>ImportKeyMaterial</a> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>
      /// - On failure, responds with [`SdkError<GetParametersForImportError>`](crate::operation::get_parameters_for_import::GetParametersForImportError)
-     pub fn get_parameters_for_import(&self) -> crate::operation::get_parameters_for_import::builders::GetParametersForImportFluentBuilder {
-         crate::operation::get_parameters_for_import::builders::GetParametersForImportFluentBuilder::new(self.handle.clone())
+     pub fn get_parameters_for_import(&self) -> super::operation::get_parameters_for_import::builders::GetParametersForImportFluentBuilder {
+         super::operation::get_parameters_for_import::builders::GetParametersForImportFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/get_public_key.rs`
@@ -836,7 +836,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`target_key_id(impl Into<String>)`](crate::operation::update_alias::builders::UpdateAliasFluentBuilder::target_key_id) / [`set_target_key_id(Option<String>)`](crate::operation::update_alias::builders::UpdateAliasFluentBuilder::set_target_key_id):<br>required: **true**<br><p>Identifies the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a> to associate with the alias. You don't have permission to associate an alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed key</a>.</p> <p>The KMS key must be in the same Amazon Web Services account and Region as the alias. Also, the new target KMS key must be the same type as the current target KMS key (both symmetric or both asymmetric or both HMAC) and they must have the same key usage.</p> <p>Specify the key ID or key ARN of the KMS key.</p> <p>For example:</p> <ul>  <li>   <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>  <li>   <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li> </ul> <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p> <p>To verify that the alias is mapped to the correct KMS key, use <a>ListAliases</a>.</p><br>
      /// - On success, responds with [`UpdateAliasOutput`](crate::operation::update_alias::UpdateAliasOutput)
      /// - On failure, responds with [`SdkError<UpdateAliasError>`](crate::operation::update_alias::UpdateAliasError)
-     pub fn update_alias(&self) -> crate::operation::update_alias::builders::UpdateAliasFluentBuilder {
+     pub fn update_alias(&self) -> super::operation::update_alias::builders::UpdateAliasFluentBuilder {
 ```
 
 ### `src/client/update_custom_key_store.rs`
@@ -974,45 +974,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          })
 ```
 
-### `src/protocol_serde/shape_cancel_key_deletion.rs`
-
-```diff
---- reference/src/protocol_serde/shape_cancel_key_deletion.rs
-+++ generated/src/protocol_serde/shape_cancel_key_deletion.rs
-@@ -48,7 +48,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::cancel_key_deletion::CancelKeyDeletionError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::cancel_key_deletion::CancelKeyDeletionError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -63,7 +63,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::cancel_key_deletion::CancelKeyDeletionError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::cancel_key_deletion::CancelKeyDeletionError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
 ### `src/protocol_serde/shape_connect_custom_key_store.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_connect_custom_key_store.rs
 +++ generated/src/protocol_serde/shape_connect_custom_key_store.rs
-@@ -97,7 +97,7 @@
-                 tmp
-             })
-         }
--        "KMSInternalException" => crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -142,3 +142,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
@@ -1020,12 +986,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_connect_custom_key_store(
 +    _value: &[u8],
-+    mut builder: crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreOutputBuilder,
++    mut builder: super::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreOutputBuilder,
++    super::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -1057,24 +1023,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_alias.rs
 +++ generated/src/protocol_serde/shape_create_alias.rs
-@@ -62,7 +62,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::create_alias::CreateAliasError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::create_alias::CreateAliasError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -77,7 +77,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::create_alias::CreateAliasError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::create_alias::CreateAliasError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -149,3 +149,34 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
@@ -1082,10 +1030,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_create_alias(
 +    _value: &[u8],
-+    mut builder: crate::operation::create_alias::builders::CreateAliasOutputBuilder,
-+) -> ::std::result::Result<crate::operation::create_alias::builders::CreateAliasOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++    mut builder: super::operation::create_alias::builders::CreateAliasOutputBuilder,
++) -> ::std::result::Result<super::operation::create_alias::builders::CreateAliasOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
 +{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -1112,111 +1060,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 ```
 
-### `src/protocol_serde/shape_create_custom_key_store.rs`
-
-```diff
---- reference/src/protocol_serde/shape_create_custom_key_store.rs
-+++ generated/src/protocol_serde/shape_create_custom_key_store.rs
-@@ -132,7 +132,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::create_custom_key_store::CreateCustomKeyStoreError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::create_custom_key_store::CreateCustomKeyStoreError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_create_grant.rs`
-
-```diff
---- reference/src/protocol_serde/shape_create_grant.rs
-+++ generated/src/protocol_serde/shape_create_grant.rs
-@@ -93,7 +93,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::create_grant::CreateGrantError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::create_grant::CreateGrantError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -108,7 +108,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::create_grant::CreateGrantError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::create_grant::CreateGrantError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_create_key.rs`
-
-```diff
---- reference/src/protocol_serde/shape_create_key.rs
-+++ generated/src/protocol_serde/shape_create_key.rs
-@@ -99,7 +99,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::create_key::CreateKeyError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::create_key::CreateKeyError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_decrypt.rs`
-
-```diff
---- reference/src/protocol_serde/shape_decrypt.rs
-+++ generated/src/protocol_serde/shape_decrypt.rs
-@@ -138,7 +138,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::decrypt::DecryptError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::decrypt::DecryptError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -153,7 +153,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::decrypt::DecryptError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::decrypt::DecryptError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
 ### `src/protocol_serde/shape_delete_alias.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_delete_alias.rs
 +++ generated/src/protocol_serde/shape_delete_alias.rs
-@@ -32,7 +32,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::delete_alias::DeleteAliasError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::delete_alias::DeleteAliasError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -47,7 +47,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::delete_alias::DeleteAliasError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::delete_alias::DeleteAliasError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -104,3 +104,34 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
@@ -1224,10 +1072,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_delete_alias(
 +    _value: &[u8],
-+    mut builder: crate::operation::delete_alias::builders::DeleteAliasOutputBuilder,
-+) -> ::std::result::Result<crate::operation::delete_alias::builders::DeleteAliasOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++    mut builder: super::operation::delete_alias::builders::DeleteAliasOutputBuilder,
++) -> ::std::result::Result<super::operation::delete_alias::builders::DeleteAliasOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
 +{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -1259,30 +1107,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_custom_key_store.rs
 +++ generated/src/protocol_serde/shape_delete_custom_key_store.rs
-@@ -20,12 +20,12 @@
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-     Err(match error_code {
--        "CustomKeyStoreHasCMKsException" => crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError::CustomKeyStoreHasCmKsException({
-+        "CustomKeyStoreHasCmKsException" => crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError::CustomKeyStoreHasCmKsException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = crate::types::error::builders::CustomKeyStoreHasCmKsExceptionBuilder::default();
--                output = crate::protocol_serde::shape_custom_key_store_has_cmks_exception::de_custom_key_store_has_cmks_exception_json_err(
-+                output = crate::protocol_serde::shape_custom_key_store_has_cm_ks_exception::de_custom_key_store_has_cm_ks_exception_json_err(
-                     _response_body,
-                     output,
-                 )
-@@ -77,7 +77,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -122,3 +122,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
@@ -1290,12 +1114,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_delete_custom_key_store(
 +    _value: &[u8],
-+    mut builder: crate::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreOutputBuilder,
++    mut builder: super::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreOutputBuilder,
++    super::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -1322,111 +1146,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 ```
 
-### `src/protocol_serde/shape_delete_imported_key_material.rs`
-
-```diff
---- reference/src/protocol_serde/shape_delete_imported_key_material.rs
-+++ generated/src/protocol_serde/shape_delete_imported_key_material.rs
-@@ -54,7 +54,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -69,7 +69,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_derive_shared_secret.rs`
-
-```diff
---- reference/src/protocol_serde/shape_derive_shared_secret.rs
-+++ generated/src/protocol_serde/shape_derive_shared_secret.rs
-@@ -111,7 +111,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -126,7 +126,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_describe_custom_key_stores.rs`
-
-```diff
---- reference/src/protocol_serde/shape_describe_custom_key_stores.rs
-+++ generated/src/protocol_serde/shape_describe_custom_key_stores.rs
-@@ -59,7 +59,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_describe_key.rs`
-
-```diff
---- reference/src/protocol_serde/shape_describe_key.rs
-+++ generated/src/protocol_serde/shape_describe_key.rs
-@@ -47,7 +47,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::describe_key::DescribeKeyError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::describe_key::DescribeKeyError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
 ### `src/protocol_serde/shape_disable_key.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_disable_key.rs
 +++ generated/src/protocol_serde/shape_disable_key.rs
-@@ -47,7 +47,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::disable_key::DisableKeyError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::disable_key::DisableKeyError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -62,7 +62,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::disable_key::DisableKeyError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::disable_key::DisableKeyError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -119,3 +119,34 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
@@ -1434,10 +1158,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_disable_key(
 +    _value: &[u8],
-+    mut builder: crate::operation::disable_key::builders::DisableKeyOutputBuilder,
-+) -> ::std::result::Result<crate::operation::disable_key::builders::DisableKeyOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++    mut builder: super::operation::disable_key::builders::DisableKeyOutputBuilder,
++) -> ::std::result::Result<super::operation::disable_key::builders::DisableKeyOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
 +{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -1469,24 +1193,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_disable_key_rotation.rs
 +++ generated/src/protocol_serde/shape_disable_key_rotation.rs
-@@ -65,7 +65,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::disable_key_rotation::DisableKeyRotationError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::disable_key_rotation::DisableKeyRotationError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -80,7 +80,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::disable_key_rotation::DisableKeyRotationError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::disable_key_rotation::DisableKeyRotationError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -156,3 +156,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
@@ -1494,12 +1200,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_disable_key_rotation(
 +    _value: &[u8],
-+    mut builder: crate::operation::disable_key_rotation::builders::DisableKeyRotationOutputBuilder,
++    mut builder: super::operation::disable_key_rotation::builders::DisableKeyRotationOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::disable_key_rotation::builders::DisableKeyRotationOutputBuilder,
++    super::operation::disable_key_rotation::builders::DisableKeyRotationOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -1531,15 +1237,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_disconnect_custom_key_store.rs
 +++ generated/src/protocol_serde/shape_disconnect_custom_key_store.rs
-@@ -65,7 +65,7 @@
-                 tmp
-             })
-         }
--        "KMSInternalException" => crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -110,3 +110,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
@@ -1547,12 +1244,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_disconnect_custom_key_store(
 +    _value: &[u8],
-+    mut builder: crate::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreOutputBuilder,
++    mut builder: super::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreOutputBuilder,
++    super::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -1584,24 +1281,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_enable_key.rs
 +++ generated/src/protocol_serde/shape_enable_key.rs
-@@ -47,7 +47,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::enable_key::EnableKeyError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::enable_key::EnableKeyError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -62,7 +62,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::enable_key::EnableKeyError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::enable_key::EnableKeyError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -134,3 +134,33 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
@@ -1609,9 +1288,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_enable_key(
 +    _value: &[u8],
-+    mut builder: crate::operation::enable_key::builders::EnableKeyOutputBuilder,
-+) -> ::std::result::Result<crate::operation::enable_key::builders::EnableKeyOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    mut builder: super::operation::enable_key::builders::EnableKeyOutputBuilder,
++) -> ::std::result::Result<super::operation::enable_key::builders::EnableKeyOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -1643,24 +1322,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_enable_key_rotation.rs
 +++ generated/src/protocol_serde/shape_enable_key_rotation.rs
-@@ -63,7 +63,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::enable_key_rotation::EnableKeyRotationError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::enable_key_rotation::EnableKeyRotationError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -78,7 +78,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::enable_key_rotation::EnableKeyRotationError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::enable_key_rotation::EnableKeyRotationError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -152,3 +152,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
@@ -1668,12 +1329,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_enable_key_rotation(
 +    _value: &[u8],
-+    mut builder: crate::operation::enable_key_rotation::builders::EnableKeyRotationOutputBuilder,
++    mut builder: super::operation::enable_key_rotation::builders::EnableKeyRotationOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::enable_key_rotation::builders::EnableKeyRotationOutputBuilder,
++    super::operation::enable_key_rotation::builders::EnableKeyRotationOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -1698,452 +1359,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    }
 +    Ok(builder)
 +}
-```
-
-### `src/protocol_serde/shape_encrypt.rs`
-
-```diff
---- reference/src/protocol_serde/shape_encrypt.rs
-+++ generated/src/protocol_serde/shape_encrypt.rs
-@@ -108,7 +108,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::encrypt::EncryptError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::encrypt::EncryptError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -123,7 +123,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::encrypt::EncryptError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::encrypt::EncryptError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_generate_data_key.rs`
-
-```diff
---- reference/src/protocol_serde/shape_generate_data_key.rs
-+++ generated/src/protocol_serde/shape_generate_data_key.rs
-@@ -108,7 +108,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::generate_data_key::GenerateDataKeyError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::generate_data_key::GenerateDataKeyError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -123,7 +123,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::generate_data_key::GenerateDataKeyError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::generate_data_key::GenerateDataKeyError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_generate_data_key_pair.rs`
-
-```diff
---- reference/src/protocol_serde/shape_generate_data_key_pair.rs
-+++ generated/src/protocol_serde/shape_generate_data_key_pair.rs
-@@ -111,7 +111,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::generate_data_key_pair::GenerateDataKeyPairError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::generate_data_key_pair::GenerateDataKeyPairError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -126,7 +126,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::generate_data_key_pair::GenerateDataKeyPairError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::generate_data_key_pair::GenerateDataKeyPairError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_generate_data_key_pair_without_plaintext.rs`
-
-```diff
---- reference/src/protocol_serde/shape_generate_data_key_pair_without_plaintext.rs
-+++ generated/src/protocol_serde/shape_generate_data_key_pair_without_plaintext.rs
-@@ -134,7 +134,7 @@
-                 tmp
-             })
-         }
--        "KMSInternalException" => {
-+        "KmsInternalException" => {
-             crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextError::KmsInternalException({
-                 #[allow(unused_mut)]
-                 let mut tmp = {
-@@ -151,7 +151,7 @@
-                 tmp
-             })
-         }
--        "KMSInvalidStateException" => {
-+        "KmsInvalidStateException" => {
-             crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextError::KmsInvalidStateException({
-                 #[allow(unused_mut)]
-                 let mut tmp = {
-```
-
-### `src/protocol_serde/shape_generate_data_key_without_plaintext.rs`
-
-```diff
---- reference/src/protocol_serde/shape_generate_data_key_without_plaintext.rs
-+++ generated/src/protocol_serde/shape_generate_data_key_without_plaintext.rs
-@@ -124,7 +124,7 @@
-                 tmp
-             })
-         }
--        "KMSInternalException" => {
-+        "KmsInternalException" => {
-             crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::KmsInternalException({
-                 #[allow(unused_mut)]
-                 let mut tmp = {
-@@ -141,7 +141,7 @@
-                 tmp
-             })
-         }
--        "KMSInvalidStateException" => {
-+        "KmsInvalidStateException" => {
-             crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::KmsInvalidStateException({
-                 #[allow(unused_mut)]
-                 let mut tmp = {
-```
-
-### `src/protocol_serde/shape_generate_mac.rs`
-
-```diff
---- reference/src/protocol_serde/shape_generate_mac.rs
-+++ generated/src/protocol_serde/shape_generate_mac.rs
-@@ -93,7 +93,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::generate_mac::GenerateMacError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::generate_mac::GenerateMacError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -108,7 +108,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::generate_mac::GenerateMacError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::generate_mac::GenerateMacError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_generate_random.rs`
-
-```diff
---- reference/src/protocol_serde/shape_generate_random.rs
-+++ generated/src/protocol_serde/shape_generate_random.rs
-@@ -68,7 +68,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::generate_random::GenerateRandomError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::generate_random::GenerateRandomError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_get_key_last_usage.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_key_last_usage.rs
-+++ generated/src/protocol_serde/shape_get_key_last_usage.rs
-@@ -47,7 +47,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::get_key_last_usage::GetKeyLastUsageError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::get_key_last_usage::GetKeyLastUsageError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_get_key_policy.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_key_policy.rs
-+++ generated/src/protocol_serde/shape_get_key_policy.rs
-@@ -47,7 +47,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::get_key_policy::GetKeyPolicyError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::get_key_policy::GetKeyPolicyError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -62,7 +62,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::get_key_policy::GetKeyPolicyError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::get_key_policy::GetKeyPolicyError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_get_key_rotation_status.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_key_rotation_status.rs
-+++ generated/src/protocol_serde/shape_get_key_rotation_status.rs
-@@ -50,7 +50,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::get_key_rotation_status::GetKeyRotationStatusError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::get_key_rotation_status::GetKeyRotationStatusError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -65,7 +65,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::get_key_rotation_status::GetKeyRotationStatusError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::get_key_rotation_status::GetKeyRotationStatusError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_get_parameters_for_import.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_parameters_for_import.rs
-+++ generated/src/protocol_serde/shape_get_parameters_for_import.rs
-@@ -54,7 +54,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::get_parameters_for_import::GetParametersForImportError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::get_parameters_for_import::GetParametersForImportError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -69,7 +69,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::get_parameters_for_import::GetParametersForImportError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::get_parameters_for_import::GetParametersForImportError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_get_public_key.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_public_key.rs
-+++ generated/src/protocol_serde/shape_get_public_key.rs
-@@ -108,7 +108,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::get_public_key::GetPublicKeyError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::get_public_key::GetPublicKeyError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -123,7 +123,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::get_public_key::GetPublicKeyError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::get_public_key::GetPublicKeyError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_import_key_material.rs`
-
-```diff
---- reference/src/protocol_serde/shape_import_key_material.rs
-+++ generated/src/protocol_serde/shape_import_key_material.rs
-@@ -113,7 +113,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::import_key_material::ImportKeyMaterialError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::import_key_material::ImportKeyMaterialError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -128,7 +128,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::import_key_material::ImportKeyMaterialError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::import_key_material::ImportKeyMaterialError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_list_aliases.rs`
-
-```diff
---- reference/src/protocol_serde/shape_list_aliases.rs
-+++ generated/src/protocol_serde/shape_list_aliases.rs
-@@ -62,7 +62,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::list_aliases::ListAliasesError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::list_aliases::ListAliasesError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_list_grants.rs`
-
-```diff
---- reference/src/protocol_serde/shape_list_grants.rs
-+++ generated/src/protocol_serde/shape_list_grants.rs
-@@ -77,7 +77,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::list_grants::ListGrantsError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::list_grants::ListGrantsError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -92,7 +92,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::list_grants::ListGrantsError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::list_grants::ListGrantsError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_list_key_policies.rs`
-
-```diff
---- reference/src/protocol_serde/shape_list_key_policies.rs
-+++ generated/src/protocol_serde/shape_list_key_policies.rs
-@@ -47,7 +47,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::list_key_policies::ListKeyPoliciesError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::list_key_policies::ListKeyPoliciesError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -62,7 +62,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::list_key_policies::ListKeyPoliciesError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::list_key_policies::ListKeyPoliciesError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_list_key_rotations.rs`
-
-```diff
---- reference/src/protocol_serde/shape_list_key_rotations.rs
-+++ generated/src/protocol_serde/shape_list_key_rotations.rs
-@@ -47,7 +47,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::list_key_rotations::ListKeyRotationsError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::list_key_rotations::ListKeyRotationsError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -62,7 +62,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::list_key_rotations::ListKeyRotationsError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::list_key_rotations::ListKeyRotationsError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_list_keys.rs`
-
-```diff
---- reference/src/protocol_serde/shape_list_keys.rs
-+++ generated/src/protocol_serde/shape_list_keys.rs
-@@ -47,7 +47,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::list_keys::ListKeysError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::list_keys::ListKeysError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_list_resource_tags.rs`
-
-```diff
---- reference/src/protocol_serde/shape_list_resource_tags.rs
-+++ generated/src/protocol_serde/shape_list_resource_tags.rs
-@@ -47,7 +47,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::list_resource_tags::ListResourceTagsError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::list_resource_tags::ListResourceTagsError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_list_retirable_grants.rs`
-
-```diff
---- reference/src/protocol_serde/shape_list_retirable_grants.rs
-+++ generated/src/protocol_serde/shape_list_retirable_grants.rs
-@@ -65,7 +65,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::list_retirable_grants::ListRetirableGrantsError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::list_retirable_grants::ListRetirableGrantsError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 ```
 
 ### `src/protocol_serde/shape_put_key_policy.rs`
@@ -2151,24 +1366,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_key_policy.rs
 +++ generated/src/protocol_serde/shape_put_key_policy.rs
-@@ -47,7 +47,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::put_key_policy::PutKeyPolicyError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::put_key_policy::PutKeyPolicyError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -62,7 +62,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::put_key_policy::PutKeyPolicyError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::put_key_policy::PutKeyPolicyError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -168,3 +168,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
@@ -2176,12 +1373,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_put_key_policy(
 +    _value: &[u8],
-+    mut builder: crate::operation::put_key_policy::builders::PutKeyPolicyOutputBuilder,
++    mut builder: super::operation::put_key_policy::builders::PutKeyPolicyOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::put_key_policy::builders::PutKeyPolicyOutputBuilder,
++    super::operation::put_key_policy::builders::PutKeyPolicyOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -2208,79 +1405,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 ```
 
-### `src/protocol_serde/shape_re_encrypt.rs`
-
-```diff
---- reference/src/protocol_serde/shape_re_encrypt.rs
-+++ generated/src/protocol_serde/shape_re_encrypt.rs
-@@ -138,7 +138,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::re_encrypt::ReEncryptError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::re_encrypt::ReEncryptError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -153,7 +153,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::re_encrypt::ReEncryptError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::re_encrypt::ReEncryptError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_replicate_key.rs`
-
-```diff
---- reference/src/protocol_serde/shape_replicate_key.rs
-+++ generated/src/protocol_serde/shape_replicate_key.rs
-@@ -62,7 +62,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::replicate_key::ReplicateKeyError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::replicate_key::ReplicateKeyError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -77,7 +77,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::replicate_key::ReplicateKeyError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::replicate_key::ReplicateKeyError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
 ### `src/protocol_serde/shape_retire_grant.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_retire_grant.rs
 +++ generated/src/protocol_serde/shape_retire_grant.rs
-@@ -93,7 +93,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::retire_grant::RetireGrantError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::retire_grant::RetireGrantError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -108,7 +108,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::retire_grant::RetireGrantError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::retire_grant::RetireGrantError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -165,3 +165,34 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
@@ -2288,10 +1417,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_retire_grant(
 +    _value: &[u8],
-+    mut builder: crate::operation::retire_grant::builders::RetireGrantOutputBuilder,
-+) -> ::std::result::Result<crate::operation::retire_grant::builders::RetireGrantOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++    mut builder: super::operation::retire_grant::builders::RetireGrantOutputBuilder,
++) -> ::std::result::Result<super::operation::retire_grant::builders::RetireGrantOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
 +{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -2323,24 +1452,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_revoke_grant.rs
 +++ generated/src/protocol_serde/shape_revoke_grant.rs
-@@ -77,7 +77,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::revoke_grant::RevokeGrantError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::revoke_grant::RevokeGrantError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -92,7 +92,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::revoke_grant::RevokeGrantError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::revoke_grant::RevokeGrantError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -149,3 +149,34 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
@@ -2348,10 +1459,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_revoke_grant(
 +    _value: &[u8],
-+    mut builder: crate::operation::revoke_grant::builders::RevokeGrantOutputBuilder,
-+) -> ::std::result::Result<crate::operation::revoke_grant::builders::RevokeGrantOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++    mut builder: super::operation::revoke_grant::builders::RevokeGrantOutputBuilder,
++) -> ::std::result::Result<super::operation::revoke_grant::builders::RevokeGrantOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
 +{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -2378,104 +1489,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 ```
 
-### `src/protocol_serde/shape_rotate_key_on_demand.rs`
-
-```diff
---- reference/src/protocol_serde/shape_rotate_key_on_demand.rs
-+++ generated/src/protocol_serde/shape_rotate_key_on_demand.rs
-@@ -80,7 +80,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -95,7 +95,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_schedule_key_deletion.rs`
-
-```diff
---- reference/src/protocol_serde/shape_schedule_key_deletion.rs
-+++ generated/src/protocol_serde/shape_schedule_key_deletion.rs
-@@ -50,7 +50,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::schedule_key_deletion::ScheduleKeyDeletionError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::schedule_key_deletion::ScheduleKeyDeletionError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -65,7 +65,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::schedule_key_deletion::ScheduleKeyDeletionError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::schedule_key_deletion::ScheduleKeyDeletionError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_sign.rs`
-
-```diff
---- reference/src/protocol_serde/shape_sign.rs
-+++ generated/src/protocol_serde/shape_sign.rs
-@@ -108,7 +108,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::sign::SignError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::sign::SignError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -123,7 +123,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::sign::SignError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::sign::SignError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
 ### `src/protocol_serde/shape_tag_resource.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_tag_resource.rs
 +++ generated/src/protocol_serde/shape_tag_resource.rs
-@@ -32,7 +32,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::tag_resource::TagResourceError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::tag_resource::TagResourceError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -47,7 +47,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::tag_resource::TagResourceError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::tag_resource::TagResourceError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -134,3 +134,34 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
@@ -2483,10 +1501,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_tag_resource(
 +    _value: &[u8],
-+    mut builder: crate::operation::tag_resource::builders::TagResourceOutputBuilder,
-+) -> ::std::result::Result<crate::operation::tag_resource::builders::TagResourceOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++    mut builder: super::operation::tag_resource::builders::TagResourceOutputBuilder,
++) -> ::std::result::Result<super::operation::tag_resource::builders::TagResourceOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
 +{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -2518,24 +1536,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_untag_resource.rs
 +++ generated/src/protocol_serde/shape_untag_resource.rs
-@@ -32,7 +32,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::untag_resource::UntagResourceError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::untag_resource::UntagResourceError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -47,7 +47,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::untag_resource::UntagResourceError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::untag_resource::UntagResourceError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -119,3 +119,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
@@ -2543,12 +1543,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_untag_resource(
 +    _value: &[u8],
-+    mut builder: crate::operation::untag_resource::builders::UntagResourceOutputBuilder,
++    mut builder: super::operation::untag_resource::builders::UntagResourceOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::untag_resource::builders::UntagResourceOutputBuilder,
++    super::operation::untag_resource::builders::UntagResourceOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -2580,24 +1580,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_alias.rs
 +++ generated/src/protocol_serde/shape_update_alias.rs
-@@ -32,7 +32,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::update_alias::UpdateAliasError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::update_alias::UpdateAliasError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -47,7 +47,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::update_alias::UpdateAliasError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::update_alias::UpdateAliasError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -119,3 +119,34 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
@@ -2605,10 +1587,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_update_alias(
 +    _value: &[u8],
-+    mut builder: crate::operation::update_alias::builders::UpdateAliasOutputBuilder,
-+) -> ::std::result::Result<crate::operation::update_alias::builders::UpdateAliasOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++    mut builder: super::operation::update_alias::builders::UpdateAliasOutputBuilder,
++) -> ::std::result::Result<super::operation::update_alias::builders::UpdateAliasOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
 +{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -2640,15 +1622,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_custom_key_store.rs
 +++ generated/src/protocol_serde/shape_update_custom_key_store.rs
-@@ -156,7 +156,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::update_custom_key_store::UpdateCustomKeyStoreError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::update_custom_key_store::UpdateCustomKeyStoreError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -356,3 +356,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
@@ -2656,12 +1629,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_update_custom_key_store(
 +    _value: &[u8],
-+    mut builder: crate::operation::update_custom_key_store::builders::UpdateCustomKeyStoreOutputBuilder,
++    mut builder: super::operation::update_custom_key_store::builders::UpdateCustomKeyStoreOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::update_custom_key_store::builders::UpdateCustomKeyStoreOutputBuilder,
++    super::operation::update_custom_key_store::builders::UpdateCustomKeyStoreOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -2693,24 +1666,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_key_description.rs
 +++ generated/src/protocol_serde/shape_update_key_description.rs
-@@ -50,7 +50,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::update_key_description::UpdateKeyDescriptionError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::update_key_description::UpdateKeyDescriptionError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -65,7 +65,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::update_key_description::UpdateKeyDescriptionError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::update_key_description::UpdateKeyDescriptionError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -125,3 +125,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
@@ -2718,12 +1673,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_update_key_description(
 +    _value: &[u8],
-+    mut builder: crate::operation::update_key_description::builders::UpdateKeyDescriptionOutputBuilder,
++    mut builder: super::operation::update_key_description::builders::UpdateKeyDescriptionOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::update_key_description::builders::UpdateKeyDescriptionOutputBuilder,
++    super::operation::update_key_description::builders::UpdateKeyDescriptionOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -2755,24 +1710,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_primary_region.rs
 +++ generated/src/protocol_serde/shape_update_primary_region.rs
-@@ -50,7 +50,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::update_primary_region::UpdatePrimaryRegionError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::update_primary_region::UpdatePrimaryRegionError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -65,7 +65,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::update_primary_region::UpdatePrimaryRegionError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::update_primary_region::UpdatePrimaryRegionError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -141,3 +141,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
@@ -2780,12 +1717,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_update_primary_region(
 +    _value: &[u8],
-+    mut builder: crate::operation::update_primary_region::builders::UpdatePrimaryRegionOutputBuilder,
++    mut builder: super::operation::update_primary_region::builders::UpdatePrimaryRegionOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::update_primary_region::builders::UpdatePrimaryRegionOutputBuilder,
++    super::operation::update_primary_region::builders::UpdatePrimaryRegionOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -2811,205 +1748,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    Ok(builder)
 +}
 ```
-
-### `src/protocol_serde/shape_verify.rs`
-
-```diff
---- reference/src/protocol_serde/shape_verify.rs
-+++ generated/src/protocol_serde/shape_verify.rs
-@@ -108,7 +108,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::verify::VerifyError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::verify::VerifyError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -123,7 +123,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidSignatureException" => crate::operation::verify::VerifyError::KmsInvalidSignatureException({
-+        "KmsInvalidSignatureException" => crate::operation::verify::VerifyError::KmsInvalidSignatureException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -139,7 +139,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::verify::VerifyError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::verify::VerifyError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_verify_mac.rs`
-
-```diff
---- reference/src/protocol_serde/shape_verify_mac.rs
-+++ generated/src/protocol_serde/shape_verify_mac.rs
-@@ -93,7 +93,7 @@
-             }
-             tmp
-         }),
--        "KMSInternalException" => crate::operation::verify_mac::VerifyMacError::KmsInternalException({
-+        "KmsInternalException" => crate::operation::verify_mac::VerifyMacError::KmsInternalException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -108,7 +108,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidMacException" => crate::operation::verify_mac::VerifyMacError::KmsInvalidMacException({
-+        "KmsInvalidMacException" => crate::operation::verify_mac::VerifyMacError::KmsInvalidMacException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -123,7 +123,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::verify_mac::VerifyMacError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::verify_mac::VerifyMacError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-```
-
-### `src/protocol_serde.rs`
-
-```diff
---- reference/src/protocol_serde.rs
-+++ generated/src/protocol_serde.rs
-@@ -165,7 +165,7 @@
-
- pub(crate) mod shape_create_key_input;
-
--pub(crate) mod shape_custom_key_store_has_cmks_exception;
-+pub(crate) mod shape_custom_key_store_has_cm_ks_exception;
-
- pub(crate) mod shape_custom_key_store_invalid_state_exception;
-
-```
-
-### `src/types/error/_kms_internal_exception.rs`
-
-```diff
---- reference/src/types/error/_kms_internal_exception.rs
-+++ generated/src/types/error/_kms_internal_exception.rs
-@@ -16,7 +16,7 @@
- }
- impl ::std::fmt::Display for KmsInternalException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "KmsInternalException [KMSInternalException]")?;
-+        ::std::write!(f, "KmsInternalException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_kms_invalid_mac_exception.rs`
-
-```diff
---- reference/src/types/error/_kms_invalid_mac_exception.rs
-+++ generated/src/types/error/_kms_invalid_mac_exception.rs
-@@ -16,7 +16,7 @@
- }
- impl ::std::fmt::Display for KmsInvalidMacException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "KmsInvalidMacException [KMSInvalidMacException]")?;
-+        ::std::write!(f, "KmsInvalidMacException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_kms_invalid_signature_exception.rs`
-
-```diff
---- reference/src/types/error/_kms_invalid_signature_exception.rs
-+++ generated/src/types/error/_kms_invalid_signature_exception.rs
-@@ -16,7 +16,7 @@
- }
- impl ::std::fmt::Display for KmsInvalidSignatureException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "KmsInvalidSignatureException [KMSInvalidSignatureException]")?;
-+        ::std::write!(f, "KmsInvalidSignatureException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_kms_invalid_state_exception.rs`
-
-```diff
---- reference/src/types/error/_kms_invalid_state_exception.rs
-+++ generated/src/types/error/_kms_invalid_state_exception.rs
-@@ -24,7 +24,7 @@
- }
- impl ::std::fmt::Display for KmsInvalidStateException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "KmsInvalidStateException [KMSInvalidStateException]")?;
-+        ::std::write!(f, "KmsInvalidStateException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/builders.rs`
-
-```diff
---- reference/src/types/error/builders.rs
-+++ generated/src/types/error/builders.rs
-@@ -75,7 +75,7 @@
-
- pub use crate::types::error::_key_unavailable_exception::KeyUnavailableExceptionBuilder;
-
--pub use crate::types::error::_custom_key_store_has_cmks_exception::CustomKeyStoreHasCmKsExceptionBuilder;
-+pub use crate::types::error::_custom_key_store_has_cm_ks_exception::CustomKeyStoreHasCmKsExceptionBuilder;
-
- pub use crate::types::error::_invalid_marker_exception::InvalidMarkerExceptionBuilder;
-
-```
-
-### `src/types/error.rs`
-
-```diff
---- reference/src/types/error.rs
-+++ generated/src/types/error.rs
-@@ -75,7 +75,7 @@
-
- pub use crate::types::error::_key_unavailable_exception::KeyUnavailableException;
-
--pub use crate::types::error::_custom_key_store_has_cmks_exception::CustomKeyStoreHasCmKsException;
-+pub use crate::types::error::_custom_key_store_has_cm_ks_exception::CustomKeyStoreHasCmKsException;
-
- pub use crate::types::error::_invalid_marker_exception::InvalidMarkerException;
-
-@@ -109,7 +109,7 @@
-
- mod _conflict_exception;
-
--mod _custom_key_store_has_cmks_exception;
-+mod _custom_key_store_has_cm_ks_exception;
-
- mod _custom_key_store_invalid_state_exception;
-
-```
-
-### Missing reference files
-
-- `src/protocol_serde/shape_custom_key_store_has_cmks_exception.rs`
-- `src/types/error/_custom_key_store_has_cmks_exception.rs`
-
-### Unexpected generated files
-
-- `src/protocol_serde/shape_custom_key_store_has_cm_ks_exception.rs`
-- `src/types/error/_custom_key_store_has_cm_ks_exception.rs`
 
 ### Rust token differences
 
@@ -3067,64 +1805,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/create_key/_create_key_input.rs`
 - `src/operation/put_key_policy/_put_key_policy_input.rs`
 - `src/operation/replicate_key/_replicate_key_input.rs`
-- `src/protocol_serde/shape_cancel_key_deletion.rs`
 - `src/protocol_serde/shape_connect_custom_key_store.rs`
 - `src/protocol_serde/shape_create_alias.rs`
-- `src/protocol_serde/shape_create_custom_key_store.rs`
-- `src/protocol_serde/shape_create_grant.rs`
-- `src/protocol_serde/shape_create_key.rs`
-- `src/protocol_serde/shape_decrypt.rs`
 - `src/protocol_serde/shape_delete_alias.rs`
 - `src/protocol_serde/shape_delete_custom_key_store.rs`
-- `src/protocol_serde/shape_delete_imported_key_material.rs`
-- `src/protocol_serde/shape_derive_shared_secret.rs`
-- `src/protocol_serde/shape_describe_custom_key_stores.rs`
-- `src/protocol_serde/shape_describe_key.rs`
 - `src/protocol_serde/shape_disable_key.rs`
 - `src/protocol_serde/shape_disable_key_rotation.rs`
 - `src/protocol_serde/shape_disconnect_custom_key_store.rs`
 - `src/protocol_serde/shape_enable_key.rs`
 - `src/protocol_serde/shape_enable_key_rotation.rs`
-- `src/protocol_serde/shape_encrypt.rs`
-- `src/protocol_serde/shape_generate_data_key.rs`
-- `src/protocol_serde/shape_generate_data_key_pair.rs`
-- `src/protocol_serde/shape_generate_data_key_pair_without_plaintext.rs`
-- `src/protocol_serde/shape_generate_data_key_without_plaintext.rs`
-- `src/protocol_serde/shape_generate_mac.rs`
-- `src/protocol_serde/shape_generate_random.rs`
-- `src/protocol_serde/shape_get_key_last_usage.rs`
-- `src/protocol_serde/shape_get_key_policy.rs`
-- `src/protocol_serde/shape_get_key_rotation_status.rs`
-- `src/protocol_serde/shape_get_parameters_for_import.rs`
-- `src/protocol_serde/shape_get_public_key.rs`
-- `src/protocol_serde/shape_import_key_material.rs`
-- `src/protocol_serde/shape_list_aliases.rs`
-- `src/protocol_serde/shape_list_grants.rs`
-- `src/protocol_serde/shape_list_key_policies.rs`
-- `src/protocol_serde/shape_list_key_rotations.rs`
-- `src/protocol_serde/shape_list_keys.rs`
-- `src/protocol_serde/shape_list_resource_tags.rs`
-- `src/protocol_serde/shape_list_retirable_grants.rs`
 - `src/protocol_serde/shape_put_key_policy.rs`
-- `src/protocol_serde/shape_re_encrypt.rs`
-- `src/protocol_serde/shape_replicate_key.rs`
 - `src/protocol_serde/shape_retire_grant.rs`
 - `src/protocol_serde/shape_revoke_grant.rs`
-- `src/protocol_serde/shape_rotate_key_on_demand.rs`
-- `src/protocol_serde/shape_schedule_key_deletion.rs`
-- `src/protocol_serde/shape_sign.rs`
 - `src/protocol_serde/shape_tag_resource.rs`
 - `src/protocol_serde/shape_untag_resource.rs`
 - `src/protocol_serde/shape_update_alias.rs`
 - `src/protocol_serde/shape_update_custom_key_store.rs`
 - `src/protocol_serde/shape_update_key_description.rs`
 - `src/protocol_serde/shape_update_primary_region.rs`
-- `src/protocol_serde/shape_verify.rs`
-- `src/protocol_serde/shape_verify_mac.rs`
-- `src/protocol_serde.rs`
-- `src/types/error/_kms_internal_exception.rs`
-- `src/types/error/_kms_invalid_mac_exception.rs`
-- `src/types/error/_kms_invalid_signature_exception.rs`
-- `src/types/error/_kms_invalid_state_exception.rs`
-- `src/types/error/builders.rs`
-- `src/types/error.rs`

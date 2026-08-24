@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sqs
-**Progress:** `295/295` files compared · `229` matched · `64` mismatches · `2` missing · `0` extra · `77.63%` match (100.00% means fully matched)
+**Progress:** `294/294` files compared · `228` matched · `64` mismatches · `2` missing · `0` extra · `77.55%` match (100.00% means fully matched)
 
 ### `src/client/change_message_visibility.rs`
 
@@ -69,8 +69,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`successful(Vec::<DeleteMessageBatchResultEntry>)`](crate::operation::delete_message_batch::DeleteMessageBatchOutput::successful): <p>A list of <code> <a>DeleteMessageBatchResultEntry</a> </code> items.</p>
 +    ///   - [`failed(Vec::<BatchResultErrorEntry>)`](crate::operation::delete_message_batch::DeleteMessageBatchOutput::failed): <p>A list of <code> <a>BatchResultErrorEntry</a> </code> items.</p>
      /// - On failure, responds with [`SdkError<DeleteMessageBatchError>`](crate::operation::delete_message_batch::DeleteMessageBatchError)
-     pub fn delete_message_batch(&self) -> crate::operation::delete_message_batch::builders::DeleteMessageBatchFluentBuilder {
-         crate::operation::delete_message_batch::builders::DeleteMessageBatchFluentBuilder::new(self.handle.clone())
+     pub fn delete_message_batch(&self) -> super::operation::delete_message_batch::builders::DeleteMessageBatchFluentBuilder {
+         super::operation::delete_message_batch::builders::DeleteMessageBatchFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/get_queue_attributes.rs`
@@ -120,7 +120,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`label(impl Into<String>)`](crate::operation::remove_permission::builders::RemovePermissionFluentBuilder::label) / [`set_label(Option<String>)`](crate::operation::remove_permission::builders::RemovePermissionFluentBuilder::set_label):<br>required: **true**<br><p>The identification of the permission to remove. This is the label added using the <code> <a>AddPermission</a> </code> action.</p><br>
      /// - On success, responds with [`RemovePermissionOutput`](crate::operation::remove_permission::RemovePermissionOutput)
      /// - On failure, responds with [`SdkError<RemovePermissionError>`](crate::operation::remove_permission::RemovePermissionError)
-     pub fn remove_permission(&self) -> crate::operation::remove_permission::builders::RemovePermissionFluentBuilder {
+     pub fn remove_permission(&self) -> super::operation::remove_permission::builders::RemovePermissionFluentBuilder {
 ```
 
 ### `src/client/send_message.rs`
@@ -156,8 +156,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`successful(Vec::<SendMessageBatchResultEntry>)`](crate::operation::send_message_batch::SendMessageBatchOutput::successful): <p>A list of <code> <a>SendMessageBatchResultEntry</a> </code> items.</p>
 +    ///   - [`failed(Vec::<BatchResultErrorEntry>)`](crate::operation::send_message_batch::SendMessageBatchOutput::failed): <p>A list of <code> <a>BatchResultErrorEntry</a> </code> items with error details about each message that can't be enqueued.</p>
      /// - On failure, responds with [`SdkError<SendMessageBatchError>`](crate::operation::send_message_batch::SendMessageBatchError)
-     pub fn send_message_batch(&self) -> crate::operation::send_message_batch::builders::SendMessageBatchFluentBuilder {
-         crate::operation::send_message_batch::builders::SendMessageBatchFluentBuilder::new(self.handle.clone())
+     pub fn send_message_batch(&self) -> super::operation::send_message_batch::builders::SendMessageBatchFluentBuilder {
+         super::operation::send_message_batch::builders::SendMessageBatchFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/set_queue_attributes.rs`
@@ -173,7 +173,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`attributes(QueueAttributeName, impl Into<String>)`](crate::operation::set_queue_attributes::builders::SetQueueAttributesFluentBuilder::attributes) / [`set_attributes(Option<HashMap::<QueueAttributeName, String>>)`](crate::operation::set_queue_attributes::builders::SetQueueAttributesFluentBuilder::set_attributes):<br>required: **true**<br><p>A map of attributes to set.</p> <p>The following lists the names, descriptions, and values of the special request parameters that the <code>SetQueueAttributes</code> action uses:</p> <ul>  <li>   <p><code>DelaySeconds</code> – The length of time, in seconds, for which the delivery of all messages in the queue is delayed. Valid values: An integer from 0 to 900 (15 minutes). Default: 0.</p></li>  <li>   <p><code>MaximumMessageSize</code> – The limit of how many bytes a message can contain before Amazon SQS rejects it. Valid values: An integer from 1,024 bytes (1 KiB) up to 1,048,576 bytes (1 MiB). Default: 1,048,576 bytes (1 MiB).</p></li>  <li>   <p><code>MessageRetentionPeriod</code> – The length of time, in seconds, for which Amazon SQS retains a message. Valid values: An integer representing seconds, from 60 (1 minute) to 1,209,600 (14 days). Default: 345,600 (4 days). When you change a queue's attributes, the change can take up to 60 seconds for most of the attributes to propagate throughout the Amazon SQS system. Changes made to the <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes and will impact existing messages in the queue potentially causing them to be expired and deleted if the <code>MessageRetentionPeriod</code> is reduced below the age of existing messages.</p></li>  <li>   <p><code>Policy</code> – The queue's policy. A valid Amazon Web Services policy. For more information about policy structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html">Overview of Amazon Web Services IAM Policies</a> in the <i>Identity and Access Management User Guide</i>.</p></li>  <li>   <p><code>ReceiveMessageWaitTimeSeconds</code> – The length of time, in seconds, for which a <code> <a>ReceiveMessage</a> </code> action waits for a message to arrive. Valid values: An integer from 0 to 20 (seconds). Default: 0.</p></li>  <li>   <p><code>VisibilityTimeout</code> – The visibility timeout for the queue, in seconds. Valid values: An integer from 0 to 43,200 (12 hours). Default: 30. For more information about the visibility timeout, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</p></li> </ul> <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues:</a></p> <ul>  <li>   <p><code>RedrivePolicy</code> – The string that includes the parameters for the dead-letter queue functionality of the source queue as a JSON object. The parameters are as follows:</p>   <ul>    <li>     <p><code>deadLetterTargetArn</code> – The Amazon Resource Name (ARN) of the dead-letter queue to which Amazon SQS moves messages after the value of <code>maxReceiveCount</code> is exceeded.</p></li>    <li>     <p><code>maxReceiveCount</code> – The number of times a message is delivered to the source queue before being moved to the dead-letter queue. Default: 10. When the <code>ReceiveCount</code> for a message exceeds the <code>maxReceiveCount</code> for a queue, Amazon SQS moves the message to the dead-letter-queue.</p></li>   </ul></li>  <li>   <p><code>RedriveAllowPolicy</code> – The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object. The parameters are as follows:</p>   <ul>    <li>     <p><code>redrivePermission</code> – The permission type that defines which source queues can specify the current queue as the dead-letter queue. Valid values are:</p>     <ul>      <li>       <p><code>allowAll</code> – (Default) Any source queues in this Amazon Web Services account in the same Region can specify this queue as the dead-letter queue.</p></li>      <li>       <p><code>denyAll</code> – No source queues can specify this queue as the dead-letter queue.</p></li>      <li>       <p><code>byQueue</code> – Only queues specified by the <code>sourceQueueArns</code> parameter can specify this queue as the dead-letter queue.</p></li>     </ul></li>    <li>     <p><code>sourceQueueArns</code> – The Amazon Resource Names (ARN)s of the source queues that can specify this queue as the dead-letter queue and redrive messages. You can specify this parameter only when the <code>redrivePermission</code> parameter is set to <code>byQueue</code>. You can specify up to 10 source queue ARNs. To allow more than 10 source queues to specify dead-letter queues, set the <code>redrivePermission</code> parameter to <code>allowAll</code>.</p></li>   </ul></li> </ul> <note>  <p>The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter queue of a standard queue must also be a standard queue.</p> </note> <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</p> <ul>  <li>   <p><code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key Terms</a>. While the alias of the AWS-managed CMK for Amazon SQS is always <code>alias/aws/sqs</code>, the alias of a custom CMK can, for example, be <code>alias/<i>MyAlias</i> </code>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API Reference</i>.</p></li>  <li>   <p><code>KmsDataKeyReusePeriodSeconds</code> – The length of time, in seconds, for which Amazon SQS can reuse a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys">data key</a> to encrypt or decrypt messages before calling KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). Default: 300 (5 minutes). A shorter time period provides better security but results in more calls to KMS which might incur charges after Free Tier. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How Does the Data Key Reuse Period Work?</a>.</p></li>  <li>   <p><code>SqsManagedSseEnabled</code> – Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p></li> </ul> <p>The following attribute applies only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO (first-in-first-out) queues</a>:</p> <ul>  <li>   <p><code>ContentBasedDeduplication</code> – Enables content-based deduplication. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once processing</a> in the <i>Amazon SQS Developer Guide</i>. Note the following:</p>   <ul>    <li>     <p>Every message must have a unique <code>MessageDeduplicationId</code>.</p>     <ul>      <li>       <p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p></li>      <li>       <p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your queue, Amazon SQS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p></li>      <li>       <p>If you don't provide a <code>MessageDeduplicationId</code> and the queue doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p></li>      <li>       <p>If the queue has <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code> overrides the generated one.</p></li>     </ul></li>    <li>     <p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication interval are treated as duplicates and only one copy of the message is delivered.</p></li>    <li>     <p>If you send one message with <code>ContentBasedDeduplication</code> enabled and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates and only one copy of the message is delivered.</p></li>   </ul></li> </ul> <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high throughput for FIFO queues</a>:</p> <ul>  <li>   <p><code>DeduplicationScope</code> – Specifies whether message deduplication occurs at the message group or queue level. Valid values are <code>messageGroup</code> and <code>queue</code>.</p></li>  <li>   <p><code>FifoThroughputLimit</code> – Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are <code>perQueue</code> and <code>perMessageGroupId</code>. The <code>perMessageGroupId</code> value is allowed only when the value for <code>DeduplicationScope</code> is <code>messageGroup</code>.</p></li> </ul> <p>To enable high throughput for FIFO queues, do the following:</p> <ul>  <li>   <p>Set <code>DeduplicationScope</code> to <code>messageGroup</code>.</p></li>  <li>   <p>Set <code>FifoThroughputLimit</code> to <code>perMessageGroupId</code>.</p></li> </ul> <p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p> <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p><br>
      /// - On success, responds with [`SetQueueAttributesOutput`](crate::operation::set_queue_attributes::SetQueueAttributesOutput)
      /// - On failure, responds with [`SdkError<SetQueueAttributesError>`](crate::operation::set_queue_attributes::SetQueueAttributesError)
-     pub fn set_queue_attributes(&self) -> crate::operation::set_queue_attributes::builders::SetQueueAttributesFluentBuilder {
+     pub fn set_queue_attributes(&self) -> super::operation::set_queue_attributes::builders::SetQueueAttributesFluentBuilder {
 ```
 
 ### `src/operation/add_permission.rs`
@@ -189,7 +189,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_add_permission::ser_add_permission_input(&input)?);
+         let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_add_permission::ser_add_permission_input(&input)?);
 ```
 
 ### `src/operation/cancel_message_move_task.rs`
@@ -269,7 +269,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_queue::ser_create_queue_input(&input)?);
+         let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_create_queue::ser_create_queue_input(&input)?);
 ```
 
 ### `src/operation/delete_message.rs`
@@ -285,15 +285,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_message::ser_delete_message_input(&input)?);
+         let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_message::ser_delete_message_input(&input)?);
 @@ -319,7 +317,6 @@
      /// <p>The specified ID is invalid.</p>
-     InvalidAddress(crate::types::error::InvalidAddress),
+     InvalidAddress(super::types::error::InvalidAddress),
      /// <p>The specified receipt handle isn't valid for the current version.</p>
 -    #[deprecated(note = "exception has been included in ReceiptHandleIsInvalid")]
-     InvalidIdFormat(crate::types::error::InvalidIdFormat),
+     InvalidIdFormat(super::types::error::InvalidIdFormat),
      /// <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
-     InvalidSecurity(crate::types::error::InvalidSecurity),
+     InvalidSecurity(super::types::error::InvalidSecurity),
 ```
 
 ### `src/operation/delete_message_batch.rs`
@@ -325,7 +325,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_queue::ser_delete_queue_input(&input)?);
+         let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_queue::ser_delete_queue_input(&input)?);
 ```
 
 ### `src/operation/get_queue_attributes.rs`
@@ -357,7 +357,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_queue_url::ser_get_queue_url_input(&input)?);
+         let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_queue_url::ser_get_queue_url_input(&input)?);
 ```
 
 ### `src/operation/list_dead_letter_source_queues.rs`
@@ -389,7 +389,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_message_move_tasks::ser_list_message_move_tasks_input(
+         let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_message_move_tasks::ser_list_message_move_tasks_input(
 ```
 
 ### `src/operation/list_queue_tags.rs`
@@ -405,7 +405,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_queue_tags::ser_list_queue_tags_input(&input)?);
+         let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_queue_tags::ser_list_queue_tags_input(&input)?);
 ```
 
 ### `src/operation/list_queues.rs`
@@ -421,7 +421,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_queues::ser_list_queues_input(&input)?);
+         let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_queues::ser_list_queues_input(&input)?);
 ```
 
 ### `src/operation/purge_queue.rs`
@@ -437,7 +437,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_purge_queue::ser_purge_queue_input(&input)?);
+         let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_purge_queue::ser_purge_queue_input(&input)?);
 ```
 
 ### `src/operation/receive_message/_receive_message_input.rs`
@@ -453,7 +453,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///
      /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attribute_names.is_none()`.
 -    #[deprecated(note = "AttributeNames has been replaced by MessageSystemAttributeNames")]
-     pub fn attribute_names(&self) -> &[crate::types::QueueAttributeName] {
+     pub fn attribute_names(&self) -> &[super::types::QueueAttributeName] {
          self.attribute_names.as_deref().unwrap_or_default()
      }
 ```
@@ -467,7 +467,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
              ))
              .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                crate::long_polling::LongPollingInterceptor,
+-                super::long_polling::LongPollingInterceptor,
 -            ))
 -            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                  ReceiveMessageEndpointParamsInterceptor,
@@ -481,7 +481,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_receive_message::ser_receive_message_input(&input)?);
+         let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_receive_message::ser_receive_message_input(&input)?);
 ```
 
 ### `src/operation/remove_permission.rs`
@@ -497,7 +497,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_remove_permission::ser_remove_permission_input(&input)?);
+         let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_remove_permission::ser_remove_permission_input(&input)?);
 ```
 
 ### `src/operation/send_message.rs`
@@ -513,7 +513,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_send_message::ser_send_message_input(&input)?);
+         let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_send_message::ser_send_message_input(&input)?);
 ```
 
 ### `src/operation/send_message_batch.rs`
@@ -529,7 +529,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_send_message_batch::ser_send_message_batch_input(&input)?);
+         let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_send_message_batch::ser_send_message_batch_input(&input)?);
 ```
 
 ### `src/operation/set_queue_attributes.rs`
@@ -561,7 +561,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_start_message_move_task::ser_start_message_move_task_input(
+         let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_start_message_move_task::ser_start_message_move_task_input(
 ```
 
 ### `src/operation/tag_queue.rs`
@@ -577,7 +577,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_tag_queue::ser_tag_queue_input(&input)?);
+         let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_tag_queue::ser_tag_queue_input(&input)?);
 ```
 
 ### `src/operation/untag_queue.rs`
@@ -593,7 +593,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_untag_queue::ser_untag_queue_input(&input)?);
+         let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_untag_queue::ser_untag_queue_input(&input)?);
 ```
 
 ### `src/protocol_serde/shape_add_permission.rs`
@@ -605,8 +605,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::add_permission::AddPermissionError::QueueDoesNotExist({
-+        "QueueDoesNotExist" => crate::operation::add_permission::AddPermissionError::QueueDoesNotExist({
+-        "AWS.SimpleQueueService.NonExistentQueue" => super::operation::add_permission::AddPermissionError::QueueDoesNotExist({
++        "QueueDoesNotExist" => super::operation::add_permission::AddPermissionError::QueueDoesNotExist({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -614,8 +614,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::add_permission::AddPermissionError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::add_permission::AddPermissionError::UnsupportedOperation({
+-        "AWS.SimpleQueueService.UnsupportedOperation" => super::operation::add_permission::AddPermissionError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::add_permission::AddPermissionError::UnsupportedOperation({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -626,12 +626,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_add_permission(
 +    _value: &[u8],
-+    mut builder: crate::operation::add_permission::builders::AddPermissionOutputBuilder,
++    mut builder: super::operation::add_permission::builders::AddPermissionOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::add_permission::builders::AddPermissionOutputBuilder,
++    super::operation::add_permission::builders::AddPermissionOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -668,16 +668,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
 -        "AWS.SimpleQueueService.UnsupportedOperation" => {
--            crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::UnsupportedOperation({
+-            super::operation::cancel_message_move_task::CancelMessageMoveTaskError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::cancel_message_move_task::CancelMessageMoveTaskError::UnsupportedOperation({
 +            #[allow(unused_mut)]
 +            let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut tmp = {
 -                    #[allow(unused_mut)]
--                    let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
--                    output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
--                        .map_err(crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::unhandled)?;
+-                    let mut output = super::types::error::builders::UnsupportedOperationBuilder::default();
+-                    output = super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+-                        .map_err(super::operation::cancel_message_move_task::CancelMessageMoveTaskError::unhandled)?;
 -                    let output = output.meta(generic);
 -                    output.build()
 -                };
@@ -687,9 +687,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                tmp
 -            })
 -        }
-+                let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
-+                output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
-+                    .map_err(crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::unhandled)?;
++                let mut output = super::types::error::builders::UnsupportedOperationBuilder::default();
++                output = super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
++                    .map_err(super::operation::cancel_message_move_task::CancelMessageMoveTaskError::unhandled)?;
 +                let output = output.meta(generic);
 +                output.build()
 +            };
@@ -698,7 +698,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
 +            tmp
 +        }),
-         _ => crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::generic(generic),
+         _ => super::operation::cancel_message_move_task::CancelMessageMoveTaskError::generic(generic),
      })
  }
 ```
@@ -713,16 +713,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
 -        "AWS.SimpleQueueService.MessageNotInflight" => {
--            crate::operation::change_message_visibility::ChangeMessageVisibilityError::MessageNotInflight({
-+        "MessageNotInflight" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::MessageNotInflight({
+-            super::operation::change_message_visibility::ChangeMessageVisibilityError::MessageNotInflight({
++        "MessageNotInflight" => super::operation::change_message_visibility::ChangeMessageVisibilityError::MessageNotInflight({
 +            #[allow(unused_mut)]
 +            let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut tmp = {
 -                    #[allow(unused_mut)]
--                    let mut output = crate::types::error::builders::MessageNotInflightBuilder::default();
--                    output = crate::protocol_serde::shape_message_not_inflight::de_message_not_inflight_json_err(_response_body, output)
--                        .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
+-                    let mut output = super::types::error::builders::MessageNotInflightBuilder::default();
+-                    output = super::protocol_serde::shape_message_not_inflight::de_message_not_inflight_json_err(_response_body, output)
+-                        .map_err(super::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
 -                    let output = output.meta(generic);
 -                    output.build()
 -                };
@@ -732,10 +732,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                tmp
 -            })
 -        }
--        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::QueueDoesNotExist({
-+                let mut output = crate::types::error::builders::MessageNotInflightBuilder::default();
-+                output = crate::protocol_serde::shape_message_not_inflight::de_message_not_inflight_json_err(_response_body, output)
-+                    .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
+-        "AWS.SimpleQueueService.NonExistentQueue" => super::operation::change_message_visibility::ChangeMessageVisibilityError::QueueDoesNotExist({
++                let mut output = super::types::error::builders::MessageNotInflightBuilder::default();
++                output = super::protocol_serde::shape_message_not_inflight::de_message_not_inflight_json_err(_response_body, output)
++                    .map_err(super::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
 +                let output = output.meta(generic);
 +                output.build()
 +            };
@@ -744,7 +744,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
 +            tmp
 +        }),
-+        "QueueDoesNotExist" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::QueueDoesNotExist({
++        "QueueDoesNotExist" => super::operation::change_message_visibility::ChangeMessageVisibilityError::QueueDoesNotExist({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -753,16 +753,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
 -        "AWS.SimpleQueueService.UnsupportedOperation" => {
--            crate::operation::change_message_visibility::ChangeMessageVisibilityError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::UnsupportedOperation({
+-            super::operation::change_message_visibility::ChangeMessageVisibilityError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::change_message_visibility::ChangeMessageVisibilityError::UnsupportedOperation({
 +            #[allow(unused_mut)]
 +            let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut tmp = {
 -                    #[allow(unused_mut)]
--                    let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
--                    output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
--                        .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
+-                    let mut output = super::types::error::builders::UnsupportedOperationBuilder::default();
+-                    output = super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+-                        .map_err(super::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
 -                    let output = output.meta(generic);
 -                    output.build()
 -                };
@@ -772,9 +772,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                tmp
 -            })
 -        }
-+                let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
-+                output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
-+                    .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
++                let mut output = super::types::error::builders::UnsupportedOperationBuilder::default();
++                output = super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
++                    .map_err(super::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
 +                let output = output.meta(generic);
 +                output.build()
 +            };
@@ -783,7 +783,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
 +            tmp
 +        }),
-         _ => crate::operation::change_message_visibility::ChangeMessageVisibilityError::generic(generic),
+         _ => super::operation::change_message_visibility::ChangeMessageVisibilityError::generic(generic),
      })
  }
 @@ -163,3 +159,36 @@
@@ -793,12 +793,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_change_message_visibility(
 +    _value: &[u8],
-+    mut builder: crate::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder,
++    mut builder: super::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder,
++    super::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -836,7 +836,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      Err(match error_code {
 -        "AWS.SimpleQueueService.BatchEntryIdsNotDistinct" => {
 +        "BatchEntryIdsNotDistinct" => {
-             crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::BatchEntryIdsNotDistinct({
+             super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::BatchEntryIdsNotDistinct({
                  #[allow(unused_mut)]
                  let mut tmp = {
 @@ -38,23 +38,21 @@
@@ -844,16 +844,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              })
          }
 -        "AWS.SimpleQueueService.EmptyBatchRequest" => {
--            crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::EmptyBatchRequest({
-+        "EmptyBatchRequest" => crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::EmptyBatchRequest({
+-            super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::EmptyBatchRequest({
++        "EmptyBatchRequest" => super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::EmptyBatchRequest({
 +            #[allow(unused_mut)]
 +            let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut tmp = {
 -                    #[allow(unused_mut)]
--                    let mut output = crate::types::error::builders::EmptyBatchRequestBuilder::default();
--                    output = crate::protocol_serde::shape_empty_batch_request::de_empty_batch_request_json_err(_response_body, output)
--                        .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
+-                    let mut output = super::types::error::builders::EmptyBatchRequestBuilder::default();
+-                    output = super::protocol_serde::shape_empty_batch_request::de_empty_batch_request_json_err(_response_body, output)
+-                        .map_err(super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
 -                    let output = output.meta(generic);
 -                    output.build()
 -                };
@@ -863,9 +863,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                tmp
 -            })
 -        }
-+                let mut output = crate::types::error::builders::EmptyBatchRequestBuilder::default();
-+                output = crate::protocol_serde::shape_empty_batch_request::de_empty_batch_request_json_err(_response_body, output)
-+                    .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
++                let mut output = super::types::error::builders::EmptyBatchRequestBuilder::default();
++                output = super::protocol_serde::shape_empty_batch_request::de_empty_batch_request_json_err(_response_body, output)
++                    .map_err(super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
 +                let output = output.meta(generic);
 +                output.build()
 +            };
@@ -874,7 +874,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
 +            tmp
 +        }),
-         "InvalidAddress" => crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::InvalidAddress({
+         "InvalidAddress" => super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::InvalidAddress({
              #[allow(unused_mut)]
              let mut tmp = {
 @@ -70,23 +68,21 @@
@@ -882,16 +882,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
 -        "AWS.SimpleQueueService.InvalidBatchEntryId" => {
--            crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::InvalidBatchEntryId({
-+        "InvalidBatchEntryId" => crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::InvalidBatchEntryId({
+-            super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::InvalidBatchEntryId({
++        "InvalidBatchEntryId" => super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::InvalidBatchEntryId({
 +            #[allow(unused_mut)]
 +            let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut tmp = {
 -                    #[allow(unused_mut)]
--                    let mut output = crate::types::error::builders::InvalidBatchEntryIdBuilder::default();
--                    output = crate::protocol_serde::shape_invalid_batch_entry_id::de_invalid_batch_entry_id_json_err(_response_body, output)
--                        .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
+-                    let mut output = super::types::error::builders::InvalidBatchEntryIdBuilder::default();
+-                    output = super::protocol_serde::shape_invalid_batch_entry_id::de_invalid_batch_entry_id_json_err(_response_body, output)
+-                        .map_err(super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
 -                    let output = output.meta(generic);
 -                    output.build()
 -                };
@@ -901,9 +901,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                tmp
 -            })
 -        }
-+                let mut output = crate::types::error::builders::InvalidBatchEntryIdBuilder::default();
-+                output = crate::protocol_serde::shape_invalid_batch_entry_id::de_invalid_batch_entry_id_json_err(_response_body, output)
-+                    .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
++                let mut output = super::types::error::builders::InvalidBatchEntryIdBuilder::default();
++                output = super::protocol_serde::shape_invalid_batch_entry_id::de_invalid_batch_entry_id_json_err(_response_body, output)
++                    .map_err(super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
 +                let output = output.meta(generic);
 +                output.build()
 +            };
@@ -912,7 +912,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
 +            tmp
 +        }),
-         "InvalidSecurity" => crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::InvalidSecurity({
+         "InvalidSecurity" => super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::InvalidSecurity({
              #[allow(unused_mut)]
              let mut tmp = {
 @@ -102,23 +98,21 @@
@@ -920,16 +920,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
 -        "AWS.SimpleQueueService.NonExistentQueue" => {
--            crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::QueueDoesNotExist({
-+        "QueueDoesNotExist" => crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::QueueDoesNotExist({
+-            super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::QueueDoesNotExist({
++        "QueueDoesNotExist" => super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::QueueDoesNotExist({
 +            #[allow(unused_mut)]
 +            let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut tmp = {
 -                    #[allow(unused_mut)]
--                    let mut output = crate::types::error::builders::QueueDoesNotExistBuilder::default();
--                    output = crate::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
--                        .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
+-                    let mut output = super::types::error::builders::QueueDoesNotExistBuilder::default();
+-                    output = super::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
+-                        .map_err(super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
 -                    let output = output.meta(generic);
 -                    output.build()
 -                };
@@ -939,9 +939,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                tmp
 -            })
 -        }
-+                let mut output = crate::types::error::builders::QueueDoesNotExistBuilder::default();
-+                output = crate::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
-+                    .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
++                let mut output = super::types::error::builders::QueueDoesNotExistBuilder::default();
++                output = super::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
++                    .map_err(super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
 +                let output = output.meta(generic);
 +                output.build()
 +            };
@@ -950,7 +950,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
 +            tmp
 +        }),
-         "RequestThrottled" => crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::RequestThrottled({
+         "RequestThrottled" => super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::RequestThrottled({
              #[allow(unused_mut)]
              let mut tmp = {
 @@ -134,7 +128,7 @@
@@ -959,7 +959,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }),
 -        "AWS.SimpleQueueService.TooManyEntriesInBatchRequest" => {
 +        "TooManyEntriesInBatchRequest" => {
-             crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::TooManyEntriesInBatchRequest({
+             super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::TooManyEntriesInBatchRequest({
                  #[allow(unused_mut)]
                  let mut tmp = {
 @@ -154,23 +148,21 @@
@@ -967,16 +967,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              })
          }
 -        "AWS.SimpleQueueService.UnsupportedOperation" => {
--            crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::UnsupportedOperation({
+-            super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::UnsupportedOperation({
 +            #[allow(unused_mut)]
 +            let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut tmp = {
 -                    #[allow(unused_mut)]
--                    let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
--                    output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
--                        .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
+-                    let mut output = super::types::error::builders::UnsupportedOperationBuilder::default();
+-                    output = super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+-                        .map_err(super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
 -                    let output = output.meta(generic);
 -                    output.build()
 -                };
@@ -986,9 +986,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                tmp
 -            })
 -        }
-+                let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
-+                output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
-+                    .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
++                let mut output = super::types::error::builders::UnsupportedOperationBuilder::default();
++                output = super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
++                    .map_err(super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
 +                let output = output.meta(generic);
 +                output.build()
 +            };
@@ -997,7 +997,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
 +            tmp
 +        }),
-         _ => crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::generic(generic),
+         _ => super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::generic(generic),
      })
  }
 @@ -223,9 +215,7 @@
@@ -1005,9 +1005,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                  "Successful" => {
 -                    builder = builder.set_successful(
--                            crate::protocol_serde::shape_change_message_visibility_batch_result_entry_list::de_change_message_visibility_batch_result_entry_list(tokens, _value, depth + 1)?
+-                            super::protocol_serde::shape_change_message_visibility_batch_result_entry_list::de_change_message_visibility_batch_result_entry_list(tokens, _value, depth + 1)?
 -                        );
-+                    builder = builder.set_successful(crate::protocol_serde::shape_change_message_visibility_batch_result_entry_list::de_change_message_visibility_batch_result_entry_list(tokens, _value, depth + 1)?);
++                    builder = builder.set_successful(super::protocol_serde::shape_change_message_visibility_batch_result_entry_list::de_change_message_visibility_batch_result_entry_list(tokens, _value, depth + 1)?);
                  }
                  "Failed" => {
                      builder = builder.set_failed(
@@ -1023,9 +1023,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                      _ => {
 -                        let value =
--                            crate::protocol_serde::shape_change_message_visibility_batch_result_entry::de_change_message_visibility_batch_result_entry(tokens, _value, depth + 1)?
+-                            super::protocol_serde::shape_change_message_visibility_batch_result_entry::de_change_message_visibility_batch_result_entry(tokens, _value, depth + 1)?
 -                        ;
-+                        let value = crate::protocol_serde::shape_change_message_visibility_batch_result_entry::de_change_message_visibility_batch_result_entry(tokens, _value, depth + 1)?;
++                        let value = super::protocol_serde::shape_change_message_visibility_batch_result_entry::de_change_message_visibility_batch_result_entry(tokens, _value, depth + 1)?;
                          if let Some(value) = value {
                              items.push(value);
                          } else {
@@ -1040,8 +1040,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.QueueDeletedRecently" => crate::operation::create_queue::CreateQueueError::QueueDeletedRecently({
-+        "QueueDeletedRecently" => crate::operation::create_queue::CreateQueueError::QueueDeletedRecently({
+-        "AWS.SimpleQueueService.QueueDeletedRecently" => super::operation::create_queue::CreateQueueError::QueueDeletedRecently({
++        "QueueDeletedRecently" => super::operation::create_queue::CreateQueueError::QueueDeletedRecently({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1049,8 +1049,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "QueueAlreadyExists" => crate::operation::create_queue::CreateQueueError::QueueNameExists({
-+        "QueueNameExists" => crate::operation::create_queue::CreateQueueError::QueueNameExists({
+-        "QueueAlreadyExists" => super::operation::create_queue::CreateQueueError::QueueNameExists({
++        "QueueNameExists" => super::operation::create_queue::CreateQueueError::QueueNameExists({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1058,8 +1058,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::create_queue::CreateQueueError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::create_queue::CreateQueueError::UnsupportedOperation({
+-        "AWS.SimpleQueueService.UnsupportedOperation" => super::operation::create_queue::CreateQueueError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::create_queue::CreateQueueError::UnsupportedOperation({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1074,8 +1074,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::delete_message::DeleteMessageError::QueueDoesNotExist({
-+        "QueueDoesNotExist" => crate::operation::delete_message::DeleteMessageError::QueueDoesNotExist({
+-        "AWS.SimpleQueueService.NonExistentQueue" => super::operation::delete_message::DeleteMessageError::QueueDoesNotExist({
++        "QueueDoesNotExist" => super::operation::delete_message::DeleteMessageError::QueueDoesNotExist({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1083,8 +1083,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::delete_message::DeleteMessageError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::delete_message::DeleteMessageError::UnsupportedOperation({
+-        "AWS.SimpleQueueService.UnsupportedOperation" => super::operation::delete_message::DeleteMessageError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::delete_message::DeleteMessageError::UnsupportedOperation({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1095,12 +1095,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_delete_message(
 +    _value: &[u8],
-+    mut builder: crate::operation::delete_message::builders::DeleteMessageOutputBuilder,
++    mut builder: super::operation::delete_message::builders::DeleteMessageOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::delete_message::builders::DeleteMessageOutputBuilder,
++    super::operation::delete_message::builders::DeleteMessageOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -1137,17 +1137,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
 -        "AWS.SimpleQueueService.BatchEntryIdsNotDistinct" => {
--            crate::operation::delete_message_batch::DeleteMessageBatchError::BatchEntryIdsNotDistinct({
-+        "BatchEntryIdsNotDistinct" => crate::operation::delete_message_batch::DeleteMessageBatchError::BatchEntryIdsNotDistinct({
+-            super::operation::delete_message_batch::DeleteMessageBatchError::BatchEntryIdsNotDistinct({
++        "BatchEntryIdsNotDistinct" => super::operation::delete_message_batch::DeleteMessageBatchError::BatchEntryIdsNotDistinct({
 +            #[allow(unused_mut)]
 +            let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut tmp = {
 -                    #[allow(unused_mut)]
--                    let mut output = crate::types::error::builders::BatchEntryIdsNotDistinctBuilder::default();
+-                    let mut output = super::types::error::builders::BatchEntryIdsNotDistinctBuilder::default();
 -                    output =
--                        crate::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(_response_body, output)
--                            .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
+-                        super::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(_response_body, output)
+-                            .map_err(super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
 -                    let output = output.meta(generic);
 -                    output.build()
 -                };
@@ -1157,10 +1157,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                tmp
 -            })
 -        }
--        "AWS.SimpleQueueService.EmptyBatchRequest" => crate::operation::delete_message_batch::DeleteMessageBatchError::EmptyBatchRequest({
-+                let mut output = crate::types::error::builders::BatchEntryIdsNotDistinctBuilder::default();
-+                output = crate::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(_response_body, output)
-+                    .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
+-        "AWS.SimpleQueueService.EmptyBatchRequest" => super::operation::delete_message_batch::DeleteMessageBatchError::EmptyBatchRequest({
++                let mut output = super::types::error::builders::BatchEntryIdsNotDistinctBuilder::default();
++                output = super::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(_response_body, output)
++                    .map_err(super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
 +                let output = output.meta(generic);
 +                output.build()
 +            };
@@ -1169,7 +1169,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
 +            tmp
 +        }),
-+        "EmptyBatchRequest" => crate::operation::delete_message_batch::DeleteMessageBatchError::EmptyBatchRequest({
++        "EmptyBatchRequest" => super::operation::delete_message_batch::DeleteMessageBatchError::EmptyBatchRequest({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1177,8 +1177,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.InvalidBatchEntryId" => crate::operation::delete_message_batch::DeleteMessageBatchError::InvalidBatchEntryId({
-+        "InvalidBatchEntryId" => crate::operation::delete_message_batch::DeleteMessageBatchError::InvalidBatchEntryId({
+-        "AWS.SimpleQueueService.InvalidBatchEntryId" => super::operation::delete_message_batch::DeleteMessageBatchError::InvalidBatchEntryId({
++        "InvalidBatchEntryId" => super::operation::delete_message_batch::DeleteMessageBatchError::InvalidBatchEntryId({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1186,8 +1186,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::delete_message_batch::DeleteMessageBatchError::QueueDoesNotExist({
-+        "QueueDoesNotExist" => crate::operation::delete_message_batch::DeleteMessageBatchError::QueueDoesNotExist({
+-        "AWS.SimpleQueueService.NonExistentQueue" => super::operation::delete_message_batch::DeleteMessageBatchError::QueueDoesNotExist({
++        "QueueDoesNotExist" => super::operation::delete_message_batch::DeleteMessageBatchError::QueueDoesNotExist({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1196,19 +1196,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
 -        "AWS.SimpleQueueService.TooManyEntriesInBatchRequest" => {
--            crate::operation::delete_message_batch::DeleteMessageBatchError::TooManyEntriesInBatchRequest({
-+        "TooManyEntriesInBatchRequest" => crate::operation::delete_message_batch::DeleteMessageBatchError::TooManyEntriesInBatchRequest({
+-            super::operation::delete_message_batch::DeleteMessageBatchError::TooManyEntriesInBatchRequest({
++        "TooManyEntriesInBatchRequest" => super::operation::delete_message_batch::DeleteMessageBatchError::TooManyEntriesInBatchRequest({
 +            #[allow(unused_mut)]
 +            let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut tmp = {
 -                    #[allow(unused_mut)]
--                    let mut output = crate::types::error::builders::TooManyEntriesInBatchRequestBuilder::default();
--                    output = crate::protocol_serde::shape_too_many_entries_in_batch_request::de_too_many_entries_in_batch_request_json_err(
+-                    let mut output = super::types::error::builders::TooManyEntriesInBatchRequestBuilder::default();
+-                    output = super::protocol_serde::shape_too_many_entries_in_batch_request::de_too_many_entries_in_batch_request_json_err(
 -                        _response_body,
 -                        output,
 -                    )
--                    .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
+-                    .map_err(super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
 -                    let output = output.meta(generic);
 -                    output.build()
 -                };
@@ -1218,13 +1218,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                tmp
 -            })
 -        }
--        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::delete_message_batch::DeleteMessageBatchError::UnsupportedOperation({
-+                let mut output = crate::types::error::builders::TooManyEntriesInBatchRequestBuilder::default();
-+                output = crate::protocol_serde::shape_too_many_entries_in_batch_request::de_too_many_entries_in_batch_request_json_err(
+-        "AWS.SimpleQueueService.UnsupportedOperation" => super::operation::delete_message_batch::DeleteMessageBatchError::UnsupportedOperation({
++                let mut output = super::types::error::builders::TooManyEntriesInBatchRequestBuilder::default();
++                output = super::protocol_serde::shape_too_many_entries_in_batch_request::de_too_many_entries_in_batch_request_json_err(
 +                    _response_body,
 +                    output,
 +                )
-+                .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
++                .map_err(super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
 +                let output = output.meta(generic);
 +                output.build()
 +            };
@@ -1233,7 +1233,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
 +            tmp
 +        }),
-+        "UnsupportedOperation" => crate::operation::delete_message_batch::DeleteMessageBatchError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::delete_message_batch::DeleteMessageBatchError::UnsupportedOperation({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1248,8 +1248,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::delete_queue::DeleteQueueError::QueueDoesNotExist({
-+        "QueueDoesNotExist" => crate::operation::delete_queue::DeleteQueueError::QueueDoesNotExist({
+-        "AWS.SimpleQueueService.NonExistentQueue" => super::operation::delete_queue::DeleteQueueError::QueueDoesNotExist({
++        "QueueDoesNotExist" => super::operation::delete_queue::DeleteQueueError::QueueDoesNotExist({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1257,8 +1257,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::delete_queue::DeleteQueueError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::delete_queue::DeleteQueueError::UnsupportedOperation({
+-        "AWS.SimpleQueueService.UnsupportedOperation" => super::operation::delete_queue::DeleteQueueError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::delete_queue::DeleteQueueError::UnsupportedOperation({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1269,10 +1269,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_delete_queue(
 +    _value: &[u8],
-+    mut builder: crate::operation::delete_queue::builders::DeleteQueueOutputBuilder,
-+) -> ::std::result::Result<crate::operation::delete_queue::builders::DeleteQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++    mut builder: super::operation::delete_queue::builders::DeleteQueueOutputBuilder,
++) -> ::std::result::Result<super::operation::delete_queue::builders::DeleteQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
 +{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -1308,8 +1308,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::get_queue_attributes::GetQueueAttributesError::QueueDoesNotExist({
-+        "QueueDoesNotExist" => crate::operation::get_queue_attributes::GetQueueAttributesError::QueueDoesNotExist({
+-        "AWS.SimpleQueueService.NonExistentQueue" => super::operation::get_queue_attributes::GetQueueAttributesError::QueueDoesNotExist({
++        "QueueDoesNotExist" => super::operation::get_queue_attributes::GetQueueAttributesError::QueueDoesNotExist({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1317,8 +1317,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::get_queue_attributes::GetQueueAttributesError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::get_queue_attributes::GetQueueAttributesError::UnsupportedOperation({
+-        "AWS.SimpleQueueService.UnsupportedOperation" => super::operation::get_queue_attributes::GetQueueAttributesError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::get_queue_attributes::GetQueueAttributesError::UnsupportedOperation({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1333,8 +1333,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::get_queue_url::GetQueueUrlError::QueueDoesNotExist({
-+        "QueueDoesNotExist" => crate::operation::get_queue_url::GetQueueUrlError::QueueDoesNotExist({
+-        "AWS.SimpleQueueService.NonExistentQueue" => super::operation::get_queue_url::GetQueueUrlError::QueueDoesNotExist({
++        "QueueDoesNotExist" => super::operation::get_queue_url::GetQueueUrlError::QueueDoesNotExist({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1342,8 +1342,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::get_queue_url::GetQueueUrlError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::get_queue_url::GetQueueUrlError::UnsupportedOperation({
+-        "AWS.SimpleQueueService.UnsupportedOperation" => super::operation::get_queue_url::GetQueueUrlError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::get_queue_url::GetQueueUrlError::UnsupportedOperation({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1379,16 +1379,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
 -        "AWS.SimpleQueueService.NonExistentQueue" => {
--            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::QueueDoesNotExist({
-+        "QueueDoesNotExist" => crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::QueueDoesNotExist({
+-            super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::QueueDoesNotExist({
++        "QueueDoesNotExist" => super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::QueueDoesNotExist({
 +            #[allow(unused_mut)]
 +            let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut tmp = {
 -                    #[allow(unused_mut)]
--                    let mut output = crate::types::error::builders::QueueDoesNotExistBuilder::default();
--                    output = crate::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
--                        .map_err(crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::unhandled)?;
+-                    let mut output = super::types::error::builders::QueueDoesNotExistBuilder::default();
+-                    output = super::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
+-                        .map_err(super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::unhandled)?;
 -                    let output = output.meta(generic);
 -                    output.build()
 -                };
@@ -1398,9 +1398,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                tmp
 -            })
 -        }
-+                let mut output = crate::types::error::builders::QueueDoesNotExistBuilder::default();
-+                output = crate::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
-+                    .map_err(crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::unhandled)?;
++                let mut output = super::types::error::builders::QueueDoesNotExistBuilder::default();
++                output = super::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
++                    .map_err(super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::unhandled)?;
 +                let output = output.meta(generic);
 +                output.build()
 +            };
@@ -1409,7 +1409,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
 +            tmp
 +        }),
-         "RequestThrottled" => crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::RequestThrottled({
+         "RequestThrottled" => super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::RequestThrottled({
              #[allow(unused_mut)]
              let mut tmp = {
 @@ -82,23 +80,21 @@
@@ -1417,16 +1417,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
 -        "AWS.SimpleQueueService.UnsupportedOperation" => {
--            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::UnsupportedOperation({
+-            super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::UnsupportedOperation({
 +            #[allow(unused_mut)]
 +            let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut tmp = {
 -                    #[allow(unused_mut)]
--                    let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
--                    output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
--                        .map_err(crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::unhandled)?;
+-                    let mut output = super::types::error::builders::UnsupportedOperationBuilder::default();
+-                    output = super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+-                        .map_err(super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::unhandled)?;
 -                    let output = output.meta(generic);
 -                    output.build()
 -                };
@@ -1436,9 +1436,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                tmp
 -            })
 -        }
-+                let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
-+                output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
-+                    .map_err(crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::unhandled)?;
++                let mut output = super::types::error::builders::UnsupportedOperationBuilder::default();
++                output = super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
++                    .map_err(super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::unhandled)?;
 +                let output = output.meta(generic);
 +                output.build()
 +            };
@@ -1447,7 +1447,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
 +            tmp
 +        }),
-         _ => crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::generic(generic),
+         _ => super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::generic(generic),
      })
  }
 ```
@@ -1462,16 +1462,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
 -        "AWS.SimpleQueueService.UnsupportedOperation" => {
--            crate::operation::list_message_move_tasks::ListMessageMoveTasksError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::list_message_move_tasks::ListMessageMoveTasksError::UnsupportedOperation({
+-            super::operation::list_message_move_tasks::ListMessageMoveTasksError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::list_message_move_tasks::ListMessageMoveTasksError::UnsupportedOperation({
 +            #[allow(unused_mut)]
 +            let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut tmp = {
 -                    #[allow(unused_mut)]
--                    let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
--                    output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
--                        .map_err(crate::operation::list_message_move_tasks::ListMessageMoveTasksError::unhandled)?;
+-                    let mut output = super::types::error::builders::UnsupportedOperationBuilder::default();
+-                    output = super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+-                        .map_err(super::operation::list_message_move_tasks::ListMessageMoveTasksError::unhandled)?;
 -                    let output = output.meta(generic);
 -                    output.build()
 -                };
@@ -1481,9 +1481,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                tmp
 -            })
 -        }
-+                let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
-+                output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
-+                    .map_err(crate::operation::list_message_move_tasks::ListMessageMoveTasksError::unhandled)?;
++                let mut output = super::types::error::builders::UnsupportedOperationBuilder::default();
++                output = super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
++                    .map_err(super::operation::list_message_move_tasks::ListMessageMoveTasksError::unhandled)?;
 +                let output = output.meta(generic);
 +                output.build()
 +            };
@@ -1492,7 +1492,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
 +            tmp
 +        }),
-         _ => crate::operation::list_message_move_tasks::ListMessageMoveTasksError::generic(generic),
+         _ => super::operation::list_message_move_tasks::ListMessageMoveTasksError::generic(generic),
      })
  }
 ```
@@ -1506,8 +1506,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::list_queue_tags::ListQueueTagsError::QueueDoesNotExist({
-+        "QueueDoesNotExist" => crate::operation::list_queue_tags::ListQueueTagsError::QueueDoesNotExist({
+-        "AWS.SimpleQueueService.NonExistentQueue" => super::operation::list_queue_tags::ListQueueTagsError::QueueDoesNotExist({
++        "QueueDoesNotExist" => super::operation::list_queue_tags::ListQueueTagsError::QueueDoesNotExist({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1515,8 +1515,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::list_queue_tags::ListQueueTagsError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::list_queue_tags::ListQueueTagsError::UnsupportedOperation({
+-        "AWS.SimpleQueueService.UnsupportedOperation" => super::operation::list_queue_tags::ListQueueTagsError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::list_queue_tags::ListQueueTagsError::UnsupportedOperation({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1531,8 +1531,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::list_queues::ListQueuesError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::list_queues::ListQueuesError::UnsupportedOperation({
+-        "AWS.SimpleQueueService.UnsupportedOperation" => super::operation::list_queues::ListQueuesError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::list_queues::ListQueuesError::UnsupportedOperation({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1567,7 +1567,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                        let key = key.to_unescaped().map(|u| crate::types::MessageSystemAttributeName::from(u.as_ref()))?;
+-                        let key = key.to_unescaped().map(|u| super::types::MessageSystemAttributeName::from(u.as_ref()))?;
 +                        let key = key.to_unescaped().map(|u| u.into_owned())?;
                          let value = ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
@@ -1583,8 +1583,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.PurgeQueueInProgress" => crate::operation::purge_queue::PurgeQueueError::PurgeQueueInProgress({
-+        "PurgeQueueInProgress" => crate::operation::purge_queue::PurgeQueueError::PurgeQueueInProgress({
+-        "AWS.SimpleQueueService.PurgeQueueInProgress" => super::operation::purge_queue::PurgeQueueError::PurgeQueueInProgress({
++        "PurgeQueueInProgress" => super::operation::purge_queue::PurgeQueueError::PurgeQueueInProgress({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1592,8 +1592,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::purge_queue::PurgeQueueError::QueueDoesNotExist({
-+        "QueueDoesNotExist" => crate::operation::purge_queue::PurgeQueueError::QueueDoesNotExist({
+-        "AWS.SimpleQueueService.NonExistentQueue" => super::operation::purge_queue::PurgeQueueError::QueueDoesNotExist({
++        "QueueDoesNotExist" => super::operation::purge_queue::PurgeQueueError::QueueDoesNotExist({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1601,8 +1601,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::purge_queue::PurgeQueueError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::purge_queue::PurgeQueueError::UnsupportedOperation({
+-        "AWS.SimpleQueueService.UnsupportedOperation" => super::operation::purge_queue::PurgeQueueError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::purge_queue::PurgeQueueError::UnsupportedOperation({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1613,10 +1613,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_purge_queue(
 +    _value: &[u8],
-+    mut builder: crate::operation::purge_queue::builders::PurgeQueueOutputBuilder,
-+) -> ::std::result::Result<crate::operation::purge_queue::builders::PurgeQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++    mut builder: super::operation::purge_queue::builders::PurgeQueueOutputBuilder,
++) -> ::std::result::Result<super::operation::purge_queue::builders::PurgeQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
 +{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -1652,7 +1652,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                        let key = key.to_unescaped().map(|u| crate::types::QueueAttributeName::from(u.as_ref()))?;
+-                        let key = key.to_unescaped().map(|u| super::types::QueueAttributeName::from(u.as_ref()))?;
 +                        let key = key.to_unescaped().map(|u| u.into_owned())?;
                          let value = ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
@@ -1668,8 +1668,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.AccessDeniedException" => crate::operation::receive_message::ReceiveMessageError::KmsAccessDenied({
-+        "KmsAccessDenied" => crate::operation::receive_message::ReceiveMessageError::KmsAccessDenied({
+-        "KMS.AccessDeniedException" => super::operation::receive_message::ReceiveMessageError::KmsAccessDenied({
++        "KmsAccessDenied" => super::operation::receive_message::ReceiveMessageError::KmsAccessDenied({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1677,8 +1677,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.DisabledException" => crate::operation::receive_message::ReceiveMessageError::KmsDisabled({
-+        "KmsDisabled" => crate::operation::receive_message::ReceiveMessageError::KmsDisabled({
+-        "KMS.DisabledException" => super::operation::receive_message::ReceiveMessageError::KmsDisabled({
++        "KmsDisabled" => super::operation::receive_message::ReceiveMessageError::KmsDisabled({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1686,8 +1686,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.InvalidKeyUsageException" => crate::operation::receive_message::ReceiveMessageError::KmsInvalidKeyUsage({
-+        "KmsInvalidKeyUsage" => crate::operation::receive_message::ReceiveMessageError::KmsInvalidKeyUsage({
+-        "KMS.InvalidKeyUsageException" => super::operation::receive_message::ReceiveMessageError::KmsInvalidKeyUsage({
++        "KmsInvalidKeyUsage" => super::operation::receive_message::ReceiveMessageError::KmsInvalidKeyUsage({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1695,8 +1695,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.InvalidStateException" => crate::operation::receive_message::ReceiveMessageError::KmsInvalidState({
-+        "KmsInvalidState" => crate::operation::receive_message::ReceiveMessageError::KmsInvalidState({
+-        "KMS.InvalidStateException" => super::operation::receive_message::ReceiveMessageError::KmsInvalidState({
++        "KmsInvalidState" => super::operation::receive_message::ReceiveMessageError::KmsInvalidState({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1704,8 +1704,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.NotFoundException" => crate::operation::receive_message::ReceiveMessageError::KmsNotFound({
-+        "KmsNotFound" => crate::operation::receive_message::ReceiveMessageError::KmsNotFound({
+-        "KMS.NotFoundException" => super::operation::receive_message::ReceiveMessageError::KmsNotFound({
++        "KmsNotFound" => super::operation::receive_message::ReceiveMessageError::KmsNotFound({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1713,8 +1713,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.OptInRequired" => crate::operation::receive_message::ReceiveMessageError::KmsOptInRequired({
-+        "KmsOptInRequired" => crate::operation::receive_message::ReceiveMessageError::KmsOptInRequired({
+-        "KMS.OptInRequired" => super::operation::receive_message::ReceiveMessageError::KmsOptInRequired({
++        "KmsOptInRequired" => super::operation::receive_message::ReceiveMessageError::KmsOptInRequired({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1722,8 +1722,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.ThrottlingException" => crate::operation::receive_message::ReceiveMessageError::KmsThrottled({
-+        "KmsThrottled" => crate::operation::receive_message::ReceiveMessageError::KmsThrottled({
+-        "KMS.ThrottlingException" => super::operation::receive_message::ReceiveMessageError::KmsThrottled({
++        "KmsThrottled" => super::operation::receive_message::ReceiveMessageError::KmsThrottled({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1731,8 +1731,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::receive_message::ReceiveMessageError::QueueDoesNotExist({
-+        "QueueDoesNotExist" => crate::operation::receive_message::ReceiveMessageError::QueueDoesNotExist({
+-        "AWS.SimpleQueueService.NonExistentQueue" => super::operation::receive_message::ReceiveMessageError::QueueDoesNotExist({
++        "QueueDoesNotExist" => super::operation::receive_message::ReceiveMessageError::QueueDoesNotExist({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1740,8 +1740,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::receive_message::ReceiveMessageError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::receive_message::ReceiveMessageError::UnsupportedOperation({
+-        "AWS.SimpleQueueService.UnsupportedOperation" => super::operation::receive_message::ReceiveMessageError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::receive_message::ReceiveMessageError::UnsupportedOperation({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1756,8 +1756,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::remove_permission::RemovePermissionError::QueueDoesNotExist({
-+        "QueueDoesNotExist" => crate::operation::remove_permission::RemovePermissionError::QueueDoesNotExist({
+-        "AWS.SimpleQueueService.NonExistentQueue" => super::operation::remove_permission::RemovePermissionError::QueueDoesNotExist({
++        "QueueDoesNotExist" => super::operation::remove_permission::RemovePermissionError::QueueDoesNotExist({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1765,8 +1765,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::remove_permission::RemovePermissionError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::remove_permission::RemovePermissionError::UnsupportedOperation({
+-        "AWS.SimpleQueueService.UnsupportedOperation" => super::operation::remove_permission::RemovePermissionError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::remove_permission::RemovePermissionError::UnsupportedOperation({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1777,12 +1777,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_remove_permission(
 +    _value: &[u8],
-+    mut builder: crate::operation::remove_permission::builders::RemovePermissionOutputBuilder,
++    mut builder: super::operation::remove_permission::builders::RemovePermissionOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::remove_permission::builders::RemovePermissionOutputBuilder,
++    super::operation::remove_permission::builders::RemovePermissionOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -1818,8 +1818,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.AccessDeniedException" => crate::operation::send_message::SendMessageError::KmsAccessDenied({
-+        "KmsAccessDenied" => crate::operation::send_message::SendMessageError::KmsAccessDenied({
+-        "KMS.AccessDeniedException" => super::operation::send_message::SendMessageError::KmsAccessDenied({
++        "KmsAccessDenied" => super::operation::send_message::SendMessageError::KmsAccessDenied({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1827,8 +1827,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.DisabledException" => crate::operation::send_message::SendMessageError::KmsDisabled({
-+        "KmsDisabled" => crate::operation::send_message::SendMessageError::KmsDisabled({
+-        "KMS.DisabledException" => super::operation::send_message::SendMessageError::KmsDisabled({
++        "KmsDisabled" => super::operation::send_message::SendMessageError::KmsDisabled({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1836,8 +1836,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.InvalidKeyUsageException" => crate::operation::send_message::SendMessageError::KmsInvalidKeyUsage({
-+        "KmsInvalidKeyUsage" => crate::operation::send_message::SendMessageError::KmsInvalidKeyUsage({
+-        "KMS.InvalidKeyUsageException" => super::operation::send_message::SendMessageError::KmsInvalidKeyUsage({
++        "KmsInvalidKeyUsage" => super::operation::send_message::SendMessageError::KmsInvalidKeyUsage({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1845,8 +1845,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.InvalidStateException" => crate::operation::send_message::SendMessageError::KmsInvalidState({
-+        "KmsInvalidState" => crate::operation::send_message::SendMessageError::KmsInvalidState({
+-        "KMS.InvalidStateException" => super::operation::send_message::SendMessageError::KmsInvalidState({
++        "KmsInvalidState" => super::operation::send_message::SendMessageError::KmsInvalidState({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1854,8 +1854,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.NotFoundException" => crate::operation::send_message::SendMessageError::KmsNotFound({
-+        "KmsNotFound" => crate::operation::send_message::SendMessageError::KmsNotFound({
+-        "KMS.NotFoundException" => super::operation::send_message::SendMessageError::KmsNotFound({
++        "KmsNotFound" => super::operation::send_message::SendMessageError::KmsNotFound({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1863,8 +1863,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.OptInRequired" => crate::operation::send_message::SendMessageError::KmsOptInRequired({
-+        "KmsOptInRequired" => crate::operation::send_message::SendMessageError::KmsOptInRequired({
+-        "KMS.OptInRequired" => super::operation::send_message::SendMessageError::KmsOptInRequired({
++        "KmsOptInRequired" => super::operation::send_message::SendMessageError::KmsOptInRequired({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1872,8 +1872,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.ThrottlingException" => crate::operation::send_message::SendMessageError::KmsThrottled({
-+        "KmsThrottled" => crate::operation::send_message::SendMessageError::KmsThrottled({
+-        "KMS.ThrottlingException" => super::operation::send_message::SendMessageError::KmsThrottled({
++        "KmsThrottled" => super::operation::send_message::SendMessageError::KmsThrottled({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1881,8 +1881,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::send_message::SendMessageError::QueueDoesNotExist({
-+        "QueueDoesNotExist" => crate::operation::send_message::SendMessageError::QueueDoesNotExist({
+-        "AWS.SimpleQueueService.NonExistentQueue" => super::operation::send_message::SendMessageError::QueueDoesNotExist({
++        "QueueDoesNotExist" => super::operation::send_message::SendMessageError::QueueDoesNotExist({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1890,8 +1890,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::send_message::SendMessageError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::send_message::SendMessageError::UnsupportedOperation({
+-        "AWS.SimpleQueueService.UnsupportedOperation" => super::operation::send_message::SendMessageError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::send_message::SendMessageError::UnsupportedOperation({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1906,8 +1906,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
--        "AWS.SimpleQueueService.BatchEntryIdsNotDistinct" => crate::operation::send_message_batch::SendMessageBatchError::BatchEntryIdsNotDistinct({
-+        "BatchEntryIdsNotDistinct" => crate::operation::send_message_batch::SendMessageBatchError::BatchEntryIdsNotDistinct({
+-        "AWS.SimpleQueueService.BatchEntryIdsNotDistinct" => super::operation::send_message_batch::SendMessageBatchError::BatchEntryIdsNotDistinct({
++        "BatchEntryIdsNotDistinct" => super::operation::send_message_batch::SendMessageBatchError::BatchEntryIdsNotDistinct({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1915,8 +1915,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.BatchRequestTooLong" => crate::operation::send_message_batch::SendMessageBatchError::BatchRequestTooLong({
-+        "BatchRequestTooLong" => crate::operation::send_message_batch::SendMessageBatchError::BatchRequestTooLong({
+-        "AWS.SimpleQueueService.BatchRequestTooLong" => super::operation::send_message_batch::SendMessageBatchError::BatchRequestTooLong({
++        "BatchRequestTooLong" => super::operation::send_message_batch::SendMessageBatchError::BatchRequestTooLong({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1924,8 +1924,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.EmptyBatchRequest" => crate::operation::send_message_batch::SendMessageBatchError::EmptyBatchRequest({
-+        "EmptyBatchRequest" => crate::operation::send_message_batch::SendMessageBatchError::EmptyBatchRequest({
+-        "AWS.SimpleQueueService.EmptyBatchRequest" => super::operation::send_message_batch::SendMessageBatchError::EmptyBatchRequest({
++        "EmptyBatchRequest" => super::operation::send_message_batch::SendMessageBatchError::EmptyBatchRequest({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1933,8 +1933,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.InvalidBatchEntryId" => crate::operation::send_message_batch::SendMessageBatchError::InvalidBatchEntryId({
-+        "InvalidBatchEntryId" => crate::operation::send_message_batch::SendMessageBatchError::InvalidBatchEntryId({
+-        "AWS.SimpleQueueService.InvalidBatchEntryId" => super::operation::send_message_batch::SendMessageBatchError::InvalidBatchEntryId({
++        "InvalidBatchEntryId" => super::operation::send_message_batch::SendMessageBatchError::InvalidBatchEntryId({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1942,8 +1942,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.AccessDeniedException" => crate::operation::send_message_batch::SendMessageBatchError::KmsAccessDenied({
-+        "KmsAccessDenied" => crate::operation::send_message_batch::SendMessageBatchError::KmsAccessDenied({
+-        "KMS.AccessDeniedException" => super::operation::send_message_batch::SendMessageBatchError::KmsAccessDenied({
++        "KmsAccessDenied" => super::operation::send_message_batch::SendMessageBatchError::KmsAccessDenied({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1951,8 +1951,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.DisabledException" => crate::operation::send_message_batch::SendMessageBatchError::KmsDisabled({
-+        "KmsDisabled" => crate::operation::send_message_batch::SendMessageBatchError::KmsDisabled({
+-        "KMS.DisabledException" => super::operation::send_message_batch::SendMessageBatchError::KmsDisabled({
++        "KmsDisabled" => super::operation::send_message_batch::SendMessageBatchError::KmsDisabled({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1960,8 +1960,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.InvalidKeyUsageException" => crate::operation::send_message_batch::SendMessageBatchError::KmsInvalidKeyUsage({
-+        "KmsInvalidKeyUsage" => crate::operation::send_message_batch::SendMessageBatchError::KmsInvalidKeyUsage({
+-        "KMS.InvalidKeyUsageException" => super::operation::send_message_batch::SendMessageBatchError::KmsInvalidKeyUsage({
++        "KmsInvalidKeyUsage" => super::operation::send_message_batch::SendMessageBatchError::KmsInvalidKeyUsage({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1969,8 +1969,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.InvalidStateException" => crate::operation::send_message_batch::SendMessageBatchError::KmsInvalidState({
-+        "KmsInvalidState" => crate::operation::send_message_batch::SendMessageBatchError::KmsInvalidState({
+-        "KMS.InvalidStateException" => super::operation::send_message_batch::SendMessageBatchError::KmsInvalidState({
++        "KmsInvalidState" => super::operation::send_message_batch::SendMessageBatchError::KmsInvalidState({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1978,8 +1978,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.NotFoundException" => crate::operation::send_message_batch::SendMessageBatchError::KmsNotFound({
-+        "KmsNotFound" => crate::operation::send_message_batch::SendMessageBatchError::KmsNotFound({
+-        "KMS.NotFoundException" => super::operation::send_message_batch::SendMessageBatchError::KmsNotFound({
++        "KmsNotFound" => super::operation::send_message_batch::SendMessageBatchError::KmsNotFound({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1987,8 +1987,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.OptInRequired" => crate::operation::send_message_batch::SendMessageBatchError::KmsOptInRequired({
-+        "KmsOptInRequired" => crate::operation::send_message_batch::SendMessageBatchError::KmsOptInRequired({
+-        "KMS.OptInRequired" => super::operation::send_message_batch::SendMessageBatchError::KmsOptInRequired({
++        "KmsOptInRequired" => super::operation::send_message_batch::SendMessageBatchError::KmsOptInRequired({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -1996,8 +1996,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "KMS.ThrottlingException" => crate::operation::send_message_batch::SendMessageBatchError::KmsThrottled({
-+        "KmsThrottled" => crate::operation::send_message_batch::SendMessageBatchError::KmsThrottled({
+-        "KMS.ThrottlingException" => super::operation::send_message_batch::SendMessageBatchError::KmsThrottled({
++        "KmsThrottled" => super::operation::send_message_batch::SendMessageBatchError::KmsThrottled({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -2005,8 +2005,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::send_message_batch::SendMessageBatchError::QueueDoesNotExist({
-+        "QueueDoesNotExist" => crate::operation::send_message_batch::SendMessageBatchError::QueueDoesNotExist({
+-        "AWS.SimpleQueueService.NonExistentQueue" => super::operation::send_message_batch::SendMessageBatchError::QueueDoesNotExist({
++        "QueueDoesNotExist" => super::operation::send_message_batch::SendMessageBatchError::QueueDoesNotExist({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -2015,19 +2015,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
 -        "AWS.SimpleQueueService.TooManyEntriesInBatchRequest" => {
--            crate::operation::send_message_batch::SendMessageBatchError::TooManyEntriesInBatchRequest({
-+        "TooManyEntriesInBatchRequest" => crate::operation::send_message_batch::SendMessageBatchError::TooManyEntriesInBatchRequest({
+-            super::operation::send_message_batch::SendMessageBatchError::TooManyEntriesInBatchRequest({
++        "TooManyEntriesInBatchRequest" => super::operation::send_message_batch::SendMessageBatchError::TooManyEntriesInBatchRequest({
 +            #[allow(unused_mut)]
 +            let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut tmp = {
 -                    #[allow(unused_mut)]
--                    let mut output = crate::types::error::builders::TooManyEntriesInBatchRequestBuilder::default();
--                    output = crate::protocol_serde::shape_too_many_entries_in_batch_request::de_too_many_entries_in_batch_request_json_err(
+-                    let mut output = super::types::error::builders::TooManyEntriesInBatchRequestBuilder::default();
+-                    output = super::protocol_serde::shape_too_many_entries_in_batch_request::de_too_many_entries_in_batch_request_json_err(
 -                        _response_body,
 -                        output,
 -                    )
--                    .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
+-                    .map_err(super::operation::send_message_batch::SendMessageBatchError::unhandled)?;
 -                    let output = output.meta(generic);
 -                    output.build()
 -                };
@@ -2037,13 +2037,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                tmp
 -            })
 -        }
--        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::send_message_batch::SendMessageBatchError::UnsupportedOperation({
-+                let mut output = crate::types::error::builders::TooManyEntriesInBatchRequestBuilder::default();
-+                output = crate::protocol_serde::shape_too_many_entries_in_batch_request::de_too_many_entries_in_batch_request_json_err(
+-        "AWS.SimpleQueueService.UnsupportedOperation" => super::operation::send_message_batch::SendMessageBatchError::UnsupportedOperation({
++                let mut output = super::types::error::builders::TooManyEntriesInBatchRequestBuilder::default();
++                output = super::protocol_serde::shape_too_many_entries_in_batch_request::de_too_many_entries_in_batch_request_json_err(
 +                    _response_body,
 +                    output,
 +                )
-+                .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
++                .map_err(super::operation::send_message_batch::SendMessageBatchError::unhandled)?;
 +                let output = output.meta(generic);
 +                output.build()
 +            };
@@ -2052,7 +2052,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
 +            tmp
 +        }),
-+        "UnsupportedOperation" => crate::operation::send_message_batch::SendMessageBatchError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::send_message_batch::SendMessageBatchError::UnsupportedOperation({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -2067,8 +2067,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::set_queue_attributes::SetQueueAttributesError::QueueDoesNotExist({
-+        "QueueDoesNotExist" => crate::operation::set_queue_attributes::SetQueueAttributesError::QueueDoesNotExist({
+-        "AWS.SimpleQueueService.NonExistentQueue" => super::operation::set_queue_attributes::SetQueueAttributesError::QueueDoesNotExist({
++        "QueueDoesNotExist" => super::operation::set_queue_attributes::SetQueueAttributesError::QueueDoesNotExist({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -2076,8 +2076,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::set_queue_attributes::SetQueueAttributesError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::set_queue_attributes::SetQueueAttributesError::UnsupportedOperation({
+-        "AWS.SimpleQueueService.UnsupportedOperation" => super::operation::set_queue_attributes::SetQueueAttributesError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::set_queue_attributes::SetQueueAttributesError::UnsupportedOperation({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -2088,12 +2088,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_set_queue_attributes(
 +    _value: &[u8],
-+    mut builder: crate::operation::set_queue_attributes::builders::SetQueueAttributesOutputBuilder,
++    mut builder: super::operation::set_queue_attributes::builders::SetQueueAttributesOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::set_queue_attributes::builders::SetQueueAttributesOutputBuilder,
++    super::operation::set_queue_attributes::builders::SetQueueAttributesOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -2130,16 +2130,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
 -        "AWS.SimpleQueueService.UnsupportedOperation" => {
--            crate::operation::start_message_move_task::StartMessageMoveTaskError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::start_message_move_task::StartMessageMoveTaskError::UnsupportedOperation({
+-            super::operation::start_message_move_task::StartMessageMoveTaskError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::start_message_move_task::StartMessageMoveTaskError::UnsupportedOperation({
 +            #[allow(unused_mut)]
 +            let mut tmp = {
                  #[allow(unused_mut)]
 -                let mut tmp = {
 -                    #[allow(unused_mut)]
--                    let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
--                    output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
--                        .map_err(crate::operation::start_message_move_task::StartMessageMoveTaskError::unhandled)?;
+-                    let mut output = super::types::error::builders::UnsupportedOperationBuilder::default();
+-                    output = super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+-                        .map_err(super::operation::start_message_move_task::StartMessageMoveTaskError::unhandled)?;
 -                    let output = output.meta(generic);
 -                    output.build()
 -                };
@@ -2149,9 +2149,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                tmp
 -            })
 -        }
-+                let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
-+                output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
-+                    .map_err(crate::operation::start_message_move_task::StartMessageMoveTaskError::unhandled)?;
++                let mut output = super::types::error::builders::UnsupportedOperationBuilder::default();
++                output = super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
++                    .map_err(super::operation::start_message_move_task::StartMessageMoveTaskError::unhandled)?;
 +                let output = output.meta(generic);
 +                output.build()
 +            };
@@ -2160,7 +2160,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            }
 +            tmp
 +        }),
-         _ => crate::operation::start_message_move_task::StartMessageMoveTaskError::generic(generic),
+         _ => super::operation::start_message_move_task::StartMessageMoveTaskError::generic(generic),
      })
  }
 ```
@@ -2174,8 +2174,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::tag_queue::TagQueueError::QueueDoesNotExist({
-+        "QueueDoesNotExist" => crate::operation::tag_queue::TagQueueError::QueueDoesNotExist({
+-        "AWS.SimpleQueueService.NonExistentQueue" => super::operation::tag_queue::TagQueueError::QueueDoesNotExist({
++        "QueueDoesNotExist" => super::operation::tag_queue::TagQueueError::QueueDoesNotExist({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -2183,8 +2183,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::tag_queue::TagQueueError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::tag_queue::TagQueueError::UnsupportedOperation({
+-        "AWS.SimpleQueueService.UnsupportedOperation" => super::operation::tag_queue::TagQueueError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::tag_queue::TagQueueError::UnsupportedOperation({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -2195,9 +2195,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_tag_queue(
 +    _value: &[u8],
-+    mut builder: crate::operation::tag_queue::builders::TagQueueOutputBuilder,
-+) -> ::std::result::Result<crate::operation::tag_queue::builders::TagQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    mut builder: super::operation::tag_queue::builders::TagQueueOutputBuilder,
++) -> ::std::result::Result<super::operation::tag_queue::builders::TagQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -2233,8 +2233,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::untag_queue::UntagQueueError::QueueDoesNotExist({
-+        "QueueDoesNotExist" => crate::operation::untag_queue::UntagQueueError::QueueDoesNotExist({
+-        "AWS.SimpleQueueService.NonExistentQueue" => super::operation::untag_queue::UntagQueueError::QueueDoesNotExist({
++        "QueueDoesNotExist" => super::operation::untag_queue::UntagQueueError::QueueDoesNotExist({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -2242,8 +2242,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              }
              tmp
          }),
--        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::untag_queue::UntagQueueError::UnsupportedOperation({
-+        "UnsupportedOperation" => crate::operation::untag_queue::UntagQueueError::UnsupportedOperation({
+-        "AWS.SimpleQueueService.UnsupportedOperation" => super::operation::untag_queue::UntagQueueError::UnsupportedOperation({
++        "UnsupportedOperation" => super::operation::untag_queue::UntagQueueError::UnsupportedOperation({
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
@@ -2254,10 +2254,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_untag_queue(
 +    _value: &[u8],
-+    mut builder: crate::operation::untag_queue::builders::UntagQueueOutputBuilder,
-+) -> ::std::result::Result<crate::operation::untag_queue::builders::UntagQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++    mut builder: super::operation::untag_queue::builders::UntagQueueOutputBuilder,
++) -> ::std::result::Result<super::operation::untag_queue::builders::UntagQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
 +{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -2293,13 +2293,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      response_headers: &::aws_smithy_runtime_api::http::Headers,
      response_body: &[u8],
  ) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {
--    let mut builder = crate::json_errors::parse_error_metadata(response_body, response_headers)?;
--    if let Some((error_code, error_type)) = crate::aws_query_compatible_errors::parse_aws_query_compatible_error(response_headers) {
+-    let mut builder = super::json_errors::parse_error_metadata(response_body, response_headers)?;
+-    if let Some((error_code, error_type)) = super::aws_query_compatible_errors::parse_aws_query_compatible_error(response_headers) {
 -        builder = builder.code(error_code);
 -        builder = builder.custom("type", error_type);
 -    }
 -    Ok(builder)
-+    crate::json_errors::parse_error_metadata(response_body, response_headers)
++    super::json_errors::parse_error_metadata(response_body, response_headers)
  }
 
  pub(crate) mod shape_add_permission;

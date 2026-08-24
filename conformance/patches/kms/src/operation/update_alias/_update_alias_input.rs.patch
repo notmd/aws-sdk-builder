@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -46,8 +46,8 @@
+ }
+ impl UpdateAliasInput {
+     /// Creates a new builder-style object to manufacture [`UpdateAliasInput`](crate::operation::update_alias::UpdateAliasInput).
+-    pub fn builder() -> crate::operation::update_alias::builders::UpdateAliasInputBuilder {
+-        crate::operation::update_alias::builders::UpdateAliasInputBuilder::default()
++    pub fn builder() -> super::operation::update_alias::builders::UpdateAliasInputBuilder {
++        super::operation::update_alias::builders::UpdateAliasInputBuilder::default()
+     }
+ }
+
+@@ -129,8 +129,8 @@
+         &self.target_key_id
+     }
+     /// Consumes the builder and constructs a [`UpdateAliasInput`](crate::operation::update_alias::UpdateAliasInput).
+-    pub fn build(self) -> ::std::result::Result<crate::operation::update_alias::UpdateAliasInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::update_alias::UpdateAliasInput {
++    pub fn build(self) -> ::std::result::Result<super::operation::update_alias::UpdateAliasInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::update_alias::UpdateAliasInput {
+             alias_name: self.alias_name,
+             target_key_id: self.target_key_id,
+         })

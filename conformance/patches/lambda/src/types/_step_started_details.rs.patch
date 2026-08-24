@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -6,8 +6,8 @@
+ pub struct StepStartedDetails {}
+ impl StepStartedDetails {
+     /// Creates a new builder-style object to manufacture [`StepStartedDetails`](crate::types::StepStartedDetails).
+-    pub fn builder() -> crate::types::builders::StepStartedDetailsBuilder {
+-        crate::types::builders::StepStartedDetailsBuilder::default()
++    pub fn builder() -> super::types::builders::StepStartedDetailsBuilder {
++        super::types::builders::StepStartedDetailsBuilder::default()
+     }
+ }
+
+@@ -17,7 +17,7 @@
+ pub struct StepStartedDetailsBuilder {}
+ impl StepStartedDetailsBuilder {
+     /// Consumes the builder and constructs a [`StepStartedDetails`](crate::types::StepStartedDetails).
+-    pub fn build(self) -> crate::types::StepStartedDetails {
+-        crate::types::StepStartedDetails {}
++    pub fn build(self) -> super::types::StepStartedDetails {
++        super::types::StepStartedDetails {}
+     }
+ }

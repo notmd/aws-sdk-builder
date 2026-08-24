@@ -16,7 +16,7 @@ impl KmsNotFoundException {
 }
 impl ::std::fmt::Display for KmsNotFoundException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(f, "KmsNotFoundException")?;
+        ::std::write!(f, "KmsNotFoundException [KMSNotFoundException]")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;

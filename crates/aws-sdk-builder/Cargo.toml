@@ -14,8 +14,10 @@ include = [
 ]
 
 [dependencies]
+proc-macro2 = { version = "1", features = ["span-locations"] }
 serde_json = { version = "1", features = ["preserve_order"] }
 sha2 = "0.10"
+syn = { version = "3", features = ["full", "parsing", "visit"] }
 tempfile = "3"
 thiserror = "2"
 

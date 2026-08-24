@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl CallbackOptions {
+     /// Creates a new builder-style object to manufacture [`CallbackOptions`](crate::types::CallbackOptions).
+-    pub fn builder() -> crate::types::builders::CallbackOptionsBuilder {
+-        crate::types::builders::CallbackOptionsBuilder::default()
++    pub fn builder() -> super::types::builders::CallbackOptionsBuilder {
++        super::types::builders::CallbackOptionsBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.heartbeat_timeout_seconds
+     }
+     /// Consumes the builder and constructs a [`CallbackOptions`](crate::types::CallbackOptions).
+-    pub fn build(self) -> crate::types::CallbackOptions {
+-        crate::types::CallbackOptions {
++    pub fn build(self) -> super::types::CallbackOptions {
++        super::types::CallbackOptions {
+             timeout_seconds: self.timeout_seconds.unwrap_or_default(),
+             heartbeat_timeout_seconds: self.heartbeat_timeout_seconds.unwrap_or_default(),
+         }

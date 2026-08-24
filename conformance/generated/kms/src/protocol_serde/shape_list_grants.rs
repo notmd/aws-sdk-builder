@@ -77,7 +77,7 @@ pub fn de_list_grants_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::list_grants::ListGrantsError::KmsInternalException({
+        "KMSInternalException" => crate::operation::list_grants::ListGrantsError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -92,7 +92,7 @@ pub fn de_list_grants_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::list_grants::ListGrantsError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::list_grants::ListGrantsError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

@@ -1,0 +1,80 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     /// <li>
+     /// <p><b>Manual</b> - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback">Roll back a runtime version</a>.</p></li>
+     /// </ul>
+-    pub update_runtime_on: ::std::option::Option<crate::types::UpdateRuntimeOn>,
++    pub update_runtime_on: ::std::option::Option<super::types::UpdateRuntimeOn>,
+     /// <p>The ARN of the runtime version you want the function to use.</p><note>
+     /// <p>This is only required if you're using the <b>Manual</b> runtime update mode.</p>
+     /// </note>
+@@ -60,7 +60,7 @@
+     /// <li>
+     /// <p><b>Manual</b> - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback">Roll back a runtime version</a>.</p></li>
+     /// </ul>
+-    pub fn update_runtime_on(&self) -> ::std::option::Option<&crate::types::UpdateRuntimeOn> {
++    pub fn update_runtime_on(&self) -> ::std::option::Option<&super::types::UpdateRuntimeOn> {
+         self.update_runtime_on.as_ref()
+     }
+     /// <p>The ARN of the runtime version you want the function to use.</p><note>
+@@ -72,8 +72,8 @@
+ }
+ impl PutRuntimeManagementConfigInput {
+     /// Creates a new builder-style object to manufacture [`PutRuntimeManagementConfigInput`](crate::operation::put_runtime_management_config::PutRuntimeManagementConfigInput).
+-    pub fn builder() -> crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigInputBuilder {
+-        crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigInputBuilder::default()
++    pub fn builder() -> super::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigInputBuilder {
++        super::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigInputBuilder::default()
+     }
+ }
+
+@@ -83,7 +83,7 @@
+ pub struct PutRuntimeManagementConfigInputBuilder {
+     pub(crate) function_name: ::std::option::Option<::std::string::String>,
+     pub(crate) qualifier: ::std::option::Option<::std::string::String>,
+-    pub(crate) update_runtime_on: ::std::option::Option<crate::types::UpdateRuntimeOn>,
++    pub(crate) update_runtime_on: ::std::option::Option<super::types::UpdateRuntimeOn>,
+     pub(crate) runtime_version_arn: ::std::option::Option<::std::string::String>,
+ }
+ impl PutRuntimeManagementConfigInputBuilder {
+@@ -156,7 +156,7 @@
+     /// <p><b>Manual</b> - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback">Roll back a runtime version</a>.</p></li>
+     /// </ul>
+     /// This field is required.
+-    pub fn update_runtime_on(mut self, input: crate::types::UpdateRuntimeOn) -> Self {
++    pub fn update_runtime_on(mut self, input: super::types::UpdateRuntimeOn) -> Self {
+         self.update_runtime_on = ::std::option::Option::Some(input);
+         self
+     }
+@@ -169,7 +169,7 @@
+     /// <li>
+     /// <p><b>Manual</b> - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback">Roll back a runtime version</a>.</p></li>
+     /// </ul>
+-    pub fn set_update_runtime_on(mut self, input: ::std::option::Option<crate::types::UpdateRuntimeOn>) -> Self {
++    pub fn set_update_runtime_on(mut self, input: ::std::option::Option<super::types::UpdateRuntimeOn>) -> Self {
+         self.update_runtime_on = input;
+         self
+     }
+@@ -182,7 +182,7 @@
+     /// <li>
+     /// <p><b>Manual</b> - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback">Roll back a runtime version</a>.</p></li>
+     /// </ul>
+-    pub fn get_update_runtime_on(&self) -> &::std::option::Option<crate::types::UpdateRuntimeOn> {
++    pub fn get_update_runtime_on(&self) -> &::std::option::Option<super::types::UpdateRuntimeOn> {
+         &self.update_runtime_on
+     }
+     /// <p>The ARN of the runtime version you want the function to use.</p><note>
+@@ -209,10 +209,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::put_runtime_management_config::PutRuntimeManagementConfigInput,
++        super::operation::put_runtime_management_config::PutRuntimeManagementConfigInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::put_runtime_management_config::PutRuntimeManagementConfigInput {
++        ::std::result::Result::Ok(super::operation::put_runtime_management_config::PutRuntimeManagementConfigInput {
+             function_name: self.function_name,
+             qualifier: self.qualifier,
+             update_runtime_on: self.update_runtime_on,

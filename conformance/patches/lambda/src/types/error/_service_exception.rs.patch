@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -34,7 +34,7 @@
+     }
+ }
+ impl ::std::error::Error for ServiceException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::ServiceException {
++impl ::aws_types::request_id::RequestId for super::types::error::ServiceException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -47,8 +47,8 @@
+ }
+ impl ServiceException {
+     /// Creates a new builder-style object to manufacture [`ServiceException`](crate::types::error::ServiceException).
+-    pub fn builder() -> crate::types::error::builders::ServiceExceptionBuilder {
+-        crate::types::error::builders::ServiceExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::ServiceExceptionBuilder {
++        super::types::error::builders::ServiceExceptionBuilder::default()
+     }
+ }
+
+@@ -101,8 +101,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ServiceException`](crate::types::error::ServiceException).
+-    pub fn build(self) -> crate::types::error::ServiceException {
+-        crate::types::error::ServiceException {
++    pub fn build(self) -> super::types::error::ServiceException {
++        super::types::error::ServiceException {
+             r#type: self.r#type,
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),

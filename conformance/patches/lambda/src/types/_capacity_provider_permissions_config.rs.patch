@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -16,8 +16,8 @@
+ }
+ impl CapacityProviderPermissionsConfig {
+     /// Creates a new builder-style object to manufacture [`CapacityProviderPermissionsConfig`](crate::types::CapacityProviderPermissionsConfig).
+-    pub fn builder() -> crate::types::builders::CapacityProviderPermissionsConfigBuilder {
+-        crate::types::builders::CapacityProviderPermissionsConfigBuilder::default()
++    pub fn builder() -> super::types::builders::CapacityProviderPermissionsConfigBuilder {
++        super::types::builders::CapacityProviderPermissionsConfigBuilder::default()
+     }
+ }
+
+@@ -46,8 +46,8 @@
+     /// Consumes the builder and constructs a [`CapacityProviderPermissionsConfig`](crate::types::CapacityProviderPermissionsConfig).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`capacity_provider_operator_role_arn`](crate::types::builders::CapacityProviderPermissionsConfigBuilder::capacity_provider_operator_role_arn)
+-    pub fn build(self) -> ::std::result::Result<crate::types::CapacityProviderPermissionsConfig, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::CapacityProviderPermissionsConfig {
++    pub fn build(self) -> ::std::result::Result<super::types::CapacityProviderPermissionsConfig, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::CapacityProviderPermissionsConfig {
+             capacity_provider_operator_role_arn: self.capacity_provider_operator_role_arn.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "capacity_provider_operator_role_arn",

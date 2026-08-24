@@ -1,0 +1,152 @@
+--- original
++++ modified
+@@ -4,26 +4,26 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<crate::operation::assume_role::AssumeRoleOutput, crate::operation::assume_role::AssumeRoleError> {
++) -> std::result::Result<super::operation::assume_role::AssumeRoleOutput, super::operation::assume_role::AssumeRoleError> {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::assume_role::AssumeRoleError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::assume_role::AssumeRoleError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::assume_role::AssumeRoleError::unhandled(generic)),
++        None => return Err(super::operation::assume_role::AssumeRoleError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ExpiredTokenException" => crate::operation::assume_role::AssumeRoleError::ExpiredTokenException({
++        "ExpiredTokenException" => super::operation::assume_role::AssumeRoleError::ExpiredTokenException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ExpiredTokenExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_expired_token_exception::de_expired_token_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::assume_role::AssumeRoleError::unhandled)?;
++                let mut output = super::types::error::builders::ExpiredTokenExceptionBuilder::default();
++                output = super::protocol_serde::shape_expired_token_exception::de_expired_token_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::assume_role::AssumeRoleError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -32,16 +32,16 @@
+             }
+             tmp
+         }),
+-        "MalformedPolicyDocument" => crate::operation::assume_role::AssumeRoleError::MalformedPolicyDocumentException({
++        "MalformedPolicyDocument" => super::operation::assume_role::AssumeRoleError::MalformedPolicyDocumentException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::MalformedPolicyDocumentExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_malformed_policy_document_exception::de_malformed_policy_document_exception_xml_err(
++                let mut output = super::types::error::builders::MalformedPolicyDocumentExceptionBuilder::default();
++                output = super::protocol_serde::shape_malformed_policy_document_exception::de_malformed_policy_document_exception_xml_err(
+                     _response_body,
+                     output,
+                 )
+-                .map_err(crate::operation::assume_role::AssumeRoleError::unhandled)?;
++                .map_err(super::operation::assume_role::AssumeRoleError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,16 +50,16 @@
+             }
+             tmp
+         }),
+-        "PackedPolicyTooLarge" => crate::operation::assume_role::AssumeRoleError::PackedPolicyTooLargeException({
++        "PackedPolicyTooLarge" => super::operation::assume_role::AssumeRoleError::PackedPolicyTooLargeException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::PackedPolicyTooLargeExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_packed_policy_too_large_exception::de_packed_policy_too_large_exception_xml_err(
++                let mut output = super::types::error::builders::PackedPolicyTooLargeExceptionBuilder::default();
++                output = super::protocol_serde::shape_packed_policy_too_large_exception::de_packed_policy_too_large_exception_xml_err(
+                     _response_body,
+                     output,
+                 )
+-                .map_err(crate::operation::assume_role::AssumeRoleError::unhandled)?;
++                .map_err(super::operation::assume_role::AssumeRoleError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -68,13 +68,13 @@
+             }
+             tmp
+         }),
+-        "RegionDisabledException" => crate::operation::assume_role::AssumeRoleError::RegionDisabledException({
++        "RegionDisabledException" => super::operation::assume_role::AssumeRoleError::RegionDisabledException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::RegionDisabledExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_region_disabled_exception::de_region_disabled_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::assume_role::AssumeRoleError::unhandled)?;
++                let mut output = super::types::error::builders::RegionDisabledExceptionBuilder::default();
++                output = super::protocol_serde::shape_region_disabled_exception::de_region_disabled_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::assume_role::AssumeRoleError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -83,7 +83,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::assume_role::AssumeRoleError::generic(generic),
++        _ => super::operation::assume_role::AssumeRoleError::generic(generic),
+     })
+ }
+
+@@ -92,12 +92,12 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<crate::operation::assume_role::AssumeRoleOutput, crate::operation::assume_role::AssumeRoleError> {
++) -> std::result::Result<super::operation::assume_role::AssumeRoleOutput, super::operation::assume_role::AssumeRoleError> {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::assume_role::builders::AssumeRoleOutputBuilder::default();
+-        output = crate::protocol_serde::shape_assume_role::de_assume_role(_response_body, output)
+-            .map_err(crate::operation::assume_role::AssumeRoleError::unhandled)?;
++        let mut output = super::operation::assume_role::builders::AssumeRoleOutputBuilder::default();
++        output = super::protocol_serde::shape_assume_role::de_assume_role(_response_body, output)
++            .map_err(super::operation::assume_role::AssumeRoleError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -106,8 +106,8 @@
+ #[allow(unused_mut)]
+ pub fn de_assume_role(
+     inp: &[u8],
+-    mut builder: crate::operation::assume_role::builders::AssumeRoleOutputBuilder,
+-) -> std::result::Result<crate::operation::assume_role::builders::AssumeRoleOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
++    mut builder: super::operation::assume_role::builders::AssumeRoleOutputBuilder,
++) -> std::result::Result<super::operation::assume_role::builders::AssumeRoleOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+     #[allow(unused_mut)]
+@@ -133,7 +133,7 @@
+             s if s.matches("Credentials") /* Credentials com.amazonaws.sts.synthetic#AssumeRoleOutput$Credentials */ =>  {
+                 let var_1 =
+                     Some(
+-                        crate::protocol_serde::shape_credentials::de_credentials(&mut tag, depth + 1)
++                        super::protocol_serde::shape_credentials::de_credentials(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;
+@@ -143,7 +143,7 @@
+             s if s.matches("AssumedRoleUser") /* AssumedRoleUser com.amazonaws.sts.synthetic#AssumeRoleOutput$AssumedRoleUser */ =>  {
+                 let var_2 =
+                     Some(
+-                        crate::protocol_serde::shape_assumed_role_user::de_assumed_role_user(&mut tag, depth + 1)
++                        super::protocol_serde::shape_assumed_role_user::de_assumed_role_user(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;

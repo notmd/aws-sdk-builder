@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -9,7 +9,7 @@
+     ///   - [`key_id(Option<String>)`](crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialOutput::key_id): <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key from which the key material was deleted.</p>
+     ///   - [`key_material_id(Option<String>)`](crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialOutput::key_material_id): <p>Identifies the deleted key material.</p>
+     /// - On failure, responds with [`SdkError<DeleteImportedKeyMaterialError>`](crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError)
+-    pub fn delete_imported_key_material(&self) -> crate::operation::delete_imported_key_material::builders::DeleteImportedKeyMaterialFluentBuilder {
+-        crate::operation::delete_imported_key_material::builders::DeleteImportedKeyMaterialFluentBuilder::new(self.handle.clone())
++    pub fn delete_imported_key_material(&self) -> super::operation::delete_imported_key_material::builders::DeleteImportedKeyMaterialFluentBuilder {
++        super::operation::delete_imported_key_material::builders::DeleteImportedKeyMaterialFluentBuilder::new(self.handle.clone())
+     }
+ }

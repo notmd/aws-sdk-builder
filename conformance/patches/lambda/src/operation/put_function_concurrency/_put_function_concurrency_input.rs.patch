@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -40,8 +40,8 @@
+ }
+ impl PutFunctionConcurrencyInput {
+     /// Creates a new builder-style object to manufacture [`PutFunctionConcurrencyInput`](crate::operation::put_function_concurrency::PutFunctionConcurrencyInput).
+-    pub fn builder() -> crate::operation::put_function_concurrency::builders::PutFunctionConcurrencyInputBuilder {
+-        crate::operation::put_function_concurrency::builders::PutFunctionConcurrencyInputBuilder::default()
++    pub fn builder() -> super::operation::put_function_concurrency::builders::PutFunctionConcurrencyInputBuilder {
++        super::operation::put_function_concurrency::builders::PutFunctionConcurrencyInputBuilder::default()
+     }
+ }
+
+@@ -117,10 +117,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::put_function_concurrency::PutFunctionConcurrencyInput,
++        super::operation::put_function_concurrency::PutFunctionConcurrencyInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::put_function_concurrency::PutFunctionConcurrencyInput {
++        ::std::result::Result::Ok(super::operation::put_function_concurrency::PutFunctionConcurrencyInput {
+             function_name: self.function_name,
+             reserved_concurrent_executions: self.reserved_concurrent_executions,
+         })

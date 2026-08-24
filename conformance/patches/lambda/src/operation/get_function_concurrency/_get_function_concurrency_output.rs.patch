@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -20,8 +20,8 @@
+ }
+ impl GetFunctionConcurrencyOutput {
+     /// Creates a new builder-style object to manufacture [`GetFunctionConcurrencyOutput`](crate::operation::get_function_concurrency::GetFunctionConcurrencyOutput).
+-    pub fn builder() -> crate::operation::get_function_concurrency::builders::GetFunctionConcurrencyOutputBuilder {
+-        crate::operation::get_function_concurrency::builders::GetFunctionConcurrencyOutputBuilder::default()
++    pub fn builder() -> super::operation::get_function_concurrency::builders::GetFunctionConcurrencyOutputBuilder {
++        super::operation::get_function_concurrency::builders::GetFunctionConcurrencyOutputBuilder::default()
+     }
+ }
+
+@@ -57,8 +57,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`GetFunctionConcurrencyOutput`](crate::operation::get_function_concurrency::GetFunctionConcurrencyOutput).
+-    pub fn build(self) -> crate::operation::get_function_concurrency::GetFunctionConcurrencyOutput {
+-        crate::operation::get_function_concurrency::GetFunctionConcurrencyOutput {
++    pub fn build(self) -> super::operation::get_function_concurrency::GetFunctionConcurrencyOutput {
++        super::operation::get_function_concurrency::GetFunctionConcurrencyOutput {
+             reserved_concurrent_executions: self.reserved_concurrent_executions,
+             _request_id: self._request_id,
+         }

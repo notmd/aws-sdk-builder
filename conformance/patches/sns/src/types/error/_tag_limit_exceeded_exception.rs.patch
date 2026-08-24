@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for TagLimitExceededException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::TagLimitExceededException {
++impl ::aws_types::request_id::RequestId for super::types::error::TagLimitExceededException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl TagLimitExceededException {
+     /// Creates a new builder-style object to manufacture [`TagLimitExceededException`](crate::types::error::TagLimitExceededException).
+-    pub fn builder() -> crate::types::error::builders::TagLimitExceededExceptionBuilder {
+-        crate::types::error::builders::TagLimitExceededExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::TagLimitExceededExceptionBuilder {
++        super::types::error::builders::TagLimitExceededExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`TagLimitExceededException`](crate::types::error::TagLimitExceededException).
+-    pub fn build(self) -> crate::types::error::TagLimitExceededException {
+-        crate::types::error::TagLimitExceededException {
++    pub fn build(self) -> super::types::error::TagLimitExceededException {
++        super::types::error::TagLimitExceededException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

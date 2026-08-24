@@ -1,0 +1,401 @@
+--- original
++++ modified
+@@ -5,31 +5,31 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::create_custom_key_store::CreateCustomKeyStoreOutput,
+-    crate::operation::create_custom_key_store::CreateCustomKeyStoreError,
++    super::operation::create_custom_key_store::CreateCustomKeyStoreOutput,
++    super::operation::create_custom_key_store::CreateCustomKeyStoreError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled(generic)),
++        None => return Err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "CloudHsmClusterInUseException" => crate::operation::create_custom_key_store::CreateCustomKeyStoreError::CloudHsmClusterInUseException({
++        "CloudHsmClusterInUseException" => super::operation::create_custom_key_store::CreateCustomKeyStoreError::CloudHsmClusterInUseException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::CloudHsmClusterInUseExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_cloud_hsm_cluster_in_use_exception::de_cloud_hsm_cluster_in_use_exception_json_err(
++                let mut output = super::types::error::builders::CloudHsmClusterInUseExceptionBuilder::default();
++                output = super::protocol_serde::shape_cloud_hsm_cluster_in_use_exception::de_cloud_hsm_cluster_in_use_exception_json_err(
+                     _response_body,
+                     output,
+                 )
+-                .map_err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
++                .map_err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -39,12 +39,12 @@
+             tmp
+         }),
+         "CloudHsmClusterInvalidConfigurationException" => {
+-            crate::operation::create_custom_key_store::CreateCustomKeyStoreError::CloudHsmClusterInvalidConfigurationException({
++            super::operation::create_custom_key_store::CreateCustomKeyStoreError::CloudHsmClusterInvalidConfigurationException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::CloudHsmClusterInvalidConfigurationExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_cloud_hsm_cluster_invalid_configuration_exception::de_cloud_hsm_cluster_invalid_configuration_exception_json_err(_response_body, output).map_err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
++                    let mut output = super::types::error::builders::CloudHsmClusterInvalidConfigurationExceptionBuilder::default();
++                    output = super::protocol_serde::shape_cloud_hsm_cluster_invalid_configuration_exception::de_cloud_hsm_cluster_invalid_configuration_exception_json_err(_response_body, output).map_err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -55,16 +55,16 @@
+             })
+         }
+         "CloudHsmClusterNotActiveException" => {
+-            crate::operation::create_custom_key_store::CreateCustomKeyStoreError::CloudHsmClusterNotActiveException({
++            super::operation::create_custom_key_store::CreateCustomKeyStoreError::CloudHsmClusterNotActiveException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::CloudHsmClusterNotActiveExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_cloud_hsm_cluster_not_active_exception::de_cloud_hsm_cluster_not_active_exception_json_err(
++                    let mut output = super::types::error::builders::CloudHsmClusterNotActiveExceptionBuilder::default();
++                    output = super::protocol_serde::shape_cloud_hsm_cluster_not_active_exception::de_cloud_hsm_cluster_not_active_exception_json_err(
+                         _response_body,
+                         output,
+                     )
+-                    .map_err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
++                    .map_err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -75,16 +75,16 @@
+             })
+         }
+         "CloudHsmClusterNotFoundException" => {
+-            crate::operation::create_custom_key_store::CreateCustomKeyStoreError::CloudHsmClusterNotFoundException({
++            super::operation::create_custom_key_store::CreateCustomKeyStoreError::CloudHsmClusterNotFoundException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::CloudHsmClusterNotFoundExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_cloud_hsm_cluster_not_found_exception::de_cloud_hsm_cluster_not_found_exception_json_err(
++                    let mut output = super::types::error::builders::CloudHsmClusterNotFoundExceptionBuilder::default();
++                    output = super::protocol_serde::shape_cloud_hsm_cluster_not_found_exception::de_cloud_hsm_cluster_not_found_exception_json_err(
+                         _response_body,
+                         output,
+                     )
+-                    .map_err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
++                    .map_err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -95,16 +95,16 @@
+             })
+         }
+         "CustomKeyStoreNameInUseException" => {
+-            crate::operation::create_custom_key_store::CreateCustomKeyStoreError::CustomKeyStoreNameInUseException({
++            super::operation::create_custom_key_store::CreateCustomKeyStoreError::CustomKeyStoreNameInUseException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::CustomKeyStoreNameInUseExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_custom_key_store_name_in_use_exception::de_custom_key_store_name_in_use_exception_json_err(
++                    let mut output = super::types::error::builders::CustomKeyStoreNameInUseExceptionBuilder::default();
++                    output = super::protocol_serde::shape_custom_key_store_name_in_use_exception::de_custom_key_store_name_in_use_exception_json_err(
+                         _response_body,
+                         output,
+                     )
+-                    .map_err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
++                    .map_err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -114,16 +114,16 @@
+                 tmp
+             })
+         }
+-        "IncorrectTrustAnchorException" => crate::operation::create_custom_key_store::CreateCustomKeyStoreError::IncorrectTrustAnchorException({
++        "IncorrectTrustAnchorException" => super::operation::create_custom_key_store::CreateCustomKeyStoreError::IncorrectTrustAnchorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::IncorrectTrustAnchorExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_incorrect_trust_anchor_exception::de_incorrect_trust_anchor_exception_json_err(
++                let mut output = super::types::error::builders::IncorrectTrustAnchorExceptionBuilder::default();
++                output = super::protocol_serde::shape_incorrect_trust_anchor_exception::de_incorrect_trust_anchor_exception_json_err(
+                     _response_body,
+                     output,
+                 )
+-                .map_err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
++                .map_err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -132,13 +132,13 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::create_custom_key_store::CreateCustomKeyStoreError::KmsInternalException({
++        "KMSInternalException" => super::operation::create_custom_key_store::CreateCustomKeyStoreError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::KmsInternalExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
++                let mut output = super::types::error::builders::KmsInternalExceptionBuilder::default();
++                output = super::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
++                    .map_err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -147,13 +147,13 @@
+             }
+             tmp
+         }),
+-        "LimitExceededException" => crate::operation::create_custom_key_store::CreateCustomKeyStoreError::LimitExceededException({
++        "LimitExceededException" => super::operation::create_custom_key_store::CreateCustomKeyStoreError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
++                let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
++                output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
++                    .map_err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -163,12 +163,12 @@
+             tmp
+         }),
+         "XksProxyIncorrectAuthenticationCredentialException" => {
+-            crate::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyIncorrectAuthenticationCredentialException({
++            super::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyIncorrectAuthenticationCredentialException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::XksProxyIncorrectAuthenticationCredentialExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_xks_proxy_incorrect_authentication_credential_exception::de_xks_proxy_incorrect_authentication_credential_exception_json_err(_response_body, output).map_err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
++                    let mut output = super::types::error::builders::XksProxyIncorrectAuthenticationCredentialExceptionBuilder::default();
++                    output = super::protocol_serde::shape_xks_proxy_incorrect_authentication_credential_exception::de_xks_proxy_incorrect_authentication_credential_exception_json_err(_response_body, output).map_err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -179,12 +179,12 @@
+             })
+         }
+         "XksProxyInvalidConfigurationException" => {
+-            crate::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyInvalidConfigurationException({
++            super::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyInvalidConfigurationException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::XksProxyInvalidConfigurationExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_xks_proxy_invalid_configuration_exception::de_xks_proxy_invalid_configuration_exception_json_err(_response_body, output).map_err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
++                    let mut output = super::types::error::builders::XksProxyInvalidConfigurationExceptionBuilder::default();
++                    output = super::protocol_serde::shape_xks_proxy_invalid_configuration_exception::de_xks_proxy_invalid_configuration_exception_json_err(_response_body, output).map_err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -195,16 +195,16 @@
+             })
+         }
+         "XksProxyInvalidResponseException" => {
+-            crate::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyInvalidResponseException({
++            super::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyInvalidResponseException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::XksProxyInvalidResponseExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_xks_proxy_invalid_response_exception::de_xks_proxy_invalid_response_exception_json_err(
++                    let mut output = super::types::error::builders::XksProxyInvalidResponseExceptionBuilder::default();
++                    output = super::protocol_serde::shape_xks_proxy_invalid_response_exception::de_xks_proxy_invalid_response_exception_json_err(
+                         _response_body,
+                         output,
+                     )
+-                    .map_err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
++                    .map_err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -215,17 +215,17 @@
+             })
+         }
+         "XksProxyUriEndpointInUseException" => {
+-            crate::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyUriEndpointInUseException({
++            super::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyUriEndpointInUseException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::XksProxyUriEndpointInUseExceptionBuilder::default();
++                    let mut output = super::types::error::builders::XksProxyUriEndpointInUseExceptionBuilder::default();
+                     output =
+-                        crate::protocol_serde::shape_xks_proxy_uri_endpoint_in_use_exception::de_xks_proxy_uri_endpoint_in_use_exception_json_err(
++                        super::protocol_serde::shape_xks_proxy_uri_endpoint_in_use_exception::de_xks_proxy_uri_endpoint_in_use_exception_json_err(
+                             _response_body,
+                             output,
+                         )
+-                        .map_err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
++                        .map_err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -235,14 +235,14 @@
+                 tmp
+             })
+         }
+-        "XksProxyUriInUseException" => crate::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyUriInUseException({
++        "XksProxyUriInUseException" => super::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyUriInUseException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::XksProxyUriInUseExceptionBuilder::default();
++                let mut output = super::types::error::builders::XksProxyUriInUseExceptionBuilder::default();
+                 output =
+-                    crate::protocol_serde::shape_xks_proxy_uri_in_use_exception::de_xks_proxy_uri_in_use_exception_json_err(_response_body, output)
+-                        .map_err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
++                    super::protocol_serde::shape_xks_proxy_uri_in_use_exception::de_xks_proxy_uri_in_use_exception_json_err(_response_body, output)
++                        .map_err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -251,16 +251,16 @@
+             }
+             tmp
+         }),
+-        "XksProxyUriUnreachableException" => crate::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyUriUnreachableException({
++        "XksProxyUriUnreachableException" => super::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyUriUnreachableException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::XksProxyUriUnreachableExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_xks_proxy_uri_unreachable_exception::de_xks_proxy_uri_unreachable_exception_json_err(
++                let mut output = super::types::error::builders::XksProxyUriUnreachableExceptionBuilder::default();
++                output = super::protocol_serde::shape_xks_proxy_uri_unreachable_exception::de_xks_proxy_uri_unreachable_exception_json_err(
+                     _response_body,
+                     output,
+                 )
+-                .map_err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
++                .map_err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -270,12 +270,12 @@
+             tmp
+         }),
+         "XksProxyVpcEndpointServiceInUseException" => {
+-            crate::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyVpcEndpointServiceInUseException({
++            super::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyVpcEndpointServiceInUseException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::XksProxyVpcEndpointServiceInUseExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_xks_proxy_vpc_endpoint_service_in_use_exception::de_xks_proxy_vpc_endpoint_service_in_use_exception_json_err(_response_body, output).map_err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
++                    let mut output = super::types::error::builders::XksProxyVpcEndpointServiceInUseExceptionBuilder::default();
++                    output = super::protocol_serde::shape_xks_proxy_vpc_endpoint_service_in_use_exception::de_xks_proxy_vpc_endpoint_service_in_use_exception_json_err(_response_body, output).map_err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -286,12 +286,12 @@
+             })
+         }
+         "XksProxyVpcEndpointServiceInvalidConfigurationException" => {
+-            crate::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyVpcEndpointServiceInvalidConfigurationException({
++            super::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyVpcEndpointServiceInvalidConfigurationException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::XksProxyVpcEndpointServiceInvalidConfigurationExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_xks_proxy_vpc_endpoint_service_invalid_configuration_exception::de_xks_proxy_vpc_endpoint_service_invalid_configuration_exception_json_err(_response_body, output).map_err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
++                    let mut output = super::types::error::builders::XksProxyVpcEndpointServiceInvalidConfigurationExceptionBuilder::default();
++                    output = super::protocol_serde::shape_xks_proxy_vpc_endpoint_service_invalid_configuration_exception::de_xks_proxy_vpc_endpoint_service_invalid_configuration_exception_json_err(_response_body, output).map_err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -302,12 +302,12 @@
+             })
+         }
+         "XksProxyVpcEndpointServiceNotFoundException" => {
+-            crate::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyVpcEndpointServiceNotFoundException({
++            super::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyVpcEndpointServiceNotFoundException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::XksProxyVpcEndpointServiceNotFoundExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_xks_proxy_vpc_endpoint_service_not_found_exception::de_xks_proxy_vpc_endpoint_service_not_found_exception_json_err(_response_body, output).map_err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
++                    let mut output = super::types::error::builders::XksProxyVpcEndpointServiceNotFoundExceptionBuilder::default();
++                    output = super::protocol_serde::shape_xks_proxy_vpc_endpoint_service_not_found_exception::de_xks_proxy_vpc_endpoint_service_not_found_exception_json_err(_response_body, output).map_err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -317,7 +317,7 @@
+                 tmp
+             })
+         }
+-        _ => crate::operation::create_custom_key_store::CreateCustomKeyStoreError::generic(generic),
++        _ => super::operation::create_custom_key_store::CreateCustomKeyStoreError::generic(generic),
+     })
+ }
+
+@@ -327,14 +327,14 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::create_custom_key_store::CreateCustomKeyStoreOutput,
+-    crate::operation::create_custom_key_store::CreateCustomKeyStoreError,
++    super::operation::create_custom_key_store::CreateCustomKeyStoreOutput,
++    super::operation::create_custom_key_store::CreateCustomKeyStoreError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::create_custom_key_store::builders::CreateCustomKeyStoreOutputBuilder::default();
+-        output = crate::protocol_serde::shape_create_custom_key_store::de_create_custom_key_store(_response_body, output)
+-            .map_err(crate::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
++        let mut output = super::operation::create_custom_key_store::builders::CreateCustomKeyStoreOutputBuilder::default();
++        output = super::protocol_serde::shape_create_custom_key_store::de_create_custom_key_store(_response_body, output)
++            .map_err(super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -341,11 +341,11 @@
+ }
+
+ pub fn ser_create_custom_key_store_input(
+-    input: &crate::operation::create_custom_key_store::CreateCustomKeyStoreInput,
++    input: &super::operation::create_custom_key_store::CreateCustomKeyStoreInput,
+ ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+     let mut out = String::new();
+     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+-    crate::protocol_serde::shape_create_custom_key_store_input::ser_create_custom_key_store_input_input(&mut object, input)?;
++    super::protocol_serde::shape_create_custom_key_store_input::ser_create_custom_key_store_input_input(&mut object, input)?;
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
+@@ -352,12 +352,12 @@
+
+ pub(crate) fn de_create_custom_key_store(
+     _value: &[u8],
+-    mut builder: crate::operation::create_custom_key_store::builders::CreateCustomKeyStoreOutputBuilder,
++    mut builder: super::operation::create_custom_key_store::builders::CreateCustomKeyStoreOutputBuilder,
+ ) -> ::std::result::Result<
+-    crate::operation::create_custom_key_store::builders::CreateCustomKeyStoreOutputBuilder,
++    super::operation::create_custom_key_store::builders::CreateCustomKeyStoreOutputBuilder,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ > {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+     let depth = 0u32;

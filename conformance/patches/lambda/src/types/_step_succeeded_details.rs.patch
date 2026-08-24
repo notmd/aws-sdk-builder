@@ -1,0 +1,87 @@
+--- original
++++ modified
+@@ -5,24 +5,24 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct StepSucceededDetails {
+     /// <p>The response payload from the successful operation.</p>
+-    pub result: ::std::option::Option<crate::types::EventResult>,
++    pub result: ::std::option::Option<super::types::EventResult>,
+     /// <p>Information about retry attempts for this step operation.</p>
+-    pub retry_details: ::std::option::Option<crate::types::RetryDetails>,
++    pub retry_details: ::std::option::Option<super::types::RetryDetails>,
+ }
+ impl StepSucceededDetails {
+     /// <p>The response payload from the successful operation.</p>
+-    pub fn result(&self) -> ::std::option::Option<&crate::types::EventResult> {
++    pub fn result(&self) -> ::std::option::Option<&super::types::EventResult> {
+         self.result.as_ref()
+     }
+     /// <p>Information about retry attempts for this step operation.</p>
+-    pub fn retry_details(&self) -> ::std::option::Option<&crate::types::RetryDetails> {
++    pub fn retry_details(&self) -> ::std::option::Option<&super::types::RetryDetails> {
+         self.retry_details.as_ref()
+     }
+ }
+ impl StepSucceededDetails {
+     /// Creates a new builder-style object to manufacture [`StepSucceededDetails`](crate::types::StepSucceededDetails).
+-    pub fn builder() -> crate::types::builders::StepSucceededDetailsBuilder {
+-        crate::types::builders::StepSucceededDetailsBuilder::default()
++    pub fn builder() -> super::types::builders::StepSucceededDetailsBuilder {
++        super::types::builders::StepSucceededDetailsBuilder::default()
+     }
+ }
+
+@@ -30,43 +30,43 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct StepSucceededDetailsBuilder {
+-    pub(crate) result: ::std::option::Option<crate::types::EventResult>,
+-    pub(crate) retry_details: ::std::option::Option<crate::types::RetryDetails>,
++    pub(crate) result: ::std::option::Option<super::types::EventResult>,
++    pub(crate) retry_details: ::std::option::Option<super::types::RetryDetails>,
+ }
+ impl StepSucceededDetailsBuilder {
+     /// <p>The response payload from the successful operation.</p>
+     /// This field is required.
+-    pub fn result(mut self, input: crate::types::EventResult) -> Self {
++    pub fn result(mut self, input: super::types::EventResult) -> Self {
+         self.result = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The response payload from the successful operation.</p>
+-    pub fn set_result(mut self, input: ::std::option::Option<crate::types::EventResult>) -> Self {
++    pub fn set_result(mut self, input: ::std::option::Option<super::types::EventResult>) -> Self {
+         self.result = input;
+         self
+     }
+     /// <p>The response payload from the successful operation.</p>
+-    pub fn get_result(&self) -> &::std::option::Option<crate::types::EventResult> {
++    pub fn get_result(&self) -> &::std::option::Option<super::types::EventResult> {
+         &self.result
+     }
+     /// <p>Information about retry attempts for this step operation.</p>
+     /// This field is required.
+-    pub fn retry_details(mut self, input: crate::types::RetryDetails) -> Self {
++    pub fn retry_details(mut self, input: super::types::RetryDetails) -> Self {
+         self.retry_details = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Information about retry attempts for this step operation.</p>
+-    pub fn set_retry_details(mut self, input: ::std::option::Option<crate::types::RetryDetails>) -> Self {
++    pub fn set_retry_details(mut self, input: ::std::option::Option<super::types::RetryDetails>) -> Self {
+         self.retry_details = input;
+         self
+     }
+     /// <p>Information about retry attempts for this step operation.</p>
+-    pub fn get_retry_details(&self) -> &::std::option::Option<crate::types::RetryDetails> {
++    pub fn get_retry_details(&self) -> &::std::option::Option<super::types::RetryDetails> {
+         &self.retry_details
+     }
+     /// Consumes the builder and constructs a [`StepSucceededDetails`](crate::types::StepSucceededDetails).
+-    pub fn build(self) -> crate::types::StepSucceededDetails {
+-        crate::types::StepSucceededDetails {
++    pub fn build(self) -> super::types::StepSucceededDetails {
++        super::types::StepSucceededDetails {
+             result: self.result,
+             retry_details: self.retry_details,
+         }

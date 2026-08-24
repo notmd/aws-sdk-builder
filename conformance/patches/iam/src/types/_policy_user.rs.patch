@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -23,8 +23,8 @@
+ }
+ impl PolicyUser {
+     /// Creates a new builder-style object to manufacture [`PolicyUser`](crate::types::PolicyUser).
+-    pub fn builder() -> crate::types::builders::PolicyUserBuilder {
+-        crate::types::builders::PolicyUserBuilder::default()
++    pub fn builder() -> super::types::builders::PolicyUserBuilder {
++        super::types::builders::PolicyUserBuilder::default()
+     }
+ }
+
+@@ -65,8 +65,8 @@
+         &self.user_id
+     }
+     /// Consumes the builder and constructs a [`PolicyUser`](crate::types::PolicyUser).
+-    pub fn build(self) -> crate::types::PolicyUser {
+-        crate::types::PolicyUser {
++    pub fn build(self) -> super::types::PolicyUser {
++        super::types::PolicyUser {
+             user_name: self.user_name,
+             user_id: self.user_id,
+         }

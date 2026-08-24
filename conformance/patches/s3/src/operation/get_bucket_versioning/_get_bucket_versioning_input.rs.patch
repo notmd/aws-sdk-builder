@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -20,8 +20,8 @@
+ }
+ impl GetBucketVersioningInput {
+     /// Creates a new builder-style object to manufacture [`GetBucketVersioningInput`](crate::operation::get_bucket_versioning::GetBucketVersioningInput).
+-    pub fn builder() -> crate::operation::get_bucket_versioning::builders::GetBucketVersioningInputBuilder {
+-        crate::operation::get_bucket_versioning::builders::GetBucketVersioningInputBuilder::default()
++    pub fn builder() -> super::operation::get_bucket_versioning::builders::GetBucketVersioningInputBuilder {
++        super::operation::get_bucket_versioning::builders::GetBucketVersioningInputBuilder::default()
+     }
+ }
+
+@@ -65,9 +65,9 @@
+     /// Consumes the builder and constructs a [`GetBucketVersioningInput`](crate::operation::get_bucket_versioning::GetBucketVersioningInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::get_bucket_versioning::GetBucketVersioningInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::get_bucket_versioning::GetBucketVersioningInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::get_bucket_versioning::GetBucketVersioningInput {
++        ::std::result::Result::Ok(super::operation::get_bucket_versioning::GetBucketVersioningInput {
+             bucket: self.bucket,
+             expected_bucket_owner: self.expected_bucket_owner,
+         })

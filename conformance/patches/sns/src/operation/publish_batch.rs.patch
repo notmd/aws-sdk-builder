@@ -1,0 +1,271 @@
+--- original
++++ modified
+@@ -10,11 +10,11 @@
+     }
+     pub(crate) async fn orchestrate(
+         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        input: crate::operation::publish_batch::PublishBatchInput,
++        input: super::operation::publish_batch::PublishBatchInput,
+     ) -> ::std::result::Result<
+-        crate::operation::publish_batch::PublishBatchOutput,
++        super::operation::publish_batch::PublishBatchOutput,
+         ::aws_smithy_runtime_api::client::result::SdkError<
+-            crate::operation::publish_batch::PublishBatchError,
++            super::operation::publish_batch::PublishBatchError,
+             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+         >,
+     > {
+@@ -23,7 +23,7 @@
+             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+         >| {
+             err.map_service_error(|err| {
+-                err.downcast::<crate::operation::publish_batch::PublishBatchError>()
++                err.downcast::<super::operation::publish_batch::PublishBatchError>()
+                     .expect("correct error type")
+             })
+         };
+@@ -33,7 +33,7 @@
+         let output = context.finalize().map_err(map_err)?;
+         ::std::result::Result::Ok(
+             output
+-                .downcast::<crate::operation::publish_batch::PublishBatchOutput>()
++                .downcast::<super::operation::publish_batch::PublishBatchOutput>()
+                 .expect("correct output type"),
+         )
+     }
+@@ -40,7 +40,7 @@
+
+     pub(crate) async fn orchestrate_with_stop_point(
+         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        input: crate::operation::publish_batch::PublishBatchInput,
++        input: super::operation::publish_batch::PublishBatchInput,
+         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
+     ) -> ::std::result::Result<
+         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
+@@ -66,8 +66,8 @@
+
+     pub(crate) fn operation_runtime_plugins(
+         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        client_config: &crate::config::Config,
+-        config_override: ::std::option::Option<crate::config::Builder>,
++        client_config: &super::config::Config,
++        config_override: ::std::option::Option<super::config::Builder>,
+     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
+         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
+
+@@ -75,7 +75,7 @@
+             for plugin in config_override.runtime_plugins.iter().cloned() {
+                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
+             }
+-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
++            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
+                 config_override,
+                 client_config.config.clone(),
+                 &client_config.runtime_components,
+@@ -96,7 +96,7 @@
+         ));
+
+         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
+-            crate::config::auth::Params::builder()
++            super::config::auth::Params::builder()
+                 .operation_name("PublishBatch")
+                 .build()
+                 .expect("required fields set"),
+@@ -133,13 +133,13 @@
+                 PublishBatchEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+-                crate::operation::publish_batch::PublishBatchError,
++                super::operation::publish_batch::PublishBatchError,
+             >::new())
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+-                crate::operation::publish_batch::PublishBatchError,
++                super::operation::publish_batch::PublishBatchError,
+             >::new())
+             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+-                crate::operation::publish_batch::PublishBatchError,
++                super::operation::publish_batch::PublishBatchError,
+             >::new());
+
+         ::std::borrow::Cow::Owned(rcb)
+@@ -204,11 +204,11 @@
+         let mut force_error = false;
+         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+         let parse_result = if !success && status != 200 || force_error {
+-            crate::protocol_serde::shape_publish_batch::de_publish_batch_http_error(status, headers, body)
++            super::protocol_serde::shape_publish_batch::de_publish_batch_http_error(status, headers, body)
+         } else {
+-            crate::protocol_serde::shape_publish_batch::de_publish_batch_http_response(status, headers, body)
++            super::protocol_serde::shape_publish_batch::de_publish_batch_http_response(status, headers, body)
+         };
+-        crate::protocol_serde::type_erase_result(parse_result)
++        super::protocol_serde::type_erase_result(parse_result)
+     }
+ }
+ #[derive(Debug)]
+@@ -221,16 +221,16 @@
+         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
+     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+         let input = input
+-            .downcast::<crate::operation::publish_batch::PublishBatchInput>()
++            .downcast::<super::operation::publish_batch::PublishBatchInput>()
+             .expect("correct type");
+         let _header_serialization_settings = _cfg
+-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
++            .load::<super::serialization_settings::HeaderSerializationSettings>()
+             .cloned()
+             .unwrap_or_default();
+         let mut request_builder = {
+             #[allow(clippy::uninlined_format_args)]
+             fn uri_base(
+-                _input: &crate::operation::publish_batch::PublishBatchInput,
++                _input: &super::operation::publish_batch::PublishBatchInput,
+                 output: &mut ::std::string::String,
+             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+                 use ::std::fmt::Write as _;
+@@ -239,7 +239,7 @@
+             }
+             #[allow(clippy::unnecessary_wraps)]
+             fn update_http_builder(
+-                input: &crate::operation::publish_batch::PublishBatchInput,
++                input: &super::operation::publish_batch::PublishBatchInput,
+                 builder: ::http_1x::request::Builder,
+             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+                 let mut uri = ::std::string::String::new();
+@@ -251,7 +251,7 @@
+                 _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_publish_batch_input::ser_publish_batch_input_input_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_publish_batch_input::ser_publish_batch_input_input_input(
+             &input,
+         )?);
+         if let Some(content_length) = body.content_length() {
+@@ -285,7 +285,7 @@
+             .downcast_ref::<PublishBatchInput>()
+             .ok_or("failed to downcast to PublishBatchInput")?;
+
+-        let params = crate::config::endpoint::Params::builder()
++        let params = super::config::endpoint::Params::builder()
+             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+@@ -308,45 +308,45 @@
+ #[derive(::std::fmt::Debug)]
+ pub enum PublishBatchError {
+     /// <p>Indicates that the user has been denied access to the requested resource.</p>
+-    AuthorizationErrorException(crate::types::error::AuthorizationErrorException),
++    AuthorizationErrorException(super::types::error::AuthorizationErrorException),
+     /// <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
+-    BatchEntryIdsNotDistinctException(crate::types::error::BatchEntryIdsNotDistinctException),
++    BatchEntryIdsNotDistinctException(super::types::error::BatchEntryIdsNotDistinctException),
+     /// <p>The length of all the batch messages put together is more than the limit.</p>
+-    BatchRequestTooLongException(crate::types::error::BatchRequestTooLongException),
++    BatchRequestTooLongException(super::types::error::BatchRequestTooLongException),
+     /// <p>The batch request doesn't contain any entries.</p>
+-    EmptyBatchRequestException(crate::types::error::EmptyBatchRequestException),
++    EmptyBatchRequestException(super::types::error::EmptyBatchRequestException),
+     /// <p>Exception error indicating endpoint disabled.</p>
+-    EndpointDisabledException(crate::types::error::EndpointDisabledException),
++    EndpointDisabledException(super::types::error::EndpointDisabledException),
+     /// <p>Indicates an internal service error.</p>
+-    InternalErrorException(crate::types::error::InternalErrorException),
++    InternalErrorException(super::types::error::InternalErrorException),
+     /// <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
+-    InvalidBatchEntryIdException(crate::types::error::InvalidBatchEntryIdException),
++    InvalidBatchEntryIdException(super::types::error::InvalidBatchEntryIdException),
+     /// <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+-    InvalidParameterException(crate::types::error::InvalidParameterException),
++    InvalidParameterException(super::types::error::InvalidParameterException),
+     /// <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+-    InvalidParameterValueException(crate::types::error::InvalidParameterValueException),
++    InvalidParameterValueException(super::types::error::InvalidParameterValueException),
+     /// <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.</p>
+-    InvalidSecurityException(crate::types::error::InvalidSecurityException),
++    InvalidSecurityException(super::types::error::InvalidSecurityException),
+     /// <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
+-    KmsAccessDeniedException(crate::types::error::KmsAccessDeniedException),
++    KmsAccessDeniedException(super::types::error::KmsAccessDeniedException),
+     /// <p>The request was rejected because the specified Amazon Web Services KMS key isn't enabled.</p>
+-    KmsDisabledException(crate::types::error::KmsDisabledException),
++    KmsDisabledException(super::types::error::KmsDisabledException),
+     /// <p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of Amazon Web Services KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+-    KmsInvalidStateException(crate::types::error::KmsInvalidStateException),
++    KmsInvalidStateException(super::types::error::KmsInvalidStateException),
+     /// <p>The request was rejected because the specified entity or resource can't be found.</p>
+-    KmsNotFoundException(crate::types::error::KmsNotFoundException),
++    KmsNotFoundException(super::types::error::KmsNotFoundException),
+     /// <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
+-    KmsOptInRequired(crate::types::error::KmsOptInRequired),
++    KmsOptInRequired(super::types::error::KmsOptInRequired),
+     /// <p>The request was denied due to request throttling. For more information about throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in the <i>Key Management Service Developer Guide.</i></p>
+-    KmsThrottlingException(crate::types::error::KmsThrottlingException),
++    KmsThrottlingException(super::types::error::KmsThrottlingException),
+     /// <p>Indicates that the requested resource does not exist.</p>
+-    NotFoundException(crate::types::error::NotFoundException),
++    NotFoundException(super::types::error::NotFoundException),
+     /// <p>Exception error indicating platform application disabled.</p>
+-    PlatformApplicationDisabledException(crate::types::error::PlatformApplicationDisabledException),
++    PlatformApplicationDisabledException(super::types::error::PlatformApplicationDisabledException),
+     /// <p>The batch request contains more entries than permissible (more than 10).</p>
+-    TooManyEntriesInBatchRequestException(crate::types::error::TooManyEntriesInBatchRequestException),
++    TooManyEntriesInBatchRequestException(super::types::error::TooManyEntriesInBatchRequestException),
+     /// <p>Indicates that a parameter in the request is invalid.</p>
+-    ValidationException(crate::types::error::ValidationException),
++    ValidationException(super::types::error::ValidationException),
+     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
+     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+     variable wildcard pattern and check `.code()`:
+@@ -354,7 +354,7 @@
+     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+      \
+     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-PublishBatchError) for what information is available for the error.")]
+-    Unhandled(crate::error::sealed_unhandled::Unhandled),
++    Unhandled(super::error::sealed_unhandled::Unhandled),
+ }
+ impl PublishBatchError {
+     /// Creates the `PublishBatchError::Unhandled` variant from any error type.
+@@ -361,7 +361,7 @@
+     pub fn unhandled(
+         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
+     ) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source: err.into(),
+             meta: ::std::default::Default::default(),
+         })
+@@ -369,7 +369,7 @@
+
+     /// Creates the `PublishBatchError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source: err.clone().into(),
+             meta: err,
+         })
+@@ -584,21 +584,21 @@
+         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
+     ) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source,
+             meta: meta.unwrap_or_default(),
+         })
+     }
+ }
+-impl ::aws_types::request_id::RequestId for crate::operation::publish_batch::PublishBatchError {
++impl ::aws_types::request_id::RequestId for super::operation::publish_batch::PublishBatchError {
+     fn request_id(&self) -> Option<&str> {
+         self.meta().request_id()
+     }
+ }
+
+-pub use crate::operation::publish_batch::_publish_batch_input::PublishBatchInput;
++pub use super::operation::publish_batch::_publish_batch_input::PublishBatchInput;
+
+-pub use crate::operation::publish_batch::_publish_batch_output::PublishBatchOutput;
++pub use super::operation::publish_batch::_publish_batch_output::PublishBatchOutput;
+
+ mod _publish_batch_input;
+

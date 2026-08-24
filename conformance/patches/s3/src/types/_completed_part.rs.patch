@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -95,8 +95,8 @@
+ }
+ impl CompletedPart {
+     /// Creates a new builder-style object to manufacture [`CompletedPart`](crate::types::CompletedPart).
+-    pub fn builder() -> crate::types::builders::CompletedPartBuilder {
+-        crate::types::builders::CompletedPartBuilder::default()
++    pub fn builder() -> super::types::builders::CompletedPartBuilder {
++        super::types::builders::CompletedPartBuilder::default()
+     }
+ }
+
+@@ -308,8 +308,8 @@
+         &self.part_number
+     }
+     /// Consumes the builder and constructs a [`CompletedPart`](crate::types::CompletedPart).
+-    pub fn build(self) -> crate::types::CompletedPart {
+-        crate::types::CompletedPart {
++    pub fn build(self) -> super::types::CompletedPart {
++        super::types::CompletedPart {
+             e_tag: self.e_tag,
+             checksum_crc32: self.checksum_crc32,
+             checksum_crc32_c: self.checksum_crc32_c,

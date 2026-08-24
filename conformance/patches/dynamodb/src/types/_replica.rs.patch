@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl Replica {
+     /// Creates a new builder-style object to manufacture [`Replica`](crate::types::Replica).
+-    pub fn builder() -> crate::types::builders::ReplicaBuilder {
+-        crate::types::builders::ReplicaBuilder::default()
++    pub fn builder() -> super::types::builders::ReplicaBuilder {
++        super::types::builders::ReplicaBuilder::default()
+     }
+ }
+
+@@ -42,8 +42,8 @@
+         &self.region_name
+     }
+     /// Consumes the builder and constructs a [`Replica`](crate::types::Replica).
+-    pub fn build(self) -> crate::types::Replica {
+-        crate::types::Replica {
++    pub fn build(self) -> super::types::Replica {
++        super::types::Replica {
+             region_name: self.region_name,
+         }
+     }

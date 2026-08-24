@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -28,8 +28,8 @@
+ }
+ impl ListDelegationRequestsInput {
+     /// Creates a new builder-style object to manufacture [`ListDelegationRequestsInput`](crate::operation::list_delegation_requests::ListDelegationRequestsInput).
+-    pub fn builder() -> crate::operation::list_delegation_requests::builders::ListDelegationRequestsInputBuilder {
+-        crate::operation::list_delegation_requests::builders::ListDelegationRequestsInputBuilder::default()
++    pub fn builder() -> super::operation::list_delegation_requests::builders::ListDelegationRequestsInputBuilder {
++        super::operation::list_delegation_requests::builders::ListDelegationRequestsInputBuilder::default()
+     }
+ }
+
+@@ -91,10 +91,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::list_delegation_requests::ListDelegationRequestsInput,
++        super::operation::list_delegation_requests::ListDelegationRequestsInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::list_delegation_requests::ListDelegationRequestsInput {
++        ::std::result::Result::Ok(super::operation::list_delegation_requests::ListDelegationRequestsInput {
+             owner_id: self.owner_id,
+             marker: self.marker,
+             max_items: self.max_items,

@@ -124,7 +124,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutObje
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("PutObjectLegalHold")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(PutObjectLegalHoldTelemetryInputCaptureInterceptor))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(PutObjectLegalHoldTelemetryInputCaptureInterceptor))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(PutObjectLegalHoldEndpointParamsInterceptor))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(crate::http_request_checksum::RequestChecksumInterceptor::new(

@@ -115,7 +115,6 @@ mod tests {
             ServiceMetadata {
                 key: "s3",
                 filename: "model.json",
-                crate_name: "aws-sdk-s3",
                 module_name: "aws_sdk_s3",
                 sdk_version: None,
             },

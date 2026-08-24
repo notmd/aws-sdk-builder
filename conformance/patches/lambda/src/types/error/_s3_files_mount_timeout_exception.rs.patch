@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -34,7 +34,7 @@
+     }
+ }
+ impl ::std::error::Error for S3FilesMountTimeoutException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::S3FilesMountTimeoutException {
++impl ::aws_types::request_id::RequestId for super::types::error::S3FilesMountTimeoutException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -47,8 +47,8 @@
+ }
+ impl S3FilesMountTimeoutException {
+     /// Creates a new builder-style object to manufacture [`S3FilesMountTimeoutException`](crate::types::error::S3FilesMountTimeoutException).
+-    pub fn builder() -> crate::types::error::builders::S3FilesMountTimeoutExceptionBuilder {
+-        crate::types::error::builders::S3FilesMountTimeoutExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::S3FilesMountTimeoutExceptionBuilder {
++        super::types::error::builders::S3FilesMountTimeoutExceptionBuilder::default()
+     }
+ }
+
+@@ -101,8 +101,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`S3FilesMountTimeoutException`](crate::types::error::S3FilesMountTimeoutException).
+-    pub fn build(self) -> crate::types::error::S3FilesMountTimeoutException {
+-        crate::types::error::S3FilesMountTimeoutException {
++    pub fn build(self) -> super::types::error::S3FilesMountTimeoutException {
++        super::types::error::S3FilesMountTimeoutException {
+             r#type: self.r#type,
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),

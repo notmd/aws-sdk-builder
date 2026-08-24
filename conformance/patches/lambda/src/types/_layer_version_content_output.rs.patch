@@ -1,0 +1,66 @@
+--- original
++++ modified
+@@ -15,7 +15,7 @@
+     /// <p>The Amazon Resource Name (ARN) of a signing job.</p>
+     pub signing_job_arn: ::std::option::Option<::std::string::String>,
+     /// <p>The resolved Amazon S3 object that contains the layer archive.</p>
+-    pub resolved_s3_object: ::std::option::Option<crate::types::ResolvedS3Object>,
++    pub resolved_s3_object: ::std::option::Option<super::types::ResolvedS3Object>,
+ }
+ impl LayerVersionContentOutput {
+     /// <p>A link to the layer archive in Amazon S3 that is valid for 10 minutes.</p>
+@@ -39,14 +39,14 @@
+         self.signing_job_arn.as_deref()
+     }
+     /// <p>The resolved Amazon S3 object that contains the layer archive.</p>
+-    pub fn resolved_s3_object(&self) -> ::std::option::Option<&crate::types::ResolvedS3Object> {
++    pub fn resolved_s3_object(&self) -> ::std::option::Option<&super::types::ResolvedS3Object> {
+         self.resolved_s3_object.as_ref()
+     }
+ }
+ impl LayerVersionContentOutput {
+     /// Creates a new builder-style object to manufacture [`LayerVersionContentOutput`](crate::types::LayerVersionContentOutput).
+-    pub fn builder() -> crate::types::builders::LayerVersionContentOutputBuilder {
+-        crate::types::builders::LayerVersionContentOutputBuilder::default()
++    pub fn builder() -> super::types::builders::LayerVersionContentOutputBuilder {
++        super::types::builders::LayerVersionContentOutputBuilder::default()
+     }
+ }
+
+@@ -59,7 +59,7 @@
+     pub(crate) code_size: ::std::option::Option<i64>,
+     pub(crate) signing_profile_version_arn: ::std::option::Option<::std::string::String>,
+     pub(crate) signing_job_arn: ::std::option::Option<::std::string::String>,
+-    pub(crate) resolved_s3_object: ::std::option::Option<crate::types::ResolvedS3Object>,
++    pub(crate) resolved_s3_object: ::std::option::Option<super::types::ResolvedS3Object>,
+ }
+ impl LayerVersionContentOutputBuilder {
+     /// <p>A link to the layer archive in Amazon S3 that is valid for 10 minutes.</p>
+@@ -133,22 +133,22 @@
+         &self.signing_job_arn
+     }
+     /// <p>The resolved Amazon S3 object that contains the layer archive.</p>
+-    pub fn resolved_s3_object(mut self, input: crate::types::ResolvedS3Object) -> Self {
++    pub fn resolved_s3_object(mut self, input: super::types::ResolvedS3Object) -> Self {
+         self.resolved_s3_object = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The resolved Amazon S3 object that contains the layer archive.</p>
+-    pub fn set_resolved_s3_object(mut self, input: ::std::option::Option<crate::types::ResolvedS3Object>) -> Self {
++    pub fn set_resolved_s3_object(mut self, input: ::std::option::Option<super::types::ResolvedS3Object>) -> Self {
+         self.resolved_s3_object = input;
+         self
+     }
+     /// <p>The resolved Amazon S3 object that contains the layer archive.</p>
+-    pub fn get_resolved_s3_object(&self) -> &::std::option::Option<crate::types::ResolvedS3Object> {
++    pub fn get_resolved_s3_object(&self) -> &::std::option::Option<super::types::ResolvedS3Object> {
+         &self.resolved_s3_object
+     }
+     /// Consumes the builder and constructs a [`LayerVersionContentOutput`](crate::types::LayerVersionContentOutput).
+-    pub fn build(self) -> crate::types::LayerVersionContentOutput {
+-        crate::types::LayerVersionContentOutput {
++    pub fn build(self) -> super::types::LayerVersionContentOutput {
++        super::types::LayerVersionContentOutput {
+             location: self.location,
+             code_sha256: self.code_sha256,
+             code_size: self.code_size.unwrap_or_default(),

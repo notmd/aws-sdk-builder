@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -14,8 +14,8 @@
+ }
+ impl ListQueueTagsInput {
+     /// Creates a new builder-style object to manufacture [`ListQueueTagsInput`](crate::operation::list_queue_tags::ListQueueTagsInput).
+-    pub fn builder() -> crate::operation::list_queue_tags::builders::ListQueueTagsInputBuilder {
+-        crate::operation::list_queue_tags::builders::ListQueueTagsInputBuilder::default()
++    pub fn builder() -> super::operation::list_queue_tags::builders::ListQueueTagsInputBuilder {
++        super::operation::list_queue_tags::builders::ListQueueTagsInputBuilder::default()
+     }
+ }
+
+@@ -44,7 +44,7 @@
+     /// Consumes the builder and constructs a [`ListQueueTagsInput`](crate::operation::list_queue_tags::ListQueueTagsInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::list_queue_tags::ListQueueTagsInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::list_queue_tags::ListQueueTagsInput { queue_url: self.queue_url })
++    ) -> ::std::result::Result<super::operation::list_queue_tags::ListQueueTagsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::list_queue_tags::ListQueueTagsInput { queue_url: self.queue_url })
+     }
+ }

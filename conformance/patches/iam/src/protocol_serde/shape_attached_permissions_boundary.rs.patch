@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -3,19 +3,19 @@
+ pub fn de_attached_permissions_boundary(
+     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+     depth: u32,
+-) -> ::std::result::Result<crate::types::AttachedPermissionsBoundary, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::types::AttachedPermissionsBoundary, ::aws_smithy_xml::decode::XmlDecodeError> {
+     if depth >= 128u32 {
+         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+     }
+     #[allow(unused_mut)]
+-    let mut builder = crate::types::AttachedPermissionsBoundary::builder();
++    let mut builder = super::types::AttachedPermissionsBoundary::builder();
+     while let Some(mut tag) = decoder.next_tag() {
+         match tag.start_el() {
+             s if s.matches("PermissionsBoundaryType") /* PermissionsBoundaryType com.amazonaws.iam#AttachedPermissionsBoundary$PermissionsBoundaryType */ =>  {
+                 let var_1 =
+                     Some(
+-                        Result::<crate::types::PermissionsBoundaryAttachmentType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+-                            crate::types::PermissionsBoundaryAttachmentType::from(
++                        Result::<super::types::PermissionsBoundaryAttachmentType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::types::PermissionsBoundaryAttachmentType::from(
+                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                             )
+                         )

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl ProvisionedThroughputOverride {
+     /// Creates a new builder-style object to manufacture [`ProvisionedThroughputOverride`](crate::types::ProvisionedThroughputOverride).
+-    pub fn builder() -> crate::types::builders::ProvisionedThroughputOverrideBuilder {
+-        crate::types::builders::ProvisionedThroughputOverrideBuilder::default()
++    pub fn builder() -> super::types::builders::ProvisionedThroughputOverrideBuilder {
++        super::types::builders::ProvisionedThroughputOverrideBuilder::default()
+     }
+ }
+
+@@ -42,8 +42,8 @@
+         &self.read_capacity_units
+     }
+     /// Consumes the builder and constructs a [`ProvisionedThroughputOverride`](crate::types::ProvisionedThroughputOverride).
+-    pub fn build(self) -> crate::types::ProvisionedThroughputOverride {
+-        crate::types::ProvisionedThroughputOverride {
++    pub fn build(self) -> super::types::ProvisionedThroughputOverride {
++        super::types::ProvisionedThroughputOverride {
+             read_capacity_units: self.read_capacity_units,
+         }
+     }

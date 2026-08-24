@@ -687,7 +687,7 @@ pub(crate) fn step_failed_details_correct_errors(
     if builder.retry_details.is_none() {
         builder.retry_details = {
             let builder = crate::types::builders::RetryDetailsBuilder::default();
-            Some(builder.build())
+            builder.build().ok()
         }
     }
     builder
@@ -705,7 +705,7 @@ pub(crate) fn step_succeeded_details_correct_errors(
     if builder.retry_details.is_none() {
         builder.retry_details = {
             let builder = crate::types::builders::RetryDetailsBuilder::default();
-            Some(builder.build())
+            builder.build().ok()
         }
     }
     builder

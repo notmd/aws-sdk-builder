@@ -32,7 +32,7 @@ pub fn de_untag_resource_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::untag_resource::UntagResourceError::KmsInternalException({
+        "KMSInternalException" => crate::operation::untag_resource::UntagResourceError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -47,7 +47,7 @@ pub fn de_untag_resource_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::untag_resource::UntagResourceError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::untag_resource::UntagResourceError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

@@ -93,7 +93,7 @@ pub fn de_create_grant_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::create_grant::CreateGrantError::KmsInternalException({
+        "KMSInternalException" => crate::operation::create_grant::CreateGrantError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -108,7 +108,7 @@ pub fn de_create_grant_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::create_grant::CreateGrantError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::create_grant::CreateGrantError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

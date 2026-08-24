@@ -1,0 +1,44 @@
+--- original
++++ modified
+@@ -3,12 +3,12 @@
+ pub fn de_user(
+     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+     depth: u32,
+-) -> ::std::result::Result<crate::types::User, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::types::User, ::aws_smithy_xml::decode::XmlDecodeError> {
+     if depth >= 128u32 {
+         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+     }
+     #[allow(unused_mut)]
+-    let mut builder = crate::types::User::builder();
++    let mut builder = super::types::User::builder();
+     while let Some(mut tag) = decoder.next_tag() {
+         match tag.start_el() {
+             s if s.matches("Path") /* Path com.amazonaws.iam#User$Path */ =>  {
+@@ -94,7 +94,7 @@
+             s if s.matches("PermissionsBoundary") /* PermissionsBoundary com.amazonaws.iam#User$PermissionsBoundary */ =>  {
+                 let var_7 =
+                     Some(
+-                        crate::protocol_serde::shape_attached_permissions_boundary::de_attached_permissions_boundary(&mut tag, depth + 1)
++                        super::protocol_serde::shape_attached_permissions_boundary::de_attached_permissions_boundary(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;
+@@ -104,7 +104,7 @@
+             s if s.matches("Tags") /* Tags com.amazonaws.iam#User$Tags */ =>  {
+                 let var_8 =
+                     Some(
+-                        crate::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
++                        super::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;
+@@ -114,7 +114,7 @@
+             _ => {}
+         }
+     }
+-    Ok(crate::serde_util::user_correct_errors(builder)
++    Ok(super::serde_util::user_correct_errors(builder)
+         .build()
+         .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
+ }

@@ -24,7 +24,7 @@ impl EfsioException {
 }
 impl ::std::fmt::Display for EfsioException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(f, "EfsioException")?;
+        ::std::write!(f, "EfsioException [EFSIOException]")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;

@@ -1,0 +1,171 @@
+--- original
++++ modified
+@@ -8,11 +8,11 @@
+     /// </note>
+     pub copy_source_version_id: ::std::option::Option<::std::string::String>,
+     /// <p>Container for all response elements.</p>
+-    pub copy_part_result: ::std::option::Option<crate::types::CopyPartResult>,
++    pub copy_part_result: ::std::option::Option<super::types::CopyPartResult>,
+     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
+     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+     /// </note>
+-    pub server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
++    pub server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
+     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+@@ -28,7 +28,7 @@
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
++    pub request_charged: ::std::option::Option<super::types::RequestCharged>,
+     _extended_request_id: Option<String>,
+     _request_id: Option<String>,
+ }
+@@ -40,13 +40,13 @@
+         self.copy_source_version_id.as_deref()
+     }
+     /// <p>Container for all response elements.</p>
+-    pub fn copy_part_result(&self) -> ::std::option::Option<&crate::types::CopyPartResult> {
++    pub fn copy_part_result(&self) -> ::std::option::Option<&super::types::CopyPartResult> {
+         self.copy_part_result.as_ref()
+     }
+     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
+     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+     /// </note>
+-    pub fn server_side_encryption(&self) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
++    pub fn server_side_encryption(&self) -> ::std::option::Option<&super::types::ServerSideEncryption> {
+         self.server_side_encryption.as_ref()
+     }
+     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
+@@ -72,7 +72,7 @@
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
++    pub fn request_charged(&self) -> ::std::option::Option<&super::types::RequestCharged> {
+         self.request_charged.as_ref()
+     }
+ }
+@@ -92,7 +92,7 @@
+         formatter.finish()
+     }
+ }
+-impl crate::s3_request_id::RequestIdExt for UploadPartCopyOutput {
++impl super::s3_request_id::RequestIdExt for UploadPartCopyOutput {
+     fn extended_request_id(&self) -> Option<&str> {
+         self._extended_request_id.as_deref()
+     }
+@@ -104,8 +104,8 @@
+ }
+ impl UploadPartCopyOutput {
+     /// Creates a new builder-style object to manufacture [`UploadPartCopyOutput`](crate::operation::upload_part_copy::UploadPartCopyOutput).
+-    pub fn builder() -> crate::operation::upload_part_copy::builders::UploadPartCopyOutputBuilder {
+-        crate::operation::upload_part_copy::builders::UploadPartCopyOutputBuilder::default()
++    pub fn builder() -> super::operation::upload_part_copy::builders::UploadPartCopyOutputBuilder {
++        super::operation::upload_part_copy::builders::UploadPartCopyOutputBuilder::default()
+     }
+ }
+
+@@ -114,13 +114,13 @@
+ #[non_exhaustive]
+ pub struct UploadPartCopyOutputBuilder {
+     pub(crate) copy_source_version_id: ::std::option::Option<::std::string::String>,
+-    pub(crate) copy_part_result: ::std::option::Option<crate::types::CopyPartResult>,
+-    pub(crate) server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
++    pub(crate) copy_part_result: ::std::option::Option<super::types::CopyPartResult>,
++    pub(crate) server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
+     pub(crate) sse_customer_algorithm: ::std::option::Option<::std::string::String>,
+     pub(crate) sse_customer_key_md5: ::std::option::Option<::std::string::String>,
+     pub(crate) ssekms_key_id: ::std::option::Option<::std::string::String>,
+     pub(crate) bucket_key_enabled: ::std::option::Option<bool>,
+-    pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
++    pub(crate) request_charged: ::std::option::Option<super::types::RequestCharged>,
+     _extended_request_id: Option<String>,
+     _request_id: Option<String>,
+ }
+@@ -146,23 +146,23 @@
+         &self.copy_source_version_id
+     }
+     /// <p>Container for all response elements.</p>
+-    pub fn copy_part_result(mut self, input: crate::types::CopyPartResult) -> Self {
++    pub fn copy_part_result(mut self, input: super::types::CopyPartResult) -> Self {
+         self.copy_part_result = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Container for all response elements.</p>
+-    pub fn set_copy_part_result(mut self, input: ::std::option::Option<crate::types::CopyPartResult>) -> Self {
++    pub fn set_copy_part_result(mut self, input: ::std::option::Option<super::types::CopyPartResult>) -> Self {
+         self.copy_part_result = input;
+         self
+     }
+     /// <p>Container for all response elements.</p>
+-    pub fn get_copy_part_result(&self) -> &::std::option::Option<crate::types::CopyPartResult> {
++    pub fn get_copy_part_result(&self) -> &::std::option::Option<super::types::CopyPartResult> {
+         &self.copy_part_result
+     }
+     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
+     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+     /// </note>
+-    pub fn server_side_encryption(mut self, input: crate::types::ServerSideEncryption) -> Self {
++    pub fn server_side_encryption(mut self, input: super::types::ServerSideEncryption) -> Self {
+         self.server_side_encryption = ::std::option::Option::Some(input);
+         self
+     }
+@@ -169,7 +169,7 @@
+     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
+     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+     /// </note>
+-    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
++    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<super::types::ServerSideEncryption>) -> Self {
+         self.server_side_encryption = input;
+         self
+     }
+@@ -176,7 +176,7 @@
+     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
+     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+     /// </note>
+-    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
++    pub fn get_server_side_encryption(&self) -> &::std::option::Option<super::types::ServerSideEncryption> {
+         &self.server_side_encryption
+     }
+     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
+@@ -250,7 +250,7 @@
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
++    pub fn request_charged(mut self, input: super::types::RequestCharged) -> Self {
+         self.request_charged = ::std::option::Option::Some(input);
+         self
+     }
+@@ -257,7 +257,7 @@
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
++    pub fn set_request_charged(mut self, input: ::std::option::Option<super::types::RequestCharged>) -> Self {
+         self.request_charged = input;
+         self
+     }
+@@ -264,7 +264,7 @@
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
++    pub fn get_request_charged(&self) -> &::std::option::Option<super::types::RequestCharged> {
+         &self.request_charged
+     }
+     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+@@ -286,8 +286,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`UploadPartCopyOutput`](crate::operation::upload_part_copy::UploadPartCopyOutput).
+-    pub fn build(self) -> crate::operation::upload_part_copy::UploadPartCopyOutput {
+-        crate::operation::upload_part_copy::UploadPartCopyOutput {
++    pub fn build(self) -> super::operation::upload_part_copy::UploadPartCopyOutput {
++        super::operation::upload_part_copy::UploadPartCopyOutput {
+             copy_source_version_id: self.copy_source_version_id,
+             copy_part_result: self.copy_part_result,
+             server_side_encryption: self.server_side_encryption,

@@ -1,0 +1,72 @@
+--- original
++++ modified
+@@ -12,7 +12,7 @@
+     /// <p>The ID for this access key.</p>
+     pub access_key_id: ::std::string::String,
+     /// <p>The status of the access key. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
+-    pub status: crate::types::StatusType,
++    pub status: super::types::StatusType,
+     /// <p>The secret key used to sign requests.</p>
+     pub secret_access_key: ::std::string::String,
+     /// <p>The date when the access key was created.</p>
+@@ -30,7 +30,7 @@
+         self.access_key_id.deref()
+     }
+     /// <p>The status of the access key. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
+-    pub fn status(&self) -> &crate::types::StatusType {
++    pub fn status(&self) -> &super::types::StatusType {
+         &self.status
+     }
+     /// <p>The secret key used to sign requests.</p>
+@@ -56,8 +56,8 @@
+ }
+ impl AccessKey {
+     /// Creates a new builder-style object to manufacture [`AccessKey`](crate::types::AccessKey).
+-    pub fn builder() -> crate::types::builders::AccessKeyBuilder {
+-        crate::types::builders::AccessKeyBuilder::default()
++    pub fn builder() -> super::types::builders::AccessKeyBuilder {
++        super::types::builders::AccessKeyBuilder::default()
+     }
+ }
+
+@@ -67,7 +67,7 @@
+ pub struct AccessKeyBuilder {
+     pub(crate) user_name: ::std::option::Option<::std::string::String>,
+     pub(crate) access_key_id: ::std::option::Option<::std::string::String>,
+-    pub(crate) status: ::std::option::Option<crate::types::StatusType>,
++    pub(crate) status: ::std::option::Option<super::types::StatusType>,
+     pub(crate) secret_access_key: ::std::option::Option<::std::string::String>,
+     pub(crate) create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
+ }
+@@ -104,17 +104,17 @@
+     }
+     /// <p>The status of the access key. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
+     /// This field is required.
+-    pub fn status(mut self, input: crate::types::StatusType) -> Self {
++    pub fn status(mut self, input: super::types::StatusType) -> Self {
+         self.status = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The status of the access key. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
+-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::StatusType>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::types::StatusType>) -> Self {
+         self.status = input;
+         self
+     }
+     /// <p>The status of the access key. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
+-    pub fn get_status(&self) -> &::std::option::Option<crate::types::StatusType> {
++    pub fn get_status(&self) -> &::std::option::Option<super::types::StatusType> {
+         &self.status
+     }
+     /// <p>The secret key used to sign requests.</p>
+@@ -152,8 +152,8 @@
+     /// - [`access_key_id`](crate::types::builders::AccessKeyBuilder::access_key_id)
+     /// - [`status`](crate::types::builders::AccessKeyBuilder::status)
+     /// - [`secret_access_key`](crate::types::builders::AccessKeyBuilder::secret_access_key)
+-    pub fn build(self) -> ::std::result::Result<crate::types::AccessKey, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::AccessKey {
++    pub fn build(self) -> ::std::result::Result<super::types::AccessKey, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::AccessKey {
+             user_name: self.user_name.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "user_name",

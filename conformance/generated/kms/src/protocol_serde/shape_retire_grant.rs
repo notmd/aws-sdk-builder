@@ -93,7 +93,7 @@ pub fn de_retire_grant_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::retire_grant::RetireGrantError::KmsInternalException({
+        "KMSInternalException" => crate::operation::retire_grant::RetireGrantError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -108,7 +108,7 @@ pub fn de_retire_grant_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::retire_grant::RetireGrantError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::retire_grant::RetireGrantError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

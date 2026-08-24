@@ -1,0 +1,338 @@
+--- original
++++ modified
+@@ -8,11 +8,11 @@
+     pub table_name: ::std::option::Option<::std::string::String>,
+     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to delete.</p>
+     /// <p>For the primary key, you must provide all of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
+-    pub key: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
++    pub key: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>,
+     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+-    pub expected: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ExpectedAttributeValue>>,
++    pub expected: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::ExpectedAttributeValue>>,
+     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+-    pub conditional_operator: ::std::option::Option<crate::types::ConditionalOperator>,
++    pub conditional_operator: ::std::option::Option<super::types::ConditionalOperator>,
+     /// <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were deleted. For <code>DeleteItem</code>, the valid values are:</p>
+     /// <ul>
+     /// <li>
+@@ -23,7 +23,7 @@
+     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><note>
+     /// <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>DeleteItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p>
+     /// </note>
+-    pub return_values: ::std::option::Option<crate::types::ReturnValue>,
++    pub return_values: ::std::option::Option<super::types::ReturnValue>,
+     /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
+     /// <ul>
+     /// <li>
+@@ -34,9 +34,9 @@
+     /// <li>
+     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+     /// </ul>
+-    pub return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
++    pub return_consumed_capacity: ::std::option::Option<super::types::ReturnConsumedCapacity>,
+     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
+-    pub return_item_collection_metrics: ::std::option::Option<crate::types::ReturnItemCollectionMetrics>,
++    pub return_item_collection_metrics: ::std::option::Option<super::types::ReturnItemCollectionMetrics>,
+     /// <p>A condition that must be satisfied in order for a conditional <code>DeleteItem</code> to succeed.</p>
+     /// <p>An expression can contain any of the following:</p>
+     /// <ul>
+@@ -86,10 +86,10 @@
+     /// <p>You could then use these values in an expression, such as this:</p>
+     /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
+     /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+-    pub expression_attribute_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
++    pub expression_attribute_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>,
+     /// <p>An optional parameter that returns the item attributes for a <code>DeleteItem</code> operation that failed a condition check.</p>
+     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
+-    pub return_values_on_condition_check_failure: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
++    pub return_values_on_condition_check_failure: ::std::option::Option<super::types::ReturnValuesOnConditionCheckFailure>,
+ }
+ impl DeleteItemInput {
+     /// <p>The name of the table from which to delete the item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+@@ -98,15 +98,15 @@
+     }
+     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to delete.</p>
+     /// <p>For the primary key, you must provide all of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
+-    pub fn key(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
++    pub fn key(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::types::AttributeValue>> {
+         self.key.as_ref()
+     }
+     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+-    pub fn expected(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::ExpectedAttributeValue>> {
++    pub fn expected(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::types::ExpectedAttributeValue>> {
+         self.expected.as_ref()
+     }
+     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+-    pub fn conditional_operator(&self) -> ::std::option::Option<&crate::types::ConditionalOperator> {
++    pub fn conditional_operator(&self) -> ::std::option::Option<&super::types::ConditionalOperator> {
+         self.conditional_operator.as_ref()
+     }
+     /// <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were deleted. For <code>DeleteItem</code>, the valid values are:</p>
+@@ -119,7 +119,7 @@
+     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><note>
+     /// <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>DeleteItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p>
+     /// </note>
+-    pub fn return_values(&self) -> ::std::option::Option<&crate::types::ReturnValue> {
++    pub fn return_values(&self) -> ::std::option::Option<&super::types::ReturnValue> {
+         self.return_values.as_ref()
+     }
+     /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
+@@ -132,11 +132,11 @@
+     /// <li>
+     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+     /// </ul>
+-    pub fn return_consumed_capacity(&self) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
++    pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::types::ReturnConsumedCapacity> {
+         self.return_consumed_capacity.as_ref()
+     }
+     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
+-    pub fn return_item_collection_metrics(&self) -> ::std::option::Option<&crate::types::ReturnItemCollectionMetrics> {
++    pub fn return_item_collection_metrics(&self) -> ::std::option::Option<&super::types::ReturnItemCollectionMetrics> {
+         self.return_item_collection_metrics.as_ref()
+     }
+     /// <p>A condition that must be satisfied in order for a conditional <code>DeleteItem</code> to succeed.</p>
+@@ -194,19 +194,19 @@
+     /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+     pub fn expression_attribute_values(
+         &self,
+-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
++    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::types::AttributeValue>> {
+         self.expression_attribute_values.as_ref()
+     }
+     /// <p>An optional parameter that returns the item attributes for a <code>DeleteItem</code> operation that failed a condition check.</p>
+     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
+-    pub fn return_values_on_condition_check_failure(&self) -> ::std::option::Option<&crate::types::ReturnValuesOnConditionCheckFailure> {
++    pub fn return_values_on_condition_check_failure(&self) -> ::std::option::Option<&super::types::ReturnValuesOnConditionCheckFailure> {
+         self.return_values_on_condition_check_failure.as_ref()
+     }
+ }
+ impl DeleteItemInput {
+     /// Creates a new builder-style object to manufacture [`DeleteItemInput`](crate::operation::delete_item::DeleteItemInput).
+-    pub fn builder() -> crate::operation::delete_item::builders::DeleteItemInputBuilder {
+-        crate::operation::delete_item::builders::DeleteItemInputBuilder::default()
++    pub fn builder() -> super::operation::delete_item::builders::DeleteItemInputBuilder {
++        super::operation::delete_item::builders::DeleteItemInputBuilder::default()
+     }
+ }
+
+@@ -215,16 +215,16 @@
+ #[non_exhaustive]
+ pub struct DeleteItemInputBuilder {
+     pub(crate) table_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) key: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+-    pub(crate) expected: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ExpectedAttributeValue>>,
+-    pub(crate) conditional_operator: ::std::option::Option<crate::types::ConditionalOperator>,
+-    pub(crate) return_values: ::std::option::Option<crate::types::ReturnValue>,
+-    pub(crate) return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
+-    pub(crate) return_item_collection_metrics: ::std::option::Option<crate::types::ReturnItemCollectionMetrics>,
++    pub(crate) key: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>,
++    pub(crate) expected: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::ExpectedAttributeValue>>,
++    pub(crate) conditional_operator: ::std::option::Option<super::types::ConditionalOperator>,
++    pub(crate) return_values: ::std::option::Option<super::types::ReturnValue>,
++    pub(crate) return_consumed_capacity: ::std::option::Option<super::types::ReturnConsumedCapacity>,
++    pub(crate) return_item_collection_metrics: ::std::option::Option<super::types::ReturnItemCollectionMetrics>,
+     pub(crate) condition_expression: ::std::option::Option<::std::string::String>,
+     pub(crate) expression_attribute_names: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+-    pub(crate) expression_attribute_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+-    pub(crate) return_values_on_condition_check_failure: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
++    pub(crate) expression_attribute_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>,
++    pub(crate) return_values_on_condition_check_failure: ::std::option::Option<super::types::ReturnValuesOnConditionCheckFailure>,
+ }
+ impl DeleteItemInputBuilder {
+     /// <p>The name of the table from which to delete the item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+@@ -248,7 +248,7 @@
+     ///
+     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to delete.</p>
+     /// <p>For the primary key, you must provide all of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
+-    pub fn key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
++    pub fn key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::types::AttributeValue) -> Self {
+         let mut hash_map = self.key.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+         self.key = ::std::option::Option::Some(hash_map);
+@@ -256,13 +256,13 @@
+     }
+     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to delete.</p>
+     /// <p>For the primary key, you must provide all of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
+-    pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self {
++    pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>) -> Self {
+         self.key = input;
+         self
+     }
+     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to delete.</p>
+     /// <p>For the primary key, you must provide all of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
+-    pub fn get_key(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
++    pub fn get_key(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>> {
+         &self.key
+     }
+     /// Adds a key-value pair to `expected`.
+@@ -270,7 +270,7 @@
+     /// To override the contents of this collection use [`set_expected`](Self::set_expected).
+     ///
+     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+-    pub fn expected(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::ExpectedAttributeValue) -> Self {
++    pub fn expected(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::types::ExpectedAttributeValue) -> Self {
+         let mut hash_map = self.expected.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+         self.expected = ::std::option::Option::Some(hash_map);
+@@ -279,27 +279,27 @@
+     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+     pub fn set_expected(
+         mut self,
+-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ExpectedAttributeValue>>,
++        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::ExpectedAttributeValue>>,
+     ) -> Self {
+         self.expected = input;
+         self
+     }
+     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+-    pub fn get_expected(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ExpectedAttributeValue>> {
++    pub fn get_expected(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::ExpectedAttributeValue>> {
+         &self.expected
+     }
+     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+-    pub fn conditional_operator(mut self, input: crate::types::ConditionalOperator) -> Self {
++    pub fn conditional_operator(mut self, input: super::types::ConditionalOperator) -> Self {
+         self.conditional_operator = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+-    pub fn set_conditional_operator(mut self, input: ::std::option::Option<crate::types::ConditionalOperator>) -> Self {
++    pub fn set_conditional_operator(mut self, input: ::std::option::Option<super::types::ConditionalOperator>) -> Self {
+         self.conditional_operator = input;
+         self
+     }
+     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+-    pub fn get_conditional_operator(&self) -> &::std::option::Option<crate::types::ConditionalOperator> {
++    pub fn get_conditional_operator(&self) -> &::std::option::Option<super::types::ConditionalOperator> {
+         &self.conditional_operator
+     }
+     /// <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were deleted. For <code>DeleteItem</code>, the valid values are:</p>
+@@ -312,7 +312,7 @@
+     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><note>
+     /// <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>DeleteItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p>
+     /// </note>
+-    pub fn return_values(mut self, input: crate::types::ReturnValue) -> Self {
++    pub fn return_values(mut self, input: super::types::ReturnValue) -> Self {
+         self.return_values = ::std::option::Option::Some(input);
+         self
+     }
+@@ -326,7 +326,7 @@
+     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><note>
+     /// <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>DeleteItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p>
+     /// </note>
+-    pub fn set_return_values(mut self, input: ::std::option::Option<crate::types::ReturnValue>) -> Self {
++    pub fn set_return_values(mut self, input: ::std::option::Option<super::types::ReturnValue>) -> Self {
+         self.return_values = input;
+         self
+     }
+@@ -340,7 +340,7 @@
+     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><note>
+     /// <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>DeleteItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p>
+     /// </note>
+-    pub fn get_return_values(&self) -> &::std::option::Option<crate::types::ReturnValue> {
++    pub fn get_return_values(&self) -> &::std::option::Option<super::types::ReturnValue> {
+         &self.return_values
+     }
+     /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
+@@ -353,7 +353,7 @@
+     /// <li>
+     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+     /// </ul>
+-    pub fn return_consumed_capacity(mut self, input: crate::types::ReturnConsumedCapacity) -> Self {
++    pub fn return_consumed_capacity(mut self, input: super::types::ReturnConsumedCapacity) -> Self {
+         self.return_consumed_capacity = ::std::option::Option::Some(input);
+         self
+     }
+@@ -367,7 +367,7 @@
+     /// <li>
+     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+     /// </ul>
+-    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self {
++    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::types::ReturnConsumedCapacity>) -> Self {
+         self.return_consumed_capacity = input;
+         self
+     }
+@@ -381,21 +381,21 @@
+     /// <li>
+     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+     /// </ul>
+-    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
++    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::types::ReturnConsumedCapacity> {
+         &self.return_consumed_capacity
+     }
+     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
+-    pub fn return_item_collection_metrics(mut self, input: crate::types::ReturnItemCollectionMetrics) -> Self {
++    pub fn return_item_collection_metrics(mut self, input: super::types::ReturnItemCollectionMetrics) -> Self {
+         self.return_item_collection_metrics = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
+-    pub fn set_return_item_collection_metrics(mut self, input: ::std::option::Option<crate::types::ReturnItemCollectionMetrics>) -> Self {
++    pub fn set_return_item_collection_metrics(mut self, input: ::std::option::Option<super::types::ReturnItemCollectionMetrics>) -> Self {
+         self.return_item_collection_metrics = input;
+         self
+     }
+     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
+-    pub fn get_return_item_collection_metrics(&self) -> &::std::option::Option<crate::types::ReturnItemCollectionMetrics> {
++    pub fn get_return_item_collection_metrics(&self) -> &::std::option::Option<super::types::ReturnItemCollectionMetrics> {
+         &self.return_item_collection_metrics
+     }
+     /// <p>A condition that must be satisfied in order for a conditional <code>DeleteItem</code> to succeed.</p>
+@@ -564,7 +564,7 @@
+     /// <p>You could then use these values in an expression, such as this:</p>
+     /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
+     /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+-    pub fn expression_attribute_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
++    pub fn expression_attribute_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::types::AttributeValue) -> Self {
+         let mut hash_map = self.expression_attribute_values.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+         self.expression_attribute_values = ::std::option::Option::Some(hash_map);
+@@ -580,7 +580,7 @@
+     /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+     pub fn set_expression_attribute_values(
+         mut self,
+-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
++        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>,
+     ) -> Self {
+         self.expression_attribute_values = input;
+         self
+@@ -595,12 +595,12 @@
+     /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+     pub fn get_expression_attribute_values(
+         &self,
+-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
++    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>> {
+         &self.expression_attribute_values
+     }
+     /// <p>An optional parameter that returns the item attributes for a <code>DeleteItem</code> operation that failed a condition check.</p>
+     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
+-    pub fn return_values_on_condition_check_failure(mut self, input: crate::types::ReturnValuesOnConditionCheckFailure) -> Self {
++    pub fn return_values_on_condition_check_failure(mut self, input: super::types::ReturnValuesOnConditionCheckFailure) -> Self {
+         self.return_values_on_condition_check_failure = ::std::option::Option::Some(input);
+         self
+     }
+@@ -608,7 +608,7 @@
+     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
+     pub fn set_return_values_on_condition_check_failure(
+         mut self,
+-        input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
++        input: ::std::option::Option<super::types::ReturnValuesOnConditionCheckFailure>,
+     ) -> Self {
+         self.return_values_on_condition_check_failure = input;
+         self
+@@ -615,12 +615,12 @@
+     }
+     /// <p>An optional parameter that returns the item attributes for a <code>DeleteItem</code> operation that failed a condition check.</p>
+     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
+-    pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure> {
++    pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<super::types::ReturnValuesOnConditionCheckFailure> {
+         &self.return_values_on_condition_check_failure
+     }
+     /// Consumes the builder and constructs a [`DeleteItemInput`](crate::operation::delete_item::DeleteItemInput).
+-    pub fn build(self) -> ::std::result::Result<crate::operation::delete_item::DeleteItemInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::delete_item::DeleteItemInput {
++    pub fn build(self) -> ::std::result::Result<super::operation::delete_item::DeleteItemInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::delete_item::DeleteItemInput {
+             table_name: self.table_name,
+             key: self.key,
+             expected: self.expected,

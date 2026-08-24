@@ -1,0 +1,192 @@
+--- original
++++ modified
+@@ -13,17 +13,17 @@
+     /// <p>The class of storage used to store the object.</p><note>
+     /// <p><b>Directory buckets</b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
+     /// </note>
+-    pub storage_class: ::std::option::Option<crate::types::StorageClass>,
++    pub storage_class: ::std::option::Option<super::types::StorageClass>,
+     /// <p>Specifies the owner of the object that is part of the multipart upload.</p><note>
+     /// <p><b>Directory buckets</b> - The bucket owner is returned as the object owner for all the objects.</p>
+     /// </note>
+-    pub owner: ::std::option::Option<crate::types::Owner>,
++    pub owner: ::std::option::Option<super::types::Owner>,
+     /// <p>Identifies who initiated the multipart upload.</p>
+-    pub initiator: ::std::option::Option<crate::types::Initiator>,
++    pub initiator: ::std::option::Option<super::types::Initiator>,
+     /// <p>The algorithm that was used to create a checksum of the object.</p>
+-    pub checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
++    pub checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
+     /// <p>The checksum type that is used to calculate the object’s checksum value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+-    pub checksum_type: ::std::option::Option<crate::types::ChecksumType>,
++    pub checksum_type: ::std::option::Option<super::types::ChecksumType>,
+ }
+ impl MultipartUpload {
+     /// <p>Upload ID that identifies the multipart upload.</p>
+@@ -41,32 +41,32 @@
+     /// <p>The class of storage used to store the object.</p><note>
+     /// <p><b>Directory buckets</b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
+     /// </note>
+-    pub fn storage_class(&self) -> ::std::option::Option<&crate::types::StorageClass> {
++    pub fn storage_class(&self) -> ::std::option::Option<&super::types::StorageClass> {
+         self.storage_class.as_ref()
+     }
+     /// <p>Specifies the owner of the object that is part of the multipart upload.</p><note>
+     /// <p><b>Directory buckets</b> - The bucket owner is returned as the object owner for all the objects.</p>
+     /// </note>
+-    pub fn owner(&self) -> ::std::option::Option<&crate::types::Owner> {
++    pub fn owner(&self) -> ::std::option::Option<&super::types::Owner> {
+         self.owner.as_ref()
+     }
+     /// <p>Identifies who initiated the multipart upload.</p>
+-    pub fn initiator(&self) -> ::std::option::Option<&crate::types::Initiator> {
++    pub fn initiator(&self) -> ::std::option::Option<&super::types::Initiator> {
+         self.initiator.as_ref()
+     }
+     /// <p>The algorithm that was used to create a checksum of the object.</p>
+-    pub fn checksum_algorithm(&self) -> ::std::option::Option<&crate::types::ChecksumAlgorithm> {
++    pub fn checksum_algorithm(&self) -> ::std::option::Option<&super::types::ChecksumAlgorithm> {
+         self.checksum_algorithm.as_ref()
+     }
+     /// <p>The checksum type that is used to calculate the object’s checksum value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+-    pub fn checksum_type(&self) -> ::std::option::Option<&crate::types::ChecksumType> {
++    pub fn checksum_type(&self) -> ::std::option::Option<&super::types::ChecksumType> {
+         self.checksum_type.as_ref()
+     }
+ }
+ impl MultipartUpload {
+     /// Creates a new builder-style object to manufacture [`MultipartUpload`](crate::types::MultipartUpload).
+-    pub fn builder() -> crate::types::builders::MultipartUploadBuilder {
+-        crate::types::builders::MultipartUploadBuilder::default()
++    pub fn builder() -> super::types::builders::MultipartUploadBuilder {
++        super::types::builders::MultipartUploadBuilder::default()
+     }
+ }
+
+@@ -77,11 +77,11 @@
+     pub(crate) upload_id: ::std::option::Option<::std::string::String>,
+     pub(crate) key: ::std::option::Option<::std::string::String>,
+     pub(crate) initiated: ::std::option::Option<::aws_smithy_types::DateTime>,
+-    pub(crate) storage_class: ::std::option::Option<crate::types::StorageClass>,
+-    pub(crate) owner: ::std::option::Option<crate::types::Owner>,
+-    pub(crate) initiator: ::std::option::Option<crate::types::Initiator>,
+-    pub(crate) checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
+-    pub(crate) checksum_type: ::std::option::Option<crate::types::ChecksumType>,
++    pub(crate) storage_class: ::std::option::Option<super::types::StorageClass>,
++    pub(crate) owner: ::std::option::Option<super::types::Owner>,
++    pub(crate) initiator: ::std::option::Option<super::types::Initiator>,
++    pub(crate) checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
++    pub(crate) checksum_type: ::std::option::Option<super::types::ChecksumType>,
+ }
+ impl MultipartUploadBuilder {
+     /// <p>Upload ID that identifies the multipart upload.</p>
+@@ -129,7 +129,7 @@
+     /// <p>The class of storage used to store the object.</p><note>
+     /// <p><b>Directory buckets</b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
+     /// </note>
+-    pub fn storage_class(mut self, input: crate::types::StorageClass) -> Self {
++    pub fn storage_class(mut self, input: super::types::StorageClass) -> Self {
+         self.storage_class = ::std::option::Option::Some(input);
+         self
+     }
+@@ -136,7 +136,7 @@
+     /// <p>The class of storage used to store the object.</p><note>
+     /// <p><b>Directory buckets</b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
+     /// </note>
+-    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self {
++    pub fn set_storage_class(mut self, input: ::std::option::Option<super::types::StorageClass>) -> Self {
+         self.storage_class = input;
+         self
+     }
+@@ -143,13 +143,13 @@
+     /// <p>The class of storage used to store the object.</p><note>
+     /// <p><b>Directory buckets</b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
+     /// </note>
+-    pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::StorageClass> {
++    pub fn get_storage_class(&self) -> &::std::option::Option<super::types::StorageClass> {
+         &self.storage_class
+     }
+     /// <p>Specifies the owner of the object that is part of the multipart upload.</p><note>
+     /// <p><b>Directory buckets</b> - The bucket owner is returned as the object owner for all the objects.</p>
+     /// </note>
+-    pub fn owner(mut self, input: crate::types::Owner) -> Self {
++    pub fn owner(mut self, input: super::types::Owner) -> Self {
+         self.owner = ::std::option::Option::Some(input);
+         self
+     }
+@@ -156,7 +156,7 @@
+     /// <p>Specifies the owner of the object that is part of the multipart upload.</p><note>
+     /// <p><b>Directory buckets</b> - The bucket owner is returned as the object owner for all the objects.</p>
+     /// </note>
+-    pub fn set_owner(mut self, input: ::std::option::Option<crate::types::Owner>) -> Self {
++    pub fn set_owner(mut self, input: ::std::option::Option<super::types::Owner>) -> Self {
+         self.owner = input;
+         self
+     }
+@@ -163,54 +163,54 @@
+     /// <p>Specifies the owner of the object that is part of the multipart upload.</p><note>
+     /// <p><b>Directory buckets</b> - The bucket owner is returned as the object owner for all the objects.</p>
+     /// </note>
+-    pub fn get_owner(&self) -> &::std::option::Option<crate::types::Owner> {
++    pub fn get_owner(&self) -> &::std::option::Option<super::types::Owner> {
+         &self.owner
+     }
+     /// <p>Identifies who initiated the multipart upload.</p>
+-    pub fn initiator(mut self, input: crate::types::Initiator) -> Self {
++    pub fn initiator(mut self, input: super::types::Initiator) -> Self {
+         self.initiator = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Identifies who initiated the multipart upload.</p>
+-    pub fn set_initiator(mut self, input: ::std::option::Option<crate::types::Initiator>) -> Self {
++    pub fn set_initiator(mut self, input: ::std::option::Option<super::types::Initiator>) -> Self {
+         self.initiator = input;
+         self
+     }
+     /// <p>Identifies who initiated the multipart upload.</p>
+-    pub fn get_initiator(&self) -> &::std::option::Option<crate::types::Initiator> {
++    pub fn get_initiator(&self) -> &::std::option::Option<super::types::Initiator> {
+         &self.initiator
+     }
+     /// <p>The algorithm that was used to create a checksum of the object.</p>
+-    pub fn checksum_algorithm(mut self, input: crate::types::ChecksumAlgorithm) -> Self {
++    pub fn checksum_algorithm(mut self, input: super::types::ChecksumAlgorithm) -> Self {
+         self.checksum_algorithm = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The algorithm that was used to create a checksum of the object.</p>
+-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
++    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<super::types::ChecksumAlgorithm>) -> Self {
+         self.checksum_algorithm = input;
+         self
+     }
+     /// <p>The algorithm that was used to create a checksum of the object.</p>
+-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
++    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<super::types::ChecksumAlgorithm> {
+         &self.checksum_algorithm
+     }
+     /// <p>The checksum type that is used to calculate the object’s checksum value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+-    pub fn checksum_type(mut self, input: crate::types::ChecksumType) -> Self {
++    pub fn checksum_type(mut self, input: super::types::ChecksumType) -> Self {
+         self.checksum_type = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The checksum type that is used to calculate the object’s checksum value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+-    pub fn set_checksum_type(mut self, input: ::std::option::Option<crate::types::ChecksumType>) -> Self {
++    pub fn set_checksum_type(mut self, input: ::std::option::Option<super::types::ChecksumType>) -> Self {
+         self.checksum_type = input;
+         self
+     }
+     /// <p>The checksum type that is used to calculate the object’s checksum value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+-    pub fn get_checksum_type(&self) -> &::std::option::Option<crate::types::ChecksumType> {
++    pub fn get_checksum_type(&self) -> &::std::option::Option<super::types::ChecksumType> {
+         &self.checksum_type
+     }
+     /// Consumes the builder and constructs a [`MultipartUpload`](crate::types::MultipartUpload).
+-    pub fn build(self) -> crate::types::MultipartUpload {
+-        crate::types::MultipartUpload {
++    pub fn build(self) -> super::types::MultipartUpload {
++        super::types::MultipartUpload {
+             upload_id: self.upload_id,
+             key: self.key,
+             initiated: self.initiated,

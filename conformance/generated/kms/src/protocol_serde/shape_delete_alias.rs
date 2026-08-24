@@ -32,7 +32,7 @@ pub fn de_delete_alias_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::delete_alias::DeleteAliasError::KmsInternalException({
+        "KMSInternalException" => crate::operation::delete_alias::DeleteAliasError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -47,7 +47,7 @@ pub fn de_delete_alias_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::delete_alias::DeleteAliasError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::delete_alias::DeleteAliasError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

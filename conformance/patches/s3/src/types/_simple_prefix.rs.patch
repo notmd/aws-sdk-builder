@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -7,8 +7,8 @@
+ pub struct SimplePrefix {}
+ impl SimplePrefix {
+     /// Creates a new builder-style object to manufacture [`SimplePrefix`](crate::types::SimplePrefix).
+-    pub fn builder() -> crate::types::builders::SimplePrefixBuilder {
+-        crate::types::builders::SimplePrefixBuilder::default()
++    pub fn builder() -> super::types::builders::SimplePrefixBuilder {
++        super::types::builders::SimplePrefixBuilder::default()
+     }
+ }
+
+@@ -18,7 +18,7 @@
+ pub struct SimplePrefixBuilder {}
+ impl SimplePrefixBuilder {
+     /// Consumes the builder and constructs a [`SimplePrefix`](crate::types::SimplePrefix).
+-    pub fn build(self) -> crate::types::SimplePrefix {
+-        crate::types::SimplePrefix {}
++    pub fn build(self) -> super::types::SimplePrefix {
++        super::types::SimplePrefix {}
+     }
+ }

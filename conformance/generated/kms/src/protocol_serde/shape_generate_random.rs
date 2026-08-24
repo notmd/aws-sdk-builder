@@ -68,7 +68,7 @@ pub fn de_generate_random_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::generate_random::GenerateRandomError::KmsInternalException({
+        "KMSInternalException" => crate::operation::generate_random::GenerateRandomError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

@@ -1,0 +1,77 @@
+--- original
++++ modified
+@@ -5,7 +5,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct ListInstanceProfilesForRoleOutput {
+     /// <p>A list of instance profiles.</p>
+-    pub instance_profiles: ::std::vec::Vec<crate::types::InstanceProfile>,
++    pub instance_profiles: ::std::vec::Vec<super::types::InstanceProfile>,
+     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
+     pub is_truncated: bool,
+     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
+@@ -14,7 +14,7 @@
+ }
+ impl ListInstanceProfilesForRoleOutput {
+     /// <p>A list of instance profiles.</p>
+-    pub fn instance_profiles(&self) -> &[crate::types::InstanceProfile] {
++    pub fn instance_profiles(&self) -> &[super::types::InstanceProfile] {
+         use std::ops::Deref;
+         self.instance_profiles.deref()
+     }
+@@ -34,8 +34,8 @@
+ }
+ impl ListInstanceProfilesForRoleOutput {
+     /// Creates a new builder-style object to manufacture [`ListInstanceProfilesForRoleOutput`](crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleOutput).
+-    pub fn builder() -> crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleOutputBuilder {
+-        crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleOutputBuilder::default()
++    pub fn builder() -> super::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleOutputBuilder {
++        super::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleOutputBuilder::default()
+     }
+ }
+
+@@ -43,7 +43,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct ListInstanceProfilesForRoleOutputBuilder {
+-    pub(crate) instance_profiles: ::std::option::Option<::std::vec::Vec<crate::types::InstanceProfile>>,
++    pub(crate) instance_profiles: ::std::option::Option<::std::vec::Vec<super::types::InstanceProfile>>,
+     pub(crate) is_truncated: ::std::option::Option<bool>,
+     pub(crate) marker: ::std::option::Option<::std::string::String>,
+     _request_id: Option<String>,
+@@ -54,7 +54,7 @@
+     /// To override the contents of this collection use [`set_instance_profiles`](Self::set_instance_profiles).
+     ///
+     /// <p>A list of instance profiles.</p>
+-    pub fn instance_profiles(mut self, input: crate::types::InstanceProfile) -> Self {
++    pub fn instance_profiles(mut self, input: super::types::InstanceProfile) -> Self {
+         let mut v = self.instance_profiles.unwrap_or_default();
+         v.push(input);
+         self.instance_profiles = ::std::option::Option::Some(v);
+@@ -61,12 +61,12 @@
+         self
+     }
+     /// <p>A list of instance profiles.</p>
+-    pub fn set_instance_profiles(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::InstanceProfile>>) -> Self {
++    pub fn set_instance_profiles(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::InstanceProfile>>) -> Self {
+         self.instance_profiles = input;
+         self
+     }
+     /// <p>A list of instance profiles.</p>
+-    pub fn get_instance_profiles(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::InstanceProfile>> {
++    pub fn get_instance_profiles(&self) -> &::std::option::Option<::std::vec::Vec<super::types::InstanceProfile>> {
+         &self.instance_profiles
+     }
+     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
+@@ -112,10 +112,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleOutput,
++        super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleOutput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleOutput {
++        ::std::result::Result::Ok(super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleOutput {
+             instance_profiles: self.instance_profiles.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "instance_profiles",

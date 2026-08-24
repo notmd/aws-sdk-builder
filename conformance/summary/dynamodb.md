@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## dynamodb
-**Progress:** `883/883` files compared · `847` matched · `36` mismatches · `0` missing · `0` extra · `95.92%` match (100.00% means fully matched)
+**Progress:** `882/882` files compared · `847` matched · `35` mismatches · `0` missing · `0` extra · `96.03%` match (100.00% means fully matched)
 
 ### `src/client/batch_get_item.rs`
 
@@ -141,7 +141,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/config/endpoint.rs
 +++ generated/src/config/endpoint.rs
-@@ -12150,422 +12150,396 @@
+@@ -153,422 +153,396 @@
              match current_ref {
                  ref_val if ref_val >= 100_000_000 => {
                      return match (ref_val - 100_000_000) as usize {
@@ -911,7 +911,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
                  1 | -1 => {
                      return ::std::result::Result::Err(
-@@ -12623,10 +12597,8 @@
+@@ -626,10 +600,8 @@
                              (&{
                                  let mut out = String::new();
                                  out.push_str("dynamodb.");
@@ -922,7 +922,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                                  out.push_str(&if let Some(inner) = partition_result {
                                      inner.dual_stack_dns_suffix()
                                  } else {
-@@ -12655,10 +12627,8 @@
+@@ -658,10 +630,8 @@
                              (&{
                                  let mut out = String::new();
                                  out.push_str("search-dynamodb.");
@@ -933,8 +933,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                                  out.push_str(&if let Some(inner) = partition_result {
                                      inner.dual_stack_dns_suffix()
                                  } else {
-@@ -12701,7 +12671,7 @@
-                         16 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+@@ -704,7 +674,7 @@
+                         16 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let parsed_arn_ssa_2 = &context.parsed_arn_ssa_2;
                              let partition_resolver = &self.partition_resolver;
 -                            &mut Some(
@@ -942,16 +942,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                                  (if let Some(inner) = parsed_arn_ssa_2 {
                                      inner.region()
                                  } else {
-@@ -12708,7 +12678,7 @@
+@@ -711,7 +681,7 @@
                                      return false;
                                  }
                                  .into()),
 -                            ) == (region)
 +                            )) == region
                          })(&mut _diagnostic_collector),
-                         17 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                         17 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let parsed_arn_ssa_2 = &context.parsed_arn_ssa_2;
-@@ -12751,10 +12721,11 @@
+@@ -754,10 +724,11 @@
                              let partition_resolver = &self.partition_resolver;
                              {
                                  *first_arn = if let Some(inner) = resource_arn_list {
@@ -965,8 +965,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                                  first_arn.is_some()
                              }
                          })(&mut _diagnostic_collector),
-@@ -12774,7 +12745,7 @@
-                         23 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+@@ -777,7 +748,7 @@
+                         23 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let parsed_arn_ssa_1 = &context.parsed_arn_ssa_1;
                              let partition_resolver = &self.partition_resolver;
 -                            &mut Some(
@@ -974,14 +974,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                                  (if let Some(inner) = parsed_arn_ssa_1 {
                                      inner.region()
                                  } else {
-@@ -12781,7 +12752,7 @@
+@@ -784,7 +755,7 @@
                                      return false;
                                  }
                                  .into()),
 -                            ) == (region)
 +                            )) == region
                          })(&mut _diagnostic_collector),
-                         24 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                         24 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let parsed_arn_ssa_1 = &context.parsed_arn_ssa_1;
 ```
 
@@ -996,7 +996,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // operationContextParams trait. They target the operation's input shape.
 -
  // Generated from JMESPath Expression: keys(RequestItems)
- fn get_resource_arn_list(input: &crate::operation::batch_get_item::BatchGetItemInput) -> Option<::std::vec::Vec<::std::string::String>> {
+ fn get_resource_arn_list(input: &super::operation::batch_get_item::BatchGetItemInput) -> Option<::std::vec::Vec<::std::string::String>> {
      let _fld_2 = input.request_items.as_ref()?;
 ```
 
@@ -1011,7 +1011,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // operationContextParams trait. They target the operation's input shape.
 -
  // Generated from JMESPath Expression: keys(RequestItems)
- fn get_resource_arn_list(input: &crate::operation::batch_write_item::BatchWriteItemInput) -> Option<::std::vec::Vec<::std::string::String>> {
+ fn get_resource_arn_list(input: &super::operation::batch_write_item::BatchWriteItemInput) -> Option<::std::vec::Vec<::std::string::String>> {
      let _fld_2 = input.request_items.as_ref()?;
 ```
 
@@ -1024,7 +1024,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              );
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_describe_endpoints::ser_describe_endpoints_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_describe_endpoints::ser_describe_endpoints_input(&input)?);
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
@@ -1040,7 +1040,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              );
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_describe_limits::ser_describe_limits_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_describe_limits::ser_describe_limits_input(&input)?);
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
@@ -1058,7 +1058,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // operationContextParams trait. They target the operation's input shape.
 -
  // Generated from JMESPath Expression: TableCreationParameters.TableName
- fn get_resource_arn(input: &crate::operation::import_table::ImportTableInput) -> Option<&::std::string::String> {
+ fn get_resource_arn(input: &super::operation::import_table::ImportTableInput) -> Option<&::std::string::String> {
      let _fld_1 = input.table_creation_parameters.as_ref()?;
 ```
 
@@ -1068,7 +1068,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/operation/list_contributor_insights/_list_contributor_insights_input.rs
 +++ generated/src/operation/list_contributor_insights/_list_contributor_insights_input.rs
 @@ -92,7 +92,7 @@
-         ::std::result::Result::Ok(crate::operation::list_contributor_insights::ListContributorInsightsInput {
+         ::std::result::Result::Ok(super::operation::list_contributor_insights::ListContributorInsightsInput {
              table_name: self.table_name,
              next_token: self.next_token,
 -            max_results: self.max_results,
@@ -1105,7 +1105,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // operationContextParams trait. They target the operation's input shape.
 -
  // Generated from JMESPath Expression: TransactItems[*].Get.TableName
- fn get_resource_arn_list(input: &crate::operation::transact_get_items::TransactGetItemsInput) -> Option<::std::vec::Vec<&::std::string::String>> {
+ fn get_resource_arn_list(input: &super::operation::transact_get_items::TransactGetItemsInput) -> Option<::std::vec::Vec<&::std::string::String>> {
      let _fld_1 = input.transact_items.as_ref()?;
 ```
 
@@ -1120,7 +1120,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // operationContextParams trait. They target the operation's input shape.
 -
  // Generated from JMESPath Expression: TransactItems[*].[ConditionCheck.TableName, Put.TableName, Delete.TableName, Update.TableName][]
- fn get_resource_arn_list(input: &crate::operation::transact_write_items::TransactWriteItemsInput) -> Option<::std::vec::Vec<&::std::string::String>> {
+ fn get_resource_arn_list(input: &super::operation::transact_write_items::TransactWriteItemsInput) -> Option<::std::vec::Vec<&::std::string::String>> {
      let _fld_1 = input.transact_items.as_ref()?;
 ```
 
@@ -1134,22 +1134,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_attribute_value(
 -    object_6: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::types::AttributeValue,
+     input: &super::types::AttributeValue,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
      match input {
-         crate::types::AttributeValue::S(inner) => {
+         super::types::AttributeValue::S(inner) => {
 -            object_6.key("S").string(inner.as_str());
 +            object.key("S").string(inner.as_str());
          }
-         crate::types::AttributeValue::N(inner) => {
+         super::types::AttributeValue::N(inner) => {
 -            object_6.key("N").string(inner.as_str());
 +            object.key("N").string(inner.as_str());
          }
-         crate::types::AttributeValue::B(inner) => {
+         super::types::AttributeValue::B(inner) => {
 -            object_6.key("B").string_unchecked(&::aws_smithy_types::base64::encode(inner));
 +            object.key("B").string_unchecked(&::aws_smithy_types::base64::encode(inner));
          }
-         crate::types::AttributeValue::Ss(inner) => {
+         super::types::AttributeValue::Ss(inner) => {
 -            let mut array_1 = object_6.key("SS").start_array();
 +            let mut array_1 = object.key("SS").start_array();
              for item_2 in inner {
@@ -1158,7 +1158,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 @@ -23,53 +23,53 @@
              array_1.finish();
          }
-         crate::types::AttributeValue::Ns(inner) => {
+         super::types::AttributeValue::Ns(inner) => {
 -            let mut array_3 = object_6.key("NS").start_array();
 -            for item_4 in inner {
 +            let mut array_1 = object.key("NS").start_array();
@@ -1171,7 +1171,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            array_3.finish();
 +            array_1.finish();
          }
-         crate::types::AttributeValue::Bs(inner) => {
+         super::types::AttributeValue::Bs(inner) => {
 -            let mut array_5 = object_6.key("BS").start_array();
 -            for item_6 in inner {
 +            let mut array_1 = object.key("BS").start_array();
@@ -1184,7 +1184,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            array_5.finish();
 +            array_1.finish();
          }
-         crate::types::AttributeValue::M(inner) => {
+         super::types::AttributeValue::M(inner) => {
              #[allow(unused_mut)]
 -            let mut object_7 = object_6.key("M").start_object();
 -            for (key_8, value_9) in inner {
@@ -1193,17 +1193,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  {
                      #[allow(unused_mut)]
 -                    let mut object_10 = object_7.key(key_8.as_str()).start_object();
--                    crate::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_10, value_9)?;
+-                    super::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_10, value_9)?;
 -                    object_10.finish();
 +                    let mut object_4 = object_1.key(key_2.as_str()).start_object();
-+                    crate::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_4, value_3)?;
++                    super::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_4, value_3)?;
 +                    object_4.finish();
                  }
              }
 -            object_7.finish();
 +            object_1.finish();
          }
-         crate::types::AttributeValue::L(inner) => {
+         super::types::AttributeValue::L(inner) => {
 -            let mut array_11 = object_6.key("L").start_array();
 -            for item_12 in inner {
 +            let mut array_1 = object.key("L").start_array();
@@ -1211,25 +1211,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  {
                      #[allow(unused_mut)]
 -                    let mut object_13 = array_11.value().start_object();
--                    crate::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_13, item_12)?;
+-                    super::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_13, item_12)?;
 -                    object_13.finish();
 +                    let mut object_3 = array_1.value().start_object();
-+                    crate::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_3, item_2)?;
++                    super::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_3, item_2)?;
 +                    object_3.finish();
                  }
              }
 -            array_11.finish();
 +            array_1.finish();
          }
-         crate::types::AttributeValue::Null(inner) => {
+         super::types::AttributeValue::Null(inner) => {
 -            object_6.key("NULL").boolean(*inner);
 +            object.key("NULL").boolean(*inner);
          }
-         crate::types::AttributeValue::Bool(inner) => {
+         super::types::AttributeValue::Bool(inner) => {
 -            object_6.key("BOOL").boolean(*inner);
 +            object.key("BOOL").boolean(*inner);
          }
-         crate::types::AttributeValue::Unknown => {
+         super::types::AttributeValue::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
 @@ -100,9 +100,7 @@
              match tokens.next().transpose()? {
@@ -1254,30 +1254,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          "TargetTrackingScalingPolicyConfiguration" => {
 -                            builder = builder.set_target_tracking_scaling_policy_configuration(
--                                    crate::protocol_serde::shape_auto_scaling_target_tracking_scaling_policy_configuration_description::de_auto_scaling_target_tracking_scaling_policy_configuration_description(tokens, _value, depth + 1)?
+-                                    super::protocol_serde::shape_auto_scaling_target_tracking_scaling_policy_configuration_description::de_auto_scaling_target_tracking_scaling_policy_configuration_description(tokens, _value, depth + 1)?
 -                                );
-+                            builder = builder.set_target_tracking_scaling_policy_configuration(crate::protocol_serde::shape_auto_scaling_target_tracking_scaling_policy_configuration_description::de_auto_scaling_target_tracking_scaling_policy_configuration_description(tokens, _value, depth + 1)?);
++                            builder = builder.set_target_tracking_scaling_policy_configuration(super::protocol_serde::shape_auto_scaling_target_tracking_scaling_policy_configuration_description::de_auto_scaling_target_tracking_scaling_policy_configuration_description(tokens, _value, depth + 1)?);
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
-```
-
-### `src/protocol_serde/shape_describe_import.rs`
-
-```diff
---- reference/src/protocol_serde/shape_describe_import.rs
-+++ generated/src/protocol_serde/shape_describe_import.rs
-@@ -48,7 +48,9 @@
-         output = crate::protocol_serde::shape_describe_import::de_describe_import(_response_body, output)
-             .map_err(crate::operation::describe_import::DescribeImportError::unhandled)?;
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        crate::serde_util::describe_import_output_output_correct_errors(output).build()
-+        crate::serde_util::describe_import_output_output_correct_errors(output)
-+            .build()
-+            .map_err(crate::operation::describe_import::DescribeImportError::unhandled)?
-     })
- }
-
 ```
 
 ### `src/protocol_serde/shape_enable_kinesis_streaming_configuration.rs`
@@ -1289,7 +1271,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_enable_kinesis_streaming_configuration(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::EnableKinesisStreamingConfiguration,
++    input: &super::types::EnableKinesisStreamingConfiguration,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.approximate_creation_date_time_precision {
 +        object.key("ApproximateCreationDateTimePrecision").string(var_1.as_str());
@@ -1307,7 +1289,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_enable_kinesis_streaming_configuration(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::EnableKinesisStreamingConfiguration,
+-    input: &super::types::EnableKinesisStreamingConfiguration,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.approximate_creation_date_time_precision {
 -        object.key("ApproximateCreationDateTimePrecision").string(var_1.as_str());
@@ -1326,30 +1308,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                              }
                              "WarmThroughput" => {
 -                                builder = builder.set_warm_throughput(
--                                    crate::protocol_serde::shape_global_secondary_index_warm_throughput_description::de_global_secondary_index_warm_throughput_description(tokens, _value, depth + 1)?
+-                                    super::protocol_serde::shape_global_secondary_index_warm_throughput_description::de_global_secondary_index_warm_throughput_description(tokens, _value, depth + 1)?
 -                                );
-+                                builder = builder.set_warm_throughput(crate::protocol_serde::shape_global_secondary_index_warm_throughput_description::de_global_secondary_index_warm_throughput_description(tokens, _value, depth + 1)?);
++                                builder = builder.set_warm_throughput(super::protocol_serde::shape_global_secondary_index_warm_throughput_description::de_global_secondary_index_warm_throughput_description(tokens, _value, depth + 1)?);
                              }
                              _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                          }
-```
-
-### `src/protocol_serde/shape_import_table.rs`
-
-```diff
---- reference/src/protocol_serde/shape_import_table.rs
-+++ generated/src/protocol_serde/shape_import_table.rs
-@@ -78,7 +78,9 @@
-         output = crate::protocol_serde::shape_import_table::de_import_table(_response_body, output)
-             .map_err(crate::operation::import_table::ImportTableError::unhandled)?;
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        crate::serde_util::import_table_output_output_correct_errors(output).build()
-+        crate::serde_util::import_table_output_output_correct_errors(output)
-+            .build()
-+            .map_err(crate::operation::import_table::ImportTableError::unhandled)?
-     })
- }
-
 ```
 
 ### `src/protocol_serde/shape_replica_auto_scaling_description.rs`
@@ -1362,9 +1326,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          "GlobalSecondaryIndexes" => {
 -                            builder = builder.set_global_secondary_indexes(
--                                    crate::protocol_serde::shape_replica_global_secondary_index_auto_scaling_description_list::de_replica_global_secondary_index_auto_scaling_description_list(tokens, _value, depth + 1)?
+-                                    super::protocol_serde::shape_replica_global_secondary_index_auto_scaling_description_list::de_replica_global_secondary_index_auto_scaling_description_list(tokens, _value, depth + 1)?
 -                                );
-+                            builder = builder.set_global_secondary_indexes(crate::protocol_serde::shape_replica_global_secondary_index_auto_scaling_description_list::de_replica_global_secondary_index_auto_scaling_description_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_global_secondary_indexes(super::protocol_serde::shape_replica_global_secondary_index_auto_scaling_description_list::de_replica_global_secondary_index_auto_scaling_description_list(tokens, _value, depth + 1)?);
                          }
                          "ReplicaProvisionedReadCapacityAutoScalingSettings" => {
                              builder = builder.set_replica_provisioned_read_capacity_auto_scaling_settings(
@@ -1380,9 +1344,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          "GlobalSecondaryIndexes" => {
 -                            builder = builder.set_global_secondary_indexes(
--                                    crate::protocol_serde::shape_replica_global_secondary_index_description_list::de_replica_global_secondary_index_description_list(tokens, _value, depth + 1)?
+-                                    super::protocol_serde::shape_replica_global_secondary_index_description_list::de_replica_global_secondary_index_description_list(tokens, _value, depth + 1)?
 -                                );
-+                            builder = builder.set_global_secondary_indexes(crate::protocol_serde::shape_replica_global_secondary_index_description_list::de_replica_global_secondary_index_description_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_global_secondary_indexes(super::protocol_serde::shape_replica_global_secondary_index_description_list::de_replica_global_secondary_index_description_list(tokens, _value, depth + 1)?);
                          }
                          "ReplicaInaccessibleDateTime" => {
                              builder = builder.set_replica_inaccessible_date_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
@@ -1398,9 +1362,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                      _ => {
 -                        let value =
--                            crate::protocol_serde::shape_replica_global_secondary_index_auto_scaling_description::de_replica_global_secondary_index_auto_scaling_description(tokens, _value, depth + 1)?
+-                            super::protocol_serde::shape_replica_global_secondary_index_auto_scaling_description::de_replica_global_secondary_index_auto_scaling_description(tokens, _value, depth + 1)?
 -                        ;
-+                        let value = crate::protocol_serde::shape_replica_global_secondary_index_auto_scaling_description::de_replica_global_secondary_index_auto_scaling_description(tokens, _value, depth + 1)?;
++                        let value = super::protocol_serde::shape_replica_global_secondary_index_auto_scaling_description::de_replica_global_secondary_index_auto_scaling_description(tokens, _value, depth + 1)?;
                          if let Some(value) = value {
                              items.push(value);
                          } else {
@@ -1416,9 +1380,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          "WarmThroughput" => {
 -                            builder = builder.set_warm_throughput(
--                                    crate::protocol_serde::shape_global_secondary_index_warm_throughput_description::de_global_secondary_index_warm_throughput_description(tokens, _value, depth + 1)?
+-                                    super::protocol_serde::shape_global_secondary_index_warm_throughput_description::de_global_secondary_index_warm_throughput_description(tokens, _value, depth + 1)?
 -                                );
-+                            builder = builder.set_warm_throughput(crate::protocol_serde::shape_global_secondary_index_warm_throughput_description::de_global_secondary_index_warm_throughput_description(tokens, _value, depth + 1)?);
++                            builder = builder.set_warm_throughput(super::protocol_serde::shape_global_secondary_index_warm_throughput_description::de_global_secondary_index_warm_throughput_description(tokens, _value, depth + 1)?);
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
@@ -1434,9 +1398,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                      _ => {
 -                        let value =
--                            crate::protocol_serde::shape_replica_global_secondary_index_settings_description::de_replica_global_secondary_index_settings_description(tokens, _value, depth + 1)?
+-                            super::protocol_serde::shape_replica_global_secondary_index_settings_description::de_replica_global_secondary_index_settings_description(tokens, _value, depth + 1)?
 -                        ;
-+                        let value = crate::protocol_serde::shape_replica_global_secondary_index_settings_description::de_replica_global_secondary_index_settings_description(tokens, _value, depth + 1)?;
++                        let value = super::protocol_serde::shape_replica_global_secondary_index_settings_description::de_replica_global_secondary_index_settings_description(tokens, _value, depth + 1)?;
                          if let Some(value) = value {
                              items.push(value);
                          } else {
@@ -1452,9 +1416,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          "ReplicaGlobalSecondaryIndexSettings" => {
 -                            builder = builder.set_replica_global_secondary_index_settings(
--                                    crate::protocol_serde::shape_replica_global_secondary_index_settings_description_list::de_replica_global_secondary_index_settings_description_list(tokens, _value, depth + 1)?
+-                                    super::protocol_serde::shape_replica_global_secondary_index_settings_description_list::de_replica_global_secondary_index_settings_description_list(tokens, _value, depth + 1)?
 -                                );
-+                            builder = builder.set_replica_global_secondary_index_settings(crate::protocol_serde::shape_replica_global_secondary_index_settings_description_list::de_replica_global_secondary_index_settings_description_list(tokens, _value, depth + 1)?);
++                            builder = builder.set_replica_global_secondary_index_settings(super::protocol_serde::shape_replica_global_secondary_index_settings_description_list::de_replica_global_secondary_index_settings_description_list(tokens, _value, depth + 1)?);
                          }
                          "ReplicaTableClassSummary" => {
                              builder = builder.set_replica_table_class_summary(
@@ -1472,10 +1436,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_tag_resource(
 +    _value: &[u8],
-+    mut builder: crate::operation::tag_resource::builders::TagResourceOutputBuilder,
-+) -> ::std::result::Result<crate::operation::tag_resource::builders::TagResourceOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++    mut builder: super::operation::tag_resource::builders::TagResourceOutputBuilder,
++) -> ::std::result::Result<super::operation::tag_resource::builders::TagResourceOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
 +{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -1511,7 +1475,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_time_to_live_specification(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::TimeToLiveSpecification,
++    input: &super::types::TimeToLiveSpecification,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    {
 +        object.key("Enabled").boolean(input.enabled);
@@ -1532,7 +1496,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_time_to_live_specification(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::TimeToLiveSpecification,
+-    input: &super::types::TimeToLiveSpecification,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    {
 -        object.key("Enabled").boolean(input.enabled);
@@ -1556,12 +1520,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_untag_resource(
 +    _value: &[u8],
-+    mut builder: crate::operation::untag_resource::builders::UntagResourceOutputBuilder,
++    mut builder: super::operation::untag_resource::builders::UntagResourceOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::untag_resource::builders::UntagResourceOutputBuilder,
++    super::operation::untag_resource::builders::UntagResourceOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -1597,7 +1561,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_update_kinesis_streaming_configuration(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::UpdateKinesisStreamingConfiguration,
++    input: &super::types::UpdateKinesisStreamingConfiguration,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.approximate_creation_date_time_precision {
 +        object.key("ApproximateCreationDateTimePrecision").string(var_1.as_str());
@@ -1615,13 +1579,38 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_update_kinesis_streaming_configuration(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::UpdateKinesisStreamingConfiguration,
+-    input: &super::types::UpdateKinesisStreamingConfiguration,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.approximate_creation_date_time_precision {
 -        object.key("ApproximateCreationDateTimePrecision").string(var_1.as_str());
 -    }
 -    Ok(())
 -}
+```
+
+### `src/serde_util.rs`
+
+```diff
+--- reference/src/serde_util.rs
++++ generated/src/serde_util.rs
+@@ -14,7 +14,7 @@
+     if builder.import_table_description.is_none() {
+         builder.import_table_description = {
+             let builder = super::types::builders::ImportTableDescriptionBuilder::default();
+-            Some(builder.build())
++            builder.build().ok()
+         }
+     }
+     builder
+@@ -26,7 +26,7 @@
+     if builder.import_table_description.is_none() {
+         builder.import_table_description = {
+             let builder = super::types::builders::ImportTableDescriptionBuilder::default();
+-            Some(builder.build())
++            builder.build().ok()
+         }
+     }
+     builder
 ```
 
 ### `src/types/_attribute_value.rs`
@@ -1645,7 +1634,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Tries to convert the enum instance into [`L`](crate::types::AttributeValue::L), extracting the inner [`Vec`](::std::vec::Vec).
 +    /// Tries to convert the enum instance into [`L`](crate::types::AttributeValue::L), extracting the inner [`Vec::<AttributeValue>`](::std::vec::Vec<crate::types::AttributeValue>).
      /// Returns `Err(&Self)` if it can't be converted.
-     pub fn as_l(&self) -> ::std::result::Result<&::std::vec::Vec<crate::types::AttributeValue>, &Self> {
+     pub fn as_l(&self) -> ::std::result::Result<&::std::vec::Vec<super::types::AttributeValue>, &Self> {
          if let AttributeValue::L(val) = &self {
 @@ -101,7 +101,7 @@
      pub fn is_l(&self) -> bool {
@@ -1654,7 +1643,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Tries to convert the enum instance into [`M`](crate::types::AttributeValue::M), extracting the inner [`HashMap`](::std::collections::HashMap).
 +    /// Tries to convert the enum instance into [`M`](crate::types::AttributeValue::M), extracting the inner [`HashMap::<String, AttributeValue>`](::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>).
      /// Returns `Err(&Self)` if it can't be converted.
-     pub fn as_m(&self) -> ::std::result::Result<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>, &Self> {
+     pub fn as_m(&self) -> ::std::result::Result<&::std::collections::HashMap<::std::string::String, super::types::AttributeValue>, &Self> {
          if let AttributeValue::M(val) = &self {
 @@ -127,7 +127,7 @@
      pub fn is_n(&self) -> bool {
@@ -1710,12 +1699,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/list_contributor_insights/_list_contributor_insights_input.rs`
 - `src/operation/put_resource_policy/_put_resource_policy_input.rs`
 - `src/protocol_serde/shape_attribute_value.rs`
-- `src/protocol_serde/shape_describe_import.rs`
 - `src/protocol_serde/shape_enable_kinesis_streaming_configuration.rs`
-- `src/protocol_serde/shape_import_table.rs`
 - `src/protocol_serde/shape_tag_resource.rs`
 - `src/protocol_serde/shape_time_to_live_specification.rs`
 - `src/protocol_serde/shape_untag_resource.rs`
 - `src/protocol_serde/shape_update_kinesis_streaming_configuration.rs`
+- `src/serde_util.rs`
 - `src/types/_attribute_value.rs`
 - `src/types/error/_replicated_write_conflict_exception.rs`

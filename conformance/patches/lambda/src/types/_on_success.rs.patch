@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -22,8 +22,8 @@
+ }
+ impl OnSuccess {
+     /// Creates a new builder-style object to manufacture [`OnSuccess`](crate::types::OnSuccess).
+-    pub fn builder() -> crate::types::builders::OnSuccessBuilder {
+-        crate::types::builders::OnSuccessBuilder::default()
++    pub fn builder() -> super::types::builders::OnSuccessBuilder {
++        super::types::builders::OnSuccessBuilder::default()
+     }
+ }
+
+@@ -55,8 +55,8 @@
+         &self.destination
+     }
+     /// Consumes the builder and constructs a [`OnSuccess`](crate::types::OnSuccess).
+-    pub fn build(self) -> crate::types::OnSuccess {
+-        crate::types::OnSuccess {
++    pub fn build(self) -> super::types::OnSuccess {
++        super::types::OnSuccess {
+             destination: self.destination,
+         }
+     }

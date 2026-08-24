@@ -1,0 +1,62 @@
+--- original
++++ modified
+@@ -5,18 +5,18 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct EnableKinesisStreamingConfiguration {
+     /// <p>Toggle for the precision of Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
+-    pub approximate_creation_date_time_precision: ::std::option::Option<crate::types::ApproximateCreationDateTimePrecision>,
++    pub approximate_creation_date_time_precision: ::std::option::Option<super::types::ApproximateCreationDateTimePrecision>,
+ }
+ impl EnableKinesisStreamingConfiguration {
+     /// <p>Toggle for the precision of Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
+-    pub fn approximate_creation_date_time_precision(&self) -> ::std::option::Option<&crate::types::ApproximateCreationDateTimePrecision> {
++    pub fn approximate_creation_date_time_precision(&self) -> ::std::option::Option<&super::types::ApproximateCreationDateTimePrecision> {
+         self.approximate_creation_date_time_precision.as_ref()
+     }
+ }
+ impl EnableKinesisStreamingConfiguration {
+     /// Creates a new builder-style object to manufacture [`EnableKinesisStreamingConfiguration`](crate::types::EnableKinesisStreamingConfiguration).
+-    pub fn builder() -> crate::types::builders::EnableKinesisStreamingConfigurationBuilder {
+-        crate::types::builders::EnableKinesisStreamingConfigurationBuilder::default()
++    pub fn builder() -> super::types::builders::EnableKinesisStreamingConfigurationBuilder {
++        super::types::builders::EnableKinesisStreamingConfigurationBuilder::default()
+     }
+ }
+
+@@ -24,11 +24,11 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct EnableKinesisStreamingConfigurationBuilder {
+-    pub(crate) approximate_creation_date_time_precision: ::std::option::Option<crate::types::ApproximateCreationDateTimePrecision>,
++    pub(crate) approximate_creation_date_time_precision: ::std::option::Option<super::types::ApproximateCreationDateTimePrecision>,
+ }
+ impl EnableKinesisStreamingConfigurationBuilder {
+     /// <p>Toggle for the precision of Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
+-    pub fn approximate_creation_date_time_precision(mut self, input: crate::types::ApproximateCreationDateTimePrecision) -> Self {
++    pub fn approximate_creation_date_time_precision(mut self, input: super::types::ApproximateCreationDateTimePrecision) -> Self {
+         self.approximate_creation_date_time_precision = ::std::option::Option::Some(input);
+         self
+     }
+@@ -35,18 +35,18 @@
+     /// <p>Toggle for the precision of Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
+     pub fn set_approximate_creation_date_time_precision(
+         mut self,
+-        input: ::std::option::Option<crate::types::ApproximateCreationDateTimePrecision>,
++        input: ::std::option::Option<super::types::ApproximateCreationDateTimePrecision>,
+     ) -> Self {
+         self.approximate_creation_date_time_precision = input;
+         self
+     }
+     /// <p>Toggle for the precision of Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
+-    pub fn get_approximate_creation_date_time_precision(&self) -> &::std::option::Option<crate::types::ApproximateCreationDateTimePrecision> {
++    pub fn get_approximate_creation_date_time_precision(&self) -> &::std::option::Option<super::types::ApproximateCreationDateTimePrecision> {
+         &self.approximate_creation_date_time_precision
+     }
+     /// Consumes the builder and constructs a [`EnableKinesisStreamingConfiguration`](crate::types::EnableKinesisStreamingConfiguration).
+-    pub fn build(self) -> crate::types::EnableKinesisStreamingConfiguration {
+-        crate::types::EnableKinesisStreamingConfiguration {
++    pub fn build(self) -> super::types::EnableKinesisStreamingConfiguration {
++        super::types::EnableKinesisStreamingConfiguration {
+             approximate_creation_date_time_precision: self.approximate_creation_date_time_precision,
+         }
+     }

@@ -54,7 +54,7 @@ pub fn de_get_parameters_for_import_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::get_parameters_for_import::GetParametersForImportError::KmsInternalException({
+        "KMSInternalException" => crate::operation::get_parameters_for_import::GetParametersForImportError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -69,7 +69,7 @@ pub fn de_get_parameters_for_import_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::get_parameters_for_import::GetParametersForImportError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::get_parameters_for_import::GetParametersForImportError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

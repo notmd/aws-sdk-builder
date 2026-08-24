@@ -1,0 +1,78 @@
+--- original
++++ modified
+@@ -37,7 +37,7 @@
+     /// </ul><note>
+     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
+     /// </note>
+-    pub destination_config: ::std::option::Option<crate::types::DestinationConfig>,
++    pub destination_config: ::std::option::Option<super::types::DestinationConfig>,
+ }
+ impl PutFunctionEventInvokeConfigInput {
+     /// <p>The name or ARN of the Lambda function, version, or alias.</p>
+@@ -82,14 +82,14 @@
+     /// </ul><note>
+     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
+     /// </note>
+-    pub fn destination_config(&self) -> ::std::option::Option<&crate::types::DestinationConfig> {
++    pub fn destination_config(&self) -> ::std::option::Option<&super::types::DestinationConfig> {
+         self.destination_config.as_ref()
+     }
+ }
+ impl PutFunctionEventInvokeConfigInput {
+     /// Creates a new builder-style object to manufacture [`PutFunctionEventInvokeConfigInput`](crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigInput).
+-    pub fn builder() -> crate::operation::put_function_event_invoke_config::builders::PutFunctionEventInvokeConfigInputBuilder {
+-        crate::operation::put_function_event_invoke_config::builders::PutFunctionEventInvokeConfigInputBuilder::default()
++    pub fn builder() -> super::operation::put_function_event_invoke_config::builders::PutFunctionEventInvokeConfigInputBuilder {
++        super::operation::put_function_event_invoke_config::builders::PutFunctionEventInvokeConfigInputBuilder::default()
+     }
+ }
+
+@@ -101,7 +101,7 @@
+     pub(crate) qualifier: ::std::option::Option<::std::string::String>,
+     pub(crate) maximum_retry_attempts: ::std::option::Option<i32>,
+     pub(crate) maximum_event_age_in_seconds: ::std::option::Option<i32>,
+-    pub(crate) destination_config: ::std::option::Option<crate::types::DestinationConfig>,
++    pub(crate) destination_config: ::std::option::Option<super::types::DestinationConfig>,
+ }
+ impl PutFunctionEventInvokeConfigInputBuilder {
+     /// <p>The name or ARN of the Lambda function, version, or alias.</p>
+@@ -207,7 +207,7 @@
+     /// </ul><note>
+     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
+     /// </note>
+-    pub fn destination_config(mut self, input: crate::types::DestinationConfig) -> Self {
++    pub fn destination_config(mut self, input: super::types::DestinationConfig) -> Self {
+         self.destination_config = ::std::option::Option::Some(input);
+         self
+     }
+@@ -227,7 +227,7 @@
+     /// </ul><note>
+     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
+     /// </note>
+-    pub fn set_destination_config(mut self, input: ::std::option::Option<crate::types::DestinationConfig>) -> Self {
++    pub fn set_destination_config(mut self, input: ::std::option::Option<super::types::DestinationConfig>) -> Self {
+         self.destination_config = input;
+         self
+     }
+@@ -247,7 +247,7 @@
+     /// </ul><note>
+     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
+     /// </note>
+-    pub fn get_destination_config(&self) -> &::std::option::Option<crate::types::DestinationConfig> {
++    pub fn get_destination_config(&self) -> &::std::option::Option<super::types::DestinationConfig> {
+         &self.destination_config
+     }
+     /// Consumes the builder and constructs a [`PutFunctionEventInvokeConfigInput`](crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigInput).
+@@ -254,10 +254,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigInput,
++        super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigInput {
++        ::std::result::Result::Ok(super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigInput {
+             function_name: self.function_name,
+             qualifier: self.qualifier,
+             maximum_retry_attempts: self.maximum_retry_attempts,

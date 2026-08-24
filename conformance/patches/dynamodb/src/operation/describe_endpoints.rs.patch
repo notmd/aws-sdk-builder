@@ -1,0 +1,205 @@
+--- original
++++ modified
+@@ -10,11 +10,11 @@
+     }
+     pub(crate) async fn orchestrate(
+         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        input: crate::operation::describe_endpoints::DescribeEndpointsInput,
++        input: super::operation::describe_endpoints::DescribeEndpointsInput,
+     ) -> ::std::result::Result<
+-        crate::operation::describe_endpoints::DescribeEndpointsOutput,
++        super::operation::describe_endpoints::DescribeEndpointsOutput,
+         ::aws_smithy_runtime_api::client::result::SdkError<
+-            crate::operation::describe_endpoints::DescribeEndpointsError,
++            super::operation::describe_endpoints::DescribeEndpointsError,
+             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+         >,
+     > {
+@@ -23,7 +23,7 @@
+             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+         >| {
+             err.map_service_error(|err| {
+-                err.downcast::<crate::operation::describe_endpoints::DescribeEndpointsError>()
++                err.downcast::<super::operation::describe_endpoints::DescribeEndpointsError>()
+                     .expect("correct error type")
+             })
+         };
+@@ -33,7 +33,7 @@
+         let output = context.finalize().map_err(map_err)?;
+         ::std::result::Result::Ok(
+             output
+-                .downcast::<crate::operation::describe_endpoints::DescribeEndpointsOutput>()
++                .downcast::<super::operation::describe_endpoints::DescribeEndpointsOutput>()
+                 .expect("correct output type"),
+         )
+     }
+@@ -40,7 +40,7 @@
+
+     pub(crate) async fn orchestrate_with_stop_point(
+         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        input: crate::operation::describe_endpoints::DescribeEndpointsInput,
++        input: super::operation::describe_endpoints::DescribeEndpointsInput,
+         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
+     ) -> ::std::result::Result<
+         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
+@@ -66,8 +66,8 @@
+
+     pub(crate) fn operation_runtime_plugins(
+         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        client_config: &crate::config::Config,
+-        config_override: ::std::option::Option<crate::config::Builder>,
++        client_config: &super::config::Config,
++        config_override: ::std::option::Option<super::config::Builder>,
+     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
+         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
+
+@@ -75,7 +75,7 @@
+             for plugin in config_override.runtime_plugins.iter().cloned() {
+                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
+             }
+-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
++            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
+                 config_override,
+                 client_config.config.clone(),
+                 &client_config.runtime_components,
+@@ -96,7 +96,7 @@
+         ));
+
+         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
+-            crate::config::auth::Params::builder()
++            super::config::auth::Params::builder()
+                 .operation_name("DescribeEndpoints")
+                 .build()
+                 .expect("required fields set"),
+@@ -133,13 +133,13 @@
+                 DescribeEndpointsEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+-                crate::operation::describe_endpoints::DescribeEndpointsError,
++                super::operation::describe_endpoints::DescribeEndpointsError,
+             >::new())
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+-                crate::operation::describe_endpoints::DescribeEndpointsError,
++                super::operation::describe_endpoints::DescribeEndpointsError,
+             >::new())
+             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+-                crate::operation::describe_endpoints::DescribeEndpointsError,
++                super::operation::describe_endpoints::DescribeEndpointsError,
+             >::new());
+
+         ::std::borrow::Cow::Owned(rcb)
+@@ -161,11 +161,11 @@
+         let mut force_error = false;
+         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+         let parse_result = if !success && status != 200 || force_error {
+-            crate::protocol_serde::shape_describe_endpoints::de_describe_endpoints_http_error(status, headers, body)
++            super::protocol_serde::shape_describe_endpoints::de_describe_endpoints_http_error(status, headers, body)
+         } else {
+-            crate::protocol_serde::shape_describe_endpoints::de_describe_endpoints_http_response(status, headers, body)
++            super::protocol_serde::shape_describe_endpoints::de_describe_endpoints_http_response(status, headers, body)
+         };
+-        crate::protocol_serde::type_erase_result(parse_result)
++        super::protocol_serde::type_erase_result(parse_result)
+     }
+ }
+ #[derive(Debug)]
+@@ -178,16 +178,16 @@
+         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
+     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+         let input = input
+-            .downcast::<crate::operation::describe_endpoints::DescribeEndpointsInput>()
++            .downcast::<super::operation::describe_endpoints::DescribeEndpointsInput>()
+             .expect("correct type");
+         let _header_serialization_settings = _cfg
+-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
++            .load::<super::serialization_settings::HeaderSerializationSettings>()
+             .cloned()
+             .unwrap_or_default();
+         let mut request_builder = {
+             #[allow(clippy::uninlined_format_args)]
+             fn uri_base(
+-                _input: &crate::operation::describe_endpoints::DescribeEndpointsInput,
++                _input: &super::operation::describe_endpoints::DescribeEndpointsInput,
+                 output: &mut ::std::string::String,
+             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+                 use ::std::fmt::Write as _;
+@@ -196,7 +196,7 @@
+             }
+             #[allow(clippy::unnecessary_wraps)]
+             fn update_http_builder(
+-                input: &crate::operation::describe_endpoints::DescribeEndpointsInput,
++                input: &super::operation::describe_endpoints::DescribeEndpointsInput,
+                 builder: ::http_1x::request::Builder,
+             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+                 let mut uri = ::std::string::String::new();
+@@ -212,7 +212,7 @@
+             );
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_describe_endpoints::ser_describe_endpoints_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_describe_endpoints::ser_describe_endpoints_input(&input)?);
+
+         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
+     }
+@@ -241,7 +241,7 @@
+             .downcast_ref::<DescribeEndpointsInput>()
+             .ok_or("failed to downcast to DescribeEndpointsInput")?;
+
+-        let params = crate::config::endpoint::Params::builder()
++        let params = super::config::endpoint::Params::builder()
+             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+@@ -276,7 +276,7 @@
+     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+      \
+     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-DescribeEndpointsError) for what information is available for the error.")]
+-    Unhandled(crate::error::sealed_unhandled::Unhandled),
++    Unhandled(super::error::sealed_unhandled::Unhandled),
+ }
+ impl DescribeEndpointsError {
+     /// Creates the `DescribeEndpointsError::Unhandled` variant from any error type.
+@@ -283,7 +283,7 @@
+     pub fn unhandled(
+         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
+     ) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source: err.into(),
+             meta: ::std::default::Default::default(),
+         })
+@@ -291,7 +291,7 @@
+
+     /// Creates the `DescribeEndpointsError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source: err.clone().into(),
+             meta: err,
+         })
+@@ -346,21 +346,21 @@
+         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
+     ) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source,
+             meta: meta.unwrap_or_default(),
+         })
+     }
+ }
+-impl ::aws_types::request_id::RequestId for crate::operation::describe_endpoints::DescribeEndpointsError {
++impl ::aws_types::request_id::RequestId for super::operation::describe_endpoints::DescribeEndpointsError {
+     fn request_id(&self) -> Option<&str> {
+         self.meta().request_id()
+     }
+ }
+
+-pub use crate::operation::describe_endpoints::_describe_endpoints_input::DescribeEndpointsInput;
++pub use super::operation::describe_endpoints::_describe_endpoints_input::DescribeEndpointsInput;
+
+-pub use crate::operation::describe_endpoints::_describe_endpoints_output::DescribeEndpointsOutput;
++pub use super::operation::describe_endpoints::_describe_endpoints_output::DescribeEndpointsOutput;
+
+ mod _describe_endpoints_input;
+

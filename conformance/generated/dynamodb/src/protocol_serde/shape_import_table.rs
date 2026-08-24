@@ -78,9 +78,7 @@ pub fn de_import_table_http_response(
         output = crate::protocol_serde::shape_import_table::de_import_table(_response_body, output)
             .map_err(crate::operation::import_table::ImportTableError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        crate::serde_util::import_table_output_output_correct_errors(output)
-            .build()
-            .map_err(crate::operation::import_table::ImportTableError::unhandled)?
+        crate::serde_util::import_table_output_output_correct_errors(output).build()
     })
 }
 

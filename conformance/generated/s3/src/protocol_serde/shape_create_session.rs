@@ -78,9 +78,7 @@ pub fn de_create_session_http_response(
         );
         output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        crate::serde_util::create_session_output_output_correct_errors(output)
-            .build()
-            .map_err(crate::operation::create_session::CreateSessionError::unhandled)?
+        crate::serde_util::create_session_output_output_correct_errors(output).build()
     })
 }
 

@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -9,7 +9,7 @@
+     ///   - [`policy(Option<String>)`](crate::operation::get_policy::GetPolicyOutput::policy): <p>The resource-based policy.</p>
+     ///   - [`revision_id(Option<String>)`](crate::operation::get_policy::GetPolicyOutput::revision_id): <p>A unique identifier for the current revision of the policy.</p>
+     /// - On failure, responds with [`SdkError<GetPolicyError>`](crate::operation::get_policy::GetPolicyError)
+-    pub fn get_policy(&self) -> crate::operation::get_policy::builders::GetPolicyFluentBuilder {
+-        crate::operation::get_policy::builders::GetPolicyFluentBuilder::new(self.handle.clone())
++    pub fn get_policy(&self) -> super::operation::get_policy::builders::GetPolicyFluentBuilder {
++        super::operation::get_policy::builders::GetPolicyFluentBuilder::new(self.handle.clone())
+     }
+ }

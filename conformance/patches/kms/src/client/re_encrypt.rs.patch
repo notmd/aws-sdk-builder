@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -22,7 +22,7 @@
+     ///   - [`source_key_material_id(Option<String>)`](crate::operation::re_encrypt::ReEncryptOutput::source_key_material_id): <p>The identifier of the key material used to originally encrypt the data. This field is present only when the original encryption used a symmetric encryption KMS key.</p>
+     ///   - [`destination_key_material_id(Option<String>)`](crate::operation::re_encrypt::ReEncryptOutput::destination_key_material_id): <p>The identifier of the key material used to reencrypt the data. This field is present only when data is reencrypted using a symmetric encryption KMS key.</p>
+     /// - On failure, responds with [`SdkError<ReEncryptError>`](crate::operation::re_encrypt::ReEncryptError)
+-    pub fn re_encrypt(&self) -> crate::operation::re_encrypt::builders::ReEncryptFluentBuilder {
+-        crate::operation::re_encrypt::builders::ReEncryptFluentBuilder::new(self.handle.clone())
++    pub fn re_encrypt(&self) -> super::operation::re_encrypt::builders::ReEncryptFluentBuilder {
++        super::operation::re_encrypt::builders::ReEncryptFluentBuilder::new(self.handle.clone())
+     }
+ }

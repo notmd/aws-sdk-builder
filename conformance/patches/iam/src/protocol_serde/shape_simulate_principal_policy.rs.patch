@@ -1,0 +1,130 @@
+--- original
++++ modified
+@@ -5,18 +5,18 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::simulate_principal_policy::SimulatePrincipalPolicyOutput,
+-    crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError,
++    super::operation::simulate_principal_policy::SimulatePrincipalPolicyOutput,
++    super::operation::simulate_principal_policy::SimulatePrincipalPolicyError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::simulate_principal_policy::SimulatePrincipalPolicyError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+         None => {
+-            return Err(crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError::unhandled(
++            return Err(super::operation::simulate_principal_policy::SimulatePrincipalPolicyError::unhandled(
+                 generic,
+             ))
+         }
+@@ -24,13 +24,13 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "InvalidInput" => crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError::InvalidInputException({
++        "InvalidInput" => super::operation::simulate_principal_policy::SimulatePrincipalPolicyError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InvalidInputExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError::unhandled)?;
++                let mut output = super::types::error::builders::InvalidInputExceptionBuilder::default();
++                output = super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::simulate_principal_policy::SimulatePrincipalPolicyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -39,13 +39,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError::NoSuchEntityException({
++        "NoSuchEntity" => super::operation::simulate_principal_policy::SimulatePrincipalPolicyError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError::unhandled)?;
++                let mut output = super::types::error::builders::NoSuchEntityExceptionBuilder::default();
++                output = super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::simulate_principal_policy::SimulatePrincipalPolicyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -54,13 +54,13 @@
+             }
+             tmp
+         }),
+-        "PolicyEvaluation" => crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError::PolicyEvaluationException({
++        "PolicyEvaluation" => super::operation::simulate_principal_policy::SimulatePrincipalPolicyError::PolicyEvaluationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::PolicyEvaluationExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_policy_evaluation_exception::de_policy_evaluation_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError::unhandled)?;
++                let mut output = super::types::error::builders::PolicyEvaluationExceptionBuilder::default();
++                output = super::protocol_serde::shape_policy_evaluation_exception::de_policy_evaluation_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::simulate_principal_policy::SimulatePrincipalPolicyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -69,7 +69,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError::generic(generic),
++        _ => super::operation::simulate_principal_policy::SimulatePrincipalPolicyError::generic(generic),
+     })
+ }
+
+@@ -79,14 +79,14 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::simulate_principal_policy::SimulatePrincipalPolicyOutput,
+-    crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError,
++    super::operation::simulate_principal_policy::SimulatePrincipalPolicyOutput,
++    super::operation::simulate_principal_policy::SimulatePrincipalPolicyError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyOutputBuilder::default();
+-        output = crate::protocol_serde::shape_simulate_principal_policy::de_simulate_principal_policy(_response_body, output)
+-            .map_err(crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError::unhandled)?;
++        let mut output = super::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyOutputBuilder::default();
++        output = super::protocol_serde::shape_simulate_principal_policy::de_simulate_principal_policy(_response_body, output)
++            .map_err(super::operation::simulate_principal_policy::SimulatePrincipalPolicyError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -95,9 +95,9 @@
+ #[allow(unused_mut)]
+ pub fn de_simulate_principal_policy(
+     inp: &[u8],
+-    mut builder: crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyOutputBuilder,
++    mut builder: super::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyOutputBuilder,
+ ) -> std::result::Result<
+-    crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyOutputBuilder,
++    super::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyOutputBuilder,
+     ::aws_smithy_xml::decode::XmlDecodeError,
+ > {
+     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+@@ -125,7 +125,7 @@
+             s if s.matches("EvaluationResults") /* EvaluationResults com.amazonaws.iam.synthetic#SimulatePrincipalPolicyOutput$EvaluationResults */ =>  {
+                 let var_1 =
+                     Some(
+-                        crate::protocol_serde::shape_evaluation_results_list_type::de_evaluation_results_list_type(&mut tag, depth + 1)
++                        super::protocol_serde::shape_evaluation_results_list_type::de_evaluation_results_list_type(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl PlatformApplication {
+     /// Creates a new builder-style object to manufacture [`PlatformApplication`](crate::types::PlatformApplication).
+-    pub fn builder() -> crate::types::builders::PlatformApplicationBuilder {
+-        crate::types::builders::PlatformApplicationBuilder::default()
++    pub fn builder() -> super::types::builders::PlatformApplicationBuilder {
++        super::types::builders::PlatformApplicationBuilder::default()
+     }
+ }
+
+@@ -69,8 +69,8 @@
+         &self.attributes
+     }
+     /// Consumes the builder and constructs a [`PlatformApplication`](crate::types::PlatformApplication).
+-    pub fn build(self) -> crate::types::PlatformApplication {
+-        crate::types::PlatformApplication {
++    pub fn build(self) -> super::types::PlatformApplication {
++        super::types::PlatformApplication {
+             platform_application_arn: self.platform_application_arn,
+             attributes: self.attributes,
+         }

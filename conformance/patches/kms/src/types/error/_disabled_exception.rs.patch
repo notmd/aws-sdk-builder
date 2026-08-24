@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for DisabledException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::DisabledException {
++impl ::aws_types::request_id::RequestId for super::types::error::DisabledException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl DisabledException {
+     /// Creates a new builder-style object to manufacture [`DisabledException`](crate::types::error::DisabledException).
+-    pub fn builder() -> crate::types::error::builders::DisabledExceptionBuilder {
+-        crate::types::error::builders::DisabledExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::DisabledExceptionBuilder {
++        super::types::error::builders::DisabledExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`DisabledException`](crate::types::error::DisabledException).
+-    pub fn build(self) -> crate::types::error::DisabledException {
+-        crate::types::error::DisabledException {
++    pub fn build(self) -> super::types::error::DisabledException {
++        super::types::error::DisabledException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

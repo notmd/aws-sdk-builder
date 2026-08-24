@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -34,7 +34,7 @@
+     }
+ }
+ impl ::std::error::Error for ResourceNotReadyException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::ResourceNotReadyException {
++impl ::aws_types::request_id::RequestId for super::types::error::ResourceNotReadyException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -47,8 +47,8 @@
+ }
+ impl ResourceNotReadyException {
+     /// Creates a new builder-style object to manufacture [`ResourceNotReadyException`](crate::types::error::ResourceNotReadyException).
+-    pub fn builder() -> crate::types::error::builders::ResourceNotReadyExceptionBuilder {
+-        crate::types::error::builders::ResourceNotReadyExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::ResourceNotReadyExceptionBuilder {
++        super::types::error::builders::ResourceNotReadyExceptionBuilder::default()
+     }
+ }
+
+@@ -101,8 +101,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ResourceNotReadyException`](crate::types::error::ResourceNotReadyException).
+-    pub fn build(self) -> crate::types::error::ResourceNotReadyException {
+-        crate::types::error::ResourceNotReadyException {
++    pub fn build(self) -> super::types::error::ResourceNotReadyException {
++        super::types::error::ResourceNotReadyException {
+             r#type: self.r#type,
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),

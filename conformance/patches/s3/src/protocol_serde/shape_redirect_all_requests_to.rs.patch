@@ -1,0 +1,44 @@
+--- original
++++ modified
+@@ -3,12 +3,12 @@
+ pub fn de_redirect_all_requests_to(
+     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+     depth: u32,
+-) -> ::std::result::Result<crate::types::RedirectAllRequestsTo, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::types::RedirectAllRequestsTo, ::aws_smithy_xml::decode::XmlDecodeError> {
+     if depth >= 128u32 {
+         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+     }
+     #[allow(unused_mut)]
+-    let mut builder = crate::types::RedirectAllRequestsTo::builder();
++    let mut builder = super::types::RedirectAllRequestsTo::builder();
+     while let Some(mut tag) = decoder.next_tag() {
+         match tag.start_el() {
+             s if s.matches("HostName") /* HostName com.amazonaws.s3#RedirectAllRequestsTo$HostName */ =>  {
+@@ -27,8 +27,8 @@
+             s if s.matches("Protocol") /* Protocol com.amazonaws.s3#RedirectAllRequestsTo$Protocol */ =>  {
+                 let var_2 =
+                     Some(
+-                        Result::<crate::types::Protocol, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+-                            crate::types::Protocol::from(
++                        Result::<super::types::Protocol, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::types::Protocol::from(
+                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                             )
+                         )
+@@ -41,13 +41,13 @@
+             _ => {}
+         }
+     }
+-    Ok(crate::serde_util::redirect_all_requests_to_correct_errors(builder)
++    Ok(super::serde_util::redirect_all_requests_to_correct_errors(builder)
+         .build()
+         .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
+ }
+
+ pub fn ser_redirect_all_requests_to(
+-    input: &crate::types::RedirectAllRequestsTo,
++    input: &super::types::RedirectAllRequestsTo,
+     writer: ::aws_smithy_xml::encode::ElWriter,
+ ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+     #[allow(unused_mut)]

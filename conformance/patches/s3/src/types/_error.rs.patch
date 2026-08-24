@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -1982,8 +1982,8 @@
+ }
+ impl Error {
+     /// Creates a new builder-style object to manufacture [`Error`](crate::types::Error).
+-    pub fn builder() -> crate::types::builders::ErrorBuilder {
+-        crate::types::builders::ErrorBuilder::default()
++    pub fn builder() -> super::types::builders::ErrorBuilder {
++        super::types::builders::ErrorBuilder::default()
+     }
+ }
+
+@@ -4973,8 +4973,8 @@
+         &self.message
+     }
+     /// Consumes the builder and constructs a [`Error`](crate::types::Error).
+-    pub fn build(self) -> crate::types::Error {
+-        crate::types::Error {
++    pub fn build(self) -> super::types::Error {
++        super::types::Error {
+             key: self.key,
+             version_id: self.version_id,
+             code: self.code,

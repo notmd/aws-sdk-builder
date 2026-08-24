@@ -1,0 +1,113 @@
+--- original
++++ modified
+@@ -4,26 +4,26 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<crate::operation::update_access_key::UpdateAccessKeyOutput, crate::operation::update_access_key::UpdateAccessKeyError> {
++) -> std::result::Result<super::operation::update_access_key::UpdateAccessKeyOutput, super::operation::update_access_key::UpdateAccessKeyError> {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::update_access_key::UpdateAccessKeyError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::update_access_key::UpdateAccessKeyError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::update_access_key::UpdateAccessKeyError::unhandled(generic)),
++        None => return Err(super::operation::update_access_key::UpdateAccessKeyError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "InvalidInput" => crate::operation::update_access_key::UpdateAccessKeyError::InvalidInputException({
++        "InvalidInput" => super::operation::update_access_key::UpdateAccessKeyError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InvalidInputExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::update_access_key::UpdateAccessKeyError::unhandled)?;
++                let mut output = super::types::error::builders::InvalidInputExceptionBuilder::default();
++                output = super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::update_access_key::UpdateAccessKeyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -32,13 +32,13 @@
+             }
+             tmp
+         }),
+-        "LimitExceeded" => crate::operation::update_access_key::UpdateAccessKeyError::LimitExceededException({
++        "LimitExceeded" => super::operation::update_access_key::UpdateAccessKeyError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::update_access_key::UpdateAccessKeyError::unhandled)?;
++                let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
++                output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::update_access_key::UpdateAccessKeyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -47,13 +47,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => crate::operation::update_access_key::UpdateAccessKeyError::NoSuchEntityException({
++        "NoSuchEntity" => super::operation::update_access_key::UpdateAccessKeyError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::update_access_key::UpdateAccessKeyError::unhandled)?;
++                let mut output = super::types::error::builders::NoSuchEntityExceptionBuilder::default();
++                output = super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::update_access_key::UpdateAccessKeyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -62,13 +62,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => crate::operation::update_access_key::UpdateAccessKeyError::ServiceFailureException({
++        "ServiceFailure" => super::operation::update_access_key::UpdateAccessKeyError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::update_access_key::UpdateAccessKeyError::unhandled)?;
++                let mut output = super::types::error::builders::ServiceFailureExceptionBuilder::default();
++                output = super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::update_access_key::UpdateAccessKeyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -77,7 +77,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::update_access_key::UpdateAccessKeyError::generic(generic),
++        _ => super::operation::update_access_key::UpdateAccessKeyError::generic(generic),
+     })
+ }
+
+@@ -86,10 +86,10 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<crate::operation::update_access_key::UpdateAccessKeyOutput, crate::operation::update_access_key::UpdateAccessKeyError> {
++) -> std::result::Result<super::operation::update_access_key::UpdateAccessKeyOutput, super::operation::update_access_key::UpdateAccessKeyError> {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::update_access_key::builders::UpdateAccessKeyOutputBuilder::default();
++        let mut output = super::operation::update_access_key::builders::UpdateAccessKeyOutputBuilder::default();
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })

@@ -1,0 +1,273 @@
+--- original
++++ modified
+@@ -104,25 +104,25 @@
+     /// <p>A map of metadata to store with the object in S3.</p>
+     pub metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+     /// <p>Indicates whether an object stored in Amazon S3 has Object Lock enabled. For more information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">Object Lock</a>.</p>
+-    pub object_lock_mode: ::std::option::Option<crate::types::ObjectLockMode>,
++    pub object_lock_mode: ::std::option::Option<super::types::ObjectLockMode>,
+     /// <p>Indicates whether an object stored in Amazon S3 has an active legal hold.</p>
+-    pub object_lock_legal_hold_status: ::std::option::Option<crate::types::ObjectLockLegalHoldStatus>,
++    pub object_lock_legal_hold_status: ::std::option::Option<super::types::ObjectLockLegalHoldStatus>,
+     /// <p>The date and time when Object Lock is configured to expire.</p>
+     pub object_lock_retain_until_date: ::std::option::Option<::aws_smithy_types::DateTime>,
+     /// <p>The count of parts this object has.</p>
+     pub parts_count: ::std::option::Option<i32>,
+     /// <p>Indicates if request involves bucket that is either a source or destination in a Replication rule. For more information about S3 Replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">Replication</a>.</p>
+-    pub replication_status: ::std::option::Option<crate::types::ReplicationStatus>,
++    pub replication_status: ::std::option::Option<super::types::ReplicationStatus>,
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
++    pub request_charged: ::std::option::Option<super::types::RequestCharged>,
+     /// <p>Provides information about object restoration operation and expiration time of the restored object copy.</p>
+     pub restore: ::std::option::Option<::std::string::String>,
+     /// <p>The server-side encryption algorithm used when storing requested object in Amazon S3 or Amazon FSx.</p><note>
+     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+     /// </note>
+-    pub server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
++    pub server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
+     /// <p>Encryption algorithm used if server-side encryption with a customer-provided encryption key was specified for object stored in Amazon S3.</p>
+     pub sse_customer_algorithm: ::std::option::Option<::std::string::String>,
+     /// <p>If present, specifies the ID (Key ID, Key ARN, or Key Alias) of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric encryption customer managed key that was used for stored in Amazon S3 object.</p>
+@@ -131,7 +131,7 @@
+     pub sse_customer_key_md5: ::std::option::Option<::std::string::String>,
+     /// <p>Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
+     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p>
+-    pub storage_class: ::std::option::Option<crate::types::StorageClass>,
++    pub storage_class: ::std::option::Option<super::types::StorageClass>,
+     /// <p>The number of tags, if any, on the object.</p>
+     pub tag_count: ::std::option::Option<i32>,
+     /// <p>An ID used to reference a specific version of the object.</p>
+@@ -304,11 +304,11 @@
+         self.metadata.as_ref()
+     }
+     /// <p>Indicates whether an object stored in Amazon S3 has Object Lock enabled. For more information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">Object Lock</a>.</p>
+-    pub fn object_lock_mode(&self) -> ::std::option::Option<&crate::types::ObjectLockMode> {
++    pub fn object_lock_mode(&self) -> ::std::option::Option<&super::types::ObjectLockMode> {
+         self.object_lock_mode.as_ref()
+     }
+     /// <p>Indicates whether an object stored in Amazon S3 has an active legal hold.</p>
+-    pub fn object_lock_legal_hold_status(&self) -> ::std::option::Option<&crate::types::ObjectLockLegalHoldStatus> {
++    pub fn object_lock_legal_hold_status(&self) -> ::std::option::Option<&super::types::ObjectLockLegalHoldStatus> {
+         self.object_lock_legal_hold_status.as_ref()
+     }
+     /// <p>The date and time when Object Lock is configured to expire.</p>
+@@ -320,13 +320,13 @@
+         self.parts_count
+     }
+     /// <p>Indicates if request involves bucket that is either a source or destination in a Replication rule. For more information about S3 Replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">Replication</a>.</p>
+-    pub fn replication_status(&self) -> ::std::option::Option<&crate::types::ReplicationStatus> {
++    pub fn replication_status(&self) -> ::std::option::Option<&super::types::ReplicationStatus> {
+         self.replication_status.as_ref()
+     }
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
++    pub fn request_charged(&self) -> ::std::option::Option<&super::types::RequestCharged> {
+         self.request_charged.as_ref()
+     }
+     /// <p>Provides information about object restoration operation and expiration time of the restored object copy.</p>
+@@ -336,7 +336,7 @@
+     /// <p>The server-side encryption algorithm used when storing requested object in Amazon S3 or Amazon FSx.</p><note>
+     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+     /// </note>
+-    pub fn server_side_encryption(&self) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
++    pub fn server_side_encryption(&self) -> ::std::option::Option<&super::types::ServerSideEncryption> {
+         self.server_side_encryption.as_ref()
+     }
+     /// <p>Encryption algorithm used if server-side encryption with a customer-provided encryption key was specified for object stored in Amazon S3.</p>
+@@ -353,7 +353,7 @@
+     }
+     /// <p>Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
+     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p>
+-    pub fn storage_class(&self) -> ::std::option::Option<&crate::types::StorageClass> {
++    pub fn storage_class(&self) -> ::std::option::Option<&super::types::StorageClass> {
+         self.storage_class.as_ref()
+     }
+     /// <p>The number of tags, if any, on the object.</p>
+@@ -423,8 +423,8 @@
+ }
+ impl WriteGetObjectResponseInput {
+     /// Creates a new builder-style object to manufacture [`WriteGetObjectResponseInput`](crate::operation::write_get_object_response::WriteGetObjectResponseInput).
+-    pub fn builder() -> crate::operation::write_get_object_response::builders::WriteGetObjectResponseInputBuilder {
+-        crate::operation::write_get_object_response::builders::WriteGetObjectResponseInputBuilder::default()
++    pub fn builder() -> super::operation::write_get_object_response::builders::WriteGetObjectResponseInputBuilder {
++        super::operation::write_get_object_response::builders::WriteGetObjectResponseInputBuilder::default()
+     }
+ }
+
+@@ -463,18 +463,18 @@
+     pub(crate) last_modified: ::std::option::Option<::aws_smithy_types::DateTime>,
+     pub(crate) missing_meta: ::std::option::Option<i32>,
+     pub(crate) metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+-    pub(crate) object_lock_mode: ::std::option::Option<crate::types::ObjectLockMode>,
+-    pub(crate) object_lock_legal_hold_status: ::std::option::Option<crate::types::ObjectLockLegalHoldStatus>,
++    pub(crate) object_lock_mode: ::std::option::Option<super::types::ObjectLockMode>,
++    pub(crate) object_lock_legal_hold_status: ::std::option::Option<super::types::ObjectLockLegalHoldStatus>,
+     pub(crate) object_lock_retain_until_date: ::std::option::Option<::aws_smithy_types::DateTime>,
+     pub(crate) parts_count: ::std::option::Option<i32>,
+-    pub(crate) replication_status: ::std::option::Option<crate::types::ReplicationStatus>,
+-    pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
++    pub(crate) replication_status: ::std::option::Option<super::types::ReplicationStatus>,
++    pub(crate) request_charged: ::std::option::Option<super::types::RequestCharged>,
+     pub(crate) restore: ::std::option::Option<::std::string::String>,
+-    pub(crate) server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
++    pub(crate) server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
+     pub(crate) sse_customer_algorithm: ::std::option::Option<::std::string::String>,
+     pub(crate) ssekms_key_id: ::std::option::Option<::std::string::String>,
+     pub(crate) sse_customer_key_md5: ::std::option::Option<::std::string::String>,
+-    pub(crate) storage_class: ::std::option::Option<crate::types::StorageClass>,
++    pub(crate) storage_class: ::std::option::Option<super::types::StorageClass>,
+     pub(crate) tag_count: ::std::option::Option<i32>,
+     pub(crate) version_id: ::std::option::Option<::std::string::String>,
+     pub(crate) bucket_key_enabled: ::std::option::Option<bool>,
+@@ -1040,31 +1040,31 @@
+         &self.metadata
+     }
+     /// <p>Indicates whether an object stored in Amazon S3 has Object Lock enabled. For more information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">Object Lock</a>.</p>
+-    pub fn object_lock_mode(mut self, input: crate::types::ObjectLockMode) -> Self {
++    pub fn object_lock_mode(mut self, input: super::types::ObjectLockMode) -> Self {
+         self.object_lock_mode = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Indicates whether an object stored in Amazon S3 has Object Lock enabled. For more information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">Object Lock</a>.</p>
+-    pub fn set_object_lock_mode(mut self, input: ::std::option::Option<crate::types::ObjectLockMode>) -> Self {
++    pub fn set_object_lock_mode(mut self, input: ::std::option::Option<super::types::ObjectLockMode>) -> Self {
+         self.object_lock_mode = input;
+         self
+     }
+     /// <p>Indicates whether an object stored in Amazon S3 has Object Lock enabled. For more information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">Object Lock</a>.</p>
+-    pub fn get_object_lock_mode(&self) -> &::std::option::Option<crate::types::ObjectLockMode> {
++    pub fn get_object_lock_mode(&self) -> &::std::option::Option<super::types::ObjectLockMode> {
+         &self.object_lock_mode
+     }
+     /// <p>Indicates whether an object stored in Amazon S3 has an active legal hold.</p>
+-    pub fn object_lock_legal_hold_status(mut self, input: crate::types::ObjectLockLegalHoldStatus) -> Self {
++    pub fn object_lock_legal_hold_status(mut self, input: super::types::ObjectLockLegalHoldStatus) -> Self {
+         self.object_lock_legal_hold_status = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Indicates whether an object stored in Amazon S3 has an active legal hold.</p>
+-    pub fn set_object_lock_legal_hold_status(mut self, input: ::std::option::Option<crate::types::ObjectLockLegalHoldStatus>) -> Self {
++    pub fn set_object_lock_legal_hold_status(mut self, input: ::std::option::Option<super::types::ObjectLockLegalHoldStatus>) -> Self {
+         self.object_lock_legal_hold_status = input;
+         self
+     }
+     /// <p>Indicates whether an object stored in Amazon S3 has an active legal hold.</p>
+-    pub fn get_object_lock_legal_hold_status(&self) -> &::std::option::Option<crate::types::ObjectLockLegalHoldStatus> {
++    pub fn get_object_lock_legal_hold_status(&self) -> &::std::option::Option<super::types::ObjectLockLegalHoldStatus> {
+         &self.object_lock_legal_hold_status
+     }
+     /// <p>The date and time when Object Lock is configured to expire.</p>
+@@ -1096,23 +1096,23 @@
+         &self.parts_count
+     }
+     /// <p>Indicates if request involves bucket that is either a source or destination in a Replication rule. For more information about S3 Replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">Replication</a>.</p>
+-    pub fn replication_status(mut self, input: crate::types::ReplicationStatus) -> Self {
++    pub fn replication_status(mut self, input: super::types::ReplicationStatus) -> Self {
+         self.replication_status = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Indicates if request involves bucket that is either a source or destination in a Replication rule. For more information about S3 Replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">Replication</a>.</p>
+-    pub fn set_replication_status(mut self, input: ::std::option::Option<crate::types::ReplicationStatus>) -> Self {
++    pub fn set_replication_status(mut self, input: ::std::option::Option<super::types::ReplicationStatus>) -> Self {
+         self.replication_status = input;
+         self
+     }
+     /// <p>Indicates if request involves bucket that is either a source or destination in a Replication rule. For more information about S3 Replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">Replication</a>.</p>
+-    pub fn get_replication_status(&self) -> &::std::option::Option<crate::types::ReplicationStatus> {
++    pub fn get_replication_status(&self) -> &::std::option::Option<super::types::ReplicationStatus> {
+         &self.replication_status
+     }
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
++    pub fn request_charged(mut self, input: super::types::RequestCharged) -> Self {
+         self.request_charged = ::std::option::Option::Some(input);
+         self
+     }
+@@ -1119,7 +1119,7 @@
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
++    pub fn set_request_charged(mut self, input: ::std::option::Option<super::types::RequestCharged>) -> Self {
+         self.request_charged = input;
+         self
+     }
+@@ -1126,7 +1126,7 @@
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
++    pub fn get_request_charged(&self) -> &::std::option::Option<super::types::RequestCharged> {
+         &self.request_charged
+     }
+     /// <p>Provides information about object restoration operation and expiration time of the restored object copy.</p>
+@@ -1146,7 +1146,7 @@
+     /// <p>The server-side encryption algorithm used when storing requested object in Amazon S3 or Amazon FSx.</p><note>
+     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+     /// </note>
+-    pub fn server_side_encryption(mut self, input: crate::types::ServerSideEncryption) -> Self {
++    pub fn server_side_encryption(mut self, input: super::types::ServerSideEncryption) -> Self {
+         self.server_side_encryption = ::std::option::Option::Some(input);
+         self
+     }
+@@ -1153,7 +1153,7 @@
+     /// <p>The server-side encryption algorithm used when storing requested object in Amazon S3 or Amazon FSx.</p><note>
+     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+     /// </note>
+-    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
++    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<super::types::ServerSideEncryption>) -> Self {
+         self.server_side_encryption = input;
+         self
+     }
+@@ -1160,7 +1160,7 @@
+     /// <p>The server-side encryption algorithm used when storing requested object in Amazon S3 or Amazon FSx.</p><note>
+     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+     /// </note>
+-    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
++    pub fn get_server_side_encryption(&self) -> &::std::option::Option<super::types::ServerSideEncryption> {
+         &self.server_side_encryption
+     }
+     /// <p>Encryption algorithm used if server-side encryption with a customer-provided encryption key was specified for object stored in Amazon S3.</p>
+@@ -1207,19 +1207,19 @@
+     }
+     /// <p>Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
+     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p>
+-    pub fn storage_class(mut self, input: crate::types::StorageClass) -> Self {
++    pub fn storage_class(mut self, input: super::types::StorageClass) -> Self {
+         self.storage_class = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
+     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p>
+-    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self {
++    pub fn set_storage_class(mut self, input: ::std::option::Option<super::types::StorageClass>) -> Self {
+         self.storage_class = input;
+         self
+     }
+     /// <p>Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
+     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p>
+-    pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::StorageClass> {
++    pub fn get_storage_class(&self) -> &::std::option::Option<super::types::StorageClass> {
+         &self.storage_class
+     }
+     /// <p>The number of tags, if any, on the object.</p>
+@@ -1268,10 +1268,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::write_get_object_response::WriteGetObjectResponseInput,
++        super::operation::write_get_object_response::WriteGetObjectResponseInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::write_get_object_response::WriteGetObjectResponseInput {
++        ::std::result::Result::Ok(super::operation::write_get_object_response::WriteGetObjectResponseInput {
+             request_route: self.request_route,
+             request_token: self.request_token,
+             body: self.body.unwrap_or_default(),

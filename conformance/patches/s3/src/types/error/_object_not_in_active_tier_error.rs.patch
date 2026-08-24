@@ -1,0 +1,40 @@
+--- original
++++ modified
+@@ -26,13 +26,13 @@
+     }
+ }
+ impl ::std::error::Error for ObjectNotInActiveTierError {}
+-impl crate::s3_request_id::RequestIdExt for crate::types::error::ObjectNotInActiveTierError {
++impl super::s3_request_id::RequestIdExt for super::types::error::ObjectNotInActiveTierError {
+     fn extended_request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().extended_request_id()
+     }
+ }
+-impl ::aws_types::request_id::RequestId for crate::types::error::ObjectNotInActiveTierError {
++impl ::aws_types::request_id::RequestId for super::types::error::ObjectNotInActiveTierError {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -45,8 +45,8 @@
+ }
+ impl ObjectNotInActiveTierError {
+     /// Creates a new builder-style object to manufacture [`ObjectNotInActiveTierError`](crate::types::error::ObjectNotInActiveTierError).
+-    pub fn builder() -> crate::types::error::builders::ObjectNotInActiveTierErrorBuilder {
+-        crate::types::error::builders::ObjectNotInActiveTierErrorBuilder::default()
++    pub fn builder() -> super::types::error::builders::ObjectNotInActiveTierErrorBuilder {
++        super::types::error::builders::ObjectNotInActiveTierErrorBuilder::default()
+     }
+ }
+
+@@ -84,8 +84,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ObjectNotInActiveTierError`](crate::types::error::ObjectNotInActiveTierError).
+-    pub fn build(self) -> crate::types::error::ObjectNotInActiveTierError {
+-        crate::types::error::ObjectNotInActiveTierError {
++    pub fn build(self) -> super::types::error::ObjectNotInActiveTierError {
++        super::types::error::ObjectNotInActiveTierError {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

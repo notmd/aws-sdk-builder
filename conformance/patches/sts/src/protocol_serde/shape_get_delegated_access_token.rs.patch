@@ -1,0 +1,136 @@
+--- original
++++ modified
+@@ -5,18 +5,18 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::get_delegated_access_token::GetDelegatedAccessTokenOutput,
+-    crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
++    super::operation::get_delegated_access_token::GetDelegatedAccessTokenOutput,
++    super::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+         None => {
+-            return Err(crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled(
++            return Err(super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled(
+                 generic,
+             ))
+         }
+@@ -24,16 +24,16 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ExpiredTradeInTokenException" => crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError::ExpiredTradeInTokenException({
++        "ExpiredTradeInTokenException" => super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::ExpiredTradeInTokenException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ExpiredTradeInTokenExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_expired_trade_in_token_exception::de_expired_trade_in_token_exception_xml_err(
++                let mut output = super::types::error::builders::ExpiredTradeInTokenExceptionBuilder::default();
++                output = super::protocol_serde::shape_expired_trade_in_token_exception::de_expired_trade_in_token_exception_xml_err(
+                     _response_body,
+                     output,
+                 )
+-                .map_err(crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled)?;
++                .map_err(super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -42,16 +42,16 @@
+             }
+             tmp
+         }),
+-        "PackedPolicyTooLarge" => crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError::PackedPolicyTooLargeException({
++        "PackedPolicyTooLarge" => super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::PackedPolicyTooLargeException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::PackedPolicyTooLargeExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_packed_policy_too_large_exception::de_packed_policy_too_large_exception_xml_err(
++                let mut output = super::types::error::builders::PackedPolicyTooLargeExceptionBuilder::default();
++                output = super::protocol_serde::shape_packed_policy_too_large_exception::de_packed_policy_too_large_exception_xml_err(
+                     _response_body,
+                     output,
+                 )
+-                .map_err(crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled)?;
++                .map_err(super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -60,13 +60,13 @@
+             }
+             tmp
+         }),
+-        "RegionDisabledException" => crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError::RegionDisabledException({
++        "RegionDisabledException" => super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::RegionDisabledException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::RegionDisabledExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_region_disabled_exception::de_region_disabled_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled)?;
++                let mut output = super::types::error::builders::RegionDisabledExceptionBuilder::default();
++                output = super::protocol_serde::shape_region_disabled_exception::de_region_disabled_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -75,7 +75,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError::generic(generic),
++        _ => super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::generic(generic),
+     })
+ }
+
+@@ -85,14 +85,14 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::get_delegated_access_token::GetDelegatedAccessTokenOutput,
+-    crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
++    super::operation::get_delegated_access_token::GetDelegatedAccessTokenOutput,
++    super::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenOutputBuilder::default();
+-        output = crate::protocol_serde::shape_get_delegated_access_token::de_get_delegated_access_token(_response_body, output)
+-            .map_err(crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled)?;
++        let mut output = super::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenOutputBuilder::default();
++        output = super::protocol_serde::shape_get_delegated_access_token::de_get_delegated_access_token(_response_body, output)
++            .map_err(super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -101,9 +101,9 @@
+ #[allow(unused_mut)]
+ pub fn de_get_delegated_access_token(
+     inp: &[u8],
+-    mut builder: crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenOutputBuilder,
++    mut builder: super::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenOutputBuilder,
+ ) -> std::result::Result<
+-    crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenOutputBuilder,
++    super::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenOutputBuilder,
+     ::aws_smithy_xml::decode::XmlDecodeError,
+ > {
+     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+@@ -131,7 +131,7 @@
+             s if s.matches("Credentials") /* Credentials com.amazonaws.sts.synthetic#GetDelegatedAccessTokenOutput$Credentials */ =>  {
+                 let var_1 =
+                     Some(
+-                        crate::protocol_serde::shape_credentials::de_credentials(&mut tag, depth + 1)
++                        super::protocol_serde::shape_credentials::de_credentials(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;

@@ -113,7 +113,7 @@ pub fn de_import_key_material_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::import_key_material::ImportKeyMaterialError::KmsInternalException({
+        "KMSInternalException" => crate::operation::import_key_material::ImportKeyMaterialError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -128,7 +128,7 @@ pub fn de_import_key_material_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::import_key_material::ImportKeyMaterialError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::import_key_material::ImportKeyMaterialError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     ///   - [`tags(Tag)`](crate::operation::tag_role::builders::TagRoleFluentBuilder::tags) / [`set_tags(Option<Vec::<Tag>>)`](crate::operation::tag_role::builders::TagRoleFluentBuilder::set_tags):<br>required: **true**<br><p>The list of tags that you want to attach to the IAM role. Each tag consists of a key name and an associated value.</p><br>
+     /// - On success, responds with [`TagRoleOutput`](crate::operation::tag_role::TagRoleOutput)
+     /// - On failure, responds with [`SdkError<TagRoleError>`](crate::operation::tag_role::TagRoleError)
+-    pub fn tag_role(&self) -> crate::operation::tag_role::builders::TagRoleFluentBuilder {
+-        crate::operation::tag_role::builders::TagRoleFluentBuilder::new(self.handle.clone())
++    pub fn tag_role(&self) -> super::operation::tag_role::builders::TagRoleFluentBuilder {
++        super::operation::tag_role::builders::TagRoleFluentBuilder::new(self.handle.clone())
+     }
+ }

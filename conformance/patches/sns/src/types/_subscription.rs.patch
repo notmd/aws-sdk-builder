@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -39,8 +39,8 @@
+ }
+ impl Subscription {
+     /// Creates a new builder-style object to manufacture [`Subscription`](crate::types::Subscription).
+-    pub fn builder() -> crate::types::builders::SubscriptionBuilder {
+-        crate::types::builders::SubscriptionBuilder::default()
++    pub fn builder() -> super::types::builders::SubscriptionBuilder {
++        super::types::builders::SubscriptionBuilder::default()
+     }
+ }
+
+@@ -126,8 +126,8 @@
+         &self.topic_arn
+     }
+     /// Consumes the builder and constructs a [`Subscription`](crate::types::Subscription).
+-    pub fn build(self) -> crate::types::Subscription {
+-        crate::types::Subscription {
++    pub fn build(self) -> super::types::Subscription {
++        super::types::Subscription {
+             subscription_arn: self.subscription_arn,
+             owner: self.owner,
+             protocol: self.protocol,

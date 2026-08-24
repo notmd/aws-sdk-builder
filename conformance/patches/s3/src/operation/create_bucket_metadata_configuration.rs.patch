@@ -1,0 +1,276 @@
+--- original
++++ modified
+@@ -10,11 +10,11 @@
+     }
+     pub(crate) async fn orchestrate(
+         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        input: crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput,
++        input: super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput,
+     ) -> ::std::result::Result<
+-        crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationOutput,
++        super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationOutput,
+         ::aws_smithy_runtime_api::client::result::SdkError<
+-            crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationError,
++            super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationError,
+             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+         >,
+     > {
+@@ -23,7 +23,7 @@
+             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+         >| {
+             err.map_service_error(|err| {
+-                err.downcast::<crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationError>()
++                err.downcast::<super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationError>()
+                     .expect("correct error type")
+             })
+         };
+@@ -33,7 +33,7 @@
+         let output = context.finalize().map_err(map_err)?;
+         ::std::result::Result::Ok(
+             output
+-                .downcast::<crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationOutput>()
++                .downcast::<super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationOutput>()
+                 .expect("correct output type"),
+         )
+     }
+@@ -40,7 +40,7 @@
+
+     pub(crate) async fn orchestrate_with_stop_point(
+         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        input: crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput,
++        input: super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput,
+         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
+     ) -> ::std::result::Result<
+         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
+@@ -72,8 +72,8 @@
+
+     pub(crate) fn operation_runtime_plugins(
+         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        client_config: &crate::config::Config,
+-        config_override: ::std::option::Option<crate::config::Builder>,
++        client_config: &super::config::Config,
++        config_override: ::std::option::Option<super::config::Builder>,
+     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
+         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
+
+@@ -81,7 +81,7 @@
+             for plugin in config_override.runtime_plugins.iter().cloned() {
+                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
+             }
+-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
++            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
+                 config_override,
+                 client_config.config.clone(),
+                 &client_config.runtime_components,
+@@ -102,7 +102,7 @@
+         ));
+
+         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
+-            crate::config::auth::Params::builder()
++            super::config::auth::Params::builder()
+                 .operation_name("CreateBucketMetadataConfiguration")
+                 .build()
+                 .expect("required fields set"),
+@@ -112,7 +112,7 @@
+             "CreateBucketMetadataConfiguration",
+             "S3",
+         ));
+-        cfg.store_put(crate::s3_express::checksum::provide_default_checksum_algorithm());
++        cfg.store_put(super::s3_express::checksum::provide_default_checksum_algorithm());
+         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
+         signing_options.double_uri_encode = false;
+         signing_options.content_sha256_header = true;
+@@ -143,9 +143,9 @@
+                 CreateBucketMetadataConfigurationEndpointParamsInterceptor,
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+-                crate::http_request_checksum::RequestChecksumInterceptor::new(
++                super::http_request_checksum::RequestChecksumInterceptor::new(
+                     |input: &::aws_smithy_runtime_api::client::interceptors::context::Input| {
+-                        let input: &crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput =
++                        let input: &super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput =
+                             input.downcast_ref().expect("correct type");
+                         let checksum_algorithm = input.checksum_algorithm();
+                         let checksum_algorithm = checksum_algorithm.map(|algorithm| algorithm.as_str());
+@@ -176,7 +176,7 @@
+                         // From the httpChecksum trait
+                         let http_checksum_required = true;
+
+-                        let is_presigned_req = cfg.load::<crate::presigning::PresigningMarker>().is_some();
++                        let is_presigned_req = cfg.load::<super::presigning::PresigningMarker>().is_some();
+
+                         // If the request is presigned we do not set a default.
+                         // If the RequestChecksumCalculation is WhenSupported and the user has not set a checksum value or algo
+@@ -204,14 +204,14 @@
+                 ),
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+-                crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationError,
++                super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationError,
+             >::new())
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+-                crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationError,
++                super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationError,
+             >::new())
+             .with_retry_classifier(
+                 ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+-                    crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationError,
++                    super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationError,
+                 >::builder()
+                 .transient_errors({
+                     let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
+@@ -297,15 +297,15 @@
+         }
+         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+         let parse_result = if !success && status != 200 || force_error {
+-            crate::protocol_serde::shape_create_bucket_metadata_configuration::de_create_bucket_metadata_configuration_http_error(
++            super::protocol_serde::shape_create_bucket_metadata_configuration::de_create_bucket_metadata_configuration_http_error(
+                 status, headers, body,
+             )
+         } else {
+-            crate::protocol_serde::shape_create_bucket_metadata_configuration::de_create_bucket_metadata_configuration_http_response(
++            super::protocol_serde::shape_create_bucket_metadata_configuration::de_create_bucket_metadata_configuration_http_response(
+                 status, headers, body,
+             )
+         };
+-        crate::protocol_serde::type_erase_result(parse_result)
++        super::protocol_serde::type_erase_result(parse_result)
+     }
+ }
+ #[derive(Debug)]
+@@ -318,16 +318,16 @@
+         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
+     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+         let input = input
+-            .downcast::<crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput>()
++            .downcast::<super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput>()
+             .expect("correct type");
+         let _header_serialization_settings = _cfg
+-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
++            .load::<super::serialization_settings::HeaderSerializationSettings>()
+             .cloned()
+             .unwrap_or_default();
+         let mut request_builder = {
+             #[allow(clippy::uninlined_format_args)]
+             fn uri_base(
+-                _input: &crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput,
++                _input: &super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput,
+                 output: &mut ::std::string::String,
+             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+                 use ::std::fmt::Write as _;
+@@ -335,7 +335,7 @@
+                 ::std::result::Result::Ok(())
+             }
+             fn uri_query(
+-                _input: &crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput,
++                _input: &super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput,
+                 mut output: &mut ::std::string::String,
+             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+                 let mut query = ::aws_smithy_http::query::Writer::new(output);
+@@ -344,13 +344,13 @@
+             }
+             #[allow(clippy::unnecessary_wraps)]
+             fn update_http_builder(
+-                input: &crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput,
++                input: &super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput,
+                 builder: ::http_1x::request::Builder,
+             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+                 let mut uri = ::std::string::String::new();
+                 uri_base(input, &mut uri)?;
+                 uri_query(input, &mut uri)?;
+-                let builder = crate::protocol_serde::shape_create_bucket_metadata_configuration::ser_create_bucket_metadata_configuration_headers(
++                let builder = super::protocol_serde::shape_create_bucket_metadata_configuration::ser_create_bucket_metadata_configuration_headers(
+                     input, builder,
+                 )?;
+                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
+@@ -360,7 +360,7 @@
+             builder
+         };
+         let body = ::aws_smithy_types::body::SdkBody::from(
+-            crate::protocol_serde::shape_create_bucket_metadata_configuration_input::ser_metadata_configuration_http_payload(
++            super::protocol_serde::shape_create_bucket_metadata_configuration_input::ser_metadata_configuration_http_payload(
+                 &input.metadata_configuration,
+             )?,
+         );
+@@ -395,16 +395,16 @@
+             .downcast_ref::<CreateBucketMetadataConfigurationInput>()
+             .ok_or("failed to downcast to CreateBucketMetadataConfigurationInput")?;
+
+-        let params = crate::config::endpoint::Params::builder()
++        let params = super::config::endpoint::Params::builder()
+             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
+-            .set_force_path_style(cfg.load::<crate::config::ForcePathStyle>().map(|ty| ty.0))
+-            .set_use_arn_region(cfg.load::<crate::config::UseArnRegion>().map(|ty| ty.0))
+-            .set_disable_multi_region_access_points(cfg.load::<crate::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0))
+-            .set_accelerate(cfg.load::<crate::config::Accelerate>().map(|ty| ty.0))
+-            .set_disable_s3_express_session_auth(cfg.load::<crate::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0))
++            .set_force_path_style(cfg.load::<super::config::ForcePathStyle>().map(|ty| ty.0))
++            .set_use_arn_region(cfg.load::<super::config::UseArnRegion>().map(|ty| ty.0))
++            .set_disable_multi_region_access_points(cfg.load::<super::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0))
++            .set_accelerate(cfg.load::<super::config::Accelerate>().map(|ty| ty.0))
++            .set_disable_s3_express_session_auth(cfg.load::<super::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0))
+             .set_use_s3_express_control_endpoint(Some(true))
+             .set_bucket(Some(
+                 _input
+@@ -437,7 +437,7 @@
+     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+      \
+     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-CreateBucketMetadataConfigurationError) for what information is available for the error.")]
+-    Unhandled(crate::error::sealed_unhandled::Unhandled),
++    Unhandled(super::error::sealed_unhandled::Unhandled),
+ }
+ impl CreateBucketMetadataConfigurationError {
+     /// Creates the `CreateBucketMetadataConfigurationError::Unhandled` variant from any error type.
+@@ -444,7 +444,7 @@
+     pub fn unhandled(
+         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
+     ) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source: err.into(),
+             meta: ::std::default::Default::default(),
+         })
+@@ -452,7 +452,7 @@
+
+     /// Creates the `CreateBucketMetadataConfigurationError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source: err.clone().into(),
+             meta: err,
+         })
+@@ -507,26 +507,26 @@
+         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
+     ) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source,
+             meta: meta.unwrap_or_default(),
+         })
+     }
+ }
+-impl crate::s3_request_id::RequestIdExt for crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationError {
++impl super::s3_request_id::RequestIdExt for super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationError {
+     fn extended_request_id(&self) -> Option<&str> {
+         self.meta().extended_request_id()
+     }
+ }
+-impl ::aws_types::request_id::RequestId for crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationError {
++impl ::aws_types::request_id::RequestId for super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationError {
+     fn request_id(&self) -> Option<&str> {
+         self.meta().request_id()
+     }
+ }
+
+-pub use crate::operation::create_bucket_metadata_configuration::_create_bucket_metadata_configuration_input::CreateBucketMetadataConfigurationInput;
++pub use super::operation::create_bucket_metadata_configuration::_create_bucket_metadata_configuration_input::CreateBucketMetadataConfigurationInput;
+
+-pub use crate::operation::create_bucket_metadata_configuration::_create_bucket_metadata_configuration_output::CreateBucketMetadataConfigurationOutput;
++pub use super::operation::create_bucket_metadata_configuration::_create_bucket_metadata_configuration_output::CreateBucketMetadataConfigurationOutput;
+
+ mod _create_bucket_metadata_configuration_input;
+

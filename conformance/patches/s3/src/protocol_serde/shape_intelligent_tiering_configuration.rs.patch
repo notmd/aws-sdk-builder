@@ -1,0 +1,84 @@
+--- original
++++ modified
+@@ -3,12 +3,12 @@
+ pub fn de_intelligent_tiering_configuration(
+     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+     depth: u32,
+-) -> ::std::result::Result<crate::types::IntelligentTieringConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::types::IntelligentTieringConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
+     if depth >= 128u32 {
+         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+     }
+     #[allow(unused_mut)]
+-    let mut builder = crate::types::IntelligentTieringConfiguration::builder();
++    let mut builder = super::types::IntelligentTieringConfiguration::builder();
+     while let Some(mut tag) = decoder.next_tag() {
+         match tag.start_el() {
+             s if s.matches("Id") /* Id com.amazonaws.s3#IntelligentTieringConfiguration$Id */ =>  {
+@@ -27,7 +27,7 @@
+             s if s.matches("Filter") /* Filter com.amazonaws.s3#IntelligentTieringConfiguration$Filter */ =>  {
+                 let var_2 =
+                     Some(
+-                        crate::protocol_serde::shape_intelligent_tiering_filter::de_intelligent_tiering_filter(&mut tag, depth + 1)
++                        super::protocol_serde::shape_intelligent_tiering_filter::de_intelligent_tiering_filter(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;
+@@ -37,8 +37,8 @@
+             s if s.matches("Status") /* Status com.amazonaws.s3#IntelligentTieringConfiguration$Status */ =>  {
+                 let var_3 =
+                     Some(
+-                        Result::<crate::types::IntelligentTieringStatus, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+-                            crate::types::IntelligentTieringStatus::from(
++                        Result::<super::types::IntelligentTieringStatus, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::types::IntelligentTieringStatus::from(
+                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                             )
+                         )
+@@ -51,10 +51,10 @@
+             s if s.matches("Tiering") /* Tierings com.amazonaws.s3#IntelligentTieringConfiguration$Tierings */ =>  {
+                 let var_4 =
+                     Some(
+-                        Result::<::std::vec::Vec::<crate::types::Tiering>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
++                        Result::<::std::vec::Vec::<super::types::Tiering>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                             let mut list_5 = builder.tierings.take().unwrap_or_default();
+                             list_5.push(
+-                                crate::protocol_serde::shape_tiering::de_tiering(&mut tag, depth + 1)
++                                super::protocol_serde::shape_tiering::de_tiering(&mut tag, depth + 1)
+                                 ?
+                             );
+                             list_5
+@@ -68,13 +68,13 @@
+             _ => {}
+         }
+     }
+-    Ok(crate::serde_util::intelligent_tiering_configuration_correct_errors(builder)
++    Ok(super::serde_util::intelligent_tiering_configuration_correct_errors(builder)
+         .build()
+         .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
+ }
+
+ pub fn ser_intelligent_tiering_configuration(
+-    input: &crate::types::IntelligentTieringConfiguration,
++    input: &super::types::IntelligentTieringConfiguration,
+     writer: ::aws_smithy_xml::encode::ElWriter,
+ ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+     #[allow(unused_mut)]
+@@ -85,7 +85,7 @@
+     }
+     if let Some(var_6) = &input.filter {
+         let inner_writer = scope.start_el("Filter");
+-        crate::protocol_serde::shape_intelligent_tiering_filter::ser_intelligent_tiering_filter(var_6, inner_writer)?
++        super::protocol_serde::shape_intelligent_tiering_filter::ser_intelligent_tiering_filter(var_6, inner_writer)?
+     }
+     {
+         let mut inner_writer = scope.start_el("Status").finish();
+@@ -95,7 +95,7 @@
+         for list_item_7 in &input.tierings {
+             {
+                 let inner_writer = scope.start_el("Tiering");
+-                crate::protocol_serde::shape_tiering::ser_tiering(list_item_7, inner_writer)?
++                super::protocol_serde::shape_tiering::ser_tiering(list_item_7, inner_writer)?
+             }
+         }
+     }

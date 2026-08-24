@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -30,8 +30,8 @@
+ }
+ impl ListInstanceProfileTagsInput {
+     /// Creates a new builder-style object to manufacture [`ListInstanceProfileTagsInput`](crate::operation::list_instance_profile_tags::ListInstanceProfileTagsInput).
+-    pub fn builder() -> crate::operation::list_instance_profile_tags::builders::ListInstanceProfileTagsInputBuilder {
+-        crate::operation::list_instance_profile_tags::builders::ListInstanceProfileTagsInputBuilder::default()
++    pub fn builder() -> super::operation::list_instance_profile_tags::builders::ListInstanceProfileTagsInputBuilder {
++        super::operation::list_instance_profile_tags::builders::ListInstanceProfileTagsInputBuilder::default()
+     }
+ }
+
+@@ -97,10 +97,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::list_instance_profile_tags::ListInstanceProfileTagsInput,
++        super::operation::list_instance_profile_tags::ListInstanceProfileTagsInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::list_instance_profile_tags::ListInstanceProfileTagsInput {
++        ::std::result::Result::Ok(super::operation::list_instance_profile_tags::ListInstanceProfileTagsInput {
+             instance_profile_name: self.instance_profile_name,
+             marker: self.marker,
+             max_items: self.max_items,

@@ -1,0 +1,175 @@
+--- original
++++ modified
+@@ -38,12 +38,12 @@
+     /// <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
+     pub checksum_xxhash128: ::std::option::Option<::std::string::String>,
+     /// <p>The checksum type, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum type that was specified during the <code>CreateMultipartUpload</code> request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
+-    pub checksum_type: ::std::option::Option<crate::types::ChecksumType>,
++    pub checksum_type: ::std::option::Option<super::types::ChecksumType>,
+     /// <p>The server-side encryption algorithm used when storing this object in Amazon S3.</p><note>
+     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+     /// </note>
+     /// <p></p>
+-    pub server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
++    pub server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
+     /// <p>Version ID of the newly created object, in case the bucket has versioning turned on.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+@@ -55,7 +55,7 @@
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
++    pub request_charged: ::std::option::Option<super::types::RequestCharged>,
+     _extended_request_id: Option<String>,
+     _request_id: Option<String>,
+ }
+@@ -125,7 +125,7 @@
+         self.checksum_xxhash128.as_deref()
+     }
+     /// <p>The checksum type, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum type that was specified during the <code>CreateMultipartUpload</code> request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
+-    pub fn checksum_type(&self) -> ::std::option::Option<&crate::types::ChecksumType> {
++    pub fn checksum_type(&self) -> ::std::option::Option<&super::types::ChecksumType> {
+         self.checksum_type.as_ref()
+     }
+     /// <p>The server-side encryption algorithm used when storing this object in Amazon S3.</p><note>
+@@ -132,7 +132,7 @@
+     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+     /// </note>
+     /// <p></p>
+-    pub fn server_side_encryption(&self) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
++    pub fn server_side_encryption(&self) -> ::std::option::Option<&super::types::ServerSideEncryption> {
+         self.server_side_encryption.as_ref()
+     }
+     /// <p>Version ID of the newly created object, in case the bucket has versioning turned on.</p><note>
+@@ -152,7 +152,7 @@
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
++    pub fn request_charged(&self) -> ::std::option::Option<&super::types::RequestCharged> {
+         self.request_charged.as_ref()
+     }
+ }
+@@ -185,7 +185,7 @@
+         formatter.finish()
+     }
+ }
+-impl crate::s3_request_id::RequestIdExt for CompleteMultipartUploadOutput {
++impl super::s3_request_id::RequestIdExt for CompleteMultipartUploadOutput {
+     fn extended_request_id(&self) -> Option<&str> {
+         self._extended_request_id.as_deref()
+     }
+@@ -197,8 +197,8 @@
+ }
+ impl CompleteMultipartUploadOutput {
+     /// Creates a new builder-style object to manufacture [`CompleteMultipartUploadOutput`](crate::operation::complete_multipart_upload::CompleteMultipartUploadOutput).
+-    pub fn builder() -> crate::operation::complete_multipart_upload::builders::CompleteMultipartUploadOutputBuilder {
+-        crate::operation::complete_multipart_upload::builders::CompleteMultipartUploadOutputBuilder::default()
++    pub fn builder() -> super::operation::complete_multipart_upload::builders::CompleteMultipartUploadOutputBuilder {
++        super::operation::complete_multipart_upload::builders::CompleteMultipartUploadOutputBuilder::default()
+     }
+ }
+
+@@ -221,12 +221,12 @@
+     pub(crate) checksum_xxhash64: ::std::option::Option<::std::string::String>,
+     pub(crate) checksum_xxhash3: ::std::option::Option<::std::string::String>,
+     pub(crate) checksum_xxhash128: ::std::option::Option<::std::string::String>,
+-    pub(crate) checksum_type: ::std::option::Option<crate::types::ChecksumType>,
+-    pub(crate) server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
++    pub(crate) checksum_type: ::std::option::Option<super::types::ChecksumType>,
++    pub(crate) server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
+     pub(crate) version_id: ::std::option::Option<::std::string::String>,
+     pub(crate) ssekms_key_id: ::std::option::Option<::std::string::String>,
+     pub(crate) bucket_key_enabled: ::std::option::Option<bool>,
+-    pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
++    pub(crate) request_charged: ::std::option::Option<super::types::RequestCharged>,
+     _extended_request_id: Option<String>,
+     _request_id: Option<String>,
+ }
+@@ -454,17 +454,17 @@
+         &self.checksum_xxhash128
+     }
+     /// <p>The checksum type, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum type that was specified during the <code>CreateMultipartUpload</code> request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
+-    pub fn checksum_type(mut self, input: crate::types::ChecksumType) -> Self {
++    pub fn checksum_type(mut self, input: super::types::ChecksumType) -> Self {
+         self.checksum_type = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The checksum type, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum type that was specified during the <code>CreateMultipartUpload</code> request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
+-    pub fn set_checksum_type(mut self, input: ::std::option::Option<crate::types::ChecksumType>) -> Self {
++    pub fn set_checksum_type(mut self, input: ::std::option::Option<super::types::ChecksumType>) -> Self {
+         self.checksum_type = input;
+         self
+     }
+     /// <p>The checksum type, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum type that was specified during the <code>CreateMultipartUpload</code> request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
+-    pub fn get_checksum_type(&self) -> &::std::option::Option<crate::types::ChecksumType> {
++    pub fn get_checksum_type(&self) -> &::std::option::Option<super::types::ChecksumType> {
+         &self.checksum_type
+     }
+     /// <p>The server-side encryption algorithm used when storing this object in Amazon S3.</p><note>
+@@ -471,7 +471,7 @@
+     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+     /// </note>
+     /// <p></p>
+-    pub fn server_side_encryption(mut self, input: crate::types::ServerSideEncryption) -> Self {
++    pub fn server_side_encryption(mut self, input: super::types::ServerSideEncryption) -> Self {
+         self.server_side_encryption = ::std::option::Option::Some(input);
+         self
+     }
+@@ -479,7 +479,7 @@
+     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+     /// </note>
+     /// <p></p>
+-    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
++    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<super::types::ServerSideEncryption>) -> Self {
+         self.server_side_encryption = input;
+         self
+     }
+@@ -487,7 +487,7 @@
+     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+     /// </note>
+     /// <p></p>
+-    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
++    pub fn get_server_side_encryption(&self) -> &::std::option::Option<super::types::ServerSideEncryption> {
+         &self.server_side_encryption
+     }
+     /// <p>Version ID of the newly created object, in case the bucket has versioning turned on.</p><note>
+@@ -541,7 +541,7 @@
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
++    pub fn request_charged(mut self, input: super::types::RequestCharged) -> Self {
+         self.request_charged = ::std::option::Option::Some(input);
+         self
+     }
+@@ -548,7 +548,7 @@
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
++    pub fn set_request_charged(mut self, input: ::std::option::Option<super::types::RequestCharged>) -> Self {
+         self.request_charged = input;
+         self
+     }
+@@ -555,7 +555,7 @@
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
++    pub fn get_request_charged(&self) -> &::std::option::Option<super::types::RequestCharged> {
+         &self.request_charged
+     }
+     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+@@ -577,8 +577,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`CompleteMultipartUploadOutput`](crate::operation::complete_multipart_upload::CompleteMultipartUploadOutput).
+-    pub fn build(self) -> crate::operation::complete_multipart_upload::CompleteMultipartUploadOutput {
+-        crate::operation::complete_multipart_upload::CompleteMultipartUploadOutput {
++    pub fn build(self) -> super::operation::complete_multipart_upload::CompleteMultipartUploadOutput {
++        super::operation::complete_multipart_upload::CompleteMultipartUploadOutput {
+             location: self.location,
+             bucket: self.bucket,
+             key: self.key,

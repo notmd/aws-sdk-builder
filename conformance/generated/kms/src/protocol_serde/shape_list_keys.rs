@@ -47,7 +47,7 @@ pub fn de_list_keys_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::list_keys::ListKeysError::KmsInternalException({
+        "KMSInternalException" => crate::operation::list_keys::ListKeysError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

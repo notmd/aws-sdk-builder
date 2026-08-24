@@ -1,0 +1,58 @@
+--- original
++++ modified
+@@ -5,18 +5,18 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct ExecutionStoppedDetails {
+     /// <p>Details about why the execution stopped.</p>
+-    pub error: ::std::option::Option<crate::types::EventError>,
++    pub error: ::std::option::Option<super::types::EventError>,
+ }
+ impl ExecutionStoppedDetails {
+     /// <p>Details about why the execution stopped.</p>
+-    pub fn error(&self) -> ::std::option::Option<&crate::types::EventError> {
++    pub fn error(&self) -> ::std::option::Option<&super::types::EventError> {
+         self.error.as_ref()
+     }
+ }
+ impl ExecutionStoppedDetails {
+     /// Creates a new builder-style object to manufacture [`ExecutionStoppedDetails`](crate::types::ExecutionStoppedDetails).
+-    pub fn builder() -> crate::types::builders::ExecutionStoppedDetailsBuilder {
+-        crate::types::builders::ExecutionStoppedDetailsBuilder::default()
++    pub fn builder() -> super::types::builders::ExecutionStoppedDetailsBuilder {
++        super::types::builders::ExecutionStoppedDetailsBuilder::default()
+     }
+ }
+
+@@ -24,26 +24,26 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct ExecutionStoppedDetailsBuilder {
+-    pub(crate) error: ::std::option::Option<crate::types::EventError>,
++    pub(crate) error: ::std::option::Option<super::types::EventError>,
+ }
+ impl ExecutionStoppedDetailsBuilder {
+     /// <p>Details about why the execution stopped.</p>
+     /// This field is required.
+-    pub fn error(mut self, input: crate::types::EventError) -> Self {
++    pub fn error(mut self, input: super::types::EventError) -> Self {
+         self.error = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Details about why the execution stopped.</p>
+-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
++    pub fn set_error(mut self, input: ::std::option::Option<super::types::EventError>) -> Self {
+         self.error = input;
+         self
+     }
+     /// <p>Details about why the execution stopped.</p>
+-    pub fn get_error(&self) -> &::std::option::Option<crate::types::EventError> {
++    pub fn get_error(&self) -> &::std::option::Option<super::types::EventError> {
+         &self.error
+     }
+     /// Consumes the builder and constructs a [`ExecutionStoppedDetails`](crate::types::ExecutionStoppedDetails).
+-    pub fn build(self) -> crate::types::ExecutionStoppedDetails {
+-        crate::types::ExecutionStoppedDetails { error: self.error }
++    pub fn build(self) -> super::types::ExecutionStoppedDetails {
++        super::types::ExecutionStoppedDetails { error: self.error }
+     }
+ }

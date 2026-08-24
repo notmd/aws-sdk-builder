@@ -24,7 +24,7 @@ impl Ec2AccessDeniedException {
 }
 impl ::std::fmt::Display for Ec2AccessDeniedException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(f, "Ec2AccessDeniedException")?;
+        ::std::write!(f, "Ec2AccessDeniedException [EC2AccessDeniedException]")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;

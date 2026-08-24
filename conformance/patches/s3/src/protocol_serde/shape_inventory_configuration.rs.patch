@@ -1,0 +1,105 @@
+--- original
++++ modified
+@@ -3,18 +3,18 @@
+ pub fn de_inventory_configuration(
+     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+     depth: u32,
+-) -> ::std::result::Result<crate::types::InventoryConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::types::InventoryConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
+     if depth >= 128u32 {
+         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+     }
+     #[allow(unused_mut)]
+-    let mut builder = crate::types::InventoryConfiguration::builder();
++    let mut builder = super::types::InventoryConfiguration::builder();
+     while let Some(mut tag) = decoder.next_tag() {
+         match tag.start_el() {
+             s if s.matches("Destination") /* Destination com.amazonaws.s3#InventoryConfiguration$Destination */ =>  {
+                 let var_1 =
+                     Some(
+-                        crate::protocol_serde::shape_inventory_destination::de_inventory_destination(&mut tag, depth + 1)
++                        super::protocol_serde::shape_inventory_destination::de_inventory_destination(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;
+@@ -39,7 +39,7 @@
+             s if s.matches("Filter") /* Filter com.amazonaws.s3#InventoryConfiguration$Filter */ =>  {
+                 let var_3 =
+                     Some(
+-                        crate::protocol_serde::shape_inventory_filter::de_inventory_filter(&mut tag, depth + 1)
++                        super::protocol_serde::shape_inventory_filter::de_inventory_filter(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;
+@@ -62,8 +62,8 @@
+             s if s.matches("IncludedObjectVersions") /* IncludedObjectVersions com.amazonaws.s3#InventoryConfiguration$IncludedObjectVersions */ =>  {
+                 let var_5 =
+                     Some(
+-                        Result::<crate::types::InventoryIncludedObjectVersions, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+-                            crate::types::InventoryIncludedObjectVersions::from(
++                        Result::<super::types::InventoryIncludedObjectVersions, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::types::InventoryIncludedObjectVersions::from(
+                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                             )
+                         )
+@@ -76,7 +76,7 @@
+             s if s.matches("OptionalFields") /* OptionalFields com.amazonaws.s3#InventoryConfiguration$OptionalFields */ =>  {
+                 let var_6 =
+                     Some(
+-                        crate::protocol_serde::shape_inventory_optional_fields::de_inventory_optional_fields(&mut tag, depth + 1)
++                        super::protocol_serde::shape_inventory_optional_fields::de_inventory_optional_fields(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;
+@@ -86,7 +86,7 @@
+             s if s.matches("Schedule") /* Schedule com.amazonaws.s3#InventoryConfiguration$Schedule */ =>  {
+                 let var_7 =
+                     Some(
+-                        crate::protocol_serde::shape_inventory_schedule::de_inventory_schedule(&mut tag, depth + 1)
++                        super::protocol_serde::shape_inventory_schedule::de_inventory_schedule(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;
+@@ -96,13 +96,13 @@
+             _ => {}
+         }
+     }
+-    Ok(crate::serde_util::inventory_configuration_correct_errors(builder)
++    Ok(super::serde_util::inventory_configuration_correct_errors(builder)
+         .build()
+         .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
+ }
+
+ pub fn ser_inventory_configuration(
+-    input: &crate::types::InventoryConfiguration,
++    input: &super::types::InventoryConfiguration,
+     writer: ::aws_smithy_xml::encode::ElWriter,
+ ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+     #[allow(unused_mut)]
+@@ -109,7 +109,7 @@
+     let mut scope = writer.finish();
+     if let Some(var_8) = &input.destination {
+         let inner_writer = scope.start_el("Destination");
+-        crate::protocol_serde::shape_inventory_destination::ser_inventory_destination(var_8, inner_writer)?
++        super::protocol_serde::shape_inventory_destination::ser_inventory_destination(var_8, inner_writer)?
+     }
+     {
+         let mut inner_writer = scope.start_el("IsEnabled").finish();
+@@ -117,7 +117,7 @@
+     }
+     if let Some(var_9) = &input.filter {
+         let inner_writer = scope.start_el("Filter");
+-        crate::protocol_serde::shape_inventory_filter::ser_inventory_filter(var_9, inner_writer)?
++        super::protocol_serde::shape_inventory_filter::ser_inventory_filter(var_9, inner_writer)?
+     }
+     {
+         let mut inner_writer = scope.start_el("Id").finish();
+@@ -138,7 +138,7 @@
+     }
+     if let Some(var_12) = &input.schedule {
+         let inner_writer = scope.start_el("Schedule");
+-        crate::protocol_serde::shape_inventory_schedule::ser_inventory_schedule(var_12, inner_writer)?
++        super::protocol_serde::shape_inventory_schedule::ser_inventory_schedule(var_12, inner_writer)?
+     }
+     scope.finish();
+     Ok(())

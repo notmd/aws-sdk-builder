@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for TopicLimitExceededException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::TopicLimitExceededException {
++impl ::aws_types::request_id::RequestId for super::types::error::TopicLimitExceededException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl TopicLimitExceededException {
+     /// Creates a new builder-style object to manufacture [`TopicLimitExceededException`](crate::types::error::TopicLimitExceededException).
+-    pub fn builder() -> crate::types::error::builders::TopicLimitExceededExceptionBuilder {
+-        crate::types::error::builders::TopicLimitExceededExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::TopicLimitExceededExceptionBuilder {
++        super::types::error::builders::TopicLimitExceededExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`TopicLimitExceededException`](crate::types::error::TopicLimitExceededException).
+-    pub fn build(self) -> crate::types::error::TopicLimitExceededException {
+-        crate::types::error::TopicLimitExceededException {
++    pub fn build(self) -> super::types::error::TopicLimitExceededException {
++        super::types::error::TopicLimitExceededException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

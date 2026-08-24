@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -23,8 +23,8 @@
+ }
+ impl PolicyRole {
+     /// Creates a new builder-style object to manufacture [`PolicyRole`](crate::types::PolicyRole).
+-    pub fn builder() -> crate::types::builders::PolicyRoleBuilder {
+-        crate::types::builders::PolicyRoleBuilder::default()
++    pub fn builder() -> super::types::builders::PolicyRoleBuilder {
++        super::types::builders::PolicyRoleBuilder::default()
+     }
+ }
+
+@@ -65,8 +65,8 @@
+         &self.role_id
+     }
+     /// Consumes the builder and constructs a [`PolicyRole`](crate::types::PolicyRole).
+-    pub fn build(self) -> crate::types::PolicyRole {
+-        crate::types::PolicyRole {
++    pub fn build(self) -> super::types::PolicyRole {
++        super::types::PolicyRole {
+             role_name: self.role_name,
+             role_id: self.role_id,
+         }

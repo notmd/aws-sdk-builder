@@ -1,0 +1,144 @@
+--- original
++++ modified
+@@ -5,18 +5,18 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
+-    crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
++    super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
++    super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+         None => {
+-            return Err(crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled(
++            return Err(super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled(
+                 generic,
+             ))
+         }
+@@ -24,16 +24,16 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ConcurrentModification" => crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::ConcurrentModificationException({
++        "ConcurrentModification" => super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::ConcurrentModificationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(
++                let mut output = super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
++                output = super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(
+                     _response_body,
+                     output,
+                 )
+-                .map_err(crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled)?;
++                .map_err(super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -42,13 +42,13 @@
+             }
+             tmp
+         }),
+-        "InvalidInput" => crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::InvalidInputException({
++        "InvalidInput" => super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InvalidInputExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled)?;
++                let mut output = super::types::error::builders::InvalidInputExceptionBuilder::default();
++                output = super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -57,13 +57,13 @@
+             }
+             tmp
+         }),
+-        "LimitExceeded" => crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::LimitExceededException({
++        "LimitExceeded" => super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled)?;
++                let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
++                output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -72,13 +72,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::NoSuchEntityException({
++        "NoSuchEntity" => super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled)?;
++                let mut output = super::types::error::builders::NoSuchEntityExceptionBuilder::default();
++                output = super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -87,13 +87,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::ServiceFailureException({
++        "ServiceFailure" => super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled)?;
++                let mut output = super::types::error::builders::ServiceFailureExceptionBuilder::default();
++                output = super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -102,7 +102,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::generic(generic),
++        _ => super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::generic(generic),
+     })
+ }
+
+@@ -112,12 +112,12 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
+-    crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
++    super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
++    super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::tag_open_id_connect_provider::builders::TagOpenIdConnectProviderOutputBuilder::default();
++        let mut output = super::operation::tag_open_id_connect_provider::builders::TagOpenIdConnectProviderOutputBuilder::default();
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })

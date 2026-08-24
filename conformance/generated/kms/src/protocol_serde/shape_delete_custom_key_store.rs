@@ -20,12 +20,12 @@ pub fn de_delete_custom_key_store_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "CustomKeyStoreHasCmKsException" => crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError::CustomKeyStoreHasCmKsException({
+        "CustomKeyStoreHasCMKsException" => crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError::CustomKeyStoreHasCmKsException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::CustomKeyStoreHasCmKsExceptionBuilder::default();
-                output = crate::protocol_serde::shape_custom_key_store_has_cm_ks_exception::de_custom_key_store_has_cm_ks_exception_json_err(
+                output = crate::protocol_serde::shape_custom_key_store_has_cmks_exception::de_custom_key_store_has_cmks_exception_json_err(
                     _response_body,
                     output,
                 )
@@ -77,7 +77,7 @@ pub fn de_delete_custom_key_store_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError::KmsInternalException({
+        "KMSInternalException" => crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

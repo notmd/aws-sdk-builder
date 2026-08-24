@@ -926,7 +926,6 @@ mod tests {
         let metadata = ServiceMetadata {
             key: "fixture",
             filename: "fixture.json",
-            crate_name: "aws-sdk-fixture",
             module_name: "aws_sdk_fixture",
             sdk_version: None,
         };
@@ -945,7 +944,6 @@ mod tests {
         let metadata = ServiceMetadata {
             key: "fixture",
             filename: "fixture.json",
-            crate_name: "aws-sdk-fixture",
             module_name: "aws_sdk_fixture",
             sdk_version: None,
         };

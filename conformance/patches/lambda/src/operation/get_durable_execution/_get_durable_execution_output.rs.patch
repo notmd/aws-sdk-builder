@@ -1,0 +1,190 @@
+--- original
++++ modified
+@@ -15,21 +15,21 @@
+     /// <p>The JSON result returned by the durable execution if it completed successfully. This field is only present when the execution status is <code>SUCCEEDED</code>. The result is limited to 256 KB.</p>
+     pub result: ::std::option::Option<::std::string::String>,
+     /// <p>Error information if the durable execution failed. This field is only present when the execution status is <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>. The combined size of all error fields is limited to 256 KB.</p>
+-    pub error: ::std::option::Option<crate::types::ErrorObject>,
++    pub error: ::std::option::Option<super::types::ErrorObject>,
+     /// <p>The date and time when the durable execution started, in Unix timestamp format.</p>
+     pub start_timestamp: ::aws_smithy_types::DateTime,
+     /// <p>The current status of the durable execution. Valid values are <code>RUNNING</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, and <code>STOPPED</code>.</p>
+-    pub status: crate::types::ExecutionStatus,
++    pub status: super::types::ExecutionStatus,
+     /// <p>The date and time when the durable execution ended, in Unix timestamp format. This field is only present if the execution has completed (status is <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>).</p>
+     pub end_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
+     /// <p>The version of the Lambda function that was invoked for this durable execution. This ensures that all replays during the execution use the same function version.</p>
+     pub version: ::std::option::Option<::std::string::String>,
+     /// <p>The trace headers associated with the durable execution.</p>
+-    pub trace_header: ::std::option::Option<crate::types::TraceHeader>,
++    pub trace_header: ::std::option::Option<super::types::TraceHeader>,
+     /// <p>Indicates whether execution data is included in this response. Returns <code>false</code> when <code>IncludeExecutionData</code> is set to <code>false</code> in the request.</p>
+     pub execution_data_included: ::std::option::Option<bool>,
+     /// <p>Configuration settings for the durable execution, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
+-    pub durable_config: ::std::option::Option<crate::types::DurableConfig>,
++    pub durable_config: ::std::option::Option<super::types::DurableConfig>,
+     _request_id: Option<String>,
+ }
+ impl GetDurableExecutionOutput {
+@@ -57,7 +57,7 @@
+         self.result.as_deref()
+     }
+     /// <p>Error information if the durable execution failed. This field is only present when the execution status is <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>. The combined size of all error fields is limited to 256 KB.</p>
+-    pub fn error(&self) -> ::std::option::Option<&crate::types::ErrorObject> {
++    pub fn error(&self) -> ::std::option::Option<&super::types::ErrorObject> {
+         self.error.as_ref()
+     }
+     /// <p>The date and time when the durable execution started, in Unix timestamp format.</p>
+@@ -65,7 +65,7 @@
+         &self.start_timestamp
+     }
+     /// <p>The current status of the durable execution. Valid values are <code>RUNNING</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, and <code>STOPPED</code>.</p>
+-    pub fn status(&self) -> &crate::types::ExecutionStatus {
++    pub fn status(&self) -> &super::types::ExecutionStatus {
+         &self.status
+     }
+     /// <p>The date and time when the durable execution ended, in Unix timestamp format. This field is only present if the execution has completed (status is <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>).</p>
+@@ -77,7 +77,7 @@
+         self.version.as_deref()
+     }
+     /// <p>The trace headers associated with the durable execution.</p>
+-    pub fn trace_header(&self) -> ::std::option::Option<&crate::types::TraceHeader> {
++    pub fn trace_header(&self) -> ::std::option::Option<&super::types::TraceHeader> {
+         self.trace_header.as_ref()
+     }
+     /// <p>Indicates whether execution data is included in this response. Returns <code>false</code> when <code>IncludeExecutionData</code> is set to <code>false</code> in the request.</p>
+@@ -85,7 +85,7 @@
+         self.execution_data_included
+     }
+     /// <p>Configuration settings for the durable execution, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
+-    pub fn durable_config(&self) -> ::std::option::Option<&crate::types::DurableConfig> {
++    pub fn durable_config(&self) -> ::std::option::Option<&super::types::DurableConfig> {
+         self.durable_config.as_ref()
+     }
+ }
+@@ -116,8 +116,8 @@
+ }
+ impl GetDurableExecutionOutput {
+     /// Creates a new builder-style object to manufacture [`GetDurableExecutionOutput`](crate::operation::get_durable_execution::GetDurableExecutionOutput).
+-    pub fn builder() -> crate::operation::get_durable_execution::builders::GetDurableExecutionOutputBuilder {
+-        crate::operation::get_durable_execution::builders::GetDurableExecutionOutputBuilder::default()
++    pub fn builder() -> super::operation::get_durable_execution::builders::GetDurableExecutionOutputBuilder {
++        super::operation::get_durable_execution::builders::GetDurableExecutionOutputBuilder::default()
+     }
+ }
+
+@@ -130,14 +130,14 @@
+     pub(crate) function_arn: ::std::option::Option<::std::string::String>,
+     pub(crate) input_payload: ::std::option::Option<::std::string::String>,
+     pub(crate) result: ::std::option::Option<::std::string::String>,
+-    pub(crate) error: ::std::option::Option<crate::types::ErrorObject>,
++    pub(crate) error: ::std::option::Option<super::types::ErrorObject>,
+     pub(crate) start_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
+-    pub(crate) status: ::std::option::Option<crate::types::ExecutionStatus>,
++    pub(crate) status: ::std::option::Option<super::types::ExecutionStatus>,
+     pub(crate) end_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
+     pub(crate) version: ::std::option::Option<::std::string::String>,
+-    pub(crate) trace_header: ::std::option::Option<crate::types::TraceHeader>,
++    pub(crate) trace_header: ::std::option::Option<super::types::TraceHeader>,
+     pub(crate) execution_data_included: ::std::option::Option<bool>,
+-    pub(crate) durable_config: ::std::option::Option<crate::types::DurableConfig>,
++    pub(crate) durable_config: ::std::option::Option<super::types::DurableConfig>,
+     _request_id: Option<String>,
+ }
+ impl GetDurableExecutionOutputBuilder {
+@@ -215,17 +215,17 @@
+         &self.result
+     }
+     /// <p>Error information if the durable execution failed. This field is only present when the execution status is <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>. The combined size of all error fields is limited to 256 KB.</p>
+-    pub fn error(mut self, input: crate::types::ErrorObject) -> Self {
++    pub fn error(mut self, input: super::types::ErrorObject) -> Self {
+         self.error = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Error information if the durable execution failed. This field is only present when the execution status is <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>. The combined size of all error fields is limited to 256 KB.</p>
+-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
++    pub fn set_error(mut self, input: ::std::option::Option<super::types::ErrorObject>) -> Self {
+         self.error = input;
+         self
+     }
+     /// <p>Error information if the durable execution failed. This field is only present when the execution status is <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>. The combined size of all error fields is limited to 256 KB.</p>
+-    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorObject> {
++    pub fn get_error(&self) -> &::std::option::Option<super::types::ErrorObject> {
+         &self.error
+     }
+     /// <p>The date and time when the durable execution started, in Unix timestamp format.</p>
+@@ -245,17 +245,17 @@
+     }
+     /// <p>The current status of the durable execution. Valid values are <code>RUNNING</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, and <code>STOPPED</code>.</p>
+     /// This field is required.
+-    pub fn status(mut self, input: crate::types::ExecutionStatus) -> Self {
++    pub fn status(mut self, input: super::types::ExecutionStatus) -> Self {
+         self.status = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The current status of the durable execution. Valid values are <code>RUNNING</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, and <code>STOPPED</code>.</p>
+-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExecutionStatus>) -> Self {
++    pub fn set_status(mut self, input: ::std::option::Option<super::types::ExecutionStatus>) -> Self {
+         self.status = input;
+         self
+     }
+     /// <p>The current status of the durable execution. Valid values are <code>RUNNING</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, and <code>STOPPED</code>.</p>
+-    pub fn get_status(&self) -> &::std::option::Option<crate::types::ExecutionStatus> {
++    pub fn get_status(&self) -> &::std::option::Option<super::types::ExecutionStatus> {
+         &self.status
+     }
+     /// <p>The date and time when the durable execution ended, in Unix timestamp format. This field is only present if the execution has completed (status is <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>).</p>
+@@ -287,17 +287,17 @@
+         &self.version
+     }
+     /// <p>The trace headers associated with the durable execution.</p>
+-    pub fn trace_header(mut self, input: crate::types::TraceHeader) -> Self {
++    pub fn trace_header(mut self, input: super::types::TraceHeader) -> Self {
+         self.trace_header = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The trace headers associated with the durable execution.</p>
+-    pub fn set_trace_header(mut self, input: ::std::option::Option<crate::types::TraceHeader>) -> Self {
++    pub fn set_trace_header(mut self, input: ::std::option::Option<super::types::TraceHeader>) -> Self {
+         self.trace_header = input;
+         self
+     }
+     /// <p>The trace headers associated with the durable execution.</p>
+-    pub fn get_trace_header(&self) -> &::std::option::Option<crate::types::TraceHeader> {
++    pub fn get_trace_header(&self) -> &::std::option::Option<super::types::TraceHeader> {
+         &self.trace_header
+     }
+     /// <p>Indicates whether execution data is included in this response. Returns <code>false</code> when <code>IncludeExecutionData</code> is set to <code>false</code> in the request.</p>
+@@ -315,17 +315,17 @@
+         &self.execution_data_included
+     }
+     /// <p>Configuration settings for the durable execution, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
+-    pub fn durable_config(mut self, input: crate::types::DurableConfig) -> Self {
++    pub fn durable_config(mut self, input: super::types::DurableConfig) -> Self {
+         self.durable_config = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Configuration settings for the durable execution, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
+-    pub fn set_durable_config(mut self, input: ::std::option::Option<crate::types::DurableConfig>) -> Self {
++    pub fn set_durable_config(mut self, input: ::std::option::Option<super::types::DurableConfig>) -> Self {
+         self.durable_config = input;
+         self
+     }
+     /// <p>Configuration settings for the durable execution, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
+-    pub fn get_durable_config(&self) -> &::std::option::Option<crate::types::DurableConfig> {
++    pub fn get_durable_config(&self) -> &::std::option::Option<super::types::DurableConfig> {
+         &self.durable_config
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -346,9 +346,9 @@
+     /// - [`status`](crate::operation::get_durable_execution::builders::GetDurableExecutionOutputBuilder::status)
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::get_durable_execution::GetDurableExecutionOutput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::get_durable_execution::GetDurableExecutionOutput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::get_durable_execution::GetDurableExecutionOutput {
++        ::std::result::Result::Ok(super::operation::get_durable_execution::GetDurableExecutionOutput {
+             durable_execution_arn: self.durable_execution_arn.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "durable_execution_arn",

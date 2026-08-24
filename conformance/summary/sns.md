@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sns
-**Progress:** `446/446` files compared · `238` matched · `63` mismatches · `145` missing · `0` extra · `53.36%` match (100.00% means fully matched)
+**Progress:** `445/445` files compared · `243` matched · `57` mismatches · `145` missing · `0` extra · `54.61%` match (100.00% means fully matched)
 
 ### `src/client/create_topic.rs`
 
@@ -34,7 +34,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`attributes(impl Into<String>, impl Into<String>)`](crate::operation::set_sms_attributes::builders::SetSMSAttributesFluentBuilder::attributes) / [`set_attributes(Option<HashMap::<String, String>>)`](crate::operation::set_sms_attributes::builders::SetSMSAttributesFluentBuilder::set_attributes):<br>required: **true**<br><p>The default settings for sending SMS messages from your Amazon Web Services account. You can set values for the following attribute names:</p> <p><code>MonthlySpendLimit</code> – The maximum amount in USD that you are willing to spend each month to send SMS messages. When Amazon SNS determines that sending an SMS message would incur a cost that exceeds this limit, it stops sending SMS messages within minutes.</p><important>  <p>Amazon SNS stops sending SMS messages within minutes of the limit being crossed. During that interval, if you continue to send SMS messages, you will incur costs that exceed your limit.</p> </important> <p>By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want to raise the limit, submit an <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-sns">SNS Limit Increase case</a>. For <b>New limit value</b>, enter your desired monthly spend limit. In the <b>Use Case Description</b> field, explain that you are requesting an SMS monthly spend limit increase.</p> <p><code>DeliveryStatusIAMRole</code> – The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs. For each SMS message that you send, Amazon SNS writes a log that includes the message price, the success or failure status, the reason for failure (if the message failed), the message dwell time, and other information.</p> <p><code>DeliveryStatusSuccessSamplingRate</code> – The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value can be an integer from 0 - 100. For example, to write logs only for failed deliveries, set this value to <code>0</code>. To write logs for 10% of your successful deliveries, set it to <code>10</code>.</p> <p><code>DefaultSenderID</code> – A string, such as your business brand, that is displayed as the sender on the receiving device. Support for sender IDs varies by country. The sender ID can be 1 - 11 alphanumeric characters, and it must contain at least one letter.</p> <p><code>DefaultSMSType</code> – The type of SMS message that you will send by default. You can assign the following values:</p> <ul>  <li>   <p><code>Promotional</code> – (Default) Noncritical messages, such as marketing messages. Amazon SNS optimizes the message delivery to incur the lowest cost.</p></li>  <li>   <p><code>Transactional</code> – Critical messages that support customer transactions, such as one-time passcodes for multi-factor authentication. Amazon SNS optimizes the message delivery to achieve the highest reliability.</p></li> </ul> <p><code>UsageReportS3Bucket</code> – The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS. Each day, Amazon SNS will deliver a usage report as a CSV file to the bucket. The report includes the following information for each SMS message that was successfully delivered by your Amazon Web Services account:</p> <ul>  <li>   <p>Time that the message was published (in UTC)</p></li>  <li>   <p>Message ID</p></li>  <li>   <p>Destination phone number</p></li>  <li>   <p>Message type</p></li>  <li>   <p>Delivery status</p></li>  <li>   <p>Message price (in USD)</p></li>  <li>   <p>Part number (a message is split into multiple parts if it is too long for a single message)</p></li>  <li>   <p>Total number of parts</p></li> </ul> <p>To receive the report, the bucket must have a policy that allows the Amazon SNS service principal to perform the <code>s3:PutObject</code> and <code>s3:GetBucketLocation</code> actions.</p> <p>For an example bucket policy and usage report, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_stats.html">Monitoring SMS Activity</a> in the <i>Amazon SNS Developer Guide</i>.</p><br>
      /// - On success, responds with [`SetSmsAttributesOutput`](crate::operation::set_sms_attributes::SetSmsAttributesOutput)
      /// - On failure, responds with [`SdkError<SetSMSAttributesError>`](crate::operation::set_sms_attributes::SetSMSAttributesError)
-     pub fn set_sms_attributes(&self) -> crate::operation::set_sms_attributes::builders::SetSMSAttributesFluentBuilder {
+     pub fn set_sms_attributes(&self) -> super::operation::set_sms_attributes::builders::SetSMSAttributesFluentBuilder {
 ```
 
 ### `src/client/set_topic_attributes.rs`
@@ -67,10 +67,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_add_permission_input::ser_add_permission_input_input_input(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_add_permission_input::ser_add_permission_input_input_input(
 -            &input,
 -        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_add_permission_input::ser_add_permission_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_add_permission_input::ser_add_permission_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -91,8 +91,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_check_if_phone_number_is_opted_out_input::ser_check_if_phone_number_is_opted_out_input_input_input(&input)?,
-+            crate::protocol_serde::shape_check_if_phone_number_is_opted_out_input::ser_check_if_phone_number_is_opted_out_op_input(&input)?,
+-            super::protocol_serde::shape_check_if_phone_number_is_opted_out_input::ser_check_if_phone_number_is_opted_out_input_input_input(&input)?,
++            super::protocol_serde::shape_check_if_phone_number_is_opted_out_input::ser_check_if_phone_number_is_opted_out_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -113,8 +113,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_confirm_subscription_input::ser_confirm_subscription_input_input_input(&input)?,
-+            crate::protocol_serde::shape_confirm_subscription_input::ser_confirm_subscription_op_input(&input)?,
+-            super::protocol_serde::shape_confirm_subscription_input::ser_confirm_subscription_input_input_input(&input)?,
++            super::protocol_serde::shape_confirm_subscription_input::ser_confirm_subscription_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -135,8 +135,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_create_platform_application_input::ser_create_platform_application_input_input_input(&input)?,
-+            crate::protocol_serde::shape_create_platform_application_input::ser_create_platform_application_op_input(&input)?,
+-            super::protocol_serde::shape_create_platform_application_input::ser_create_platform_application_input_input_input(&input)?,
++            super::protocol_serde::shape_create_platform_application_input::ser_create_platform_application_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -157,8 +157,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_create_platform_endpoint_input::ser_create_platform_endpoint_input_input_input(&input)?,
-+            crate::protocol_serde::shape_create_platform_endpoint_input::ser_create_platform_endpoint_op_input(&input)?,
+-            super::protocol_serde::shape_create_platform_endpoint_input::ser_create_platform_endpoint_input_input_input(&input)?,
++            super::protocol_serde::shape_create_platform_endpoint_input::ser_create_platform_endpoint_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -171,10 +171,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/create_sms_sandbox_phone_number/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
+         super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
-+            crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
+-            super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
++            super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -190,26 +190,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct CreateSMSSandboxPhoneNumberFluentBuilder {
 +pub struct CreateSmsSandboxPhoneNumberFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::create_sms_sandbox_phone_number::builders::CreateSmsSandboxPhoneNumberInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::create_sms_sandbox_phone_number::builders::CreateSmsSandboxPhoneNumberInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -33,8 +33,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
--        crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
+-        super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
 -    > for CreateSMSSandboxPhoneNumberFluentBuilder
-+        crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
++        super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
 +    > for CreateSmsSandboxPhoneNumberFluentBuilder
  {
      fn send(
          self,
 @@ -42,14 +42,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
--            crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
-+            crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
+-            super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
++            super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -219,7 +219,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `CreateSMSSandboxPhoneNumberFluentBuilder`.
 +impl CreateSmsSandboxPhoneNumberFluentBuilder {
 +    /// Creates a new `CreateSmsSandboxPhoneNumberFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -57,7 +57,7 @@
@@ -228,15 +228,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the CreateSMSSandboxPhoneNumber as a reference.
 +    /// Access the CreateSmsSandboxPhoneNumber as a reference.
-     pub fn as_input(&self) -> &crate::operation::create_sms_sandbox_phone_number::builders::CreateSmsSandboxPhoneNumberInputBuilder {
+     pub fn as_input(&self) -> &super::operation::create_sms_sandbox_phone_number::builders::CreateSmsSandboxPhoneNumberInputBuilder {
          &self.inner
      }
 @@ -74,7 +74,7 @@
      ) -> ::std::result::Result<
-         crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
+         super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
-+            crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
+-            super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
++            super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -244,26 +244,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumber::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumber::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumber::operation_runtime_plugins(
++        let runtime_plugins = super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumber::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumber::orchestrate(&runtime_plugins, input).await
-+        crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumber::orchestrate(&runtime_plugins, input).await
+-        super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumber::orchestrate(&runtime_plugins, input).await
++        super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumber::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -95,7 +95,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
--        crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
-+        crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
+-        super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
++        super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/create_sms_sandbox_phone_number.rs`
@@ -313,7 +313,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                CreateSmsSandboxPhoneNumberEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
+                 super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
 @@ -204,12 +204,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
@@ -324,8 +324,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_create_sms_sandbox_phone_number_input::ser_create_sms_sandbox_phone_number_input_input_input(&input)?,
-+            crate::protocol_serde::shape_create_sms_sandbox_phone_number_input::ser_create_sms_sandbox_phone_number_op_input(&input)?,
+-            super::protocol_serde::shape_create_sms_sandbox_phone_number_input::ser_create_sms_sandbox_phone_number_input_input_input(&input)?,
++            super::protocol_serde::shape_create_sms_sandbox_phone_number_input::ser_create_sms_sandbox_phone_number_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -361,10 +361,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_topic_input::ser_create_topic_input_input_input(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_create_topic_input::ser_create_topic_input_input_input(
 -            &input,
 -        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_topic_input::ser_create_topic_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_create_topic_input::ser_create_topic_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -385,9 +385,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_endpoint_input::ser_delete_endpoint_input_input_input(&input)?,
+-            super::protocol_serde::shape_delete_endpoint_input::ser_delete_endpoint_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_endpoint_input::ser_delete_endpoint_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_endpoint_input::ser_delete_endpoint_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -408,8 +408,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_platform_application_input::ser_delete_platform_application_input_input_input(&input)?,
-+            crate::protocol_serde::shape_delete_platform_application_input::ser_delete_platform_application_op_input(&input)?,
+-            super::protocol_serde::shape_delete_platform_application_input::ser_delete_platform_application_input_input_input(&input)?,
++            super::protocol_serde::shape_delete_platform_application_input::ser_delete_platform_application_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -422,10 +422,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/delete_sms_sandbox_phone_number/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberOutput,
+         super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
-+            crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError,
+-            super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
++            super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -441,26 +441,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct DeleteSMSSandboxPhoneNumberFluentBuilder {
 +pub struct DeleteSmsSandboxPhoneNumberFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::delete_sms_sandbox_phone_number::builders::DeleteSmsSandboxPhoneNumberInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::delete_sms_sandbox_phone_number::builders::DeleteSmsSandboxPhoneNumberInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -33,8 +33,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberOutput,
--        crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberOutput,
+-        super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
 -    > for DeleteSMSSandboxPhoneNumberFluentBuilder
-+        crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError,
++        super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError,
 +    > for DeleteSmsSandboxPhoneNumberFluentBuilder
  {
      fn send(
          self,
 @@ -42,14 +42,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberOutput,
--            crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
-+            crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberOutput,
+-            super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
++            super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -470,7 +470,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `DeleteSMSSandboxPhoneNumberFluentBuilder`.
 +impl DeleteSmsSandboxPhoneNumberFluentBuilder {
 +    /// Creates a new `DeleteSmsSandboxPhoneNumberFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -57,7 +57,7 @@
@@ -479,15 +479,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the DeleteSMSSandboxPhoneNumber as a reference.
 +    /// Access the DeleteSmsSandboxPhoneNumber as a reference.
-     pub fn as_input(&self) -> &crate::operation::delete_sms_sandbox_phone_number::builders::DeleteSmsSandboxPhoneNumberInputBuilder {
+     pub fn as_input(&self) -> &super::operation::delete_sms_sandbox_phone_number::builders::DeleteSmsSandboxPhoneNumberInputBuilder {
          &self.inner
      }
 @@ -74,7 +74,7 @@
      ) -> ::std::result::Result<
-         crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberOutput,
+         super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
-+            crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError,
+-            super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
++            super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -495,26 +495,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumber::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumber::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumber::operation_runtime_plugins(
++        let runtime_plugins = super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumber::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumber::orchestrate(&runtime_plugins, input).await
-+        crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumber::orchestrate(&runtime_plugins, input).await
+-        super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumber::orchestrate(&runtime_plugins, input).await
++        super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumber::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -95,7 +95,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberOutput,
--        crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
-+        crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberOutput,
+-        super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
++        super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/delete_sms_sandbox_phone_number.rs`
@@ -564,7 +564,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                DeleteSmsSandboxPhoneNumberEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
+                 super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
 @@ -204,12 +204,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
@@ -575,8 +575,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_sms_sandbox_phone_number_input::ser_delete_sms_sandbox_phone_number_input_input_input(&input)?,
-+            crate::protocol_serde::shape_delete_sms_sandbox_phone_number_input::ser_delete_sms_sandbox_phone_number_op_input(&input)?,
+-            super::protocol_serde::shape_delete_sms_sandbox_phone_number_input::ser_delete_sms_sandbox_phone_number_input_input_input(&input)?,
++            super::protocol_serde::shape_delete_sms_sandbox_phone_number_input::ser_delete_sms_sandbox_phone_number_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -612,10 +612,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_topic_input::ser_delete_topic_input_input_input(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_topic_input::ser_delete_topic_input_input_input(
 -            &input,
 -        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_topic_input::ser_delete_topic_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_topic_input::ser_delete_topic_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -636,8 +636,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_data_protection_policy_input::ser_get_data_protection_policy_input_input_input(&input)?,
-+            crate::protocol_serde::shape_get_data_protection_policy_input::ser_get_data_protection_policy_op_input(&input)?,
+-            super::protocol_serde::shape_get_data_protection_policy_input::ser_get_data_protection_policy_input_input_input(&input)?,
++            super::protocol_serde::shape_get_data_protection_policy_input::ser_get_data_protection_policy_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -658,8 +658,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_endpoint_attributes_input::ser_get_endpoint_attributes_input_input_input(&input)?,
-+            crate::protocol_serde::shape_get_endpoint_attributes_input::ser_get_endpoint_attributes_op_input(&input)?,
+-            super::protocol_serde::shape_get_endpoint_attributes_input::ser_get_endpoint_attributes_input_input_input(&input)?,
++            super::protocol_serde::shape_get_endpoint_attributes_input::ser_get_endpoint_attributes_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -680,10 +680,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_platform_application_attributes_input::ser_get_platform_application_attributes_input_input_input(
+-            super::protocol_serde::shape_get_platform_application_attributes_input::ser_get_platform_application_attributes_input_input_input(
 -                &input,
 -            )?,
-+            crate::protocol_serde::shape_get_platform_application_attributes_input::ser_get_platform_application_attributes_op_input(&input)?,
++            super::protocol_serde::shape_get_platform_application_attributes_input::ser_get_platform_application_attributes_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -696,10 +696,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/get_sms_attributes/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::get_sms_attributes::GetSmsAttributesOutput,
+         super::operation::get_sms_attributes::GetSmsAttributesOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::get_sms_attributes::GetSMSAttributesError,
-+            crate::operation::get_sms_attributes::GetSmsAttributesError,
+-            super::operation::get_sms_attributes::GetSMSAttributesError,
++            super::operation::get_sms_attributes::GetSmsAttributesError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -715,26 +715,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct GetSMSAttributesFluentBuilder {
 +pub struct GetSmsAttributesFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::get_sms_attributes::builders::GetSmsAttributesInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::get_sms_attributes::builders::GetSmsAttributesInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -33,8 +33,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::get_sms_attributes::GetSmsAttributesOutput,
--        crate::operation::get_sms_attributes::GetSMSAttributesError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::get_sms_attributes::GetSmsAttributesOutput,
+-        super::operation::get_sms_attributes::GetSMSAttributesError,
 -    > for GetSMSAttributesFluentBuilder
-+        crate::operation::get_sms_attributes::GetSmsAttributesError,
++        super::operation::get_sms_attributes::GetSmsAttributesError,
 +    > for GetSmsAttributesFluentBuilder
  {
      fn send(
          self,
 @@ -42,14 +42,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::get_sms_attributes::GetSmsAttributesOutput,
--            crate::operation::get_sms_attributes::GetSMSAttributesError,
-+            crate::operation::get_sms_attributes::GetSmsAttributesError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::get_sms_attributes::GetSmsAttributesOutput,
+-            super::operation::get_sms_attributes::GetSMSAttributesError,
++            super::operation::get_sms_attributes::GetSmsAttributesError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -744,7 +744,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `GetSMSAttributesFluentBuilder`.
 +impl GetSmsAttributesFluentBuilder {
 +    /// Creates a new `GetSmsAttributesFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -57,7 +57,7 @@
@@ -753,15 +753,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the GetSMSAttributes as a reference.
 +    /// Access the GetSmsAttributes as a reference.
-     pub fn as_input(&self) -> &crate::operation::get_sms_attributes::builders::GetSmsAttributesInputBuilder {
+     pub fn as_input(&self) -> &super::operation::get_sms_attributes::builders::GetSmsAttributesInputBuilder {
          &self.inner
      }
 @@ -74,7 +74,7 @@
      ) -> ::std::result::Result<
-         crate::operation::get_sms_attributes::GetSmsAttributesOutput,
+         super::operation::get_sms_attributes::GetSmsAttributesOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::get_sms_attributes::GetSMSAttributesError,
-+            crate::operation::get_sms_attributes::GetSmsAttributesError,
+-            super::operation::get_sms_attributes::GetSMSAttributesError,
++            super::operation::get_sms_attributes::GetSmsAttributesError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -769,26 +769,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::get_sms_attributes::GetSMSAttributes::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::get_sms_attributes::GetSmsAttributes::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::get_sms_attributes::GetSMSAttributes::operation_runtime_plugins(
++        let runtime_plugins = super::operation::get_sms_attributes::GetSmsAttributes::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::get_sms_attributes::GetSMSAttributes::orchestrate(&runtime_plugins, input).await
-+        crate::operation::get_sms_attributes::GetSmsAttributes::orchestrate(&runtime_plugins, input).await
+-        super::operation::get_sms_attributes::GetSMSAttributes::orchestrate(&runtime_plugins, input).await
++        super::operation::get_sms_attributes::GetSmsAttributes::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -95,7 +95,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::get_sms_attributes::GetSmsAttributesOutput,
--        crate::operation::get_sms_attributes::GetSMSAttributesError,
-+        crate::operation::get_sms_attributes::GetSmsAttributesError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::get_sms_attributes::GetSmsAttributesOutput,
+-        super::operation::get_sms_attributes::GetSMSAttributesError,
++        super::operation::get_sms_attributes::GetSmsAttributesError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/get_sms_attributes.rs`
@@ -838,7 +838,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                GetSmsAttributesEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::get_sms_attributes::GetSMSAttributesError,
+                 super::operation::get_sms_attributes::GetSMSAttributesError,
 @@ -201,13 +201,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
@@ -849,9 +849,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_sms_attributes_input::ser_get_sms_attributes_input_input_input(&input)?,
+-            super::protocol_serde::shape_get_sms_attributes_input::ser_get_sms_attributes_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_sms_attributes_input::ser_get_sms_attributes_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_sms_attributes_input::ser_get_sms_attributes_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -882,10 +882,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/get_sms_sandbox_account_status/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput,
+         super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
-+            crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError,
+-            super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
++            super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -901,26 +901,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct GetSMSSandboxAccountStatusFluentBuilder {
 +pub struct GetSmsSandboxAccountStatusFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -33,8 +33,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput,
--        crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput,
+-        super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
 -    > for GetSMSSandboxAccountStatusFluentBuilder
-+        crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError,
++        super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError,
 +    > for GetSmsSandboxAccountStatusFluentBuilder
  {
      fn send(
          self,
 @@ -42,14 +42,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput,
--            crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
-+            crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput,
+-            super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
++            super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -930,7 +930,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `GetSMSSandboxAccountStatusFluentBuilder`.
 +impl GetSmsSandboxAccountStatusFluentBuilder {
 +    /// Creates a new `GetSmsSandboxAccountStatusFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -57,7 +57,7 @@
@@ -939,15 +939,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the GetSMSSandboxAccountStatus as a reference.
 +    /// Access the GetSmsSandboxAccountStatus as a reference.
-     pub fn as_input(&self) -> &crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusInputBuilder {
+     pub fn as_input(&self) -> &super::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusInputBuilder {
          &self.inner
      }
 @@ -74,7 +74,7 @@
      ) -> ::std::result::Result<
-         crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput,
+         super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
-+            crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError,
+-            super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
++            super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -955,26 +955,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatus::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatus::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatus::operation_runtime_plugins(
++        let runtime_plugins = super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatus::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatus::orchestrate(&runtime_plugins, input).await
-+        crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatus::orchestrate(&runtime_plugins, input).await
+-        super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatus::orchestrate(&runtime_plugins, input).await
++        super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatus::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -95,7 +95,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput,
--        crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
-+        crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput,
+-        super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
++        super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/get_sms_sandbox_account_status.rs`
@@ -1024,7 +1024,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                GetSmsSandboxAccountStatusEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
+                 super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
 @@ -204,24 +204,20 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
@@ -1034,7 +1034,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_sms_sandbox_account_status_input::ser_get_sms_sandbox_account_status_input_input_input(&input)?,
+-            super::protocol_serde::shape_get_sms_sandbox_account_status_input::ser_get_sms_sandbox_account_status_input_input_input(&input)?,
 -        );
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
@@ -1071,8 +1071,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_subscription_attributes_input::ser_get_subscription_attributes_input_input_input(&input)?,
-+            crate::protocol_serde::shape_get_subscription_attributes_input::ser_get_subscription_attributes_op_input(&input)?,
+-            super::protocol_serde::shape_get_subscription_attributes_input::ser_get_subscription_attributes_input_input_input(&input)?,
++            super::protocol_serde::shape_get_subscription_attributes_input::ser_get_subscription_attributes_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1093,8 +1093,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_topic_attributes_input::ser_get_topic_attributes_input_input_input(&input)?,
-+            crate::protocol_serde::shape_get_topic_attributes_input::ser_get_topic_attributes_op_input(&input)?,
+-            super::protocol_serde::shape_get_topic_attributes_input::ser_get_topic_attributes_input_input_input(&input)?,
++            super::protocol_serde::shape_get_topic_attributes_input::ser_get_topic_attributes_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1115,10 +1115,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_endpoints_by_platform_application_input::ser_list_endpoints_by_platform_application_input_input_input(
+-            super::protocol_serde::shape_list_endpoints_by_platform_application_input::ser_list_endpoints_by_platform_application_input_input_input(
 -                &input,
 -            )?,
-+            crate::protocol_serde::shape_list_endpoints_by_platform_application_input::ser_list_endpoints_by_platform_application_op_input(&input)?,
++            super::protocol_serde::shape_list_endpoints_by_platform_application_input::ser_list_endpoints_by_platform_application_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1139,8 +1139,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_origination_numbers_input::ser_list_origination_numbers_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_origination_numbers_input::ser_list_origination_numbers_op_input(&input)?,
+-            super::protocol_serde::shape_list_origination_numbers_input::ser_list_origination_numbers_input_input_input(&input)?,
++            super::protocol_serde::shape_list_origination_numbers_input::ser_list_origination_numbers_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1215,8 +1215,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_phone_numbers_opted_out_input::ser_list_phone_numbers_opted_out_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_phone_numbers_opted_out_input::ser_list_phone_numbers_opted_out_op_input(&input)?,
+-            super::protocol_serde::shape_list_phone_numbers_opted_out_input::ser_list_phone_numbers_opted_out_input_input_input(&input)?,
++            super::protocol_serde::shape_list_phone_numbers_opted_out_input::ser_list_phone_numbers_opted_out_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1237,8 +1237,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_platform_applications_input::ser_list_platform_applications_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_platform_applications_input::ser_list_platform_applications_op_input(&input)?,
+-            super::protocol_serde::shape_list_platform_applications_input::ser_list_platform_applications_input_input_input(&input)?,
++            super::protocol_serde::shape_list_platform_applications_input::ser_list_platform_applications_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1251,10 +1251,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/list_sms_sandbox_phone_numbers/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput,
+         super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
-+            crate::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError,
+-            super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
++            super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -1270,26 +1270,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct ListSMSSandboxPhoneNumbersFluentBuilder {
 +pub struct ListSmsSandboxPhoneNumbersFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -33,8 +33,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput,
--        crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput,
+-        super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
 -    > for ListSMSSandboxPhoneNumbersFluentBuilder
-+        crate::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError,
++        super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError,
 +    > for ListSmsSandboxPhoneNumbersFluentBuilder
  {
      fn send(
          self,
 @@ -42,14 +42,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput,
--            crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
-+            crate::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput,
+-            super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
++            super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -1299,7 +1299,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `ListSMSSandboxPhoneNumbersFluentBuilder`.
 +impl ListSmsSandboxPhoneNumbersFluentBuilder {
 +    /// Creates a new `ListSmsSandboxPhoneNumbersFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -57,7 +57,7 @@
@@ -1308,15 +1308,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the ListSMSSandboxPhoneNumbers as a reference.
 +    /// Access the ListSmsSandboxPhoneNumbers as a reference.
-     pub fn as_input(&self) -> &crate::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersInputBuilder {
+     pub fn as_input(&self) -> &super::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersInputBuilder {
          &self.inner
      }
 @@ -74,7 +74,7 @@
      ) -> ::std::result::Result<
-         crate::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput,
+         super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
-+            crate::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError,
+-            super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
++            super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -1324,26 +1324,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbers::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbers::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbers::operation_runtime_plugins(
++        let runtime_plugins = super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbers::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbers::orchestrate(&runtime_plugins, input).await
-+        crate::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbers::orchestrate(&runtime_plugins, input).await
+-        super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbers::orchestrate(&runtime_plugins, input).await
++        super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbers::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -95,7 +95,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput,
--        crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
-+        crate::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput,
+-        super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
++        super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/list_sms_sandbox_phone_numbers.rs`
@@ -1400,7 +1400,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                ListSmsSandboxPhoneNumbersEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
+                 super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
 @@ -151,12 +151,12 @@
  }
 
@@ -1427,8 +1427,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_sms_sandbox_phone_numbers_input::ser_list_sms_sandbox_phone_numbers_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_sms_sandbox_phone_numbers_input::ser_list_sms_sandbox_phone_numbers_op_input(&input)?,
+-            super::protocol_serde::shape_list_sms_sandbox_phone_numbers_input::ser_list_sms_sandbox_phone_numbers_input_input_input(&input)?,
++            super::protocol_serde::shape_list_sms_sandbox_phone_numbers_input::ser_list_sms_sandbox_phone_numbers_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1465,9 +1465,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_subscriptions_input::ser_list_subscriptions_input_input_input(&input)?,
+-            super::protocol_serde::shape_list_subscriptions_input::ser_list_subscriptions_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_subscriptions_input::ser_list_subscriptions_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_subscriptions_input::ser_list_subscriptions_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -1490,8 +1490,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_subscriptions_by_topic_input::ser_list_subscriptions_by_topic_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_subscriptions_by_topic_input::ser_list_subscriptions_by_topic_op_input(&input)?,
+-            super::protocol_serde::shape_list_subscriptions_by_topic_input::ser_list_subscriptions_by_topic_input_input_input(&input)?,
++            super::protocol_serde::shape_list_subscriptions_by_topic_input::ser_list_subscriptions_by_topic_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1512,8 +1512,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_tags_for_resource_input::ser_list_tags_for_resource_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_tags_for_resource_input::ser_list_tags_for_resource_op_input(&input)?,
+-            super::protocol_serde::shape_list_tags_for_resource_input::ser_list_tags_for_resource_input_input_input(&input)?,
++            super::protocol_serde::shape_list_tags_for_resource_input::ser_list_tags_for_resource_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1534,8 +1534,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body =
--            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_topics_input::ser_list_topics_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_topics_input::ser_list_topics_op_input(&input)?);
+-            ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_topics_input::ser_list_topics_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_topics_input::ser_list_topics_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1556,9 +1556,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_opt_in_phone_number_input::ser_opt_in_phone_number_input_input_input(&input)?,
+-            super::protocol_serde::shape_opt_in_phone_number_input::ser_opt_in_phone_number_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_opt_in_phone_number_input::ser_opt_in_phone_number_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_opt_in_phone_number_input::ser_opt_in_phone_number_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -1580,8 +1580,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_publish_input::ser_publish_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_publish_input::ser_publish_op_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_publish_input::ser_publish_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_publish_input::ser_publish_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1601,10 +1601,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_publish_batch_input::ser_publish_batch_input_input_input(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_publish_batch_input::ser_publish_batch_input_input_input(
 -            &input,
 -        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_publish_batch_input::ser_publish_batch_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_publish_batch_input::ser_publish_batch_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1625,8 +1625,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_put_data_protection_policy_input::ser_put_data_protection_policy_input_input_input(&input)?,
-+            crate::protocol_serde::shape_put_data_protection_policy_input::ser_put_data_protection_policy_op_input(&input)?,
+-            super::protocol_serde::shape_put_data_protection_policy_input::ser_put_data_protection_policy_input_input_input(&input)?,
++            super::protocol_serde::shape_put_data_protection_policy_input::ser_put_data_protection_policy_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1647,9 +1647,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_remove_permission_input::ser_remove_permission_input_input_input(&input)?,
+-            super::protocol_serde::shape_remove_permission_input::ser_remove_permission_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_remove_permission_input::ser_remove_permission_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_remove_permission_input::ser_remove_permission_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -1672,8 +1672,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_set_endpoint_attributes_input::ser_set_endpoint_attributes_input_input_input(&input)?,
-+            crate::protocol_serde::shape_set_endpoint_attributes_input::ser_set_endpoint_attributes_op_input(&input)?,
+-            super::protocol_serde::shape_set_endpoint_attributes_input::ser_set_endpoint_attributes_input_input_input(&input)?,
++            super::protocol_serde::shape_set_endpoint_attributes_input::ser_set_endpoint_attributes_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1694,10 +1694,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_set_platform_application_attributes_input::ser_set_platform_application_attributes_input_input_input(
+-            super::protocol_serde::shape_set_platform_application_attributes_input::ser_set_platform_application_attributes_input_input_input(
 -                &input,
 -            )?,
-+            crate::protocol_serde::shape_set_platform_application_attributes_input::ser_set_platform_application_attributes_op_input(&input)?,
++            super::protocol_serde::shape_set_platform_application_attributes_input::ser_set_platform_application_attributes_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1762,10 +1762,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/set_sms_attributes/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::set_sms_attributes::SetSmsAttributesOutput,
+         super::operation::set_sms_attributes::SetSmsAttributesOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::set_sms_attributes::SetSMSAttributesError,
-+            crate::operation::set_sms_attributes::SetSmsAttributesError,
+-            super::operation::set_sms_attributes::SetSMSAttributesError,
++            super::operation::set_sms_attributes::SetSmsAttributesError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -1784,26 +1784,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct SetSMSAttributesFluentBuilder {
 +pub struct SetSmsAttributesFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::set_sms_attributes::builders::SetSmsAttributesInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::set_sms_attributes::builders::SetSmsAttributesInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -35,8 +35,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::set_sms_attributes::SetSmsAttributesOutput,
--        crate::operation::set_sms_attributes::SetSMSAttributesError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::set_sms_attributes::SetSmsAttributesOutput,
+-        super::operation::set_sms_attributes::SetSMSAttributesError,
 -    > for SetSMSAttributesFluentBuilder
-+        crate::operation::set_sms_attributes::SetSmsAttributesError,
++        super::operation::set_sms_attributes::SetSmsAttributesError,
 +    > for SetSmsAttributesFluentBuilder
  {
      fn send(
          self,
 @@ -44,14 +44,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::set_sms_attributes::SetSmsAttributesOutput,
--            crate::operation::set_sms_attributes::SetSMSAttributesError,
-+            crate::operation::set_sms_attributes::SetSmsAttributesError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::set_sms_attributes::SetSmsAttributesOutput,
+-            super::operation::set_sms_attributes::SetSMSAttributesError,
++            super::operation::set_sms_attributes::SetSmsAttributesError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -1813,7 +1813,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `SetSMSAttributesFluentBuilder`.
 +impl SetSmsAttributesFluentBuilder {
 +    /// Creates a new `SetSmsAttributesFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -59,7 +59,7 @@
@@ -1822,15 +1822,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the SetSMSAttributes as a reference.
 +    /// Access the SetSmsAttributes as a reference.
-     pub fn as_input(&self) -> &crate::operation::set_sms_attributes::builders::SetSmsAttributesInputBuilder {
+     pub fn as_input(&self) -> &super::operation::set_sms_attributes::builders::SetSmsAttributesInputBuilder {
          &self.inner
      }
 @@ -76,7 +76,7 @@
      ) -> ::std::result::Result<
-         crate::operation::set_sms_attributes::SetSmsAttributesOutput,
+         super::operation::set_sms_attributes::SetSmsAttributesOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::set_sms_attributes::SetSMSAttributesError,
-+            crate::operation::set_sms_attributes::SetSmsAttributesError,
+-            super::operation::set_sms_attributes::SetSMSAttributesError,
++            super::operation::set_sms_attributes::SetSmsAttributesError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -1838,26 +1838,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::set_sms_attributes::SetSMSAttributes::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::set_sms_attributes::SetSmsAttributes::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::set_sms_attributes::SetSMSAttributes::operation_runtime_plugins(
++        let runtime_plugins = super::operation::set_sms_attributes::SetSmsAttributes::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::set_sms_attributes::SetSMSAttributes::orchestrate(&runtime_plugins, input).await
-+        crate::operation::set_sms_attributes::SetSmsAttributes::orchestrate(&runtime_plugins, input).await
+-        super::operation::set_sms_attributes::SetSMSAttributes::orchestrate(&runtime_plugins, input).await
++        super::operation::set_sms_attributes::SetSmsAttributes::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -97,7 +97,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::set_sms_attributes::SetSmsAttributesOutput,
--        crate::operation::set_sms_attributes::SetSMSAttributesError,
-+        crate::operation::set_sms_attributes::SetSmsAttributesError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::set_sms_attributes::SetSmsAttributesOutput,
+-        super::operation::set_sms_attributes::SetSMSAttributesError,
++        super::operation::set_sms_attributes::SetSmsAttributesError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 @@ -120,7 +120,7 @@
      /// <p><code>MonthlySpendLimit</code> – The maximum amount in USD that you are willing to spend each month to send SMS messages. When Amazon SNS determines that sending an SMS message would incur a cost that exceeds this limit, it stops sending SMS messages within minutes.</p><important>
      /// <p>Amazon SNS stops sending SMS messages within minutes of the limit being crossed. During that interval, if you continue to send SMS messages, you will incur costs that exceed your limit.</p>
@@ -1934,7 +1934,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                SetSmsAttributesEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::set_sms_attributes::SetSMSAttributesError,
+                 super::operation::set_sms_attributes::SetSMSAttributesError,
 @@ -201,13 +201,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
@@ -1945,9 +1945,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_set_sms_attributes_input::ser_set_sms_attributes_input_input_input(&input)?,
+-            super::protocol_serde::shape_set_sms_attributes_input::ser_set_sms_attributes_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_set_sms_attributes_input::ser_set_sms_attributes_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_set_sms_attributes_input::ser_set_sms_attributes_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -1986,8 +1986,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_set_subscription_attributes_input::ser_set_subscription_attributes_input_input_input(&input)?,
-+            crate::protocol_serde::shape_set_subscription_attributes_input::ser_set_subscription_attributes_op_input(&input)?,
+-            super::protocol_serde::shape_set_subscription_attributes_input::ser_set_subscription_attributes_input_input_input(&input)?,
++            super::protocol_serde::shape_set_subscription_attributes_input::ser_set_subscription_attributes_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -2008,8 +2008,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_set_topic_attributes_input::ser_set_topic_attributes_input_input_input(&input)?,
-+            crate::protocol_serde::shape_set_topic_attributes_input::ser_set_topic_attributes_op_input(&input)?,
+-            super::protocol_serde::shape_set_topic_attributes_input::ser_set_topic_attributes_input_input_input(&input)?,
++            super::protocol_serde::shape_set_topic_attributes_input::ser_set_topic_attributes_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -2045,8 +2045,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_subscribe_input::ser_subscribe_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_subscribe_input::ser_subscribe_op_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_subscribe_input::ser_subscribe_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_subscribe_input::ser_subscribe_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -2066,10 +2066,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_tag_resource_input::ser_tag_resource_input_input_input(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_tag_resource_input::ser_tag_resource_input_input_input(
 -            &input,
 -        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_tag_resource_input::ser_tag_resource_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_tag_resource_input::ser_tag_resource_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -2090,8 +2090,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body =
--            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_unsubscribe_input::ser_unsubscribe_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_unsubscribe_input::ser_unsubscribe_op_input(&input)?);
+-            ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_unsubscribe_input::ser_unsubscribe_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_unsubscribe_input::ser_unsubscribe_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -2111,10 +2111,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_untag_resource_input::ser_untag_resource_input_input_input(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_untag_resource_input::ser_untag_resource_input_input_input(
 -            &input,
 -        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_untag_resource_input::ser_untag_resource_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_untag_resource_input::ser_untag_resource_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -2127,10 +2127,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/verify_sms_sandbox_phone_number/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput,
+         super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
-+            crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError,
+-            super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
++            super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -2146,26 +2146,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct VerifySMSSandboxPhoneNumberFluentBuilder {
 +pub struct VerifySmsSandboxPhoneNumberFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -33,8 +33,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput,
--        crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput,
+-        super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
 -    > for VerifySMSSandboxPhoneNumberFluentBuilder
-+        crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError,
++        super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError,
 +    > for VerifySmsSandboxPhoneNumberFluentBuilder
  {
      fn send(
          self,
 @@ -42,14 +42,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput,
--            crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
-+            crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput,
+-            super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
++            super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -2175,7 +2175,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `VerifySMSSandboxPhoneNumberFluentBuilder`.
 +impl VerifySmsSandboxPhoneNumberFluentBuilder {
 +    /// Creates a new `VerifySmsSandboxPhoneNumberFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -57,7 +57,7 @@
@@ -2184,15 +2184,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the VerifySMSSandboxPhoneNumber as a reference.
 +    /// Access the VerifySmsSandboxPhoneNumber as a reference.
-     pub fn as_input(&self) -> &crate::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberInputBuilder {
+     pub fn as_input(&self) -> &super::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberInputBuilder {
          &self.inner
      }
 @@ -74,7 +74,7 @@
      ) -> ::std::result::Result<
-         crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput,
+         super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
-+            crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError,
+-            super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
++            super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -2200,26 +2200,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumber::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumber::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumber::operation_runtime_plugins(
++        let runtime_plugins = super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumber::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumber::orchestrate(&runtime_plugins, input).await
-+        crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumber::orchestrate(&runtime_plugins, input).await
+-        super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumber::orchestrate(&runtime_plugins, input).await
++        super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumber::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -95,7 +95,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput,
--        crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
-+        crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput,
+-        super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
++        super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/verify_sms_sandbox_phone_number.rs`
@@ -2276,7 +2276,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                VerifySmsSandboxPhoneNumberEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
+                 super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
 @@ -150,12 +150,12 @@
  }
 
@@ -2303,8 +2303,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_verify_sms_sandbox_phone_number_input::ser_verify_sms_sandbox_phone_number_input_input_input(&input)?,
-+            crate::protocol_serde::shape_verify_sms_sandbox_phone_number_input::ser_verify_sms_sandbox_phone_number_op_input(&input)?,
+-            super::protocol_serde::shape_verify_sms_sandbox_phone_number_input::ser_verify_sms_sandbox_phone_number_input_input_input(&input)?,
++            super::protocol_serde::shape_verify_sms_sandbox_phone_number_input::ser_verify_sms_sandbox_phone_number_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -2324,102 +2324,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/types/error/_kms_access_denied_exception.rs`
-
-```diff
---- reference/src/types/error/_kms_access_denied_exception.rs
-+++ generated/src/types/error/_kms_access_denied_exception.rs
-@@ -16,7 +16,7 @@
- }
- impl ::std::fmt::Display for KmsAccessDeniedException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "KmsAccessDeniedException [KMSAccessDeniedException]")?;
-+        ::std::write!(f, "KmsAccessDeniedException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_kms_disabled_exception.rs`
-
-```diff
---- reference/src/types/error/_kms_disabled_exception.rs
-+++ generated/src/types/error/_kms_disabled_exception.rs
-@@ -16,7 +16,7 @@
- }
- impl ::std::fmt::Display for KmsDisabledException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "KmsDisabledException [KMSDisabledException]")?;
-+        ::std::write!(f, "KmsDisabledException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_kms_invalid_state_exception.rs`
-
-```diff
---- reference/src/types/error/_kms_invalid_state_exception.rs
-+++ generated/src/types/error/_kms_invalid_state_exception.rs
-@@ -16,7 +16,7 @@
- }
- impl ::std::fmt::Display for KmsInvalidStateException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "KmsInvalidStateException [KMSInvalidStateException]")?;
-+        ::std::write!(f, "KmsInvalidStateException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_kms_not_found_exception.rs`
-
-```diff
---- reference/src/types/error/_kms_not_found_exception.rs
-+++ generated/src/types/error/_kms_not_found_exception.rs
-@@ -16,7 +16,7 @@
- }
- impl ::std::fmt::Display for KmsNotFoundException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "KmsNotFoundException [KMSNotFoundException]")?;
-+        ::std::write!(f, "KmsNotFoundException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_kms_opt_in_required.rs`
-
-```diff
---- reference/src/types/error/_kms_opt_in_required.rs
-+++ generated/src/types/error/_kms_opt_in_required.rs
-@@ -16,7 +16,7 @@
- }
- impl ::std::fmt::Display for KmsOptInRequired {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "KmsOptInRequired [KMSOptInRequired]")?;
-+        ::std::write!(f, "KmsOptInRequired")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_kms_throttling_exception.rs`
-
-```diff
---- reference/src/types/error/_kms_throttling_exception.rs
-+++ generated/src/types/error/_kms_throttling_exception.rs
-@@ -16,7 +16,7 @@
- }
- impl ::std::fmt::Display for KmsThrottlingException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "KmsThrottlingException [KMSThrottlingException]")?;
-+        ::std::write!(f, "KmsThrottlingException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
 ```
 
 ### `src/types/error/_validation_exception.rs`
@@ -2685,11 +2589,5 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/untag_resource.rs`
 - `src/operation/verify_sms_sandbox_phone_number/builders.rs`
 - `src/operation/verify_sms_sandbox_phone_number.rs`
-- `src/types/error/_kms_access_denied_exception.rs`
-- `src/types/error/_kms_disabled_exception.rs`
-- `src/types/error/_kms_invalid_state_exception.rs`
-- `src/types/error/_kms_not_found_exception.rs`
-- `src/types/error/_kms_opt_in_required.rs`
-- `src/types/error/_kms_throttling_exception.rs`
 - `src/types/error/_validation_exception.rs`
 - `src/types/error/_verification_exception.rs`

@@ -47,7 +47,7 @@ pub fn de_disable_key_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::disable_key::DisableKeyError::KmsInternalException({
+        "KMSInternalException" => crate::operation::disable_key::DisableKeyError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -62,7 +62,7 @@ pub fn de_disable_key_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::disable_key::DisableKeyError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::disable_key::DisableKeyError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

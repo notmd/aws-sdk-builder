@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -28,8 +28,8 @@
+ }
+ impl ListFunctionsByCodeSigningConfigOutput {
+     /// Creates a new builder-style object to manufacture [`ListFunctionsByCodeSigningConfigOutput`](crate::operation::list_functions_by_code_signing_config::ListFunctionsByCodeSigningConfigOutput).
+-    pub fn builder() -> crate::operation::list_functions_by_code_signing_config::builders::ListFunctionsByCodeSigningConfigOutputBuilder {
+-        crate::operation::list_functions_by_code_signing_config::builders::ListFunctionsByCodeSigningConfigOutputBuilder::default()
++    pub fn builder() -> super::operation::list_functions_by_code_signing_config::builders::ListFunctionsByCodeSigningConfigOutputBuilder {
++        super::operation::list_functions_by_code_signing_config::builders::ListFunctionsByCodeSigningConfigOutputBuilder::default()
+     }
+ }
+
+@@ -86,8 +86,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ListFunctionsByCodeSigningConfigOutput`](crate::operation::list_functions_by_code_signing_config::ListFunctionsByCodeSigningConfigOutput).
+-    pub fn build(self) -> crate::operation::list_functions_by_code_signing_config::ListFunctionsByCodeSigningConfigOutput {
+-        crate::operation::list_functions_by_code_signing_config::ListFunctionsByCodeSigningConfigOutput {
++    pub fn build(self) -> super::operation::list_functions_by_code_signing_config::ListFunctionsByCodeSigningConfigOutput {
++        super::operation::list_functions_by_code_signing_config::ListFunctionsByCodeSigningConfigOutput {
+             next_marker: self.next_marker,
+             function_arns: self.function_arns,
+             _request_id: self._request_id,

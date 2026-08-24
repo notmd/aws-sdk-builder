@@ -1,0 +1,150 @@
+--- original
++++ modified
+@@ -5,18 +5,18 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::list_organizations_features::ListOrganizationsFeaturesOutput,
+-    crate::operation::list_organizations_features::ListOrganizationsFeaturesError,
++    super::operation::list_organizations_features::ListOrganizationsFeaturesOutput,
++    super::operation::list_organizations_features::ListOrganizationsFeaturesError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::list_organizations_features::ListOrganizationsFeaturesError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::list_organizations_features::ListOrganizationsFeaturesError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+         None => {
+-            return Err(crate::operation::list_organizations_features::ListOrganizationsFeaturesError::unhandled(
++            return Err(super::operation::list_organizations_features::ListOrganizationsFeaturesError::unhandled(
+                 generic,
+             ))
+         }
+@@ -25,12 +25,12 @@
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+         "AccountNotManagementOrDelegatedAdministratorException" => {
+-            crate::operation::list_organizations_features::ListOrganizationsFeaturesError::AccountNotManagementOrDelegatedAdministratorException({
++            super::operation::list_organizations_features::ListOrganizationsFeaturesError::AccountNotManagementOrDelegatedAdministratorException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::AccountNotManagementOrDelegatedAdministratorExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_account_not_management_or_delegated_administrator_exception::de_account_not_management_or_delegated_administrator_exception_xml_err(_response_body, output).map_err(crate::operation::list_organizations_features::ListOrganizationsFeaturesError::unhandled)?;
++                    let mut output = super::types::error::builders::AccountNotManagementOrDelegatedAdministratorExceptionBuilder::default();
++                    output = super::protocol_serde::shape_account_not_management_or_delegated_administrator_exception::de_account_not_management_or_delegated_administrator_exception_xml_err(_response_body, output).map_err(super::operation::list_organizations_features::ListOrganizationsFeaturesError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -41,16 +41,16 @@
+             })
+         }
+         "OrganizationNotFoundException" => {
+-            crate::operation::list_organizations_features::ListOrganizationsFeaturesError::OrganizationNotFoundException({
++            super::operation::list_organizations_features::ListOrganizationsFeaturesError::OrganizationNotFoundException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::OrganizationNotFoundExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_organization_not_found_exception::de_organization_not_found_exception_xml_err(
++                    let mut output = super::types::error::builders::OrganizationNotFoundExceptionBuilder::default();
++                    output = super::protocol_serde::shape_organization_not_found_exception::de_organization_not_found_exception_xml_err(
+                         _response_body,
+                         output,
+                     )
+-                    .map_err(crate::operation::list_organizations_features::ListOrganizationsFeaturesError::unhandled)?;
++                    .map_err(super::operation::list_organizations_features::ListOrganizationsFeaturesError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -61,12 +61,12 @@
+             })
+         }
+         "OrganizationNotInAllFeaturesModeException" => {
+-            crate::operation::list_organizations_features::ListOrganizationsFeaturesError::OrganizationNotInAllFeaturesModeException({
++            super::operation::list_organizations_features::ListOrganizationsFeaturesError::OrganizationNotInAllFeaturesModeException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::OrganizationNotInAllFeaturesModeExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_organization_not_in_all_features_mode_exception::de_organization_not_in_all_features_mode_exception_xml_err(_response_body, output).map_err(crate::operation::list_organizations_features::ListOrganizationsFeaturesError::unhandled)?;
++                    let mut output = super::types::error::builders::OrganizationNotInAllFeaturesModeExceptionBuilder::default();
++                    output = super::protocol_serde::shape_organization_not_in_all_features_mode_exception::de_organization_not_in_all_features_mode_exception_xml_err(_response_body, output).map_err(super::operation::list_organizations_features::ListOrganizationsFeaturesError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -77,16 +77,16 @@
+             })
+         }
+         "ServiceAccessNotEnabledException" => {
+-            crate::operation::list_organizations_features::ListOrganizationsFeaturesError::ServiceAccessNotEnabledException({
++            super::operation::list_organizations_features::ListOrganizationsFeaturesError::ServiceAccessNotEnabledException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::ServiceAccessNotEnabledExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_service_access_not_enabled_exception::de_service_access_not_enabled_exception_xml_err(
++                    let mut output = super::types::error::builders::ServiceAccessNotEnabledExceptionBuilder::default();
++                    output = super::protocol_serde::shape_service_access_not_enabled_exception::de_service_access_not_enabled_exception_xml_err(
+                         _response_body,
+                         output,
+                     )
+-                    .map_err(crate::operation::list_organizations_features::ListOrganizationsFeaturesError::unhandled)?;
++                    .map_err(super::operation::list_organizations_features::ListOrganizationsFeaturesError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -96,7 +96,7 @@
+                 tmp
+             })
+         }
+-        _ => crate::operation::list_organizations_features::ListOrganizationsFeaturesError::generic(generic),
++        _ => super::operation::list_organizations_features::ListOrganizationsFeaturesError::generic(generic),
+     })
+ }
+
+@@ -106,14 +106,14 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::list_organizations_features::ListOrganizationsFeaturesOutput,
+-    crate::operation::list_organizations_features::ListOrganizationsFeaturesError,
++    super::operation::list_organizations_features::ListOrganizationsFeaturesOutput,
++    super::operation::list_organizations_features::ListOrganizationsFeaturesError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::list_organizations_features::builders::ListOrganizationsFeaturesOutputBuilder::default();
+-        output = crate::protocol_serde::shape_list_organizations_features::de_list_organizations_features(_response_body, output)
+-            .map_err(crate::operation::list_organizations_features::ListOrganizationsFeaturesError::unhandled)?;
++        let mut output = super::operation::list_organizations_features::builders::ListOrganizationsFeaturesOutputBuilder::default();
++        output = super::protocol_serde::shape_list_organizations_features::de_list_organizations_features(_response_body, output)
++            .map_err(super::operation::list_organizations_features::ListOrganizationsFeaturesError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -122,9 +122,9 @@
+ #[allow(unused_mut)]
+ pub fn de_list_organizations_features(
+     inp: &[u8],
+-    mut builder: crate::operation::list_organizations_features::builders::ListOrganizationsFeaturesOutputBuilder,
++    mut builder: super::operation::list_organizations_features::builders::ListOrganizationsFeaturesOutputBuilder,
+ ) -> std::result::Result<
+-    crate::operation::list_organizations_features::builders::ListOrganizationsFeaturesOutputBuilder,
++    super::operation::list_organizations_features::builders::ListOrganizationsFeaturesOutputBuilder,
+     ::aws_smithy_xml::decode::XmlDecodeError,
+ > {
+     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+@@ -165,7 +165,7 @@
+             s if s.matches("EnabledFeatures") /* EnabledFeatures com.amazonaws.iam.synthetic#ListOrganizationsFeaturesOutput$EnabledFeatures */ =>  {
+                 let var_2 =
+                     Some(
+-                        crate::protocol_serde::shape_features_list_type::de_features_list_type(&mut tag, depth + 1)
++                        super::protocol_serde::shape_features_list_type::de_features_list_type(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;

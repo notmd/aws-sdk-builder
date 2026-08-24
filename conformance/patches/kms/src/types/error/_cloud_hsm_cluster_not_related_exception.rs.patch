@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -28,7 +28,7 @@
+     }
+ }
+ impl ::std::error::Error for CloudHsmClusterNotRelatedException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::CloudHsmClusterNotRelatedException {
++impl ::aws_types::request_id::RequestId for super::types::error::CloudHsmClusterNotRelatedException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -41,8 +41,8 @@
+ }
+ impl CloudHsmClusterNotRelatedException {
+     /// Creates a new builder-style object to manufacture [`CloudHsmClusterNotRelatedException`](crate::types::error::CloudHsmClusterNotRelatedException).
+-    pub fn builder() -> crate::types::error::builders::CloudHsmClusterNotRelatedExceptionBuilder {
+-        crate::types::error::builders::CloudHsmClusterNotRelatedExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::CloudHsmClusterNotRelatedExceptionBuilder {
++        super::types::error::builders::CloudHsmClusterNotRelatedExceptionBuilder::default()
+     }
+ }
+
+@@ -80,8 +80,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`CloudHsmClusterNotRelatedException`](crate::types::error::CloudHsmClusterNotRelatedException).
+-    pub fn build(self) -> crate::types::error::CloudHsmClusterNotRelatedException {
+-        crate::types::error::CloudHsmClusterNotRelatedException {
++    pub fn build(self) -> super::types::error::CloudHsmClusterNotRelatedException {
++        super::types::error::CloudHsmClusterNotRelatedException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

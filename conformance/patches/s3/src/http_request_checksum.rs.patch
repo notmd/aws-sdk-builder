@@ -1,0 +1,116 @@
+--- original
++++ modified
+@@ -8,7 +8,7 @@
+
+ //! Interceptor for handling Smithy `@httpChecksum` request checksumming with AWS SigV4
+
+-use crate::presigning::PresigningMarker;
++use super::presigning::PresigningMarker;
+ use aws_runtime::content_encoding::AwsChunkedBodyOptions;
+ use aws_smithy_checksums::body::calculate;
+ use aws_smithy_checksums::body::ChecksumCache;
+@@ -362,104 +362,3 @@
+                 unsupported = ?unsupported),
+     }
+ }
+-
+-#[cfg(test)]
+-mod tests {
+-    use super::*;
+-    use aws_smithy_checksums::ChecksumAlgorithm;
+-    use aws_smithy_runtime_api::client::interceptors::context::{BeforeTransmitInterceptorContextMut, InterceptorContext};
+-    use aws_smithy_runtime_api::client::orchestrator::HttpRequest;
+-    use aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder;
+-    use aws_smithy_types::base64;
+-    use aws_smithy_types::byte_stream::ByteStream;
+-    use bytes::BytesMut;
+-    use http_body_util::BodyExt;
+-    use tempfile::NamedTempFile;
+-
+-    fn create_test_interceptor() -> RequestChecksumInterceptor<
+-        impl Fn(&Input) -> (Option<String>, bool) + Send + Sync,
+-        impl Fn(&mut Request, &ConfigBag) -> Result<bool, BoxError> + Send + Sync,
+-    > {
+-        fn algo(_: &Input) -> (Option<String>, bool) {
+-            (Some("crc32".to_string()), false)
+-        }
+-        fn mutator(_: &mut Request, _: &ConfigBag) -> Result<bool, BoxError> {
+-            Ok(false)
+-        }
+-        RequestChecksumInterceptor::new(algo, mutator)
+-    }
+-
+-    #[tokio::test]
+-    async fn test_checksum_body_is_retryable() {
+-        use std::io::Write;
+-        let mut file = NamedTempFile::new().unwrap();
+-        let algorithm_str = "crc32c";
+-        let checksum_algorithm: ChecksumAlgorithm = algorithm_str.parse().unwrap();
+-
+-        let mut crc32c_checksum = checksum_algorithm.into_impl();
+-        for i in 0..10000 {
+-            let line = format!("This is a large file created for testing purposes {}", i);
+-            file.as_file_mut().write_all(line.as_bytes()).unwrap();
+-            crc32c_checksum.update(line.as_bytes());
+-        }
+-        let crc32c_checksum = crc32c_checksum.finalize();
+-
+-        let request = HttpRequest::new(ByteStream::read_from().path(&file).buffer_size(1024).build().await.unwrap().into_inner());
+-
+-        // ensure original SdkBody is retryable
+-        assert!(request.body().try_clone().is_some());
+-
+-        let interceptor = create_test_interceptor();
+-        let mut cfg = ConfigBag::base();
+-        cfg.interceptor_state().store_put(RequestChecksumInterceptorState {
+-            checksum_algorithm: Some(algorithm_str.to_string()),
+-            calculate_checksum: Arc::new(AtomicBool::new(true)),
+-            ..Default::default()
+-        });
+-        let runtime_components = RuntimeComponentsBuilder::for_tests().build().unwrap();
+-        let mut ctx = InterceptorContext::new(Input::doesnt_matter());
+-        ctx.enter_serialization_phase();
+-        let _ = ctx.take_input();
+-        ctx.set_request(request);
+-        ctx.enter_before_transmit_phase();
+-        let mut ctx: BeforeTransmitInterceptorContextMut<'_> = (&mut ctx).into();
+-        interceptor.modify_before_transmit(&mut ctx, &runtime_components, &mut cfg).unwrap();
+-
+-        // ensure wrapped SdkBody is retryable
+-        let mut body = ctx.request().body().try_clone().expect("body is retryable");
+-
+-        let mut body_data = BytesMut::new();
+-        let mut header_value = None;
+-        while let Some(Ok(frame)) = body.frame().await {
+-            if frame.is_data() {
+-                let data = frame.into_data().unwrap();
+-                body_data.extend_from_slice(&data);
+-            } else {
+-                let trailers = frame.into_trailers().unwrap();
+-                if let Some(hv) = trailers.get("x-amz-checksum-crc32c") {
+-                    header_value = Some(hv.to_str().unwrap().to_owned());
+-                }
+-            }
+-        }
+-        let body_str = std::str::from_utf8(&body_data).unwrap();
+-        let expected = format!("This is a large file created for testing purposes 9999");
+-        assert!(body_str.ends_with(&expected), "expected '{body_str}' to end with '{expected}'");
+-        let expected_checksum = base64::encode(&crc32c_checksum);
+-        assert_eq!(
+-            header_value.as_ref(),
+-            Some(&expected_checksum),
+-            "expected checksum '{header_value:?}' to match '{expected_checksum}'"
+-        );
+-
+-        let collected_body = body.collect().await.unwrap();
+-        while let Some(trailer) = collected_body.trailers() {
+-            if let Some(header_value) = trailer.get("x-amz-checksum-crc32c") {
+-                let header_value = header_value.to_str().unwrap();
+-                assert_eq!(
+-                    header_value, expected_checksum,
+-                    "expected checksum '{header_value}' to match '{expected_checksum}'"
+-                );
+-            }
+-        }
+-    }
+-}

@@ -1,0 +1,83 @@
+--- original
++++ modified
+@@ -8,7 +8,7 @@
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
++    pub request_charged: ::std::option::Option<super::types::RequestCharged>,
+     _extended_request_id: Option<String>,
+     _request_id: Option<String>,
+ }
+@@ -20,11 +20,11 @@
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
++    pub fn request_charged(&self) -> ::std::option::Option<&super::types::RequestCharged> {
+         self.request_charged.as_ref()
+     }
+ }
+-impl crate::s3_request_id::RequestIdExt for GetObjectTorrentOutput {
++impl super::s3_request_id::RequestIdExt for GetObjectTorrentOutput {
+     fn extended_request_id(&self) -> Option<&str> {
+         self._extended_request_id.as_deref()
+     }
+@@ -36,8 +36,8 @@
+ }
+ impl GetObjectTorrentOutput {
+     /// Creates a new builder-style object to manufacture [`GetObjectTorrentOutput`](crate::operation::get_object_torrent::GetObjectTorrentOutput).
+-    pub fn builder() -> crate::operation::get_object_torrent::builders::GetObjectTorrentOutputBuilder {
+-        crate::operation::get_object_torrent::builders::GetObjectTorrentOutputBuilder::default()
++    pub fn builder() -> super::operation::get_object_torrent::builders::GetObjectTorrentOutputBuilder {
++        super::operation::get_object_torrent::builders::GetObjectTorrentOutputBuilder::default()
+     }
+ }
+
+@@ -46,7 +46,7 @@
+ #[non_exhaustive]
+ pub struct GetObjectTorrentOutputBuilder {
+     pub(crate) body: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
+-    pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
++    pub(crate) request_charged: ::std::option::Option<super::types::RequestCharged>,
+     _extended_request_id: Option<String>,
+     _request_id: Option<String>,
+ }
+@@ -68,7 +68,7 @@
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
++    pub fn request_charged(mut self, input: super::types::RequestCharged) -> Self {
+         self.request_charged = ::std::option::Option::Some(input);
+         self
+     }
+@@ -75,7 +75,7 @@
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
++    pub fn set_request_charged(mut self, input: ::std::option::Option<super::types::RequestCharged>) -> Self {
+         self.request_charged = input;
+         self
+     }
+@@ -82,7 +82,7 @@
+     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
++    pub fn get_request_charged(&self) -> &::std::option::Option<super::types::RequestCharged> {
+         &self.request_charged
+     }
+     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+@@ -104,8 +104,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`GetObjectTorrentOutput`](crate::operation::get_object_torrent::GetObjectTorrentOutput).
+-    pub fn build(self) -> crate::operation::get_object_torrent::GetObjectTorrentOutput {
+-        crate::operation::get_object_torrent::GetObjectTorrentOutput {
++    pub fn build(self) -> super::operation::get_object_torrent::GetObjectTorrentOutput {
++        super::operation::get_object_torrent::GetObjectTorrentOutput {
+             body: self.body.unwrap_or_default(),
+             request_charged: self.request_charged,
+             _extended_request_id: self._extended_request_id,

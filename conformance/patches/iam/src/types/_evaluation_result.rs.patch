@@ -1,0 +1,261 @@
+--- original
++++ modified
+@@ -15,26 +15,26 @@
+     /// </note>
+     pub eval_resource_name: ::std::option::Option<::std::string::String>,
+     /// <p>The result of the simulation.</p>
+-    pub eval_decision: crate::types::PolicyEvaluationDecisionType,
++    pub eval_decision: super::types::PolicyEvaluationDecisionType,
+     /// <p>A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.</p>
+     /// <p>In the top-level result, this field contains the union of matched statements across all requested resources. Only statements that contributed to the reported decision are included. For per-resource matched statements, see <code>ResourceSpecificResults</code>. This field doesn't include statements from service control policies (SCPs). Only statements from identity-based and resource-based policies appear here.</p>
+-    pub matched_statements: ::std::option::Option<::std::vec::Vec<crate::types::Statement>>,
++    pub matched_statements: ::std::option::Option<::std::vec::Vec<super::types::Statement>>,
+     /// <p>A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is "*", either explicitly, or when the <code>ResourceArns</code> parameter blank. If you include a list of resources, then any missing context values are instead included under the <code>ResourceSpecificResults</code> section. To discover the context keys used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
+     /// <p>In the top-level result, this field contains the deduplicated set of missing context values across all requested resources. This field doesn't include context keys referenced by service control policies (SCPs). Only context keys referenced by identity-based and resource-based policies appear here.</p>
+     pub missing_context_values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+     /// <p>A structure that details how Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user's account is part of an organization.</p>
+     /// <p>For resources that don't support organization-level evaluation, this field is omitted from the top-level result. For per-resource details, see <code>ResourceSpecificResults</code>.</p>
+-    pub organizations_decision_detail: ::std::option::Option<crate::types::OrganizationsDecisionDetail>,
++    pub organizations_decision_detail: ::std::option::Option<super::types::OrganizationsDecisionDetail>,
+     /// <p>Contains information about the effect that a permissions boundary has on a policy simulation when the boundary is applied to an IAM entity.</p>
+-    pub permissions_boundary_decision_detail: ::std::option::Option<crate::types::PermissionsBoundaryDecisionDetail>,
++    pub permissions_boundary_decision_detail: ::std::option::Option<super::types::PermissionsBoundaryDecisionDetail>,
+     /// <p>Additional details about the results of the cross-account evaluation decision. This parameter is populated for only cross-account simulations. It contains a brief summary of how each policy type contributes to the final evaluation decision.</p>
+     /// <p>In the top-level result, this map reports the most restrictive decision per policy type across all requested resources.</p>
+     /// <p>If the simulation evaluates policies within the same account and includes a resource ARN, then the parameter is present but the response is empty. If the simulation evaluates policies within the same account and specifies all resources (<code>*</code>), then the parameter is not returned.</p>
+     /// <p>When you make a cross-account request, Amazon Web Services evaluates the request in the trusting account and the trusted account. The request is allowed only if both evaluations return <code>true</code>. For more information about how policies are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating policies within a single account</a>.</p>
+     /// <p>If an Organizations SCP included in the evaluation denies access, the simulation ends. In this case, policy evaluation does not proceed any further and this parameter is not returned.</p>
+-    pub eval_decision_details: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PolicyEvaluationDecisionType>>,
++    pub eval_decision_details: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::PolicyEvaluationDecisionType>>,
+     /// <p>The individual results of the simulation of the API operation specified in EvalActionName on each resource.</p>
+-    pub resource_specific_results: ::std::option::Option<::std::vec::Vec<crate::types::ResourceSpecificResult>>,
++    pub resource_specific_results: ::std::option::Option<::std::vec::Vec<super::types::ResourceSpecificResult>>,
+ }
+ impl EvaluationResult {
+     /// <p>The name of the API operation tested on the indicated resource.</p>
+@@ -49,7 +49,7 @@
+         self.eval_resource_name.as_deref()
+     }
+     /// <p>The result of the simulation.</p>
+-    pub fn eval_decision(&self) -> &crate::types::PolicyEvaluationDecisionType {
++    pub fn eval_decision(&self) -> &super::types::PolicyEvaluationDecisionType {
+         &self.eval_decision
+     }
+     /// <p>A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.</p>
+@@ -56,7 +56,7 @@
+     /// <p>In the top-level result, this field contains the union of matched statements across all requested resources. Only statements that contributed to the reported decision are included. For per-resource matched statements, see <code>ResourceSpecificResults</code>. This field doesn't include statements from service control policies (SCPs). Only statements from identity-based and resource-based policies appear here.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.matched_statements.is_none()`.
+-    pub fn matched_statements(&self) -> &[crate::types::Statement] {
++    pub fn matched_statements(&self) -> &[super::types::Statement] {
+         self.matched_statements.as_deref().unwrap_or_default()
+     }
+     /// <p>A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is "*", either explicitly, or when the <code>ResourceArns</code> parameter blank. If you include a list of resources, then any missing context values are instead included under the <code>ResourceSpecificResults</code> section. To discover the context keys used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
+@@ -68,11 +68,11 @@
+     }
+     /// <p>A structure that details how Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user's account is part of an organization.</p>
+     /// <p>For resources that don't support organization-level evaluation, this field is omitted from the top-level result. For per-resource details, see <code>ResourceSpecificResults</code>.</p>
+-    pub fn organizations_decision_detail(&self) -> ::std::option::Option<&crate::types::OrganizationsDecisionDetail> {
++    pub fn organizations_decision_detail(&self) -> ::std::option::Option<&super::types::OrganizationsDecisionDetail> {
+         self.organizations_decision_detail.as_ref()
+     }
+     /// <p>Contains information about the effect that a permissions boundary has on a policy simulation when the boundary is applied to an IAM entity.</p>
+-    pub fn permissions_boundary_decision_detail(&self) -> ::std::option::Option<&crate::types::PermissionsBoundaryDecisionDetail> {
++    pub fn permissions_boundary_decision_detail(&self) -> ::std::option::Option<&super::types::PermissionsBoundaryDecisionDetail> {
+         self.permissions_boundary_decision_detail.as_ref()
+     }
+     /// <p>Additional details about the results of the cross-account evaluation decision. This parameter is populated for only cross-account simulations. It contains a brief summary of how each policy type contributes to the final evaluation decision.</p>
+@@ -82,20 +82,20 @@
+     /// <p>If an Organizations SCP included in the evaluation denies access, the simulation ends. In this case, policy evaluation does not proceed any further and this parameter is not returned.</p>
+     pub fn eval_decision_details(
+         &self,
+-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::PolicyEvaluationDecisionType>> {
++    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::types::PolicyEvaluationDecisionType>> {
+         self.eval_decision_details.as_ref()
+     }
+     /// <p>The individual results of the simulation of the API operation specified in EvalActionName on each resource.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.resource_specific_results.is_none()`.
+-    pub fn resource_specific_results(&self) -> &[crate::types::ResourceSpecificResult] {
++    pub fn resource_specific_results(&self) -> &[super::types::ResourceSpecificResult] {
+         self.resource_specific_results.as_deref().unwrap_or_default()
+     }
+ }
+ impl EvaluationResult {
+     /// Creates a new builder-style object to manufacture [`EvaluationResult`](crate::types::EvaluationResult).
+-    pub fn builder() -> crate::types::builders::EvaluationResultBuilder {
+-        crate::types::builders::EvaluationResultBuilder::default()
++    pub fn builder() -> super::types::builders::EvaluationResultBuilder {
++        super::types::builders::EvaluationResultBuilder::default()
+     }
+ }
+
+@@ -105,14 +105,14 @@
+ pub struct EvaluationResultBuilder {
+     pub(crate) eval_action_name: ::std::option::Option<::std::string::String>,
+     pub(crate) eval_resource_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) eval_decision: ::std::option::Option<crate::types::PolicyEvaluationDecisionType>,
+-    pub(crate) matched_statements: ::std::option::Option<::std::vec::Vec<crate::types::Statement>>,
++    pub(crate) eval_decision: ::std::option::Option<super::types::PolicyEvaluationDecisionType>,
++    pub(crate) matched_statements: ::std::option::Option<::std::vec::Vec<super::types::Statement>>,
+     pub(crate) missing_context_values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+-    pub(crate) organizations_decision_detail: ::std::option::Option<crate::types::OrganizationsDecisionDetail>,
+-    pub(crate) permissions_boundary_decision_detail: ::std::option::Option<crate::types::PermissionsBoundaryDecisionDetail>,
++    pub(crate) organizations_decision_detail: ::std::option::Option<super::types::OrganizationsDecisionDetail>,
++    pub(crate) permissions_boundary_decision_detail: ::std::option::Option<super::types::PermissionsBoundaryDecisionDetail>,
+     pub(crate) eval_decision_details:
+-        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PolicyEvaluationDecisionType>>,
+-    pub(crate) resource_specific_results: ::std::option::Option<::std::vec::Vec<crate::types::ResourceSpecificResult>>,
++        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::PolicyEvaluationDecisionType>>,
++    pub(crate) resource_specific_results: ::std::option::Option<::std::vec::Vec<super::types::ResourceSpecificResult>>,
+ }
+ impl EvaluationResultBuilder {
+     /// <p>The name of the API operation tested on the indicated resource.</p>
+@@ -152,17 +152,17 @@
+     }
+     /// <p>The result of the simulation.</p>
+     /// This field is required.
+-    pub fn eval_decision(mut self, input: crate::types::PolicyEvaluationDecisionType) -> Self {
++    pub fn eval_decision(mut self, input: super::types::PolicyEvaluationDecisionType) -> Self {
+         self.eval_decision = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The result of the simulation.</p>
+-    pub fn set_eval_decision(mut self, input: ::std::option::Option<crate::types::PolicyEvaluationDecisionType>) -> Self {
++    pub fn set_eval_decision(mut self, input: ::std::option::Option<super::types::PolicyEvaluationDecisionType>) -> Self {
+         self.eval_decision = input;
+         self
+     }
+     /// <p>The result of the simulation.</p>
+-    pub fn get_eval_decision(&self) -> &::std::option::Option<crate::types::PolicyEvaluationDecisionType> {
++    pub fn get_eval_decision(&self) -> &::std::option::Option<super::types::PolicyEvaluationDecisionType> {
+         &self.eval_decision
+     }
+     /// Appends an item to `matched_statements`.
+@@ -171,7 +171,7 @@
+     ///
+     /// <p>A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.</p>
+     /// <p>In the top-level result, this field contains the union of matched statements across all requested resources. Only statements that contributed to the reported decision are included. For per-resource matched statements, see <code>ResourceSpecificResults</code>. This field doesn't include statements from service control policies (SCPs). Only statements from identity-based and resource-based policies appear here.</p>
+-    pub fn matched_statements(mut self, input: crate::types::Statement) -> Self {
++    pub fn matched_statements(mut self, input: super::types::Statement) -> Self {
+         let mut v = self.matched_statements.unwrap_or_default();
+         v.push(input);
+         self.matched_statements = ::std::option::Option::Some(v);
+@@ -179,13 +179,13 @@
+     }
+     /// <p>A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.</p>
+     /// <p>In the top-level result, this field contains the union of matched statements across all requested resources. Only statements that contributed to the reported decision are included. For per-resource matched statements, see <code>ResourceSpecificResults</code>. This field doesn't include statements from service control policies (SCPs). Only statements from identity-based and resource-based policies appear here.</p>
+-    pub fn set_matched_statements(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Statement>>) -> Self {
++    pub fn set_matched_statements(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Statement>>) -> Self {
+         self.matched_statements = input;
+         self
+     }
+     /// <p>A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.</p>
+     /// <p>In the top-level result, this field contains the union of matched statements across all requested resources. Only statements that contributed to the reported decision are included. For per-resource matched statements, see <code>ResourceSpecificResults</code>. This field doesn't include statements from service control policies (SCPs). Only statements from identity-based and resource-based policies appear here.</p>
+-    pub fn get_matched_statements(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Statement>> {
++    pub fn get_matched_statements(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Statement>> {
+         &self.matched_statements
+     }
+     /// Appends an item to `missing_context_values`.
+@@ -213,33 +213,33 @@
+     }
+     /// <p>A structure that details how Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user's account is part of an organization.</p>
+     /// <p>For resources that don't support organization-level evaluation, this field is omitted from the top-level result. For per-resource details, see <code>ResourceSpecificResults</code>.</p>
+-    pub fn organizations_decision_detail(mut self, input: crate::types::OrganizationsDecisionDetail) -> Self {
++    pub fn organizations_decision_detail(mut self, input: super::types::OrganizationsDecisionDetail) -> Self {
+         self.organizations_decision_detail = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>A structure that details how Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user's account is part of an organization.</p>
+     /// <p>For resources that don't support organization-level evaluation, this field is omitted from the top-level result. For per-resource details, see <code>ResourceSpecificResults</code>.</p>
+-    pub fn set_organizations_decision_detail(mut self, input: ::std::option::Option<crate::types::OrganizationsDecisionDetail>) -> Self {
++    pub fn set_organizations_decision_detail(mut self, input: ::std::option::Option<super::types::OrganizationsDecisionDetail>) -> Self {
+         self.organizations_decision_detail = input;
+         self
+     }
+     /// <p>A structure that details how Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user's account is part of an organization.</p>
+     /// <p>For resources that don't support organization-level evaluation, this field is omitted from the top-level result. For per-resource details, see <code>ResourceSpecificResults</code>.</p>
+-    pub fn get_organizations_decision_detail(&self) -> &::std::option::Option<crate::types::OrganizationsDecisionDetail> {
++    pub fn get_organizations_decision_detail(&self) -> &::std::option::Option<super::types::OrganizationsDecisionDetail> {
+         &self.organizations_decision_detail
+     }
+     /// <p>Contains information about the effect that a permissions boundary has on a policy simulation when the boundary is applied to an IAM entity.</p>
+-    pub fn permissions_boundary_decision_detail(mut self, input: crate::types::PermissionsBoundaryDecisionDetail) -> Self {
++    pub fn permissions_boundary_decision_detail(mut self, input: super::types::PermissionsBoundaryDecisionDetail) -> Self {
+         self.permissions_boundary_decision_detail = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Contains information about the effect that a permissions boundary has on a policy simulation when the boundary is applied to an IAM entity.</p>
+-    pub fn set_permissions_boundary_decision_detail(mut self, input: ::std::option::Option<crate::types::PermissionsBoundaryDecisionDetail>) -> Self {
++    pub fn set_permissions_boundary_decision_detail(mut self, input: ::std::option::Option<super::types::PermissionsBoundaryDecisionDetail>) -> Self {
+         self.permissions_boundary_decision_detail = input;
+         self
+     }
+     /// <p>Contains information about the effect that a permissions boundary has on a policy simulation when the boundary is applied to an IAM entity.</p>
+-    pub fn get_permissions_boundary_decision_detail(&self) -> &::std::option::Option<crate::types::PermissionsBoundaryDecisionDetail> {
++    pub fn get_permissions_boundary_decision_detail(&self) -> &::std::option::Option<super::types::PermissionsBoundaryDecisionDetail> {
+         &self.permissions_boundary_decision_detail
+     }
+     /// Adds a key-value pair to `eval_decision_details`.
+@@ -254,7 +254,7 @@
+     pub fn eval_decision_details(
+         mut self,
+         k: impl ::std::convert::Into<::std::string::String>,
+-        v: crate::types::PolicyEvaluationDecisionType,
++        v: super::types::PolicyEvaluationDecisionType,
+     ) -> Self {
+         let mut hash_map = self.eval_decision_details.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+@@ -268,7 +268,7 @@
+     /// <p>If an Organizations SCP included in the evaluation denies access, the simulation ends. In this case, policy evaluation does not proceed any further and this parameter is not returned.</p>
+     pub fn set_eval_decision_details(
+         mut self,
+-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PolicyEvaluationDecisionType>>,
++        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::PolicyEvaluationDecisionType>>,
+     ) -> Self {
+         self.eval_decision_details = input;
+         self
+@@ -280,7 +280,7 @@
+     /// <p>If an Organizations SCP included in the evaluation denies access, the simulation ends. In this case, policy evaluation does not proceed any further and this parameter is not returned.</p>
+     pub fn get_eval_decision_details(
+         &self,
+-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PolicyEvaluationDecisionType>> {
++    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::PolicyEvaluationDecisionType>> {
+         &self.eval_decision_details
+     }
+     /// Appends an item to `resource_specific_results`.
+@@ -288,7 +288,7 @@
+     /// To override the contents of this collection use [`set_resource_specific_results`](Self::set_resource_specific_results).
+     ///
+     /// <p>The individual results of the simulation of the API operation specified in EvalActionName on each resource.</p>
+-    pub fn resource_specific_results(mut self, input: crate::types::ResourceSpecificResult) -> Self {
++    pub fn resource_specific_results(mut self, input: super::types::ResourceSpecificResult) -> Self {
+         let mut v = self.resource_specific_results.unwrap_or_default();
+         v.push(input);
+         self.resource_specific_results = ::std::option::Option::Some(v);
+@@ -295,12 +295,12 @@
+         self
+     }
+     /// <p>The individual results of the simulation of the API operation specified in EvalActionName on each resource.</p>
+-    pub fn set_resource_specific_results(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceSpecificResult>>) -> Self {
++    pub fn set_resource_specific_results(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ResourceSpecificResult>>) -> Self {
+         self.resource_specific_results = input;
+         self
+     }
+     /// <p>The individual results of the simulation of the API operation specified in EvalActionName on each resource.</p>
+-    pub fn get_resource_specific_results(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceSpecificResult>> {
++    pub fn get_resource_specific_results(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ResourceSpecificResult>> {
+         &self.resource_specific_results
+     }
+     /// Consumes the builder and constructs a [`EvaluationResult`](crate::types::EvaluationResult).
+@@ -307,8 +307,8 @@
+     /// This method will fail if any of the following fields are not set:
+     /// - [`eval_action_name`](crate::types::builders::EvaluationResultBuilder::eval_action_name)
+     /// - [`eval_decision`](crate::types::builders::EvaluationResultBuilder::eval_decision)
+-    pub fn build(self) -> ::std::result::Result<crate::types::EvaluationResult, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::EvaluationResult {
++    pub fn build(self) -> ::std::result::Result<super::types::EvaluationResult, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::EvaluationResult {
+             eval_action_name: self.eval_action_name.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "eval_action_name",

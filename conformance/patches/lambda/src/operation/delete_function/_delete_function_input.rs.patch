@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -40,8 +40,8 @@
+ }
+ impl DeleteFunctionInput {
+     /// Creates a new builder-style object to manufacture [`DeleteFunctionInput`](crate::operation::delete_function::DeleteFunctionInput).
+-    pub fn builder() -> crate::operation::delete_function::builders::DeleteFunctionInputBuilder {
+-        crate::operation::delete_function::builders::DeleteFunctionInputBuilder::default()
++    pub fn builder() -> super::operation::delete_function::builders::DeleteFunctionInputBuilder {
++        super::operation::delete_function::builders::DeleteFunctionInputBuilder::default()
+     }
+ }
+
+@@ -115,8 +115,8 @@
+     /// Consumes the builder and constructs a [`DeleteFunctionInput`](crate::operation::delete_function::DeleteFunctionInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::delete_function::DeleteFunctionInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::delete_function::DeleteFunctionInput {
++    ) -> ::std::result::Result<super::operation::delete_function::DeleteFunctionInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::delete_function::DeleteFunctionInput {
+             function_name: self.function_name,
+             qualifier: self.qualifier,
+         })

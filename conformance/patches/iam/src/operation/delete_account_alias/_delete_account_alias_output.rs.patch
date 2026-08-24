@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -12,8 +12,8 @@
+ }
+ impl DeleteAccountAliasOutput {
+     /// Creates a new builder-style object to manufacture [`DeleteAccountAliasOutput`](crate::operation::delete_account_alias::DeleteAccountAliasOutput).
+-    pub fn builder() -> crate::operation::delete_account_alias::builders::DeleteAccountAliasOutputBuilder {
+-        crate::operation::delete_account_alias::builders::DeleteAccountAliasOutputBuilder::default()
++    pub fn builder() -> super::operation::delete_account_alias::builders::DeleteAccountAliasOutputBuilder {
++        super::operation::delete_account_alias::builders::DeleteAccountAliasOutputBuilder::default()
+     }
+ }
+
+@@ -34,8 +34,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`DeleteAccountAliasOutput`](crate::operation::delete_account_alias::DeleteAccountAliasOutput).
+-    pub fn build(self) -> crate::operation::delete_account_alias::DeleteAccountAliasOutput {
+-        crate::operation::delete_account_alias::DeleteAccountAliasOutput {
++    pub fn build(self) -> super::operation::delete_account_alias::DeleteAccountAliasOutput {
++        super::operation::delete_account_alias::DeleteAccountAliasOutput {
+             _request_id: self._request_id,
+         }
+     }

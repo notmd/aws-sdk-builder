@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -38,8 +38,8 @@
+ }
+ impl GetRolePolicyOutput {
+     /// Creates a new builder-style object to manufacture [`GetRolePolicyOutput`](crate::operation::get_role_policy::GetRolePolicyOutput).
+-    pub fn builder() -> crate::operation::get_role_policy::builders::GetRolePolicyOutputBuilder {
+-        crate::operation::get_role_policy::builders::GetRolePolicyOutputBuilder::default()
++    pub fn builder() -> super::operation::get_role_policy::builders::GetRolePolicyOutputBuilder {
++        super::operation::get_role_policy::builders::GetRolePolicyOutputBuilder::default()
+     }
+ }
+
+@@ -117,8 +117,8 @@
+     /// - [`policy_document`](crate::operation::get_role_policy::builders::GetRolePolicyOutputBuilder::policy_document)
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::get_role_policy::GetRolePolicyOutput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::get_role_policy::GetRolePolicyOutput {
++    ) -> ::std::result::Result<super::operation::get_role_policy::GetRolePolicyOutput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::get_role_policy::GetRolePolicyOutput {
+             role_name: self.role_name.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "role_name",

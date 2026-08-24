@@ -1,0 +1,93 @@
+--- original
++++ modified
+@@ -5,7 +5,7 @@
+ pub struct SelectObjectContentOutput {
+     /// <p>The array of results.</p>
+     pub payload:
+-        crate::event_receiver::EventReceiver<crate::types::SelectObjectContentEventStream, crate::types::error::SelectObjectContentEventStreamError>,
++        super::event_receiver::EventReceiver<super::types::SelectObjectContentEventStream, super::types::error::SelectObjectContentEventStreamError>,
+     _extended_request_id: Option<String>,
+     _request_id: Option<String>,
+ }
+@@ -13,12 +13,12 @@
+     /// <p>The array of results.</p>
+     pub fn payload(
+         &self,
+-    ) -> &crate::event_receiver::EventReceiver<crate::types::SelectObjectContentEventStream, crate::types::error::SelectObjectContentEventStreamError>
++    ) -> &super::event_receiver::EventReceiver<super::types::SelectObjectContentEventStream, super::types::error::SelectObjectContentEventStreamError>
+     {
+         &self.payload
+     }
+ }
+-impl crate::s3_request_id::RequestIdExt for SelectObjectContentOutput {
++impl super::s3_request_id::RequestIdExt for SelectObjectContentOutput {
+     fn extended_request_id(&self) -> Option<&str> {
+         self._extended_request_id.as_deref()
+     }
+@@ -30,8 +30,8 @@
+ }
+ impl SelectObjectContentOutput {
+     /// Creates a new builder-style object to manufacture [`SelectObjectContentOutput`](crate::operation::select_object_content::SelectObjectContentOutput).
+-    pub fn builder() -> crate::operation::select_object_content::builders::SelectObjectContentOutputBuilder {
+-        crate::operation::select_object_content::builders::SelectObjectContentOutputBuilder::default()
++    pub fn builder() -> super::operation::select_object_content::builders::SelectObjectContentOutputBuilder {
++        super::operation::select_object_content::builders::SelectObjectContentOutputBuilder::default()
+     }
+ }
+
+@@ -40,7 +40,7 @@
+ #[non_exhaustive]
+ pub struct SelectObjectContentOutputBuilder {
+     pub(crate) payload: ::std::option::Option<
+-        crate::event_receiver::EventReceiver<crate::types::SelectObjectContentEventStream, crate::types::error::SelectObjectContentEventStreamError>,
++        super::event_receiver::EventReceiver<super::types::SelectObjectContentEventStream, super::types::error::SelectObjectContentEventStreamError>,
+     >,
+     _extended_request_id: Option<String>,
+     _request_id: Option<String>,
+@@ -49,9 +49,9 @@
+     /// <p>The array of results.</p>
+     pub fn payload(
+         mut self,
+-        input: crate::event_receiver::EventReceiver<
+-            crate::types::SelectObjectContentEventStream,
+-            crate::types::error::SelectObjectContentEventStreamError,
++        input: super::event_receiver::EventReceiver<
++            super::types::SelectObjectContentEventStream,
++            super::types::error::SelectObjectContentEventStreamError,
+         >,
+     ) -> Self {
+         self.payload = ::std::option::Option::Some(input);
+@@ -61,9 +61,9 @@
+     pub fn set_payload(
+         mut self,
+         input: ::std::option::Option<
+-            crate::event_receiver::EventReceiver<
+-                crate::types::SelectObjectContentEventStream,
+-                crate::types::error::SelectObjectContentEventStreamError,
++            super::event_receiver::EventReceiver<
++                super::types::SelectObjectContentEventStream,
++                super::types::error::SelectObjectContentEventStreamError,
+             >,
+         >,
+     ) -> Self {
+@@ -74,7 +74,7 @@
+     pub fn get_payload(
+         &self,
+     ) -> &::std::option::Option<
+-        crate::event_receiver::EventReceiver<crate::types::SelectObjectContentEventStream, crate::types::error::SelectObjectContentEventStreamError>,
++        super::event_receiver::EventReceiver<super::types::SelectObjectContentEventStream, super::types::error::SelectObjectContentEventStreamError>,
+     > {
+         &self.payload
+     }
+@@ -101,9 +101,9 @@
+     /// - [`payload`](crate::operation::select_object_content::builders::SelectObjectContentOutputBuilder::payload)
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::select_object_content::SelectObjectContentOutput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::select_object_content::SelectObjectContentOutput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::select_object_content::SelectObjectContentOutput {
++        ::std::result::Result::Ok(super::operation::select_object_content::SelectObjectContentOutput {
+             payload: self.payload.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "payload",

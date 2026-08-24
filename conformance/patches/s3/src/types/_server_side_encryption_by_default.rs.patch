@@ -1,0 +1,78 @@
+--- original
++++ modified
+@@ -16,7 +16,7 @@
+     /// <p>Server-side encryption algorithm to use for the default encryption.</p><note>
+     /// <p>For directory buckets, there are only two supported values for server-side encryption: <code>AES256</code> and <code>aws:kms</code>.</p>
+     /// </note>
+-    pub sse_algorithm: crate::types::ServerSideEncryption,
++    pub sse_algorithm: super::types::ServerSideEncryption,
+     /// <p>Amazon Web Services Key Management Service (KMS) customer managed key ID to use for the default encryption.</p><note>
+     /// <ul>
+     /// <li>
+@@ -50,7 +50,7 @@
+     /// <p>Server-side encryption algorithm to use for the default encryption.</p><note>
+     /// <p>For directory buckets, there are only two supported values for server-side encryption: <code>AES256</code> and <code>aws:kms</code>.</p>
+     /// </note>
+-    pub fn sse_algorithm(&self) -> &crate::types::ServerSideEncryption {
++    pub fn sse_algorithm(&self) -> &super::types::ServerSideEncryption {
+         &self.sse_algorithm
+     }
+     /// <p>Amazon Web Services Key Management Service (KMS) customer managed key ID to use for the default encryption.</p><note>
+@@ -94,8 +94,8 @@
+ }
+ impl ServerSideEncryptionByDefault {
+     /// Creates a new builder-style object to manufacture [`ServerSideEncryptionByDefault`](crate::types::ServerSideEncryptionByDefault).
+-    pub fn builder() -> crate::types::builders::ServerSideEncryptionByDefaultBuilder {
+-        crate::types::builders::ServerSideEncryptionByDefaultBuilder::default()
++    pub fn builder() -> super::types::builders::ServerSideEncryptionByDefaultBuilder {
++        super::types::builders::ServerSideEncryptionByDefaultBuilder::default()
+     }
+ }
+
+@@ -103,7 +103,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+ #[non_exhaustive]
+ pub struct ServerSideEncryptionByDefaultBuilder {
+-    pub(crate) sse_algorithm: ::std::option::Option<crate::types::ServerSideEncryption>,
++    pub(crate) sse_algorithm: ::std::option::Option<super::types::ServerSideEncryption>,
+     pub(crate) kms_master_key_id: ::std::option::Option<::std::string::String>,
+ }
+ impl ServerSideEncryptionByDefaultBuilder {
+@@ -111,7 +111,7 @@
+     /// <p>For directory buckets, there are only two supported values for server-side encryption: <code>AES256</code> and <code>aws:kms</code>.</p>
+     /// </note>
+     /// This field is required.
+-    pub fn sse_algorithm(mut self, input: crate::types::ServerSideEncryption) -> Self {
++    pub fn sse_algorithm(mut self, input: super::types::ServerSideEncryption) -> Self {
+         self.sse_algorithm = ::std::option::Option::Some(input);
+         self
+     }
+@@ -118,7 +118,7 @@
+     /// <p>Server-side encryption algorithm to use for the default encryption.</p><note>
+     /// <p>For directory buckets, there are only two supported values for server-side encryption: <code>AES256</code> and <code>aws:kms</code>.</p>
+     /// </note>
+-    pub fn set_sse_algorithm(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
++    pub fn set_sse_algorithm(mut self, input: ::std::option::Option<super::types::ServerSideEncryption>) -> Self {
+         self.sse_algorithm = input;
+         self
+     }
+@@ -125,7 +125,7 @@
+     /// <p>Server-side encryption algorithm to use for the default encryption.</p><note>
+     /// <p>For directory buckets, there are only two supported values for server-side encryption: <code>AES256</code> and <code>aws:kms</code>.</p>
+     /// </note>
+-    pub fn get_sse_algorithm(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
++    pub fn get_sse_algorithm(&self) -> &::std::option::Option<super::types::ServerSideEncryption> {
+         &self.sse_algorithm
+     }
+     /// <p>Amazon Web Services Key Management Service (KMS) customer managed key ID to use for the default encryption.</p><note>
+@@ -223,8 +223,8 @@
+     /// Consumes the builder and constructs a [`ServerSideEncryptionByDefault`](crate::types::ServerSideEncryptionByDefault).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`sse_algorithm`](crate::types::builders::ServerSideEncryptionByDefaultBuilder::sse_algorithm)
+-    pub fn build(self) -> ::std::result::Result<crate::types::ServerSideEncryptionByDefault, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::ServerSideEncryptionByDefault {
++    pub fn build(self) -> ::std::result::Result<super::types::ServerSideEncryptionByDefault, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::ServerSideEncryptionByDefault {
+             sse_algorithm: self.sse_algorithm.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "sse_algorithm",

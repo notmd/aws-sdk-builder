@@ -108,7 +108,7 @@ pub fn de_generate_data_key_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::generate_data_key::GenerateDataKeyError::KmsInternalException({
+        "KMSInternalException" => crate::operation::generate_data_key::GenerateDataKeyError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -123,7 +123,7 @@ pub fn de_generate_data_key_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::generate_data_key::GenerateDataKeyError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::generate_data_key::GenerateDataKeyError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

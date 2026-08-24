@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -6,8 +6,8 @@
+ pub struct ContinuationEvent {}
+ impl ContinuationEvent {
+     /// Creates a new builder-style object to manufacture [`ContinuationEvent`](crate::types::ContinuationEvent).
+-    pub fn builder() -> crate::types::builders::ContinuationEventBuilder {
+-        crate::types::builders::ContinuationEventBuilder::default()
++    pub fn builder() -> super::types::builders::ContinuationEventBuilder {
++        super::types::builders::ContinuationEventBuilder::default()
+     }
+ }
+
+@@ -17,7 +17,7 @@
+ pub struct ContinuationEventBuilder {}
+ impl ContinuationEventBuilder {
+     /// Consumes the builder and constructs a [`ContinuationEvent`](crate::types::ContinuationEvent).
+-    pub fn build(self) -> crate::types::ContinuationEvent {
+-        crate::types::ContinuationEvent {}
++    pub fn build(self) -> super::types::ContinuationEvent {
++        super::types::ContinuationEvent {}
+     }
+ }

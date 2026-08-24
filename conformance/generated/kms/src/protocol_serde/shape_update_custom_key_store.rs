@@ -156,7 +156,7 @@ pub fn de_update_custom_key_store_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::update_custom_key_store::UpdateCustomKeyStoreError::KmsInternalException({
+        "KMSInternalException" => crate::operation::update_custom_key_store::UpdateCustomKeyStoreError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

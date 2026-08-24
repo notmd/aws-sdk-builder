@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -32,8 +32,8 @@
+ }
+ impl GetBucketInventoryConfigurationInput {
+     /// Creates a new builder-style object to manufacture [`GetBucketInventoryConfigurationInput`](crate::operation::get_bucket_inventory_configuration::GetBucketInventoryConfigurationInput).
+-    pub fn builder() -> crate::operation::get_bucket_inventory_configuration::builders::GetBucketInventoryConfigurationInputBuilder {
+-        crate::operation::get_bucket_inventory_configuration::builders::GetBucketInventoryConfigurationInputBuilder::default()
++    pub fn builder() -> super::operation::get_bucket_inventory_configuration::builders::GetBucketInventoryConfigurationInputBuilder {
++        super::operation::get_bucket_inventory_configuration::builders::GetBucketInventoryConfigurationInputBuilder::default()
+     }
+ }
+
+@@ -103,11 +103,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::get_bucket_inventory_configuration::GetBucketInventoryConfigurationInput,
++        super::operation::get_bucket_inventory_configuration::GetBucketInventoryConfigurationInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::get_bucket_inventory_configuration::GetBucketInventoryConfigurationInput {
++            super::operation::get_bucket_inventory_configuration::GetBucketInventoryConfigurationInput {
+                 bucket: self.bucket,
+                 id: self.id,
+                 expected_bucket_owner: self.expected_bucket_owner,

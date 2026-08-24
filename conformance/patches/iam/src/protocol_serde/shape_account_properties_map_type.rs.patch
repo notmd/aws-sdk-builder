@@ -1,0 +1,11 @@
+--- original
++++ modified
+@@ -10,7 +10,7 @@
+     while let Some(mut tag) = decoder.next_tag() {
+         match tag.start_el() {
+             s if s.matches("entry") => {
+-                crate::protocol_serde::shape_account_properties_map_type::de_account_properties_map_type_entry(&mut tag, &mut out, depth)?;
++                super::protocol_serde::shape_account_properties_map_type::de_account_properties_map_type_entry(&mut tag, &mut out, depth)?;
+             }
+             _ => {}
+         }

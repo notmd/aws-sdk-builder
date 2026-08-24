@@ -111,7 +111,7 @@ pub(crate) fn inventory_configuration_correct_errors(
     if builder.destination.is_none() {
         builder.destination = {
             let builder = crate::types::builders::InventoryDestinationBuilder::default();
-            crate::serde_util::inventory_destination_correct_errors(builder).build().ok()
+            Some(crate::serde_util::inventory_destination_correct_errors(builder).build())
         }
     }
     if builder.is_enabled.is_none() {
@@ -228,7 +228,7 @@ pub(crate) fn get_bucket_metadata_configuration_result_correct_errors(
     if builder.metadata_configuration_result.is_none() {
         builder.metadata_configuration_result = {
             let builder = crate::types::builders::MetadataConfigurationResultBuilder::default();
-            crate::serde_util::metadata_configuration_result_correct_errors(builder).build().ok()
+            Some(crate::serde_util::metadata_configuration_result_correct_errors(builder).build())
         }
     }
     builder
@@ -240,9 +240,7 @@ pub(crate) fn get_bucket_metadata_table_configuration_result_correct_errors(
     if builder.metadata_table_configuration_result.is_none() {
         builder.metadata_table_configuration_result = {
             let builder = crate::types::builders::MetadataTableConfigurationResultBuilder::default();
-            crate::serde_util::metadata_table_configuration_result_correct_errors(builder)
-                .build()
-                .ok()
+            Some(crate::serde_util::metadata_table_configuration_result_correct_errors(builder).build())
         }
     }
     if builder.status.is_none() {
@@ -417,7 +415,7 @@ pub(crate) fn storage_class_analysis_data_export_correct_errors(
     if builder.destination.is_none() {
         builder.destination = {
             let builder = crate::types::builders::AnalyticsExportDestinationBuilder::default();
-            crate::serde_util::analytics_export_destination_correct_errors(builder).build().ok()
+            Some(crate::serde_util::analytics_export_destination_correct_errors(builder).build())
         }
     }
     builder

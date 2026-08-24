@@ -1,0 +1,220 @@
+--- original
++++ modified
+@@ -10,11 +10,11 @@
+     }
+     pub(crate) async fn orchestrate(
+         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        input: crate::operation::describe_table::DescribeTableInput,
++        input: super::operation::describe_table::DescribeTableInput,
+     ) -> ::std::result::Result<
+-        crate::operation::describe_table::DescribeTableOutput,
++        super::operation::describe_table::DescribeTableOutput,
+         ::aws_smithy_runtime_api::client::result::SdkError<
+-            crate::operation::describe_table::DescribeTableError,
++            super::operation::describe_table::DescribeTableError,
+             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+         >,
+     > {
+@@ -23,7 +23,7 @@
+             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+         >| {
+             err.map_service_error(|err| {
+-                err.downcast::<crate::operation::describe_table::DescribeTableError>()
++                err.downcast::<super::operation::describe_table::DescribeTableError>()
+                     .expect("correct error type")
+             })
+         };
+@@ -33,7 +33,7 @@
+         let output = context.finalize().map_err(map_err)?;
+         ::std::result::Result::Ok(
+             output
+-                .downcast::<crate::operation::describe_table::DescribeTableOutput>()
++                .downcast::<super::operation::describe_table::DescribeTableOutput>()
+                 .expect("correct output type"),
+         )
+     }
+@@ -40,7 +40,7 @@
+
+     pub(crate) async fn orchestrate_with_stop_point(
+         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        input: crate::operation::describe_table::DescribeTableInput,
++        input: super::operation::describe_table::DescribeTableInput,
+         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
+     ) -> ::std::result::Result<
+         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
+@@ -66,8 +66,8 @@
+
+     pub(crate) fn operation_runtime_plugins(
+         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        client_config: &crate::config::Config,
+-        config_override: ::std::option::Option<crate::config::Builder>,
++        client_config: &super::config::Config,
++        config_override: ::std::option::Option<super::config::Builder>,
+     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
+         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
+
+@@ -75,7 +75,7 @@
+             for plugin in config_override.runtime_plugins.iter().cloned() {
+                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
+             }
+-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
++            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
+                 config_override,
+                 client_config.config.clone(),
+                 &client_config.runtime_components,
+@@ -96,7 +96,7 @@
+         ));
+
+         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
+-            crate::config::auth::Params::builder()
++            super::config::auth::Params::builder()
+                 .operation_name("DescribeTable")
+                 .build()
+                 .expect("required fields set"),
+@@ -133,13 +133,13 @@
+                 DescribeTableEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+-                crate::operation::describe_table::DescribeTableError,
++                super::operation::describe_table::DescribeTableError,
+             >::new())
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+-                crate::operation::describe_table::DescribeTableError,
++                super::operation::describe_table::DescribeTableError,
+             >::new())
+             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+-                crate::operation::describe_table::DescribeTableError,
++                super::operation::describe_table::DescribeTableError,
+             >::new());
+
+         ::std::borrow::Cow::Owned(rcb)
+@@ -204,11 +204,11 @@
+         let mut force_error = false;
+         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+         let parse_result = if !success && status != 200 || force_error {
+-            crate::protocol_serde::shape_describe_table::de_describe_table_http_error(status, headers, body)
++            super::protocol_serde::shape_describe_table::de_describe_table_http_error(status, headers, body)
+         } else {
+-            crate::protocol_serde::shape_describe_table::de_describe_table_http_response(status, headers, body)
++            super::protocol_serde::shape_describe_table::de_describe_table_http_response(status, headers, body)
+         };
+-        crate::protocol_serde::type_erase_result(parse_result)
++        super::protocol_serde::type_erase_result(parse_result)
+     }
+ }
+ #[derive(Debug)]
+@@ -221,16 +221,16 @@
+         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
+     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+         let input = input
+-            .downcast::<crate::operation::describe_table::DescribeTableInput>()
++            .downcast::<super::operation::describe_table::DescribeTableInput>()
+             .expect("correct type");
+         let _header_serialization_settings = _cfg
+-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
++            .load::<super::serialization_settings::HeaderSerializationSettings>()
+             .cloned()
+             .unwrap_or_default();
+         let mut request_builder = {
+             #[allow(clippy::uninlined_format_args)]
+             fn uri_base(
+-                _input: &crate::operation::describe_table::DescribeTableInput,
++                _input: &super::operation::describe_table::DescribeTableInput,
+                 output: &mut ::std::string::String,
+             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+                 use ::std::fmt::Write as _;
+@@ -239,7 +239,7 @@
+             }
+             #[allow(clippy::unnecessary_wraps)]
+             fn update_http_builder(
+-                input: &crate::operation::describe_table::DescribeTableInput,
++                input: &super::operation::describe_table::DescribeTableInput,
+                 builder: ::http_1x::request::Builder,
+             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+                 let mut uri = ::std::string::String::new();
+@@ -255,7 +255,7 @@
+             );
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_describe_table::ser_describe_table_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_describe_table::ser_describe_table_input(&input)?);
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+@@ -287,7 +287,7 @@
+             .downcast_ref::<DescribeTableInput>()
+             .ok_or("failed to downcast to DescribeTableInput")?;
+
+-        let params = crate::config::endpoint::Params::builder()
++        let params = super::config::endpoint::Params::builder()
+             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+@@ -323,11 +323,11 @@
+ #[derive(::std::fmt::Debug)]
+ pub enum DescribeTableError {
+     /// <p>An error occurred on the server side.</p>
+-    InternalServerError(crate::types::error::InternalServerError),
++    InternalServerError(super::types::error::InternalServerError),
+     #[allow(missing_docs)] // documentation missing in model
+-    InvalidEndpointException(crate::types::error::InvalidEndpointException),
++    InvalidEndpointException(super::types::error::InvalidEndpointException),
+     /// <p>The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+-    ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
++    ResourceNotFoundException(super::types::error::ResourceNotFoundException),
+     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
+     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+     variable wildcard pattern and check `.code()`:
+@@ -335,7 +335,7 @@
+     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+      \
+     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-DescribeTableError) for what information is available for the error.")]
+-    Unhandled(crate::error::sealed_unhandled::Unhandled),
++    Unhandled(super::error::sealed_unhandled::Unhandled),
+ }
+ impl DescribeTableError {
+     /// Creates the `DescribeTableError::Unhandled` variant from any error type.
+@@ -342,7 +342,7 @@
+     pub fn unhandled(
+         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
+     ) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source: err.into(),
+             meta: ::std::default::Default::default(),
+         })
+@@ -350,7 +350,7 @@
+
+     /// Creates the `DescribeTableError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source: err.clone().into(),
+             meta: err,
+         })
+@@ -429,21 +429,21 @@
+         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
+     ) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source,
+             meta: meta.unwrap_or_default(),
+         })
+     }
+ }
+-impl ::aws_types::request_id::RequestId for crate::operation::describe_table::DescribeTableError {
++impl ::aws_types::request_id::RequestId for super::operation::describe_table::DescribeTableError {
+     fn request_id(&self) -> Option<&str> {
+         self.meta().request_id()
+     }
+ }
+
+-pub use crate::operation::describe_table::_describe_table_input::DescribeTableInput;
++pub use super::operation::describe_table::_describe_table_input::DescribeTableInput;
+
+-pub use crate::operation::describe_table::_describe_table_output::DescribeTableOutput;
++pub use super::operation::describe_table::_describe_table_output::DescribeTableOutput;
+
+ mod _describe_table_input;
+

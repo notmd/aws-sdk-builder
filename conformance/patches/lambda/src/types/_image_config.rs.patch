@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -31,8 +31,8 @@
+ }
+ impl ImageConfig {
+     /// Creates a new builder-style object to manufacture [`ImageConfig`](crate::types::ImageConfig).
+-    pub fn builder() -> crate::types::builders::ImageConfigBuilder {
+-        crate::types::builders::ImageConfigBuilder::default()
++    pub fn builder() -> super::types::builders::ImageConfigBuilder {
++        super::types::builders::ImageConfigBuilder::default()
+     }
+ }
+
+@@ -100,8 +100,8 @@
+         &self.working_directory
+     }
+     /// Consumes the builder and constructs a [`ImageConfig`](crate::types::ImageConfig).
+-    pub fn build(self) -> crate::types::ImageConfig {
+-        crate::types::ImageConfig {
++    pub fn build(self) -> super::types::ImageConfig {
++        super::types::ImageConfig {
+             entry_point: self.entry_point,
+             command: self.command,
+             working_directory: self.working_directory,

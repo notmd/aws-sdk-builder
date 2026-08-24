@@ -24,7 +24,7 @@ impl EniLimitReachedException {
 }
 impl ::std::fmt::Display for EniLimitReachedException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(f, "EniLimitReachedException")?;
+        ::std::write!(f, "EniLimitReachedException [ENILimitReachedException]")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;

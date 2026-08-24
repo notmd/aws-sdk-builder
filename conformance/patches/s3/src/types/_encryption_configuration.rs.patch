@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -17,8 +17,8 @@
+ }
+ impl EncryptionConfiguration {
+     /// Creates a new builder-style object to manufacture [`EncryptionConfiguration`](crate::types::EncryptionConfiguration).
+-    pub fn builder() -> crate::types::builders::EncryptionConfigurationBuilder {
+-        crate::types::builders::EncryptionConfigurationBuilder::default()
++    pub fn builder() -> super::types::builders::EncryptionConfigurationBuilder {
++        super::types::builders::EncryptionConfigurationBuilder::default()
+     }
+ }
+
+@@ -44,8 +44,8 @@
+         &self.replica_kms_key_id
+     }
+     /// Consumes the builder and constructs a [`EncryptionConfiguration`](crate::types::EncryptionConfiguration).
+-    pub fn build(self) -> crate::types::EncryptionConfiguration {
+-        crate::types::EncryptionConfiguration {
++    pub fn build(self) -> super::types::EncryptionConfiguration {
++        super::types::EncryptionConfiguration {
+             replica_kms_key_id: self.replica_kms_key_id,
+         }
+     }

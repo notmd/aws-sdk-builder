@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -30,8 +30,8 @@
+ }
+ impl ListAccessKeysInput {
+     /// Creates a new builder-style object to manufacture [`ListAccessKeysInput`](crate::operation::list_access_keys::ListAccessKeysInput).
+-    pub fn builder() -> crate::operation::list_access_keys::builders::ListAccessKeysInputBuilder {
+-        crate::operation::list_access_keys::builders::ListAccessKeysInputBuilder::default()
++    pub fn builder() -> super::operation::list_access_keys::builders::ListAccessKeysInputBuilder {
++        super::operation::list_access_keys::builders::ListAccessKeysInputBuilder::default()
+     }
+ }
+
+@@ -95,8 +95,8 @@
+     /// Consumes the builder and constructs a [`ListAccessKeysInput`](crate::operation::list_access_keys::ListAccessKeysInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::list_access_keys::ListAccessKeysInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::list_access_keys::ListAccessKeysInput {
++    ) -> ::std::result::Result<super::operation::list_access_keys::ListAccessKeysInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::list_access_keys::ListAccessKeysInput {
+             user_name: self.user_name,
+             marker: self.marker,
+             max_items: self.max_items,

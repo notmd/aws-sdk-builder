@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -12,8 +12,8 @@
+ }
+ impl AttachGroupPolicyOutput {
+     /// Creates a new builder-style object to manufacture [`AttachGroupPolicyOutput`](crate::operation::attach_group_policy::AttachGroupPolicyOutput).
+-    pub fn builder() -> crate::operation::attach_group_policy::builders::AttachGroupPolicyOutputBuilder {
+-        crate::operation::attach_group_policy::builders::AttachGroupPolicyOutputBuilder::default()
++    pub fn builder() -> super::operation::attach_group_policy::builders::AttachGroupPolicyOutputBuilder {
++        super::operation::attach_group_policy::builders::AttachGroupPolicyOutputBuilder::default()
+     }
+ }
+
+@@ -34,8 +34,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`AttachGroupPolicyOutput`](crate::operation::attach_group_policy::AttachGroupPolicyOutput).
+-    pub fn build(self) -> crate::operation::attach_group_policy::AttachGroupPolicyOutput {
+-        crate::operation::attach_group_policy::AttachGroupPolicyOutput {
++    pub fn build(self) -> super::operation::attach_group_policy::AttachGroupPolicyOutput {
++        super::operation::attach_group_policy::AttachGroupPolicyOutput {
+             _request_id: self._request_id,
+         }
+     }

@@ -1,0 +1,72 @@
+--- original
++++ modified
+@@ -5,7 +5,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct KeyLastUsageData {
+     /// <p>The last successful cryptographic operation the KMS key was used for. Absent if the key has not been used since KMS began tracking.</p>
+-    pub operation: ::std::option::Option<crate::types::KeyLastUsageTrackingOperation>,
++    pub operation: ::std::option::Option<super::types::KeyLastUsageTrackingOperation>,
+     /// <p>The date and time when the KMS key was most recently used for a successful cryptographic operation. Absent if the key has not been used since KMS began tracking.</p>
+     pub timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
+     /// <p>The CloudTrail <code>eventId</code> associated with the last successful cryptographic operation. Absent if the key has not been used since KMS began tracking.</p>
+@@ -15,7 +15,7 @@
+ }
+ impl KeyLastUsageData {
+     /// <p>The last successful cryptographic operation the KMS key was used for. Absent if the key has not been used since KMS began tracking.</p>
+-    pub fn operation(&self) -> ::std::option::Option<&crate::types::KeyLastUsageTrackingOperation> {
++    pub fn operation(&self) -> ::std::option::Option<&super::types::KeyLastUsageTrackingOperation> {
+         self.operation.as_ref()
+     }
+     /// <p>The date and time when the KMS key was most recently used for a successful cryptographic operation. Absent if the key has not been used since KMS began tracking.</p>
+@@ -33,8 +33,8 @@
+ }
+ impl KeyLastUsageData {
+     /// Creates a new builder-style object to manufacture [`KeyLastUsageData`](crate::types::KeyLastUsageData).
+-    pub fn builder() -> crate::types::builders::KeyLastUsageDataBuilder {
+-        crate::types::builders::KeyLastUsageDataBuilder::default()
++    pub fn builder() -> super::types::builders::KeyLastUsageDataBuilder {
++        super::types::builders::KeyLastUsageDataBuilder::default()
+     }
+ }
+
+@@ -42,7 +42,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct KeyLastUsageDataBuilder {
+-    pub(crate) operation: ::std::option::Option<crate::types::KeyLastUsageTrackingOperation>,
++    pub(crate) operation: ::std::option::Option<super::types::KeyLastUsageTrackingOperation>,
+     pub(crate) timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
+     pub(crate) cloud_trail_event_id: ::std::option::Option<::std::string::String>,
+     pub(crate) kms_request_id: ::std::option::Option<::std::string::String>,
+@@ -49,17 +49,17 @@
+ }
+ impl KeyLastUsageDataBuilder {
+     /// <p>The last successful cryptographic operation the KMS key was used for. Absent if the key has not been used since KMS began tracking.</p>
+-    pub fn operation(mut self, input: crate::types::KeyLastUsageTrackingOperation) -> Self {
++    pub fn operation(mut self, input: super::types::KeyLastUsageTrackingOperation) -> Self {
+         self.operation = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The last successful cryptographic operation the KMS key was used for. Absent if the key has not been used since KMS began tracking.</p>
+-    pub fn set_operation(mut self, input: ::std::option::Option<crate::types::KeyLastUsageTrackingOperation>) -> Self {
++    pub fn set_operation(mut self, input: ::std::option::Option<super::types::KeyLastUsageTrackingOperation>) -> Self {
+         self.operation = input;
+         self
+     }
+     /// <p>The last successful cryptographic operation the KMS key was used for. Absent if the key has not been used since KMS began tracking.</p>
+-    pub fn get_operation(&self) -> &::std::option::Option<crate::types::KeyLastUsageTrackingOperation> {
++    pub fn get_operation(&self) -> &::std::option::Option<super::types::KeyLastUsageTrackingOperation> {
+         &self.operation
+     }
+     /// <p>The date and time when the KMS key was most recently used for a successful cryptographic operation. Absent if the key has not been used since KMS began tracking.</p>
+@@ -105,8 +105,8 @@
+         &self.kms_request_id
+     }
+     /// Consumes the builder and constructs a [`KeyLastUsageData`](crate::types::KeyLastUsageData).
+-    pub fn build(self) -> crate::types::KeyLastUsageData {
+-        crate::types::KeyLastUsageData {
++    pub fn build(self) -> super::types::KeyLastUsageData {
++        super::types::KeyLastUsageData {
+             operation: self.operation,
+             timestamp: self.timestamp,
+             cloud_trail_event_id: self.cloud_trail_event_id,

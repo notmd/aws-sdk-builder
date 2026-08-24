@@ -24,7 +24,7 @@ impl InvalidSubnetIdException {
 }
 impl ::std::fmt::Display for InvalidSubnetIdException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(f, "InvalidSubnetIdException")?;
+        ::std::write!(f, "InvalidSubnetIdException [InvalidSubnetIDException]")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;

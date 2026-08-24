@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     ///   - [`tag_keys(impl Into<String>)`](crate::operation::untag_queue::builders::UntagQueueFluentBuilder::tag_keys) / [`set_tag_keys(Option<Vec::<String>>)`](crate::operation::untag_queue::builders::UntagQueueFluentBuilder::set_tag_keys):<br>required: **true**<br><p>The list of tags to be removed from the specified queue.</p><br>
+     /// - On success, responds with [`UntagQueueOutput`](crate::operation::untag_queue::UntagQueueOutput)
+     /// - On failure, responds with [`SdkError<UntagQueueError>`](crate::operation::untag_queue::UntagQueueError)
+-    pub fn untag_queue(&self) -> crate::operation::untag_queue::builders::UntagQueueFluentBuilder {
+-        crate::operation::untag_queue::builders::UntagQueueFluentBuilder::new(self.handle.clone())
++    pub fn untag_queue(&self) -> super::operation::untag_queue::builders::UntagQueueFluentBuilder {
++        super::operation::untag_queue::builders::UntagQueueFluentBuilder::new(self.handle.clone())
+     }
+ }

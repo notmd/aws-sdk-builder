@@ -38,7 +38,7 @@ pub fn de_stop_durable_execution_http_error(
             }
             tmp
         }),
-        "KmsAccessDeniedException" => crate::operation::stop_durable_execution::StopDurableExecutionError::KmsAccessDeniedException({
+        "KMSAccessDeniedException" => crate::operation::stop_durable_execution::StopDurableExecutionError::KmsAccessDeniedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -53,7 +53,7 @@ pub fn de_stop_durable_execution_http_error(
             }
             tmp
         }),
-        "KmsDisabledException" => crate::operation::stop_durable_execution::StopDurableExecutionError::KmsDisabledException({
+        "KMSDisabledException" => crate::operation::stop_durable_execution::StopDurableExecutionError::KmsDisabledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -68,7 +68,7 @@ pub fn de_stop_durable_execution_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::stop_durable_execution::StopDurableExecutionError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::stop_durable_execution::StopDurableExecutionError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -83,7 +83,7 @@ pub fn de_stop_durable_execution_http_error(
             }
             tmp
         }),
-        "KmsNotFoundException" => crate::operation::stop_durable_execution::StopDurableExecutionError::KmsNotFoundException({
+        "KMSNotFoundException" => crate::operation::stop_durable_execution::StopDurableExecutionError::KmsNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

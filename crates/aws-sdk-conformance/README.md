@@ -12,9 +12,13 @@ cargo run -p aws-sdk-conformance -- update-reference --manifest services-manifes
 
 `services-manifest.json` selects services, pins the upstream commit, and defines
 comparison exclusions. `update-reference` downloads that commit archive, refreshes reference
-source plus provider `model.json` assets, and replaces them atomically. The
-conformance command atomically replaces fresh all-operation output before comparison,
-then removes the same excluded artifacts. The report places the completed
+source, generates source-normalization `.patch` files, refreshes provider `model.json`
+assets, and replaces all three data sets atomically. The conformance command atomically
+replaces fresh all-operation output before comparison, then removes the same excluded
+artifacts. Reference Rust patches rewrite parsed `crate::...` paths to relative
+`super::...` paths; comparison also drops inline `#[cfg(test)]` modules and their attached
+attributes from both sides. Checked-in reference patches are applied in memory and never
+modify `conformance/reference`. The report places the completed
 `compared/total` progress line immediately below each service heading, followed by its
 match percentage. The output path is the summary report; detailed `diffy` patches and
 explicit missing/extra/binary diagnostics are written to

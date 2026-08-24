@@ -24,7 +24,7 @@ impl SubnetIpAddressLimitReachedException {
 }
 impl ::std::fmt::Display for SubnetIpAddressLimitReachedException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(f, "SubnetIpAddressLimitReachedException")?;
+        ::std::write!(f, "SubnetIpAddressLimitReachedException [SubnetIPAddressLimitReachedException]")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;

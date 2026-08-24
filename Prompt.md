@@ -10,14 +10,14 @@ The project is incomplete until the generated crates match the pinned crates und
 namespace/header normalization. A compiling approximation, a working S3 subset, or a
 low-difference report is useful intermediate evidence but is not completion.
 
-## Current state (2026-08-21)
+## Current state (2026-08-24)
 
 The Rust-only implementation is operational but far from exact AWS SDK parity:
 
-- `aws-sdk-builder` exposes the shared compile machinery and the
-  `include_sdk!()` facade. The eight service provider crates package exactly one
-  Smithy JSON model each: DynamoDB, IAM, KMS, Lambda, S3, SNS, SQS, and STS.
-  Build scripts call the relevant provider, such as
+- `aws-sdk-builder` exposes shared compile machinery, while each of the eight
+  service provider crates owns its model, `compile()` function, and
+  `include_sdk!()` macro. The supported services are DynamoDB, IAM, KMS, Lambda,
+  S3, SNS, SQS, and STS. Build scripts call the relevant provider, such as
   `aws_sdk_builder_s3::compile(["PutObject"])?`.
 - The generator emits deterministic Rust source, service/client/config,
   operation/builders/errors, model shapes, an initial local HTTP runtime, and atomic
@@ -28,8 +28,13 @@ The Rust-only implementation is operational but far from exact AWS SDK parity:
   `DeleteObject`, and `DeleteBucket` against a deterministic in-process HTTP server.
 - All eight checked-in P0 conformance services are regenerated from the packaged JSON
   models: DynamoDB, IAM, KMS, Lambda, S3, SNS, SQS, and STS.
-- The latest conformance report compares 8,780 files: 16 exact matches, 1,800
-  mismatches, 4,645 missing files, and 2,319 extra files (0.30% arithmetic-average
+- `just conformance-sync` refreshes reference trees, provider models, and the
+  checked-in `conformance/patches/<service>/*.patch` normalization set together.
+  The updater parses reference Rust with `syn`, records only the global-import
+  `crate::` to `super::` transformation as `diffy` patches, and the comparator
+  applies those patches in memory.
+- The latest conformance report compares 6,398 files: 4,781 exact matches, 845
+  mismatches, 715 missing files, and 57 extra files (73.45% arithmetic-average
   match). `just conformance` therefore exits 1 by design until parity is achieved.
 - `cargo test --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
   formatting, and the local generated S3 runtime test pass. These checks prove build
@@ -180,16 +185,25 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ```rust
 // src/lib.rs
-aws_sdk_builder::include_sdk!();
+mod aws_s3_sdk {
+    aws_sdk_builder_s3::include_sdk!();
+}
 ```
 
-`include_sdk!()` is the preferred facade. It expands to the stable generated
-`OUT_DIR/aws_sdk.rs` entry point, so consumers do not need to spell out Cargo's
-build-output path. The generated include remains a stable implementation detail and
-is still tested directly by the conformance harness. Because a macro invoked from
-`src/` must be available to the normal dependency graph, the consumer declares
-`aws-sdk-builder` in both `[dependencies]` and `[build-dependencies]` when it uses this
-facade; the raw include fallback needs only the build dependency.
+The service provider owns `include_sdk!()`, and the consumer chooses the wrapper
+module name. The macro includes that provider's generated service tree directly
+under the caller's module; no aggregate `aws_sdk.rs` facade is generated. A
+top-level invocation is also valid when the consumer wants the generated service
+API at its crate root:
+
+```rust
+aws_sdk_builder_s3::include_sdk!();
+```
+
+Because the macro is invoked from consumer source, the provider is declared in both
+`[dependencies]` and `[build-dependencies]`. Generated source uses relative internal
+paths, so a wrapper such as `s3_import`, `aws_s3_sdk`, or any other valid Rust module
+name works without changing generated code.
 
 There must be no consumer-supplied model path, service shape ID, Smithy executable,
 Maven coordinate, output directory, or codegen plugin configuration in this API.
@@ -224,7 +238,7 @@ golden in a checked-in manifest. Never compare against a moving branch during te
   removed. If one entry selects all operations, later narrower entries cannot reduce it.
 - Unknown services and unknown operations fail before any output is replaced, with a
   diagnostic containing the requested name and the registry/model source.
-- `compile()` is deterministic for the same crate name, service selection, model
+- `compile()` is deterministic for the same service selection, model
   snapshot, generator version, and Rust toolchain.
 - No code path may invoke Smithy CLI, Java, Kotlin, Gradle, Maven, a shell, or a
   network downloader. A consumer build must need Cargo and the Rust toolchain only.
@@ -234,8 +248,9 @@ golden in a checked-in manifest. Never compare against a moving branch during te
 - Generated output must not depend on a generated `aws-sdk-*` service crate merely to
   provide the selected service API. Shared Rust runtime dependencies are allowed only
   when they are declared and documented as ordinary Rust dependencies.
-- Failed generation must leave the previous `OUT_DIR/aws_sdk.rs` and generated module
-  tree intact.
+- Failed generation must leave the previous generated service tree and internal state
+  intact; the installer must not recreate the removed aggregate `OUT_DIR/aws_sdk.rs`
+  facade.
 - Do not silently weaken the parity requirement by ignoring large classes of files,
   changing public names, or normalizing generated behavior beyond the explicitly
   allowed namespace prefix.
@@ -257,32 +272,36 @@ directory or a consumer-provided crate-name argument.
 
 ## Public namespace contract
 
-The include file is a facade containing one module per selected service. For example,
-the generated S3 module must make this path available to downstream users:
+The consumer owns the wrapper module. For example, this makes the generated S3 API
+available below `consumer_crate::s3_import`:
 
 ```rust
-use consumer_crate_name::aws_sdk_s3::operation::abort_multipart_upload::AbortMultipartUpload;
+mod s3_import {
+    aws_sdk_builder_s3::include_sdk!();
+}
+
+use consumer_crate_name::s3_import::operation::abort_multipart_upload::AbortMultipartUpload;
 ```
 
 Rules:
 
 1. Convert the consumer package name to its Rust crate name by replacing `-` with `_`.
-2. Convert the service key to the official AWS SDK crate/module name. For `s3`, this
-   is `aws_sdk_s3`; for `cloudwatch-logs`, it is `aws_sdk_cloudwatchlogs`.
-3. Preserve the official AWS SDK module tree below that prefix, including
+2. Preserve the official AWS SDK module tree below the consumer-owned wrapper,
+   including
    `operation::<snake_case_operation>`, builders, inputs, outputs, errors, model
    modules, protocol modules, and service configuration modules.
-4. The source included into the consumer must compile when the generated modules are
-   nested below `consumer_crate_name::aws_sdk_<service>`. Internal absolute paths must
-   resolve through the generated service module; do not hard-code the build crate’s
-   name into generated runtime code.
-5. The conformance comparator may rewrite only the crate/module anchor needed to turn
-   the standalone AWS SDK crate into the consumer-prefixed module. No type, field,
+3. The source included into the consumer must compile when nested below any
+   `consumer_crate_name::<consumer_wrapper>` chosen by the caller. Internal paths
+   must resolve through that service module; generated runtime code must not hard-code
+   the consumer crate or wrapper name.
+4. The conformance comparator may rewrite only the crate/module anchor needed to turn
+   the standalone AWS SDK crate into the consumer-owned module. No type, field,
    operation, trait, serializer, deserializer, error, retry, endpoint, auth, or
    visibility difference is permitted.
 
-`aws_sdk.rs` must be the stable include target. It may include additional files below
-`OUT_DIR`, but the consumer must never need to know those paths.
+There is no generated aggregate include target. Each provider macro is the stable
+consumer entry point and expands to that service's
+`OUT_DIR/generated/<service>/src/lib.rs`.
 
 ## Packaged model registry
 
@@ -309,9 +328,10 @@ The registry manifest must contain, for every available service:
 
 - short service key;
 - model filename;
-- official `aws-sdk-*` crate name and Rust module name;
 - snapshot commit and model version;
-- operation names in the source order and canonical sorted order.
+- operation names in the source order and canonical sorted order. Official crate/module
+  mappings remain owned by the provider registry and are derived from the service key,
+  rather than duplicated in this manifest.
 
 The initial implementation may land services in priority tiers, but every landed
 service must be completely packaged and selectable. Do not leave a service entry that
@@ -366,7 +386,7 @@ Suggested crate modules are guidance, not permission to duplicate logic:
 
 ```text
 src/
-  lib.rs                 # shared compile entry point and include macro
+  lib.rs                 # shared compile entry point and shared public types
   registry.rs            # service metadata and snapshot provenance
   smithy/
     ast.rs               # Smithy JSON AST
@@ -381,7 +401,7 @@ src/
     retries.rs            # retry classifiers and modeled retry traits
     decorators.rs        # AWS-wide decorators
   services/             # model-driven rendering, not a service registry
-  output.rs              # module facade and atomic install
+  output.rs              # service-tree staging and atomic install
 ```
 
 The implementation must cover the generated API surface used by the reference SDK:
@@ -437,24 +457,28 @@ inputs.
 1. Read `OUT_DIR` and `CARGO_PKG_NAME` from the build-script environment.
 2. Resolve the service selection against packaged models.
 3. Generate into a private temporary directory on the same filesystem as `OUT_DIR`.
-4. Write only `aws_sdk.rs` and one internal Rust source tree per service.
+4. Write one generated Rust source tree per selected service; do not write an aggregate
+   `aws_sdk.rs` wrapper or facade.
 5. Validate the generated Rust syntax.
 6. Atomically replace only the generator-owned output paths after every validation passes.
 
-The generated `OUT_DIR` output must contain only `aws_sdk.rs` and generated Rust source.
-Do not write `aws_sdk_builder_manifest.json` or any other generated metadata file. The
-`CompileReport` may carry diagnostics such as the consumer crate name and selected
-operations in memory, but those values must not be persisted as generated files.
+The generated `OUT_DIR` output must contain only generated service trees and the
+generator's private incremental-selection state. Do not write `aws_sdk.rs`,
+`aws_sdk_builder_manifest.json`, or any other public facade/metadata file. The
+`CompileReport` may carry selected operations in memory, but those values must not be
+persisted as generated source metadata.
 
 The consumer’s handwritten integration is:
 
 ```rust
-aws_sdk_builder::include_sdk!();
+mod s3_import {
+    aws_sdk_builder_s3::include_sdk!();
+}
 ```
 
-The macro expands to `include!(concat!(env!("OUT_DIR"), "/aws_sdk.rs"));`. If a
-consumer needs to inspect generated output directly, that expansion is the stable
-fallback, but normal source should use the macro.
+The provider macro expands to an include of its own generated service root. The
+consumer normally only needs the macro; it does not need to know the generated file
+layout or create an aggregate facade.
 
 If generated code needs Rust runtime crates, expose the exact required dependency
 contract in the example consumer and documentation. The build script cannot silently
@@ -494,15 +518,23 @@ generated source with the pinned AWS SDK source file-by-file and fail on the fir
 unexpected difference. The only permitted normalization beyond that conformance-owned
 formatting is:
 
-- standalone reference crate root/module anchors versus the consumer-prefixed path;
-- the outer `aws_sdk_<service>` wrapper required by `aws_sdk.rs`;
+- standalone reference crate root/module anchors versus the consumer-owned wrapper;
+- the source-only global-import normalization recorded in checked-in `.patch` files;
 - the generated header’s generator identity, if the comparator explicitly checks the
   header separately.
 
+When `just conformance-sync` updates reference data, it parses every included Rust
+source file with `syn`, changes root `use crate::...` imports to `use super::...`, and
+writes the resulting `diffy` unified diff under
+`conformance/patches/<service>/<relative-source>.patch`. The original reference file
+is preserved. During comparison, the patch is loaded and applied to the reference in
+memory; generated Rust is normalized with the same import rule before the pair is
+compared. Invalid Rust, invalid patches, or patches that do not apply are errors.
+
 Do not strip or otherwise ignore whitespace after formatting, imports in general, docs,
 ordering, or included generated source files. The checked-in
-`services-manifest.json` explicitly excludes package metadata and test/bench trees from
-both snapshot inputs. A second AST/token comparison using `syn` should verify public
+`services-manifest.json` explicitly excludes package metadata, LICENSE, and test/bench
+trees from both snapshot inputs. A second AST/token comparison using `syn` should verify public
 item names, signatures, attributes, visibility, and nested module paths independent of
 formatting.
 
@@ -588,9 +620,9 @@ regenerated. Record the before/after counts and the command result in
 For each conformance case:
 
 - `cargo check` the generated consumer with only Rust/Cargo tooling;
-- prove the include path is exactly `OUT_DIR/aws_sdk.rs`;
+- prove each provider macro includes exactly `OUT_DIR/generated/<service>/src/lib.rs`;
 - compile an external-use fixture containing
-  `consumer_crate_name::aws_sdk_s3::operation::abort_multipart_upload::AbortMultipartUpload`;
+  `consumer_crate_name::s3_import::operation::abort_multipart_upload::AbortMultipartUpload`;
 - assert that a selected-operation build does not expose an unselected operation;
 - assert that no Smithy CLI, Java, Kotlin, Gradle, Maven, or network process is
   spawned;
@@ -696,9 +728,9 @@ and update the status/audit markdown before moving on.
 - [ ] M4 — Port AWS codegen behavior. Initial local HTTP runtime wiring exists, but
   protocols, endpoint/auth, retries, streaming, and the service decorators required
   by P0 are not complete.
-- [ ] M5 — Complete the consumer facade. `aws_sdk.rs`, nested service modules, stable
-  public paths, atomic installation, and the consumer example exist;
-  the generated API and runtime are not yet reference-equivalent.
+- [ ] M5 — Complete the consumer entry point. Per-service provider macros, caller-owned
+  wrapper modules, relative internal paths, atomic installation, and the consumer
+  example exist; the generated API and runtime are not yet reference-equivalent.
 - [ ] M6 — Complete conformance. References are pinned, every operation for the
   current P0 set is generated, and deterministic `diffy` Markdown reports are checked
   in, but source/token parity is still far from complete. Continue to compare

@@ -2,7 +2,7 @@
 
 This fixture is a binary consumer of the generated S3 client. `build.rs` selects
 `CreateBucket` and `HeadBucket`, and `src/main.rs` includes the stable
-`OUT_DIR/aws_sdk.rs` facade. Its unit test talks to the local Floci endpoint,
+source in a user-defined `aws_s3_sdk` module. Its unit test talks to the local Floci endpoint,
 creates a fixed bucket, tolerates the two modeled duplicate-bucket errors, and
 then heads the bucket.
 

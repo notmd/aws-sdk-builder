@@ -5,7 +5,8 @@ edition = "2024"
 publish = false
 
 [dependencies]
-aws-sdk-builder = { path = "../../crates/aws-sdk-builder" }
+aws-sdk-builder-s3 = { path = "../../crates/aws-sdk-builder-s3" }
+aws-sdk-builder-sqs = { path = "../../crates/aws-sdk-builder-sqs" }
 aws-runtime = "1.9.1"
 aws-types = "1.5.0"
 aws-smithy-runtime-api = "1.15.0"

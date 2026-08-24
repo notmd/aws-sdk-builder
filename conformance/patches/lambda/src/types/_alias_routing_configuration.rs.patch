@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl AliasRoutingConfiguration {
+     /// Creates a new builder-style object to manufacture [`AliasRoutingConfiguration`](crate::types::AliasRoutingConfiguration).
+-    pub fn builder() -> crate::types::builders::AliasRoutingConfigurationBuilder {
+-        crate::types::builders::AliasRoutingConfigurationBuilder::default()
++    pub fn builder() -> super::types::builders::AliasRoutingConfigurationBuilder {
++        super::types::builders::AliasRoutingConfigurationBuilder::default()
+     }
+ }
+
+@@ -48,8 +48,8 @@
+         &self.additional_version_weights
+     }
+     /// Consumes the builder and constructs a [`AliasRoutingConfiguration`](crate::types::AliasRoutingConfiguration).
+-    pub fn build(self) -> crate::types::AliasRoutingConfiguration {
+-        crate::types::AliasRoutingConfiguration {
++    pub fn build(self) -> super::types::AliasRoutingConfiguration {
++        super::types::AliasRoutingConfiguration {
+             additional_version_weights: self.additional_version_weights,
+         }
+     }

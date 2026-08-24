@@ -47,7 +47,7 @@ pub fn de_describe_key_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::describe_key::DescribeKeyError::KmsInternalException({
+        "KMSInternalException" => crate::operation::describe_key::DescribeKeyError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

@@ -1,0 +1,113 @@
+--- original
++++ modified
+@@ -15,11 +15,11 @@
+     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub request_payer: ::std::option::Option<crate::types::RequestPayer>,
++    pub request_payer: ::std::option::Option<super::types::RequestPayer>,
+     /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with an HTTP 403 (Access Denied) error.</p>
+     pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
+     /// <p>Set to <code>ENABLED</code> to validate the checksum of the annotation payload on retrieval.</p>
+-    pub checksum_mode: ::std::option::Option<crate::types::ChecksumMode>,
++    pub checksum_mode: ::std::option::Option<super::types::ChecksumMode>,
+ }
+ impl GetObjectAnnotationInput {
+     /// <p>The name of the bucket that contains the object.</p>
+@@ -42,7 +42,7 @@
+     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn request_payer(&self) -> ::std::option::Option<&crate::types::RequestPayer> {
++    pub fn request_payer(&self) -> ::std::option::Option<&super::types::RequestPayer> {
+         self.request_payer.as_ref()
+     }
+     /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with an HTTP 403 (Access Denied) error.</p>
+@@ -50,14 +50,14 @@
+         self.expected_bucket_owner.as_deref()
+     }
+     /// <p>Set to <code>ENABLED</code> to validate the checksum of the annotation payload on retrieval.</p>
+-    pub fn checksum_mode(&self) -> ::std::option::Option<&crate::types::ChecksumMode> {
++    pub fn checksum_mode(&self) -> ::std::option::Option<&super::types::ChecksumMode> {
+         self.checksum_mode.as_ref()
+     }
+ }
+ impl GetObjectAnnotationInput {
+     /// Creates a new builder-style object to manufacture [`GetObjectAnnotationInput`](crate::operation::get_object_annotation::GetObjectAnnotationInput).
+-    pub fn builder() -> crate::operation::get_object_annotation::builders::GetObjectAnnotationInputBuilder {
+-        crate::operation::get_object_annotation::builders::GetObjectAnnotationInputBuilder::default()
++    pub fn builder() -> super::operation::get_object_annotation::builders::GetObjectAnnotationInputBuilder {
++        super::operation::get_object_annotation::builders::GetObjectAnnotationInputBuilder::default()
+     }
+ }
+
+@@ -69,9 +69,9 @@
+     pub(crate) key: ::std::option::Option<::std::string::String>,
+     pub(crate) annotation_name: ::std::option::Option<::std::string::String>,
+     pub(crate) version_id: ::std::option::Option<::std::string::String>,
+-    pub(crate) request_payer: ::std::option::Option<crate::types::RequestPayer>,
++    pub(crate) request_payer: ::std::option::Option<super::types::RequestPayer>,
+     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
+-    pub(crate) checksum_mode: ::std::option::Option<crate::types::ChecksumMode>,
++    pub(crate) checksum_mode: ::std::option::Option<super::types::ChecksumMode>,
+ }
+ impl GetObjectAnnotationInputBuilder {
+     /// <p>The name of the bucket that contains the object.</p>
+@@ -139,7 +139,7 @@
+     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
++    pub fn request_payer(mut self, input: super::types::RequestPayer) -> Self {
+         self.request_payer = ::std::option::Option::Some(input);
+         self
+     }
+@@ -146,7 +146,7 @@
+     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
++    pub fn set_request_payer(mut self, input: ::std::option::Option<super::types::RequestPayer>) -> Self {
+         self.request_payer = input;
+         self
+     }
+@@ -153,7 +153,7 @@
+     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
++    pub fn get_request_payer(&self) -> &::std::option::Option<super::types::RequestPayer> {
+         &self.request_payer
+     }
+     /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with an HTTP 403 (Access Denied) error.</p>
+@@ -171,25 +171,25 @@
+         &self.expected_bucket_owner
+     }
+     /// <p>Set to <code>ENABLED</code> to validate the checksum of the annotation payload on retrieval.</p>
+-    pub fn checksum_mode(mut self, input: crate::types::ChecksumMode) -> Self {
++    pub fn checksum_mode(mut self, input: super::types::ChecksumMode) -> Self {
+         self.checksum_mode = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Set to <code>ENABLED</code> to validate the checksum of the annotation payload on retrieval.</p>
+-    pub fn set_checksum_mode(mut self, input: ::std::option::Option<crate::types::ChecksumMode>) -> Self {
++    pub fn set_checksum_mode(mut self, input: ::std::option::Option<super::types::ChecksumMode>) -> Self {
+         self.checksum_mode = input;
+         self
+     }
+     /// <p>Set to <code>ENABLED</code> to validate the checksum of the annotation payload on retrieval.</p>
+-    pub fn get_checksum_mode(&self) -> &::std::option::Option<crate::types::ChecksumMode> {
++    pub fn get_checksum_mode(&self) -> &::std::option::Option<super::types::ChecksumMode> {
+         &self.checksum_mode
+     }
+     /// Consumes the builder and constructs a [`GetObjectAnnotationInput`](crate::operation::get_object_annotation::GetObjectAnnotationInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::get_object_annotation::GetObjectAnnotationInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::get_object_annotation::GetObjectAnnotationInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::get_object_annotation::GetObjectAnnotationInput {
++        ::std::result::Result::Ok(super::operation::get_object_annotation::GetObjectAnnotationInput {
+             bucket: self.bucket,
+             key: self.key,
+             annotation_name: self.annotation_name,

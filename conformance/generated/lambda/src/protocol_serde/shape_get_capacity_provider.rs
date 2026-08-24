@@ -102,9 +102,7 @@ pub fn de_get_capacity_provider_http_response(
         output = crate::protocol_serde::shape_get_capacity_provider::de_get_capacity_provider(_response_body, output)
             .map_err(crate::operation::get_capacity_provider::GetCapacityProviderError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        crate::serde_util::get_capacity_provider_output_output_correct_errors(output)
-            .build()
-            .map_err(crate::operation::get_capacity_provider::GetCapacityProviderError::unhandled)?
+        crate::serde_util::get_capacity_provider_output_output_correct_errors(output).build()
     })
 }
 

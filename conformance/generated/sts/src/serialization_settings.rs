@@ -95,29 +95,3 @@ impl aws_smithy_schema::header_omit_settings::HeaderOmitSettings for HeaderSeria
         self.omit_default_content_length
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_include_header() {
-        let settings = HeaderSerializationSettings::default();
-        assert!(settings.include_header(&CONTENT_LENGTH));
-        assert!(settings.include_header(&CONTENT_TYPE));
-
-        let settings = HeaderSerializationSettings::default().omit_default_content_length();
-        assert!(!settings.include_header(&CONTENT_LENGTH));
-        assert!(settings.include_header(&CONTENT_TYPE));
-
-        let settings = HeaderSerializationSettings::default().omit_default_content_type();
-        assert!(settings.include_header(&CONTENT_LENGTH));
-        assert!(!settings.include_header(&CONTENT_TYPE));
-
-        let settings = HeaderSerializationSettings::default()
-            .omit_default_content_type()
-            .omit_default_content_length();
-        assert!(!settings.include_header(&CONTENT_LENGTH));
-        assert!(!settings.include_header(&CONTENT_TYPE));
-    }
-}

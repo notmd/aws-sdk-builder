@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl GetEndpointAttributesInput {
+     /// Creates a new builder-style object to manufacture [`GetEndpointAttributesInput`](crate::operation::get_endpoint_attributes::GetEndpointAttributesInput).
+-    pub fn builder() -> crate::operation::get_endpoint_attributes::builders::GetEndpointAttributesInputBuilder {
+-        crate::operation::get_endpoint_attributes::builders::GetEndpointAttributesInputBuilder::default()
++    pub fn builder() -> super::operation::get_endpoint_attributes::builders::GetEndpointAttributesInputBuilder {
++        super::operation::get_endpoint_attributes::builders::GetEndpointAttributesInputBuilder::default()
+     }
+ }
+
+@@ -45,9 +45,9 @@
+     /// Consumes the builder and constructs a [`GetEndpointAttributesInput`](crate::operation::get_endpoint_attributes::GetEndpointAttributesInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::get_endpoint_attributes::GetEndpointAttributesInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::get_endpoint_attributes::GetEndpointAttributesInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::get_endpoint_attributes::GetEndpointAttributesInput {
++        ::std::result::Result::Ok(super::operation::get_endpoint_attributes::GetEndpointAttributesInput {
+             endpoint_arn: self.endpoint_arn,
+         })
+     }

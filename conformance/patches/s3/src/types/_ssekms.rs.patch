@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -23,8 +23,8 @@
+ }
+ impl Ssekms {
+     /// Creates a new builder-style object to manufacture [`Ssekms`](crate::types::Ssekms).
+-    pub fn builder() -> crate::types::builders::SsekmsBuilder {
+-        crate::types::builders::SsekmsBuilder::default()
++    pub fn builder() -> super::types::builders::SsekmsBuilder {
++        super::types::builders::SsekmsBuilder::default()
+     }
+ }
+
+@@ -53,8 +53,8 @@
+     /// Consumes the builder and constructs a [`Ssekms`](crate::types::Ssekms).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`key_id`](crate::types::builders::SsekmsBuilder::key_id)
+-    pub fn build(self) -> ::std::result::Result<crate::types::Ssekms, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::Ssekms {
++    pub fn build(self) -> ::std::result::Result<super::types::Ssekms, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::Ssekms {
+             key_id: self.key_id.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "key_id",

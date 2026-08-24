@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for CloudHsmClusterNotActiveException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::CloudHsmClusterNotActiveException {
++impl ::aws_types::request_id::RequestId for super::types::error::CloudHsmClusterNotActiveException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl CloudHsmClusterNotActiveException {
+     /// Creates a new builder-style object to manufacture [`CloudHsmClusterNotActiveException`](crate::types::error::CloudHsmClusterNotActiveException).
+-    pub fn builder() -> crate::types::error::builders::CloudHsmClusterNotActiveExceptionBuilder {
+-        crate::types::error::builders::CloudHsmClusterNotActiveExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::CloudHsmClusterNotActiveExceptionBuilder {
++        super::types::error::builders::CloudHsmClusterNotActiveExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`CloudHsmClusterNotActiveException`](crate::types::error::CloudHsmClusterNotActiveException).
+-    pub fn build(self) -> crate::types::error::CloudHsmClusterNotActiveException {
+-        crate::types::error::CloudHsmClusterNotActiveException {
++    pub fn build(self) -> super::types::error::CloudHsmClusterNotActiveException {
++        super::types::error::CloudHsmClusterNotActiveException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

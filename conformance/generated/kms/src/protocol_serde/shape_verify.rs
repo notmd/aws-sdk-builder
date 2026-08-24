@@ -108,7 +108,7 @@ pub fn de_verify_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::verify::VerifyError::KmsInternalException({
+        "KMSInternalException" => crate::operation::verify::VerifyError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -123,7 +123,7 @@ pub fn de_verify_http_error(
             }
             tmp
         }),
-        "KmsInvalidSignatureException" => crate::operation::verify::VerifyError::KmsInvalidSignatureException({
+        "KMSInvalidSignatureException" => crate::operation::verify::VerifyError::KmsInvalidSignatureException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -139,7 +139,7 @@ pub fn de_verify_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::verify::VerifyError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::verify::VerifyError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

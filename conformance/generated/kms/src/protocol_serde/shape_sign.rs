@@ -108,7 +108,7 @@ pub fn de_sign_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::sign::SignError::KmsInternalException({
+        "KMSInternalException" => crate::operation::sign::SignError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -123,7 +123,7 @@ pub fn de_sign_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::sign::SignError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::sign::SignError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

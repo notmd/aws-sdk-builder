@@ -8,6 +8,7 @@
   "roots": {
     "reference": "conformance/reference",
     "generated": "conformance/generated",
+    "patches": "conformance/patches",
     "summary": "conformance/summary.md"
   },
   "comparison": {
@@ -15,7 +16,8 @@
       "files": [
         "Cargo.toml",
         "Cargo.lock",
-        "README.md"
+        "README.md",
+        "LICENSE"
       ],
       "directories": [
         "tests",
@@ -31,11 +33,7 @@
       "model_destination": "crates/aws-sdk-builder-dynamodb/model.json",
       "reference_path": "dynamodb",
       "generated_path": "dynamodb",
-      "crate_name": "aws-sdk-dynamodb",
-      "module_name": "aws_sdk_dynamodb",
-      "sdk_version": "1.122.0",
-      "reference_files": 883,
-      "generated_files": 883
+      "sdk_version": "1.122.0"
     },
     {
       "key": "iam",
@@ -44,11 +42,7 @@
       "model_destination": "crates/aws-sdk-builder-iam/model.json",
       "reference_path": "iam",
       "generated_path": "iam",
-      "crate_name": "aws-sdk-iam",
-      "module_name": "aws_sdk_iam",
-      "sdk_version": "1.121.0",
-      "reference_files": 1627,
-      "generated_files": 1107
+      "sdk_version": "1.121.0"
     },
     {
       "key": "kms",
@@ -57,11 +51,7 @@
       "model_destination": "crates/aws-sdk-builder-kms/model.json",
       "reference_path": "kms",
       "generated_path": "kms",
-      "crate_name": "aws-sdk-kms",
-      "module_name": "aws_sdk_kms",
-      "sdk_version": "1.116.0",
-      "reference_files": 592,
-      "generated_files": 592
+      "sdk_version": "1.116.0"
     },
     {
       "key": "lambda",
@@ -70,11 +60,7 @@
       "model_destination": "crates/aws-sdk-builder-lambda/model.json",
       "reference_path": "lambda",
       "generated_path": "lambda",
-      "crate_name": "aws-sdk-lambda",
-      "module_name": "aws_sdk_lambda",
-      "sdk_version": "1.140.0",
-      "reference_files": 1077,
-      "generated_files": 1128
+      "sdk_version": "1.140.0"
     },
     {
       "key": "s3",
@@ -83,11 +69,7 @@
       "model_destination": "crates/aws-sdk-builder-s3/model.json",
       "reference_path": "s3",
       "generated_path": "s3",
-      "crate_name": "aws-sdk-s3",
-      "module_name": "aws_sdk_s3",
-      "sdk_version": "1.143.0",
-      "reference_files": 1282,
-      "generated_files": 1282
+      "sdk_version": "1.143.0"
     },
     {
       "key": "sns",
@@ -96,11 +78,7 @@
       "model_destination": "crates/aws-sdk-builder-sns/model.json",
       "reference_path": "sns",
       "generated_path": "sns",
-      "crate_name": "aws-sdk-sns",
-      "module_name": "aws_sdk_sns",
-      "sdk_version": "1.109.0",
-      "reference_files": 446,
-      "generated_files": 301
+      "sdk_version": "1.109.0"
     },
     {
       "key": "sqs",
@@ -109,11 +87,7 @@
       "model_destination": "crates/aws-sdk-builder-sqs/model.json",
       "reference_path": "sqs",
       "generated_path": "sqs",
-      "crate_name": "aws-sdk-sqs",
-      "module_name": "aws_sdk_sqs",
-      "sdk_version": "1.107.0",
-      "reference_files": 295,
-      "generated_files": 293
+      "sdk_version": "1.107.0"
     },
     {
       "key": "sts",
@@ -122,11 +96,7 @@
       "model_destination": "crates/aws-sdk-builder-sts/model.json",
       "reference_path": "sts",
       "generated_path": "sts",
-      "crate_name": "aws-sdk-sts",
-      "module_name": "aws_sdk_sts",
-      "sdk_version": "1.112.0",
-      "reference_files": 147,
-      "generated_files": 105
+      "sdk_version": "1.112.0"
     }
   ]
 }

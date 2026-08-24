@@ -1,0 +1,265 @@
+--- original
++++ modified
+@@ -10,11 +10,11 @@
+     }
+     pub(crate) async fn orchestrate(
+         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        input: crate::operation::upload_part::UploadPartInput,
++        input: super::operation::upload_part::UploadPartInput,
+     ) -> ::std::result::Result<
+-        crate::operation::upload_part::UploadPartOutput,
++        super::operation::upload_part::UploadPartOutput,
+         ::aws_smithy_runtime_api::client::result::SdkError<
+-            crate::operation::upload_part::UploadPartError,
++            super::operation::upload_part::UploadPartError,
+             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+         >,
+     > {
+@@ -23,7 +23,7 @@
+             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+         >| {
+             err.map_service_error(|err| {
+-                err.downcast::<crate::operation::upload_part::UploadPartError>()
++                err.downcast::<super::operation::upload_part::UploadPartError>()
+                     .expect("correct error type")
+             })
+         };
+@@ -33,7 +33,7 @@
+         let output = context.finalize().map_err(map_err)?;
+         ::std::result::Result::Ok(
+             output
+-                .downcast::<crate::operation::upload_part::UploadPartOutput>()
++                .downcast::<super::operation::upload_part::UploadPartOutput>()
+                 .expect("correct output type"),
+         )
+     }
+@@ -40,7 +40,7 @@
+
+     pub(crate) async fn orchestrate_with_stop_point(
+         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        input: crate::operation::upload_part::UploadPartInput,
++        input: super::operation::upload_part::UploadPartInput,
+         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
+     ) -> ::std::result::Result<
+         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
+@@ -66,8 +66,8 @@
+
+     pub(crate) fn operation_runtime_plugins(
+         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+-        client_config: &crate::config::Config,
+-        config_override: ::std::option::Option<crate::config::Builder>,
++        client_config: &super::config::Config,
++        config_override: ::std::option::Option<super::config::Builder>,
+     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
+         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
+
+@@ -75,7 +75,7 @@
+             for plugin in config_override.runtime_plugins.iter().cloned() {
+                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
+             }
+-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
++            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
+                 config_override,
+                 client_config.config.clone(),
+                 &client_config.runtime_components,
+@@ -96,7 +96,7 @@
+         ));
+
+         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
+-            crate::config::auth::Params::builder()
++            super::config::auth::Params::builder()
+                 .operation_name("UploadPart")
+                 .build()
+                 .expect("required fields set"),
+@@ -134,9 +134,9 @@
+                 UploadPartEndpointParamsInterceptor,
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+-                crate::http_request_checksum::RequestChecksumInterceptor::new(
++                super::http_request_checksum::RequestChecksumInterceptor::new(
+                     |input: &::aws_smithy_runtime_api::client::interceptors::context::Input| {
+-                        let input: &crate::operation::upload_part::UploadPartInput = input.downcast_ref().expect("correct type");
++                        let input: &super::operation::upload_part::UploadPartInput = input.downcast_ref().expect("correct type");
+                         let checksum_algorithm = input.checksum_algorithm();
+                         let checksum_algorithm = checksum_algorithm.map(|algorithm| algorithm.as_str());
+                         (checksum_algorithm.map(|s| s.to_string()), false)
+@@ -166,7 +166,7 @@
+                         // From the httpChecksum trait
+                         let http_checksum_required = false;
+
+-                        let is_presigned_req = cfg.load::<crate::presigning::PresigningMarker>().is_some();
++                        let is_presigned_req = cfg.load::<super::presigning::PresigningMarker>().is_some();
+
+                         // If the request is presigned we do not set a default.
+                         // If the RequestChecksumCalculation is WhenSupported and the user has not set a checksum value or algo
+@@ -194,16 +194,16 @@
+                 ),
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+-                crate::aws_chunked::AwsChunkedContentEncodingInterceptor,
++                super::aws_chunked::AwsChunkedContentEncodingInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+-                crate::operation::upload_part::UploadPartError,
++                super::operation::upload_part::UploadPartError,
+             >::new())
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+-                crate::operation::upload_part::UploadPartError,
++                super::operation::upload_part::UploadPartError,
+             >::new())
+             .with_retry_classifier(
+-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::upload_part::UploadPartError>::builder()
++                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::upload_part::UploadPartError>::builder()
+                     .transient_errors({
+                         let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
+                         transient_errors.push("InternalError");
+@@ -358,11 +358,11 @@
+         }
+         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+         let parse_result = if !success && status != 200 || force_error {
+-            crate::protocol_serde::shape_upload_part::de_upload_part_http_error(status, headers, body)
++            super::protocol_serde::shape_upload_part::de_upload_part_http_error(status, headers, body)
+         } else {
+-            crate::protocol_serde::shape_upload_part::de_upload_part_http_response(status, headers, body)
++            super::protocol_serde::shape_upload_part::de_upload_part_http_response(status, headers, body)
+         };
+-        crate::protocol_serde::type_erase_result(parse_result)
++        super::protocol_serde::type_erase_result(parse_result)
+     }
+ }
+ #[derive(Debug)]
+@@ -374,15 +374,15 @@
+         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
+         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
+     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+-        let input = input.downcast::<crate::operation::upload_part::UploadPartInput>().expect("correct type");
++        let input = input.downcast::<super::operation::upload_part::UploadPartInput>().expect("correct type");
+         let _header_serialization_settings = _cfg
+-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
++            .load::<super::serialization_settings::HeaderSerializationSettings>()
+             .cloned()
+             .unwrap_or_default();
+         let mut request_builder = {
+             #[allow(clippy::uninlined_format_args)]
+             fn uri_base(
+-                _input: &crate::operation::upload_part::UploadPartInput,
++                _input: &super::operation::upload_part::UploadPartInput,
+                 output: &mut ::std::string::String,
+             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+                 use ::std::fmt::Write as _;
+@@ -401,7 +401,7 @@
+                 ::std::result::Result::Ok(())
+             }
+             fn uri_query(
+-                _input: &crate::operation::upload_part::UploadPartInput,
++                _input: &super::operation::upload_part::UploadPartInput,
+                 mut output: &mut ::std::string::String,
+             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+                 let mut query = ::aws_smithy_http::query::Writer::new(output);
+@@ -426,13 +426,13 @@
+             }
+             #[allow(clippy::unnecessary_wraps)]
+             fn update_http_builder(
+-                input: &crate::operation::upload_part::UploadPartInput,
++                input: &super::operation::upload_part::UploadPartInput,
+                 builder: ::http_1x::request::Builder,
+             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+                 let mut uri = ::std::string::String::new();
+                 uri_base(input, &mut uri)?;
+                 uri_query(input, &mut uri)?;
+-                let builder = crate::protocol_serde::shape_upload_part::ser_upload_part_headers(input, builder)?;
++                let builder = super::protocol_serde::shape_upload_part::ser_upload_part_headers(input, builder)?;
+                 ::std::result::Result::Ok(builder.method("PUT").uri(uri))
+             }
+             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
+@@ -439,7 +439,7 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/octet-stream");
+             builder
+         };
+-        let body = crate::protocol_serde::shape_upload_part_input::ser_body_http_payload(input.body)?.into_inner();
++        let body = super::protocol_serde::shape_upload_part_input::ser_body_http_payload(input.body)?.into_inner();
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+@@ -471,16 +471,16 @@
+             .downcast_ref::<UploadPartInput>()
+             .ok_or("failed to downcast to UploadPartInput")?;
+
+-        let params = crate::config::endpoint::Params::builder()
++        let params = super::config::endpoint::Params::builder()
+             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
+-            .set_force_path_style(cfg.load::<crate::config::ForcePathStyle>().map(|ty| ty.0))
+-            .set_use_arn_region(cfg.load::<crate::config::UseArnRegion>().map(|ty| ty.0))
+-            .set_disable_multi_region_access_points(cfg.load::<crate::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0))
+-            .set_accelerate(cfg.load::<crate::config::Accelerate>().map(|ty| ty.0))
+-            .set_disable_s3_express_session_auth(cfg.load::<crate::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0))
++            .set_force_path_style(cfg.load::<super::config::ForcePathStyle>().map(|ty| ty.0))
++            .set_use_arn_region(cfg.load::<super::config::UseArnRegion>().map(|ty| ty.0))
++            .set_disable_multi_region_access_points(cfg.load::<super::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0))
++            .set_accelerate(cfg.load::<super::config::Accelerate>().map(|ty| ty.0))
++            .set_disable_s3_express_session_auth(cfg.load::<super::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0))
+             .set_bucket(Some(
+                 _input
+                     .bucket
+@@ -519,7 +519,7 @@
+     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+      \
+     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-UploadPartError) for what information is available for the error.")]
+-    Unhandled(crate::error::sealed_unhandled::Unhandled),
++    Unhandled(super::error::sealed_unhandled::Unhandled),
+ }
+ impl UploadPartError {
+     /// Creates the `UploadPartError::Unhandled` variant from any error type.
+@@ -526,7 +526,7 @@
+     pub fn unhandled(
+         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
+     ) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source: err.into(),
+             meta: ::std::default::Default::default(),
+         })
+@@ -534,7 +534,7 @@
+
+     /// Creates the `UploadPartError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source: err.clone().into(),
+             meta: err,
+         })
+@@ -589,26 +589,26 @@
+         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
+     ) -> Self {
+-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
++        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
+             source,
+             meta: meta.unwrap_or_default(),
+         })
+     }
+ }
+-impl crate::s3_request_id::RequestIdExt for crate::operation::upload_part::UploadPartError {
++impl super::s3_request_id::RequestIdExt for super::operation::upload_part::UploadPartError {
+     fn extended_request_id(&self) -> Option<&str> {
+         self.meta().extended_request_id()
+     }
+ }
+-impl ::aws_types::request_id::RequestId for crate::operation::upload_part::UploadPartError {
++impl ::aws_types::request_id::RequestId for super::operation::upload_part::UploadPartError {
+     fn request_id(&self) -> Option<&str> {
+         self.meta().request_id()
+     }
+ }
+
+-pub use crate::operation::upload_part::_upload_part_input::UploadPartInput;
++pub use super::operation::upload_part::_upload_part_input::UploadPartInput;
+
+-pub use crate::operation::upload_part::_upload_part_output::UploadPartOutput;
++pub use super::operation::upload_part::_upload_part_output::UploadPartOutput;
+
+ mod _upload_part_input;
+

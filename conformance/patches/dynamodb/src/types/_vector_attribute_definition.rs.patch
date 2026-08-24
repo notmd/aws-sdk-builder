@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -16,8 +16,8 @@
+ }
+ impl VectorAttributeDefinition {
+     /// Creates a new builder-style object to manufacture [`VectorAttributeDefinition`](crate::types::VectorAttributeDefinition).
+-    pub fn builder() -> crate::types::builders::VectorAttributeDefinitionBuilder {
+-        crate::types::builders::VectorAttributeDefinitionBuilder::default()
++    pub fn builder() -> super::types::builders::VectorAttributeDefinitionBuilder {
++        super::types::builders::VectorAttributeDefinitionBuilder::default()
+     }
+ }
+
+@@ -46,8 +46,8 @@
+     /// Consumes the builder and constructs a [`VectorAttributeDefinition`](crate::types::VectorAttributeDefinition).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`attribute_name`](crate::types::builders::VectorAttributeDefinitionBuilder::attribute_name)
+-    pub fn build(self) -> ::std::result::Result<crate::types::VectorAttributeDefinition, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::VectorAttributeDefinition {
++    pub fn build(self) -> ::std::result::Result<super::types::VectorAttributeDefinition, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::VectorAttributeDefinition {
+             attribute_name: self.attribute_name.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "attribute_name",

@@ -1,0 +1,72 @@
+--- original
++++ modified
+@@ -6,7 +6,7 @@
+     /// <p>The globally unique identifier for the KMS key.</p>
+     pub key_id: ::std::option::Option<::std::string::String>,
+     /// <p>Contains usage information about the last time the KMS key was used for a successful cryptographic operation. If the key has not been used since tracking began, this response element is empty.</p>
+-    pub key_last_usage: ::std::option::Option<crate::types::KeyLastUsageData>,
++    pub key_last_usage: ::std::option::Option<super::types::KeyLastUsageData>,
+     /// <p>The date from which KMS began recording cryptographic activity for this key, or the date the KMS key was created, whichever is later.</p>
+     pub tracking_start_date: ::std::option::Option<::aws_smithy_types::DateTime>,
+     /// <p>The date and time when the KMS key was created.</p>
+@@ -19,7 +19,7 @@
+         self.key_id.as_deref()
+     }
+     /// <p>Contains usage information about the last time the KMS key was used for a successful cryptographic operation. If the key has not been used since tracking began, this response element is empty.</p>
+-    pub fn key_last_usage(&self) -> ::std::option::Option<&crate::types::KeyLastUsageData> {
++    pub fn key_last_usage(&self) -> ::std::option::Option<&super::types::KeyLastUsageData> {
+         self.key_last_usage.as_ref()
+     }
+     /// <p>The date from which KMS began recording cryptographic activity for this key, or the date the KMS key was created, whichever is later.</p>
+@@ -38,8 +38,8 @@
+ }
+ impl GetKeyLastUsageOutput {
+     /// Creates a new builder-style object to manufacture [`GetKeyLastUsageOutput`](crate::operation::get_key_last_usage::GetKeyLastUsageOutput).
+-    pub fn builder() -> crate::operation::get_key_last_usage::builders::GetKeyLastUsageOutputBuilder {
+-        crate::operation::get_key_last_usage::builders::GetKeyLastUsageOutputBuilder::default()
++    pub fn builder() -> super::operation::get_key_last_usage::builders::GetKeyLastUsageOutputBuilder {
++        super::operation::get_key_last_usage::builders::GetKeyLastUsageOutputBuilder::default()
+     }
+ }
+
+@@ -48,7 +48,7 @@
+ #[non_exhaustive]
+ pub struct GetKeyLastUsageOutputBuilder {
+     pub(crate) key_id: ::std::option::Option<::std::string::String>,
+-    pub(crate) key_last_usage: ::std::option::Option<crate::types::KeyLastUsageData>,
++    pub(crate) key_last_usage: ::std::option::Option<super::types::KeyLastUsageData>,
+     pub(crate) tracking_start_date: ::std::option::Option<::aws_smithy_types::DateTime>,
+     pub(crate) key_creation_date: ::std::option::Option<::aws_smithy_types::DateTime>,
+     _request_id: Option<String>,
+@@ -69,17 +69,17 @@
+         &self.key_id
+     }
+     /// <p>Contains usage information about the last time the KMS key was used for a successful cryptographic operation. If the key has not been used since tracking began, this response element is empty.</p>
+-    pub fn key_last_usage(mut self, input: crate::types::KeyLastUsageData) -> Self {
++    pub fn key_last_usage(mut self, input: super::types::KeyLastUsageData) -> Self {
+         self.key_last_usage = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Contains usage information about the last time the KMS key was used for a successful cryptographic operation. If the key has not been used since tracking began, this response element is empty.</p>
+-    pub fn set_key_last_usage(mut self, input: ::std::option::Option<crate::types::KeyLastUsageData>) -> Self {
++    pub fn set_key_last_usage(mut self, input: ::std::option::Option<super::types::KeyLastUsageData>) -> Self {
+         self.key_last_usage = input;
+         self
+     }
+     /// <p>Contains usage information about the last time the KMS key was used for a successful cryptographic operation. If the key has not been used since tracking began, this response element is empty.</p>
+-    pub fn get_key_last_usage(&self) -> &::std::option::Option<crate::types::KeyLastUsageData> {
++    pub fn get_key_last_usage(&self) -> &::std::option::Option<super::types::KeyLastUsageData> {
+         &self.key_last_usage
+     }
+     /// <p>The date from which KMS began recording cryptographic activity for this key, or the date the KMS key was created, whichever is later.</p>
+@@ -120,8 +120,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`GetKeyLastUsageOutput`](crate::operation::get_key_last_usage::GetKeyLastUsageOutput).
+-    pub fn build(self) -> crate::operation::get_key_last_usage::GetKeyLastUsageOutput {
+-        crate::operation::get_key_last_usage::GetKeyLastUsageOutput {
++    pub fn build(self) -> super::operation::get_key_last_usage::GetKeyLastUsageOutput {
++        super::operation::get_key_last_usage::GetKeyLastUsageOutput {
+             key_id: self.key_id,
+             key_last_usage: self.key_last_usage,
+             tracking_start_date: self.tracking_start_date,

@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -14,8 +14,8 @@
+ }
+ impl DisconnectCustomKeyStoreInput {
+     /// Creates a new builder-style object to manufacture [`DisconnectCustomKeyStoreInput`](crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreInput).
+-    pub fn builder() -> crate::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreInputBuilder {
+-        crate::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreInputBuilder::default()
++    pub fn builder() -> super::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreInputBuilder {
++        super::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreInputBuilder::default()
+     }
+ }
+
+@@ -45,10 +45,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreInput,
++        super::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreInput {
++        ::std::result::Result::Ok(super::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreInput {
+             custom_key_store_id: self.custom_key_store_id,
+         })
+     }

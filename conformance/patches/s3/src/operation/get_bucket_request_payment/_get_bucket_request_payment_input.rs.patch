@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -20,8 +20,8 @@
+ }
+ impl GetBucketRequestPaymentInput {
+     /// Creates a new builder-style object to manufacture [`GetBucketRequestPaymentInput`](crate::operation::get_bucket_request_payment::GetBucketRequestPaymentInput).
+-    pub fn builder() -> crate::operation::get_bucket_request_payment::builders::GetBucketRequestPaymentInputBuilder {
+-        crate::operation::get_bucket_request_payment::builders::GetBucketRequestPaymentInputBuilder::default()
++    pub fn builder() -> super::operation::get_bucket_request_payment::builders::GetBucketRequestPaymentInputBuilder {
++        super::operation::get_bucket_request_payment::builders::GetBucketRequestPaymentInputBuilder::default()
+     }
+ }
+
+@@ -66,10 +66,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::get_bucket_request_payment::GetBucketRequestPaymentInput,
++        super::operation::get_bucket_request_payment::GetBucketRequestPaymentInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::get_bucket_request_payment::GetBucketRequestPaymentInput {
++        ::std::result::Result::Ok(super::operation::get_bucket_request_payment::GetBucketRequestPaymentInput {
+             bucket: self.bucket,
+             expected_bucket_owner: self.expected_bucket_owner,
+         })

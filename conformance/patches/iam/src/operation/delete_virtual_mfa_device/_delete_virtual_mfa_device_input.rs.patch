@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -16,8 +16,8 @@
+ }
+ impl DeleteVirtualMfaDeviceInput {
+     /// Creates a new builder-style object to manufacture [`DeleteVirtualMfaDeviceInput`](crate::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceInput).
+-    pub fn builder() -> crate::operation::delete_virtual_mfa_device::builders::DeleteVirtualMfaDeviceInputBuilder {
+-        crate::operation::delete_virtual_mfa_device::builders::DeleteVirtualMfaDeviceInputBuilder::default()
++    pub fn builder() -> super::operation::delete_virtual_mfa_device::builders::DeleteVirtualMfaDeviceInputBuilder {
++        super::operation::delete_virtual_mfa_device::builders::DeleteVirtualMfaDeviceInputBuilder::default()
+     }
+ }
+
+@@ -50,10 +50,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceInput,
++        super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceInput {
++        ::std::result::Result::Ok(super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceInput {
+             serial_number: self.serial_number,
+         })
+     }

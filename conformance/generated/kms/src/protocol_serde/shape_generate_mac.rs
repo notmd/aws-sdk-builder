@@ -93,7 +93,7 @@ pub fn de_generate_mac_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::generate_mac::GenerateMacError::KmsInternalException({
+        "KMSInternalException" => crate::operation::generate_mac::GenerateMacError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -108,7 +108,7 @@ pub fn de_generate_mac_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::generate_mac::GenerateMacError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::generate_mac::GenerateMacError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

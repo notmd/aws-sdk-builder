@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for XksProxyVpcEndpointServiceNotFoundException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::XksProxyVpcEndpointServiceNotFoundException {
++impl ::aws_types::request_id::RequestId for super::types::error::XksProxyVpcEndpointServiceNotFoundException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl XksProxyVpcEndpointServiceNotFoundException {
+     /// Creates a new builder-style object to manufacture [`XksProxyVpcEndpointServiceNotFoundException`](crate::types::error::XksProxyVpcEndpointServiceNotFoundException).
+-    pub fn builder() -> crate::types::error::builders::XksProxyVpcEndpointServiceNotFoundExceptionBuilder {
+-        crate::types::error::builders::XksProxyVpcEndpointServiceNotFoundExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::XksProxyVpcEndpointServiceNotFoundExceptionBuilder {
++        super::types::error::builders::XksProxyVpcEndpointServiceNotFoundExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`XksProxyVpcEndpointServiceNotFoundException`](crate::types::error::XksProxyVpcEndpointServiceNotFoundException).
+-    pub fn build(self) -> crate::types::error::XksProxyVpcEndpointServiceNotFoundException {
+-        crate::types::error::XksProxyVpcEndpointServiceNotFoundException {
++    pub fn build(self) -> super::types::error::XksProxyVpcEndpointServiceNotFoundException {
++        super::types::error::XksProxyVpcEndpointServiceNotFoundException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

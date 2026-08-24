@@ -65,7 +65,7 @@ pub fn de_disable_key_rotation_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::disable_key_rotation::DisableKeyRotationError::KmsInternalException({
+        "KMSInternalException" => crate::operation::disable_key_rotation::DisableKeyRotationError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -80,7 +80,7 @@ pub fn de_disable_key_rotation_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::disable_key_rotation::DisableKeyRotationError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::disable_key_rotation::DisableKeyRotationError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

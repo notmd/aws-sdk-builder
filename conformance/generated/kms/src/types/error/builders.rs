@@ -75,7 +75,7 @@ pub use crate::types::error::_invalid_key_usage_exception::InvalidKeyUsageExcept
 
 pub use crate::types::error::_key_unavailable_exception::KeyUnavailableExceptionBuilder;
 
-pub use crate::types::error::_custom_key_store_has_cm_ks_exception::CustomKeyStoreHasCmKsExceptionBuilder;
+pub use crate::types::error::_custom_key_store_has_cmks_exception::CustomKeyStoreHasCmKsExceptionBuilder;
 
 pub use crate::types::error::_invalid_marker_exception::InvalidMarkerExceptionBuilder;
 

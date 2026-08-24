@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -14,8 +14,8 @@
+ }
+ impl GetEventSourceMappingInput {
+     /// Creates a new builder-style object to manufacture [`GetEventSourceMappingInput`](crate::operation::get_event_source_mapping::GetEventSourceMappingInput).
+-    pub fn builder() -> crate::operation::get_event_source_mapping::builders::GetEventSourceMappingInputBuilder {
+-        crate::operation::get_event_source_mapping::builders::GetEventSourceMappingInputBuilder::default()
++    pub fn builder() -> super::operation::get_event_source_mapping::builders::GetEventSourceMappingInputBuilder {
++        super::operation::get_event_source_mapping::builders::GetEventSourceMappingInputBuilder::default()
+     }
+ }
+
+@@ -44,8 +44,8 @@
+     /// Consumes the builder and constructs a [`GetEventSourceMappingInput`](crate::operation::get_event_source_mapping::GetEventSourceMappingInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::get_event_source_mapping::GetEventSourceMappingInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::get_event_source_mapping::GetEventSourceMappingInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::get_event_source_mapping::GetEventSourceMappingInput { uuid: self.uuid })
++        ::std::result::Result::Ok(super::operation::get_event_source_mapping::GetEventSourceMappingInput { uuid: self.uuid })
+     }
+ }

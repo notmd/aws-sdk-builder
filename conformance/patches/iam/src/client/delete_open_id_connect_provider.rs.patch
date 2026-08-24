@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -8,7 +8,7 @@
+     /// - On failure, responds with [`SdkError<DeleteOpenIDConnectProviderError>`](crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError)
+     pub fn delete_open_id_connect_provider(
+         &self,
+-    ) -> crate::operation::delete_open_id_connect_provider::builders::DeleteOpenIDConnectProviderFluentBuilder {
+-        crate::operation::delete_open_id_connect_provider::builders::DeleteOpenIDConnectProviderFluentBuilder::new(self.handle.clone())
++    ) -> super::operation::delete_open_id_connect_provider::builders::DeleteOpenIDConnectProviderFluentBuilder {
++        super::operation::delete_open_id_connect_provider::builders::DeleteOpenIDConnectProviderFluentBuilder::new(self.handle.clone())
+     }
+ }

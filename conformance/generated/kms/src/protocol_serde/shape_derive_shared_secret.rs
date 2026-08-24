@@ -111,7 +111,7 @@ pub fn de_derive_shared_secret_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::KmsInternalException({
+        "KMSInternalException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -126,7 +126,7 @@ pub fn de_derive_shared_secret_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

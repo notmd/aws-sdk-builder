@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl RetryDetails {
+     /// Creates a new builder-style object to manufacture [`RetryDetails`](crate::types::RetryDetails).
+-    pub fn builder() -> crate::types::builders::RetryDetailsBuilder {
+-        crate::types::builders::RetryDetailsBuilder::default()
++    pub fn builder() -> super::types::builders::RetryDetailsBuilder {
++        super::types::builders::RetryDetailsBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.next_attempt_delay_seconds
+     }
+     /// Consumes the builder and constructs a [`RetryDetails`](crate::types::RetryDetails).
+-    pub fn build(self) -> crate::types::RetryDetails {
+-        crate::types::RetryDetails {
++    pub fn build(self) -> super::types::RetryDetails {
++        super::types::RetryDetails {
+             current_attempt: self.current_attempt.unwrap_or_default(),
+             next_attempt_delay_seconds: self.next_attempt_delay_seconds,
+         }

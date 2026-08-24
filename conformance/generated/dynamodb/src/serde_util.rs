@@ -14,7 +14,7 @@ pub(crate) fn describe_import_output_output_correct_errors(
     if builder.import_table_description.is_none() {
         builder.import_table_description = {
             let builder = crate::types::builders::ImportTableDescriptionBuilder::default();
-            Some(builder.build())
+            builder.build().ok()
         }
     }
     builder
@@ -26,7 +26,7 @@ pub(crate) fn import_table_output_output_correct_errors(
     if builder.import_table_description.is_none() {
         builder.import_table_description = {
             let builder = crate::types::builders::ImportTableDescriptionBuilder::default();
-            Some(builder.build())
+            builder.build().ok()
         }
     }
     builder

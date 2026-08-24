@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -6,7 +6,7 @@
+     _extended_request_id: Option<String>,
+     _request_id: Option<String>,
+ }
+-impl crate::s3_request_id::RequestIdExt for CreateBucketMetadataConfigurationOutput {
++impl super::s3_request_id::RequestIdExt for CreateBucketMetadataConfigurationOutput {
+     fn extended_request_id(&self) -> Option<&str> {
+         self._extended_request_id.as_deref()
+     }
+@@ -18,8 +18,8 @@
+ }
+ impl CreateBucketMetadataConfigurationOutput {
+     /// Creates a new builder-style object to manufacture [`CreateBucketMetadataConfigurationOutput`](crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationOutput).
+-    pub fn builder() -> crate::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationOutputBuilder {
+-        crate::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationOutputBuilder::default()
++    pub fn builder() -> super::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationOutputBuilder {
++        super::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationOutputBuilder::default()
+     }
+ }
+
+@@ -50,8 +50,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`CreateBucketMetadataConfigurationOutput`](crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationOutput).
+-    pub fn build(self) -> crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationOutput {
+-        crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationOutput {
++    pub fn build(self) -> super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationOutput {
++        super::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationOutput {
+             _extended_request_id: self._extended_request_id,
+             _request_id: self._request_id,
+         }

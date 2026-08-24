@@ -1,0 +1,171 @@
+--- original
++++ modified
+@@ -13,13 +13,13 @@
+     /// <p>The total number of write capacity units consumed by the operation.</p>
+     pub write_capacity_units: ::std::option::Option<f64>,
+     /// <p>The amount of throughput consumed on the table affected by the operation.</p>
+-    pub table: ::std::option::Option<crate::types::Capacity>,
++    pub table: ::std::option::Option<super::types::Capacity>,
+     /// <p>The amount of throughput consumed on each local index affected by the operation.</p>
+-    pub local_secondary_indexes: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>>,
++    pub local_secondary_indexes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::Capacity>>,
+     /// <p>The amount of throughput consumed on each global index affected by the operation.</p>
+-    pub global_secondary_indexes: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>>,
++    pub global_secondary_indexes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::Capacity>>,
+     /// <p>The amount of throughput consumed on each vector index affected by the operation. Each entry contains <code>VectorWriteRequestBytes</code> (for write operations) or <code>VectorSearchRequestBytes</code> (for search operations).</p>
+-    pub vector_indexes: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::VectorCapacity>>,
++    pub vector_indexes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::VectorCapacity>>,
+ }
+ impl ConsumedCapacity {
+     /// <p>The name of the table that was affected by the operation. If you had specified the Amazon Resource Name (ARN) of a table in the input, you'll see the table ARN in the response.</p>
+@@ -39,26 +39,26 @@
+         self.write_capacity_units
+     }
+     /// <p>The amount of throughput consumed on the table affected by the operation.</p>
+-    pub fn table(&self) -> ::std::option::Option<&crate::types::Capacity> {
++    pub fn table(&self) -> ::std::option::Option<&super::types::Capacity> {
+         self.table.as_ref()
+     }
+     /// <p>The amount of throughput consumed on each local index affected by the operation.</p>
+-    pub fn local_secondary_indexes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::Capacity>> {
++    pub fn local_secondary_indexes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::types::Capacity>> {
+         self.local_secondary_indexes.as_ref()
+     }
+     /// <p>The amount of throughput consumed on each global index affected by the operation.</p>
+-    pub fn global_secondary_indexes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::Capacity>> {
++    pub fn global_secondary_indexes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::types::Capacity>> {
+         self.global_secondary_indexes.as_ref()
+     }
+     /// <p>The amount of throughput consumed on each vector index affected by the operation. Each entry contains <code>VectorWriteRequestBytes</code> (for write operations) or <code>VectorSearchRequestBytes</code> (for search operations).</p>
+-    pub fn vector_indexes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::VectorCapacity>> {
++    pub fn vector_indexes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::types::VectorCapacity>> {
+         self.vector_indexes.as_ref()
+     }
+ }
+ impl ConsumedCapacity {
+     /// Creates a new builder-style object to manufacture [`ConsumedCapacity`](crate::types::ConsumedCapacity).
+-    pub fn builder() -> crate::types::builders::ConsumedCapacityBuilder {
+-        crate::types::builders::ConsumedCapacityBuilder::default()
++    pub fn builder() -> super::types::builders::ConsumedCapacityBuilder {
++        super::types::builders::ConsumedCapacityBuilder::default()
+     }
+ }
+
+@@ -70,10 +70,10 @@
+     pub(crate) capacity_units: ::std::option::Option<f64>,
+     pub(crate) read_capacity_units: ::std::option::Option<f64>,
+     pub(crate) write_capacity_units: ::std::option::Option<f64>,
+-    pub(crate) table: ::std::option::Option<crate::types::Capacity>,
+-    pub(crate) local_secondary_indexes: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>>,
+-    pub(crate) global_secondary_indexes: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>>,
+-    pub(crate) vector_indexes: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::VectorCapacity>>,
++    pub(crate) table: ::std::option::Option<super::types::Capacity>,
++    pub(crate) local_secondary_indexes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::Capacity>>,
++    pub(crate) global_secondary_indexes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::Capacity>>,
++    pub(crate) vector_indexes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::VectorCapacity>>,
+ }
+ impl ConsumedCapacityBuilder {
+     /// <p>The name of the table that was affected by the operation. If you had specified the Amazon Resource Name (ARN) of a table in the input, you'll see the table ARN in the response.</p>
+@@ -133,17 +133,17 @@
+         &self.write_capacity_units
+     }
+     /// <p>The amount of throughput consumed on the table affected by the operation.</p>
+-    pub fn table(mut self, input: crate::types::Capacity) -> Self {
++    pub fn table(mut self, input: super::types::Capacity) -> Self {
+         self.table = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The amount of throughput consumed on the table affected by the operation.</p>
+-    pub fn set_table(mut self, input: ::std::option::Option<crate::types::Capacity>) -> Self {
++    pub fn set_table(mut self, input: ::std::option::Option<super::types::Capacity>) -> Self {
+         self.table = input;
+         self
+     }
+     /// <p>The amount of throughput consumed on the table affected by the operation.</p>
+-    pub fn get_table(&self) -> &::std::option::Option<crate::types::Capacity> {
++    pub fn get_table(&self) -> &::std::option::Option<super::types::Capacity> {
+         &self.table
+     }
+     /// Adds a key-value pair to `local_secondary_indexes`.
+@@ -151,7 +151,7 @@
+     /// To override the contents of this collection use [`set_local_secondary_indexes`](Self::set_local_secondary_indexes).
+     ///
+     /// <p>The amount of throughput consumed on each local index affected by the operation.</p>
+-    pub fn local_secondary_indexes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::Capacity) -> Self {
++    pub fn local_secondary_indexes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::types::Capacity) -> Self {
+         let mut hash_map = self.local_secondary_indexes.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+         self.local_secondary_indexes = ::std::option::Option::Some(hash_map);
+@@ -160,13 +160,13 @@
+     /// <p>The amount of throughput consumed on each local index affected by the operation.</p>
+     pub fn set_local_secondary_indexes(
+         mut self,
+-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>>,
++        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::Capacity>>,
+     ) -> Self {
+         self.local_secondary_indexes = input;
+         self
+     }
+     /// <p>The amount of throughput consumed on each local index affected by the operation.</p>
+-    pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>> {
++    pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::Capacity>> {
+         &self.local_secondary_indexes
+     }
+     /// Adds a key-value pair to `global_secondary_indexes`.
+@@ -174,7 +174,7 @@
+     /// To override the contents of this collection use [`set_global_secondary_indexes`](Self::set_global_secondary_indexes).
+     ///
+     /// <p>The amount of throughput consumed on each global index affected by the operation.</p>
+-    pub fn global_secondary_indexes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::Capacity) -> Self {
++    pub fn global_secondary_indexes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::types::Capacity) -> Self {
+         let mut hash_map = self.global_secondary_indexes.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+         self.global_secondary_indexes = ::std::option::Option::Some(hash_map);
+@@ -183,13 +183,13 @@
+     /// <p>The amount of throughput consumed on each global index affected by the operation.</p>
+     pub fn set_global_secondary_indexes(
+         mut self,
+-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>>,
++        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::Capacity>>,
+     ) -> Self {
+         self.global_secondary_indexes = input;
+         self
+     }
+     /// <p>The amount of throughput consumed on each global index affected by the operation.</p>
+-    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>> {
++    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::Capacity>> {
+         &self.global_secondary_indexes
+     }
+     /// Adds a key-value pair to `vector_indexes`.
+@@ -197,7 +197,7 @@
+     /// To override the contents of this collection use [`set_vector_indexes`](Self::set_vector_indexes).
+     ///
+     /// <p>The amount of throughput consumed on each vector index affected by the operation. Each entry contains <code>VectorWriteRequestBytes</code> (for write operations) or <code>VectorSearchRequestBytes</code> (for search operations).</p>
+-    pub fn vector_indexes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::VectorCapacity) -> Self {
++    pub fn vector_indexes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::types::VectorCapacity) -> Self {
+         let mut hash_map = self.vector_indexes.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+         self.vector_indexes = ::std::option::Option::Some(hash_map);
+@@ -206,18 +206,18 @@
+     /// <p>The amount of throughput consumed on each vector index affected by the operation. Each entry contains <code>VectorWriteRequestBytes</code> (for write operations) or <code>VectorSearchRequestBytes</code> (for search operations).</p>
+     pub fn set_vector_indexes(
+         mut self,
+-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::VectorCapacity>>,
++        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::VectorCapacity>>,
+     ) -> Self {
+         self.vector_indexes = input;
+         self
+     }
+     /// <p>The amount of throughput consumed on each vector index affected by the operation. Each entry contains <code>VectorWriteRequestBytes</code> (for write operations) or <code>VectorSearchRequestBytes</code> (for search operations).</p>
+-    pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::VectorCapacity>> {
++    pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::VectorCapacity>> {
+         &self.vector_indexes
+     }
+     /// Consumes the builder and constructs a [`ConsumedCapacity`](crate::types::ConsumedCapacity).
+-    pub fn build(self) -> crate::types::ConsumedCapacity {
+-        crate::types::ConsumedCapacity {
++    pub fn build(self) -> super::types::ConsumedCapacity {
++        super::types::ConsumedCapacity {
+             table_name: self.table_name,
+             capacity_units: self.capacity_units,
+             read_capacity_units: self.read_capacity_units,

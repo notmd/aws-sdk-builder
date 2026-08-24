@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sts
-**Progress:** `147/147` files compared · `89` matched · `16` mismatches · `42` missing · `0` extra · `60.54%` match (100.00% means fully matched)
+**Progress:** `146/146` files compared · `90` matched · `14` mismatches · `42` missing · `0` extra · `61.64%` match (100.00% means fully matched)
 
 ### `src/client.rs`
 
@@ -72,10 +72,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/assume_role.rs
 @@ -139,15 +139,9 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::assume_role::AssumeRoleError,
+                 super::operation::assume_role::AssumeRoleError,
              >::new())
 -            .with_retry_classifier(
--                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::assume_role::AssumeRoleError>::builder()
+-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::assume_role::AssumeRoleError>::builder()
 -                    .transient_errors({
 -                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
 -                        transient_errors.push("IDPCommunicationError");
@@ -84,7 +84,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                    .build(),
 -            );
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                crate::operation::assume_role::AssumeRoleError,
++                super::operation::assume_role::AssumeRoleError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -99,8 +99,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body =
--            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_assume_role_input::ser_assume_role_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_assume_role_input::ser_assume_role_op_input(&input)?);
+-            ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_assume_role_input::ser_assume_role_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_assume_role_input::ser_assume_role_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -113,10 +113,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/assume_role_with_saml/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
+         super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
-+            crate::operation::assume_role_with_saml::AssumeRoleWithSamlError,
+-            super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
++            super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -135,26 +135,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct AssumeRoleWithSAMLFluentBuilder {
 +pub struct AssumeRoleWithSamlFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::assume_role_with_saml::builders::AssumeRoleWithSamlInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::assume_role_with_saml::builders::AssumeRoleWithSamlInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -66,8 +66,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
--        crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
+-        super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
 -    > for AssumeRoleWithSAMLFluentBuilder
-+        crate::operation::assume_role_with_saml::AssumeRoleWithSamlError,
++        super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
 +    > for AssumeRoleWithSamlFluentBuilder
  {
      fn send(
          self,
 @@ -75,14 +75,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
--            crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
-+            crate::operation::assume_role_with_saml::AssumeRoleWithSamlError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
+-            super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
++            super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -164,7 +164,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `AssumeRoleWithSAMLFluentBuilder`.
 +impl AssumeRoleWithSamlFluentBuilder {
 +    /// Creates a new `AssumeRoleWithSamlFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -90,7 +90,7 @@
@@ -173,15 +173,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the AssumeRoleWithSAML as a reference.
 +    /// Access the AssumeRoleWithSaml as a reference.
-     pub fn as_input(&self) -> &crate::operation::assume_role_with_saml::builders::AssumeRoleWithSamlInputBuilder {
+     pub fn as_input(&self) -> &super::operation::assume_role_with_saml::builders::AssumeRoleWithSamlInputBuilder {
          &self.inner
      }
 @@ -107,7 +107,7 @@
      ) -> ::std::result::Result<
-         crate::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
+         super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
-+            crate::operation::assume_role_with_saml::AssumeRoleWithSamlError,
+-            super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
++            super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -189,26 +189,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::assume_role_with_saml::AssumeRoleWithSAML::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::assume_role_with_saml::AssumeRoleWithSaml::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::assume_role_with_saml::AssumeRoleWithSAML::operation_runtime_plugins(
++        let runtime_plugins = super::operation::assume_role_with_saml::AssumeRoleWithSaml::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::assume_role_with_saml::AssumeRoleWithSAML::orchestrate(&runtime_plugins, input).await
-+        crate::operation::assume_role_with_saml::AssumeRoleWithSaml::orchestrate(&runtime_plugins, input).await
+-        super::operation::assume_role_with_saml::AssumeRoleWithSAML::orchestrate(&runtime_plugins, input).await
++        super::operation::assume_role_with_saml::AssumeRoleWithSaml::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -128,7 +128,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
--        crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
-+        crate::operation::assume_role_with_saml::AssumeRoleWithSamlError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
+-        super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
++        super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/assume_role_with_saml.rs`
@@ -276,9 +276,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(AssumeRoleWithSAMLTelemetryInputCaptureInterceptor))
 -.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 -.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(AssumeRoleWithSAMLEndpointParamsInterceptor))
--                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError>::new())
--.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError>::new())
--.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError>::builder().transient_errors({
+-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::operation::assume_role_with_saml::AssumeRoleWithSAMLError>::new())
+-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::operation::assume_role_with_saml::AssumeRoleWithSAMLError>::new())
+-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::assume_role_with_saml::AssumeRoleWithSAMLError>::builder().transient_errors({
 -                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
 -                                            transient_errors.push("IDPCommunicationError");
 -                                            ::std::borrow::Cow::Owned(transient_errors)
@@ -294,13 +294,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                AssumeRoleWithSamlEndpointParamsInterceptor,
 +            ))
 +            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
++                super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
 +            >::new())
 +            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
++                super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
 +            >::new())
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
++                super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -331,8 +331,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_assume_role_with_saml_input::ser_assume_role_with_saml_input_input_input(&input)?,
-+            crate::protocol_serde::shape_assume_role_with_saml_input::ser_assume_role_with_saml_op_input(&input)?,
+-            super::protocol_serde::shape_assume_role_with_saml_input::ser_assume_role_with_saml_input_input_input(&input)?,
++            super::protocol_serde::shape_assume_role_with_saml_input::ser_assume_role_with_saml_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -379,11 +379,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 @@ -132,17 +142,9 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError,
+                 super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError,
              >::new())
 -            .with_retry_classifier(
 -                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                    crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError,
+-                    super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError,
 -                >::builder()
 -                .transient_errors({
 -                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
@@ -393,7 +393,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                .build(),
 -            );
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError,
++                super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -408,8 +408,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_assume_role_with_web_identity_input::ser_assume_role_with_web_identity_input_input_input(&input)?,
-+            crate::protocol_serde::shape_assume_role_with_web_identity_input::ser_assume_role_with_web_identity_op_input(&input)?,
+-            super::protocol_serde::shape_assume_role_with_web_identity_input::ser_assume_role_with_web_identity_input_input_input(&input)?,
++            super::protocol_serde::shape_assume_role_with_web_identity_input::ser_assume_role_with_web_identity_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -434,10 +434,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/assume_root.rs
 @@ -139,15 +139,9 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::assume_root::AssumeRootError,
+                 super::operation::assume_root::AssumeRootError,
              >::new())
 -            .with_retry_classifier(
--                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::assume_root::AssumeRootError>::builder()
+-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::assume_root::AssumeRootError>::builder()
 -                    .transient_errors({
 -                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
 -                        transient_errors.push("IDPCommunicationError");
@@ -446,7 +446,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                    .build(),
 -            );
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                crate::operation::assume_root::AssumeRootError,
++                super::operation::assume_root::AssumeRootError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -461,8 +461,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body =
--            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_assume_root_input::ser_assume_root_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_assume_root_input::ser_assume_root_op_input(&input)?);
+-            ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_assume_root_input::ser_assume_root_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_assume_root_input::ser_assume_root_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -475,11 +475,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/decode_authorization_message.rs
 @@ -141,17 +141,9 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::decode_authorization_message::DecodeAuthorizationMessageError,
+                 super::operation::decode_authorization_message::DecodeAuthorizationMessageError,
              >::new())
 -            .with_retry_classifier(
 -                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                    crate::operation::decode_authorization_message::DecodeAuthorizationMessageError,
+-                    super::operation::decode_authorization_message::DecodeAuthorizationMessageError,
 -                >::builder()
 -                .transient_errors({
 -                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
@@ -489,7 +489,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                .build(),
 -            );
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                crate::operation::decode_authorization_message::DecodeAuthorizationMessageError,
++                super::operation::decode_authorization_message::DecodeAuthorizationMessageError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -504,8 +504,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_decode_authorization_message_input::ser_decode_authorization_message_input_input_input(&input)?,
-+            crate::protocol_serde::shape_decode_authorization_message_input::ser_decode_authorization_message_op_input(&input)?,
+-            super::protocol_serde::shape_decode_authorization_message_input::ser_decode_authorization_message_input_input_input(&input)?,
++            super::protocol_serde::shape_decode_authorization_message_input::ser_decode_authorization_message_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -518,10 +518,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/get_access_key_info.rs
 @@ -138,16 +138,9 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_access_key_info::GetAccessKeyInfoError,
+                 super::operation::get_access_key_info::GetAccessKeyInfoError,
              >::new())
 -            .with_retry_classifier(
--                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_access_key_info::GetAccessKeyInfoError>::builder(
+-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::get_access_key_info::GetAccessKeyInfoError>::builder(
 -                )
 -                .transient_errors({
 -                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
@@ -531,7 +531,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                .build(),
 -            );
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                crate::operation::get_access_key_info::GetAccessKeyInfoError,
++                super::operation::get_access_key_info::GetAccessKeyInfoError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -546,9 +546,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_access_key_info_input::ser_get_access_key_info_input_input_input(&input)?,
+-            super::protocol_serde::shape_get_access_key_info_input::ser_get_access_key_info_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_access_key_info_input::ser_get_access_key_info_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_access_key_info_input::ser_get_access_key_info_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -568,9 +568,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetCallerIdentity")
 -                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 -.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetCallerIdentityEndpointParamsInterceptor))
--                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::get_caller_identity::GetCallerIdentityError>::new())
--.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::get_caller_identity::GetCallerIdentityError>::new())
--.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_caller_identity::GetCallerIdentityError>::builder().transient_errors({
+-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::operation::get_caller_identity::GetCallerIdentityError>::new())
+-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::operation::get_caller_identity::GetCallerIdentityError>::new())
+-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::get_caller_identity::GetCallerIdentityError>::builder().transient_errors({
 -                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
 -                                            transient_errors.push("IDPCommunicationError");
 -                                            ::std::borrow::Cow::Owned(transient_errors)
@@ -583,13 +583,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                GetCallerIdentityEndpointParamsInterceptor,
 +            ))
 +            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                crate::operation::get_caller_identity::GetCallerIdentityError,
++                super::operation::get_caller_identity::GetCallerIdentityError,
 +            >::new())
 +            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                crate::operation::get_caller_identity::GetCallerIdentityError,
++                super::operation::get_caller_identity::GetCallerIdentityError,
 +            >::new())
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                crate::operation::get_caller_identity::GetCallerIdentityError,
++                super::operation::get_caller_identity::GetCallerIdentityError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -603,7 +603,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_caller_identity_input::ser_get_caller_identity_input_input_input(&input)?,
+-            super::protocol_serde::shape_get_caller_identity_input::ser_get_caller_identity_input_input_input(&input)?,
 -        );
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
@@ -618,11 +618,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/get_delegated_access_token.rs
 @@ -139,17 +139,9 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
+                 super::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
              >::new())
 -            .with_retry_classifier(
 -                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                    crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
+-                    super::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
 -                >::builder()
 -                .transient_errors({
 -                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
@@ -632,7 +632,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                .build(),
 -            );
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
++                super::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -647,8 +647,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_delegated_access_token_input::ser_get_delegated_access_token_input_input_input(&input)?,
-+            crate::protocol_serde::shape_get_delegated_access_token_input::ser_get_delegated_access_token_op_input(&input)?,
+-            super::protocol_serde::shape_get_delegated_access_token_input::ser_get_delegated_access_token_input_input_input(&input)?,
++            super::protocol_serde::shape_get_delegated_access_token_input::ser_get_delegated_access_token_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -667,9 +667,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetFederationTokenTelemetryInputCaptureInterceptor))
 -.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 -.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetFederationTokenEndpointParamsInterceptor))
--                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::get_federation_token::GetFederationTokenError>::new())
--.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::get_federation_token::GetFederationTokenError>::new())
--.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_federation_token::GetFederationTokenError>::builder().transient_errors({
+-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::operation::get_federation_token::GetFederationTokenError>::new())
+-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::operation::get_federation_token::GetFederationTokenError>::new())
+-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::get_federation_token::GetFederationTokenError>::builder().transient_errors({
 -                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
 -                                            transient_errors.push("IDPCommunicationError");
 -                                            ::std::borrow::Cow::Owned(transient_errors)
@@ -685,13 +685,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                GetFederationTokenEndpointParamsInterceptor,
 +            ))
 +            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                crate::operation::get_federation_token::GetFederationTokenError,
++                super::operation::get_federation_token::GetFederationTokenError,
 +            >::new())
 +            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                crate::operation::get_federation_token::GetFederationTokenError,
++                super::operation::get_federation_token::GetFederationTokenError,
 +            >::new())
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                crate::operation::get_federation_token::GetFederationTokenError,
++                super::operation::get_federation_token::GetFederationTokenError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -706,8 +706,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_federation_token_input::ser_get_federation_token_input_input_input(&input)?,
-+            crate::protocol_serde::shape_get_federation_token_input::ser_get_federation_token_op_input(&input)?,
+-            super::protocol_serde::shape_get_federation_token_input::ser_get_federation_token_input_input_input(&input)?,
++            super::protocol_serde::shape_get_federation_token_input::ser_get_federation_token_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -720,10 +720,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/get_session_token.rs
 @@ -139,15 +139,9 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_session_token::GetSessionTokenError,
+                 super::operation::get_session_token::GetSessionTokenError,
              >::new())
 -            .with_retry_classifier(
--                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_session_token::GetSessionTokenError>::builder()
+-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::get_session_token::GetSessionTokenError>::builder()
 -                    .transient_errors({
 -                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
 -                        transient_errors.push("IDPCommunicationError");
@@ -732,7 +732,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                    .build(),
 -            );
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                crate::operation::get_session_token::GetSessionTokenError,
++                super::operation::get_session_token::GetSessionTokenError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -747,9 +747,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_session_token_input::ser_get_session_token_input_input_input(&input)?,
+-            super::protocol_serde::shape_get_session_token_input::ser_get_session_token_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_session_token_input::ser_get_session_token_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_session_token_input::ser_get_session_token_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -770,9 +770,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetWebIdentityTokenTelemetryInputCaptureInterceptor))
 -.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 -.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetWebIdentityTokenEndpointParamsInterceptor))
--                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::get_web_identity_token::GetWebIdentityTokenError>::new())
--.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::get_web_identity_token::GetWebIdentityTokenError>::new())
--.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_web_identity_token::GetWebIdentityTokenError>::builder().transient_errors({
+-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::operation::get_web_identity_token::GetWebIdentityTokenError>::new())
+-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::operation::get_web_identity_token::GetWebIdentityTokenError>::new())
+-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::get_web_identity_token::GetWebIdentityTokenError>::builder().transient_errors({
 -                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
 -                                            transient_errors.push("IDPCommunicationError");
 -                                            ::std::borrow::Cow::Owned(transient_errors)
@@ -788,13 +788,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                GetWebIdentityTokenEndpointParamsInterceptor,
 +            ))
 +            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                crate::operation::get_web_identity_token::GetWebIdentityTokenError,
++                super::operation::get_web_identity_token::GetWebIdentityTokenError,
 +            >::new())
 +            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                crate::operation::get_web_identity_token::GetWebIdentityTokenError,
++                super::operation::get_web_identity_token::GetWebIdentityTokenError,
 +            >::new())
 +            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                crate::operation::get_web_identity_token::GetWebIdentityTokenError,
++                super::operation::get_web_identity_token::GetWebIdentityTokenError,
 +            >::new());
 
          ::std::borrow::Cow::Owned(rcb)
@@ -809,8 +809,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_web_identity_token_input::ser_get_web_identity_token_input_input_input(&input)?,
-+            crate::protocol_serde::shape_get_web_identity_token_input::ser_get_web_identity_token_op_input(&input)?,
+-            super::protocol_serde::shape_get_web_identity_token_input::ser_get_web_identity_token_input_input_input(&input)?,
++            super::protocol_serde::shape_get_web_identity_token_input::ser_get_web_identity_token_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -832,47 +832,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// Returns the error message.
      pub fn message(&self) -> ::std::option::Option<&str> {
          self.message.as_deref()
-@@ -20,7 +16,7 @@
- }
- impl ::std::fmt::Display for IdpCommunicationErrorException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "IdpCommunicationErrorException [IDPCommunicationErrorException]")?;
-+        ::std::write!(f, "IdpCommunicationErrorException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_idp_rejected_claim_exception.rs`
-
-```diff
---- reference/src/types/error/_idp_rejected_claim_exception.rs
-+++ generated/src/types/error/_idp_rejected_claim_exception.rs
-@@ -17,7 +17,7 @@
- }
- impl ::std::fmt::Display for IdpRejectedClaimException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "IdpRejectedClaimException [IDPRejectedClaimException]")?;
-+        ::std::write!(f, "IdpRejectedClaimException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_jwt_payload_size_exceeded_exception.rs`
-
-```diff
---- reference/src/types/error/_jwt_payload_size_exceeded_exception.rs
-+++ generated/src/types/error/_jwt_payload_size_exceeded_exception.rs
-@@ -16,7 +16,7 @@
- }
- impl ::std::fmt::Display for JwtPayloadSizeExceededException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "JwtPayloadSizeExceededException [JWTPayloadSizeExceededException]")?;
-+        ::std::write!(f, "JwtPayloadSizeExceededException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
 ```
 
 ### Missing reference files
@@ -936,5 +895,3 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/get_session_token.rs`
 - `src/operation/get_web_identity_token.rs`
 - `src/types/error/_idp_communication_error_exception.rs`
-- `src/types/error/_idp_rejected_claim_exception.rs`
-- `src/types/error/_jwt_payload_size_exceeded_exception.rs`

@@ -16,7 +16,7 @@ impl KmsInvalidSignatureException {
 }
 impl ::std::fmt::Display for KmsInvalidSignatureException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(f, "KmsInvalidSignatureException")?;
+        ::std::write!(f, "KmsInvalidSignatureException [KMSInvalidSignatureException]")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;

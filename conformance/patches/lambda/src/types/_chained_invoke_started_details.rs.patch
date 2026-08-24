@@ -1,0 +1,72 @@
+--- original
++++ modified
+@@ -9,7 +9,7 @@
+     /// <p>The tenant identifier for the chained invocation.</p>
+     pub tenant_id: ::std::option::Option<::std::string::String>,
+     /// <p>The JSON input payload provided to the chained invocation.</p>
+-    pub input: ::std::option::Option<crate::types::EventInput>,
++    pub input: ::std::option::Option<super::types::EventInput>,
+     /// <p>The version of the function that was executed.</p>
+     pub executed_version: ::std::option::Option<::std::string::String>,
+     /// <p>The Amazon Resource Name (ARN) that identifies the durable execution.</p>
+@@ -26,7 +26,7 @@
+         self.tenant_id.as_deref()
+     }
+     /// <p>The JSON input payload provided to the chained invocation.</p>
+-    pub fn input(&self) -> ::std::option::Option<&crate::types::EventInput> {
++    pub fn input(&self) -> ::std::option::Option<&super::types::EventInput> {
+         self.input.as_ref()
+     }
+     /// <p>The version of the function that was executed.</p>
+@@ -40,8 +40,8 @@
+ }
+ impl ChainedInvokeStartedDetails {
+     /// Creates a new builder-style object to manufacture [`ChainedInvokeStartedDetails`](crate::types::ChainedInvokeStartedDetails).
+-    pub fn builder() -> crate::types::builders::ChainedInvokeStartedDetailsBuilder {
+-        crate::types::builders::ChainedInvokeStartedDetailsBuilder::default()
++    pub fn builder() -> super::types::builders::ChainedInvokeStartedDetailsBuilder {
++        super::types::builders::ChainedInvokeStartedDetailsBuilder::default()
+     }
+ }
+
+@@ -51,7 +51,7 @@
+ pub struct ChainedInvokeStartedDetailsBuilder {
+     pub(crate) function_name: ::std::option::Option<::std::string::String>,
+     pub(crate) tenant_id: ::std::option::Option<::std::string::String>,
+-    pub(crate) input: ::std::option::Option<crate::types::EventInput>,
++    pub(crate) input: ::std::option::Option<super::types::EventInput>,
+     pub(crate) executed_version: ::std::option::Option<::std::string::String>,
+     pub(crate) durable_execution_arn: ::std::option::Option<::std::string::String>,
+ }
+@@ -86,17 +86,17 @@
+         &self.tenant_id
+     }
+     /// <p>The JSON input payload provided to the chained invocation.</p>
+-    pub fn input(mut self, input: crate::types::EventInput) -> Self {
++    pub fn input(mut self, input: super::types::EventInput) -> Self {
+         self.input = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The JSON input payload provided to the chained invocation.</p>
+-    pub fn set_input(mut self, input: ::std::option::Option<crate::types::EventInput>) -> Self {
++    pub fn set_input(mut self, input: ::std::option::Option<super::types::EventInput>) -> Self {
+         self.input = input;
+         self
+     }
+     /// <p>The JSON input payload provided to the chained invocation.</p>
+-    pub fn get_input(&self) -> &::std::option::Option<crate::types::EventInput> {
++    pub fn get_input(&self) -> &::std::option::Option<super::types::EventInput> {
+         &self.input
+     }
+     /// <p>The version of the function that was executed.</p>
+@@ -130,8 +130,8 @@
+     /// Consumes the builder and constructs a [`ChainedInvokeStartedDetails`](crate::types::ChainedInvokeStartedDetails).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`function_name`](crate::types::builders::ChainedInvokeStartedDetailsBuilder::function_name)
+-    pub fn build(self) -> ::std::result::Result<crate::types::ChainedInvokeStartedDetails, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::ChainedInvokeStartedDetails {
++    pub fn build(self) -> ::std::result::Result<super::types::ChainedInvokeStartedDetails, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::ChainedInvokeStartedDetails {
+             function_name: self.function_name.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "function_name",

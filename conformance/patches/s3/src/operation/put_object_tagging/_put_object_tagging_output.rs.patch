@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -14,7 +14,7 @@
+         self.version_id.as_deref()
+     }
+ }
+-impl crate::s3_request_id::RequestIdExt for PutObjectTaggingOutput {
++impl super::s3_request_id::RequestIdExt for PutObjectTaggingOutput {
+     fn extended_request_id(&self) -> Option<&str> {
+         self._extended_request_id.as_deref()
+     }
+@@ -26,8 +26,8 @@
+ }
+ impl PutObjectTaggingOutput {
+     /// Creates a new builder-style object to manufacture [`PutObjectTaggingOutput`](crate::operation::put_object_tagging::PutObjectTaggingOutput).
+-    pub fn builder() -> crate::operation::put_object_tagging::builders::PutObjectTaggingOutputBuilder {
+-        crate::operation::put_object_tagging::builders::PutObjectTaggingOutputBuilder::default()
++    pub fn builder() -> super::operation::put_object_tagging::builders::PutObjectTaggingOutputBuilder {
++        super::operation::put_object_tagging::builders::PutObjectTaggingOutputBuilder::default()
+     }
+ }
+
+@@ -73,8 +73,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`PutObjectTaggingOutput`](crate::operation::put_object_tagging::PutObjectTaggingOutput).
+-    pub fn build(self) -> crate::operation::put_object_tagging::PutObjectTaggingOutput {
+-        crate::operation::put_object_tagging::PutObjectTaggingOutput {
++    pub fn build(self) -> super::operation::put_object_tagging::PutObjectTaggingOutput {
++        super::operation::put_object_tagging::PutObjectTaggingOutput {
+             version_id: self.version_id,
+             _extended_request_id: self._extended_request_id,
+             _request_id: self._request_id,

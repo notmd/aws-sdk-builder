@@ -62,7 +62,7 @@ pub fn de_list_aliases_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::list_aliases::ListAliasesError::KmsInternalException({
+        "KMSInternalException" => crate::operation::list_aliases::ListAliasesError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

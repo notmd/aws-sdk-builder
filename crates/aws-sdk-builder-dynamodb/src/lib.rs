@@ -5,7 +5,6 @@ pub const MODEL: &[u8] = include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/mo
 pub const METADATA: aws_sdk_builder::ServiceMetadata = aws_sdk_builder::ServiceMetadata {
     key: "dynamodb",
     filename: "model.json",
-    crate_name: "aws-sdk-dynamodb",
     module_name: "aws_sdk_dynamodb",
     sdk_version: Some("1.122.0"),
 };
@@ -22,6 +21,14 @@ pub fn compile<O: aws_sdk_builder::OperationNames>(
     operations: O,
 ) -> Result<aws_sdk_builder::CompileReport, aws_sdk_builder::BuildError> {
     aws_sdk_builder::compile(METADATA, MODEL, operations)
+}
+
+/// Includes the generated DynamoDB SDK inside the caller's module.
+#[macro_export]
+macro_rules! include_sdk {
+    () => {
+        include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/lib.rs"));
+    };
 }
 
 #[cfg(test)]

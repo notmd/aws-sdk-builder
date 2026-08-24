@@ -16,7 +16,7 @@ impl KmsOptInRequired {
 }
 impl ::std::fmt::Display for KmsOptInRequired {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(f, "KmsOptInRequired")?;
+        ::std::write!(f, "KmsOptInRequired [KMSOptInRequired]")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;

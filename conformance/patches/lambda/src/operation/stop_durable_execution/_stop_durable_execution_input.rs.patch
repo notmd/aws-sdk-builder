@@ -1,0 +1,69 @@
+--- original
++++ modified
+@@ -6,7 +6,7 @@
+     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
+     pub durable_execution_arn: ::std::option::Option<::std::string::String>,
+     /// <p>Optional error details explaining why the execution is being stopped.</p>
+-    pub error: ::std::option::Option<crate::types::ErrorObject>,
++    pub error: ::std::option::Option<super::types::ErrorObject>,
+ }
+ impl StopDurableExecutionInput {
+     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
+@@ -14,14 +14,14 @@
+         self.durable_execution_arn.as_deref()
+     }
+     /// <p>Optional error details explaining why the execution is being stopped.</p>
+-    pub fn error(&self) -> ::std::option::Option<&crate::types::ErrorObject> {
++    pub fn error(&self) -> ::std::option::Option<&super::types::ErrorObject> {
+         self.error.as_ref()
+     }
+ }
+ impl StopDurableExecutionInput {
+     /// Creates a new builder-style object to manufacture [`StopDurableExecutionInput`](crate::operation::stop_durable_execution::StopDurableExecutionInput).
+-    pub fn builder() -> crate::operation::stop_durable_execution::builders::StopDurableExecutionInputBuilder {
+-        crate::operation::stop_durable_execution::builders::StopDurableExecutionInputBuilder::default()
++    pub fn builder() -> super::operation::stop_durable_execution::builders::StopDurableExecutionInputBuilder {
++        super::operation::stop_durable_execution::builders::StopDurableExecutionInputBuilder::default()
+     }
+ }
+
+@@ -30,7 +30,7 @@
+ #[non_exhaustive]
+ pub struct StopDurableExecutionInputBuilder {
+     pub(crate) durable_execution_arn: ::std::option::Option<::std::string::String>,
+-    pub(crate) error: ::std::option::Option<crate::types::ErrorObject>,
++    pub(crate) error: ::std::option::Option<super::types::ErrorObject>,
+ }
+ impl StopDurableExecutionInputBuilder {
+     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
+@@ -49,25 +49,25 @@
+         &self.durable_execution_arn
+     }
+     /// <p>Optional error details explaining why the execution is being stopped.</p>
+-    pub fn error(mut self, input: crate::types::ErrorObject) -> Self {
++    pub fn error(mut self, input: super::types::ErrorObject) -> Self {
+         self.error = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Optional error details explaining why the execution is being stopped.</p>
+-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
++    pub fn set_error(mut self, input: ::std::option::Option<super::types::ErrorObject>) -> Self {
+         self.error = input;
+         self
+     }
+     /// <p>Optional error details explaining why the execution is being stopped.</p>
+-    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorObject> {
++    pub fn get_error(&self) -> &::std::option::Option<super::types::ErrorObject> {
+         &self.error
+     }
+     /// Consumes the builder and constructs a [`StopDurableExecutionInput`](crate::operation::stop_durable_execution::StopDurableExecutionInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::stop_durable_execution::StopDurableExecutionInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::stop_durable_execution::StopDurableExecutionInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::stop_durable_execution::StopDurableExecutionInput {
++        ::std::result::Result::Ok(super::operation::stop_durable_execution::StopDurableExecutionInput {
+             durable_execution_arn: self.durable_execution_arn,
+             error: self.error,
+         })

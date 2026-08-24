@@ -80,7 +80,7 @@ pub fn de_rotate_key_on_demand_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::KmsInternalException({
+        "KMSInternalException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -95,7 +95,7 @@ pub fn de_rotate_key_on_demand_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

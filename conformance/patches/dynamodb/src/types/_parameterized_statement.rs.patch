@@ -1,0 +1,107 @@
+--- original
++++ modified
+@@ -7,10 +7,10 @@
+     /// <p>A PartiQL statement that uses parameters.</p>
+     pub statement: ::std::string::String,
+     /// <p>The parameter values.</p>
+-    pub parameters: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>,
++    pub parameters: ::std::option::Option<::std::vec::Vec<super::types::AttributeValue>>,
+     /// <p>An optional parameter that returns the item attributes for a PartiQL <code>ParameterizedStatement</code> operation that failed a condition check.</p>
+     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
+-    pub return_values_on_condition_check_failure: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
++    pub return_values_on_condition_check_failure: ::std::option::Option<super::types::ReturnValuesOnConditionCheckFailure>,
+ }
+ impl ParameterizedStatement {
+     /// <p>A PartiQL statement that uses parameters.</p>
+@@ -21,19 +21,19 @@
+     /// <p>The parameter values.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.parameters.is_none()`.
+-    pub fn parameters(&self) -> &[crate::types::AttributeValue] {
++    pub fn parameters(&self) -> &[super::types::AttributeValue] {
+         self.parameters.as_deref().unwrap_or_default()
+     }
+     /// <p>An optional parameter that returns the item attributes for a PartiQL <code>ParameterizedStatement</code> operation that failed a condition check.</p>
+     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
+-    pub fn return_values_on_condition_check_failure(&self) -> ::std::option::Option<&crate::types::ReturnValuesOnConditionCheckFailure> {
++    pub fn return_values_on_condition_check_failure(&self) -> ::std::option::Option<&super::types::ReturnValuesOnConditionCheckFailure> {
+         self.return_values_on_condition_check_failure.as_ref()
+     }
+ }
+ impl ParameterizedStatement {
+     /// Creates a new builder-style object to manufacture [`ParameterizedStatement`](crate::types::ParameterizedStatement).
+-    pub fn builder() -> crate::types::builders::ParameterizedStatementBuilder {
+-        crate::types::builders::ParameterizedStatementBuilder::default()
++    pub fn builder() -> super::types::builders::ParameterizedStatementBuilder {
++        super::types::builders::ParameterizedStatementBuilder::default()
+     }
+ }
+
+@@ -42,8 +42,8 @@
+ #[non_exhaustive]
+ pub struct ParameterizedStatementBuilder {
+     pub(crate) statement: ::std::option::Option<::std::string::String>,
+-    pub(crate) parameters: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>,
+-    pub(crate) return_values_on_condition_check_failure: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
++    pub(crate) parameters: ::std::option::Option<::std::vec::Vec<super::types::AttributeValue>>,
++    pub(crate) return_values_on_condition_check_failure: ::std::option::Option<super::types::ReturnValuesOnConditionCheckFailure>,
+ }
+ impl ParameterizedStatementBuilder {
+     /// <p>A PartiQL statement that uses parameters.</p>
+@@ -66,7 +66,7 @@
+     /// To override the contents of this collection use [`set_parameters`](Self::set_parameters).
+     ///
+     /// <p>The parameter values.</p>
+-    pub fn parameters(mut self, input: crate::types::AttributeValue) -> Self {
++    pub fn parameters(mut self, input: super::types::AttributeValue) -> Self {
+         let mut v = self.parameters.unwrap_or_default();
+         v.push(input);
+         self.parameters = ::std::option::Option::Some(v);
+@@ -73,17 +73,17 @@
+         self
+     }
+     /// <p>The parameter values.</p>
+-    pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>) -> Self {
++    pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::AttributeValue>>) -> Self {
+         self.parameters = input;
+         self
+     }
+     /// <p>The parameter values.</p>
+-    pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>> {
++    pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<super::types::AttributeValue>> {
+         &self.parameters
+     }
+     /// <p>An optional parameter that returns the item attributes for a PartiQL <code>ParameterizedStatement</code> operation that failed a condition check.</p>
+     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
+-    pub fn return_values_on_condition_check_failure(mut self, input: crate::types::ReturnValuesOnConditionCheckFailure) -> Self {
++    pub fn return_values_on_condition_check_failure(mut self, input: super::types::ReturnValuesOnConditionCheckFailure) -> Self {
+         self.return_values_on_condition_check_failure = ::std::option::Option::Some(input);
+         self
+     }
+@@ -91,7 +91,7 @@
+     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
+     pub fn set_return_values_on_condition_check_failure(
+         mut self,
+-        input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
++        input: ::std::option::Option<super::types::ReturnValuesOnConditionCheckFailure>,
+     ) -> Self {
+         self.return_values_on_condition_check_failure = input;
+         self
+@@ -98,14 +98,14 @@
+     }
+     /// <p>An optional parameter that returns the item attributes for a PartiQL <code>ParameterizedStatement</code> operation that failed a condition check.</p>
+     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
+-    pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure> {
++    pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<super::types::ReturnValuesOnConditionCheckFailure> {
+         &self.return_values_on_condition_check_failure
+     }
+     /// Consumes the builder and constructs a [`ParameterizedStatement`](crate::types::ParameterizedStatement).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`statement`](crate::types::builders::ParameterizedStatementBuilder::statement)
+-    pub fn build(self) -> ::std::result::Result<crate::types::ParameterizedStatement, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::ParameterizedStatement {
++    pub fn build(self) -> ::std::result::Result<super::types::ParameterizedStatement, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::ParameterizedStatement {
+             statement: self.statement.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "statement",

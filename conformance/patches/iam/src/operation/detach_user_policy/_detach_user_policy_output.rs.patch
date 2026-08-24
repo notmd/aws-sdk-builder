@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -12,8 +12,8 @@
+ }
+ impl DetachUserPolicyOutput {
+     /// Creates a new builder-style object to manufacture [`DetachUserPolicyOutput`](crate::operation::detach_user_policy::DetachUserPolicyOutput).
+-    pub fn builder() -> crate::operation::detach_user_policy::builders::DetachUserPolicyOutputBuilder {
+-        crate::operation::detach_user_policy::builders::DetachUserPolicyOutputBuilder::default()
++    pub fn builder() -> super::operation::detach_user_policy::builders::DetachUserPolicyOutputBuilder {
++        super::operation::detach_user_policy::builders::DetachUserPolicyOutputBuilder::default()
+     }
+ }
+
+@@ -34,8 +34,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`DetachUserPolicyOutput`](crate::operation::detach_user_policy::DetachUserPolicyOutput).
+-    pub fn build(self) -> crate::operation::detach_user_policy::DetachUserPolicyOutput {
+-        crate::operation::detach_user_policy::DetachUserPolicyOutput {
++    pub fn build(self) -> super::operation::detach_user_policy::DetachUserPolicyOutput {
++        super::operation::detach_user_policy::DetachUserPolicyOutput {
+             _request_id: self._request_id,
+         }
+     }

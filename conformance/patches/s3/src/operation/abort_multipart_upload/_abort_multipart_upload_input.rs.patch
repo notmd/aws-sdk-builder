@@ -1,0 +1,79 @@
+--- original
++++ modified
+@@ -17,7 +17,7 @@
+     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub request_payer: ::std::option::Option<crate::types::RequestPayer>,
++    pub request_payer: ::std::option::Option<super::types::RequestPayer>,
+     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+     pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
+     /// <p>If present, this header aborts an in progress multipart upload only if it was initiated on the provided timestamp. If the initiated timestamp of the multipart upload does not match the provided value, the operation returns a <code>412 Precondition Failed</code> error. If the initiated timestamp matches or if the multipart upload doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response.</p><note>
+@@ -46,7 +46,7 @@
+     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn request_payer(&self) -> ::std::option::Option<&crate::types::RequestPayer> {
++    pub fn request_payer(&self) -> ::std::option::Option<&super::types::RequestPayer> {
+         self.request_payer.as_ref()
+     }
+     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+@@ -62,8 +62,8 @@
+ }
+ impl AbortMultipartUploadInput {
+     /// Creates a new builder-style object to manufacture [`AbortMultipartUploadInput`](crate::operation::abort_multipart_upload::AbortMultipartUploadInput).
+-    pub fn builder() -> crate::operation::abort_multipart_upload::builders::AbortMultipartUploadInputBuilder {
+-        crate::operation::abort_multipart_upload::builders::AbortMultipartUploadInputBuilder::default()
++    pub fn builder() -> super::operation::abort_multipart_upload::builders::AbortMultipartUploadInputBuilder {
++        super::operation::abort_multipart_upload::builders::AbortMultipartUploadInputBuilder::default()
+     }
+ }
+
+@@ -74,7 +74,7 @@
+     pub(crate) bucket: ::std::option::Option<::std::string::String>,
+     pub(crate) key: ::std::option::Option<::std::string::String>,
+     pub(crate) upload_id: ::std::option::Option<::std::string::String>,
+-    pub(crate) request_payer: ::std::option::Option<crate::types::RequestPayer>,
++    pub(crate) request_payer: ::std::option::Option<super::types::RequestPayer>,
+     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
+     pub(crate) if_match_initiated_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+ }
+@@ -142,7 +142,7 @@
+     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
++    pub fn request_payer(mut self, input: super::types::RequestPayer) -> Self {
+         self.request_payer = ::std::option::Option::Some(input);
+         self
+     }
+@@ -149,7 +149,7 @@
+     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
++    pub fn set_request_payer(mut self, input: ::std::option::Option<super::types::RequestPayer>) -> Self {
+         self.request_payer = input;
+         self
+     }
+@@ -156,7 +156,7 @@
+     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
+     /// <p>This functionality is not supported for directory buckets.</p>
+     /// </note>
+-    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
++    pub fn get_request_payer(&self) -> &::std::option::Option<super::types::RequestPayer> {
+         &self.request_payer
+     }
+     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+@@ -196,9 +196,9 @@
+     /// Consumes the builder and constructs a [`AbortMultipartUploadInput`](crate::operation::abort_multipart_upload::AbortMultipartUploadInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::abort_multipart_upload::AbortMultipartUploadInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::abort_multipart_upload::AbortMultipartUploadInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::abort_multipart_upload::AbortMultipartUploadInput {
++        ::std::result::Result::Ok(super::operation::abort_multipart_upload::AbortMultipartUploadInput {
+             bucket: self.bucket,
+             key: self.key,
+             upload_id: self.upload_id,

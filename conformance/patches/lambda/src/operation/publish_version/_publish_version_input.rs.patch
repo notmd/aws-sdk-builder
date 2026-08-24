@@ -1,0 +1,68 @@
+--- original
++++ modified
+@@ -22,7 +22,7 @@
+     /// <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid publishing a version if the function configuration has changed since you last updated it.</p>
+     pub revision_id: ::std::option::Option<::std::string::String>,
+     /// <p>Specifies where to publish the function version or configuration.</p>
+-    pub publish_to: ::std::option::Option<crate::types::FunctionVersionLatestPublished>,
++    pub publish_to: ::std::option::Option<super::types::FunctionVersionLatestPublished>,
+ }
+ impl PublishVersionInput {
+     /// <p>The name or ARN of the Lambda function.</p>
+@@ -52,14 +52,14 @@
+         self.revision_id.as_deref()
+     }
+     /// <p>Specifies where to publish the function version or configuration.</p>
+-    pub fn publish_to(&self) -> ::std::option::Option<&crate::types::FunctionVersionLatestPublished> {
++    pub fn publish_to(&self) -> ::std::option::Option<&super::types::FunctionVersionLatestPublished> {
+         self.publish_to.as_ref()
+     }
+ }
+ impl PublishVersionInput {
+     /// Creates a new builder-style object to manufacture [`PublishVersionInput`](crate::operation::publish_version::PublishVersionInput).
+-    pub fn builder() -> crate::operation::publish_version::builders::PublishVersionInputBuilder {
+-        crate::operation::publish_version::builders::PublishVersionInputBuilder::default()
++    pub fn builder() -> super::operation::publish_version::builders::PublishVersionInputBuilder {
++        super::operation::publish_version::builders::PublishVersionInputBuilder::default()
+     }
+ }
+
+@@ -71,7 +71,7 @@
+     pub(crate) code_sha256: ::std::option::Option<::std::string::String>,
+     pub(crate) description: ::std::option::Option<::std::string::String>,
+     pub(crate) revision_id: ::std::option::Option<::std::string::String>,
+-    pub(crate) publish_to: ::std::option::Option<crate::types::FunctionVersionLatestPublished>,
++    pub(crate) publish_to: ::std::option::Option<super::types::FunctionVersionLatestPublished>,
+ }
+ impl PublishVersionInputBuilder {
+     /// <p>The name or ARN of the Lambda function.</p>
+@@ -162,24 +162,24 @@
+         &self.revision_id
+     }
+     /// <p>Specifies where to publish the function version or configuration.</p>
+-    pub fn publish_to(mut self, input: crate::types::FunctionVersionLatestPublished) -> Self {
++    pub fn publish_to(mut self, input: super::types::FunctionVersionLatestPublished) -> Self {
+         self.publish_to = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Specifies where to publish the function version or configuration.</p>
+-    pub fn set_publish_to(mut self, input: ::std::option::Option<crate::types::FunctionVersionLatestPublished>) -> Self {
++    pub fn set_publish_to(mut self, input: ::std::option::Option<super::types::FunctionVersionLatestPublished>) -> Self {
+         self.publish_to = input;
+         self
+     }
+     /// <p>Specifies where to publish the function version or configuration.</p>
+-    pub fn get_publish_to(&self) -> &::std::option::Option<crate::types::FunctionVersionLatestPublished> {
++    pub fn get_publish_to(&self) -> &::std::option::Option<super::types::FunctionVersionLatestPublished> {
+         &self.publish_to
+     }
+     /// Consumes the builder and constructs a [`PublishVersionInput`](crate::operation::publish_version::PublishVersionInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::publish_version::PublishVersionInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::publish_version::PublishVersionInput {
++    ) -> ::std::result::Result<super::operation::publish_version::PublishVersionInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::publish_version::PublishVersionInput {
+             function_name: self.function_name,
+             code_sha256: self.code_sha256,
+             description: self.description,

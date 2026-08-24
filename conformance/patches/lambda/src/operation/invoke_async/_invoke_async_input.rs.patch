@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -41,8 +41,8 @@
+ }
+ impl InvokeAsyncInput {
+     /// Creates a new builder-style object to manufacture [`InvokeAsyncInput`](crate::operation::invoke_async::InvokeAsyncInput).
+-    pub fn builder() -> crate::operation::invoke_async::builders::InvokeAsyncInputBuilder {
+-        crate::operation::invoke_async::builders::InvokeAsyncInputBuilder::default()
++    pub fn builder() -> super::operation::invoke_async::builders::InvokeAsyncInputBuilder {
++        super::operation::invoke_async::builders::InvokeAsyncInputBuilder::default()
+     }
+ }
+
+@@ -115,8 +115,8 @@
+         &self.invoke_args
+     }
+     /// Consumes the builder and constructs a [`InvokeAsyncInput`](crate::operation::invoke_async::InvokeAsyncInput).
+-    pub fn build(self) -> ::std::result::Result<crate::operation::invoke_async::InvokeAsyncInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::invoke_async::InvokeAsyncInput {
++    pub fn build(self) -> ::std::result::Result<super::operation::invoke_async::InvokeAsyncInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::invoke_async::InvokeAsyncInput {
+             function_name: self.function_name,
+             invoke_args: self.invoke_args.unwrap_or_default(),
+         })

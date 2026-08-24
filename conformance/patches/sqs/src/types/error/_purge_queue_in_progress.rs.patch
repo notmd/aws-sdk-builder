@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for PurgeQueueInProgress {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::PurgeQueueInProgress {
++impl ::aws_types::request_id::RequestId for super::types::error::PurgeQueueInProgress {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl PurgeQueueInProgress {
+     /// Creates a new builder-style object to manufacture [`PurgeQueueInProgress`](crate::types::error::PurgeQueueInProgress).
+-    pub fn builder() -> crate::types::error::builders::PurgeQueueInProgressBuilder {
+-        crate::types::error::builders::PurgeQueueInProgressBuilder::default()
++    pub fn builder() -> super::types::error::builders::PurgeQueueInProgressBuilder {
++        super::types::error::builders::PurgeQueueInProgressBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`PurgeQueueInProgress`](crate::types::error::PurgeQueueInProgress).
+-    pub fn build(self) -> crate::types::error::PurgeQueueInProgress {
+-        crate::types::error::PurgeQueueInProgress {
++    pub fn build(self) -> super::types::error::PurgeQueueInProgress {
++        super::types::error::PurgeQueueInProgress {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

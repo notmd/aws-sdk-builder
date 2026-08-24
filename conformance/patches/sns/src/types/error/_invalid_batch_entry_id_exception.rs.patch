@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for InvalidBatchEntryIdException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidBatchEntryIdException {
++impl ::aws_types::request_id::RequestId for super::types::error::InvalidBatchEntryIdException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl InvalidBatchEntryIdException {
+     /// Creates a new builder-style object to manufacture [`InvalidBatchEntryIdException`](crate::types::error::InvalidBatchEntryIdException).
+-    pub fn builder() -> crate::types::error::builders::InvalidBatchEntryIdExceptionBuilder {
+-        crate::types::error::builders::InvalidBatchEntryIdExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::InvalidBatchEntryIdExceptionBuilder {
++        super::types::error::builders::InvalidBatchEntryIdExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`InvalidBatchEntryIdException`](crate::types::error::InvalidBatchEntryIdException).
+-    pub fn build(self) -> crate::types::error::InvalidBatchEntryIdException {
+-        crate::types::error::InvalidBatchEntryIdException {
++    pub fn build(self) -> super::types::error::InvalidBatchEntryIdException {
++        super::types::error::InvalidBatchEntryIdException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

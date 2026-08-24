@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl DescribeTableInput {
+     /// Creates a new builder-style object to manufacture [`DescribeTableInput`](crate::operation::describe_table::DescribeTableInput).
+-    pub fn builder() -> crate::operation::describe_table::builders::DescribeTableInputBuilder {
+-        crate::operation::describe_table::builders::DescribeTableInputBuilder::default()
++    pub fn builder() -> super::operation::describe_table::builders::DescribeTableInputBuilder {
++        super::operation::describe_table::builders::DescribeTableInputBuilder::default()
+     }
+ }
+
+@@ -45,7 +45,7 @@
+     /// Consumes the builder and constructs a [`DescribeTableInput`](crate::operation::describe_table::DescribeTableInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::describe_table::DescribeTableInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::describe_table::DescribeTableInput { table_name: self.table_name })
++    ) -> ::std::result::Result<super::operation::describe_table::DescribeTableInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::describe_table::DescribeTableInput { table_name: self.table_name })
+     }
+ }

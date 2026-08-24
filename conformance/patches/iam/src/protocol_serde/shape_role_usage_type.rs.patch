@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -3,12 +3,12 @@
+ pub fn de_role_usage_type(
+     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+     depth: u32,
+-) -> ::std::result::Result<crate::types::RoleUsageType, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::types::RoleUsageType, ::aws_smithy_xml::decode::XmlDecodeError> {
+     if depth >= 128u32 {
+         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+     }
+     #[allow(unused_mut)]
+-    let mut builder = crate::types::RoleUsageType::builder();
++    let mut builder = super::types::RoleUsageType::builder();
+     while let Some(mut tag) = decoder.next_tag() {
+         match tag.start_el() {
+             s if s.matches("Region") /* Region com.amazonaws.iam#RoleUsageType$Region */ =>  {
+@@ -27,7 +27,7 @@
+             s if s.matches("Resources") /* Resources com.amazonaws.iam#RoleUsageType$Resources */ =>  {
+                 let var_2 =
+                     Some(
+-                        crate::protocol_serde::shape_arn_list_type::de_arn_list_type(&mut tag, depth + 1)
++                        super::protocol_serde::shape_arn_list_type::de_arn_list_type(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;

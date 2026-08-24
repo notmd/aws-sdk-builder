@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -34,7 +34,7 @@
+     }
+ }
+ impl ::std::error::Error for ModeNotSupportedException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::ModeNotSupportedException {
++impl ::aws_types::request_id::RequestId for super::types::error::ModeNotSupportedException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -47,8 +47,8 @@
+ }
+ impl ModeNotSupportedException {
+     /// Creates a new builder-style object to manufacture [`ModeNotSupportedException`](crate::types::error::ModeNotSupportedException).
+-    pub fn builder() -> crate::types::error::builders::ModeNotSupportedExceptionBuilder {
+-        crate::types::error::builders::ModeNotSupportedExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::ModeNotSupportedExceptionBuilder {
++        super::types::error::builders::ModeNotSupportedExceptionBuilder::default()
+     }
+ }
+
+@@ -101,8 +101,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ModeNotSupportedException`](crate::types::error::ModeNotSupportedException).
+-    pub fn build(self) -> crate::types::error::ModeNotSupportedException {
+-        crate::types::error::ModeNotSupportedException {
++    pub fn build(self) -> super::types::error::ModeNotSupportedException {
++        super::types::error::ModeNotSupportedException {
+             r#type: self.r#type,
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),

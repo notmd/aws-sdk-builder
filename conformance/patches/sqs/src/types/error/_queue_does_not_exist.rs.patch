@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for QueueDoesNotExist {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::QueueDoesNotExist {
++impl ::aws_types::request_id::RequestId for super::types::error::QueueDoesNotExist {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl QueueDoesNotExist {
+     /// Creates a new builder-style object to manufacture [`QueueDoesNotExist`](crate::types::error::QueueDoesNotExist).
+-    pub fn builder() -> crate::types::error::builders::QueueDoesNotExistBuilder {
+-        crate::types::error::builders::QueueDoesNotExistBuilder::default()
++    pub fn builder() -> super::types::error::builders::QueueDoesNotExistBuilder {
++        super::types::error::builders::QueueDoesNotExistBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`QueueDoesNotExist`](crate::types::error::QueueDoesNotExist).
+-    pub fn build(self) -> crate::types::error::QueueDoesNotExist {
+-        crate::types::error::QueueDoesNotExist {
++    pub fn build(self) -> super::types::error::QueueDoesNotExist {
++        super::types::error::QueueDoesNotExist {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

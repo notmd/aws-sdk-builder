@@ -32,7 +32,7 @@ pub fn de_update_alias_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::update_alias::UpdateAliasError::KmsInternalException({
+        "KMSInternalException" => crate::operation::update_alias::UpdateAliasError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -47,7 +47,7 @@ pub fn de_update_alias_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::update_alias::UpdateAliasError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::update_alias::UpdateAliasError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

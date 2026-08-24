@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -6,7 +6,7 @@
+     _extended_request_id: Option<String>,
+     _request_id: Option<String>,
+ }
+-impl crate::s3_request_id::RequestIdExt for PutBucketAccelerateConfigurationOutput {
++impl super::s3_request_id::RequestIdExt for PutBucketAccelerateConfigurationOutput {
+     fn extended_request_id(&self) -> Option<&str> {
+         self._extended_request_id.as_deref()
+     }
+@@ -18,8 +18,8 @@
+ }
+ impl PutBucketAccelerateConfigurationOutput {
+     /// Creates a new builder-style object to manufacture [`PutBucketAccelerateConfigurationOutput`](crate::operation::put_bucket_accelerate_configuration::PutBucketAccelerateConfigurationOutput).
+-    pub fn builder() -> crate::operation::put_bucket_accelerate_configuration::builders::PutBucketAccelerateConfigurationOutputBuilder {
+-        crate::operation::put_bucket_accelerate_configuration::builders::PutBucketAccelerateConfigurationOutputBuilder::default()
++    pub fn builder() -> super::operation::put_bucket_accelerate_configuration::builders::PutBucketAccelerateConfigurationOutputBuilder {
++        super::operation::put_bucket_accelerate_configuration::builders::PutBucketAccelerateConfigurationOutputBuilder::default()
+     }
+ }
+
+@@ -50,8 +50,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`PutBucketAccelerateConfigurationOutput`](crate::operation::put_bucket_accelerate_configuration::PutBucketAccelerateConfigurationOutput).
+-    pub fn build(self) -> crate::operation::put_bucket_accelerate_configuration::PutBucketAccelerateConfigurationOutput {
+-        crate::operation::put_bucket_accelerate_configuration::PutBucketAccelerateConfigurationOutput {
++    pub fn build(self) -> super::operation::put_bucket_accelerate_configuration::PutBucketAccelerateConfigurationOutput {
++        super::operation::put_bucket_accelerate_configuration::PutBucketAccelerateConfigurationOutput {
+             _extended_request_id: self._extended_request_id,
+             _request_id: self._request_id,
+         }

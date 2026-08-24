@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -6,7 +6,7 @@
+     ///   - [`platform_application_arn(impl Into<String>)`](crate::operation::delete_platform_application::builders::DeletePlatformApplicationFluentBuilder::platform_application_arn) / [`set_platform_application_arn(Option<String>)`](crate::operation::delete_platform_application::builders::DeletePlatformApplicationFluentBuilder::set_platform_application_arn):<br>required: **true**<br><p><code>PlatformApplicationArn</code> of platform application object to delete.</p><br>
+     /// - On success, responds with [`DeletePlatformApplicationOutput`](crate::operation::delete_platform_application::DeletePlatformApplicationOutput)
+     /// - On failure, responds with [`SdkError<DeletePlatformApplicationError>`](crate::operation::delete_platform_application::DeletePlatformApplicationError)
+-    pub fn delete_platform_application(&self) -> crate::operation::delete_platform_application::builders::DeletePlatformApplicationFluentBuilder {
+-        crate::operation::delete_platform_application::builders::DeletePlatformApplicationFluentBuilder::new(self.handle.clone())
++    pub fn delete_platform_application(&self) -> super::operation::delete_platform_application::builders::DeletePlatformApplicationFluentBuilder {
++        super::operation::delete_platform_application::builders::DeletePlatformApplicationFluentBuilder::new(self.handle.clone())
+     }
+ }

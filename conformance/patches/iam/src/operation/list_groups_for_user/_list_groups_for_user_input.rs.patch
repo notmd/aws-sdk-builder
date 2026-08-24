@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -30,8 +30,8 @@
+ }
+ impl ListGroupsForUserInput {
+     /// Creates a new builder-style object to manufacture [`ListGroupsForUserInput`](crate::operation::list_groups_for_user::ListGroupsForUserInput).
+-    pub fn builder() -> crate::operation::list_groups_for_user::builders::ListGroupsForUserInputBuilder {
+-        crate::operation::list_groups_for_user::builders::ListGroupsForUserInputBuilder::default()
++    pub fn builder() -> super::operation::list_groups_for_user::builders::ListGroupsForUserInputBuilder {
++        super::operation::list_groups_for_user::builders::ListGroupsForUserInputBuilder::default()
+     }
+ }
+
+@@ -96,8 +96,8 @@
+     /// Consumes the builder and constructs a [`ListGroupsForUserInput`](crate::operation::list_groups_for_user::ListGroupsForUserInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::list_groups_for_user::ListGroupsForUserInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::list_groups_for_user::ListGroupsForUserInput {
++    ) -> ::std::result::Result<super::operation::list_groups_for_user::ListGroupsForUserInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::list_groups_for_user::ListGroupsForUserInput {
+             user_name: self.user_name,
+             marker: self.marker,
+             max_items: self.max_items,

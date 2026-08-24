@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -24,8 +24,8 @@
+ }
+ impl GetPolicyVersionInput {
+     /// Creates a new builder-style object to manufacture [`GetPolicyVersionInput`](crate::operation::get_policy_version::GetPolicyVersionInput).
+-    pub fn builder() -> crate::operation::get_policy_version::builders::GetPolicyVersionInputBuilder {
+-        crate::operation::get_policy_version::builders::GetPolicyVersionInputBuilder::default()
++    pub fn builder() -> super::operation::get_policy_version::builders::GetPolicyVersionInputBuilder {
++        super::operation::get_policy_version::builders::GetPolicyVersionInputBuilder::default()
+     }
+ }
+
+@@ -76,8 +76,8 @@
+     /// Consumes the builder and constructs a [`GetPolicyVersionInput`](crate::operation::get_policy_version::GetPolicyVersionInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::get_policy_version::GetPolicyVersionInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::get_policy_version::GetPolicyVersionInput {
++    ) -> ::std::result::Result<super::operation::get_policy_version::GetPolicyVersionInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::get_policy_version::GetPolicyVersionInput {
+             policy_arn: self.policy_arn,
+             version_id: self.version_id,
+         })

@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -9,7 +9,7 @@
+     /// - On failure, responds with [`SdkError<GetFunctionRecursionConfigError>`](crate::operation::get_function_recursion_config::GetFunctionRecursionConfigError)
+     pub fn get_function_recursion_config(
+         &self,
+-    ) -> crate::operation::get_function_recursion_config::builders::GetFunctionRecursionConfigFluentBuilder {
+-        crate::operation::get_function_recursion_config::builders::GetFunctionRecursionConfigFluentBuilder::new(self.handle.clone())
++    ) -> super::operation::get_function_recursion_config::builders::GetFunctionRecursionConfigFluentBuilder {
++        super::operation::get_function_recursion_config::builders::GetFunctionRecursionConfigFluentBuilder::new(self.handle.clone())
+     }
+ }

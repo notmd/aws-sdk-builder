@@ -1,0 +1,192 @@
+--- original
++++ modified
+@@ -5,32 +5,32 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigOutput,
+-    crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError,
++    super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigOutput,
++    super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled(generic)),
++        None => return Err(super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+         "InvalidParameterValueException" => {
+-            crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::InvalidParameterValueException({
++            super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::InvalidParameterValueException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
++                    let mut output = super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
++                    output = super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                         _response_body,
+                         output,
+                     )
+-                    .map_err(crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled)?;
++                    .map_err(super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -41,14 +41,14 @@
+             })
+         }
+         "ResourceConflictException" => {
+-            crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::ResourceConflictException({
++            super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::ResourceConflictException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::ResourceConflictExceptionBuilder::default();
++                    let mut output = super::types::error::builders::ResourceConflictExceptionBuilder::default();
+                     output =
+-                        crate::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(_response_body, output)
+-                            .map_err(crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled)?;
++                        super::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(_response_body, output)
++                            .map_err(super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -59,14 +59,14 @@
+             })
+         }
+         "ResourceNotFoundException" => {
+-            crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::ResourceNotFoundException({
++            super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::ResourceNotFoundException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                    let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                     output =
+-                        crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                            .map_err(crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled)?;
++                        super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                            .map_err(super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -76,13 +76,13 @@
+                 tmp
+             })
+         }
+-        "ServiceException" => crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::ServiceException({
++        "ServiceException" => super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::ServiceException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ServiceExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled)?;
++                let mut output = super::types::error::builders::ServiceExceptionBuilder::default();
++                output = super::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output)
++                    .map_err(super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -92,17 +92,17 @@
+             tmp
+         }),
+         "TooManyRequestsException" => {
+-            crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::TooManyRequestsException({
++            super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::TooManyRequestsException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
++                    let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                     output =
+-                        crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+-                            .map_err(crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled)?;
++                        super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
++                            .map_err(super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled)?;
+                     output = output.set_retry_after_seconds(
+-                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled(
++                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
++                            super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled(
+                                 "Failed to parse retryAfterSeconds from header `Retry-After",
+                             )
+                         })?,
+@@ -116,7 +116,7 @@
+                 tmp
+             })
+         }
+-        _ => crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::generic(generic),
++        _ => super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::generic(generic),
+     })
+ }
+
+@@ -126,14 +126,14 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigOutput,
+-    crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError,
++    super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigOutput,
++    super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::put_function_event_invoke_config::builders::PutFunctionEventInvokeConfigOutputBuilder::default();
+-        output = crate::protocol_serde::shape_put_function_event_invoke_config::de_put_function_event_invoke_config(_response_body, output)
+-            .map_err(crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled)?;
++        let mut output = super::operation::put_function_event_invoke_config::builders::PutFunctionEventInvokeConfigOutputBuilder::default();
++        output = super::protocol_serde::shape_put_function_event_invoke_config::de_put_function_event_invoke_config(_response_body, output)
++            .map_err(super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -140,11 +140,11 @@
+ }
+
+ pub fn ser_put_function_event_invoke_config_input(
+-    input: &crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigInput,
++    input: &super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigInput,
+ ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+     let mut out = String::new();
+     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+-    crate::protocol_serde::shape_put_function_event_invoke_config_input::ser_put_function_event_invoke_config_input_input(&mut object, input)?;
++    super::protocol_serde::shape_put_function_event_invoke_config_input::ser_put_function_event_invoke_config_input_input(&mut object, input)?;
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
+@@ -151,12 +151,12 @@
+
+ pub(crate) fn de_put_function_event_invoke_config(
+     _value: &[u8],
+-    mut builder: crate::operation::put_function_event_invoke_config::builders::PutFunctionEventInvokeConfigOutputBuilder,
++    mut builder: super::operation::put_function_event_invoke_config::builders::PutFunctionEventInvokeConfigOutputBuilder,
+ ) -> ::std::result::Result<
+-    crate::operation::put_function_event_invoke_config::builders::PutFunctionEventInvokeConfigOutputBuilder,
++    super::operation::put_function_event_invoke_config::builders::PutFunctionEventInvokeConfigOutputBuilder,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ > {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+     let depth = 0u32;
+@@ -166,7 +166,7 @@
+             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                 "DestinationConfig" => {
+-                    builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
++                    builder = builder.set_destination_config(super::protocol_serde::shape_destination_config::de_destination_config(
+                         tokens,
+                         _value,
+                         depth + 1,

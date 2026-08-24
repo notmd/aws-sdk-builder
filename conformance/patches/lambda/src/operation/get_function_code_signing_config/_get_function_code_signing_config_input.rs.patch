@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -34,8 +34,8 @@
+ }
+ impl GetFunctionCodeSigningConfigInput {
+     /// Creates a new builder-style object to manufacture [`GetFunctionCodeSigningConfigInput`](crate::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigInput).
+-    pub fn builder() -> crate::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigInputBuilder {
+-        crate::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigInputBuilder::default()
++    pub fn builder() -> super::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigInputBuilder {
++        super::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigInputBuilder::default()
+     }
+ }
+
+@@ -95,10 +95,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigInput,
++        super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigInput {
++        ::std::result::Result::Ok(super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigInput {
+             function_name: self.function_name,
+         })
+     }

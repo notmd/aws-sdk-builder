@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -12,8 +12,8 @@
+ }
+ impl TagInstanceProfileOutput {
+     /// Creates a new builder-style object to manufacture [`TagInstanceProfileOutput`](crate::operation::tag_instance_profile::TagInstanceProfileOutput).
+-    pub fn builder() -> crate::operation::tag_instance_profile::builders::TagInstanceProfileOutputBuilder {
+-        crate::operation::tag_instance_profile::builders::TagInstanceProfileOutputBuilder::default()
++    pub fn builder() -> super::operation::tag_instance_profile::builders::TagInstanceProfileOutputBuilder {
++        super::operation::tag_instance_profile::builders::TagInstanceProfileOutputBuilder::default()
+     }
+ }
+
+@@ -34,8 +34,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`TagInstanceProfileOutput`](crate::operation::tag_instance_profile::TagInstanceProfileOutput).
+-    pub fn build(self) -> crate::operation::tag_instance_profile::TagInstanceProfileOutput {
+-        crate::operation::tag_instance_profile::TagInstanceProfileOutput {
++    pub fn build(self) -> super::operation::tag_instance_profile::TagInstanceProfileOutput {
++        super::operation::tag_instance_profile::TagInstanceProfileOutput {
+             _request_id: self._request_id,
+         }
+     }

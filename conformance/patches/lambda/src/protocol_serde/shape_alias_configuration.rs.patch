@@ -1,0 +1,29 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::AliasConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::AliasConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::AliasConfigurationBuilder::default();
++            let mut builder = super::types::builders::AliasConfigurationBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -51,7 +51,7 @@
+                         }
+                         "RoutingConfig" => {
+                             builder = builder.set_routing_config(
+-                                crate::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?,
++                                super::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?,
+                             );
+                         }
+                         "RevisionId" => {

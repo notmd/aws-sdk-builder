@@ -1,0 +1,68 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     /// <p>Name of the host where requests are redirected.</p>
+     pub host_name: ::std::string::String,
+     /// <p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
+-    pub protocol: ::std::option::Option<crate::types::Protocol>,
++    pub protocol: ::std::option::Option<super::types::Protocol>,
+ }
+ impl RedirectAllRequestsTo {
+     /// <p>Name of the host where requests are redirected.</p>
+@@ -16,14 +16,14 @@
+         self.host_name.deref()
+     }
+     /// <p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
+-    pub fn protocol(&self) -> ::std::option::Option<&crate::types::Protocol> {
++    pub fn protocol(&self) -> ::std::option::Option<&super::types::Protocol> {
+         self.protocol.as_ref()
+     }
+ }
+ impl RedirectAllRequestsTo {
+     /// Creates a new builder-style object to manufacture [`RedirectAllRequestsTo`](crate::types::RedirectAllRequestsTo).
+-    pub fn builder() -> crate::types::builders::RedirectAllRequestsToBuilder {
+-        crate::types::builders::RedirectAllRequestsToBuilder::default()
++    pub fn builder() -> super::types::builders::RedirectAllRequestsToBuilder {
++        super::types::builders::RedirectAllRequestsToBuilder::default()
+     }
+ }
+
+@@ -32,7 +32,7 @@
+ #[non_exhaustive]
+ pub struct RedirectAllRequestsToBuilder {
+     pub(crate) host_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) protocol: ::std::option::Option<crate::types::Protocol>,
++    pub(crate) protocol: ::std::option::Option<super::types::Protocol>,
+ }
+ impl RedirectAllRequestsToBuilder {
+     /// <p>Name of the host where requests are redirected.</p>
+@@ -51,24 +51,24 @@
+         &self.host_name
+     }
+     /// <p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
+-    pub fn protocol(mut self, input: crate::types::Protocol) -> Self {
++    pub fn protocol(mut self, input: super::types::Protocol) -> Self {
+         self.protocol = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
+-    pub fn set_protocol(mut self, input: ::std::option::Option<crate::types::Protocol>) -> Self {
++    pub fn set_protocol(mut self, input: ::std::option::Option<super::types::Protocol>) -> Self {
+         self.protocol = input;
+         self
+     }
+     /// <p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
+-    pub fn get_protocol(&self) -> &::std::option::Option<crate::types::Protocol> {
++    pub fn get_protocol(&self) -> &::std::option::Option<super::types::Protocol> {
+         &self.protocol
+     }
+     /// Consumes the builder and constructs a [`RedirectAllRequestsTo`](crate::types::RedirectAllRequestsTo).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`host_name`](crate::types::builders::RedirectAllRequestsToBuilder::host_name)
+-    pub fn build(self) -> ::std::result::Result<crate::types::RedirectAllRequestsTo, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::RedirectAllRequestsTo {
++    pub fn build(self) -> ::std::result::Result<super::types::RedirectAllRequestsTo, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::RedirectAllRequestsTo {
+             host_name: self.host_name.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "host_name",

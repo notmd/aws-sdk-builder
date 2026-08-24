@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -20,8 +20,8 @@
+ }
+ impl DeletePublicAccessBlockInput {
+     /// Creates a new builder-style object to manufacture [`DeletePublicAccessBlockInput`](crate::operation::delete_public_access_block::DeletePublicAccessBlockInput).
+-    pub fn builder() -> crate::operation::delete_public_access_block::builders::DeletePublicAccessBlockInputBuilder {
+-        crate::operation::delete_public_access_block::builders::DeletePublicAccessBlockInputBuilder::default()
++    pub fn builder() -> super::operation::delete_public_access_block::builders::DeletePublicAccessBlockInputBuilder {
++        super::operation::delete_public_access_block::builders::DeletePublicAccessBlockInputBuilder::default()
+     }
+ }
+
+@@ -66,10 +66,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::delete_public_access_block::DeletePublicAccessBlockInput,
++        super::operation::delete_public_access_block::DeletePublicAccessBlockInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::delete_public_access_block::DeletePublicAccessBlockInput {
++        ::std::result::Result::Ok(super::operation::delete_public_access_block::DeletePublicAccessBlockInput {
+             bucket: self.bucket,
+             expected_bucket_owner: self.expected_bucket_owner,
+         })

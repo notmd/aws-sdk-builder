@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -34,7 +34,7 @@
+     }
+ }
+ impl ::std::error::Error for CodeSigningConfigNotFoundException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::CodeSigningConfigNotFoundException {
++impl ::aws_types::request_id::RequestId for super::types::error::CodeSigningConfigNotFoundException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -47,8 +47,8 @@
+ }
+ impl CodeSigningConfigNotFoundException {
+     /// Creates a new builder-style object to manufacture [`CodeSigningConfigNotFoundException`](crate::types::error::CodeSigningConfigNotFoundException).
+-    pub fn builder() -> crate::types::error::builders::CodeSigningConfigNotFoundExceptionBuilder {
+-        crate::types::error::builders::CodeSigningConfigNotFoundExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::CodeSigningConfigNotFoundExceptionBuilder {
++        super::types::error::builders::CodeSigningConfigNotFoundExceptionBuilder::default()
+     }
+ }
+
+@@ -101,8 +101,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`CodeSigningConfigNotFoundException`](crate::types::error::CodeSigningConfigNotFoundException).
+-    pub fn build(self) -> crate::types::error::CodeSigningConfigNotFoundException {
+-        crate::types::error::CodeSigningConfigNotFoundException {
++    pub fn build(self) -> super::types::error::CodeSigningConfigNotFoundException {
++        super::types::error::CodeSigningConfigNotFoundException {
+             r#type: self.r#type,
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),

@@ -50,7 +50,7 @@ pub fn de_update_primary_region_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::update_primary_region::UpdatePrimaryRegionError::KmsInternalException({
+        "KMSInternalException" => crate::operation::update_primary_region::UpdatePrimaryRegionError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -65,7 +65,7 @@ pub fn de_update_primary_region_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::update_primary_region::UpdatePrimaryRegionError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::update_primary_region::UpdatePrimaryRegionError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

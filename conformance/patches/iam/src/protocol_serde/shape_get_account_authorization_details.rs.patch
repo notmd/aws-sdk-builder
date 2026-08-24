@@ -1,0 +1,117 @@
+--- original
++++ modified
+@@ -5,28 +5,28 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsOutput,
+-    crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError,
++    super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsOutput,
++    super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError::unhandled(generic)),
++        None => return Err(super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ServiceFailure" => crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError::ServiceFailureException({
++        "ServiceFailure" => super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError::unhandled)?;
++                let mut output = super::types::error::builders::ServiceFailureExceptionBuilder::default();
++                output = super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,7 +35,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError::generic(generic),
++        _ => super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError::generic(generic),
+     })
+ }
+
+@@ -45,14 +45,14 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsOutput,
+-    crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError,
++    super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsOutput,
++    super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsOutputBuilder::default();
+-        output = crate::protocol_serde::shape_get_account_authorization_details::de_get_account_authorization_details(_response_body, output)
+-            .map_err(crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError::unhandled)?;
++        let mut output = super::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsOutputBuilder::default();
++        output = super::protocol_serde::shape_get_account_authorization_details::de_get_account_authorization_details(_response_body, output)
++            .map_err(super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -61,9 +61,9 @@
+ #[allow(unused_mut)]
+ pub fn de_get_account_authorization_details(
+     inp: &[u8],
+-    mut builder: crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsOutputBuilder,
++    mut builder: super::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsOutputBuilder,
+ ) -> std::result::Result<
+-    crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsOutputBuilder,
++    super::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsOutputBuilder,
+     ::aws_smithy_xml::decode::XmlDecodeError,
+ > {
+     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+@@ -91,7 +91,7 @@
+             s if s.matches("UserDetailList") /* UserDetailList com.amazonaws.iam.synthetic#GetAccountAuthorizationDetailsOutput$UserDetailList */ =>  {
+                 let var_1 =
+                     Some(
+-                        crate::protocol_serde::shape_user_detail_list_type::de_user_detail_list_type(&mut tag, depth + 1)
++                        super::protocol_serde::shape_user_detail_list_type::de_user_detail_list_type(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;
+@@ -101,7 +101,7 @@
+             s if s.matches("GroupDetailList") /* GroupDetailList com.amazonaws.iam.synthetic#GetAccountAuthorizationDetailsOutput$GroupDetailList */ =>  {
+                 let var_2 =
+                     Some(
+-                        crate::protocol_serde::shape_group_detail_list_type::de_group_detail_list_type(&mut tag, depth + 1)
++                        super::protocol_serde::shape_group_detail_list_type::de_group_detail_list_type(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;
+@@ -111,7 +111,7 @@
+             s if s.matches("RoleDetailList") /* RoleDetailList com.amazonaws.iam.synthetic#GetAccountAuthorizationDetailsOutput$RoleDetailList */ =>  {
+                 let var_3 =
+                     Some(
+-                        crate::protocol_serde::shape_role_detail_list_type::de_role_detail_list_type(&mut tag, depth + 1)
++                        super::protocol_serde::shape_role_detail_list_type::de_role_detail_list_type(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;
+@@ -121,7 +121,7 @@
+             s if s.matches("Policies") /* Policies com.amazonaws.iam.synthetic#GetAccountAuthorizationDetailsOutput$Policies */ =>  {
+                 let var_4 =
+                     Some(
+-                        crate::protocol_serde::shape_managed_policy_detail_list_type::de_managed_policy_detail_list_type(&mut tag, depth + 1)
++                        super::protocol_serde::shape_managed_policy_detail_list_type::de_managed_policy_detail_list_type(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;

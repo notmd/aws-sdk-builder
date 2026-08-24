@@ -1,0 +1,86 @@
+--- original
++++ modified
+@@ -9,8 +9,8 @@
+     }
+ }
+ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for SelectObjectContentEventStreamUnmarshaller {
+-    type Output = crate::types::SelectObjectContentEventStream;
+-    type Error = crate::types::error::SelectObjectContentEventStreamError;
++    type Output = super::types::SelectObjectContentEventStream;
++    type Error = super::types::error::SelectObjectContentEventStreamError;
+     fn unmarshall(
+         &self,
+         message: &::aws_smithy_types::event_stream::Message,
+@@ -20,7 +20,7 @@
+         match response_headers.message_type.as_str() {
+             "event" => match response_headers.smithy_type.as_str() {
+                 "Records" => {
+-                    let mut builder = crate::types::builders::RecordsEventBuilder::default();
++                    let mut builder = super::types::builders::RecordsEventBuilder::default();
+                     let content_type = response_headers.content_type().unwrap_or_default();
+                     if content_type != "application/octet-stream" {
+                         return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(
+@@ -29,50 +29,50 @@
+                     }
+                     builder = builder.set_payload(Some(::aws_smithy_types::Blob::from_maybe_shared(message.payload().clone())));
+                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+-                        crate::types::SelectObjectContentEventStream::Records(builder.build()),
++                        super::types::SelectObjectContentEventStream::Records(builder.build()),
+                     ))
+                 }
+                 "Stats" => {
+-                    let mut builder = crate::types::builders::StatsEventBuilder::default();
++                    let mut builder = super::types::builders::StatsEventBuilder::default();
+                     builder = builder.set_details(Some(
+-                        crate::protocol_serde::shape_stats_event::de_details(&message.payload()[..])
++                        super::protocol_serde::shape_stats_event::de_details(&message.payload()[..])
+                             .map_err(|err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall details: {err}")))?,
+                     ));
+                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+-                        crate::types::SelectObjectContentEventStream::Stats(builder.build()),
++                        super::types::SelectObjectContentEventStream::Stats(builder.build()),
+                     ))
+                 }
+                 "Progress" => {
+-                    let mut builder = crate::types::builders::ProgressEventBuilder::default();
++                    let mut builder = super::types::builders::ProgressEventBuilder::default();
+                     builder = builder.set_details(Some(
+-                        crate::protocol_serde::shape_progress_event::de_details(&message.payload()[..])
++                        super::protocol_serde::shape_progress_event::de_details(&message.payload()[..])
+                             .map_err(|err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall details: {err}")))?,
+                     ));
+                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+-                        crate::types::SelectObjectContentEventStream::Progress(builder.build()),
++                        super::types::SelectObjectContentEventStream::Progress(builder.build()),
+                     ))
+                 }
+                 "Cont" => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+-                    crate::types::SelectObjectContentEventStream::Cont(crate::types::ContinuationEvent::builder().build()),
++                    super::types::SelectObjectContentEventStream::Cont(super::types::ContinuationEvent::builder().build()),
+                 )),
+                 "End" => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+-                    crate::types::SelectObjectContentEventStream::End(crate::types::EndEvent::builder().build()),
++                    super::types::SelectObjectContentEventStream::End(super::types::EndEvent::builder().build()),
+                 )),
+                 _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+-                    crate::types::SelectObjectContentEventStream::Unknown,
++                    super::types::SelectObjectContentEventStream::Unknown,
+                 )),
+             },
+             "exception" => {
+-                let generic = match crate::protocol_serde::parse_event_stream_error_metadata(message.payload()) {
++                let generic = match super::protocol_serde::parse_event_stream_error_metadata(message.payload()) {
+                     Ok(builder) => builder.build(),
+                     Err(err) => {
+                         return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+-                            crate::types::error::SelectObjectContentEventStreamError::unhandled(err),
++                            super::types::error::SelectObjectContentEventStreamError::unhandled(err),
+                         ))
+                     }
+                 };
+                 Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+-                    crate::types::error::SelectObjectContentEventStreamError::generic(generic),
++                    super::types::error::SelectObjectContentEventStreamError::generic(generic),
+                 ))
+             }
+             value => {

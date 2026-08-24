@@ -1,0 +1,120 @@
+--- original
++++ modified
+@@ -5,31 +5,31 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::get_web_identity_token::GetWebIdentityTokenOutput,
+-    crate::operation::get_web_identity_token::GetWebIdentityTokenError,
++    super::operation::get_web_identity_token::GetWebIdentityTokenOutput,
++    super::operation::get_web_identity_token::GetWebIdentityTokenError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled(generic)),
++        None => return Err(super::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "JWTPayloadSizeExceededException" => crate::operation::get_web_identity_token::GetWebIdentityTokenError::JwtPayloadSizeExceededException({
++        "JWTPayloadSizeExceededException" => super::operation::get_web_identity_token::GetWebIdentityTokenError::JwtPayloadSizeExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::JwtPayloadSizeExceededExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_jwt_payload_size_exceeded_exception::de_jwt_payload_size_exceeded_exception_xml_err(
++                let mut output = super::types::error::builders::JwtPayloadSizeExceededExceptionBuilder::default();
++                output = super::protocol_serde::shape_jwt_payload_size_exceeded_exception::de_jwt_payload_size_exceeded_exception_xml_err(
+                     _response_body,
+                     output,
+                 )
+-                .map_err(crate::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled)?;
++                .map_err(super::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -39,12 +39,12 @@
+             tmp
+         }),
+         "OutboundWebIdentityFederationDisabledException" => {
+-            crate::operation::get_web_identity_token::GetWebIdentityTokenError::OutboundWebIdentityFederationDisabledException({
++            super::operation::get_web_identity_token::GetWebIdentityTokenError::OutboundWebIdentityFederationDisabledException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::OutboundWebIdentityFederationDisabledExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_outbound_web_identity_federation_disabled_exception::de_outbound_web_identity_federation_disabled_exception_xml_err(_response_body, output).map_err(crate::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled)?;
++                    let mut output = super::types::error::builders::OutboundWebIdentityFederationDisabledExceptionBuilder::default();
++                    output = super::protocol_serde::shape_outbound_web_identity_federation_disabled_exception::de_outbound_web_identity_federation_disabled_exception_xml_err(_response_body, output).map_err(super::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -55,16 +55,16 @@
+             })
+         }
+         "SessionDurationEscalationException" => {
+-            crate::operation::get_web_identity_token::GetWebIdentityTokenError::SessionDurationEscalationException({
++            super::operation::get_web_identity_token::GetWebIdentityTokenError::SessionDurationEscalationException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::SessionDurationEscalationExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_session_duration_escalation_exception::de_session_duration_escalation_exception_xml_err(
++                    let mut output = super::types::error::builders::SessionDurationEscalationExceptionBuilder::default();
++                    output = super::protocol_serde::shape_session_duration_escalation_exception::de_session_duration_escalation_exception_xml_err(
+                         _response_body,
+                         output,
+                     )
+-                    .map_err(crate::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled)?;
++                    .map_err(super::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -74,7 +74,7 @@
+                 tmp
+             })
+         }
+-        _ => crate::operation::get_web_identity_token::GetWebIdentityTokenError::generic(generic),
++        _ => super::operation::get_web_identity_token::GetWebIdentityTokenError::generic(generic),
+     })
+ }
+
+@@ -84,14 +84,14 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::get_web_identity_token::GetWebIdentityTokenOutput,
+-    crate::operation::get_web_identity_token::GetWebIdentityTokenError,
++    super::operation::get_web_identity_token::GetWebIdentityTokenOutput,
++    super::operation::get_web_identity_token::GetWebIdentityTokenError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::get_web_identity_token::builders::GetWebIdentityTokenOutputBuilder::default();
+-        output = crate::protocol_serde::shape_get_web_identity_token::de_get_web_identity_token(_response_body, output)
+-            .map_err(crate::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled)?;
++        let mut output = super::operation::get_web_identity_token::builders::GetWebIdentityTokenOutputBuilder::default();
++        output = super::protocol_serde::shape_get_web_identity_token::de_get_web_identity_token(_response_body, output)
++            .map_err(super::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -100,8 +100,8 @@
+ #[allow(unused_mut)]
+ pub fn de_get_web_identity_token(
+     inp: &[u8],
+-    mut builder: crate::operation::get_web_identity_token::builders::GetWebIdentityTokenOutputBuilder,
+-) -> std::result::Result<crate::operation::get_web_identity_token::builders::GetWebIdentityTokenOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
++    mut builder: super::operation::get_web_identity_token::builders::GetWebIdentityTokenOutputBuilder,
++) -> std::result::Result<super::operation::get_web_identity_token::builders::GetWebIdentityTokenOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
+ {
+     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+

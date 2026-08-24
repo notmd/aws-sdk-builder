@@ -24,7 +24,7 @@ impl EfsMountFailureException {
 }
 impl ::std::fmt::Display for EfsMountFailureException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(f, "EfsMountFailureException")?;
+        ::std::write!(f, "EfsMountFailureException [EFSMountFailureException]")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;

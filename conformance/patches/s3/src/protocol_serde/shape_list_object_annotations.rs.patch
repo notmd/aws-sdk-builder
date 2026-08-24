@@ -1,0 +1,157 @@
+--- original
++++ modified
+@@ -5,29 +5,29 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::list_object_annotations::ListObjectAnnotationsOutput,
+-    crate::operation::list_object_annotations::ListObjectAnnotationsError,
++    super::operation::list_object_annotations::ListObjectAnnotationsOutput,
++    super::operation::list_object_annotations::ListObjectAnnotationsError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::list_object_annotations::ListObjectAnnotationsError::unhandled)?;
+-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::list_object_annotations::ListObjectAnnotationsError::unhandled)?;
++    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::list_object_annotations::ListObjectAnnotationsError::unhandled(generic)),
++        None => return Err(super::operation::list_object_annotations::ListObjectAnnotationsError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "InvalidPrefix" => crate::operation::list_object_annotations::ListObjectAnnotationsError::InvalidPrefix({
++        "InvalidPrefix" => super::operation::list_object_annotations::ListObjectAnnotationsError::InvalidPrefix({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InvalidPrefixBuilder::default();
+-                output = crate::protocol_serde::shape_invalid_prefix::de_invalid_prefix_xml_err(_response_body, output)
+-                    .map_err(crate::operation::list_object_annotations::ListObjectAnnotationsError::unhandled)?;
++                let mut output = super::types::error::builders::InvalidPrefixBuilder::default();
++                output = super::protocol_serde::shape_invalid_prefix::de_invalid_prefix_xml_err(_response_body, output)
++                    .map_err(super::operation::list_object_annotations::ListObjectAnnotationsError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -36,13 +36,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchBucket" => crate::operation::list_object_annotations::ListObjectAnnotationsError::NoSuchBucket({
++        "NoSuchBucket" => super::operation::list_object_annotations::ListObjectAnnotationsError::NoSuchBucket({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NoSuchBucketBuilder::default();
+-                output = crate::protocol_serde::shape_no_such_bucket::de_no_such_bucket_xml_err(_response_body, output)
+-                    .map_err(crate::operation::list_object_annotations::ListObjectAnnotationsError::unhandled)?;
++                let mut output = super::types::error::builders::NoSuchBucketBuilder::default();
++                output = super::protocol_serde::shape_no_such_bucket::de_no_such_bucket_xml_err(_response_body, output)
++                    .map_err(super::operation::list_object_annotations::ListObjectAnnotationsError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -51,13 +51,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchKey" => crate::operation::list_object_annotations::ListObjectAnnotationsError::NoSuchKey({
++        "NoSuchKey" => super::operation::list_object_annotations::ListObjectAnnotationsError::NoSuchKey({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NoSuchKeyBuilder::default();
+-                output = crate::protocol_serde::shape_no_such_key::de_no_such_key_xml_err(_response_body, output)
+-                    .map_err(crate::operation::list_object_annotations::ListObjectAnnotationsError::unhandled)?;
++                let mut output = super::types::error::builders::NoSuchKeyBuilder::default();
++                output = super::protocol_serde::shape_no_such_key::de_no_such_key_xml_err(_response_body, output)
++                    .map_err(super::operation::list_object_annotations::ListObjectAnnotationsError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -66,7 +66,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::list_object_annotations::ListObjectAnnotationsError::generic(generic),
++        _ => super::operation::list_object_annotations::ListObjectAnnotationsError::generic(generic),
+     })
+ }
+
+@@ -76,29 +76,29 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::list_object_annotations::ListObjectAnnotationsOutput,
+-    crate::operation::list_object_annotations::ListObjectAnnotationsError,
++    super::operation::list_object_annotations::ListObjectAnnotationsOutput,
++    super::operation::list_object_annotations::ListObjectAnnotationsError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::list_object_annotations::builders::ListObjectAnnotationsOutputBuilder::default();
+-        output = crate::protocol_serde::shape_list_object_annotations::de_list_object_annotations(_response_body, output)
+-            .map_err(crate::operation::list_object_annotations::ListObjectAnnotationsError::unhandled)?;
++        let mut output = super::operation::list_object_annotations::builders::ListObjectAnnotationsOutputBuilder::default();
++        output = super::protocol_serde::shape_list_object_annotations::de_list_object_annotations(_response_body, output)
++            .map_err(super::operation::list_object_annotations::ListObjectAnnotationsError::unhandled)?;
+         output = output.set_object_version_id(
+-            crate::protocol_serde::shape_list_object_annotations_output::de_object_version_id_header(_response_headers).map_err(|_| {
+-                crate::operation::list_object_annotations::ListObjectAnnotationsError::unhandled(
++            super::protocol_serde::shape_list_object_annotations_output::de_object_version_id_header(_response_headers).map_err(|_| {
++                super::operation::list_object_annotations::ListObjectAnnotationsError::unhandled(
+                     "Failed to parse ObjectVersionId from header `x-amz-object-version-id",
+                 )
+             })?,
+         );
+         output = output.set_request_charged(
+-            crate::protocol_serde::shape_list_object_annotations_output::de_request_charged_header(_response_headers).map_err(|_| {
+-                crate::operation::list_object_annotations::ListObjectAnnotationsError::unhandled(
++            super::protocol_serde::shape_list_object_annotations_output::de_request_charged_header(_response_headers).map_err(|_| {
++                super::operation::list_object_annotations::ListObjectAnnotationsError::unhandled(
+                     "Failed to parse RequestCharged from header `x-amz-request-charged",
+                 )
+             })?,
+         );
+-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
++        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -105,7 +105,7 @@
+ }
+
+ pub fn ser_list_object_annotations_headers(
+-    input: &crate::operation::list_object_annotations::ListObjectAnnotationsInput,
++    input: &super::operation::list_object_annotations::ListObjectAnnotationsInput,
+     mut builder: ::http_1x::request::Builder,
+ ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+     if let ::std::option::Option::Some(inner_1) = &input.request_payer {
+@@ -136,9 +136,9 @@
+ #[allow(unused_mut)]
+ pub fn de_list_object_annotations(
+     inp: &[u8],
+-    mut builder: crate::operation::list_object_annotations::builders::ListObjectAnnotationsOutputBuilder,
++    mut builder: super::operation::list_object_annotations::builders::ListObjectAnnotationsOutputBuilder,
+ ) -> std::result::Result<
+-    crate::operation::list_object_annotations::builders::ListObjectAnnotationsOutputBuilder,
++    super::operation::list_object_annotations::builders::ListObjectAnnotationsOutputBuilder,
+     ::aws_smithy_xml::decode::XmlDecodeError,
+ > {
+     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+@@ -172,7 +172,7 @@
+             s if s.matches("Annotations") /* Annotations com.amazonaws.s3.synthetic#ListObjectAnnotationsOutput$Annotations */ =>  {
+                 let var_6 =
+                     Some(
+-                        crate::protocol_serde::shape_annotation_list::de_annotation_list(&mut tag, depth + 1)
++                        super::protocol_serde::shape_annotation_list::de_annotation_list(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;

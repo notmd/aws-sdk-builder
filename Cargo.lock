@@ -49,8 +49,10 @@ dependencies = [
 name = "aws-sdk-builder"
 version = "0.1.0"
 dependencies = [
+ "proc-macro2",
  "serde_json",
  "sha2 0.10.9",
+ "syn 3.0.3",
  "tempfile",
  "thiserror",
 ]
@@ -125,6 +127,7 @@ dependencies = [
  "aws-sdk-builder-sqs",
  "aws-sdk-builder-sts",
  "diffy",
+ "proc-macro2",
  "quote",
  "serde",
  "serde_json",
@@ -687,7 +690,6 @@ name = "multi_service"
 version = "0.1.0"
 dependencies = [
  "aws-runtime",
- "aws-sdk-builder",
  "aws-sdk-builder-s3",
  "aws-sdk-builder-sqs",
  "aws-smithy-runtime-api",
@@ -701,7 +703,6 @@ name = "my_aws_sdk"
 version = "0.1.0"
 dependencies = [
  "aws-runtime",
- "aws-sdk-builder",
  "aws-sdk-builder-s3",
  "aws-smithy-runtime-api",
  "aws-smithy-types",

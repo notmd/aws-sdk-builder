@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -14,7 +14,7 @@
+     /// - On failure, responds with [`SdkError<ListBucketAnalyticsConfigurationsError>`](crate::operation::list_bucket_analytics_configurations::ListBucketAnalyticsConfigurationsError)
+     pub fn list_bucket_analytics_configurations(
+         &self,
+-    ) -> crate::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsFluentBuilder {
+-        crate::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsFluentBuilder::new(self.handle.clone())
++    ) -> super::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsFluentBuilder {
++        super::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsFluentBuilder::new(self.handle.clone())
+     }
+ }

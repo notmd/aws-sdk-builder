@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -16,8 +16,8 @@
+ }
+ impl GetAccessKeyLastUsedInput {
+     /// Creates a new builder-style object to manufacture [`GetAccessKeyLastUsedInput`](crate::operation::get_access_key_last_used::GetAccessKeyLastUsedInput).
+-    pub fn builder() -> crate::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedInputBuilder {
+-        crate::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedInputBuilder::default()
++    pub fn builder() -> super::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedInputBuilder {
++        super::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedInputBuilder::default()
+     }
+ }
+
+@@ -49,9 +49,9 @@
+     /// Consumes the builder and constructs a [`GetAccessKeyLastUsedInput`](crate::operation::get_access_key_last_used::GetAccessKeyLastUsedInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::get_access_key_last_used::GetAccessKeyLastUsedInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::get_access_key_last_used::GetAccessKeyLastUsedInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::get_access_key_last_used::GetAccessKeyLastUsedInput {
++        ::std::result::Result::Ok(super::operation::get_access_key_last_used::GetAccessKeyLastUsedInput {
+             access_key_id: self.access_key_id,
+         })
+     }

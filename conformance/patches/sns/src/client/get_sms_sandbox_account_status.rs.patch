@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -8,7 +8,7 @@
+     /// - On failure, responds with [`SdkError<GetSMSSandboxAccountStatusError>`](crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError)
+     pub fn get_sms_sandbox_account_status(
+         &self,
+-    ) -> crate::operation::get_sms_sandbox_account_status::builders::GetSMSSandboxAccountStatusFluentBuilder {
+-        crate::operation::get_sms_sandbox_account_status::builders::GetSMSSandboxAccountStatusFluentBuilder::new(self.handle.clone())
++    ) -> super::operation::get_sms_sandbox_account_status::builders::GetSMSSandboxAccountStatusFluentBuilder {
++        super::operation::get_sms_sandbox_account_status::builders::GetSMSSandboxAccountStatusFluentBuilder::new(self.handle.clone())
+     }
+ }

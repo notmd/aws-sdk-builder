@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     ///   - [`tags(Tag)`](crate::operation::tag_user::builders::TagUserFluentBuilder::tags) / [`set_tags(Option<Vec::<Tag>>)`](crate::operation::tag_user::builders::TagUserFluentBuilder::set_tags):<br>required: **true**<br><p>The list of tags that you want to attach to the IAM user. Each tag consists of a key name and an associated value.</p><br>
+     /// - On success, responds with [`TagUserOutput`](crate::operation::tag_user::TagUserOutput)
+     /// - On failure, responds with [`SdkError<TagUserError>`](crate::operation::tag_user::TagUserError)
+-    pub fn tag_user(&self) -> crate::operation::tag_user::builders::TagUserFluentBuilder {
+-        crate::operation::tag_user::builders::TagUserFluentBuilder::new(self.handle.clone())
++    pub fn tag_user(&self) -> super::operation::tag_user::builders::TagUserFluentBuilder {
++        super::operation::tag_user::builders::TagUserFluentBuilder::new(self.handle.clone())
+     }
+ }

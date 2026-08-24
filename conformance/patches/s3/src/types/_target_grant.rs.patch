@@ -1,0 +1,85 @@
+--- original
++++ modified
+@@ -6,24 +6,24 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct TargetGrant {
+     /// <p>Container for the person being granted permissions.</p>
+-    pub grantee: ::std::option::Option<crate::types::Grantee>,
++    pub grantee: ::std::option::Option<super::types::Grantee>,
+     /// <p>Logging permissions assigned to the grantee for the bucket.</p>
+-    pub permission: ::std::option::Option<crate::types::BucketLogsPermission>,
++    pub permission: ::std::option::Option<super::types::BucketLogsPermission>,
+ }
+ impl TargetGrant {
+     /// <p>Container for the person being granted permissions.</p>
+-    pub fn grantee(&self) -> ::std::option::Option<&crate::types::Grantee> {
++    pub fn grantee(&self) -> ::std::option::Option<&super::types::Grantee> {
+         self.grantee.as_ref()
+     }
+     /// <p>Logging permissions assigned to the grantee for the bucket.</p>
+-    pub fn permission(&self) -> ::std::option::Option<&crate::types::BucketLogsPermission> {
++    pub fn permission(&self) -> ::std::option::Option<&super::types::BucketLogsPermission> {
+         self.permission.as_ref()
+     }
+ }
+ impl TargetGrant {
+     /// Creates a new builder-style object to manufacture [`TargetGrant`](crate::types::TargetGrant).
+-    pub fn builder() -> crate::types::builders::TargetGrantBuilder {
+-        crate::types::builders::TargetGrantBuilder::default()
++    pub fn builder() -> super::types::builders::TargetGrantBuilder {
++        super::types::builders::TargetGrantBuilder::default()
+     }
+ }
+
+@@ -31,41 +31,41 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct TargetGrantBuilder {
+-    pub(crate) grantee: ::std::option::Option<crate::types::Grantee>,
+-    pub(crate) permission: ::std::option::Option<crate::types::BucketLogsPermission>,
++    pub(crate) grantee: ::std::option::Option<super::types::Grantee>,
++    pub(crate) permission: ::std::option::Option<super::types::BucketLogsPermission>,
+ }
+ impl TargetGrantBuilder {
+     /// <p>Container for the person being granted permissions.</p>
+-    pub fn grantee(mut self, input: crate::types::Grantee) -> Self {
++    pub fn grantee(mut self, input: super::types::Grantee) -> Self {
+         self.grantee = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Container for the person being granted permissions.</p>
+-    pub fn set_grantee(mut self, input: ::std::option::Option<crate::types::Grantee>) -> Self {
++    pub fn set_grantee(mut self, input: ::std::option::Option<super::types::Grantee>) -> Self {
+         self.grantee = input;
+         self
+     }
+     /// <p>Container for the person being granted permissions.</p>
+-    pub fn get_grantee(&self) -> &::std::option::Option<crate::types::Grantee> {
++    pub fn get_grantee(&self) -> &::std::option::Option<super::types::Grantee> {
+         &self.grantee
+     }
+     /// <p>Logging permissions assigned to the grantee for the bucket.</p>
+-    pub fn permission(mut self, input: crate::types::BucketLogsPermission) -> Self {
++    pub fn permission(mut self, input: super::types::BucketLogsPermission) -> Self {
+         self.permission = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Logging permissions assigned to the grantee for the bucket.</p>
+-    pub fn set_permission(mut self, input: ::std::option::Option<crate::types::BucketLogsPermission>) -> Self {
++    pub fn set_permission(mut self, input: ::std::option::Option<super::types::BucketLogsPermission>) -> Self {
+         self.permission = input;
+         self
+     }
+     /// <p>Logging permissions assigned to the grantee for the bucket.</p>
+-    pub fn get_permission(&self) -> &::std::option::Option<crate::types::BucketLogsPermission> {
++    pub fn get_permission(&self) -> &::std::option::Option<super::types::BucketLogsPermission> {
+         &self.permission
+     }
+     /// Consumes the builder and constructs a [`TargetGrant`](crate::types::TargetGrant).
+-    pub fn build(self) -> crate::types::TargetGrant {
+-        crate::types::TargetGrant {
++    pub fn build(self) -> super::types::TargetGrant {
++        super::types::TargetGrant {
+             grantee: self.grantee,
+             permission: self.permission,
+         }

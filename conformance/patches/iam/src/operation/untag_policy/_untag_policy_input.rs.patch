@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -24,8 +24,8 @@
+ }
+ impl UntagPolicyInput {
+     /// Creates a new builder-style object to manufacture [`UntagPolicyInput`](crate::operation::untag_policy::UntagPolicyInput).
+-    pub fn builder() -> crate::operation::untag_policy::builders::UntagPolicyInputBuilder {
+-        crate::operation::untag_policy::builders::UntagPolicyInputBuilder::default()
++    pub fn builder() -> super::operation::untag_policy::builders::UntagPolicyInputBuilder {
++        super::operation::untag_policy::builders::UntagPolicyInputBuilder::default()
+     }
+ }
+
+@@ -76,8 +76,8 @@
+         &self.tag_keys
+     }
+     /// Consumes the builder and constructs a [`UntagPolicyInput`](crate::operation::untag_policy::UntagPolicyInput).
+-    pub fn build(self) -> ::std::result::Result<crate::operation::untag_policy::UntagPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::untag_policy::UntagPolicyInput {
++    pub fn build(self) -> ::std::result::Result<super::operation::untag_policy::UntagPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::untag_policy::UntagPolicyInput {
+             policy_arn: self.policy_arn,
+             tag_keys: self.tag_keys,
+         })

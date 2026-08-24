@@ -1,0 +1,72 @@
+--- original
++++ modified
+@@ -23,7 +23,7 @@
+     /// <li>
+     /// <p><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p></li>
+     /// </ul>
+-    pub backup_type: ::std::option::Option<crate::types::BackupTypeFilter>,
++    pub backup_type: ::std::option::Option<super::types::BackupTypeFilter>,
+ }
+ impl ListBackupsInput {
+     /// <p>Lists the backups from the table specified in <code>TableName</code>. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+@@ -56,14 +56,14 @@
+     /// <li>
+     /// <p><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p></li>
+     /// </ul>
+-    pub fn backup_type(&self) -> ::std::option::Option<&crate::types::BackupTypeFilter> {
++    pub fn backup_type(&self) -> ::std::option::Option<&super::types::BackupTypeFilter> {
+         self.backup_type.as_ref()
+     }
+ }
+ impl ListBackupsInput {
+     /// Creates a new builder-style object to manufacture [`ListBackupsInput`](crate::operation::list_backups::ListBackupsInput).
+-    pub fn builder() -> crate::operation::list_backups::builders::ListBackupsInputBuilder {
+-        crate::operation::list_backups::builders::ListBackupsInputBuilder::default()
++    pub fn builder() -> super::operation::list_backups::builders::ListBackupsInputBuilder {
++        super::operation::list_backups::builders::ListBackupsInputBuilder::default()
+     }
+ }
+
+@@ -76,7 +76,7 @@
+     pub(crate) time_range_lower_bound: ::std::option::Option<::aws_smithy_types::DateTime>,
+     pub(crate) time_range_upper_bound: ::std::option::Option<::aws_smithy_types::DateTime>,
+     pub(crate) exclusive_start_backup_arn: ::std::option::Option<::std::string::String>,
+-    pub(crate) backup_type: ::std::option::Option<crate::types::BackupTypeFilter>,
++    pub(crate) backup_type: ::std::option::Option<super::types::BackupTypeFilter>,
+ }
+ impl ListBackupsInputBuilder {
+     /// <p>Lists the backups from the table specified in <code>TableName</code>. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+@@ -159,7 +159,7 @@
+     /// <li>
+     /// <p><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p></li>
+     /// </ul>
+-    pub fn backup_type(mut self, input: crate::types::BackupTypeFilter) -> Self {
++    pub fn backup_type(mut self, input: super::types::BackupTypeFilter) -> Self {
+         self.backup_type = ::std::option::Option::Some(input);
+         self
+     }
+@@ -173,7 +173,7 @@
+     /// <li>
+     /// <p><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p></li>
+     /// </ul>
+-    pub fn set_backup_type(mut self, input: ::std::option::Option<crate::types::BackupTypeFilter>) -> Self {
++    pub fn set_backup_type(mut self, input: ::std::option::Option<super::types::BackupTypeFilter>) -> Self {
+         self.backup_type = input;
+         self
+     }
+@@ -187,12 +187,12 @@
+     /// <li>
+     /// <p><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p></li>
+     /// </ul>
+-    pub fn get_backup_type(&self) -> &::std::option::Option<crate::types::BackupTypeFilter> {
++    pub fn get_backup_type(&self) -> &::std::option::Option<super::types::BackupTypeFilter> {
+         &self.backup_type
+     }
+     /// Consumes the builder and constructs a [`ListBackupsInput`](crate::operation::list_backups::ListBackupsInput).
+-    pub fn build(self) -> ::std::result::Result<crate::operation::list_backups::ListBackupsInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::list_backups::ListBackupsInput {
++    pub fn build(self) -> ::std::result::Result<super::operation::list_backups::ListBackupsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::list_backups::ListBackupsInput {
+             table_name: self.table_name,
+             limit: self.limit,
+             time_range_lower_bound: self.time_range_lower_bound,

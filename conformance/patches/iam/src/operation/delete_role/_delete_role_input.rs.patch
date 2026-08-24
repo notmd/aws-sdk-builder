@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -16,8 +16,8 @@
+ }
+ impl DeleteRoleInput {
+     /// Creates a new builder-style object to manufacture [`DeleteRoleInput`](crate::operation::delete_role::DeleteRoleInput).
+-    pub fn builder() -> crate::operation::delete_role::builders::DeleteRoleInputBuilder {
+-        crate::operation::delete_role::builders::DeleteRoleInputBuilder::default()
++    pub fn builder() -> super::operation::delete_role::builders::DeleteRoleInputBuilder {
++        super::operation::delete_role::builders::DeleteRoleInputBuilder::default()
+     }
+ }
+
+@@ -47,7 +47,7 @@
+         &self.role_name
+     }
+     /// Consumes the builder and constructs a [`DeleteRoleInput`](crate::operation::delete_role::DeleteRoleInput).
+-    pub fn build(self) -> ::std::result::Result<crate::operation::delete_role::DeleteRoleInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::delete_role::DeleteRoleInput { role_name: self.role_name })
++    pub fn build(self) -> ::std::result::Result<super::operation::delete_role::DeleteRoleInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::delete_role::DeleteRoleInput { role_name: self.role_name })
+     }
+ }

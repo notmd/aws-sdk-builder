@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -20,8 +20,8 @@
+ }
+ impl UpdateRoleDescriptionInput {
+     /// Creates a new builder-style object to manufacture [`UpdateRoleDescriptionInput`](crate::operation::update_role_description::UpdateRoleDescriptionInput).
+-    pub fn builder() -> crate::operation::update_role_description::builders::UpdateRoleDescriptionInputBuilder {
+-        crate::operation::update_role_description::builders::UpdateRoleDescriptionInputBuilder::default()
++    pub fn builder() -> super::operation::update_role_description::builders::UpdateRoleDescriptionInputBuilder {
++        super::operation::update_role_description::builders::UpdateRoleDescriptionInputBuilder::default()
+     }
+ }
+
+@@ -66,9 +66,9 @@
+     /// Consumes the builder and constructs a [`UpdateRoleDescriptionInput`](crate::operation::update_role_description::UpdateRoleDescriptionInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::update_role_description::UpdateRoleDescriptionInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::update_role_description::UpdateRoleDescriptionInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::update_role_description::UpdateRoleDescriptionInput {
++        ::std::result::Result::Ok(super::operation::update_role_description::UpdateRoleDescriptionInput {
+             role_name: self.role_name,
+             description: self.description,
+         })

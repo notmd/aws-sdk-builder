@@ -1,0 +1,114 @@
+--- original
++++ modified
+@@ -5,28 +5,28 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleOutput,
+-    crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError,
++    super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleOutput,
++    super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::unhandled(generic)),
++        None => return Err(super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "NoSuchEntity" => crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::NoSuchEntityException({
++        "NoSuchEntity" => super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::unhandled)?;
++                let mut output = super::types::error::builders::NoSuchEntityExceptionBuilder::default();
++                output = super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::ServiceFailureException({
++        "ServiceFailure" => super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::unhandled)?;
++                let mut output = super::types::error::builders::ServiceFailureExceptionBuilder::default();
++                output = super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,7 +50,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::generic(generic),
++        _ => super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::generic(generic),
+     })
+ }
+
+@@ -60,18 +60,18 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleOutput,
+-    crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError,
++    super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleOutput,
++    super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleOutputBuilder::default();
+-        output = crate::protocol_serde::shape_list_instance_profiles_for_role::de_list_instance_profiles_for_role(_response_body, output)
+-            .map_err(crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::unhandled)?;
++        let mut output = super::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleOutputBuilder::default();
++        output = super::protocol_serde::shape_list_instance_profiles_for_role::de_list_instance_profiles_for_role(_response_body, output)
++            .map_err(super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+-        crate::serde_util::list_instance_profiles_for_role_output_output_correct_errors(output)
++        super::serde_util::list_instance_profiles_for_role_output_output_correct_errors(output)
+             .build()
+-            .map_err(crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::unhandled)?
++            .map_err(super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::unhandled)?
+     })
+ }
+
+@@ -78,9 +78,9 @@
+ #[allow(unused_mut)]
+ pub fn de_list_instance_profiles_for_role(
+     inp: &[u8],
+-    mut builder: crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleOutputBuilder,
++    mut builder: super::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleOutputBuilder,
+ ) -> std::result::Result<
+-    crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleOutputBuilder,
++    super::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleOutputBuilder,
+     ::aws_smithy_xml::decode::XmlDecodeError,
+ > {
+     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+@@ -108,7 +108,7 @@
+             s if s.matches("InstanceProfiles") /* InstanceProfiles com.amazonaws.iam.synthetic#ListInstanceProfilesForRoleOutput$InstanceProfiles */ =>  {
+                 let var_1 =
+                     Some(
+-                        crate::protocol_serde::shape_instance_profile_list_type::de_instance_profile_list_type(&mut tag, depth + 1)
++                        super::protocol_serde::shape_instance_profile_list_type::de_instance_profile_list_type(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;

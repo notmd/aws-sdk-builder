@@ -1,0 +1,107 @@
+--- original
++++ modified
+@@ -4,26 +4,26 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<crate::operation::list_user_policies::ListUserPoliciesOutput, crate::operation::list_user_policies::ListUserPoliciesError> {
++) -> std::result::Result<super::operation::list_user_policies::ListUserPoliciesOutput, super::operation::list_user_policies::ListUserPoliciesError> {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::list_user_policies::ListUserPoliciesError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::list_user_policies::ListUserPoliciesError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::list_user_policies::ListUserPoliciesError::unhandled(generic)),
++        None => return Err(super::operation::list_user_policies::ListUserPoliciesError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "NoSuchEntity" => crate::operation::list_user_policies::ListUserPoliciesError::NoSuchEntityException({
++        "NoSuchEntity" => super::operation::list_user_policies::ListUserPoliciesError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::list_user_policies::ListUserPoliciesError::unhandled)?;
++                let mut output = super::types::error::builders::NoSuchEntityExceptionBuilder::default();
++                output = super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::list_user_policies::ListUserPoliciesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -32,13 +32,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => crate::operation::list_user_policies::ListUserPoliciesError::ServiceFailureException({
++        "ServiceFailure" => super::operation::list_user_policies::ListUserPoliciesError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::list_user_policies::ListUserPoliciesError::unhandled)?;
++                let mut output = super::types::error::builders::ServiceFailureExceptionBuilder::default();
++                output = super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::list_user_policies::ListUserPoliciesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::list_user_policies::ListUserPoliciesError::generic(generic),
++        _ => super::operation::list_user_policies::ListUserPoliciesError::generic(generic),
+     })
+ }
+
+@@ -56,16 +56,16 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<crate::operation::list_user_policies::ListUserPoliciesOutput, crate::operation::list_user_policies::ListUserPoliciesError> {
++) -> std::result::Result<super::operation::list_user_policies::ListUserPoliciesOutput, super::operation::list_user_policies::ListUserPoliciesError> {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::list_user_policies::builders::ListUserPoliciesOutputBuilder::default();
+-        output = crate::protocol_serde::shape_list_user_policies::de_list_user_policies(_response_body, output)
+-            .map_err(crate::operation::list_user_policies::ListUserPoliciesError::unhandled)?;
++        let mut output = super::operation::list_user_policies::builders::ListUserPoliciesOutputBuilder::default();
++        output = super::protocol_serde::shape_list_user_policies::de_list_user_policies(_response_body, output)
++            .map_err(super::operation::list_user_policies::ListUserPoliciesError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+-        crate::serde_util::list_user_policies_output_output_correct_errors(output)
++        super::serde_util::list_user_policies_output_output_correct_errors(output)
+             .build()
+-            .map_err(crate::operation::list_user_policies::ListUserPoliciesError::unhandled)?
++            .map_err(super::operation::list_user_policies::ListUserPoliciesError::unhandled)?
+     })
+ }
+
+@@ -72,8 +72,8 @@
+ #[allow(unused_mut)]
+ pub fn de_list_user_policies(
+     inp: &[u8],
+-    mut builder: crate::operation::list_user_policies::builders::ListUserPoliciesOutputBuilder,
+-) -> std::result::Result<crate::operation::list_user_policies::builders::ListUserPoliciesOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
++    mut builder: super::operation::list_user_policies::builders::ListUserPoliciesOutputBuilder,
++) -> std::result::Result<super::operation::list_user_policies::builders::ListUserPoliciesOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+     #[allow(unused_mut)]
+@@ -99,7 +99,7 @@
+             s if s.matches("PolicyNames") /* PolicyNames com.amazonaws.iam.synthetic#ListUserPoliciesOutput$PolicyNames */ =>  {
+                 let var_1 =
+                     Some(
+-                        crate::protocol_serde::shape_policy_name_list_type::de_policy_name_list_type(&mut tag, depth + 1)
++                        super::protocol_serde::shape_policy_name_list_type::de_policy_name_list_type(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;

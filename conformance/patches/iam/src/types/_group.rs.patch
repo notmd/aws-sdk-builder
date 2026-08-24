@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -52,8 +52,8 @@
+ }
+ impl Group {
+     /// Creates a new builder-style object to manufacture [`Group`](crate::types::Group).
+-    pub fn builder() -> crate::types::builders::GroupBuilder {
+-        crate::types::builders::GroupBuilder::default()
++    pub fn builder() -> super::types::builders::GroupBuilder {
++        super::types::builders::GroupBuilder::default()
+     }
+ }
+
+@@ -150,8 +150,8 @@
+     /// - [`group_id`](crate::types::builders::GroupBuilder::group_id)
+     /// - [`arn`](crate::types::builders::GroupBuilder::arn)
+     /// - [`create_date`](crate::types::builders::GroupBuilder::create_date)
+-    pub fn build(self) -> ::std::result::Result<crate::types::Group, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::Group {
++    pub fn build(self) -> ::std::result::Result<super::types::Group, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::Group {
+             path: self.path.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "path",

@@ -65,7 +65,7 @@ pub fn de_list_retirable_grants_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::list_retirable_grants::ListRetirableGrantsError::KmsInternalException({
+        "KMSInternalException" => crate::operation::list_retirable_grants::ListRetirableGrantsError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

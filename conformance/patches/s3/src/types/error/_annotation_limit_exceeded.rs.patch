@@ -1,0 +1,40 @@
+--- original
++++ modified
+@@ -26,13 +26,13 @@
+     }
+ }
+ impl ::std::error::Error for AnnotationLimitExceeded {}
+-impl crate::s3_request_id::RequestIdExt for crate::types::error::AnnotationLimitExceeded {
++impl super::s3_request_id::RequestIdExt for super::types::error::AnnotationLimitExceeded {
+     fn extended_request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().extended_request_id()
+     }
+ }
+-impl ::aws_types::request_id::RequestId for crate::types::error::AnnotationLimitExceeded {
++impl ::aws_types::request_id::RequestId for super::types::error::AnnotationLimitExceeded {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -45,8 +45,8 @@
+ }
+ impl AnnotationLimitExceeded {
+     /// Creates a new builder-style object to manufacture [`AnnotationLimitExceeded`](crate::types::error::AnnotationLimitExceeded).
+-    pub fn builder() -> crate::types::error::builders::AnnotationLimitExceededBuilder {
+-        crate::types::error::builders::AnnotationLimitExceededBuilder::default()
++    pub fn builder() -> super::types::error::builders::AnnotationLimitExceededBuilder {
++        super::types::error::builders::AnnotationLimitExceededBuilder::default()
+     }
+ }
+
+@@ -84,8 +84,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`AnnotationLimitExceeded`](crate::types::error::AnnotationLimitExceeded).
+-    pub fn build(self) -> crate::types::error::AnnotationLimitExceeded {
+-        crate::types::error::AnnotationLimitExceeded {
++    pub fn build(self) -> super::types::error::AnnotationLimitExceeded {
++        super::types::error::AnnotationLimitExceeded {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

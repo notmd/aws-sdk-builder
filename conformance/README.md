@@ -9,16 +9,21 @@ This directory contains checked-in conformance inputs and reports:
 - `summary.md` and `summary/` contain deterministic comparison reports.
 
 Run `just conformance-sync` to download the pinned upstream commit archive, refresh selected
-service reference trees, and update each service provider's `model.json`. The updater
-removes configured Cargo metadata, README files, tests, and benches while preserving
-source and license files. It stages all data first and replaces snapshots only after
-validation succeeds.
+service reference trees, generate source-normalization `.patch` files under
+`conformance/patches/<service>/`, and update each service provider's `model.json`. The
+updater removes configured Cargo metadata, README files, LICENSE files, tests, and
+benches from the snapshots. It stages references, patches, and models together, then
+replaces all snapshots only after validation succeeds.
 
 Run `just conformance` to regenerate every selected service, remove the same excluded
-artifacts from generated snapshots, compare the sanitized trees, refresh reports, and
-update derived file counts in `services-manifest.json`. Differences intentionally
-produce exit status 1. Percentages are based on exact file matches; 100.00% means
-fully matched.
+artifacts from generated snapshots, compare the sanitized trees, and refresh reports.
+Differences intentionally produce exit status 1. Percentages are based on exact file
+matches; 100.00% means fully matched. File counts live in the reports rather than in
+`services-manifest.json`.
 
 Normal conformance runs use checked-in data and do not clone or invoke an external
-code generator. `just conformance-sync` is the explicit network operation.
+code generator. Checked-in reference patches are applied in memory and never modify
+`conformance/reference`; `just conformance-sync` is the explicit network operation
+that regenerates them. Rust normalization rewrites parsed `crate::...` paths to
+`super::...` and removes inline `#[cfg(test)]` modules, including their attached
+test-only attributes, before comparison.

@@ -47,7 +47,7 @@ pub fn de_list_resource_tags_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::list_resource_tags::ListResourceTagsError::KmsInternalException({
+        "KMSInternalException" => crate::operation::list_resource_tags::ListResourceTagsError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

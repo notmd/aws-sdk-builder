@@ -62,7 +62,7 @@ pub fn de_replicate_key_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::replicate_key::ReplicateKeyError::KmsInternalException({
+        "KMSInternalException" => crate::operation::replicate_key::ReplicateKeyError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -77,7 +77,7 @@ pub fn de_replicate_key_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::replicate_key::ReplicateKeyError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::replicate_key::ReplicateKeyError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

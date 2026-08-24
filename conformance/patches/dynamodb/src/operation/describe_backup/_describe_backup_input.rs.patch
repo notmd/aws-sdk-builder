@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -14,8 +14,8 @@
+ }
+ impl DescribeBackupInput {
+     /// Creates a new builder-style object to manufacture [`DescribeBackupInput`](crate::operation::describe_backup::DescribeBackupInput).
+-    pub fn builder() -> crate::operation::describe_backup::builders::DescribeBackupInputBuilder {
+-        crate::operation::describe_backup::builders::DescribeBackupInputBuilder::default()
++    pub fn builder() -> super::operation::describe_backup::builders::DescribeBackupInputBuilder {
++        super::operation::describe_backup::builders::DescribeBackupInputBuilder::default()
+     }
+ }
+
+@@ -44,7 +44,7 @@
+     /// Consumes the builder and constructs a [`DescribeBackupInput`](crate::operation::describe_backup::DescribeBackupInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::describe_backup::DescribeBackupInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::describe_backup::DescribeBackupInput { backup_arn: self.backup_arn })
++    ) -> ::std::result::Result<super::operation::describe_backup::DescribeBackupInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::describe_backup::DescribeBackupInput { backup_arn: self.backup_arn })
+     }
+ }

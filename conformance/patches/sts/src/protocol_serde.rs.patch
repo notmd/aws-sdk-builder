@@ -1,0 +1,11 @@
+--- original
++++ modified
+@@ -20,7 +20,7 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     response_body: &[u8],
+ ) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_xml::decode::XmlDecodeError> {
+-    crate::rest_xml_wrapped_errors::parse_error_metadata(response_body)
++    super::rest_xml_wrapped_errors::parse_error_metadata(response_body)
+ }
+
+ pub(crate) mod shape_assume_role;

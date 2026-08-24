@@ -77,7 +77,7 @@ pub fn de_revoke_grant_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::revoke_grant::RevokeGrantError::KmsInternalException({
+        "KMSInternalException" => crate::operation::revoke_grant::RevokeGrantError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -92,7 +92,7 @@ pub fn de_revoke_grant_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::revoke_grant::RevokeGrantError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::revoke_grant::RevokeGrantError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

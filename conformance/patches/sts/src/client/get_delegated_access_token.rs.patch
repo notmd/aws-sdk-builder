@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -9,7 +9,7 @@
+     ///   - [`packed_policy_size(Option<i32>)`](crate::operation::get_delegated_access_token::GetDelegatedAccessTokenOutput::packed_policy_size): <p>The percentage of the maximum policy size that is used by the session policy. The policy size is calculated as the sum of all the session policies and permission boundaries attached to the session. If the packed size exceeds 100%, the request fails.</p>
+     ///   - [`assumed_principal(Option<String>)`](crate::operation::get_delegated_access_token::GetDelegatedAccessTokenOutput::assumed_principal): <p>The Amazon Resource Name (ARN) of the principal that was assumed when obtaining the delegated access token. This ARN identifies the IAM entity whose permissions are granted by the temporary credentials.</p>
+     /// - On failure, responds with [`SdkError<GetDelegatedAccessTokenError>`](crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError)
+-    pub fn get_delegated_access_token(&self) -> crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenFluentBuilder {
+-        crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenFluentBuilder::new(self.handle.clone())
++    pub fn get_delegated_access_token(&self) -> super::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenFluentBuilder {
++        super::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenFluentBuilder::new(self.handle.clone())
+     }
+ }

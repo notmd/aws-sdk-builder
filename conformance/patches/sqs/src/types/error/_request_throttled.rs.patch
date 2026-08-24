@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -32,7 +32,7 @@
+     }
+ }
+ impl ::std::error::Error for RequestThrottled {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::RequestThrottled {
++impl ::aws_types::request_id::RequestId for super::types::error::RequestThrottled {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -45,8 +45,8 @@
+ }
+ impl RequestThrottled {
+     /// Creates a new builder-style object to manufacture [`RequestThrottled`](crate::types::error::RequestThrottled).
+-    pub fn builder() -> crate::types::error::builders::RequestThrottledBuilder {
+-        crate::types::error::builders::RequestThrottledBuilder::default()
++    pub fn builder() -> super::types::error::builders::RequestThrottledBuilder {
++        super::types::error::builders::RequestThrottledBuilder::default()
+     }
+ }
+
+@@ -84,8 +84,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`RequestThrottled`](crate::types::error::RequestThrottled).
+-    pub fn build(self) -> crate::types::error::RequestThrottled {
+-        crate::types::error::RequestThrottled {
++    pub fn build(self) -> super::types::error::RequestThrottled {
++        super::types::error::RequestThrottled {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

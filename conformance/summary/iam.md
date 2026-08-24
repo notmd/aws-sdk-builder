@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1627/1627` files compared · `876` matched · `231` mismatches · `520` missing · `0` extra · `53.84%` match (100.00% means fully matched)
+**Progress:** `1626/1626` files compared · `876` matched · `230` mismatches · `520` missing · `0` extra · `53.87%` match (100.00% means fully matched)
 
 ### `src/client/delete_service_linked_role.rs`
 
@@ -17,8 +17,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    ///   - [`deletion_task_id(String)`](crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleOutput::deletion_task_id): <p>The deletion task identifier that you can use to check the status of the deletion. This identifier is returned in the format <code>task/aws-service-role/<service-principal-name>    /    <role-name>     /     <task-uuid></task-uuid>    </role-name>   </service-principal-name></code>.</p>
 +    ///   - [`deletion_task_id(String)`](crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleOutput::deletion_task_id): <p>The deletion task identifier that you can use to check the status of the deletion. This identifier is returned in the format <code>task/aws-service-role/<service-principal-name>    /    <role-name>     /     <task-uuid></task-uuid>      </role-name>     </service-principal-name></code>.</p>
      /// - On failure, responds with [`SdkError<DeleteServiceLinkedRoleError>`](crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError)
-     pub fn delete_service_linked_role(&self) -> crate::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleFluentBuilder {
-         crate::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleFluentBuilder::new(self.handle.clone())
+     pub fn delete_service_linked_role(&self) -> super::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleFluentBuilder {
+         super::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/get_service_linked_role_deletion_status.rs`
@@ -84,8 +84,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_accept_delegation_request_input::ser_accept_delegation_request_input_input_input(&input)?,
-+            crate::protocol_serde::shape_accept_delegation_request_input::ser_accept_delegation_request_op_input(&input)?,
+-            super::protocol_serde::shape_accept_delegation_request_input::ser_accept_delegation_request_input_input_input(&input)?,
++            super::protocol_serde::shape_accept_delegation_request_input::ser_accept_delegation_request_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -105,10 +105,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_acquire_role_input::ser_acquire_role_input_input_input(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_acquire_role_input::ser_acquire_role_input_input_input(
 -            &input,
 -        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_acquire_role_input::ser_acquire_role_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_acquire_role_input::ser_acquire_role_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -121,10 +121,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/add_client_id_to_open_id_connect_provider/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
+         super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
-+            crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
+-            super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
++            super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -140,26 +140,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct AddClientIDToOpenIDConnectProviderFluentBuilder {
 +pub struct AddClientIdToOpenIdConnectProviderFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -33,8 +33,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
--        crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
+-        super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
 -    > for AddClientIDToOpenIDConnectProviderFluentBuilder
-+        crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
++        super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
 +    > for AddClientIdToOpenIdConnectProviderFluentBuilder
  {
      fn send(
          self,
 @@ -42,14 +42,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
--            crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
-+            crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
+-            super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
++            super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -169,7 +169,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `AddClientIDToOpenIDConnectProviderFluentBuilder`.
 +impl AddClientIdToOpenIdConnectProviderFluentBuilder {
 +    /// Creates a new `AddClientIdToOpenIdConnectProviderFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -57,7 +57,7 @@
@@ -178,15 +178,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the AddClientIDToOpenIDConnectProvider as a reference.
 +    /// Access the AddClientIdToOpenIdConnectProvider as a reference.
-     pub fn as_input(&self) -> &crate::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderInputBuilder {
+     pub fn as_input(&self) -> &super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderInputBuilder {
          &self.inner
      }
 @@ -74,7 +74,7 @@
      ) -> ::std::result::Result<
-         crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
+         super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
-+            crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
+-            super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
++            super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -194,26 +194,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
          let runtime_plugins =
--            crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProvider::operation_runtime_plugins(
-+            crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProvider::operation_runtime_plugins(
+-            super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProvider::operation_runtime_plugins(
++            super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProvider::operation_runtime_plugins(
                  self.handle.runtime_plugins.clone(),
                  &self.handle.conf,
                  self.config_override,
              );
--        crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProvider::orchestrate(&runtime_plugins, input).await
-+        crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProvider::orchestrate(&runtime_plugins, input).await
+-        super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProvider::orchestrate(&runtime_plugins, input).await
++        super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProvider::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -96,7 +96,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
--        crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
-+        crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
+-        super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
++        super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/add_client_id_to_open_id_connect_provider.rs`
@@ -270,7 +270,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                AddClientIdToOpenIdConnectProviderEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
+                 super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
 @@ -156,12 +156,12 @@
  }
 
@@ -296,9 +296,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_add_client_id_to_open_id_connect_provider_input::ser_add_client_id_to_open_id_connect_provider_input_input_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_add_client_id_to_open_id_connect_provider_input::ser_add_client_id_to_open_id_connect_provider_input_input_input(&input)?);
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_add_client_id_to_open_id_connect_provider_input::ser_add_client_id_to_open_id_connect_provider_op_input(
++            super::protocol_serde::shape_add_client_id_to_open_id_connect_provider_input::ser_add_client_id_to_open_id_connect_provider_op_input(
 +                &input,
 +            )?,
 +        );
@@ -338,8 +338,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_add_role_to_instance_profile_input::ser_add_role_to_instance_profile_input_input_input(&input)?,
-+            crate::protocol_serde::shape_add_role_to_instance_profile_input::ser_add_role_to_instance_profile_op_input(&input)?,
+-            super::protocol_serde::shape_add_role_to_instance_profile_input::ser_add_role_to_instance_profile_input_input_input(&input)?,
++            super::protocol_serde::shape_add_role_to_instance_profile_input::ser_add_role_to_instance_profile_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -360,9 +360,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_add_user_to_group_input::ser_add_user_to_group_input_input_input(&input)?,
+-            super::protocol_serde::shape_add_user_to_group_input::ser_add_user_to_group_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_add_user_to_group_input::ser_add_user_to_group_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_add_user_to_group_input::ser_add_user_to_group_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -385,8 +385,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_associate_delegation_request_input::ser_associate_delegation_request_input_input_input(&input)?,
-+            crate::protocol_serde::shape_associate_delegation_request_input::ser_associate_delegation_request_op_input(&input)?,
+-            super::protocol_serde::shape_associate_delegation_request_input::ser_associate_delegation_request_input_input_input(&input)?,
++            super::protocol_serde::shape_associate_delegation_request_input::ser_associate_delegation_request_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -407,9 +407,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_attach_group_policy_input::ser_attach_group_policy_input_input_input(&input)?,
+-            super::protocol_serde::shape_attach_group_policy_input::ser_attach_group_policy_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_attach_group_policy_input::ser_attach_group_policy_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_attach_group_policy_input::ser_attach_group_policy_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -432,9 +432,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_attach_role_policy_input::ser_attach_role_policy_input_input_input(&input)?,
+-            super::protocol_serde::shape_attach_role_policy_input::ser_attach_role_policy_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_attach_role_policy_input::ser_attach_role_policy_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_attach_role_policy_input::ser_attach_role_policy_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -457,9 +457,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_attach_user_policy_input::ser_attach_user_policy_input_input_input(&input)?,
+-            super::protocol_serde::shape_attach_user_policy_input::ser_attach_user_policy_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_attach_user_policy_input::ser_attach_user_policy_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_attach_user_policy_input::ser_attach_user_policy_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -482,9 +482,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_change_password_input::ser_change_password_input_input_input(&input)?,
+-            super::protocol_serde::shape_change_password_input::ser_change_password_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_change_password_input::ser_change_password_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_change_password_input::ser_change_password_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -505,9 +505,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_create_access_key_input::ser_create_access_key_input_input_input(&input)?,
+-            super::protocol_serde::shape_create_access_key_input::ser_create_access_key_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_access_key_input::ser_create_access_key_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_create_access_key_input::ser_create_access_key_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -530,8 +530,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_create_account_alias_input::ser_create_account_alias_input_input_input(&input)?,
-+            crate::protocol_serde::shape_create_account_alias_input::ser_create_account_alias_op_input(&input)?,
+-            super::protocol_serde::shape_create_account_alias_input::ser_create_account_alias_input_input_input(&input)?,
++            super::protocol_serde::shape_create_account_alias_input::ser_create_account_alias_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -568,8 +568,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_create_delegation_request_input::ser_create_delegation_request_input_input_input(&input)?,
-+            crate::protocol_serde::shape_create_delegation_request_input::ser_create_delegation_request_op_input(&input)?,
+-            super::protocol_serde::shape_create_delegation_request_input::ser_create_delegation_request_input_input_input(&input)?,
++            super::protocol_serde::shape_create_delegation_request_input::ser_create_delegation_request_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -589,10 +589,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_group_input::ser_create_group_input_input_input(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_create_group_input::ser_create_group_input_input_input(
 -            &input,
 -        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_group_input::ser_create_group_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_create_group_input::ser_create_group_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -613,8 +613,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_create_instance_profile_input::ser_create_instance_profile_input_input_input(&input)?,
-+            crate::protocol_serde::shape_create_instance_profile_input::ser_create_instance_profile_op_input(&input)?,
+-            super::protocol_serde::shape_create_instance_profile_input::ser_create_instance_profile_input_input_input(&input)?,
++            super::protocol_serde::shape_create_instance_profile_input::ser_create_instance_profile_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -626,7 +626,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/operation/create_login_profile/_create_login_profile_input.rs
 +++ generated/src/operation/create_login_profile/_create_login_profile_input.rs
 @@ -119,7 +119,7 @@
-         ::std::result::Result::Ok(crate::operation::create_login_profile::CreateLoginProfileInput {
+         ::std::result::Result::Ok(super::operation::create_login_profile::CreateLoginProfileInput {
              user_name: self.user_name,
              password: self.password,
 -            password_reset_required: self.password_reset_required,
@@ -651,8 +651,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_create_login_profile_input::ser_create_login_profile_input_input_input(&input)?,
-+            crate::protocol_serde::shape_create_login_profile_input::ser_create_login_profile_op_input(&input)?,
+-            super::protocol_serde::shape_create_login_profile_input::ser_create_login_profile_input_input_input(&input)?,
++            super::protocol_serde::shape_create_login_profile_input::ser_create_login_profile_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -665,10 +665,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/create_open_id_connect_provider/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
+         super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
-+            crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError,
+-            super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
++            super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -687,26 +687,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct CreateOpenIDConnectProviderFluentBuilder {
 +pub struct CreateOpenIdConnectProviderFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -50,8 +50,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
--        crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
+-        super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
 -    > for CreateOpenIDConnectProviderFluentBuilder
-+        crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError,
++        super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError,
 +    > for CreateOpenIdConnectProviderFluentBuilder
  {
      fn send(
          self,
 @@ -59,14 +59,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
--            crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
-+            crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
+-            super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
++            super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -716,7 +716,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `CreateOpenIDConnectProviderFluentBuilder`.
 +impl CreateOpenIdConnectProviderFluentBuilder {
 +    /// Creates a new `CreateOpenIdConnectProviderFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -74,7 +74,7 @@
@@ -725,15 +725,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the CreateOpenIDConnectProvider as a reference.
 +    /// Access the CreateOpenIdConnectProvider as a reference.
-     pub fn as_input(&self) -> &crate::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderInputBuilder {
+     pub fn as_input(&self) -> &super::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderInputBuilder {
          &self.inner
      }
 @@ -91,7 +91,7 @@
      ) -> ::std::result::Result<
-         crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
+         super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
-+            crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError,
+-            super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
++            super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -741,26 +741,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProvider::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProvider::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::create_open_id_connect_provider::CreateOpenIDConnectProvider::operation_runtime_plugins(
++        let runtime_plugins = super::operation::create_open_id_connect_provider::CreateOpenIdConnectProvider::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProvider::orchestrate(&runtime_plugins, input).await
-+        crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProvider::orchestrate(&runtime_plugins, input).await
+-        super::operation::create_open_id_connect_provider::CreateOpenIDConnectProvider::orchestrate(&runtime_plugins, input).await
++        super::operation::create_open_id_connect_provider::CreateOpenIdConnectProvider::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -112,7 +112,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
--        crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
-+        crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
+-        super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
++        super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/create_open_id_connect_provider.rs`
@@ -817,7 +817,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                CreateOpenIdConnectProviderEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
+                 super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
 @@ -150,12 +150,12 @@
  }
 
@@ -844,8 +844,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_create_open_id_connect_provider_input::ser_create_open_id_connect_provider_input_input_input(&input)?,
-+            crate::protocol_serde::shape_create_open_id_connect_provider_input::ser_create_open_id_connect_provider_op_input(&input)?,
+-            super::protocol_serde::shape_create_open_id_connect_provider_input::ser_create_open_id_connect_provider_input_input_input(&input)?,
++            super::protocol_serde::shape_create_open_id_connect_provider_input::ser_create_open_id_connect_provider_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -881,10 +881,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_policy_input::ser_create_policy_input_input_input(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_create_policy_input::ser_create_policy_input_input_input(
 -            &input,
 -        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_policy_input::ser_create_policy_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_create_policy_input::ser_create_policy_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -896,7 +896,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/operation/create_policy_version/_create_policy_version_input.rs
 +++ generated/src/operation/create_policy_version/_create_policy_version_input.rs
 @@ -162,7 +162,7 @@
-         ::std::result::Result::Ok(crate::operation::create_policy_version::CreatePolicyVersionInput {
+         ::std::result::Result::Ok(super::operation::create_policy_version::CreatePolicyVersionInput {
              policy_arn: self.policy_arn,
              policy_document: self.policy_document,
 -            set_as_default: self.set_as_default,
@@ -921,8 +921,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_create_policy_version_input::ser_create_policy_version_input_input_input(&input)?,
-+            crate::protocol_serde::shape_create_policy_version_input::ser_create_policy_version_op_input(&input)?,
+-            super::protocol_serde::shape_create_policy_version_input::ser_create_policy_version_input_input_input(&input)?,
++            super::protocol_serde::shape_create_policy_version_input::ser_create_policy_version_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -943,8 +943,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body =
--            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_role_input::ser_create_role_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_role_input::ser_create_role_op_input(&input)?);
+-            ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_create_role_input::ser_create_role_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_create_role_input::ser_create_role_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -957,10 +957,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/create_saml_provider/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::create_saml_provider::CreateSamlProviderOutput,
+         super::operation::create_saml_provider::CreateSamlProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::create_saml_provider::CreateSAMLProviderError,
-+            crate::operation::create_saml_provider::CreateSamlProviderError,
+-            super::operation::create_saml_provider::CreateSAMLProviderError,
++            super::operation::create_saml_provider::CreateSamlProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -979,26 +979,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct CreateSAMLProviderFluentBuilder {
 +pub struct CreateSamlProviderFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::create_saml_provider::builders::CreateSamlProviderInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::create_saml_provider::builders::CreateSamlProviderInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -37,8 +37,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::create_saml_provider::CreateSamlProviderOutput,
--        crate::operation::create_saml_provider::CreateSAMLProviderError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::create_saml_provider::CreateSamlProviderOutput,
+-        super::operation::create_saml_provider::CreateSAMLProviderError,
 -    > for CreateSAMLProviderFluentBuilder
-+        crate::operation::create_saml_provider::CreateSamlProviderError,
++        super::operation::create_saml_provider::CreateSamlProviderError,
 +    > for CreateSamlProviderFluentBuilder
  {
      fn send(
          self,
 @@ -46,14 +46,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::create_saml_provider::CreateSamlProviderOutput,
--            crate::operation::create_saml_provider::CreateSAMLProviderError,
-+            crate::operation::create_saml_provider::CreateSamlProviderError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::create_saml_provider::CreateSamlProviderOutput,
+-            super::operation::create_saml_provider::CreateSAMLProviderError,
++            super::operation::create_saml_provider::CreateSamlProviderError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -1008,7 +1008,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `CreateSAMLProviderFluentBuilder`.
 +impl CreateSamlProviderFluentBuilder {
 +    /// Creates a new `CreateSamlProviderFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -61,7 +61,7 @@
@@ -1017,15 +1017,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the CreateSAMLProvider as a reference.
 +    /// Access the CreateSamlProvider as a reference.
-     pub fn as_input(&self) -> &crate::operation::create_saml_provider::builders::CreateSamlProviderInputBuilder {
+     pub fn as_input(&self) -> &super::operation::create_saml_provider::builders::CreateSamlProviderInputBuilder {
          &self.inner
      }
 @@ -78,7 +78,7 @@
      ) -> ::std::result::Result<
-         crate::operation::create_saml_provider::CreateSamlProviderOutput,
+         super::operation::create_saml_provider::CreateSamlProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::create_saml_provider::CreateSAMLProviderError,
-+            crate::operation::create_saml_provider::CreateSamlProviderError,
+-            super::operation::create_saml_provider::CreateSAMLProviderError,
++            super::operation::create_saml_provider::CreateSamlProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -1033,26 +1033,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::create_saml_provider::CreateSAMLProvider::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::create_saml_provider::CreateSamlProvider::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::create_saml_provider::CreateSAMLProvider::operation_runtime_plugins(
++        let runtime_plugins = super::operation::create_saml_provider::CreateSamlProvider::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::create_saml_provider::CreateSAMLProvider::orchestrate(&runtime_plugins, input).await
-+        crate::operation::create_saml_provider::CreateSamlProvider::orchestrate(&runtime_plugins, input).await
+-        super::operation::create_saml_provider::CreateSAMLProvider::orchestrate(&runtime_plugins, input).await
++        super::operation::create_saml_provider::CreateSamlProvider::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -99,7 +99,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::create_saml_provider::CreateSamlProviderOutput,
--        crate::operation::create_saml_provider::CreateSAMLProviderError,
-+        crate::operation::create_saml_provider::CreateSamlProviderError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::create_saml_provider::CreateSamlProviderOutput,
+-        super::operation::create_saml_provider::CreateSAMLProviderError,
++        super::operation::create_saml_provider::CreateSamlProviderError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/create_saml_provider.rs`
@@ -1109,7 +1109,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                CreateSamlProviderEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::create_saml_provider::CreateSAMLProviderError,
+                 super::operation::create_saml_provider::CreateSAMLProviderError,
 @@ -147,12 +147,12 @@
  }
 
@@ -1136,8 +1136,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_create_saml_provider_input::ser_create_saml_provider_input_input_input(&input)?,
-+            crate::protocol_serde::shape_create_saml_provider_input::ser_create_saml_provider_op_input(&input)?,
+-            super::protocol_serde::shape_create_saml_provider_input::ser_create_saml_provider_input_input_input(&input)?,
++            super::protocol_serde::shape_create_saml_provider_input::ser_create_saml_provider_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1174,8 +1174,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_create_service_linked_role_input::ser_create_service_linked_role_input_input_input(&input)?,
-+            crate::protocol_serde::shape_create_service_linked_role_input::ser_create_service_linked_role_op_input(&input)?,
+-            super::protocol_serde::shape_create_service_linked_role_input::ser_create_service_linked_role_input_input_input(&input)?,
++            super::protocol_serde::shape_create_service_linked_role_input::ser_create_service_linked_role_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1196,8 +1196,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_create_service_specific_credential_input::ser_create_service_specific_credential_input_input_input(&input)?,
-+            crate::protocol_serde::shape_create_service_specific_credential_input::ser_create_service_specific_credential_op_input(&input)?,
+-            super::protocol_serde::shape_create_service_specific_credential_input::ser_create_service_specific_credential_input_input_input(&input)?,
++            super::protocol_serde::shape_create_service_specific_credential_input::ser_create_service_specific_credential_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1218,8 +1218,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body =
--            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_user_input::ser_create_user_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_user_input::ser_create_user_op_input(&input)?);
+-            ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_create_user_input::ser_create_user_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_create_user_input::ser_create_user_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1232,10 +1232,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/create_virtual_mfa_device/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
+         super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
-+            crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
+-            super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
++            super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -1254,26 +1254,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct CreateVirtualMFADeviceFluentBuilder {
 +pub struct CreateVirtualMfaDeviceFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::create_virtual_mfa_device::builders::CreateVirtualMfaDeviceInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::create_virtual_mfa_device::builders::CreateVirtualMfaDeviceInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -35,8 +35,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
--        crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
+-        super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
 -    > for CreateVirtualMFADeviceFluentBuilder
-+        crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
++        super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
 +    > for CreateVirtualMfaDeviceFluentBuilder
  {
      fn send(
          self,
 @@ -44,14 +44,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
--            crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
-+            crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
+-            super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
++            super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -1283,7 +1283,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `CreateVirtualMFADeviceFluentBuilder`.
 +impl CreateVirtualMfaDeviceFluentBuilder {
 +    /// Creates a new `CreateVirtualMfaDeviceFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -59,7 +59,7 @@
@@ -1292,15 +1292,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the CreateVirtualMFADevice as a reference.
 +    /// Access the CreateVirtualMfaDevice as a reference.
-     pub fn as_input(&self) -> &crate::operation::create_virtual_mfa_device::builders::CreateVirtualMfaDeviceInputBuilder {
+     pub fn as_input(&self) -> &super::operation::create_virtual_mfa_device::builders::CreateVirtualMfaDeviceInputBuilder {
          &self.inner
      }
 @@ -76,7 +76,7 @@
      ) -> ::std::result::Result<
-         crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
+         super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
-+            crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
+-            super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
++            super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -1308,26 +1308,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::create_virtual_mfa_device::CreateVirtualMFADevice::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::create_virtual_mfa_device::CreateVirtualMfaDevice::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::create_virtual_mfa_device::CreateVirtualMFADevice::operation_runtime_plugins(
++        let runtime_plugins = super::operation::create_virtual_mfa_device::CreateVirtualMfaDevice::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::create_virtual_mfa_device::CreateVirtualMFADevice::orchestrate(&runtime_plugins, input).await
-+        crate::operation::create_virtual_mfa_device::CreateVirtualMfaDevice::orchestrate(&runtime_plugins, input).await
+-        super::operation::create_virtual_mfa_device::CreateVirtualMFADevice::orchestrate(&runtime_plugins, input).await
++        super::operation::create_virtual_mfa_device::CreateVirtualMfaDevice::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -97,7 +97,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
--        crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
-+        crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
+-        super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
++        super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/create_virtual_mfa_device.rs`
@@ -1384,7 +1384,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                CreateVirtualMfaDeviceEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
+                 super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
 @@ -151,12 +151,12 @@
  }
 
@@ -1411,8 +1411,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_create_virtual_mfa_device_input::ser_create_virtual_mfa_device_input_input_input(&input)?,
-+            crate::protocol_serde::shape_create_virtual_mfa_device_input::ser_create_virtual_mfa_device_op_input(&input)?,
+-            super::protocol_serde::shape_create_virtual_mfa_device_input::ser_create_virtual_mfa_device_input_input_input(&input)?,
++            super::protocol_serde::shape_create_virtual_mfa_device_input::ser_create_virtual_mfa_device_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1441,10 +1441,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/deactivate_mfa_device/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput,
+         super::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::deactivate_mfa_device::DeactivateMFADeviceError,
-+            crate::operation::deactivate_mfa_device::DeactivateMfaDeviceError,
+-            super::operation::deactivate_mfa_device::DeactivateMFADeviceError,
++            super::operation::deactivate_mfa_device::DeactivateMfaDeviceError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -1460,26 +1460,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct DeactivateMFADeviceFluentBuilder {
 +pub struct DeactivateMfaDeviceFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -33,8 +33,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput,
--        crate::operation::deactivate_mfa_device::DeactivateMFADeviceError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput,
+-        super::operation::deactivate_mfa_device::DeactivateMFADeviceError,
 -    > for DeactivateMFADeviceFluentBuilder
-+        crate::operation::deactivate_mfa_device::DeactivateMfaDeviceError,
++        super::operation::deactivate_mfa_device::DeactivateMfaDeviceError,
 +    > for DeactivateMfaDeviceFluentBuilder
  {
      fn send(
          self,
 @@ -42,14 +42,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput,
--            crate::operation::deactivate_mfa_device::DeactivateMFADeviceError,
-+            crate::operation::deactivate_mfa_device::DeactivateMfaDeviceError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput,
+-            super::operation::deactivate_mfa_device::DeactivateMFADeviceError,
++            super::operation::deactivate_mfa_device::DeactivateMfaDeviceError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -1489,7 +1489,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `DeactivateMFADeviceFluentBuilder`.
 +impl DeactivateMfaDeviceFluentBuilder {
 +    /// Creates a new `DeactivateMfaDeviceFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -57,7 +57,7 @@
@@ -1498,15 +1498,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the DeactivateMFADevice as a reference.
 +    /// Access the DeactivateMfaDevice as a reference.
-     pub fn as_input(&self) -> &crate::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceInputBuilder {
+     pub fn as_input(&self) -> &super::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceInputBuilder {
          &self.inner
      }
 @@ -74,7 +74,7 @@
      ) -> ::std::result::Result<
-         crate::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput,
+         super::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::deactivate_mfa_device::DeactivateMFADeviceError,
-+            crate::operation::deactivate_mfa_device::DeactivateMfaDeviceError,
+-            super::operation::deactivate_mfa_device::DeactivateMFADeviceError,
++            super::operation::deactivate_mfa_device::DeactivateMfaDeviceError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -1514,26 +1514,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::deactivate_mfa_device::DeactivateMFADevice::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::deactivate_mfa_device::DeactivateMfaDevice::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::deactivate_mfa_device::DeactivateMFADevice::operation_runtime_plugins(
++        let runtime_plugins = super::operation::deactivate_mfa_device::DeactivateMfaDevice::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::deactivate_mfa_device::DeactivateMFADevice::orchestrate(&runtime_plugins, input).await
-+        crate::operation::deactivate_mfa_device::DeactivateMfaDevice::orchestrate(&runtime_plugins, input).await
+-        super::operation::deactivate_mfa_device::DeactivateMFADevice::orchestrate(&runtime_plugins, input).await
++        super::operation::deactivate_mfa_device::DeactivateMfaDevice::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -95,7 +95,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput,
--        crate::operation::deactivate_mfa_device::DeactivateMFADeviceError,
-+        crate::operation::deactivate_mfa_device::DeactivateMfaDeviceError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput,
+-        super::operation::deactivate_mfa_device::DeactivateMFADeviceError,
++        super::operation::deactivate_mfa_device::DeactivateMfaDeviceError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/deactivate_mfa_device.rs`
@@ -1590,7 +1590,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                DeactivateMfaDeviceEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::deactivate_mfa_device::DeactivateMFADeviceError,
+                 super::operation::deactivate_mfa_device::DeactivateMFADeviceError,
 @@ -150,12 +150,12 @@
  }
 
@@ -1617,8 +1617,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_deactivate_mfa_device_input::ser_deactivate_mfa_device_input_input_input(&input)?,
-+            crate::protocol_serde::shape_deactivate_mfa_device_input::ser_deactivate_mfa_device_op_input(&input)?,
+-            super::protocol_serde::shape_deactivate_mfa_device_input::ser_deactivate_mfa_device_input_input_input(&input)?,
++            super::protocol_serde::shape_deactivate_mfa_device_input::ser_deactivate_mfa_device_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1655,9 +1655,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_access_key_input::ser_delete_access_key_input_input_input(&input)?,
+-            super::protocol_serde::shape_delete_access_key_input::ser_delete_access_key_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_access_key_input::ser_delete_access_key_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_access_key_input::ser_delete_access_key_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -1680,8 +1680,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_account_alias_input::ser_delete_account_alias_input_input_input(&input)?,
-+            crate::protocol_serde::shape_delete_account_alias_input::ser_delete_account_alias_op_input(&input)?,
+-            super::protocol_serde::shape_delete_account_alias_input::ser_delete_account_alias_input_input_input(&input)?,
++            super::protocol_serde::shape_delete_account_alias_input::ser_delete_account_alias_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1701,7 +1701,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_account_password_policy_input::ser_delete_account_password_policy_input_input_input(&input)?,
+-            super::protocol_serde::shape_delete_account_password_policy_input::ser_delete_account_password_policy_input_input_input(&input)?,
 -        );
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
@@ -1723,10 +1723,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_group_input::ser_delete_group_input_input_input(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_group_input::ser_delete_group_input_input_input(
 -            &input,
 -        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_group_input::ser_delete_group_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_group_input::ser_delete_group_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1747,9 +1747,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_group_policy_input::ser_delete_group_policy_input_input_input(&input)?,
+-            super::protocol_serde::shape_delete_group_policy_input::ser_delete_group_policy_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_group_policy_input::ser_delete_group_policy_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_group_policy_input::ser_delete_group_policy_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -1772,8 +1772,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_instance_profile_input::ser_delete_instance_profile_input_input_input(&input)?,
-+            crate::protocol_serde::shape_delete_instance_profile_input::ser_delete_instance_profile_op_input(&input)?,
+-            super::protocol_serde::shape_delete_instance_profile_input::ser_delete_instance_profile_input_input_input(&input)?,
++            super::protocol_serde::shape_delete_instance_profile_input::ser_delete_instance_profile_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1794,8 +1794,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_login_profile_input::ser_delete_login_profile_input_input_input(&input)?,
-+            crate::protocol_serde::shape_delete_login_profile_input::ser_delete_login_profile_op_input(&input)?,
+-            super::protocol_serde::shape_delete_login_profile_input::ser_delete_login_profile_input_input_input(&input)?,
++            super::protocol_serde::shape_delete_login_profile_input::ser_delete_login_profile_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1808,10 +1808,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/delete_open_id_connect_provider/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput,
+         super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
-+            crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
+-            super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
++            super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -1828,26 +1828,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct DeleteOpenIDConnectProviderFluentBuilder {
 +pub struct DeleteOpenIdConnectProviderFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::delete_open_id_connect_provider::builders::DeleteOpenIdConnectProviderInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::delete_open_id_connect_provider::builders::DeleteOpenIdConnectProviderInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -34,8 +34,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput,
--        crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput,
+-        super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
 -    > for DeleteOpenIDConnectProviderFluentBuilder
-+        crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
++        super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
 +    > for DeleteOpenIdConnectProviderFluentBuilder
  {
      fn send(
          self,
 @@ -43,14 +43,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput,
--            crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
-+            crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput,
+-            super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
++            super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -1857,7 +1857,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `DeleteOpenIDConnectProviderFluentBuilder`.
 +impl DeleteOpenIdConnectProviderFluentBuilder {
 +    /// Creates a new `DeleteOpenIdConnectProviderFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -58,7 +58,7 @@
@@ -1866,15 +1866,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the DeleteOpenIDConnectProvider as a reference.
 +    /// Access the DeleteOpenIdConnectProvider as a reference.
-     pub fn as_input(&self) -> &crate::operation::delete_open_id_connect_provider::builders::DeleteOpenIdConnectProviderInputBuilder {
+     pub fn as_input(&self) -> &super::operation::delete_open_id_connect_provider::builders::DeleteOpenIdConnectProviderInputBuilder {
          &self.inner
      }
 @@ -75,7 +75,7 @@
      ) -> ::std::result::Result<
-         crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput,
+         super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
-+            crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
+-            super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
++            super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -1882,26 +1882,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProvider::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProvider::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProvider::operation_runtime_plugins(
++        let runtime_plugins = super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProvider::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProvider::orchestrate(&runtime_plugins, input).await
-+        crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProvider::orchestrate(&runtime_plugins, input).await
+-        super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProvider::orchestrate(&runtime_plugins, input).await
++        super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProvider::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -96,7 +96,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput,
--        crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
-+        crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput,
+-        super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
++        super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/delete_open_id_connect_provider.rs`
@@ -1958,7 +1958,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                DeleteOpenIdConnectProviderEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
+                 super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
 @@ -150,12 +150,12 @@
  }
 
@@ -1985,8 +1985,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_open_id_connect_provider_input::ser_delete_open_id_connect_provider_input_input_input(&input)?,
-+            crate::protocol_serde::shape_delete_open_id_connect_provider_input::ser_delete_open_id_connect_provider_op_input(&input)?,
+-            super::protocol_serde::shape_delete_open_id_connect_provider_input::ser_delete_open_id_connect_provider_input_input_input(&input)?,
++            super::protocol_serde::shape_delete_open_id_connect_provider_input::ser_delete_open_id_connect_provider_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -2022,10 +2022,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_policy_input::ser_delete_policy_input_input_input(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_policy_input::ser_delete_policy_input_input_input(
 -            &input,
 -        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_policy_input::ser_delete_policy_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_policy_input::ser_delete_policy_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -2046,8 +2046,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_policy_version_input::ser_delete_policy_version_input_input_input(&input)?,
-+            crate::protocol_serde::shape_delete_policy_version_input::ser_delete_policy_version_op_input(&input)?,
+-            super::protocol_serde::shape_delete_policy_version_input::ser_delete_policy_version_input_input_input(&input)?,
++            super::protocol_serde::shape_delete_policy_version_input::ser_delete_policy_version_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -2068,8 +2068,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body =
--            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_role_input::ser_delete_role_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_role_input::ser_delete_role_op_input(&input)?);
+-            ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_role_input::ser_delete_role_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_role_input::ser_delete_role_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -2090,8 +2090,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_role_permissions_boundary_input::ser_delete_role_permissions_boundary_input_input_input(&input)?,
-+            crate::protocol_serde::shape_delete_role_permissions_boundary_input::ser_delete_role_permissions_boundary_op_input(&input)?,
+-            super::protocol_serde::shape_delete_role_permissions_boundary_input::ser_delete_role_permissions_boundary_input_input_input(&input)?,
++            super::protocol_serde::shape_delete_role_permissions_boundary_input::ser_delete_role_permissions_boundary_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -2112,9 +2112,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_role_policy_input::ser_delete_role_policy_input_input_input(&input)?,
+-            super::protocol_serde::shape_delete_role_policy_input::ser_delete_role_policy_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_role_policy_input::ser_delete_role_policy_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_role_policy_input::ser_delete_role_policy_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -2129,10 +2129,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/delete_saml_provider/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::delete_saml_provider::DeleteSamlProviderOutput,
+         super::operation::delete_saml_provider::DeleteSamlProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::delete_saml_provider::DeleteSAMLProviderError,
-+            crate::operation::delete_saml_provider::DeleteSamlProviderError,
+-            super::operation::delete_saml_provider::DeleteSAMLProviderError,
++            super::operation::delete_saml_provider::DeleteSamlProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -2151,26 +2151,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct DeleteSAMLProviderFluentBuilder {
 +pub struct DeleteSamlProviderFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::delete_saml_provider::builders::DeleteSamlProviderInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::delete_saml_provider::builders::DeleteSamlProviderInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -35,8 +35,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::delete_saml_provider::DeleteSamlProviderOutput,
--        crate::operation::delete_saml_provider::DeleteSAMLProviderError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::delete_saml_provider::DeleteSamlProviderOutput,
+-        super::operation::delete_saml_provider::DeleteSAMLProviderError,
 -    > for DeleteSAMLProviderFluentBuilder
-+        crate::operation::delete_saml_provider::DeleteSamlProviderError,
++        super::operation::delete_saml_provider::DeleteSamlProviderError,
 +    > for DeleteSamlProviderFluentBuilder
  {
      fn send(
          self,
 @@ -44,14 +44,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::delete_saml_provider::DeleteSamlProviderOutput,
--            crate::operation::delete_saml_provider::DeleteSAMLProviderError,
-+            crate::operation::delete_saml_provider::DeleteSamlProviderError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::delete_saml_provider::DeleteSamlProviderOutput,
+-            super::operation::delete_saml_provider::DeleteSAMLProviderError,
++            super::operation::delete_saml_provider::DeleteSamlProviderError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -2180,7 +2180,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `DeleteSAMLProviderFluentBuilder`.
 +impl DeleteSamlProviderFluentBuilder {
 +    /// Creates a new `DeleteSamlProviderFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -59,7 +59,7 @@
@@ -2189,15 +2189,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the DeleteSAMLProvider as a reference.
 +    /// Access the DeleteSamlProvider as a reference.
-     pub fn as_input(&self) -> &crate::operation::delete_saml_provider::builders::DeleteSamlProviderInputBuilder {
+     pub fn as_input(&self) -> &super::operation::delete_saml_provider::builders::DeleteSamlProviderInputBuilder {
          &self.inner
      }
 @@ -76,7 +76,7 @@
      ) -> ::std::result::Result<
-         crate::operation::delete_saml_provider::DeleteSamlProviderOutput,
+         super::operation::delete_saml_provider::DeleteSamlProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::delete_saml_provider::DeleteSAMLProviderError,
-+            crate::operation::delete_saml_provider::DeleteSamlProviderError,
+-            super::operation::delete_saml_provider::DeleteSAMLProviderError,
++            super::operation::delete_saml_provider::DeleteSamlProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -2205,26 +2205,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::delete_saml_provider::DeleteSAMLProvider::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::delete_saml_provider::DeleteSamlProvider::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::delete_saml_provider::DeleteSAMLProvider::operation_runtime_plugins(
++        let runtime_plugins = super::operation::delete_saml_provider::DeleteSamlProvider::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::delete_saml_provider::DeleteSAMLProvider::orchestrate(&runtime_plugins, input).await
-+        crate::operation::delete_saml_provider::DeleteSamlProvider::orchestrate(&runtime_plugins, input).await
+-        super::operation::delete_saml_provider::DeleteSAMLProvider::orchestrate(&runtime_plugins, input).await
++        super::operation::delete_saml_provider::DeleteSamlProvider::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -97,7 +97,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::delete_saml_provider::DeleteSamlProviderOutput,
--        crate::operation::delete_saml_provider::DeleteSAMLProviderError,
-+        crate::operation::delete_saml_provider::DeleteSamlProviderError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::delete_saml_provider::DeleteSamlProviderOutput,
+-        super::operation::delete_saml_provider::DeleteSAMLProviderError,
++        super::operation::delete_saml_provider::DeleteSamlProviderError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/delete_saml_provider.rs`
@@ -2281,7 +2281,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                DeleteSamlProviderEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::delete_saml_provider::DeleteSAMLProviderError,
+                 super::operation::delete_saml_provider::DeleteSAMLProviderError,
 @@ -147,12 +147,12 @@
  }
 
@@ -2308,8 +2308,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_saml_provider_input::ser_delete_saml_provider_input_input_input(&input)?,
-+            crate::protocol_serde::shape_delete_saml_provider_input::ser_delete_saml_provider_op_input(&input)?,
+-            super::protocol_serde::shape_delete_saml_provider_input::ser_delete_saml_provider_input_input_input(&input)?,
++            super::protocol_serde::shape_delete_saml_provider_input::ser_delete_saml_provider_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -2346,8 +2346,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_server_certificate_input::ser_delete_server_certificate_input_input_input(&input)?,
-+            crate::protocol_serde::shape_delete_server_certificate_input::ser_delete_server_certificate_op_input(&input)?,
+-            super::protocol_serde::shape_delete_server_certificate_input::ser_delete_server_certificate_input_input_input(&input)?,
++            super::protocol_serde::shape_delete_server_certificate_input::ser_delete_server_certificate_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -2368,8 +2368,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_service_linked_role_input::ser_delete_service_linked_role_input_input_input(&input)?,
-+            crate::protocol_serde::shape_delete_service_linked_role_input::ser_delete_service_linked_role_op_input(&input)?,
+-            super::protocol_serde::shape_delete_service_linked_role_input::ser_delete_service_linked_role_input_input_input(&input)?,
++            super::protocol_serde::shape_delete_service_linked_role_input::ser_delete_service_linked_role_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -2390,8 +2390,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_service_specific_credential_input::ser_delete_service_specific_credential_input_input_input(&input)?,
-+            crate::protocol_serde::shape_delete_service_specific_credential_input::ser_delete_service_specific_credential_op_input(&input)?,
+-            super::protocol_serde::shape_delete_service_specific_credential_input::ser_delete_service_specific_credential_input_input_input(&input)?,
++            super::protocol_serde::shape_delete_service_specific_credential_input::ser_delete_service_specific_credential_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -2412,8 +2412,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_signing_certificate_input::ser_delete_signing_certificate_input_input_input(&input)?,
-+            crate::protocol_serde::shape_delete_signing_certificate_input::ser_delete_signing_certificate_op_input(&input)?,
+-            super::protocol_serde::shape_delete_signing_certificate_input::ser_delete_signing_certificate_input_input_input(&input)?,
++            super::protocol_serde::shape_delete_signing_certificate_input::ser_delete_signing_certificate_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -2426,10 +2426,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/delete_ssh_public_key/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
+         super::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
-+            crate::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
+-            super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
++            super::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -2445,26 +2445,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct DeleteSSHPublicKeyFluentBuilder {
 +pub struct DeleteSshPublicKeyFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::delete_ssh_public_key::builders::DeleteSshPublicKeyInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::delete_ssh_public_key::builders::DeleteSshPublicKeyInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -33,8 +33,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
--        crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
+-        super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
 -    > for DeleteSSHPublicKeyFluentBuilder
-+        crate::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
++        super::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
 +    > for DeleteSshPublicKeyFluentBuilder
  {
      fn send(
          self,
 @@ -42,14 +42,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
--            crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
-+            crate::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
+-            super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
++            super::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -2474,7 +2474,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `DeleteSSHPublicKeyFluentBuilder`.
 +impl DeleteSshPublicKeyFluentBuilder {
 +    /// Creates a new `DeleteSshPublicKeyFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -57,7 +57,7 @@
@@ -2483,15 +2483,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the DeleteSSHPublicKey as a reference.
 +    /// Access the DeleteSshPublicKey as a reference.
-     pub fn as_input(&self) -> &crate::operation::delete_ssh_public_key::builders::DeleteSshPublicKeyInputBuilder {
+     pub fn as_input(&self) -> &super::operation::delete_ssh_public_key::builders::DeleteSshPublicKeyInputBuilder {
          &self.inner
      }
 @@ -74,7 +74,7 @@
      ) -> ::std::result::Result<
-         crate::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
+         super::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
-+            crate::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
+-            super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
++            super::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -2499,26 +2499,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::delete_ssh_public_key::DeleteSSHPublicKey::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::delete_ssh_public_key::DeleteSshPublicKey::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::delete_ssh_public_key::DeleteSSHPublicKey::operation_runtime_plugins(
++        let runtime_plugins = super::operation::delete_ssh_public_key::DeleteSshPublicKey::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::delete_ssh_public_key::DeleteSSHPublicKey::orchestrate(&runtime_plugins, input).await
-+        crate::operation::delete_ssh_public_key::DeleteSshPublicKey::orchestrate(&runtime_plugins, input).await
+-        super::operation::delete_ssh_public_key::DeleteSSHPublicKey::orchestrate(&runtime_plugins, input).await
++        super::operation::delete_ssh_public_key::DeleteSshPublicKey::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -95,7 +95,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
--        crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
-+        crate::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
+-        super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
++        super::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/delete_ssh_public_key.rs`
@@ -2575,7 +2575,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                DeleteSshPublicKeyEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
+                 super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
 @@ -147,12 +147,12 @@
  }
 
@@ -2602,8 +2602,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_ssh_public_key_input::ser_delete_ssh_public_key_input_input_input(&input)?,
-+            crate::protocol_serde::shape_delete_ssh_public_key_input::ser_delete_ssh_public_key_op_input(&input)?,
+-            super::protocol_serde::shape_delete_ssh_public_key_input::ser_delete_ssh_public_key_input_input_input(&input)?,
++            super::protocol_serde::shape_delete_ssh_public_key_input::ser_delete_ssh_public_key_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -2640,8 +2640,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body =
--            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_user_input::ser_delete_user_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_user_input::ser_delete_user_op_input(&input)?);
+-            ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_user_input::ser_delete_user_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_user_input::ser_delete_user_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -2662,8 +2662,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_user_permissions_boundary_input::ser_delete_user_permissions_boundary_input_input_input(&input)?,
-+            crate::protocol_serde::shape_delete_user_permissions_boundary_input::ser_delete_user_permissions_boundary_op_input(&input)?,
+-            super::protocol_serde::shape_delete_user_permissions_boundary_input::ser_delete_user_permissions_boundary_input_input_input(&input)?,
++            super::protocol_serde::shape_delete_user_permissions_boundary_input::ser_delete_user_permissions_boundary_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -2684,9 +2684,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_user_policy_input::ser_delete_user_policy_input_input_input(&input)?,
+-            super::protocol_serde::shape_delete_user_policy_input::ser_delete_user_policy_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_user_policy_input::ser_delete_user_policy_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_user_policy_input::ser_delete_user_policy_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -2701,10 +2701,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/delete_virtual_mfa_device/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceOutput,
+         super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
-+            crate::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError,
+-            super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
++            super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -2721,26 +2721,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct DeleteVirtualMFADeviceFluentBuilder {
 +pub struct DeleteVirtualMfaDeviceFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::delete_virtual_mfa_device::builders::DeleteVirtualMfaDeviceInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::delete_virtual_mfa_device::builders::DeleteVirtualMfaDeviceInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -34,8 +34,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceOutput,
--        crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceOutput,
+-        super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
 -    > for DeleteVirtualMFADeviceFluentBuilder
-+        crate::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError,
++        super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError,
 +    > for DeleteVirtualMfaDeviceFluentBuilder
  {
      fn send(
          self,
 @@ -43,14 +43,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceOutput,
--            crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
-+            crate::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceOutput,
+-            super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
++            super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -2750,7 +2750,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `DeleteVirtualMFADeviceFluentBuilder`.
 +impl DeleteVirtualMfaDeviceFluentBuilder {
 +    /// Creates a new `DeleteVirtualMfaDeviceFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -58,7 +58,7 @@
@@ -2759,15 +2759,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the DeleteVirtualMFADevice as a reference.
 +    /// Access the DeleteVirtualMfaDevice as a reference.
-     pub fn as_input(&self) -> &crate::operation::delete_virtual_mfa_device::builders::DeleteVirtualMfaDeviceInputBuilder {
+     pub fn as_input(&self) -> &super::operation::delete_virtual_mfa_device::builders::DeleteVirtualMfaDeviceInputBuilder {
          &self.inner
      }
 @@ -75,7 +75,7 @@
      ) -> ::std::result::Result<
-         crate::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceOutput,
+         super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
-+            crate::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError,
+-            super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
++            super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -2775,26 +2775,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADevice::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::delete_virtual_mfa_device::DeleteVirtualMfaDevice::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::delete_virtual_mfa_device::DeleteVirtualMFADevice::operation_runtime_plugins(
++        let runtime_plugins = super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDevice::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADevice::orchestrate(&runtime_plugins, input).await
-+        crate::operation::delete_virtual_mfa_device::DeleteVirtualMfaDevice::orchestrate(&runtime_plugins, input).await
+-        super::operation::delete_virtual_mfa_device::DeleteVirtualMFADevice::orchestrate(&runtime_plugins, input).await
++        super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDevice::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -96,7 +96,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceOutput,
--        crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
-+        crate::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceOutput,
+-        super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
++        super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/delete_virtual_mfa_device.rs`
@@ -2851,7 +2851,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                DeleteVirtualMfaDeviceEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
+                 super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
 @@ -150,12 +150,12 @@
  }
 
@@ -2878,8 +2878,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_virtual_mfa_device_input::ser_delete_virtual_mfa_device_input_input_input(&input)?,
-+            crate::protocol_serde::shape_delete_virtual_mfa_device_input::ser_delete_virtual_mfa_device_op_input(&input)?,
+-            super::protocol_serde::shape_delete_virtual_mfa_device_input::ser_delete_virtual_mfa_device_input_input_input(&input)?,
++            super::protocol_serde::shape_delete_virtual_mfa_device_input::ser_delete_virtual_mfa_device_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -2916,9 +2916,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_detach_group_policy_input::ser_detach_group_policy_input_input_input(&input)?,
+-            super::protocol_serde::shape_detach_group_policy_input::ser_detach_group_policy_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_detach_group_policy_input::ser_detach_group_policy_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_detach_group_policy_input::ser_detach_group_policy_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -2941,9 +2941,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_detach_role_policy_input::ser_detach_role_policy_input_input_input(&input)?,
+-            super::protocol_serde::shape_detach_role_policy_input::ser_detach_role_policy_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_detach_role_policy_input::ser_detach_role_policy_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_detach_role_policy_input::ser_detach_role_policy_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -2966,9 +2966,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_detach_user_policy_input::ser_detach_user_policy_input_input_input(&input)?,
+-            super::protocol_serde::shape_detach_user_policy_input::ser_detach_user_policy_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_detach_user_policy_input::ser_detach_user_policy_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_detach_user_policy_input::ser_detach_user_policy_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -2989,7 +2989,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_disable_organizations_root_credentials_management_input::ser_disable_organizations_root_credentials_management_input_input_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_disable_organizations_root_credentials_management_input::ser_disable_organizations_root_credentials_management_input_input_input(&input)?);
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
@@ -3010,7 +3010,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_disable_organizations_root_sessions_input::ser_disable_organizations_root_sessions_input_input_input(
+-            super::protocol_serde::shape_disable_organizations_root_sessions_input::ser_disable_organizations_root_sessions_input_input_input(
 -                &input,
 -            )?,
 -        );
@@ -3033,7 +3033,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_disable_outbound_web_identity_federation_input::ser_disable_outbound_web_identity_federation_input_input_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_disable_outbound_web_identity_federation_input::ser_disable_outbound_web_identity_federation_input_input_input(&input)?);
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
@@ -3047,10 +3047,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/enable_mfa_device/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::enable_mfa_device::EnableMfaDeviceOutput,
+         super::operation::enable_mfa_device::EnableMfaDeviceOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::enable_mfa_device::EnableMFADeviceError,
-+            crate::operation::enable_mfa_device::EnableMfaDeviceError,
+-            super::operation::enable_mfa_device::EnableMFADeviceError,
++            super::operation::enable_mfa_device::EnableMfaDeviceError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -3065,26 +3065,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct EnableMFADeviceFluentBuilder {
 +pub struct EnableMfaDeviceFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::enable_mfa_device::builders::EnableMfaDeviceInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::enable_mfa_device::builders::EnableMfaDeviceInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -32,8 +32,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::enable_mfa_device::EnableMfaDeviceOutput,
--        crate::operation::enable_mfa_device::EnableMFADeviceError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::enable_mfa_device::EnableMfaDeviceOutput,
+-        super::operation::enable_mfa_device::EnableMFADeviceError,
 -    > for EnableMFADeviceFluentBuilder
-+        crate::operation::enable_mfa_device::EnableMfaDeviceError,
++        super::operation::enable_mfa_device::EnableMfaDeviceError,
 +    > for EnableMfaDeviceFluentBuilder
  {
      fn send(
          self,
 @@ -41,14 +41,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::enable_mfa_device::EnableMfaDeviceOutput,
--            crate::operation::enable_mfa_device::EnableMFADeviceError,
-+            crate::operation::enable_mfa_device::EnableMfaDeviceError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::enable_mfa_device::EnableMfaDeviceOutput,
+-            super::operation::enable_mfa_device::EnableMFADeviceError,
++            super::operation::enable_mfa_device::EnableMfaDeviceError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -3094,7 +3094,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `EnableMFADeviceFluentBuilder`.
 +impl EnableMfaDeviceFluentBuilder {
 +    /// Creates a new `EnableMfaDeviceFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -56,7 +56,7 @@
@@ -3103,15 +3103,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the EnableMFADevice as a reference.
 +    /// Access the EnableMfaDevice as a reference.
-     pub fn as_input(&self) -> &crate::operation::enable_mfa_device::builders::EnableMfaDeviceInputBuilder {
+     pub fn as_input(&self) -> &super::operation::enable_mfa_device::builders::EnableMfaDeviceInputBuilder {
          &self.inner
      }
 @@ -73,7 +73,7 @@
      ) -> ::std::result::Result<
-         crate::operation::enable_mfa_device::EnableMfaDeviceOutput,
+         super::operation::enable_mfa_device::EnableMfaDeviceOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::enable_mfa_device::EnableMFADeviceError,
-+            crate::operation::enable_mfa_device::EnableMfaDeviceError,
+-            super::operation::enable_mfa_device::EnableMFADeviceError,
++            super::operation::enable_mfa_device::EnableMfaDeviceError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -3119,26 +3119,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::enable_mfa_device::EnableMFADevice::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::enable_mfa_device::EnableMfaDevice::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::enable_mfa_device::EnableMFADevice::operation_runtime_plugins(
++        let runtime_plugins = super::operation::enable_mfa_device::EnableMfaDevice::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::enable_mfa_device::EnableMFADevice::orchestrate(&runtime_plugins, input).await
-+        crate::operation::enable_mfa_device::EnableMfaDevice::orchestrate(&runtime_plugins, input).await
+-        super::operation::enable_mfa_device::EnableMFADevice::orchestrate(&runtime_plugins, input).await
++        super::operation::enable_mfa_device::EnableMfaDevice::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -94,7 +94,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::enable_mfa_device::EnableMfaDeviceOutput,
--        crate::operation::enable_mfa_device::EnableMFADeviceError,
-+        crate::operation::enable_mfa_device::EnableMfaDeviceError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::enable_mfa_device::EnableMfaDeviceOutput,
+-        super::operation::enable_mfa_device::EnableMFADeviceError,
++        super::operation::enable_mfa_device::EnableMfaDeviceError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/enable_mfa_device.rs`
@@ -3195,7 +3195,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                EnableMfaDeviceEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::enable_mfa_device::EnableMFADeviceError,
+                 super::operation::enable_mfa_device::EnableMFADeviceError,
 @@ -147,12 +147,12 @@
  }
 
@@ -3222,9 +3222,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_enable_mfa_device_input::ser_enable_mfa_device_input_input_input(&input)?,
+-            super::protocol_serde::shape_enable_mfa_device_input::ser_enable_mfa_device_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_enable_mfa_device_input::ser_enable_mfa_device_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_enable_mfa_device_input::ser_enable_mfa_device_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -3261,7 +3261,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_enable_organizations_root_credentials_management_input::ser_enable_organizations_root_credentials_management_input_input_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_enable_organizations_root_credentials_management_input::ser_enable_organizations_root_credentials_management_input_input_input(&input)?);
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
@@ -3282,7 +3282,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_enable_organizations_root_sessions_input::ser_enable_organizations_root_sessions_input_input_input(&input)?,
+-            super::protocol_serde::shape_enable_organizations_root_sessions_input::ser_enable_organizations_root_sessions_input_input_input(&input)?,
 -        );
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
@@ -3303,7 +3303,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_enable_outbound_web_identity_federation_input::ser_enable_outbound_web_identity_federation_input_input_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_enable_outbound_web_identity_federation_input::ser_enable_outbound_web_identity_federation_input_input_input(&input)?);
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
@@ -3324,7 +3324,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_generate_credential_report_input::ser_generate_credential_report_input_input_input(&input)?,
+-            super::protocol_serde::shape_generate_credential_report_input::ser_generate_credential_report_input_input_input(&input)?,
 -        );
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
@@ -3347,10 +3347,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_generate_organizations_access_report_input::ser_generate_organizations_access_report_input_input_input(
+-            super::protocol_serde::shape_generate_organizations_access_report_input::ser_generate_organizations_access_report_input_input_input(
 -                &input,
 -            )?,
-+            crate::protocol_serde::shape_generate_organizations_access_report_input::ser_generate_organizations_access_report_op_input(&input)?,
++            super::protocol_serde::shape_generate_organizations_access_report_input::ser_generate_organizations_access_report_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -3371,10 +3371,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_generate_service_last_accessed_details_input::ser_generate_service_last_accessed_details_input_input_input(
+-            super::protocol_serde::shape_generate_service_last_accessed_details_input::ser_generate_service_last_accessed_details_input_input_input(
 -                &input,
 -            )?,
-+            crate::protocol_serde::shape_generate_service_last_accessed_details_input::ser_generate_service_last_accessed_details_op_input(&input)?,
++            super::protocol_serde::shape_generate_service_last_accessed_details_input::ser_generate_service_last_accessed_details_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -3395,8 +3395,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_access_key_last_used_input::ser_get_access_key_last_used_input_input_input(&input)?,
-+            crate::protocol_serde::shape_get_access_key_last_used_input::ser_get_access_key_last_used_op_input(&input)?,
+-            super::protocol_serde::shape_get_access_key_last_used_input::ser_get_access_key_last_used_input_input_input(&input)?,
++            super::protocol_serde::shape_get_access_key_last_used_input::ser_get_access_key_last_used_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -3417,8 +3417,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_account_authorization_details_input::ser_get_account_authorization_details_input_input_input(&input)?,
-+            crate::protocol_serde::shape_get_account_authorization_details_input::ser_get_account_authorization_details_op_input(&input)?,
+-            super::protocol_serde::shape_get_account_authorization_details_input::ser_get_account_authorization_details_input_input_input(&input)?,
++            super::protocol_serde::shape_get_account_authorization_details_input::ser_get_account_authorization_details_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -3438,7 +3438,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_account_password_policy_input::ser_get_account_password_policy_input_input_input(&input)?,
+-            super::protocol_serde::shape_get_account_password_policy_input::ser_get_account_password_policy_input_input_input(&input)?,
 -        );
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
@@ -3460,7 +3460,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_account_properties_input::ser_get_account_properties_input_input_input(&input)?,
+-            super::protocol_serde::shape_get_account_properties_input::ser_get_account_properties_input_input_input(&input)?,
 -        );
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
@@ -3482,7 +3482,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_account_summary_input::ser_get_account_summary_input_input_input(&input)?,
+-            super::protocol_serde::shape_get_account_summary_input::ser_get_account_summary_input_input_input(&input)?,
 -        );
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
@@ -3505,8 +3505,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_context_keys_for_custom_policy_input::ser_get_context_keys_for_custom_policy_input_input_input(&input)?,
-+            crate::protocol_serde::shape_get_context_keys_for_custom_policy_input::ser_get_context_keys_for_custom_policy_op_input(&input)?,
+-            super::protocol_serde::shape_get_context_keys_for_custom_policy_input::ser_get_context_keys_for_custom_policy_input_input_input(&input)?,
++            super::protocol_serde::shape_get_context_keys_for_custom_policy_input::ser_get_context_keys_for_custom_policy_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -3527,10 +3527,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_context_keys_for_principal_policy_input::ser_get_context_keys_for_principal_policy_input_input_input(
+-            super::protocol_serde::shape_get_context_keys_for_principal_policy_input::ser_get_context_keys_for_principal_policy_input_input_input(
 -                &input,
 -            )?,
-+            crate::protocol_serde::shape_get_context_keys_for_principal_policy_input::ser_get_context_keys_for_principal_policy_op_input(&input)?,
++            super::protocol_serde::shape_get_context_keys_for_principal_policy_input::ser_get_context_keys_for_principal_policy_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -3550,7 +3550,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_credential_report_input::ser_get_credential_report_input_input_input(&input)?,
+-            super::protocol_serde::shape_get_credential_report_input::ser_get_credential_report_input_input_input(&input)?,
 -        );
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
@@ -3565,7 +3565,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/get_delegation_request/_get_delegation_request_input.rs
 @@ -79,7 +79,7 @@
      {
-         ::std::result::Result::Ok(crate::operation::get_delegation_request::GetDelegationRequestInput {
+         ::std::result::Result::Ok(super::operation::get_delegation_request::GetDelegationRequestInput {
              delegation_request_id: self.delegation_request_id,
 -            delegation_permission_check: self.delegation_permission_check,
 +            delegation_permission_check: self.delegation_permission_check.unwrap_or_default(),
@@ -3589,8 +3589,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_delegation_request_input::ser_get_delegation_request_input_input_input(&input)?,
-+            crate::protocol_serde::shape_get_delegation_request_input::ser_get_delegation_request_op_input(&input)?,
+-            super::protocol_serde::shape_get_delegation_request_input::ser_get_delegation_request_input_input_input(&input)?,
++            super::protocol_serde::shape_get_delegation_request_input::ser_get_delegation_request_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -3610,8 +3610,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_group_input::ser_get_group_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_group_input::ser_get_group_op_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_group_input::ser_get_group_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_group_input::ser_get_group_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -3632,9 +3632,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_group_policy_input::ser_get_group_policy_input_input_input(&input)?,
+-            super::protocol_serde::shape_get_group_policy_input::ser_get_group_policy_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_group_policy_input::ser_get_group_policy_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_group_policy_input::ser_get_group_policy_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -3655,7 +3655,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +/// <p>If a delegation request has no owner or owner account, <code>GetHumanReadableSummary</code> for that delegation request can be called by any account. If the owner account is assigned but there is no owner id, only identities within that owner account can call <code>GetHumanReadableSummary</code> for the delegation request to retrieve a summary of that request. Once the delegation request is fully owned, the owner of the request gets a default permission to get that delegation request. For more details, read <a href="">default permissions granted to delegation requests</a>. These rules are identical to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetDelegationRequest.html">GetDelegationRequest</a> API behavior, such that a party who has permissions to call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetDelegationRequest.html">GetDelegationRequest</a> for a given delegation request will always be able to retrieve the human readable summary for that request.</p>
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
  pub struct GetHumanReadableSummaryFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
+     handle: ::std::sync::Arc<super::client::Handle>,
 ```
 
 ### `src/operation/get_human_readable_summary.rs`
@@ -3673,8 +3673,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_human_readable_summary_input::ser_get_human_readable_summary_input_input_input(&input)?,
-+            crate::protocol_serde::shape_get_human_readable_summary_input::ser_get_human_readable_summary_op_input(&input)?,
+-            super::protocol_serde::shape_get_human_readable_summary_input::ser_get_human_readable_summary_input_input_input(&input)?,
++            super::protocol_serde::shape_get_human_readable_summary_input::ser_get_human_readable_summary_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -3695,8 +3695,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_instance_profile_input::ser_get_instance_profile_input_input_input(&input)?,
-+            crate::protocol_serde::shape_get_instance_profile_input::ser_get_instance_profile_op_input(&input)?,
+-            super::protocol_serde::shape_get_instance_profile_input::ser_get_instance_profile_input_input_input(&input)?,
++            super::protocol_serde::shape_get_instance_profile_input::ser_get_instance_profile_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -3717,9 +3717,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_login_profile_input::ser_get_login_profile_input_input_input(&input)?,
+-            super::protocol_serde::shape_get_login_profile_input::ser_get_login_profile_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_login_profile_input::ser_get_login_profile_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_login_profile_input::ser_get_login_profile_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -3734,10 +3734,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/get_mfa_device/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::get_mfa_device::GetMfaDeviceOutput,
+         super::operation::get_mfa_device::GetMfaDeviceOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::get_mfa_device::GetMFADeviceError,
-+            crate::operation::get_mfa_device::GetMfaDeviceError,
+-            super::operation::get_mfa_device::GetMFADeviceError,
++            super::operation::get_mfa_device::GetMfaDeviceError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -3752,26 +3752,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct GetMFADeviceFluentBuilder {
 +pub struct GetMfaDeviceFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::get_mfa_device::builders::GetMfaDeviceInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::get_mfa_device::builders::GetMfaDeviceInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -32,8 +32,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::get_mfa_device::GetMfaDeviceOutput,
--        crate::operation::get_mfa_device::GetMFADeviceError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::get_mfa_device::GetMfaDeviceOutput,
+-        super::operation::get_mfa_device::GetMFADeviceError,
 -    > for GetMFADeviceFluentBuilder
-+        crate::operation::get_mfa_device::GetMfaDeviceError,
++        super::operation::get_mfa_device::GetMfaDeviceError,
 +    > for GetMfaDeviceFluentBuilder
  {
      fn send(
          self,
 @@ -41,14 +41,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::get_mfa_device::GetMfaDeviceOutput,
--            crate::operation::get_mfa_device::GetMFADeviceError,
-+            crate::operation::get_mfa_device::GetMfaDeviceError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::get_mfa_device::GetMfaDeviceOutput,
+-            super::operation::get_mfa_device::GetMFADeviceError,
++            super::operation::get_mfa_device::GetMfaDeviceError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -3781,7 +3781,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `GetMFADeviceFluentBuilder`.
 +impl GetMfaDeviceFluentBuilder {
 +    /// Creates a new `GetMfaDeviceFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -56,7 +56,7 @@
@@ -3790,15 +3790,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the GetMFADevice as a reference.
 +    /// Access the GetMfaDevice as a reference.
-     pub fn as_input(&self) -> &crate::operation::get_mfa_device::builders::GetMfaDeviceInputBuilder {
+     pub fn as_input(&self) -> &super::operation::get_mfa_device::builders::GetMfaDeviceInputBuilder {
          &self.inner
      }
 @@ -73,7 +73,7 @@
      ) -> ::std::result::Result<
-         crate::operation::get_mfa_device::GetMfaDeviceOutput,
+         super::operation::get_mfa_device::GetMfaDeviceOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::get_mfa_device::GetMFADeviceError,
-+            crate::operation::get_mfa_device::GetMfaDeviceError,
+-            super::operation::get_mfa_device::GetMFADeviceError,
++            super::operation::get_mfa_device::GetMfaDeviceError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -3806,26 +3806,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::get_mfa_device::GetMFADevice::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::get_mfa_device::GetMfaDevice::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::get_mfa_device::GetMFADevice::operation_runtime_plugins(
++        let runtime_plugins = super::operation::get_mfa_device::GetMfaDevice::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::get_mfa_device::GetMFADevice::orchestrate(&runtime_plugins, input).await
-+        crate::operation::get_mfa_device::GetMfaDevice::orchestrate(&runtime_plugins, input).await
+-        super::operation::get_mfa_device::GetMFADevice::orchestrate(&runtime_plugins, input).await
++        super::operation::get_mfa_device::GetMfaDevice::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -94,7 +94,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::get_mfa_device::GetMfaDeviceOutput,
--        crate::operation::get_mfa_device::GetMFADeviceError,
-+        crate::operation::get_mfa_device::GetMfaDeviceError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::get_mfa_device::GetMfaDeviceOutput,
+-        super::operation::get_mfa_device::GetMFADeviceError,
++        super::operation::get_mfa_device::GetMfaDeviceError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/get_mfa_device.rs`
@@ -3882,7 +3882,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                GetMfaDeviceEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::get_mfa_device::GetMFADeviceError,
+                 super::operation::get_mfa_device::GetMFADeviceError,
 @@ -147,12 +147,12 @@
  }
 
@@ -3908,10 +3908,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_mfa_device_input::ser_get_mfa_device_input_input_input(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_mfa_device_input::ser_get_mfa_device_input_input_input(
 -            &input,
 -        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_mfa_device_input::ser_get_mfa_device_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_mfa_device_input::ser_get_mfa_device_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -3940,10 +3940,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/get_open_id_connect_provider/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput,
+         super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
-+            crate::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError,
+-            super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
++            super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -3958,26 +3958,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct GetOpenIDConnectProviderFluentBuilder {
 +pub struct GetOpenIdConnectProviderFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::get_open_id_connect_provider::builders::GetOpenIdConnectProviderInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::get_open_id_connect_provider::builders::GetOpenIdConnectProviderInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -32,8 +32,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput,
--        crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput,
+-        super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
 -    > for GetOpenIDConnectProviderFluentBuilder
-+        crate::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError,
++        super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError,
 +    > for GetOpenIdConnectProviderFluentBuilder
  {
      fn send(
          self,
 @@ -41,14 +41,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput,
--            crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
-+            crate::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput,
+-            super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
++            super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -3987,7 +3987,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `GetOpenIDConnectProviderFluentBuilder`.
 +impl GetOpenIdConnectProviderFluentBuilder {
 +    /// Creates a new `GetOpenIdConnectProviderFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -56,7 +56,7 @@
@@ -3996,15 +3996,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the GetOpenIDConnectProvider as a reference.
 +    /// Access the GetOpenIdConnectProvider as a reference.
-     pub fn as_input(&self) -> &crate::operation::get_open_id_connect_provider::builders::GetOpenIdConnectProviderInputBuilder {
+     pub fn as_input(&self) -> &super::operation::get_open_id_connect_provider::builders::GetOpenIdConnectProviderInputBuilder {
          &self.inner
      }
 @@ -73,7 +73,7 @@
      ) -> ::std::result::Result<
-         crate::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput,
+         super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
-+            crate::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError,
+-            super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
++            super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -4012,26 +4012,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::get_open_id_connect_provider::GetOpenIDConnectProvider::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::get_open_id_connect_provider::GetOpenIdConnectProvider::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::get_open_id_connect_provider::GetOpenIDConnectProvider::operation_runtime_plugins(
++        let runtime_plugins = super::operation::get_open_id_connect_provider::GetOpenIdConnectProvider::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::get_open_id_connect_provider::GetOpenIDConnectProvider::orchestrate(&runtime_plugins, input).await
-+        crate::operation::get_open_id_connect_provider::GetOpenIdConnectProvider::orchestrate(&runtime_plugins, input).await
+-        super::operation::get_open_id_connect_provider::GetOpenIDConnectProvider::orchestrate(&runtime_plugins, input).await
++        super::operation::get_open_id_connect_provider::GetOpenIdConnectProvider::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -94,7 +94,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput,
--        crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
-+        crate::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput,
+-        super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
++        super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/get_open_id_connect_provider.rs`
@@ -4088,7 +4088,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                GetOpenIdConnectProviderEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
+                 super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
 @@ -150,12 +150,12 @@
  }
 
@@ -4115,8 +4115,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_open_id_connect_provider_input::ser_get_open_id_connect_provider_input_input_input(&input)?,
-+            crate::protocol_serde::shape_get_open_id_connect_provider_input::ser_get_open_id_connect_provider_op_input(&input)?,
+-            super::protocol_serde::shape_get_open_id_connect_provider_input::ser_get_open_id_connect_provider_input_input_input(&input)?,
++            super::protocol_serde::shape_get_open_id_connect_provider_input::ser_get_open_id_connect_provider_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -4153,8 +4153,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_organizations_access_report_input::ser_get_organizations_access_report_input_input_input(&input)?,
-+            crate::protocol_serde::shape_get_organizations_access_report_input::ser_get_organizations_access_report_op_input(&input)?,
+-            super::protocol_serde::shape_get_organizations_access_report_input::ser_get_organizations_access_report_input_input_input(&input)?,
++            super::protocol_serde::shape_get_organizations_access_report_input::ser_get_organizations_access_report_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -4173,7 +4173,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_outbound_web_identity_federation_info_input::ser_get_outbound_web_identity_federation_info_input_input_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_outbound_web_identity_federation_info_input::ser_get_outbound_web_identity_federation_info_input_input_input(&input)?);
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
@@ -4194,8 +4194,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_policy_input::ser_get_policy_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_policy_input::ser_get_policy_op_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_policy_input::ser_get_policy_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_policy_input::ser_get_policy_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -4216,9 +4216,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_policy_version_input::ser_get_policy_version_input_input_input(&input)?,
+-            super::protocol_serde::shape_get_policy_version_input::ser_get_policy_version_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_policy_version_input::ser_get_policy_version_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_policy_version_input::ser_get_policy_version_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -4240,8 +4240,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_role_input::ser_get_role_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_role_input::ser_get_role_op_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_role_input::ser_get_role_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_role_input::ser_get_role_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -4262,9 +4262,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_role_policy_input::ser_get_role_policy_input_input_input(&input)?,
+-            super::protocol_serde::shape_get_role_policy_input::ser_get_role_policy_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_role_policy_input::ser_get_role_policy_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_role_policy_input::ser_get_role_policy_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -4285,8 +4285,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_role_template_version_input::ser_get_role_template_version_input_input_input(&input)?,
-+            crate::protocol_serde::shape_get_role_template_version_input::ser_get_role_template_version_op_input(&input)?,
+-            super::protocol_serde::shape_get_role_template_version_input::ser_get_role_template_version_input_input_input(&input)?,
++            super::protocol_serde::shape_get_role_template_version_input::ser_get_role_template_version_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -4299,10 +4299,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/get_saml_provider/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::get_saml_provider::GetSamlProviderOutput,
+         super::operation::get_saml_provider::GetSamlProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::get_saml_provider::GetSAMLProviderError,
-+            crate::operation::get_saml_provider::GetSamlProviderError,
+-            super::operation::get_saml_provider::GetSAMLProviderError,
++            super::operation::get_saml_provider::GetSamlProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -4319,26 +4319,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct GetSAMLProviderFluentBuilder {
 +pub struct GetSamlProviderFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::get_saml_provider::builders::GetSamlProviderInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::get_saml_provider::builders::GetSamlProviderInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -34,8 +34,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::get_saml_provider::GetSamlProviderOutput,
--        crate::operation::get_saml_provider::GetSAMLProviderError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::get_saml_provider::GetSamlProviderOutput,
+-        super::operation::get_saml_provider::GetSAMLProviderError,
 -    > for GetSAMLProviderFluentBuilder
-+        crate::operation::get_saml_provider::GetSamlProviderError,
++        super::operation::get_saml_provider::GetSamlProviderError,
 +    > for GetSamlProviderFluentBuilder
  {
      fn send(
          self,
 @@ -43,14 +43,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::get_saml_provider::GetSamlProviderOutput,
--            crate::operation::get_saml_provider::GetSAMLProviderError,
-+            crate::operation::get_saml_provider::GetSamlProviderError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::get_saml_provider::GetSamlProviderOutput,
+-            super::operation::get_saml_provider::GetSAMLProviderError,
++            super::operation::get_saml_provider::GetSamlProviderError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -4348,7 +4348,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `GetSAMLProviderFluentBuilder`.
 +impl GetSamlProviderFluentBuilder {
 +    /// Creates a new `GetSamlProviderFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -58,7 +58,7 @@
@@ -4357,15 +4357,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the GetSAMLProvider as a reference.
 +    /// Access the GetSamlProvider as a reference.
-     pub fn as_input(&self) -> &crate::operation::get_saml_provider::builders::GetSamlProviderInputBuilder {
+     pub fn as_input(&self) -> &super::operation::get_saml_provider::builders::GetSamlProviderInputBuilder {
          &self.inner
      }
 @@ -75,7 +75,7 @@
      ) -> ::std::result::Result<
-         crate::operation::get_saml_provider::GetSamlProviderOutput,
+         super::operation::get_saml_provider::GetSamlProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::get_saml_provider::GetSAMLProviderError,
-+            crate::operation::get_saml_provider::GetSamlProviderError,
+-            super::operation::get_saml_provider::GetSAMLProviderError,
++            super::operation::get_saml_provider::GetSamlProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -4373,26 +4373,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::get_saml_provider::GetSAMLProvider::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::get_saml_provider::GetSamlProvider::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::get_saml_provider::GetSAMLProvider::operation_runtime_plugins(
++        let runtime_plugins = super::operation::get_saml_provider::GetSamlProvider::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::get_saml_provider::GetSAMLProvider::orchestrate(&runtime_plugins, input).await
-+        crate::operation::get_saml_provider::GetSamlProvider::orchestrate(&runtime_plugins, input).await
+-        super::operation::get_saml_provider::GetSAMLProvider::orchestrate(&runtime_plugins, input).await
++        super::operation::get_saml_provider::GetSamlProvider::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -96,7 +96,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::get_saml_provider::GetSamlProviderOutput,
--        crate::operation::get_saml_provider::GetSAMLProviderError,
-+        crate::operation::get_saml_provider::GetSamlProviderError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::get_saml_provider::GetSamlProviderOutput,
+-        super::operation::get_saml_provider::GetSAMLProviderError,
++        super::operation::get_saml_provider::GetSamlProviderError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/get_saml_provider.rs`
@@ -4449,7 +4449,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                GetSamlProviderEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::get_saml_provider::GetSAMLProviderError,
+                 super::operation::get_saml_provider::GetSAMLProviderError,
 @@ -147,12 +147,12 @@
  }
 
@@ -4476,9 +4476,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_saml_provider_input::ser_get_saml_provider_input_input_input(&input)?,
+-            super::protocol_serde::shape_get_saml_provider_input::ser_get_saml_provider_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_saml_provider_input::ser_get_saml_provider_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_saml_provider_input::ser_get_saml_provider_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -4517,8 +4517,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_server_certificate_input::ser_get_server_certificate_input_input_input(&input)?,
-+            crate::protocol_serde::shape_get_server_certificate_input::ser_get_server_certificate_op_input(&input)?,
+-            super::protocol_serde::shape_get_server_certificate_input::ser_get_server_certificate_input_input_input(&input)?,
++            super::protocol_serde::shape_get_server_certificate_input::ser_get_server_certificate_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -4539,8 +4539,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_service_last_accessed_details_input::ser_get_service_last_accessed_details_input_input_input(&input)?,
-+            crate::protocol_serde::shape_get_service_last_accessed_details_input::ser_get_service_last_accessed_details_op_input(&input)?,
+-            super::protocol_serde::shape_get_service_last_accessed_details_input::ser_get_service_last_accessed_details_input_input_input(&input)?,
++            super::protocol_serde::shape_get_service_last_accessed_details_input::ser_get_service_last_accessed_details_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -4560,8 +4560,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_service_last_accessed_details_with_entities_input::ser_get_service_last_accessed_details_with_entities_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_service_last_accessed_details_with_entities_input::ser_get_service_last_accessed_details_with_entities_op_input(& input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_service_last_accessed_details_with_entities_input::ser_get_service_last_accessed_details_with_entities_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_service_last_accessed_details_with_entities_input::ser_get_service_last_accessed_details_with_entities_op_input(& input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -4581,9 +4581,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_service_linked_role_deletion_status_input::ser_get_service_linked_role_deletion_status_input_input_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_service_linked_role_deletion_status_input::ser_get_service_linked_role_deletion_status_input_input_input(&input)?);
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_get_service_linked_role_deletion_status_input::ser_get_service_linked_role_deletion_status_op_input(&input)?,
++            super::protocol_serde::shape_get_service_linked_role_deletion_status_input::ser_get_service_linked_role_deletion_status_op_input(&input)?,
 +        );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -4597,10 +4597,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/get_ssh_public_key/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::get_ssh_public_key::GetSshPublicKeyOutput,
+         super::operation::get_ssh_public_key::GetSshPublicKeyOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::get_ssh_public_key::GetSSHPublicKeyError,
-+            crate::operation::get_ssh_public_key::GetSshPublicKeyError,
+-            super::operation::get_ssh_public_key::GetSSHPublicKeyError,
++            super::operation::get_ssh_public_key::GetSshPublicKeyError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -4616,26 +4616,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct GetSSHPublicKeyFluentBuilder {
 +pub struct GetSshPublicKeyFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::get_ssh_public_key::builders::GetSshPublicKeyInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::get_ssh_public_key::builders::GetSshPublicKeyInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -33,8 +33,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::get_ssh_public_key::GetSshPublicKeyOutput,
--        crate::operation::get_ssh_public_key::GetSSHPublicKeyError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::get_ssh_public_key::GetSshPublicKeyOutput,
+-        super::operation::get_ssh_public_key::GetSSHPublicKeyError,
 -    > for GetSSHPublicKeyFluentBuilder
-+        crate::operation::get_ssh_public_key::GetSshPublicKeyError,
++        super::operation::get_ssh_public_key::GetSshPublicKeyError,
 +    > for GetSshPublicKeyFluentBuilder
  {
      fn send(
          self,
 @@ -42,14 +42,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::get_ssh_public_key::GetSshPublicKeyOutput,
--            crate::operation::get_ssh_public_key::GetSSHPublicKeyError,
-+            crate::operation::get_ssh_public_key::GetSshPublicKeyError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::get_ssh_public_key::GetSshPublicKeyOutput,
+-            super::operation::get_ssh_public_key::GetSSHPublicKeyError,
++            super::operation::get_ssh_public_key::GetSshPublicKeyError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -4645,7 +4645,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `GetSSHPublicKeyFluentBuilder`.
 +impl GetSshPublicKeyFluentBuilder {
 +    /// Creates a new `GetSshPublicKeyFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -57,7 +57,7 @@
@@ -4654,15 +4654,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the GetSSHPublicKey as a reference.
 +    /// Access the GetSshPublicKey as a reference.
-     pub fn as_input(&self) -> &crate::operation::get_ssh_public_key::builders::GetSshPublicKeyInputBuilder {
+     pub fn as_input(&self) -> &super::operation::get_ssh_public_key::builders::GetSshPublicKeyInputBuilder {
          &self.inner
      }
 @@ -74,7 +74,7 @@
      ) -> ::std::result::Result<
-         crate::operation::get_ssh_public_key::GetSshPublicKeyOutput,
+         super::operation::get_ssh_public_key::GetSshPublicKeyOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::get_ssh_public_key::GetSSHPublicKeyError,
-+            crate::operation::get_ssh_public_key::GetSshPublicKeyError,
+-            super::operation::get_ssh_public_key::GetSSHPublicKeyError,
++            super::operation::get_ssh_public_key::GetSshPublicKeyError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -4670,26 +4670,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::get_ssh_public_key::GetSSHPublicKey::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::get_ssh_public_key::GetSshPublicKey::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::get_ssh_public_key::GetSSHPublicKey::operation_runtime_plugins(
++        let runtime_plugins = super::operation::get_ssh_public_key::GetSshPublicKey::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::get_ssh_public_key::GetSSHPublicKey::orchestrate(&runtime_plugins, input).await
-+        crate::operation::get_ssh_public_key::GetSshPublicKey::orchestrate(&runtime_plugins, input).await
+-        super::operation::get_ssh_public_key::GetSSHPublicKey::orchestrate(&runtime_plugins, input).await
++        super::operation::get_ssh_public_key::GetSshPublicKey::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -95,7 +95,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::get_ssh_public_key::GetSshPublicKeyOutput,
--        crate::operation::get_ssh_public_key::GetSSHPublicKeyError,
-+        crate::operation::get_ssh_public_key::GetSshPublicKeyError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::get_ssh_public_key::GetSshPublicKeyOutput,
+-        super::operation::get_ssh_public_key::GetSSHPublicKeyError,
++        super::operation::get_ssh_public_key::GetSshPublicKeyError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/get_ssh_public_key.rs`
@@ -4746,7 +4746,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                GetSshPublicKeyEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::get_ssh_public_key::GetSSHPublicKeyError,
+                 super::operation::get_ssh_public_key::GetSSHPublicKeyError,
 @@ -147,12 +147,12 @@
  }
 
@@ -4773,9 +4773,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_ssh_public_key_input::ser_get_ssh_public_key_input_input_input(&input)?,
+-            super::protocol_serde::shape_get_ssh_public_key_input::ser_get_ssh_public_key_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_ssh_public_key_input::ser_get_ssh_public_key_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_ssh_public_key_input::ser_get_ssh_public_key_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -4813,8 +4813,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_user_input::ser_get_user_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_user_input::ser_get_user_op_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_user_input::ser_get_user_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_user_input::ser_get_user_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -4835,9 +4835,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_user_policy_input::ser_get_user_policy_input_input_input(&input)?,
+-            super::protocol_serde::shape_get_user_policy_input::ser_get_user_policy_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_user_policy_input::ser_get_user_policy_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_user_policy_input::ser_get_user_policy_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -4858,9 +4858,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_access_keys_input::ser_list_access_keys_input_input_input(&input)?,
+-            super::protocol_serde::shape_list_access_keys_input::ser_list_access_keys_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_access_keys_input::ser_list_access_keys_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_access_keys_input::ser_list_access_keys_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -4883,8 +4883,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_account_aliases_input::ser_list_account_aliases_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_account_aliases_input::ser_list_account_aliases_op_input(&input)?,
+-            super::protocol_serde::shape_list_account_aliases_input::ser_list_account_aliases_input_input_input(&input)?,
++            super::protocol_serde::shape_list_account_aliases_input::ser_list_account_aliases_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -4905,8 +4905,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_attached_group_policies_input::ser_list_attached_group_policies_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_attached_group_policies_input::ser_list_attached_group_policies_op_input(&input)?,
+-            super::protocol_serde::shape_list_attached_group_policies_input::ser_list_attached_group_policies_input_input_input(&input)?,
++            super::protocol_serde::shape_list_attached_group_policies_input::ser_list_attached_group_policies_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -4927,8 +4927,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_attached_role_policies_input::ser_list_attached_role_policies_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_attached_role_policies_input::ser_list_attached_role_policies_op_input(&input)?,
+-            super::protocol_serde::shape_list_attached_role_policies_input::ser_list_attached_role_policies_input_input_input(&input)?,
++            super::protocol_serde::shape_list_attached_role_policies_input::ser_list_attached_role_policies_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -4949,8 +4949,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_attached_user_policies_input::ser_list_attached_user_policies_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_attached_user_policies_input::ser_list_attached_user_policies_op_input(&input)?,
+-            super::protocol_serde::shape_list_attached_user_policies_input::ser_list_attached_user_policies_input_input_input(&input)?,
++            super::protocol_serde::shape_list_attached_user_policies_input::ser_list_attached_user_policies_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -4971,8 +4971,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_delegation_requests_input::ser_list_delegation_requests_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_delegation_requests_input::ser_list_delegation_requests_op_input(&input)?,
+-            super::protocol_serde::shape_list_delegation_requests_input::ser_list_delegation_requests_input_input_input(&input)?,
++            super::protocol_serde::shape_list_delegation_requests_input::ser_list_delegation_requests_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -4993,8 +4993,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_entities_for_policy_input::ser_list_entities_for_policy_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_entities_for_policy_input::ser_list_entities_for_policy_op_input(&input)?,
+-            super::protocol_serde::shape_list_entities_for_policy_input::ser_list_entities_for_policy_input_input_input(&input)?,
++            super::protocol_serde::shape_list_entities_for_policy_input::ser_list_entities_for_policy_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -5015,9 +5015,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_group_policies_input::ser_list_group_policies_input_input_input(&input)?,
+-            super::protocol_serde::shape_list_group_policies_input::ser_list_group_policies_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_group_policies_input::ser_list_group_policies_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_group_policies_input::ser_list_group_policies_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -5040,8 +5040,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body =
--            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_groups_input::ser_list_groups_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_groups_input::ser_list_groups_op_input(&input)?);
+-            ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_groups_input::ser_list_groups_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_groups_input::ser_list_groups_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -5062,8 +5062,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_groups_for_user_input::ser_list_groups_for_user_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_groups_for_user_input::ser_list_groups_for_user_op_input(&input)?,
+-            super::protocol_serde::shape_list_groups_for_user_input::ser_list_groups_for_user_input_input_input(&input)?,
++            super::protocol_serde::shape_list_groups_for_user_input::ser_list_groups_for_user_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -5084,8 +5084,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_instance_profile_tags_input::ser_list_instance_profile_tags_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_instance_profile_tags_input::ser_list_instance_profile_tags_op_input(&input)?,
+-            super::protocol_serde::shape_list_instance_profile_tags_input::ser_list_instance_profile_tags_input_input_input(&input)?,
++            super::protocol_serde::shape_list_instance_profile_tags_input::ser_list_instance_profile_tags_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -5106,8 +5106,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_instance_profiles_input::ser_list_instance_profiles_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_instance_profiles_input::ser_list_instance_profiles_op_input(&input)?,
+-            super::protocol_serde::shape_list_instance_profiles_input::ser_list_instance_profiles_input_input_input(&input)?,
++            super::protocol_serde::shape_list_instance_profiles_input::ser_list_instance_profiles_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -5128,8 +5128,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_instance_profiles_for_role_input::ser_list_instance_profiles_for_role_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_instance_profiles_for_role_input::ser_list_instance_profiles_for_role_op_input(&input)?,
+-            super::protocol_serde::shape_list_instance_profiles_for_role_input::ser_list_instance_profiles_for_role_input_input_input(&input)?,
++            super::protocol_serde::shape_list_instance_profiles_for_role_input::ser_list_instance_profiles_for_role_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -5142,10 +5142,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/list_mfa_device_tags/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
+         super::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::list_mfa_device_tags::ListMFADeviceTagsError,
-+            crate::operation::list_mfa_device_tags::ListMfaDeviceTagsError,
+-            super::operation::list_mfa_device_tags::ListMFADeviceTagsError,
++            super::operation::list_mfa_device_tags::ListMfaDeviceTagsError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -5160,26 +5160,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct ListMFADeviceTagsFluentBuilder {
 +pub struct ListMfaDeviceTagsFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -32,8 +32,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
--        crate::operation::list_mfa_device_tags::ListMFADeviceTagsError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
+-        super::operation::list_mfa_device_tags::ListMFADeviceTagsError,
 -    > for ListMFADeviceTagsFluentBuilder
-+        crate::operation::list_mfa_device_tags::ListMfaDeviceTagsError,
++        super::operation::list_mfa_device_tags::ListMfaDeviceTagsError,
 +    > for ListMfaDeviceTagsFluentBuilder
  {
      fn send(
          self,
 @@ -41,14 +41,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
--            crate::operation::list_mfa_device_tags::ListMFADeviceTagsError,
-+            crate::operation::list_mfa_device_tags::ListMfaDeviceTagsError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
+-            super::operation::list_mfa_device_tags::ListMFADeviceTagsError,
++            super::operation::list_mfa_device_tags::ListMfaDeviceTagsError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -5189,7 +5189,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `ListMFADeviceTagsFluentBuilder`.
 +impl ListMfaDeviceTagsFluentBuilder {
 +    /// Creates a new `ListMfaDeviceTagsFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -56,7 +56,7 @@
@@ -5198,15 +5198,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the ListMFADeviceTags as a reference.
 +    /// Access the ListMfaDeviceTags as a reference.
-     pub fn as_input(&self) -> &crate::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsInputBuilder {
+     pub fn as_input(&self) -> &super::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsInputBuilder {
          &self.inner
      }
 @@ -73,7 +73,7 @@
      ) -> ::std::result::Result<
-         crate::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
+         super::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::list_mfa_device_tags::ListMFADeviceTagsError,
-+            crate::operation::list_mfa_device_tags::ListMfaDeviceTagsError,
+-            super::operation::list_mfa_device_tags::ListMFADeviceTagsError,
++            super::operation::list_mfa_device_tags::ListMfaDeviceTagsError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -5214,26 +5214,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::list_mfa_device_tags::ListMFADeviceTags::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::list_mfa_device_tags::ListMfaDeviceTags::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::list_mfa_device_tags::ListMFADeviceTags::operation_runtime_plugins(
++        let runtime_plugins = super::operation::list_mfa_device_tags::ListMfaDeviceTags::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::list_mfa_device_tags::ListMFADeviceTags::orchestrate(&runtime_plugins, input).await
-+        crate::operation::list_mfa_device_tags::ListMfaDeviceTags::orchestrate(&runtime_plugins, input).await
+-        super::operation::list_mfa_device_tags::ListMFADeviceTags::orchestrate(&runtime_plugins, input).await
++        super::operation::list_mfa_device_tags::ListMfaDeviceTags::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -94,7 +94,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
--        crate::operation::list_mfa_device_tags::ListMFADeviceTagsError,
-+        crate::operation::list_mfa_device_tags::ListMfaDeviceTagsError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
+-        super::operation::list_mfa_device_tags::ListMFADeviceTagsError,
++        super::operation::list_mfa_device_tags::ListMfaDeviceTagsError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/list_mfa_device_tags.rs`
@@ -5290,7 +5290,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                ListMfaDeviceTagsEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::list_mfa_device_tags::ListMFADeviceTagsError,
+                 super::operation::list_mfa_device_tags::ListMFADeviceTagsError,
 @@ -147,12 +147,12 @@
  }
 
@@ -5317,8 +5317,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_mfa_device_tags_input::ser_list_mfa_device_tags_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_mfa_device_tags_input::ser_list_mfa_device_tags_op_input(&input)?,
+-            super::protocol_serde::shape_list_mfa_device_tags_input::ser_list_mfa_device_tags_input_input_input(&input)?,
++            super::protocol_serde::shape_list_mfa_device_tags_input::ser_list_mfa_device_tags_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -5347,10 +5347,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/list_mfa_devices/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::list_mfa_devices::ListMfaDevicesOutput,
+         super::operation::list_mfa_devices::ListMfaDevicesOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::list_mfa_devices::ListMFADevicesError,
-+            crate::operation::list_mfa_devices::ListMfaDevicesError,
+-            super::operation::list_mfa_devices::ListMFADevicesError,
++            super::operation::list_mfa_devices::ListMfaDevicesError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -5366,26 +5366,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct ListMFADevicesFluentBuilder {
 +pub struct ListMfaDevicesFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::list_mfa_devices::builders::ListMfaDevicesInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::list_mfa_devices::builders::ListMfaDevicesInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -33,8 +33,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::list_mfa_devices::ListMfaDevicesOutput,
--        crate::operation::list_mfa_devices::ListMFADevicesError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::list_mfa_devices::ListMfaDevicesOutput,
+-        super::operation::list_mfa_devices::ListMFADevicesError,
 -    > for ListMFADevicesFluentBuilder
-+        crate::operation::list_mfa_devices::ListMfaDevicesError,
++        super::operation::list_mfa_devices::ListMfaDevicesError,
 +    > for ListMfaDevicesFluentBuilder
  {
      fn send(
          self,
 @@ -42,14 +42,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::list_mfa_devices::ListMfaDevicesOutput,
--            crate::operation::list_mfa_devices::ListMFADevicesError,
-+            crate::operation::list_mfa_devices::ListMfaDevicesError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::list_mfa_devices::ListMfaDevicesOutput,
+-            super::operation::list_mfa_devices::ListMFADevicesError,
++            super::operation::list_mfa_devices::ListMfaDevicesError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -5395,7 +5395,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `ListMFADevicesFluentBuilder`.
 +impl ListMfaDevicesFluentBuilder {
 +    /// Creates a new `ListMfaDevicesFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -57,7 +57,7 @@
@@ -5404,15 +5404,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the ListMFADevices as a reference.
 +    /// Access the ListMfaDevices as a reference.
-     pub fn as_input(&self) -> &crate::operation::list_mfa_devices::builders::ListMfaDevicesInputBuilder {
+     pub fn as_input(&self) -> &super::operation::list_mfa_devices::builders::ListMfaDevicesInputBuilder {
          &self.inner
      }
 @@ -74,7 +74,7 @@
      ) -> ::std::result::Result<
-         crate::operation::list_mfa_devices::ListMfaDevicesOutput,
+         super::operation::list_mfa_devices::ListMfaDevicesOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::list_mfa_devices::ListMFADevicesError,
-+            crate::operation::list_mfa_devices::ListMfaDevicesError,
+-            super::operation::list_mfa_devices::ListMFADevicesError,
++            super::operation::list_mfa_devices::ListMfaDevicesError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -5420,26 +5420,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::list_mfa_devices::ListMFADevices::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::list_mfa_devices::ListMfaDevices::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::list_mfa_devices::ListMFADevices::operation_runtime_plugins(
++        let runtime_plugins = super::operation::list_mfa_devices::ListMfaDevices::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::list_mfa_devices::ListMFADevices::orchestrate(&runtime_plugins, input).await
-+        crate::operation::list_mfa_devices::ListMfaDevices::orchestrate(&runtime_plugins, input).await
+-        super::operation::list_mfa_devices::ListMFADevices::orchestrate(&runtime_plugins, input).await
++        super::operation::list_mfa_devices::ListMfaDevices::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -95,7 +95,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::list_mfa_devices::ListMfaDevicesOutput,
--        crate::operation::list_mfa_devices::ListMFADevicesError,
-+        crate::operation::list_mfa_devices::ListMfaDevicesError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::list_mfa_devices::ListMfaDevicesOutput,
+-        super::operation::list_mfa_devices::ListMFADevicesError,
++        super::operation::list_mfa_devices::ListMfaDevicesError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/list_mfa_devices.rs`
@@ -5496,7 +5496,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                ListMfaDevicesEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::list_mfa_devices::ListMFADevicesError,
+                 super::operation::list_mfa_devices::ListMFADevicesError,
 @@ -147,12 +147,12 @@
  }
 
@@ -5523,9 +5523,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_mfa_devices_input::ser_list_mfa_devices_input_input_input(&input)?,
+-            super::protocol_serde::shape_list_mfa_devices_input::ser_list_mfa_devices_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_mfa_devices_input::ser_list_mfa_devices_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_mfa_devices_input::ser_list_mfa_devices_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -5556,10 +5556,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/list_open_id_connect_provider_tags/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
+         super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
-+            crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
+-            super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
++            super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -5575,26 +5575,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct ListOpenIDConnectProviderTagsFluentBuilder {
 +pub struct ListOpenIdConnectProviderTagsFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -33,8 +33,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
--        crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
+-        super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
 -    > for ListOpenIDConnectProviderTagsFluentBuilder
-+        crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
++        super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
 +    > for ListOpenIdConnectProviderTagsFluentBuilder
  {
      fn send(
          self,
 @@ -42,14 +42,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
--            crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
-+            crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
+-            super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
++            super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -5604,7 +5604,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `ListOpenIDConnectProviderTagsFluentBuilder`.
 +impl ListOpenIdConnectProviderTagsFluentBuilder {
 +    /// Creates a new `ListOpenIdConnectProviderTagsFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -57,7 +57,7 @@
@@ -5613,15 +5613,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the ListOpenIDConnectProviderTags as a reference.
 +    /// Access the ListOpenIdConnectProviderTags as a reference.
-     pub fn as_input(&self) -> &crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsInputBuilder {
+     pub fn as_input(&self) -> &super::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsInputBuilder {
          &self.inner
      }
 @@ -74,7 +74,7 @@
      ) -> ::std::result::Result<
-         crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
+         super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
-+            crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
+-            super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
++            super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -5629,26 +5629,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTags::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTags::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTags::operation_runtime_plugins(
++        let runtime_plugins = super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTags::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTags::orchestrate(&runtime_plugins, input).await
-+        crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTags::orchestrate(&runtime_plugins, input).await
+-        super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTags::orchestrate(&runtime_plugins, input).await
++        super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTags::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -95,7 +95,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
--        crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
-+        crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
+-        super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
++        super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/list_open_id_connect_provider_tags.rs`
@@ -5705,7 +5705,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                ListOpenIdConnectProviderTagsEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
+                 super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
 @@ -150,12 +150,12 @@
  }
 
@@ -5732,8 +5732,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_open_id_connect_provider_tags_input::ser_list_open_id_connect_provider_tags_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_open_id_connect_provider_tags_input::ser_list_open_id_connect_provider_tags_op_input(&input)?,
+-            super::protocol_serde::shape_list_open_id_connect_provider_tags_input::ser_list_open_id_connect_provider_tags_input_input_input(&input)?,
++            super::protocol_serde::shape_list_open_id_connect_provider_tags_input::ser_list_open_id_connect_provider_tags_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -5762,10 +5762,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/list_open_id_connect_providers/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput,
+         super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
-+            crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError,
+-            super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
++            super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -5782,26 +5782,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct ListOpenIDConnectProvidersFluentBuilder {
 +pub struct ListOpenIdConnectProvidersFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::list_open_id_connect_providers::builders::ListOpenIdConnectProvidersInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::list_open_id_connect_providers::builders::ListOpenIdConnectProvidersInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -34,8 +34,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput,
--        crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput,
+-        super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
 -    > for ListOpenIDConnectProvidersFluentBuilder
-+        crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError,
++        super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError,
 +    > for ListOpenIdConnectProvidersFluentBuilder
  {
      fn send(
          self,
 @@ -43,14 +43,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput,
--            crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
-+            crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput,
+-            super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
++            super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -5811,7 +5811,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `ListOpenIDConnectProvidersFluentBuilder`.
 +impl ListOpenIdConnectProvidersFluentBuilder {
 +    /// Creates a new `ListOpenIdConnectProvidersFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -58,7 +58,7 @@
@@ -5820,15 +5820,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the ListOpenIDConnectProviders as a reference.
 +    /// Access the ListOpenIdConnectProviders as a reference.
-     pub fn as_input(&self) -> &crate::operation::list_open_id_connect_providers::builders::ListOpenIdConnectProvidersInputBuilder {
+     pub fn as_input(&self) -> &super::operation::list_open_id_connect_providers::builders::ListOpenIdConnectProvidersInputBuilder {
          &self.inner
      }
 @@ -75,7 +75,7 @@
      ) -> ::std::result::Result<
-         crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput,
+         super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
-+            crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError,
+-            super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
++            super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -5836,26 +5836,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::list_open_id_connect_providers::ListOpenIDConnectProviders::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::list_open_id_connect_providers::ListOpenIdConnectProviders::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::list_open_id_connect_providers::ListOpenIDConnectProviders::operation_runtime_plugins(
++        let runtime_plugins = super::operation::list_open_id_connect_providers::ListOpenIdConnectProviders::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::list_open_id_connect_providers::ListOpenIDConnectProviders::orchestrate(&runtime_plugins, input).await
-+        crate::operation::list_open_id_connect_providers::ListOpenIdConnectProviders::orchestrate(&runtime_plugins, input).await
+-        super::operation::list_open_id_connect_providers::ListOpenIDConnectProviders::orchestrate(&runtime_plugins, input).await
++        super::operation::list_open_id_connect_providers::ListOpenIdConnectProviders::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -96,7 +96,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput,
--        crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
-+        crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput,
+-        super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
++        super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/list_open_id_connect_providers.rs`
@@ -5905,7 +5905,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                ListOpenIdConnectProvidersEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
+                 super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
 @@ -204,24 +204,20 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
@@ -5915,7 +5915,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_open_id_connect_providers_input::ser_list_open_id_connect_providers_input_input_input(&input)?,
+-            super::protocol_serde::shape_list_open_id_connect_providers_input::ser_list_open_id_connect_providers_input_input_input(&input)?,
 -        );
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
@@ -5951,7 +5951,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_organizations_features_input::ser_list_organizations_features_input_input_input(&input)?,
+-            super::protocol_serde::shape_list_organizations_features_input::ser_list_organizations_features_input_input_input(&input)?,
 -        );
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
@@ -5965,8 +5965,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/operation/list_policies/_list_policies_input.rs
 +++ generated/src/operation/list_policies/_list_policies_input.rs
 @@ -181,7 +181,7 @@
-     ) -> ::std::result::Result<crate::operation::list_policies::ListPoliciesInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::operation::list_policies::ListPoliciesInput {
+     ) -> ::std::result::Result<super::operation::list_policies::ListPoliciesInput, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::operation::list_policies::ListPoliciesInput {
              scope: self.scope,
 -            only_attached: self.only_attached,
 +            only_attached: self.only_attached.unwrap_or_default(),
@@ -5989,10 +5989,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_policies_input::ser_list_policies_input_input_input(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_policies_input::ser_list_policies_input_input_input(
 -            &input,
 -        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_policies_input::ser_list_policies_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_policies_input::ser_list_policies_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -6013,10 +6013,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_policies_granting_service_access_input::ser_list_policies_granting_service_access_input_input_input(
+-            super::protocol_serde::shape_list_policies_granting_service_access_input::ser_list_policies_granting_service_access_input_input_input(
 -                &input,
 -            )?,
-+            crate::protocol_serde::shape_list_policies_granting_service_access_input::ser_list_policies_granting_service_access_op_input(&input)?,
++            super::protocol_serde::shape_list_policies_granting_service_access_input::ser_list_policies_granting_service_access_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -6037,9 +6037,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_policy_tags_input::ser_list_policy_tags_input_input_input(&input)?,
+-            super::protocol_serde::shape_list_policy_tags_input::ser_list_policy_tags_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_policy_tags_input::ser_list_policy_tags_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_policy_tags_input::ser_list_policy_tags_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -6062,8 +6062,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_policy_versions_input::ser_list_policy_versions_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_policy_versions_input::ser_list_policy_versions_op_input(&input)?,
+-            super::protocol_serde::shape_list_policy_versions_input::ser_list_policy_versions_input_input_input(&input)?,
++            super::protocol_serde::shape_list_policy_versions_input::ser_list_policy_versions_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -6084,9 +6084,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_role_policies_input::ser_list_role_policies_input_input_input(&input)?,
+-            super::protocol_serde::shape_list_role_policies_input::ser_list_role_policies_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_role_policies_input::ser_list_role_policies_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_role_policies_input::ser_list_role_policies_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -6108,10 +6108,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_role_tags_input::ser_list_role_tags_input_input_input(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_role_tags_input::ser_list_role_tags_input_input_input(
 -            &input,
 -        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_role_tags_input::ser_list_role_tags_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_role_tags_input::ser_list_role_tags_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -6131,8 +6131,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_roles_input::ser_list_roles_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_roles_input::ser_list_roles_op_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_roles_input::ser_list_roles_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_roles_input::ser_list_roles_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -6145,10 +6145,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/list_saml_provider_tags/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
+         super::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
-+            crate::operation::list_saml_provider_tags::ListSamlProviderTagsError,
+-            super::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
++            super::operation::list_saml_provider_tags::ListSamlProviderTagsError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -6164,26 +6164,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct ListSAMLProviderTagsFluentBuilder {
 +pub struct ListSamlProviderTagsFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::list_saml_provider_tags::builders::ListSamlProviderTagsInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::list_saml_provider_tags::builders::ListSamlProviderTagsInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -33,8 +33,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
--        crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
+-        super::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
 -    > for ListSAMLProviderTagsFluentBuilder
-+        crate::operation::list_saml_provider_tags::ListSamlProviderTagsError,
++        super::operation::list_saml_provider_tags::ListSamlProviderTagsError,
 +    > for ListSamlProviderTagsFluentBuilder
  {
      fn send(
          self,
 @@ -42,14 +42,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
--            crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
-+            crate::operation::list_saml_provider_tags::ListSamlProviderTagsError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
+-            super::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
++            super::operation::list_saml_provider_tags::ListSamlProviderTagsError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -6193,7 +6193,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `ListSAMLProviderTagsFluentBuilder`.
 +impl ListSamlProviderTagsFluentBuilder {
 +    /// Creates a new `ListSamlProviderTagsFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -57,7 +57,7 @@
@@ -6202,15 +6202,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the ListSAMLProviderTags as a reference.
 +    /// Access the ListSamlProviderTags as a reference.
-     pub fn as_input(&self) -> &crate::operation::list_saml_provider_tags::builders::ListSamlProviderTagsInputBuilder {
+     pub fn as_input(&self) -> &super::operation::list_saml_provider_tags::builders::ListSamlProviderTagsInputBuilder {
          &self.inner
      }
 @@ -74,7 +74,7 @@
      ) -> ::std::result::Result<
-         crate::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
+         super::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
-+            crate::operation::list_saml_provider_tags::ListSamlProviderTagsError,
+-            super::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
++            super::operation::list_saml_provider_tags::ListSamlProviderTagsError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -6218,26 +6218,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::list_saml_provider_tags::ListSAMLProviderTags::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::list_saml_provider_tags::ListSamlProviderTags::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::list_saml_provider_tags::ListSAMLProviderTags::operation_runtime_plugins(
++        let runtime_plugins = super::operation::list_saml_provider_tags::ListSamlProviderTags::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::list_saml_provider_tags::ListSAMLProviderTags::orchestrate(&runtime_plugins, input).await
-+        crate::operation::list_saml_provider_tags::ListSamlProviderTags::orchestrate(&runtime_plugins, input).await
+-        super::operation::list_saml_provider_tags::ListSAMLProviderTags::orchestrate(&runtime_plugins, input).await
++        super::operation::list_saml_provider_tags::ListSamlProviderTags::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -95,7 +95,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
--        crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
-+        crate::operation::list_saml_provider_tags::ListSamlProviderTagsError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
+-        super::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
++        super::operation::list_saml_provider_tags::ListSamlProviderTagsError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/list_saml_provider_tags.rs`
@@ -6294,7 +6294,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                ListSamlProviderTagsEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
+                 super::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
 @@ -150,12 +150,12 @@
  }
 
@@ -6321,8 +6321,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_saml_provider_tags_input::ser_list_saml_provider_tags_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_saml_provider_tags_input::ser_list_saml_provider_tags_op_input(&input)?,
+-            super::protocol_serde::shape_list_saml_provider_tags_input::ser_list_saml_provider_tags_input_input_input(&input)?,
++            super::protocol_serde::shape_list_saml_provider_tags_input::ser_list_saml_provider_tags_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -6351,10 +6351,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/list_saml_providers/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::list_saml_providers::ListSamlProvidersOutput,
+         super::operation::list_saml_providers::ListSamlProvidersOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::list_saml_providers::ListSAMLProvidersError,
-+            crate::operation::list_saml_providers::ListSamlProvidersError,
+-            super::operation::list_saml_providers::ListSAMLProvidersError,
++            super::operation::list_saml_providers::ListSamlProvidersError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -6371,26 +6371,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct ListSAMLProvidersFluentBuilder {
 +pub struct ListSamlProvidersFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::list_saml_providers::builders::ListSamlProvidersInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::list_saml_providers::builders::ListSamlProvidersInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -34,8 +34,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::list_saml_providers::ListSamlProvidersOutput,
--        crate::operation::list_saml_providers::ListSAMLProvidersError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::list_saml_providers::ListSamlProvidersOutput,
+-        super::operation::list_saml_providers::ListSAMLProvidersError,
 -    > for ListSAMLProvidersFluentBuilder
-+        crate::operation::list_saml_providers::ListSamlProvidersError,
++        super::operation::list_saml_providers::ListSamlProvidersError,
 +    > for ListSamlProvidersFluentBuilder
  {
      fn send(
          self,
 @@ -43,14 +43,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::list_saml_providers::ListSamlProvidersOutput,
--            crate::operation::list_saml_providers::ListSAMLProvidersError,
-+            crate::operation::list_saml_providers::ListSamlProvidersError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::list_saml_providers::ListSamlProvidersOutput,
+-            super::operation::list_saml_providers::ListSAMLProvidersError,
++            super::operation::list_saml_providers::ListSamlProvidersError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -6400,7 +6400,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `ListSAMLProvidersFluentBuilder`.
 +impl ListSamlProvidersFluentBuilder {
 +    /// Creates a new `ListSamlProvidersFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -58,7 +58,7 @@
@@ -6409,15 +6409,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the ListSAMLProviders as a reference.
 +    /// Access the ListSamlProviders as a reference.
-     pub fn as_input(&self) -> &crate::operation::list_saml_providers::builders::ListSamlProvidersInputBuilder {
+     pub fn as_input(&self) -> &super::operation::list_saml_providers::builders::ListSamlProvidersInputBuilder {
          &self.inner
      }
 @@ -75,7 +75,7 @@
      ) -> ::std::result::Result<
-         crate::operation::list_saml_providers::ListSamlProvidersOutput,
+         super::operation::list_saml_providers::ListSamlProvidersOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::list_saml_providers::ListSAMLProvidersError,
-+            crate::operation::list_saml_providers::ListSamlProvidersError,
+-            super::operation::list_saml_providers::ListSAMLProvidersError,
++            super::operation::list_saml_providers::ListSamlProvidersError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -6425,26 +6425,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::list_saml_providers::ListSAMLProviders::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::list_saml_providers::ListSamlProviders::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::list_saml_providers::ListSAMLProviders::operation_runtime_plugins(
++        let runtime_plugins = super::operation::list_saml_providers::ListSamlProviders::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::list_saml_providers::ListSAMLProviders::orchestrate(&runtime_plugins, input).await
-+        crate::operation::list_saml_providers::ListSamlProviders::orchestrate(&runtime_plugins, input).await
+-        super::operation::list_saml_providers::ListSAMLProviders::orchestrate(&runtime_plugins, input).await
++        super::operation::list_saml_providers::ListSamlProviders::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -96,7 +96,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::list_saml_providers::ListSamlProvidersOutput,
--        crate::operation::list_saml_providers::ListSAMLProvidersError,
-+        crate::operation::list_saml_providers::ListSamlProvidersError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::list_saml_providers::ListSamlProvidersOutput,
+-        super::operation::list_saml_providers::ListSAMLProvidersError,
++        super::operation::list_saml_providers::ListSamlProvidersError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/list_saml_providers.rs`
@@ -6494,7 +6494,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                ListSamlProvidersEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::list_saml_providers::ListSAMLProvidersError,
+                 super::operation::list_saml_providers::ListSAMLProvidersError,
 @@ -201,24 +201,20 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
@@ -6504,7 +6504,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_saml_providers_input::ser_list_saml_providers_input_input_input(&input)?,
+-            super::protocol_serde::shape_list_saml_providers_input::ser_list_saml_providers_input_input_input(&input)?,
 -        );
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
@@ -6541,8 +6541,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_server_certificate_tags_input::ser_list_server_certificate_tags_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_server_certificate_tags_input::ser_list_server_certificate_tags_op_input(&input)?,
+-            super::protocol_serde::shape_list_server_certificate_tags_input::ser_list_server_certificate_tags_input_input_input(&input)?,
++            super::protocol_serde::shape_list_server_certificate_tags_input::ser_list_server_certificate_tags_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -6563,8 +6563,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_server_certificates_input::ser_list_server_certificates_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_server_certificates_input::ser_list_server_certificates_op_input(&input)?,
+-            super::protocol_serde::shape_list_server_certificates_input::ser_list_server_certificates_input_input_input(&input)?,
++            super::protocol_serde::shape_list_server_certificates_input::ser_list_server_certificates_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -6585,8 +6585,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_service_specific_credentials_input::ser_list_service_specific_credentials_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_service_specific_credentials_input::ser_list_service_specific_credentials_op_input(&input)?,
+-            super::protocol_serde::shape_list_service_specific_credentials_input::ser_list_service_specific_credentials_input_input_input(&input)?,
++            super::protocol_serde::shape_list_service_specific_credentials_input::ser_list_service_specific_credentials_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -6607,8 +6607,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_signing_certificates_input::ser_list_signing_certificates_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_signing_certificates_input::ser_list_signing_certificates_op_input(&input)?,
+-            super::protocol_serde::shape_list_signing_certificates_input::ser_list_signing_certificates_input_input_input(&input)?,
++            super::protocol_serde::shape_list_signing_certificates_input::ser_list_signing_certificates_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -6621,10 +6621,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/list_ssh_public_keys/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::list_ssh_public_keys::ListSshPublicKeysOutput,
+         super::operation::list_ssh_public_keys::ListSshPublicKeysOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::list_ssh_public_keys::ListSSHPublicKeysError,
-+            crate::operation::list_ssh_public_keys::ListSshPublicKeysError,
+-            super::operation::list_ssh_public_keys::ListSSHPublicKeysError,
++            super::operation::list_ssh_public_keys::ListSshPublicKeysError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -6641,26 +6641,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct ListSSHPublicKeysFluentBuilder {
 +pub struct ListSshPublicKeysFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::list_ssh_public_keys::builders::ListSshPublicKeysInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::list_ssh_public_keys::builders::ListSshPublicKeysInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -34,8 +34,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::list_ssh_public_keys::ListSshPublicKeysOutput,
--        crate::operation::list_ssh_public_keys::ListSSHPublicKeysError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::list_ssh_public_keys::ListSshPublicKeysOutput,
+-        super::operation::list_ssh_public_keys::ListSSHPublicKeysError,
 -    > for ListSSHPublicKeysFluentBuilder
-+        crate::operation::list_ssh_public_keys::ListSshPublicKeysError,
++        super::operation::list_ssh_public_keys::ListSshPublicKeysError,
 +    > for ListSshPublicKeysFluentBuilder
  {
      fn send(
          self,
 @@ -43,14 +43,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::list_ssh_public_keys::ListSshPublicKeysOutput,
--            crate::operation::list_ssh_public_keys::ListSSHPublicKeysError,
-+            crate::operation::list_ssh_public_keys::ListSshPublicKeysError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::list_ssh_public_keys::ListSshPublicKeysOutput,
+-            super::operation::list_ssh_public_keys::ListSSHPublicKeysError,
++            super::operation::list_ssh_public_keys::ListSshPublicKeysError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -6670,7 +6670,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `ListSSHPublicKeysFluentBuilder`.
 +impl ListSshPublicKeysFluentBuilder {
 +    /// Creates a new `ListSshPublicKeysFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -58,7 +58,7 @@
@@ -6679,15 +6679,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the ListSSHPublicKeys as a reference.
 +    /// Access the ListSshPublicKeys as a reference.
-     pub fn as_input(&self) -> &crate::operation::list_ssh_public_keys::builders::ListSshPublicKeysInputBuilder {
+     pub fn as_input(&self) -> &super::operation::list_ssh_public_keys::builders::ListSshPublicKeysInputBuilder {
          &self.inner
      }
 @@ -75,7 +75,7 @@
      ) -> ::std::result::Result<
-         crate::operation::list_ssh_public_keys::ListSshPublicKeysOutput,
+         super::operation::list_ssh_public_keys::ListSshPublicKeysOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::list_ssh_public_keys::ListSSHPublicKeysError,
-+            crate::operation::list_ssh_public_keys::ListSshPublicKeysError,
+-            super::operation::list_ssh_public_keys::ListSSHPublicKeysError,
++            super::operation::list_ssh_public_keys::ListSshPublicKeysError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -6695,26 +6695,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::list_ssh_public_keys::ListSSHPublicKeys::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::list_ssh_public_keys::ListSshPublicKeys::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::list_ssh_public_keys::ListSSHPublicKeys::operation_runtime_plugins(
++        let runtime_plugins = super::operation::list_ssh_public_keys::ListSshPublicKeys::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::list_ssh_public_keys::ListSSHPublicKeys::orchestrate(&runtime_plugins, input).await
-+        crate::operation::list_ssh_public_keys::ListSshPublicKeys::orchestrate(&runtime_plugins, input).await
+-        super::operation::list_ssh_public_keys::ListSSHPublicKeys::orchestrate(&runtime_plugins, input).await
++        super::operation::list_ssh_public_keys::ListSshPublicKeys::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -96,7 +96,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::list_ssh_public_keys::ListSshPublicKeysOutput,
--        crate::operation::list_ssh_public_keys::ListSSHPublicKeysError,
-+        crate::operation::list_ssh_public_keys::ListSshPublicKeysError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::list_ssh_public_keys::ListSshPublicKeysOutput,
+-        super::operation::list_ssh_public_keys::ListSSHPublicKeysError,
++        super::operation::list_ssh_public_keys::ListSshPublicKeysError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/list_ssh_public_keys.rs`
@@ -6771,7 +6771,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                ListSshPublicKeysEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::list_ssh_public_keys::ListSSHPublicKeysError,
+                 super::operation::list_ssh_public_keys::ListSSHPublicKeysError,
 @@ -147,12 +147,12 @@
  }
 
@@ -6798,8 +6798,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_ssh_public_keys_input::ser_list_ssh_public_keys_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_ssh_public_keys_input::ser_list_ssh_public_keys_op_input(&input)?,
+-            super::protocol_serde::shape_list_ssh_public_keys_input::ser_list_ssh_public_keys_input_input_input(&input)?,
++            super::protocol_serde::shape_list_ssh_public_keys_input::ser_list_ssh_public_keys_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -6836,9 +6836,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_user_policies_input::ser_list_user_policies_input_input_input(&input)?,
+-            super::protocol_serde::shape_list_user_policies_input::ser_list_user_policies_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_user_policies_input::ser_list_user_policies_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_user_policies_input::ser_list_user_policies_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -6860,10 +6860,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_user_tags_input::ser_list_user_tags_input_input_input(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_user_tags_input::ser_list_user_tags_input_input_input(
 -            &input,
 -        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_user_tags_input::ser_list_user_tags_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_user_tags_input::ser_list_user_tags_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -6883,8 +6883,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_users_input::ser_list_users_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_users_input::ser_list_users_op_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_users_input::ser_list_users_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_users_input::ser_list_users_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -6897,10 +6897,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/list_virtual_mfa_devices/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput,
+         super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
-+            crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError,
+-            super::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
++            super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -6919,26 +6919,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct ListVirtualMFADevicesFluentBuilder {
 +pub struct ListVirtualMfaDevicesFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -35,8 +35,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput,
--        crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput,
+-        super::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
 -    > for ListVirtualMFADevicesFluentBuilder
-+        crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError,
++        super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError,
 +    > for ListVirtualMfaDevicesFluentBuilder
  {
      fn send(
          self,
 @@ -44,14 +44,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput,
--            crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
-+            crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput,
+-            super::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
++            super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -6948,7 +6948,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `ListVirtualMFADevicesFluentBuilder`.
 +impl ListVirtualMfaDevicesFluentBuilder {
 +    /// Creates a new `ListVirtualMfaDevicesFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -59,7 +59,7 @@
@@ -6957,15 +6957,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the ListVirtualMFADevices as a reference.
 +    /// Access the ListVirtualMfaDevices as a reference.
-     pub fn as_input(&self) -> &crate::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesInputBuilder {
+     pub fn as_input(&self) -> &super::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesInputBuilder {
          &self.inner
      }
 @@ -76,7 +76,7 @@
      ) -> ::std::result::Result<
-         crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput,
+         super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
-+            crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError,
+-            super::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
++            super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -6973,26 +6973,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::list_virtual_mfa_devices::ListVirtualMFADevices::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevices::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::list_virtual_mfa_devices::ListVirtualMFADevices::operation_runtime_plugins(
++        let runtime_plugins = super::operation::list_virtual_mfa_devices::ListVirtualMfaDevices::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::list_virtual_mfa_devices::ListVirtualMFADevices::orchestrate(&runtime_plugins, input).await
-+        crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevices::orchestrate(&runtime_plugins, input).await
+-        super::operation::list_virtual_mfa_devices::ListVirtualMFADevices::orchestrate(&runtime_plugins, input).await
++        super::operation::list_virtual_mfa_devices::ListVirtualMfaDevices::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -97,7 +97,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput,
--        crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
-+        crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput,
+-        super::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
++        super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/list_virtual_mfa_devices.rs`
@@ -7049,7 +7049,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                ListVirtualMfaDevicesEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
+                 super::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
 @@ -151,12 +151,12 @@
  }
 
@@ -7076,8 +7076,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_virtual_mfa_devices_input::ser_list_virtual_mfa_devices_input_input_input(&input)?,
-+            crate::protocol_serde::shape_list_virtual_mfa_devices_input::ser_list_virtual_mfa_devices_op_input(&input)?,
+-            super::protocol_serde::shape_list_virtual_mfa_devices_input::ser_list_virtual_mfa_devices_input_input_input(&input)?,
++            super::protocol_serde::shape_list_virtual_mfa_devices_input::ser_list_virtual_mfa_devices_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -7114,8 +7114,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_put_account_properties_input::ser_put_account_properties_input_input_input(&input)?,
-+            crate::protocol_serde::shape_put_account_properties_input::ser_put_account_properties_op_input(&input)?,
+-            super::protocol_serde::shape_put_account_properties_input::ser_put_account_properties_input_input_input(&input)?,
++            super::protocol_serde::shape_put_account_properties_input::ser_put_account_properties_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -7136,9 +7136,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_put_group_policy_input::ser_put_group_policy_input_input_input(&input)?,
+-            super::protocol_serde::shape_put_group_policy_input::ser_put_group_policy_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_put_group_policy_input::ser_put_group_policy_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_put_group_policy_input::ser_put_group_policy_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -7161,8 +7161,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_put_role_permissions_boundary_input::ser_put_role_permissions_boundary_input_input_input(&input)?,
-+            crate::protocol_serde::shape_put_role_permissions_boundary_input::ser_put_role_permissions_boundary_op_input(&input)?,
+-            super::protocol_serde::shape_put_role_permissions_boundary_input::ser_put_role_permissions_boundary_input_input_input(&input)?,
++            super::protocol_serde::shape_put_role_permissions_boundary_input::ser_put_role_permissions_boundary_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -7183,9 +7183,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_put_role_policy_input::ser_put_role_policy_input_input_input(&input)?,
+-            super::protocol_serde::shape_put_role_policy_input::ser_put_role_policy_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_put_role_policy_input::ser_put_role_policy_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_put_role_policy_input::ser_put_role_policy_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -7206,8 +7206,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_put_user_permissions_boundary_input::ser_put_user_permissions_boundary_input_input_input(&input)?,
-+            crate::protocol_serde::shape_put_user_permissions_boundary_input::ser_put_user_permissions_boundary_op_input(&input)?,
+-            super::protocol_serde::shape_put_user_permissions_boundary_input::ser_put_user_permissions_boundary_input_input_input(&input)?,
++            super::protocol_serde::shape_put_user_permissions_boundary_input::ser_put_user_permissions_boundary_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -7228,9 +7228,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_put_user_policy_input::ser_put_user_policy_input_input_input(&input)?,
+-            super::protocol_serde::shape_put_user_policy_input::ser_put_user_policy_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_put_user_policy_input::ser_put_user_policy_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_put_user_policy_input::ser_put_user_policy_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -7251,8 +7251,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_reject_delegation_request_input::ser_reject_delegation_request_input_input_input(&input)?,
-+            crate::protocol_serde::shape_reject_delegation_request_input::ser_reject_delegation_request_op_input(&input)?,
+-            super::protocol_serde::shape_reject_delegation_request_input::ser_reject_delegation_request_input_input_input(&input)?,
++            super::protocol_serde::shape_reject_delegation_request_input::ser_reject_delegation_request_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -7265,10 +7265,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/remove_client_id_from_open_id_connect_provider/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
+         super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
-+            crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError,
+-            super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
++            super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -7284,26 +7284,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct RemoveClientIDFromOpenIDConnectProviderFluentBuilder {
 +pub struct RemoveClientIdFromOpenIdConnectProviderFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -33,8 +33,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
--        crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
+-        super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
 -    > for RemoveClientIDFromOpenIDConnectProviderFluentBuilder
-+        crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError,
++        super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError,
 +    > for RemoveClientIdFromOpenIdConnectProviderFluentBuilder
  {
      fn send(
          self,
 @@ -42,14 +42,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
--            crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
-+            crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
+-            super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
++            super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -7313,7 +7313,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `RemoveClientIDFromOpenIDConnectProviderFluentBuilder`.
 +impl RemoveClientIdFromOpenIdConnectProviderFluentBuilder {
 +    /// Creates a new `RemoveClientIdFromOpenIdConnectProviderFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -57,7 +57,7 @@
@@ -7324,13 +7324,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    /// Access the RemoveClientIdFromOpenIdConnectProvider as a reference.
      pub fn as_input(
          &self,
-     ) -> &crate::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderInputBuilder {
+     ) -> &super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderInputBuilder {
 @@ -76,7 +76,7 @@
      ) -> ::std::result::Result<
-         crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
+         super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
-+            crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError,
+-            super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
++            super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -7338,26 +7338,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
          let runtime_plugins =
--            crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProvider::operation_runtime_plugins(
-+            crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProvider::operation_runtime_plugins(
+-            super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProvider::operation_runtime_plugins(
++            super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProvider::operation_runtime_plugins(
                  self.handle.runtime_plugins.clone(),
                  &self.handle.conf,
                  self.config_override,
              );
--        crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProvider::orchestrate(
-+        crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProvider::orchestrate(
+-        super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProvider::orchestrate(
++        super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProvider::orchestrate(
              &runtime_plugins,
              input,
          )
 @@ -102,7 +102,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
--        crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
-+        crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
+-        super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
++        super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/remove_client_id_from_open_id_connect_provider.rs`
@@ -7414,7 +7414,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                RemoveClientIdFromOpenIdConnectProviderEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
+                 super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
 @@ -156,12 +156,12 @@
  }
 
@@ -7440,8 +7440,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_remove_client_id_from_open_id_connect_provider_input::ser_remove_client_id_from_open_id_connect_provider_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_remove_client_id_from_open_id_connect_provider_input::ser_remove_client_id_from_open_id_connect_provider_op_input(& input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_remove_client_id_from_open_id_connect_provider_input::ser_remove_client_id_from_open_id_connect_provider_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_remove_client_id_from_open_id_connect_provider_input::ser_remove_client_id_from_open_id_connect_provider_op_input(& input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -7478,8 +7478,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_remove_role_from_instance_profile_input::ser_remove_role_from_instance_profile_input_input_input(&input)?,
-+            crate::protocol_serde::shape_remove_role_from_instance_profile_input::ser_remove_role_from_instance_profile_op_input(&input)?,
+-            super::protocol_serde::shape_remove_role_from_instance_profile_input::ser_remove_role_from_instance_profile_input_input_input(&input)?,
++            super::protocol_serde::shape_remove_role_from_instance_profile_input::ser_remove_role_from_instance_profile_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -7500,8 +7500,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_remove_user_from_group_input::ser_remove_user_from_group_input_input_input(&input)?,
-+            crate::protocol_serde::shape_remove_user_from_group_input::ser_remove_user_from_group_op_input(&input)?,
+-            super::protocol_serde::shape_remove_user_from_group_input::ser_remove_user_from_group_input_input_input(&input)?,
++            super::protocol_serde::shape_remove_user_from_group_input::ser_remove_user_from_group_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -7522,8 +7522,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_reset_service_specific_credential_input::ser_reset_service_specific_credential_input_input_input(&input)?,
-+            crate::protocol_serde::shape_reset_service_specific_credential_input::ser_reset_service_specific_credential_op_input(&input)?,
+-            super::protocol_serde::shape_reset_service_specific_credential_input::ser_reset_service_specific_credential_input_input_input(&input)?,
++            super::protocol_serde::shape_reset_service_specific_credential_input::ser_reset_service_specific_credential_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -7536,10 +7536,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/resync_mfa_device/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::resync_mfa_device::ResyncMfaDeviceOutput,
+         super::operation::resync_mfa_device::ResyncMfaDeviceOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::resync_mfa_device::ResyncMFADeviceError,
-+            crate::operation::resync_mfa_device::ResyncMfaDeviceError,
+-            super::operation::resync_mfa_device::ResyncMFADeviceError,
++            super::operation::resync_mfa_device::ResyncMfaDeviceError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -7555,26 +7555,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct ResyncMFADeviceFluentBuilder {
 +pub struct ResyncMfaDeviceFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::resync_mfa_device::builders::ResyncMfaDeviceInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::resync_mfa_device::builders::ResyncMfaDeviceInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -33,8 +33,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::resync_mfa_device::ResyncMfaDeviceOutput,
--        crate::operation::resync_mfa_device::ResyncMFADeviceError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::resync_mfa_device::ResyncMfaDeviceOutput,
+-        super::operation::resync_mfa_device::ResyncMFADeviceError,
 -    > for ResyncMFADeviceFluentBuilder
-+        crate::operation::resync_mfa_device::ResyncMfaDeviceError,
++        super::operation::resync_mfa_device::ResyncMfaDeviceError,
 +    > for ResyncMfaDeviceFluentBuilder
  {
      fn send(
          self,
 @@ -42,14 +42,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::resync_mfa_device::ResyncMfaDeviceOutput,
--            crate::operation::resync_mfa_device::ResyncMFADeviceError,
-+            crate::operation::resync_mfa_device::ResyncMfaDeviceError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::resync_mfa_device::ResyncMfaDeviceOutput,
+-            super::operation::resync_mfa_device::ResyncMFADeviceError,
++            super::operation::resync_mfa_device::ResyncMfaDeviceError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -7584,7 +7584,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `ResyncMFADeviceFluentBuilder`.
 +impl ResyncMfaDeviceFluentBuilder {
 +    /// Creates a new `ResyncMfaDeviceFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -57,7 +57,7 @@
@@ -7593,15 +7593,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the ResyncMFADevice as a reference.
 +    /// Access the ResyncMfaDevice as a reference.
-     pub fn as_input(&self) -> &crate::operation::resync_mfa_device::builders::ResyncMfaDeviceInputBuilder {
+     pub fn as_input(&self) -> &super::operation::resync_mfa_device::builders::ResyncMfaDeviceInputBuilder {
          &self.inner
      }
 @@ -74,7 +74,7 @@
      ) -> ::std::result::Result<
-         crate::operation::resync_mfa_device::ResyncMfaDeviceOutput,
+         super::operation::resync_mfa_device::ResyncMfaDeviceOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::resync_mfa_device::ResyncMFADeviceError,
-+            crate::operation::resync_mfa_device::ResyncMfaDeviceError,
+-            super::operation::resync_mfa_device::ResyncMFADeviceError,
++            super::operation::resync_mfa_device::ResyncMfaDeviceError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -7609,26 +7609,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::resync_mfa_device::ResyncMFADevice::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::resync_mfa_device::ResyncMfaDevice::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::resync_mfa_device::ResyncMFADevice::operation_runtime_plugins(
++        let runtime_plugins = super::operation::resync_mfa_device::ResyncMfaDevice::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::resync_mfa_device::ResyncMFADevice::orchestrate(&runtime_plugins, input).await
-+        crate::operation::resync_mfa_device::ResyncMfaDevice::orchestrate(&runtime_plugins, input).await
+-        super::operation::resync_mfa_device::ResyncMFADevice::orchestrate(&runtime_plugins, input).await
++        super::operation::resync_mfa_device::ResyncMfaDevice::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -95,7 +95,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::resync_mfa_device::ResyncMfaDeviceOutput,
--        crate::operation::resync_mfa_device::ResyncMFADeviceError,
-+        crate::operation::resync_mfa_device::ResyncMfaDeviceError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::resync_mfa_device::ResyncMfaDeviceOutput,
+-        super::operation::resync_mfa_device::ResyncMFADeviceError,
++        super::operation::resync_mfa_device::ResyncMfaDeviceError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/resync_mfa_device.rs`
@@ -7685,7 +7685,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                ResyncMfaDeviceEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::resync_mfa_device::ResyncMFADeviceError,
+                 super::operation::resync_mfa_device::ResyncMFADeviceError,
 @@ -147,12 +147,12 @@
  }
 
@@ -7712,9 +7712,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_resync_mfa_device_input::ser_resync_mfa_device_input_input_input(&input)?,
+-            super::protocol_serde::shape_resync_mfa_device_input::ser_resync_mfa_device_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_resync_mfa_device_input::ser_resync_mfa_device_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_resync_mfa_device_input::ser_resync_mfa_device_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -7753,8 +7753,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_send_delegation_token_input::ser_send_delegation_token_input_input_input(&input)?,
-+            crate::protocol_serde::shape_send_delegation_token_input::ser_send_delegation_token_op_input(&input)?,
+-            super::protocol_serde::shape_send_delegation_token_input::ser_send_delegation_token_input_input_input(&input)?,
++            super::protocol_serde::shape_send_delegation_token_input::ser_send_delegation_token_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -7775,8 +7775,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_set_default_policy_version_input::ser_set_default_policy_version_input_input_input(&input)?,
-+            crate::protocol_serde::shape_set_default_policy_version_input::ser_set_default_policy_version_op_input(&input)?,
+-            super::protocol_serde::shape_set_default_policy_version_input::ser_set_default_policy_version_input_input_input(&input)?,
++            super::protocol_serde::shape_set_default_policy_version_input::ser_set_default_policy_version_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -7797,10 +7797,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_set_security_token_service_preferences_input::ser_set_security_token_service_preferences_input_input_input(
+-            super::protocol_serde::shape_set_security_token_service_preferences_input::ser_set_security_token_service_preferences_input_input_input(
 -                &input,
 -            )?,
-+            crate::protocol_serde::shape_set_security_token_service_preferences_input::ser_set_security_token_service_preferences_op_input(&input)?,
++            super::protocol_serde::shape_set_security_token_service_preferences_input::ser_set_security_token_service_preferences_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -7821,8 +7821,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_simulate_custom_policy_input::ser_simulate_custom_policy_input_input_input(&input)?,
-+            crate::protocol_serde::shape_simulate_custom_policy_input::ser_simulate_custom_policy_op_input(&input)?,
+-            super::protocol_serde::shape_simulate_custom_policy_input::ser_simulate_custom_policy_input_input_input(&input)?,
++            super::protocol_serde::shape_simulate_custom_policy_input::ser_simulate_custom_policy_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -7843,8 +7843,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_simulate_principal_policy_input::ser_simulate_principal_policy_input_input_input(&input)?,
-+            crate::protocol_serde::shape_simulate_principal_policy_input::ser_simulate_principal_policy_op_input(&input)?,
+-            super::protocol_serde::shape_simulate_principal_policy_input::ser_simulate_principal_policy_input_input_input(&input)?,
++            super::protocol_serde::shape_simulate_principal_policy_input::ser_simulate_principal_policy_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -7865,8 +7865,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_tag_instance_profile_input::ser_tag_instance_profile_input_input_input(&input)?,
-+            crate::protocol_serde::shape_tag_instance_profile_input::ser_tag_instance_profile_op_input(&input)?,
+-            super::protocol_serde::shape_tag_instance_profile_input::ser_tag_instance_profile_input_input_input(&input)?,
++            super::protocol_serde::shape_tag_instance_profile_input::ser_tag_instance_profile_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -7879,10 +7879,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/tag_mfa_device/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::tag_mfa_device::TagMfaDeviceOutput,
+         super::operation::tag_mfa_device::TagMfaDeviceOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::tag_mfa_device::TagMFADeviceError,
-+            crate::operation::tag_mfa_device::TagMfaDeviceError,
+-            super::operation::tag_mfa_device::TagMFADeviceError,
++            super::operation::tag_mfa_device::TagMfaDeviceError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -7901,26 +7901,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct TagMFADeviceFluentBuilder {
 +pub struct TagMfaDeviceFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::tag_mfa_device::builders::TagMfaDeviceInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::tag_mfa_device::builders::TagMfaDeviceInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -46,8 +46,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::tag_mfa_device::TagMfaDeviceOutput,
--        crate::operation::tag_mfa_device::TagMFADeviceError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::tag_mfa_device::TagMfaDeviceOutput,
+-        super::operation::tag_mfa_device::TagMFADeviceError,
 -    > for TagMFADeviceFluentBuilder
-+        crate::operation::tag_mfa_device::TagMfaDeviceError,
++        super::operation::tag_mfa_device::TagMfaDeviceError,
 +    > for TagMfaDeviceFluentBuilder
  {
      fn send(
          self,
 @@ -55,14 +55,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::tag_mfa_device::TagMfaDeviceOutput,
--            crate::operation::tag_mfa_device::TagMFADeviceError,
-+            crate::operation::tag_mfa_device::TagMfaDeviceError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::tag_mfa_device::TagMfaDeviceOutput,
+-            super::operation::tag_mfa_device::TagMFADeviceError,
++            super::operation::tag_mfa_device::TagMfaDeviceError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -7930,7 +7930,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `TagMFADeviceFluentBuilder`.
 +impl TagMfaDeviceFluentBuilder {
 +    /// Creates a new `TagMfaDeviceFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -70,7 +70,7 @@
@@ -7939,15 +7939,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the TagMFADevice as a reference.
 +    /// Access the TagMfaDevice as a reference.
-     pub fn as_input(&self) -> &crate::operation::tag_mfa_device::builders::TagMfaDeviceInputBuilder {
+     pub fn as_input(&self) -> &super::operation::tag_mfa_device::builders::TagMfaDeviceInputBuilder {
          &self.inner
      }
 @@ -87,7 +87,7 @@
      ) -> ::std::result::Result<
-         crate::operation::tag_mfa_device::TagMfaDeviceOutput,
+         super::operation::tag_mfa_device::TagMfaDeviceOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::tag_mfa_device::TagMFADeviceError,
-+            crate::operation::tag_mfa_device::TagMfaDeviceError,
+-            super::operation::tag_mfa_device::TagMFADeviceError,
++            super::operation::tag_mfa_device::TagMfaDeviceError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -7955,26 +7955,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::tag_mfa_device::TagMFADevice::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::tag_mfa_device::TagMfaDevice::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::tag_mfa_device::TagMFADevice::operation_runtime_plugins(
++        let runtime_plugins = super::operation::tag_mfa_device::TagMfaDevice::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::tag_mfa_device::TagMFADevice::orchestrate(&runtime_plugins, input).await
-+        crate::operation::tag_mfa_device::TagMfaDevice::orchestrate(&runtime_plugins, input).await
+-        super::operation::tag_mfa_device::TagMFADevice::orchestrate(&runtime_plugins, input).await
++        super::operation::tag_mfa_device::TagMfaDevice::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -108,7 +108,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::tag_mfa_device::TagMfaDeviceOutput,
--        crate::operation::tag_mfa_device::TagMFADeviceError,
-+        crate::operation::tag_mfa_device::TagMfaDeviceError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::tag_mfa_device::TagMfaDeviceOutput,
+-        super::operation::tag_mfa_device::TagMFADeviceError,
++        super::operation::tag_mfa_device::TagMfaDeviceError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/tag_mfa_device.rs`
@@ -8031,7 +8031,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                TagMfaDeviceEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::tag_mfa_device::TagMFADeviceError,
+                 super::operation::tag_mfa_device::TagMFADeviceError,
 @@ -147,12 +147,12 @@
  }
 
@@ -8057,10 +8057,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_tag_mfa_device_input::ser_tag_mfa_device_input_input_input(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_tag_mfa_device_input::ser_tag_mfa_device_input_input_input(
 -            &input,
 -        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_tag_mfa_device_input::ser_tag_mfa_device_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_tag_mfa_device_input::ser_tag_mfa_device_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -8089,10 +8089,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/tag_open_id_connect_provider/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
+         super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
-+            crate::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError,
+-            super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
++            super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -8111,26 +8111,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct TagOpenIDConnectProviderFluentBuilder {
 +pub struct TagOpenIdConnectProviderFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::tag_open_id_connect_provider::builders::TagOpenIdConnectProviderInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::tag_open_id_connect_provider::builders::TagOpenIdConnectProviderInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -46,8 +46,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
--        crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
+-        super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
 -    > for TagOpenIDConnectProviderFluentBuilder
-+        crate::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError,
++        super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError,
 +    > for TagOpenIdConnectProviderFluentBuilder
  {
      fn send(
          self,
 @@ -55,14 +55,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
--            crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
-+            crate::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
+-            super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
++            super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -8140,7 +8140,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `TagOpenIDConnectProviderFluentBuilder`.
 +impl TagOpenIdConnectProviderFluentBuilder {
 +    /// Creates a new `TagOpenIdConnectProviderFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -70,7 +70,7 @@
@@ -8149,15 +8149,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the TagOpenIDConnectProvider as a reference.
 +    /// Access the TagOpenIdConnectProvider as a reference.
-     pub fn as_input(&self) -> &crate::operation::tag_open_id_connect_provider::builders::TagOpenIdConnectProviderInputBuilder {
+     pub fn as_input(&self) -> &super::operation::tag_open_id_connect_provider::builders::TagOpenIdConnectProviderInputBuilder {
          &self.inner
      }
 @@ -87,7 +87,7 @@
      ) -> ::std::result::Result<
-         crate::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
+         super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
-+            crate::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError,
+-            super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
++            super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -8165,26 +8165,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProvider::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::tag_open_id_connect_provider::TagOpenIdConnectProvider::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::tag_open_id_connect_provider::TagOpenIDConnectProvider::operation_runtime_plugins(
++        let runtime_plugins = super::operation::tag_open_id_connect_provider::TagOpenIdConnectProvider::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProvider::orchestrate(&runtime_plugins, input).await
-+        crate::operation::tag_open_id_connect_provider::TagOpenIdConnectProvider::orchestrate(&runtime_plugins, input).await
+-        super::operation::tag_open_id_connect_provider::TagOpenIDConnectProvider::orchestrate(&runtime_plugins, input).await
++        super::operation::tag_open_id_connect_provider::TagOpenIdConnectProvider::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -108,7 +108,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
--        crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
-+        crate::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
+-        super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
++        super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/tag_open_id_connect_provider.rs`
@@ -8241,7 +8241,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                TagOpenIdConnectProviderEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
+                 super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
 @@ -150,12 +150,12 @@
  }
 
@@ -8268,8 +8268,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_tag_open_id_connect_provider_input::ser_tag_open_id_connect_provider_input_input_input(&input)?,
-+            crate::protocol_serde::shape_tag_open_id_connect_provider_input::ser_tag_open_id_connect_provider_op_input(&input)?,
+-            super::protocol_serde::shape_tag_open_id_connect_provider_input::ser_tag_open_id_connect_provider_input_input_input(&input)?,
++            super::protocol_serde::shape_tag_open_id_connect_provider_input::ser_tag_open_id_connect_provider_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -8305,8 +8305,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_tag_policy_input::ser_tag_policy_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_tag_policy_input::ser_tag_policy_op_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_tag_policy_input::ser_tag_policy_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_tag_policy_input::ser_tag_policy_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -8326,8 +8326,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_tag_role_input::ser_tag_role_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_tag_role_input::ser_tag_role_op_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_tag_role_input::ser_tag_role_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_tag_role_input::ser_tag_role_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -8340,10 +8340,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/tag_saml_provider/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::tag_saml_provider::TagSamlProviderOutput,
+         super::operation::tag_saml_provider::TagSamlProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::tag_saml_provider::TagSAMLProviderError,
-+            crate::operation::tag_saml_provider::TagSamlProviderError,
+-            super::operation::tag_saml_provider::TagSAMLProviderError,
++            super::operation::tag_saml_provider::TagSamlProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -8362,26 +8362,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct TagSAMLProviderFluentBuilder {
 +pub struct TagSamlProviderFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::tag_saml_provider::builders::TagSamlProviderInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::tag_saml_provider::builders::TagSamlProviderInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -46,8 +46,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::tag_saml_provider::TagSamlProviderOutput,
--        crate::operation::tag_saml_provider::TagSAMLProviderError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::tag_saml_provider::TagSamlProviderOutput,
+-        super::operation::tag_saml_provider::TagSAMLProviderError,
 -    > for TagSAMLProviderFluentBuilder
-+        crate::operation::tag_saml_provider::TagSamlProviderError,
++        super::operation::tag_saml_provider::TagSamlProviderError,
 +    > for TagSamlProviderFluentBuilder
  {
      fn send(
          self,
 @@ -55,14 +55,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::tag_saml_provider::TagSamlProviderOutput,
--            crate::operation::tag_saml_provider::TagSAMLProviderError,
-+            crate::operation::tag_saml_provider::TagSamlProviderError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::tag_saml_provider::TagSamlProviderOutput,
+-            super::operation::tag_saml_provider::TagSAMLProviderError,
++            super::operation::tag_saml_provider::TagSamlProviderError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -8391,7 +8391,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `TagSAMLProviderFluentBuilder`.
 +impl TagSamlProviderFluentBuilder {
 +    /// Creates a new `TagSamlProviderFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -70,7 +70,7 @@
@@ -8400,15 +8400,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the TagSAMLProvider as a reference.
 +    /// Access the TagSamlProvider as a reference.
-     pub fn as_input(&self) -> &crate::operation::tag_saml_provider::builders::TagSamlProviderInputBuilder {
+     pub fn as_input(&self) -> &super::operation::tag_saml_provider::builders::TagSamlProviderInputBuilder {
          &self.inner
      }
 @@ -87,7 +87,7 @@
      ) -> ::std::result::Result<
-         crate::operation::tag_saml_provider::TagSamlProviderOutput,
+         super::operation::tag_saml_provider::TagSamlProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::tag_saml_provider::TagSAMLProviderError,
-+            crate::operation::tag_saml_provider::TagSamlProviderError,
+-            super::operation::tag_saml_provider::TagSAMLProviderError,
++            super::operation::tag_saml_provider::TagSamlProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -8416,26 +8416,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::tag_saml_provider::TagSAMLProvider::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::tag_saml_provider::TagSamlProvider::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::tag_saml_provider::TagSAMLProvider::operation_runtime_plugins(
++        let runtime_plugins = super::operation::tag_saml_provider::TagSamlProvider::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::tag_saml_provider::TagSAMLProvider::orchestrate(&runtime_plugins, input).await
-+        crate::operation::tag_saml_provider::TagSamlProvider::orchestrate(&runtime_plugins, input).await
+-        super::operation::tag_saml_provider::TagSAMLProvider::orchestrate(&runtime_plugins, input).await
++        super::operation::tag_saml_provider::TagSamlProvider::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -108,7 +108,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::tag_saml_provider::TagSamlProviderOutput,
--        crate::operation::tag_saml_provider::TagSAMLProviderError,
-+        crate::operation::tag_saml_provider::TagSamlProviderError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::tag_saml_provider::TagSamlProviderOutput,
+-        super::operation::tag_saml_provider::TagSAMLProviderError,
++        super::operation::tag_saml_provider::TagSamlProviderError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/tag_saml_provider.rs`
@@ -8492,7 +8492,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                TagSamlProviderEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::tag_saml_provider::TagSAMLProviderError,
+                 super::operation::tag_saml_provider::TagSAMLProviderError,
 @@ -147,12 +147,12 @@
  }
 
@@ -8519,9 +8519,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_tag_saml_provider_input::ser_tag_saml_provider_input_input_input(&input)?,
+-            super::protocol_serde::shape_tag_saml_provider_input::ser_tag_saml_provider_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_tag_saml_provider_input::ser_tag_saml_provider_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_tag_saml_provider_input::ser_tag_saml_provider_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -8560,8 +8560,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_tag_server_certificate_input::ser_tag_server_certificate_input_input_input(&input)?,
-+            crate::protocol_serde::shape_tag_server_certificate_input::ser_tag_server_certificate_op_input(&input)?,
+-            super::protocol_serde::shape_tag_server_certificate_input::ser_tag_server_certificate_input_input_input(&input)?,
++            super::protocol_serde::shape_tag_server_certificate_input::ser_tag_server_certificate_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -8581,8 +8581,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_tag_user_input::ser_tag_user_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_tag_user_input::ser_tag_user_op_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_tag_user_input::ser_tag_user_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_tag_user_input::ser_tag_user_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -8603,8 +8603,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_untag_instance_profile_input::ser_untag_instance_profile_input_input_input(&input)?,
-+            crate::protocol_serde::shape_untag_instance_profile_input::ser_untag_instance_profile_op_input(&input)?,
+-            super::protocol_serde::shape_untag_instance_profile_input::ser_untag_instance_profile_input_input_input(&input)?,
++            super::protocol_serde::shape_untag_instance_profile_input::ser_untag_instance_profile_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -8617,10 +8617,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/untag_mfa_device/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::untag_mfa_device::UntagMfaDeviceOutput,
+         super::operation::untag_mfa_device::UntagMfaDeviceOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::untag_mfa_device::UntagMFADeviceError,
-+            crate::operation::untag_mfa_device::UntagMfaDeviceError,
+-            super::operation::untag_mfa_device::UntagMFADeviceError,
++            super::operation::untag_mfa_device::UntagMfaDeviceError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -8635,26 +8635,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct UntagMFADeviceFluentBuilder {
 +pub struct UntagMfaDeviceFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::untag_mfa_device::builders::UntagMfaDeviceInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::untag_mfa_device::builders::UntagMfaDeviceInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -32,8 +32,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::untag_mfa_device::UntagMfaDeviceOutput,
--        crate::operation::untag_mfa_device::UntagMFADeviceError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::untag_mfa_device::UntagMfaDeviceOutput,
+-        super::operation::untag_mfa_device::UntagMFADeviceError,
 -    > for UntagMFADeviceFluentBuilder
-+        crate::operation::untag_mfa_device::UntagMfaDeviceError,
++        super::operation::untag_mfa_device::UntagMfaDeviceError,
 +    > for UntagMfaDeviceFluentBuilder
  {
      fn send(
          self,
 @@ -41,14 +41,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::untag_mfa_device::UntagMfaDeviceOutput,
--            crate::operation::untag_mfa_device::UntagMFADeviceError,
-+            crate::operation::untag_mfa_device::UntagMfaDeviceError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::untag_mfa_device::UntagMfaDeviceOutput,
+-            super::operation::untag_mfa_device::UntagMFADeviceError,
++            super::operation::untag_mfa_device::UntagMfaDeviceError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -8664,7 +8664,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `UntagMFADeviceFluentBuilder`.
 +impl UntagMfaDeviceFluentBuilder {
 +    /// Creates a new `UntagMfaDeviceFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -56,7 +56,7 @@
@@ -8673,15 +8673,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the UntagMFADevice as a reference.
 +    /// Access the UntagMfaDevice as a reference.
-     pub fn as_input(&self) -> &crate::operation::untag_mfa_device::builders::UntagMfaDeviceInputBuilder {
+     pub fn as_input(&self) -> &super::operation::untag_mfa_device::builders::UntagMfaDeviceInputBuilder {
          &self.inner
      }
 @@ -73,7 +73,7 @@
      ) -> ::std::result::Result<
-         crate::operation::untag_mfa_device::UntagMfaDeviceOutput,
+         super::operation::untag_mfa_device::UntagMfaDeviceOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::untag_mfa_device::UntagMFADeviceError,
-+            crate::operation::untag_mfa_device::UntagMfaDeviceError,
+-            super::operation::untag_mfa_device::UntagMFADeviceError,
++            super::operation::untag_mfa_device::UntagMfaDeviceError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -8689,26 +8689,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::untag_mfa_device::UntagMFADevice::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::untag_mfa_device::UntagMfaDevice::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::untag_mfa_device::UntagMFADevice::operation_runtime_plugins(
++        let runtime_plugins = super::operation::untag_mfa_device::UntagMfaDevice::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::untag_mfa_device::UntagMFADevice::orchestrate(&runtime_plugins, input).await
-+        crate::operation::untag_mfa_device::UntagMfaDevice::orchestrate(&runtime_plugins, input).await
+-        super::operation::untag_mfa_device::UntagMFADevice::orchestrate(&runtime_plugins, input).await
++        super::operation::untag_mfa_device::UntagMfaDevice::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -94,7 +94,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::untag_mfa_device::UntagMfaDeviceOutput,
--        crate::operation::untag_mfa_device::UntagMFADeviceError,
-+        crate::operation::untag_mfa_device::UntagMfaDeviceError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::untag_mfa_device::UntagMfaDeviceOutput,
+-        super::operation::untag_mfa_device::UntagMFADeviceError,
++        super::operation::untag_mfa_device::UntagMfaDeviceError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/untag_mfa_device.rs`
@@ -8765,7 +8765,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                UntagMfaDeviceEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::untag_mfa_device::UntagMFADeviceError,
+                 super::operation::untag_mfa_device::UntagMFADeviceError,
 @@ -147,12 +147,12 @@
  }
 
@@ -8792,9 +8792,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_untag_mfa_device_input::ser_untag_mfa_device_input_input_input(&input)?,
+-            super::protocol_serde::shape_untag_mfa_device_input::ser_untag_mfa_device_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_untag_mfa_device_input::ser_untag_mfa_device_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_untag_mfa_device_input::ser_untag_mfa_device_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -8825,10 +8825,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/untag_open_id_connect_provider/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderOutput,
+         super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
-+            crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError,
+-            super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
++            super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -8843,26 +8843,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct UntagOpenIDConnectProviderFluentBuilder {
 +pub struct UntagOpenIdConnectProviderFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::untag_open_id_connect_provider::builders::UntagOpenIdConnectProviderInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::untag_open_id_connect_provider::builders::UntagOpenIdConnectProviderInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -32,8 +32,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderOutput,
--        crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderOutput,
+-        super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
 -    > for UntagOpenIDConnectProviderFluentBuilder
-+        crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError,
++        super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError,
 +    > for UntagOpenIdConnectProviderFluentBuilder
  {
      fn send(
          self,
 @@ -41,14 +41,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderOutput,
--            crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
-+            crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderOutput,
+-            super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
++            super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -8872,7 +8872,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `UntagOpenIDConnectProviderFluentBuilder`.
 +impl UntagOpenIdConnectProviderFluentBuilder {
 +    /// Creates a new `UntagOpenIdConnectProviderFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -56,7 +56,7 @@
@@ -8881,15 +8881,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the UntagOpenIDConnectProvider as a reference.
 +    /// Access the UntagOpenIdConnectProvider as a reference.
-     pub fn as_input(&self) -> &crate::operation::untag_open_id_connect_provider::builders::UntagOpenIdConnectProviderInputBuilder {
+     pub fn as_input(&self) -> &super::operation::untag_open_id_connect_provider::builders::UntagOpenIdConnectProviderInputBuilder {
          &self.inner
      }
 @@ -73,7 +73,7 @@
      ) -> ::std::result::Result<
-         crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderOutput,
+         super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
-+            crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError,
+-            super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
++            super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -8897,26 +8897,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProvider::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProvider::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProvider::operation_runtime_plugins(
++        let runtime_plugins = super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProvider::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProvider::orchestrate(&runtime_plugins, input).await
-+        crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProvider::orchestrate(&runtime_plugins, input).await
+-        super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProvider::orchestrate(&runtime_plugins, input).await
++        super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProvider::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -94,7 +94,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderOutput,
--        crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
-+        crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderOutput,
+-        super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
++        super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/untag_open_id_connect_provider.rs`
@@ -8973,7 +8973,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                UntagOpenIdConnectProviderEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
+                 super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
 @@ -150,12 +150,12 @@
  }
 
@@ -9000,8 +9000,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_untag_open_id_connect_provider_input::ser_untag_open_id_connect_provider_input_input_input(&input)?,
-+            crate::protocol_serde::shape_untag_open_id_connect_provider_input::ser_untag_open_id_connect_provider_op_input(&input)?,
+-            super::protocol_serde::shape_untag_open_id_connect_provider_input::ser_untag_open_id_connect_provider_input_input_input(&input)?,
++            super::protocol_serde::shape_untag_open_id_connect_provider_input::ser_untag_open_id_connect_provider_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -9037,10 +9037,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_untag_policy_input::ser_untag_policy_input_input_input(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_untag_policy_input::ser_untag_policy_input_input_input(
 -            &input,
 -        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_untag_policy_input::ser_untag_policy_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_untag_policy_input::ser_untag_policy_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -9060,8 +9060,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_untag_role_input::ser_untag_role_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_untag_role_input::ser_untag_role_op_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_untag_role_input::ser_untag_role_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_untag_role_input::ser_untag_role_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -9074,10 +9074,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/untag_saml_provider/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::untag_saml_provider::UntagSamlProviderOutput,
+         super::operation::untag_saml_provider::UntagSamlProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::untag_saml_provider::UntagSAMLProviderError,
-+            crate::operation::untag_saml_provider::UntagSamlProviderError,
+-            super::operation::untag_saml_provider::UntagSAMLProviderError,
++            super::operation::untag_saml_provider::UntagSamlProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -9092,26 +9092,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct UntagSAMLProviderFluentBuilder {
 +pub struct UntagSamlProviderFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::untag_saml_provider::builders::UntagSamlProviderInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::untag_saml_provider::builders::UntagSamlProviderInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -32,8 +32,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::untag_saml_provider::UntagSamlProviderOutput,
--        crate::operation::untag_saml_provider::UntagSAMLProviderError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::untag_saml_provider::UntagSamlProviderOutput,
+-        super::operation::untag_saml_provider::UntagSAMLProviderError,
 -    > for UntagSAMLProviderFluentBuilder
-+        crate::operation::untag_saml_provider::UntagSamlProviderError,
++        super::operation::untag_saml_provider::UntagSamlProviderError,
 +    > for UntagSamlProviderFluentBuilder
  {
      fn send(
          self,
 @@ -41,14 +41,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::untag_saml_provider::UntagSamlProviderOutput,
--            crate::operation::untag_saml_provider::UntagSAMLProviderError,
-+            crate::operation::untag_saml_provider::UntagSamlProviderError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::untag_saml_provider::UntagSamlProviderOutput,
+-            super::operation::untag_saml_provider::UntagSAMLProviderError,
++            super::operation::untag_saml_provider::UntagSamlProviderError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -9121,7 +9121,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `UntagSAMLProviderFluentBuilder`.
 +impl UntagSamlProviderFluentBuilder {
 +    /// Creates a new `UntagSamlProviderFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -56,7 +56,7 @@
@@ -9130,15 +9130,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the UntagSAMLProvider as a reference.
 +    /// Access the UntagSamlProvider as a reference.
-     pub fn as_input(&self) -> &crate::operation::untag_saml_provider::builders::UntagSamlProviderInputBuilder {
+     pub fn as_input(&self) -> &super::operation::untag_saml_provider::builders::UntagSamlProviderInputBuilder {
          &self.inner
      }
 @@ -73,7 +73,7 @@
      ) -> ::std::result::Result<
-         crate::operation::untag_saml_provider::UntagSamlProviderOutput,
+         super::operation::untag_saml_provider::UntagSamlProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::untag_saml_provider::UntagSAMLProviderError,
-+            crate::operation::untag_saml_provider::UntagSamlProviderError,
+-            super::operation::untag_saml_provider::UntagSAMLProviderError,
++            super::operation::untag_saml_provider::UntagSamlProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -9146,26 +9146,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::untag_saml_provider::UntagSAMLProvider::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::untag_saml_provider::UntagSamlProvider::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::untag_saml_provider::UntagSAMLProvider::operation_runtime_plugins(
++        let runtime_plugins = super::operation::untag_saml_provider::UntagSamlProvider::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::untag_saml_provider::UntagSAMLProvider::orchestrate(&runtime_plugins, input).await
-+        crate::operation::untag_saml_provider::UntagSamlProvider::orchestrate(&runtime_plugins, input).await
+-        super::operation::untag_saml_provider::UntagSAMLProvider::orchestrate(&runtime_plugins, input).await
++        super::operation::untag_saml_provider::UntagSamlProvider::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -94,7 +94,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::untag_saml_provider::UntagSamlProviderOutput,
--        crate::operation::untag_saml_provider::UntagSAMLProviderError,
-+        crate::operation::untag_saml_provider::UntagSamlProviderError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::untag_saml_provider::UntagSamlProviderOutput,
+-        super::operation::untag_saml_provider::UntagSAMLProviderError,
++        super::operation::untag_saml_provider::UntagSamlProviderError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/untag_saml_provider.rs`
@@ -9222,7 +9222,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                UntagSamlProviderEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::untag_saml_provider::UntagSAMLProviderError,
+                 super::operation::untag_saml_provider::UntagSAMLProviderError,
 @@ -147,12 +147,12 @@
  }
 
@@ -9249,9 +9249,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_untag_saml_provider_input::ser_untag_saml_provider_input_input_input(&input)?,
+-            super::protocol_serde::shape_untag_saml_provider_input::ser_untag_saml_provider_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_untag_saml_provider_input::ser_untag_saml_provider_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_untag_saml_provider_input::ser_untag_saml_provider_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -9290,8 +9290,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_untag_server_certificate_input::ser_untag_server_certificate_input_input_input(&input)?,
-+            crate::protocol_serde::shape_untag_server_certificate_input::ser_untag_server_certificate_op_input(&input)?,
+-            super::protocol_serde::shape_untag_server_certificate_input::ser_untag_server_certificate_input_input_input(&input)?,
++            super::protocol_serde::shape_untag_server_certificate_input::ser_untag_server_certificate_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -9311,8 +9311,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_untag_user_input::ser_untag_user_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_untag_user_input::ser_untag_user_op_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_untag_user_input::ser_untag_user_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_untag_user_input::ser_untag_user_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -9333,9 +9333,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_update_access_key_input::ser_update_access_key_input_input_input(&input)?,
+-            super::protocol_serde::shape_update_access_key_input::ser_update_access_key_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_update_access_key_input::ser_update_access_key_op_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_update_access_key_input::ser_update_access_key_op_input(
 +            &input,
 +        )?);
          if let Some(content_length) = body.content_length() {
@@ -9350,7 +9350,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/update_account_password_policy/_update_account_password_policy_input.rs
 @@ -277,11 +277,11 @@
      > {
-         ::std::result::Result::Ok(crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyInput {
+         ::std::result::Result::Ok(super::operation::update_account_password_policy::UpdateAccountPasswordPolicyInput {
              minimum_password_length: self.minimum_password_length,
 -            require_symbols: self.require_symbols,
 -            require_numbers: self.require_numbers,
@@ -9382,8 +9382,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_update_account_password_policy_input::ser_update_account_password_policy_input_input_input(&input)?,
-+            crate::protocol_serde::shape_update_account_password_policy_input::ser_update_account_password_policy_op_input(&input)?,
+-            super::protocol_serde::shape_update_account_password_policy_input::ser_update_account_password_policy_input_input_input(&input)?,
++            super::protocol_serde::shape_update_account_password_policy_input::ser_update_account_password_policy_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -9404,8 +9404,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_update_assume_role_policy_input::ser_update_assume_role_policy_input_input_input(&input)?,
-+            crate::protocol_serde::shape_update_assume_role_policy_input::ser_update_assume_role_policy_op_input(&input)?,
+-            super::protocol_serde::shape_update_assume_role_policy_input::ser_update_assume_role_policy_input_input_input(&input)?,
++            super::protocol_serde::shape_update_assume_role_policy_input::ser_update_assume_role_policy_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -9426,8 +9426,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_update_delegation_request_input::ser_update_delegation_request_input_input_input(&input)?,
-+            crate::protocol_serde::shape_update_delegation_request_input::ser_update_delegation_request_op_input(&input)?,
+-            super::protocol_serde::shape_update_delegation_request_input::ser_update_delegation_request_input_input_input(&input)?,
++            super::protocol_serde::shape_update_delegation_request_input::ser_update_delegation_request_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -9447,10 +9447,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_update_group_input::ser_update_group_input_input_input(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_update_group_input::ser_update_group_input_input_input(
 -            &input,
 -        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_update_group_input::ser_update_group_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_update_group_input::ser_update_group_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -9471,8 +9471,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_update_login_profile_input::ser_update_login_profile_input_input_input(&input)?,
-+            crate::protocol_serde::shape_update_login_profile_input::ser_update_login_profile_op_input(&input)?,
+-            super::protocol_serde::shape_update_login_profile_input::ser_update_login_profile_input_input_input(&input)?,
++            super::protocol_serde::shape_update_login_profile_input::ser_update_login_profile_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -9485,10 +9485,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/update_open_id_connect_provider_thumbprint/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
+         super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
-+            crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
+-            super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
++            super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -9507,26 +9507,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct UpdateOpenIDConnectProviderThumbprintFluentBuilder {
 +pub struct UpdateOpenIdConnectProviderThumbprintFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -38,8 +38,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
--        crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
+-        super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
 -    > for UpdateOpenIDConnectProviderThumbprintFluentBuilder
-+        crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
++        super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
 +    > for UpdateOpenIdConnectProviderThumbprintFluentBuilder
  {
      fn send(
          self,
 @@ -47,14 +47,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
--            crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
-+            crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
+-            super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
++            super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -9536,7 +9536,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `UpdateOpenIDConnectProviderThumbprintFluentBuilder`.
 +impl UpdateOpenIdConnectProviderThumbprintFluentBuilder {
 +    /// Creates a new `UpdateOpenIdConnectProviderThumbprintFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -62,7 +62,7 @@
@@ -9547,13 +9547,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    /// Access the UpdateOpenIdConnectProviderThumbprint as a reference.
      pub fn as_input(
          &self,
-     ) -> &crate::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintInputBuilder {
+     ) -> &super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintInputBuilder {
 @@ -81,7 +81,7 @@
      ) -> ::std::result::Result<
-         crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
+         super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
-+            crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
+-            super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
++            super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -9561,26 +9561,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
          let runtime_plugins =
--            crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprint::operation_runtime_plugins(
-+            crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprint::operation_runtime_plugins(
+-            super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprint::operation_runtime_plugins(
++            super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprint::operation_runtime_plugins(
                  self.handle.runtime_plugins.clone(),
                  &self.handle.conf,
                  self.config_override,
              );
--        crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprint::orchestrate(&runtime_plugins, input)
-+        crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprint::orchestrate(&runtime_plugins, input)
+-        super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprint::orchestrate(&runtime_plugins, input)
++        super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprint::orchestrate(&runtime_plugins, input)
              .await
      }
 
 @@ -104,7 +104,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
--        crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
-+        crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
+-        super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
++        super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/update_open_id_connect_provider_thumbprint.rs`
@@ -9637,7 +9637,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                UpdateOpenIdConnectProviderThumbprintEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
+                 super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
 @@ -156,12 +156,12 @@
  }
 
@@ -9663,9 +9663,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_update_open_id_connect_provider_thumbprint_input::ser_update_open_id_connect_provider_thumbprint_input_input_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_update_open_id_connect_provider_thumbprint_input::ser_update_open_id_connect_provider_thumbprint_input_input_input(&input)?);
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_update_open_id_connect_provider_thumbprint_input::ser_update_open_id_connect_provider_thumbprint_op_input(
++            super::protocol_serde::shape_update_open_id_connect_provider_thumbprint_input::ser_update_open_id_connect_provider_thumbprint_op_input(
 +                &input,
 +            )?,
 +        );
@@ -9705,8 +9705,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body =
--            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_update_role_input::ser_update_role_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_update_role_input::ser_update_role_op_input(&input)?);
+-            ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_update_role_input::ser_update_role_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_update_role_input::ser_update_role_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -9727,8 +9727,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_update_role_description_input::ser_update_role_description_input_input_input(&input)?,
-+            crate::protocol_serde::shape_update_role_description_input::ser_update_role_description_op_input(&input)?,
+-            super::protocol_serde::shape_update_role_description_input::ser_update_role_description_input_input_input(&input)?,
++            super::protocol_serde::shape_update_role_description_input::ser_update_role_description_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -9741,10 +9741,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/update_saml_provider/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::update_saml_provider::UpdateSamlProviderOutput,
+         super::operation::update_saml_provider::UpdateSamlProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::update_saml_provider::UpdateSAMLProviderError,
-+            crate::operation::update_saml_provider::UpdateSamlProviderError,
+-            super::operation::update_saml_provider::UpdateSAMLProviderError,
++            super::operation::update_saml_provider::UpdateSamlProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -9759,26 +9759,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct UpdateSAMLProviderFluentBuilder {
 +pub struct UpdateSamlProviderFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::update_saml_provider::builders::UpdateSamlProviderInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::update_saml_provider::builders::UpdateSamlProviderInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -32,8 +32,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::update_saml_provider::UpdateSamlProviderOutput,
--        crate::operation::update_saml_provider::UpdateSAMLProviderError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::update_saml_provider::UpdateSamlProviderOutput,
+-        super::operation::update_saml_provider::UpdateSAMLProviderError,
 -    > for UpdateSAMLProviderFluentBuilder
-+        crate::operation::update_saml_provider::UpdateSamlProviderError,
++        super::operation::update_saml_provider::UpdateSamlProviderError,
 +    > for UpdateSamlProviderFluentBuilder
  {
      fn send(
          self,
 @@ -41,14 +41,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::update_saml_provider::UpdateSamlProviderOutput,
--            crate::operation::update_saml_provider::UpdateSAMLProviderError,
-+            crate::operation::update_saml_provider::UpdateSamlProviderError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::update_saml_provider::UpdateSamlProviderOutput,
+-            super::operation::update_saml_provider::UpdateSAMLProviderError,
++            super::operation::update_saml_provider::UpdateSamlProviderError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -9788,7 +9788,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `UpdateSAMLProviderFluentBuilder`.
 +impl UpdateSamlProviderFluentBuilder {
 +    /// Creates a new `UpdateSamlProviderFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -56,7 +56,7 @@
@@ -9797,15 +9797,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the UpdateSAMLProvider as a reference.
 +    /// Access the UpdateSamlProvider as a reference.
-     pub fn as_input(&self) -> &crate::operation::update_saml_provider::builders::UpdateSamlProviderInputBuilder {
+     pub fn as_input(&self) -> &super::operation::update_saml_provider::builders::UpdateSamlProviderInputBuilder {
          &self.inner
      }
 @@ -73,7 +73,7 @@
      ) -> ::std::result::Result<
-         crate::operation::update_saml_provider::UpdateSamlProviderOutput,
+         super::operation::update_saml_provider::UpdateSamlProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::update_saml_provider::UpdateSAMLProviderError,
-+            crate::operation::update_saml_provider::UpdateSamlProviderError,
+-            super::operation::update_saml_provider::UpdateSAMLProviderError,
++            super::operation::update_saml_provider::UpdateSamlProviderError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -9813,26 +9813,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::update_saml_provider::UpdateSAMLProvider::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::update_saml_provider::UpdateSamlProvider::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::update_saml_provider::UpdateSAMLProvider::operation_runtime_plugins(
++        let runtime_plugins = super::operation::update_saml_provider::UpdateSamlProvider::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::update_saml_provider::UpdateSAMLProvider::orchestrate(&runtime_plugins, input).await
-+        crate::operation::update_saml_provider::UpdateSamlProvider::orchestrate(&runtime_plugins, input).await
+-        super::operation::update_saml_provider::UpdateSAMLProvider::orchestrate(&runtime_plugins, input).await
++        super::operation::update_saml_provider::UpdateSamlProvider::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -94,7 +94,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::update_saml_provider::UpdateSamlProviderOutput,
--        crate::operation::update_saml_provider::UpdateSAMLProviderError,
-+        crate::operation::update_saml_provider::UpdateSamlProviderError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::update_saml_provider::UpdateSamlProviderOutput,
+-        super::operation::update_saml_provider::UpdateSAMLProviderError,
++        super::operation::update_saml_provider::UpdateSamlProviderError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/update_saml_provider.rs`
@@ -9889,7 +9889,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                UpdateSamlProviderEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::update_saml_provider::UpdateSAMLProviderError,
+                 super::operation::update_saml_provider::UpdateSAMLProviderError,
 @@ -147,12 +147,12 @@
  }
 
@@ -9916,8 +9916,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_update_saml_provider_input::ser_update_saml_provider_input_input_input(&input)?,
-+            crate::protocol_serde::shape_update_saml_provider_input::ser_update_saml_provider_op_input(&input)?,
+-            super::protocol_serde::shape_update_saml_provider_input::ser_update_saml_provider_input_input_input(&input)?,
++            super::protocol_serde::shape_update_saml_provider_input::ser_update_saml_provider_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -9954,8 +9954,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_update_server_certificate_input::ser_update_server_certificate_input_input_input(&input)?,
-+            crate::protocol_serde::shape_update_server_certificate_input::ser_update_server_certificate_op_input(&input)?,
+-            super::protocol_serde::shape_update_server_certificate_input::ser_update_server_certificate_input_input_input(&input)?,
++            super::protocol_serde::shape_update_server_certificate_input::ser_update_server_certificate_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -9976,8 +9976,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_update_service_specific_credential_input::ser_update_service_specific_credential_input_input_input(&input)?,
-+            crate::protocol_serde::shape_update_service_specific_credential_input::ser_update_service_specific_credential_op_input(&input)?,
+-            super::protocol_serde::shape_update_service_specific_credential_input::ser_update_service_specific_credential_input_input_input(&input)?,
++            super::protocol_serde::shape_update_service_specific_credential_input::ser_update_service_specific_credential_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -9998,8 +9998,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_update_signing_certificate_input::ser_update_signing_certificate_input_input_input(&input)?,
-+            crate::protocol_serde::shape_update_signing_certificate_input::ser_update_signing_certificate_op_input(&input)?,
+-            super::protocol_serde::shape_update_signing_certificate_input::ser_update_signing_certificate_input_input_input(&input)?,
++            super::protocol_serde::shape_update_signing_certificate_input::ser_update_signing_certificate_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -10012,10 +10012,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/update_ssh_public_key/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
+         super::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
-+            crate::operation::update_ssh_public_key::UpdateSshPublicKeyError,
+-            super::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
++            super::operation::update_ssh_public_key::UpdateSshPublicKeyError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -10031,26 +10031,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct UpdateSSHPublicKeyFluentBuilder {
 +pub struct UpdateSshPublicKeyFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::update_ssh_public_key::builders::UpdateSshPublicKeyInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::update_ssh_public_key::builders::UpdateSshPublicKeyInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -33,8 +33,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
--        crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
+-        super::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
 -    > for UpdateSSHPublicKeyFluentBuilder
-+        crate::operation::update_ssh_public_key::UpdateSshPublicKeyError,
++        super::operation::update_ssh_public_key::UpdateSshPublicKeyError,
 +    > for UpdateSshPublicKeyFluentBuilder
  {
      fn send(
          self,
 @@ -42,14 +42,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
--            crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
-+            crate::operation::update_ssh_public_key::UpdateSshPublicKeyError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
+-            super::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
++            super::operation::update_ssh_public_key::UpdateSshPublicKeyError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -10060,7 +10060,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `UpdateSSHPublicKeyFluentBuilder`.
 +impl UpdateSshPublicKeyFluentBuilder {
 +    /// Creates a new `UpdateSshPublicKeyFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -57,7 +57,7 @@
@@ -10069,15 +10069,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the UpdateSSHPublicKey as a reference.
 +    /// Access the UpdateSshPublicKey as a reference.
-     pub fn as_input(&self) -> &crate::operation::update_ssh_public_key::builders::UpdateSshPublicKeyInputBuilder {
+     pub fn as_input(&self) -> &super::operation::update_ssh_public_key::builders::UpdateSshPublicKeyInputBuilder {
          &self.inner
      }
 @@ -74,7 +74,7 @@
      ) -> ::std::result::Result<
-         crate::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
+         super::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
-+            crate::operation::update_ssh_public_key::UpdateSshPublicKeyError,
+-            super::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
++            super::operation::update_ssh_public_key::UpdateSshPublicKeyError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -10085,26 +10085,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::update_ssh_public_key::UpdateSSHPublicKey::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::update_ssh_public_key::UpdateSshPublicKey::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::update_ssh_public_key::UpdateSSHPublicKey::operation_runtime_plugins(
++        let runtime_plugins = super::operation::update_ssh_public_key::UpdateSshPublicKey::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::update_ssh_public_key::UpdateSSHPublicKey::orchestrate(&runtime_plugins, input).await
-+        crate::operation::update_ssh_public_key::UpdateSshPublicKey::orchestrate(&runtime_plugins, input).await
+-        super::operation::update_ssh_public_key::UpdateSSHPublicKey::orchestrate(&runtime_plugins, input).await
++        super::operation::update_ssh_public_key::UpdateSshPublicKey::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -95,7 +95,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
--        crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
-+        crate::operation::update_ssh_public_key::UpdateSshPublicKeyError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
+-        super::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
++        super::operation::update_ssh_public_key::UpdateSshPublicKeyError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/update_ssh_public_key.rs`
@@ -10161,7 +10161,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                UpdateSshPublicKeyEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
+                 super::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
 @@ -147,12 +147,12 @@
  }
 
@@ -10188,8 +10188,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_update_ssh_public_key_input::ser_update_ssh_public_key_input_input_input(&input)?,
-+            crate::protocol_serde::shape_update_ssh_public_key_input::ser_update_ssh_public_key_op_input(&input)?,
+-            super::protocol_serde::shape_update_ssh_public_key_input::ser_update_ssh_public_key_input_input_input(&input)?,
++            super::protocol_serde::shape_update_ssh_public_key_input::ser_update_ssh_public_key_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -10226,8 +10226,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body =
--            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_update_user_input::ser_update_user_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_update_user_input::ser_update_user_op_input(&input)?);
+-            ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_update_user_input::ser_update_user_input_input_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_update_user_input::ser_update_user_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -10248,8 +10248,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_upload_server_certificate_input::ser_upload_server_certificate_input_input_input(&input)?,
-+            crate::protocol_serde::shape_upload_server_certificate_input::ser_upload_server_certificate_op_input(&input)?,
+-            super::protocol_serde::shape_upload_server_certificate_input::ser_upload_server_certificate_input_input_input(&input)?,
++            super::protocol_serde::shape_upload_server_certificate_input::ser_upload_server_certificate_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -10270,8 +10270,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_upload_signing_certificate_input::ser_upload_signing_certificate_input_input_input(&input)?,
-+            crate::protocol_serde::shape_upload_signing_certificate_input::ser_upload_signing_certificate_op_input(&input)?,
+-            super::protocol_serde::shape_upload_signing_certificate_input::ser_upload_signing_certificate_input_input_input(&input)?,
++            super::protocol_serde::shape_upload_signing_certificate_input::ser_upload_signing_certificate_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -10284,10 +10284,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/upload_ssh_public_key/builders.rs
 @@ -11,7 +11,7 @@
      ) -> ::std::result::Result<
-         crate::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
+         super::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
-+            crate::operation::upload_ssh_public_key::UploadSshPublicKeyError,
+-            super::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
++            super::operation::upload_ssh_public_key::UploadSshPublicKeyError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -10303,26 +10303,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 -pub struct UploadSSHPublicKeyFluentBuilder {
 +pub struct UploadSshPublicKeyFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::upload_ssh_public_key::builders::UploadSshPublicKeyInputBuilder,
-     config_override: ::std::option::Option<crate::config::Builder>,
+     handle: ::std::sync::Arc<super::client::Handle>,
+     inner: super::operation::upload_ssh_public_key::builders::UploadSshPublicKeyInputBuilder,
+     config_override: ::std::option::Option<super::config::Builder>,
 @@ -33,8 +33,8 @@
  impl
-     crate::client::customize::internal::CustomizableSend<
-         crate::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
--        crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
+     super::client::customize::internal::CustomizableSend<
+         super::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
+-        super::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
 -    > for UploadSSHPublicKeyFluentBuilder
-+        crate::operation::upload_ssh_public_key::UploadSshPublicKeyError,
++        super::operation::upload_ssh_public_key::UploadSshPublicKeyError,
 +    > for UploadSshPublicKeyFluentBuilder
  {
      fn send(
          self,
 @@ -42,14 +42,14 @@
-     ) -> crate::client::customize::internal::BoxFuture<
-         crate::client::customize::internal::SendResult<
-             crate::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
--            crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
-+            crate::operation::upload_ssh_public_key::UploadSshPublicKeyError,
+     ) -> super::client::customize::internal::BoxFuture<
+         super::client::customize::internal::SendResult<
+             super::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
+-            super::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
++            super::operation::upload_ssh_public_key::UploadSshPublicKeyError,
          >,
      > {
          ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
@@ -10332,7 +10332,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// Creates a new `UploadSSHPublicKeyFluentBuilder`.
 +impl UploadSshPublicKeyFluentBuilder {
 +    /// Creates a new `UploadSshPublicKeyFluentBuilder`.
-     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+     pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
          Self {
              handle,
 @@ -57,7 +57,7 @@
@@ -10341,15 +10341,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// Access the UploadSSHPublicKey as a reference.
 +    /// Access the UploadSshPublicKey as a reference.
-     pub fn as_input(&self) -> &crate::operation::upload_ssh_public_key::builders::UploadSshPublicKeyInputBuilder {
+     pub fn as_input(&self) -> &super::operation::upload_ssh_public_key::builders::UploadSshPublicKeyInputBuilder {
          &self.inner
      }
 @@ -74,7 +74,7 @@
      ) -> ::std::result::Result<
-         crate::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
+         super::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
--            crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
-+            crate::operation::upload_ssh_public_key::UploadSshPublicKeyError,
+-            super::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
++            super::operation::upload_ssh_public_key::UploadSshPublicKeyError,
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
@@ -10357,26 +10357,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = crate::operation::upload_ssh_public_key::UploadSSHPublicKey::operation_runtime_plugins(
-+        let runtime_plugins = crate::operation::upload_ssh_public_key::UploadSshPublicKey::operation_runtime_plugins(
+-        let runtime_plugins = super::operation::upload_ssh_public_key::UploadSSHPublicKey::operation_runtime_plugins(
++        let runtime_plugins = super::operation::upload_ssh_public_key::UploadSshPublicKey::operation_runtime_plugins(
              self.handle.runtime_plugins.clone(),
              &self.handle.conf,
              self.config_override,
          );
--        crate::operation::upload_ssh_public_key::UploadSSHPublicKey::orchestrate(&runtime_plugins, input).await
-+        crate::operation::upload_ssh_public_key::UploadSshPublicKey::orchestrate(&runtime_plugins, input).await
+-        super::operation::upload_ssh_public_key::UploadSSHPublicKey::orchestrate(&runtime_plugins, input).await
++        super::operation::upload_ssh_public_key::UploadSshPublicKey::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 @@ -95,7 +95,7 @@
          self,
-     ) -> crate::client::customize::CustomizableOperation<
-         crate::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
--        crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
-+        crate::operation::upload_ssh_public_key::UploadSshPublicKeyError,
+     ) -> super::client::customize::CustomizableOperation<
+         super::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
+-        super::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
++        super::operation::upload_ssh_public_key::UploadSshPublicKeyError,
          Self,
      > {
-         crate::client::customize::CustomizableOperation::new(self)
+         super::client::customize::CustomizableOperation::new(self)
 ```
 
 ### `src/operation/upload_ssh_public_key.rs`
@@ -10433,7 +10433,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                UploadSshPublicKeyEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                 crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
+                 super::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
 @@ -147,12 +147,12 @@
  }
 
@@ -10460,8 +10460,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_upload_ssh_public_key_input::ser_upload_ssh_public_key_input_input_input(&input)?,
-+            crate::protocol_serde::shape_upload_ssh_public_key_input::ser_upload_ssh_public_key_op_input(&input)?,
+-            super::protocol_serde::shape_upload_ssh_public_key_input::ser_upload_ssh_public_key_input_input_input(&input)?,
++            super::protocol_serde::shape_upload_ssh_public_key_input::ser_upload_ssh_public_key_op_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -10586,13 +10586,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/serde_util.rs
 +++ generated/src/serde_util.rs
+@@ -98,7 +98,7 @@
+     if builder.password_policy.is_none() {
+         builder.password_policy = {
+             let builder = super::types::builders::PasswordPolicyBuilder::default();
+-            Some(builder.build())
++            builder.build().ok()
+         }
+     }
+     builder
+@@ -212,7 +212,7 @@
+     if builder.role_template_version.is_none() {
+         builder.role_template_version = {
+             let builder = super::types::builders::RoleTemplateVersionBuilder::default();
+-            Some(builder.build())
++            builder.build().ok()
+         }
+     }
+     builder
 @@ -642,6 +642,24 @@
      builder
  }
 
 +pub(crate) fn server_certificate_metadata_correct_errors(
-+    mut builder: crate::types::builders::ServerCertificateMetadataBuilder,
-+) -> crate::types::builders::ServerCertificateMetadataBuilder {
++    mut builder: super::types::builders::ServerCertificateMetadataBuilder,
++) -> super::types::builders::ServerCertificateMetadataBuilder {
 +    if builder.path.is_none() {
 +        builder.path = Some(Default::default())
 +    }
@@ -10608,7 +10626,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    builder
 +}
 +
- pub(crate) fn user_correct_errors(mut builder: crate::types::builders::UserBuilder) -> crate::types::builders::UserBuilder {
+ pub(crate) fn user_correct_errors(mut builder: super::types::builders::UserBuilder) -> super::types::builders::UserBuilder {
      if builder.path.is_none() {
          builder.path = Some(Default::default())
 @@ -701,24 +719,6 @@
@@ -10616,8 +10634,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 -pub(crate) fn server_certificate_metadata_correct_errors(
--    mut builder: crate::types::builders::ServerCertificateMetadataBuilder,
--) -> crate::types::builders::ServerCertificateMetadataBuilder {
+-    mut builder: super::types::builders::ServerCertificateMetadataBuilder,
+-) -> super::types::builders::ServerCertificateMetadataBuilder {
 -    if builder.path.is_none() {
 -        builder.path = Some(Default::default())
 -    }
@@ -10634,8 +10652,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 -
  pub(crate) fn service_specific_credential_correct_errors(
-     mut builder: crate::types::builders::ServiceSpecificCredentialBuilder,
- ) -> crate::types::builders::ServiceSpecificCredentialBuilder {
+     mut builder: super::types::builders::ServiceSpecificCredentialBuilder,
+ ) -> super::types::builders::ServiceSpecificCredentialBuilder {
 ```
 
 ### `src/types/_delegation_permission.rs`
@@ -10651,7 +10669,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <a href="">partner onboarding documentation</a> to understand how to create a delegation template.</p>
      pub policy_template_arn: ::std::option::Option<::std::string::String>,
      /// <p>A list of policy parameters that define the scope and constraints of the delegated permissions.</p>
-     pub parameters: ::std::option::Option<::std::vec::Vec<crate::types::PolicyParameter>>,
+     pub parameters: ::std::option::Option<::std::vec::Vec<super::types::PolicyParameter>>,
  }
  impl DelegationPermission {
 -    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <code>partner onboarding documentation</code> to understand how to create a delegation template.</p>
@@ -10660,7 +10678,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.policy_template_arn.as_deref()
      }
 @@ -36,17 +36,17 @@
-     pub(crate) parameters: ::std::option::Option<::std::vec::Vec<crate::types::PolicyParameter>>,
+     pub(crate) parameters: ::std::option::Option<::std::vec::Vec<super::types::PolicyParameter>>,
  }
  impl DelegationPermissionBuilder {
 -    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <code>partner onboarding documentation</code> to understand how to create a delegation template.</p>
@@ -10682,22 +10700,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/types/error/_duplicate_ssh_public_key_exception.rs`
-
-```diff
---- reference/src/types/error/_duplicate_ssh_public_key_exception.rs
-+++ generated/src/types/error/_duplicate_ssh_public_key_exception.rs
-@@ -16,7 +16,7 @@
- }
- impl ::std::fmt::Display for DuplicateSshPublicKeyException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "DuplicateSshPublicKeyException [DuplicateSSHPublicKeyException]")?;
-+        ::std::write!(f, "DuplicateSshPublicKeyException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
 ### `src/types/error/builders.rs`
 
 ```diff
@@ -10705,23 +10707,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/error/builders.rs
 @@ -63,6 +63,10 @@
 
- pub use crate::types::error::_policy_evaluation_exception::PolicyEvaluationExceptionBuilder;
+ pub use super::types::error::_policy_evaluation_exception::PolicyEvaluationExceptionBuilder;
 
-+pub use crate::types::error::_duplicate_ssh_public_key_exception::DuplicateSshPublicKeyExceptionBuilder;
++pub use super::types::error::_duplicate_ssh_public_key_exception::DuplicateSshPublicKeyExceptionBuilder;
 +
-+pub use crate::types::error::_invalid_public_key_exception::InvalidPublicKeyExceptionBuilder;
++pub use super::types::error::_invalid_public_key_exception::InvalidPublicKeyExceptionBuilder;
 +
- pub use crate::types::error::_key_pair_mismatch_exception::KeyPairMismatchExceptionBuilder;
+ pub use super::types::error::_key_pair_mismatch_exception::KeyPairMismatchExceptionBuilder;
 
- pub use crate::types::error::_malformed_certificate_exception::MalformedCertificateExceptionBuilder;
+ pub use super::types::error::_malformed_certificate_exception::MalformedCertificateExceptionBuilder;
 @@ -70,7 +74,3 @@
- pub use crate::types::error::_duplicate_certificate_exception::DuplicateCertificateExceptionBuilder;
+ pub use super::types::error::_duplicate_certificate_exception::DuplicateCertificateExceptionBuilder;
 
- pub use crate::types::error::_invalid_certificate_exception::InvalidCertificateExceptionBuilder;
+ pub use super::types::error::_invalid_certificate_exception::InvalidCertificateExceptionBuilder;
 -
--pub use crate::types::error::_duplicate_ssh_public_key_exception::DuplicateSshPublicKeyExceptionBuilder;
+-pub use super::types::error::_duplicate_ssh_public_key_exception::DuplicateSshPublicKeyExceptionBuilder;
 -
--pub use crate::types::error::_invalid_public_key_exception::InvalidPublicKeyExceptionBuilder;
+-pub use super::types::error::_invalid_public_key_exception::InvalidPublicKeyExceptionBuilder;
 ```
 
 ### `src/types/error.rs`
@@ -10731,22 +10733,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/error.rs
 @@ -63,6 +63,10 @@
 
- pub use crate::types::error::_policy_evaluation_exception::PolicyEvaluationException;
+ pub use super::types::error::_policy_evaluation_exception::PolicyEvaluationException;
 
-+pub use crate::types::error::_duplicate_ssh_public_key_exception::DuplicateSshPublicKeyException;
++pub use super::types::error::_duplicate_ssh_public_key_exception::DuplicateSshPublicKeyException;
 +
-+pub use crate::types::error::_invalid_public_key_exception::InvalidPublicKeyException;
++pub use super::types::error::_invalid_public_key_exception::InvalidPublicKeyException;
 +
- pub use crate::types::error::_key_pair_mismatch_exception::KeyPairMismatchException;
+ pub use super::types::error::_key_pair_mismatch_exception::KeyPairMismatchException;
 
- pub use crate::types::error::_malformed_certificate_exception::MalformedCertificateException;
+ pub use super::types::error::_malformed_certificate_exception::MalformedCertificateException;
 @@ -71,10 +75,6 @@
 
- pub use crate::types::error::_invalid_certificate_exception::InvalidCertificateException;
+ pub use super::types::error::_invalid_certificate_exception::InvalidCertificateException;
 
--pub use crate::types::error::_duplicate_ssh_public_key_exception::DuplicateSshPublicKeyException;
+-pub use super::types::error::_duplicate_ssh_public_key_exception::DuplicateSshPublicKeyException;
 -
--pub use crate::types::error::_invalid_public_key_exception::InvalidPublicKeyException;
+-pub use super::types::error::_invalid_public_key_exception::InvalidPublicKeyException;
 -
  mod _account_not_management_or_delegated_administrator_exception;
 
@@ -11506,6 +11508,5 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation.rs`
 - `src/serde_util.rs`
 - `src/types/_delegation_permission.rs`
-- `src/types/error/_duplicate_ssh_public_key_exception.rs`
 - `src/types/error/builders.rs`
 - `src/types/error.rs`

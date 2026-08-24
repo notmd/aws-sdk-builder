@@ -16,7 +16,7 @@ impl JwtPayloadSizeExceededException {
 }
 impl ::std::fmt::Display for JwtPayloadSizeExceededException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(f, "JwtPayloadSizeExceededException")?;
+        ::std::write!(f, "JwtPayloadSizeExceededException [JWTPayloadSizeExceededException]")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;

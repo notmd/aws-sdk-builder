@@ -93,7 +93,7 @@ pub fn de_verify_mac_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::verify_mac::VerifyMacError::KmsInternalException({
+        "KMSInternalException" => crate::operation::verify_mac::VerifyMacError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -108,7 +108,7 @@ pub fn de_verify_mac_http_error(
             }
             tmp
         }),
-        "KmsInvalidMacException" => crate::operation::verify_mac::VerifyMacError::KmsInvalidMacException({
+        "KMSInvalidMacException" => crate::operation::verify_mac::VerifyMacError::KmsInvalidMacException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -123,7 +123,7 @@ pub fn de_verify_mac_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::verify_mac::VerifyMacError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::verify_mac::VerifyMacError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

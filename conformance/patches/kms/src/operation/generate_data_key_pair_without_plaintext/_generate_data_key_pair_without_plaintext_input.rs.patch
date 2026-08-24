@@ -1,0 +1,77 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     pub key_id: ::std::option::Option<::std::string::String>,
+     /// <p>Determines the type of data key pair that is generated.</p>
+     /// <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), the rule that permits you to use ECC KMS keys only to sign and verify, and the rule that permits you to use ML-DSA key pairs to sign and verify only are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
+-    pub key_pair_spec: ::std::option::Option<crate::types::DataKeyPairSpec>,
++    pub key_pair_spec: ::std::option::Option<super::types::DataKeyPairSpec>,
+     /// <p>A list of grant tokens.</p>
+     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
+     pub grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+@@ -62,7 +62,7 @@
+     }
+     /// <p>Determines the type of data key pair that is generated.</p>
+     /// <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), the rule that permits you to use ECC KMS keys only to sign and verify, and the rule that permits you to use ML-DSA key pairs to sign and verify only are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
+-    pub fn key_pair_spec(&self) -> ::std::option::Option<&crate::types::DataKeyPairSpec> {
++    pub fn key_pair_spec(&self) -> ::std::option::Option<&super::types::DataKeyPairSpec> {
+         self.key_pair_spec.as_ref()
+     }
+     /// <p>A list of grant tokens.</p>
+@@ -80,8 +80,8 @@
+ }
+ impl GenerateDataKeyPairWithoutPlaintextInput {
+     /// Creates a new builder-style object to manufacture [`GenerateDataKeyPairWithoutPlaintextInput`](crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextInput).
+-    pub fn builder() -> crate::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextInputBuilder {
+-        crate::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextInputBuilder::default()
++    pub fn builder() -> super::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextInputBuilder {
++        super::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextInputBuilder::default()
+     }
+ }
+
+@@ -91,7 +91,7 @@
+ pub struct GenerateDataKeyPairWithoutPlaintextInputBuilder {
+     pub(crate) encryption_context: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+     pub(crate) key_id: ::std::option::Option<::std::string::String>,
+-    pub(crate) key_pair_spec: ::std::option::Option<crate::types::DataKeyPairSpec>,
++    pub(crate) key_pair_spec: ::std::option::Option<super::types::DataKeyPairSpec>,
+     pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+     pub(crate) dry_run: ::std::option::Option<bool>,
+ }
+@@ -192,19 +192,19 @@
+     /// <p>Determines the type of data key pair that is generated.</p>
+     /// <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), the rule that permits you to use ECC KMS keys only to sign and verify, and the rule that permits you to use ML-DSA key pairs to sign and verify only are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
+     /// This field is required.
+-    pub fn key_pair_spec(mut self, input: crate::types::DataKeyPairSpec) -> Self {
++    pub fn key_pair_spec(mut self, input: super::types::DataKeyPairSpec) -> Self {
+         self.key_pair_spec = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Determines the type of data key pair that is generated.</p>
+     /// <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), the rule that permits you to use ECC KMS keys only to sign and verify, and the rule that permits you to use ML-DSA key pairs to sign and verify only are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
+-    pub fn set_key_pair_spec(mut self, input: ::std::option::Option<crate::types::DataKeyPairSpec>) -> Self {
++    pub fn set_key_pair_spec(mut self, input: ::std::option::Option<super::types::DataKeyPairSpec>) -> Self {
+         self.key_pair_spec = input;
+         self
+     }
+     /// <p>Determines the type of data key pair that is generated.</p>
+     /// <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), the rule that permits you to use ECC KMS keys only to sign and verify, and the rule that permits you to use ML-DSA key pairs to sign and verify only are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
+-    pub fn get_key_pair_spec(&self) -> &::std::option::Option<crate::types::DataKeyPairSpec> {
++    pub fn get_key_pair_spec(&self) -> &::std::option::Option<super::types::DataKeyPairSpec> {
+         &self.key_pair_spec
+     }
+     /// Appends an item to `grant_tokens`.
+@@ -251,11 +251,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextInput,
++        super::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextInput {
++            super::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextInput {
+                 encryption_context: self.encryption_context,
+                 key_id: self.key_id,
+                 key_pair_spec: self.key_pair_spec,

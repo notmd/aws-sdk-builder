@@ -1,0 +1,28 @@
+--- original
++++ modified
+@@ -3,12 +3,12 @@
+ pub fn de_sms_sandbox_phone_number(
+     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+     depth: u32,
+-) -> ::std::result::Result<crate::types::SmsSandboxPhoneNumber, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::types::SmsSandboxPhoneNumber, ::aws_smithy_xml::decode::XmlDecodeError> {
+     if depth >= 128u32 {
+         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+     }
+     #[allow(unused_mut)]
+-    let mut builder = crate::types::SmsSandboxPhoneNumber::builder();
++    let mut builder = super::types::SmsSandboxPhoneNumber::builder();
+     while let Some(mut tag) = decoder.next_tag() {
+         match tag.start_el() {
+             s if s.matches("PhoneNumber") /* PhoneNumber com.amazonaws.sns#SMSSandboxPhoneNumber$PhoneNumber */ =>  {
+@@ -27,8 +27,8 @@
+             s if s.matches("Status") /* Status com.amazonaws.sns#SMSSandboxPhoneNumber$Status */ =>  {
+                 let var_2 =
+                     Some(
+-                        Result::<crate::types::SmsSandboxPhoneNumberVerificationStatus, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+-                            crate::types::SmsSandboxPhoneNumberVerificationStatus::from(
++                        Result::<super::types::SmsSandboxPhoneNumberVerificationStatus, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::types::SmsSandboxPhoneNumberVerificationStatus::from(
+                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                             )
+                         )

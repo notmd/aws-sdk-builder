@@ -1,0 +1,113 @@
+--- original
++++ modified
+@@ -6,9 +6,9 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct InvalidObjectState {
+     #[allow(missing_docs)] // documentation missing in model
+-    pub storage_class: ::std::option::Option<crate::types::StorageClass>,
++    pub storage_class: ::std::option::Option<super::types::StorageClass>,
+     #[allow(missing_docs)] // documentation missing in model
+-    pub access_tier: ::std::option::Option<crate::types::IntelligentTieringAccessTier>,
++    pub access_tier: ::std::option::Option<super::types::IntelligentTieringAccessTier>,
+     #[allow(missing_docs)] // documentation missing in model
+     pub message: ::std::option::Option<::std::string::String>,
+     pub(crate) meta: ::aws_smithy_types::error::ErrorMetadata,
+@@ -15,11 +15,11 @@
+ }
+ impl InvalidObjectState {
+     #[allow(missing_docs)] // documentation missing in model
+-    pub fn storage_class(&self) -> ::std::option::Option<&crate::types::StorageClass> {
++    pub fn storage_class(&self) -> ::std::option::Option<&super::types::StorageClass> {
+         self.storage_class.as_ref()
+     }
+     #[allow(missing_docs)] // documentation missing in model
+-    pub fn access_tier(&self) -> ::std::option::Option<&crate::types::IntelligentTieringAccessTier> {
++    pub fn access_tier(&self) -> ::std::option::Option<&super::types::IntelligentTieringAccessTier> {
+         self.access_tier.as_ref()
+     }
+ }
+@@ -41,13 +41,13 @@
+     }
+ }
+ impl ::std::error::Error for InvalidObjectState {}
+-impl crate::s3_request_id::RequestIdExt for crate::types::error::InvalidObjectState {
++impl super::s3_request_id::RequestIdExt for super::types::error::InvalidObjectState {
+     fn extended_request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().extended_request_id()
+     }
+ }
+-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidObjectState {
++impl ::aws_types::request_id::RequestId for super::types::error::InvalidObjectState {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -60,8 +60,8 @@
+ }
+ impl InvalidObjectState {
+     /// Creates a new builder-style object to manufacture [`InvalidObjectState`](crate::types::error::InvalidObjectState).
+-    pub fn builder() -> crate::types::error::builders::InvalidObjectStateBuilder {
+-        crate::types::error::builders::InvalidObjectStateBuilder::default()
++    pub fn builder() -> super::types::error::builders::InvalidObjectStateBuilder {
++        super::types::error::builders::InvalidObjectStateBuilder::default()
+     }
+ }
+
+@@ -69,38 +69,38 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct InvalidObjectStateBuilder {
+-    pub(crate) storage_class: ::std::option::Option<crate::types::StorageClass>,
+-    pub(crate) access_tier: ::std::option::Option<crate::types::IntelligentTieringAccessTier>,
++    pub(crate) storage_class: ::std::option::Option<super::types::StorageClass>,
++    pub(crate) access_tier: ::std::option::Option<super::types::IntelligentTieringAccessTier>,
+     pub(crate) message: ::std::option::Option<::std::string::String>,
+     meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
+ }
+ impl InvalidObjectStateBuilder {
+     #[allow(missing_docs)] // documentation missing in model
+-    pub fn storage_class(mut self, input: crate::types::StorageClass) -> Self {
++    pub fn storage_class(mut self, input: super::types::StorageClass) -> Self {
+         self.storage_class = ::std::option::Option::Some(input);
+         self
+     }
+     #[allow(missing_docs)] // documentation missing in model
+-    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self {
++    pub fn set_storage_class(mut self, input: ::std::option::Option<super::types::StorageClass>) -> Self {
+         self.storage_class = input;
+         self
+     }
+     #[allow(missing_docs)] // documentation missing in model
+-    pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::StorageClass> {
++    pub fn get_storage_class(&self) -> &::std::option::Option<super::types::StorageClass> {
+         &self.storage_class
+     }
+     #[allow(missing_docs)] // documentation missing in model
+-    pub fn access_tier(mut self, input: crate::types::IntelligentTieringAccessTier) -> Self {
++    pub fn access_tier(mut self, input: super::types::IntelligentTieringAccessTier) -> Self {
+         self.access_tier = ::std::option::Option::Some(input);
+         self
+     }
+     #[allow(missing_docs)] // documentation missing in model
+-    pub fn set_access_tier(mut self, input: ::std::option::Option<crate::types::IntelligentTieringAccessTier>) -> Self {
++    pub fn set_access_tier(mut self, input: ::std::option::Option<super::types::IntelligentTieringAccessTier>) -> Self {
+         self.access_tier = input;
+         self
+     }
+     #[allow(missing_docs)] // documentation missing in model
+-    pub fn get_access_tier(&self) -> &::std::option::Option<crate::types::IntelligentTieringAccessTier> {
++    pub fn get_access_tier(&self) -> &::std::option::Option<super::types::IntelligentTieringAccessTier> {
+         &self.access_tier
+     }
+     #[allow(missing_docs)] // documentation missing in model
+@@ -129,8 +129,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`InvalidObjectState`](crate::types::error::InvalidObjectState).
+-    pub fn build(self) -> crate::types::error::InvalidObjectState {
+-        crate::types::error::InvalidObjectState {
++    pub fn build(self) -> super::types::error::InvalidObjectState {
++        super::types::error::InvalidObjectState {
+             storage_class: self.storage_class,
+             access_tier: self.access_tier,
+             message: self.message,

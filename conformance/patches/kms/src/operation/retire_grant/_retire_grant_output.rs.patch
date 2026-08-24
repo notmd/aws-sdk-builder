@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -12,8 +12,8 @@
+ }
+ impl RetireGrantOutput {
+     /// Creates a new builder-style object to manufacture [`RetireGrantOutput`](crate::operation::retire_grant::RetireGrantOutput).
+-    pub fn builder() -> crate::operation::retire_grant::builders::RetireGrantOutputBuilder {
+-        crate::operation::retire_grant::builders::RetireGrantOutputBuilder::default()
++    pub fn builder() -> super::operation::retire_grant::builders::RetireGrantOutputBuilder {
++        super::operation::retire_grant::builders::RetireGrantOutputBuilder::default()
+     }
+ }
+
+@@ -34,8 +34,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`RetireGrantOutput`](crate::operation::retire_grant::RetireGrantOutput).
+-    pub fn build(self) -> crate::operation::retire_grant::RetireGrantOutput {
+-        crate::operation::retire_grant::RetireGrantOutput {
++    pub fn build(self) -> super::operation::retire_grant::RetireGrantOutput {
++        super::operation::retire_grant::RetireGrantOutput {
+             _request_id: self._request_id,
+         }
+     }

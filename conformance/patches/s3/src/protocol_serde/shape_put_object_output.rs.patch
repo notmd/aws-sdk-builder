@@ -1,0 +1,29 @@
+--- original
++++ modified
+@@ -66,7 +66,7 @@
+
+ pub(crate) fn de_checksum_type_header(
+     header_map: &::aws_smithy_runtime_api::http::Headers,
+-) -> ::std::result::Result<::std::option::Option<crate::types::ChecksumType>, ::aws_smithy_http::header::ParseError> {
++) -> ::std::result::Result<::std::option::Option<super::types::ChecksumType>, ::aws_smithy_http::header::ParseError> {
+     let headers = header_map.get_all("x-amz-checksum-type");
+     ::aws_smithy_http::header::one_or_none(headers)
+ }
+@@ -108,7 +108,7 @@
+
+ pub(crate) fn de_request_charged_header(
+     header_map: &::aws_smithy_runtime_api::http::Headers,
+-) -> ::std::result::Result<::std::option::Option<crate::types::RequestCharged>, ::aws_smithy_http::header::ParseError> {
++) -> ::std::result::Result<::std::option::Option<super::types::RequestCharged>, ::aws_smithy_http::header::ParseError> {
+     let headers = header_map.get_all("x-amz-request-charged");
+     ::aws_smithy_http::header::one_or_none(headers)
+ }
+@@ -143,7 +143,7 @@
+
+ pub(crate) fn de_server_side_encryption_header(
+     header_map: &::aws_smithy_runtime_api::http::Headers,
+-) -> ::std::result::Result<::std::option::Option<crate::types::ServerSideEncryption>, ::aws_smithy_http::header::ParseError> {
++) -> ::std::result::Result<::std::option::Option<super::types::ServerSideEncryption>, ::aws_smithy_http::header::ParseError> {
+     let headers = header_map.get_all("x-amz-server-side-encryption");
+     ::aws_smithy_http::header::one_or_none(headers)
+ }

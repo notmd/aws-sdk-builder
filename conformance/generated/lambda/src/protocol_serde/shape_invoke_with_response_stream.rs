@@ -24,7 +24,7 @@ pub fn de_invoke_with_response_stream_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "Ec2AccessDeniedException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::Ec2AccessDeniedException({
+        "EC2AccessDeniedException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::Ec2AccessDeniedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -39,7 +39,7 @@ pub fn de_invoke_with_response_stream_http_error(
             }
             tmp
         }),
-        "Ec2ThrottledException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::Ec2ThrottledException({
+        "EC2ThrottledException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::Ec2ThrottledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -54,7 +54,7 @@ pub fn de_invoke_with_response_stream_http_error(
             }
             tmp
         }),
-        "Ec2UnexpectedException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::Ec2UnexpectedException({
+        "EC2UnexpectedException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::Ec2UnexpectedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -69,7 +69,7 @@ pub fn de_invoke_with_response_stream_http_error(
             }
             tmp
         }),
-        "EfsioException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::EfsioException({
+        "EFSIOException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::EfsioException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -84,7 +84,7 @@ pub fn de_invoke_with_response_stream_http_error(
             }
             tmp
         }),
-        "EfsMountConnectivityException" => {
+        "EFSMountConnectivityException" => {
             crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::EfsMountConnectivityException({
                 #[allow(unused_mut)]
                 let mut tmp = {
@@ -104,7 +104,7 @@ pub fn de_invoke_with_response_stream_http_error(
                 tmp
             })
         }
-        "EfsMountFailureException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::EfsMountFailureException({
+        "EFSMountFailureException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::EfsMountFailureException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -119,7 +119,7 @@ pub fn de_invoke_with_response_stream_http_error(
             }
             tmp
         }),
-        "EfsMountTimeoutException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::EfsMountTimeoutException({
+        "EFSMountTimeoutException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::EfsMountTimeoutException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -134,7 +134,7 @@ pub fn de_invoke_with_response_stream_http_error(
             }
             tmp
         }),
-        "EniLimitReachedException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::EniLimitReachedException({
+        "ENILimitReachedException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::EniLimitReachedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -204,7 +204,7 @@ pub fn de_invoke_with_response_stream_http_error(
             }
             tmp
         }),
-        "InvalidSecurityGroupIdException" => {
+        "InvalidSecurityGroupIDException" => {
             crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::InvalidSecurityGroupIdException({
                 #[allow(unused_mut)]
                 let mut tmp = {
@@ -224,7 +224,7 @@ pub fn de_invoke_with_response_stream_http_error(
                 tmp
             })
         }
-        "InvalidSubnetIdException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::InvalidSubnetIdException({
+        "InvalidSubnetIDException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::InvalidSubnetIdException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -254,7 +254,7 @@ pub fn de_invoke_with_response_stream_http_error(
             }
             tmp
         }),
-        "KmsAccessDeniedException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::KmsAccessDeniedException({
+        "KMSAccessDeniedException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::KmsAccessDeniedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -269,7 +269,7 @@ pub fn de_invoke_with_response_stream_http_error(
             }
             tmp
         }),
-        "KmsDisabledException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::KmsDisabledException({
+        "KMSDisabledException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::KmsDisabledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -284,7 +284,7 @@ pub fn de_invoke_with_response_stream_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -299,7 +299,7 @@ pub fn de_invoke_with_response_stream_http_error(
             }
             tmp
         }),
-        "KmsNotFoundException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::KmsNotFoundException({
+        "KMSNotFoundException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::KmsNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -583,7 +583,7 @@ pub fn de_invoke_with_response_stream_http_error(
             }
             tmp
         }),
-        "SubnetIpAddressLimitReachedException" => {
+        "SubnetIPAddressLimitReachedException" => {
             crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::SubnetIpAddressLimitReachedException({
                 #[allow(unused_mut)]
                 let mut tmp = {

@@ -1,0 +1,35 @@
+--- original
++++ modified
+@@ -5,12 +5,12 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub enum PolicyIdentifier {
+     /// <p>An inline policy identifier consisting of a policy name and the entity it is attached to. Wildcard characters (<code>*</code> and <code>?</code>) in the entity name can match multiple entities.</p>
+-    InlinePolicyIdentifier(crate::types::InlinePolicyIdentifierType),
++    InlinePolicyIdentifier(super::types::InlinePolicyIdentifierType),
+     /// <p>The Amazon Resource Name (ARN) of an Amazon Web Services managed policy or a customer managed policy that is attached to an IAM user, group, or role. Wildcard characters are supported in the resource name portion of the ARN to match multiple managed policies: use at most one <code>*</code> (matches any sequence of characters, including none), and any number of <code>?</code> (each matches exactly one character).</p>
+     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+     PolicyArn(::std::string::String),
+     /// <p>The policy type to identify. All policies of the specified type are matched.</p>
+-    PolicyType(crate::types::PolicyIdentifierPolicyType),
++    PolicyType(super::types::PolicyIdentifierPolicyType),
+     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
+     /// An unknown enum variant
+     ///
+@@ -24,7 +24,7 @@
+ impl PolicyIdentifier {
+     /// Tries to convert the enum instance into [`InlinePolicyIdentifier`](crate::types::PolicyIdentifier::InlinePolicyIdentifier), extracting the inner [`InlinePolicyIdentifierType`](crate::types::InlinePolicyIdentifierType).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_inline_policy_identifier(&self) -> ::std::result::Result<&crate::types::InlinePolicyIdentifierType, &Self> {
++    pub fn as_inline_policy_identifier(&self) -> ::std::result::Result<&super::types::InlinePolicyIdentifierType, &Self> {
+         if let PolicyIdentifier::InlinePolicyIdentifier(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {
+@@ -50,7 +50,7 @@
+     }
+     /// Tries to convert the enum instance into [`PolicyType`](crate::types::PolicyIdentifier::PolicyType), extracting the inner [`PolicyIdentifierPolicyType`](crate::types::PolicyIdentifierPolicyType).
+     /// Returns `Err(&Self)` if it can't be converted.
+-    pub fn as_policy_type(&self) -> ::std::result::Result<&crate::types::PolicyIdentifierPolicyType, &Self> {
++    pub fn as_policy_type(&self) -> ::std::result::Result<&super::types::PolicyIdentifierPolicyType, &Self> {
+         if let PolicyIdentifier::PolicyType(val) = &self {
+             ::std::result::Result::Ok(val)
+         } else {

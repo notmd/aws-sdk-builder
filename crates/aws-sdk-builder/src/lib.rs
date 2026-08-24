@@ -14,7 +14,6 @@ pub use registry::{IntegrationTestAsset, ServiceMetadata, ServiceSource};
 #[derive(Debug, Clone)]
 pub struct CompileReport {
     pub generated_root: std::path::PathBuf,
-    pub consumer_crate_name: String,
     pub operations: Vec<String>,
 }
 
@@ -49,11 +48,6 @@ pub fn compile_source<O: OperationNames>(
         .ok_or(BuildError::MissingCargoEnvironment {
             variable: "OUT_DIR",
         })?;
-    let package_name =
-        std::env::var("CARGO_PKG_NAME").map_err(|_| BuildError::MissingCargoEnvironment {
-            variable: "CARGO_PKG_NAME",
-        })?;
-    let crate_name = names::rust_crate_name(&package_name);
     let requested = config::selection(source, operations);
     let state_path = out_dir.join(".aws-sdk-builder-state.json");
     let state = read_state(&state_path)?;
@@ -105,35 +99,13 @@ pub fn compile_source<O: OperationNames>(
         output::copy_tree(&out_dir.join("generated"), &stage.path().join("generated"))?;
     }
     let generated = codegen::generate(stage.path(), true, &[merged])?;
-    let current_facade =
-        std::fs::read_to_string(stage.path().join("aws_sdk.rs")).map_err(|source| {
-            BuildError::SourceRead {
-                path: stage.path().join("aws_sdk.rs"),
-                source,
-            }
-        })?;
-    let existing_facade = std::fs::read_to_string(out_dir.join("aws_sdk.rs")).ok();
-    let facade = output::merge_facade(existing_facade.as_deref(), &current_facade);
-    std::fs::write(stage.path().join("aws_sdk.rs"), facade).map_err(|source| {
-        BuildError::OutputWrite {
-            path: stage.path().join("aws_sdk.rs"),
-            source,
-        }
-    })?;
     let mut next_state = state;
     next_state["services"][source.metadata.key] = serde_json::json!({
         "all_operations": merged_all,
         "operations": merged_operations,
-        "module_name": source.metadata.module_name,
     });
     let state_text = serde_json::to_string_pretty(&next_state).expect("state is serializable");
-    output::install_service(
-        stage.path(),
-        &out_dir,
-        crate_name,
-        generated.operations,
-        &state_text,
-    )
+    output::install_service(stage.path(), &out_dir, generated.operations, &state_text)
 }
 
 fn read_state(path: &std::path::Path) -> Result<serde_json::Value, BuildError> {
@@ -195,14 +167,6 @@ where
     Ok(generated.operations.len())
 }
 
-/// Includes the stable generated OUT_DIR/aws_sdk.rs facade.
-#[macro_export]
-macro_rules! include_sdk {
-    () => {
-        include!(concat!(env!("OUT_DIR"), "/aws_sdk.rs"));
-    };
-}
-
 impl Builder {
     pub fn compile(self) -> Result<CompileReport, BuildError> {
         let out_dir = std::env::var_os("OUT_DIR")
@@ -210,11 +174,6 @@ impl Builder {
             .ok_or(BuildError::MissingCargoEnvironment {
                 variable: "OUT_DIR",
             })?;
-        let package_name =
-            std::env::var("CARGO_PKG_NAME").map_err(|_| BuildError::MissingCargoEnvironment {
-                variable: "CARGO_PKG_NAME",
-            })?;
-        let crate_name = names::rust_crate_name(&package_name);
         let selections = self.resolve()?;
         let stage = tempfile::Builder::new()
             .prefix("aws-sdk-builder-")
@@ -224,6 +183,6 @@ impl Builder {
                 source,
             })?;
         let generated = codegen::generate(stage.path(), true, &selections)?;
-        output::install(stage.path(), &out_dir, crate_name, generated.operations)
+        output::install(stage.path(), &out_dir, generated.operations)
     }
 }

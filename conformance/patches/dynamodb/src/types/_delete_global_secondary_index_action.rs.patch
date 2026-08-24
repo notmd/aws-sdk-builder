@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -16,8 +16,8 @@
+ }
+ impl DeleteGlobalSecondaryIndexAction {
+     /// Creates a new builder-style object to manufacture [`DeleteGlobalSecondaryIndexAction`](crate::types::DeleteGlobalSecondaryIndexAction).
+-    pub fn builder() -> crate::types::builders::DeleteGlobalSecondaryIndexActionBuilder {
+-        crate::types::builders::DeleteGlobalSecondaryIndexActionBuilder::default()
++    pub fn builder() -> super::types::builders::DeleteGlobalSecondaryIndexActionBuilder {
++        super::types::builders::DeleteGlobalSecondaryIndexActionBuilder::default()
+     }
+ }
+
+@@ -46,8 +46,8 @@
+     /// Consumes the builder and constructs a [`DeleteGlobalSecondaryIndexAction`](crate::types::DeleteGlobalSecondaryIndexAction).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`index_name`](crate::types::builders::DeleteGlobalSecondaryIndexActionBuilder::index_name)
+-    pub fn build(self) -> ::std::result::Result<crate::types::DeleteGlobalSecondaryIndexAction, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::DeleteGlobalSecondaryIndexAction {
++    pub fn build(self) -> ::std::result::Result<super::types::DeleteGlobalSecondaryIndexAction, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::DeleteGlobalSecondaryIndexAction {
+             index_name: self.index_name.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "index_name",

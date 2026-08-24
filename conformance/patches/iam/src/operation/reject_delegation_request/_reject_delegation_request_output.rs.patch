@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -12,8 +12,8 @@
+ }
+ impl RejectDelegationRequestOutput {
+     /// Creates a new builder-style object to manufacture [`RejectDelegationRequestOutput`](crate::operation::reject_delegation_request::RejectDelegationRequestOutput).
+-    pub fn builder() -> crate::operation::reject_delegation_request::builders::RejectDelegationRequestOutputBuilder {
+-        crate::operation::reject_delegation_request::builders::RejectDelegationRequestOutputBuilder::default()
++    pub fn builder() -> super::operation::reject_delegation_request::builders::RejectDelegationRequestOutputBuilder {
++        super::operation::reject_delegation_request::builders::RejectDelegationRequestOutputBuilder::default()
+     }
+ }
+
+@@ -34,8 +34,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`RejectDelegationRequestOutput`](crate::operation::reject_delegation_request::RejectDelegationRequestOutput).
+-    pub fn build(self) -> crate::operation::reject_delegation_request::RejectDelegationRequestOutput {
+-        crate::operation::reject_delegation_request::RejectDelegationRequestOutput {
++    pub fn build(self) -> super::operation::reject_delegation_request::RejectDelegationRequestOutput {
++        super::operation::reject_delegation_request::RejectDelegationRequestOutput {
+             _request_id: self._request_id,
+         }
+     }

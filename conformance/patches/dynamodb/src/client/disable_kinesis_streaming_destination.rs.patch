@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -14,7 +14,7 @@
+     /// - On failure, responds with [`SdkError<DisableKinesisStreamingDestinationError>`](crate::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestinationError)
+     pub fn disable_kinesis_streaming_destination(
+         &self,
+-    ) -> crate::operation::disable_kinesis_streaming_destination::builders::DisableKinesisStreamingDestinationFluentBuilder {
+-        crate::operation::disable_kinesis_streaming_destination::builders::DisableKinesisStreamingDestinationFluentBuilder::new(self.handle.clone())
++    ) -> super::operation::disable_kinesis_streaming_destination::builders::DisableKinesisStreamingDestinationFluentBuilder {
++        super::operation::disable_kinesis_streaming_destination::builders::DisableKinesisStreamingDestinationFluentBuilder::new(self.handle.clone())
+     }
+ }

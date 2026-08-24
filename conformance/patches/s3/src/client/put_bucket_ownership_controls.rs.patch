@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -12,7 +12,7 @@
+     /// - On failure, responds with [`SdkError<PutBucketOwnershipControlsError>`](crate::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsError)
+     pub fn put_bucket_ownership_controls(
+         &self,
+-    ) -> crate::operation::put_bucket_ownership_controls::builders::PutBucketOwnershipControlsFluentBuilder {
+-        crate::operation::put_bucket_ownership_controls::builders::PutBucketOwnershipControlsFluentBuilder::new(self.handle.clone())
++    ) -> super::operation::put_bucket_ownership_controls::builders::PutBucketOwnershipControlsFluentBuilder {
++        super::operation::put_bucket_ownership_controls::builders::PutBucketOwnershipControlsFluentBuilder::new(self.handle.clone())
+     }
+ }

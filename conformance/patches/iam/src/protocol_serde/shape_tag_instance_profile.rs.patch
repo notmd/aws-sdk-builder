@@ -1,0 +1,140 @@
+--- original
++++ modified
+@@ -5,31 +5,31 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::tag_instance_profile::TagInstanceProfileOutput,
+-    crate::operation::tag_instance_profile::TagInstanceProfileError,
++    super::operation::tag_instance_profile::TagInstanceProfileOutput,
++    super::operation::tag_instance_profile::TagInstanceProfileError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::tag_instance_profile::TagInstanceProfileError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::tag_instance_profile::TagInstanceProfileError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::tag_instance_profile::TagInstanceProfileError::unhandled(generic)),
++        None => return Err(super::operation::tag_instance_profile::TagInstanceProfileError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ConcurrentModification" => crate::operation::tag_instance_profile::TagInstanceProfileError::ConcurrentModificationException({
++        "ConcurrentModification" => super::operation::tag_instance_profile::TagInstanceProfileError::ConcurrentModificationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(
++                let mut output = super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
++                output = super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(
+                     _response_body,
+                     output,
+                 )
+-                .map_err(crate::operation::tag_instance_profile::TagInstanceProfileError::unhandled)?;
++                .map_err(super::operation::tag_instance_profile::TagInstanceProfileError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -38,13 +38,13 @@
+             }
+             tmp
+         }),
+-        "InvalidInput" => crate::operation::tag_instance_profile::TagInstanceProfileError::InvalidInputException({
++        "InvalidInput" => super::operation::tag_instance_profile::TagInstanceProfileError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InvalidInputExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::tag_instance_profile::TagInstanceProfileError::unhandled)?;
++                let mut output = super::types::error::builders::InvalidInputExceptionBuilder::default();
++                output = super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::tag_instance_profile::TagInstanceProfileError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -53,13 +53,13 @@
+             }
+             tmp
+         }),
+-        "LimitExceeded" => crate::operation::tag_instance_profile::TagInstanceProfileError::LimitExceededException({
++        "LimitExceeded" => super::operation::tag_instance_profile::TagInstanceProfileError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::tag_instance_profile::TagInstanceProfileError::unhandled)?;
++                let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
++                output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::tag_instance_profile::TagInstanceProfileError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -68,13 +68,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => crate::operation::tag_instance_profile::TagInstanceProfileError::NoSuchEntityException({
++        "NoSuchEntity" => super::operation::tag_instance_profile::TagInstanceProfileError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::tag_instance_profile::TagInstanceProfileError::unhandled)?;
++                let mut output = super::types::error::builders::NoSuchEntityExceptionBuilder::default();
++                output = super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::tag_instance_profile::TagInstanceProfileError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -83,13 +83,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => crate::operation::tag_instance_profile::TagInstanceProfileError::ServiceFailureException({
++        "ServiceFailure" => super::operation::tag_instance_profile::TagInstanceProfileError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::tag_instance_profile::TagInstanceProfileError::unhandled)?;
++                let mut output = super::types::error::builders::ServiceFailureExceptionBuilder::default();
++                output = super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::tag_instance_profile::TagInstanceProfileError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -98,7 +98,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::tag_instance_profile::TagInstanceProfileError::generic(generic),
++        _ => super::operation::tag_instance_profile::TagInstanceProfileError::generic(generic),
+     })
+ }
+
+@@ -108,12 +108,12 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::tag_instance_profile::TagInstanceProfileOutput,
+-    crate::operation::tag_instance_profile::TagInstanceProfileError,
++    super::operation::tag_instance_profile::TagInstanceProfileOutput,
++    super::operation::tag_instance_profile::TagInstanceProfileError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::tag_instance_profile::builders::TagInstanceProfileOutputBuilder::default();
++        let mut output = super::operation::tag_instance_profile::builders::TagInstanceProfileOutputBuilder::default();
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })

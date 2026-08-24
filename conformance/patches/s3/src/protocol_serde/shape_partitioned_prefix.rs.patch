@@ -1,0 +1,35 @@
+--- original
++++ modified
+@@ -3,19 +3,19 @@
+ pub fn de_partitioned_prefix(
+     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+     depth: u32,
+-) -> ::std::result::Result<crate::types::PartitionedPrefix, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::types::PartitionedPrefix, ::aws_smithy_xml::decode::XmlDecodeError> {
+     if depth >= 128u32 {
+         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+     }
+     #[allow(unused_mut)]
+-    let mut builder = crate::types::PartitionedPrefix::builder();
++    let mut builder = super::types::PartitionedPrefix::builder();
+     while let Some(mut tag) = decoder.next_tag() {
+         match tag.start_el() {
+             s if s.matches("PartitionDateSource") /* PartitionDateSource com.amazonaws.s3#PartitionedPrefix$PartitionDateSource */ =>  {
+                 let var_1 =
+                     Some(
+-                        Result::<crate::types::PartitionDateSource, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+-                            crate::types::PartitionDateSource::from(
++                        Result::<super::types::PartitionDateSource, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::types::PartitionDateSource::from(
+                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                             )
+                         )
+@@ -32,7 +32,7 @@
+ }
+
+ pub fn ser_partitioned_prefix(
+-    input: &crate::types::PartitionedPrefix,
++    input: &super::types::PartitionedPrefix,
+     writer: ::aws_smithy_xml::encode::ElWriter,
+ ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+     #[allow(unused_mut)]

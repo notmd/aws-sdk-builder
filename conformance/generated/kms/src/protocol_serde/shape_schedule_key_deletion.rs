@@ -50,7 +50,7 @@ pub fn de_schedule_key_deletion_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::schedule_key_deletion::ScheduleKeyDeletionError::KmsInternalException({
+        "KMSInternalException" => crate::operation::schedule_key_deletion::ScheduleKeyDeletionError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -65,7 +65,7 @@ pub fn de_schedule_key_deletion_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::schedule_key_deletion::ScheduleKeyDeletionError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::schedule_key_deletion::ScheduleKeyDeletionError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -34,7 +34,7 @@
+     }
+ }
+ impl ::std::error::Error for SnapStartTimeoutException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::SnapStartTimeoutException {
++impl ::aws_types::request_id::RequestId for super::types::error::SnapStartTimeoutException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -47,8 +47,8 @@
+ }
+ impl SnapStartTimeoutException {
+     /// Creates a new builder-style object to manufacture [`SnapStartTimeoutException`](crate::types::error::SnapStartTimeoutException).
+-    pub fn builder() -> crate::types::error::builders::SnapStartTimeoutExceptionBuilder {
+-        crate::types::error::builders::SnapStartTimeoutExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::SnapStartTimeoutExceptionBuilder {
++        super::types::error::builders::SnapStartTimeoutExceptionBuilder::default()
+     }
+ }
+
+@@ -101,8 +101,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`SnapStartTimeoutException`](crate::types::error::SnapStartTimeoutException).
+-    pub fn build(self) -> crate::types::error::SnapStartTimeoutException {
+-        crate::types::error::SnapStartTimeoutException {
++    pub fn build(self) -> super::types::error::SnapStartTimeoutException {
++        super::types::error::SnapStartTimeoutException {
+             r#type: self.r#type,
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),

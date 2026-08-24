@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -29,8 +29,8 @@
+ }
+ impl Initiator {
+     /// Creates a new builder-style object to manufacture [`Initiator`](crate::types::Initiator).
+-    pub fn builder() -> crate::types::builders::InitiatorBuilder {
+-        crate::types::builders::InitiatorBuilder::default()
++    pub fn builder() -> super::types::builders::InitiatorBuilder {
++        super::types::builders::InitiatorBuilder::default()
+     }
+ }
+
+@@ -83,8 +83,8 @@
+         &self.display_name
+     }
+     /// Consumes the builder and constructs a [`Initiator`](crate::types::Initiator).
+-    pub fn build(self) -> crate::types::Initiator {
+-        crate::types::Initiator {
++    pub fn build(self) -> super::types::Initiator {
++        super::types::Initiator {
+             id: self.id,
+             display_name: self.display_name,
+         }

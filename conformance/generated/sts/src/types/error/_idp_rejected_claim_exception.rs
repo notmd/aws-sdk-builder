@@ -17,7 +17,7 @@ impl IdpRejectedClaimException {
 }
 impl ::std::fmt::Display for IdpRejectedClaimException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(f, "IdpRejectedClaimException")?;
+        ::std::write!(f, "IdpRejectedClaimException [IDPRejectedClaimException]")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;

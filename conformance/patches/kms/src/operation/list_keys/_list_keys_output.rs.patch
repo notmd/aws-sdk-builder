@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct ListKeysOutput {
+     /// <p>A list of KMS keys.</p>
+-    pub keys: ::std::option::Option<::std::vec::Vec<crate::types::KeyListEntry>>,
++    pub keys: ::std::option::Option<::std::vec::Vec<super::types::KeyListEntry>>,
+     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
+     pub next_marker: ::std::option::Option<::std::string::String>,
+     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
+@@ -15,7 +15,7 @@
+     /// <p>A list of KMS keys.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.keys.is_none()`.
+-    pub fn keys(&self) -> &[crate::types::KeyListEntry] {
++    pub fn keys(&self) -> &[super::types::KeyListEntry] {
+         self.keys.as_deref().unwrap_or_default()
+     }
+     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
+@@ -34,8 +34,8 @@
+ }
+ impl ListKeysOutput {
+     /// Creates a new builder-style object to manufacture [`ListKeysOutput`](crate::operation::list_keys::ListKeysOutput).
+-    pub fn builder() -> crate::operation::list_keys::builders::ListKeysOutputBuilder {
+-        crate::operation::list_keys::builders::ListKeysOutputBuilder::default()
++    pub fn builder() -> super::operation::list_keys::builders::ListKeysOutputBuilder {
++        super::operation::list_keys::builders::ListKeysOutputBuilder::default()
+     }
+ }
+
+@@ -43,7 +43,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct ListKeysOutputBuilder {
+-    pub(crate) keys: ::std::option::Option<::std::vec::Vec<crate::types::KeyListEntry>>,
++    pub(crate) keys: ::std::option::Option<::std::vec::Vec<super::types::KeyListEntry>>,
+     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
+     pub(crate) truncated: ::std::option::Option<bool>,
+     _request_id: Option<String>,
+@@ -54,7 +54,7 @@
+     /// To override the contents of this collection use [`set_keys`](Self::set_keys).
+     ///
+     /// <p>A list of KMS keys.</p>
+-    pub fn keys(mut self, input: crate::types::KeyListEntry) -> Self {
++    pub fn keys(mut self, input: super::types::KeyListEntry) -> Self {
+         let mut v = self.keys.unwrap_or_default();
+         v.push(input);
+         self.keys = ::std::option::Option::Some(v);
+@@ -61,12 +61,12 @@
+         self
+     }
+     /// <p>A list of KMS keys.</p>
+-    pub fn set_keys(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeyListEntry>>) -> Self {
++    pub fn set_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::KeyListEntry>>) -> Self {
+         self.keys = input;
+         self
+     }
+     /// <p>A list of KMS keys.</p>
+-    pub fn get_keys(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyListEntry>> {
++    pub fn get_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::types::KeyListEntry>> {
+         &self.keys
+     }
+     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
+@@ -107,8 +107,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ListKeysOutput`](crate::operation::list_keys::ListKeysOutput).
+-    pub fn build(self) -> crate::operation::list_keys::ListKeysOutput {
+-        crate::operation::list_keys::ListKeysOutput {
++    pub fn build(self) -> super::operation::list_keys::ListKeysOutput {
++        super::operation::list_keys::ListKeysOutput {
+             keys: self.keys,
+             next_marker: self.next_marker,
+             truncated: self.truncated.unwrap_or_default(),

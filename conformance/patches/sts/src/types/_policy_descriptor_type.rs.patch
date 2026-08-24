@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl PolicyDescriptorType {
+     /// Creates a new builder-style object to manufacture [`PolicyDescriptorType`](crate::types::PolicyDescriptorType).
+-    pub fn builder() -> crate::types::builders::PolicyDescriptorTypeBuilder {
+-        crate::types::builders::PolicyDescriptorTypeBuilder::default()
++    pub fn builder() -> super::types::builders::PolicyDescriptorTypeBuilder {
++        super::types::builders::PolicyDescriptorTypeBuilder::default()
+     }
+ }
+
+@@ -42,7 +42,7 @@
+         &self.arn
+     }
+     /// Consumes the builder and constructs a [`PolicyDescriptorType`](crate::types::PolicyDescriptorType).
+-    pub fn build(self) -> crate::types::PolicyDescriptorType {
+-        crate::types::PolicyDescriptorType { arn: self.arn }
++    pub fn build(self) -> super::types::PolicyDescriptorType {
++        super::types::PolicyDescriptorType { arn: self.arn }
+     }
+ }

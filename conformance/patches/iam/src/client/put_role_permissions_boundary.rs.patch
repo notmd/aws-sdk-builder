@@ -1,0 +1,12 @@
+--- original
++++ modified
+@@ -9,7 +9,7 @@
+     /// - On failure, responds with [`SdkError<PutRolePermissionsBoundaryError>`](crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError)
+     pub fn put_role_permissions_boundary(
+         &self,
+-    ) -> crate::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryFluentBuilder {
+-        crate::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryFluentBuilder::new(self.handle.clone())
++    ) -> super::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryFluentBuilder {
++        super::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryFluentBuilder::new(self.handle.clone())
+     }
+ }

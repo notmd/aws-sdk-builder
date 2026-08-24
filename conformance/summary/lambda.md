@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1132/1132` files compared · `790` matched · `283` mismatches · `4` missing · `55` extra · `69.79%` match (100.00% means fully matched)
+**Progress:** `1131/1131` files compared · `821` matched · `251` mismatches · `4` missing · `55` extra · `72.59%` match (100.00% means fully matched)
 
 ### `src/client/delete_resource_policy.rs`
 
@@ -18,7 +18,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    ///   - [`revision_id(impl Into<String>)`](crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder::revision_id) / [`set_revision_id(Option<String>)`](crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder::set_revision_id):<br>required: **false**<br><p>The revision ID that the existing policy must match for the deletion to proceed. If the revision ID doesn't match, the operation fails with a <code>PreconditionFailedException</code> error. To retrieve the current revision ID, use the <a>GetResourcePolicy</a> operation.</p><br>
      /// - On success, responds with [`DeleteResourcePolicyOutput`](crate::operation::delete_resource_policy::DeleteResourcePolicyOutput)
      /// - On failure, responds with [`SdkError<DeleteResourcePolicyError>`](crate::operation::delete_resource_policy::DeleteResourcePolicyError)
-     pub fn delete_resource_policy(&self) -> crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder {
+     pub fn delete_resource_policy(&self) -> super::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder {
 ```
 
 ### `src/client/get_function_event_invoke_config.rs`
@@ -65,8 +65,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    ///   - [`revision_id(Option<String>)`](crate::operation::get_resource_policy::GetResourcePolicyOutput::revision_id): <p>The revision ID of the policy. Pass this value as the <code>RevisionId</code> in a <code>PutResourcePolicy</code> or <code>DeleteResourcePolicy</code> request. Doing so ensures the operation acts on the expected version of the policy.</p>
 +    ///   - [`revision_id(Option<String>)`](crate::operation::get_resource_policy::GetResourcePolicyOutput::revision_id): <p>The revision ID of the policy. Pass this value as the <code>RevisionId</code> in a <a>PutResourcePolicy</a> or <a>DeleteResourcePolicy</a> request. Doing so ensures the operation acts on the expected version of the policy.</p>
      /// - On failure, responds with [`SdkError<GetResourcePolicyError>`](crate::operation::get_resource_policy::GetResourcePolicyError)
-     pub fn get_resource_policy(&self) -> crate::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder {
-         crate::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder::new(self.handle.clone())
+     pub fn get_resource_policy(&self) -> super::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder {
+         super::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/publish_layer_version.rs`
@@ -188,17 +188,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
                  "InvokeComplete" => {
                      let parsed =
--                            crate::protocol_serde::shape_invoke_with_response_stream_complete_event::de_invoke_with_response_stream_complete_event_payload(&message.payload()[..])
+-                            super::protocol_serde::shape_invoke_with_response_stream_complete_event::de_invoke_with_response_stream_complete_event_payload(&message.payload()[..])
 -                                                .map_err(|err| {
 -                                                    ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall InvokeComplete: {err}"))
 -                                                })?
-+                        crate::protocol_serde::shape_invoke_with_response_stream_complete_event::de_invoke_with_response_stream_complete_event_payload(&message.payload()[..])
++                        super::protocol_serde::shape_invoke_with_response_stream_complete_event::de_invoke_with_response_stream_complete_event_payload(&message.payload()[..])
 +                            .map_err(|err| {
 +                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall InvokeComplete: {err}"))
 +                            })?
                          ;
                      Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                         crate::types::InvokeWithResponseStreamResponseEvent::InvokeComplete(parsed),
+                         super::types::InvokeWithResponseStreamResponseEvent::InvokeComplete(parsed),
 ```
 
 ### `src/operation/add_layer_version_permission/_add_layer_version_permission_input.rs`
@@ -208,7 +208,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/add_layer_version_permission/_add_layer_version_permission_input.rs
 @@ -180,7 +180,7 @@
      > {
-         ::std::result::Result::Ok(crate::operation::add_layer_version_permission::AddLayerVersionPermissionInput {
+         ::std::result::Result::Ok(super::operation::add_layer_version_permission::AddLayerVersionPermissionInput {
              layer_name: self.layer_name,
 -            version_number: self.version_number,
 +            version_number: self.version_number.unwrap_or_default(),
@@ -264,7 +264,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_alias::ser_delete_alias_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_alias::ser_delete_alias_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -289,7 +289,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_delete_capacity_provider::ser_delete_capacity_provider_input(&input)?,
++            super::protocol_serde::shape_delete_capacity_provider::ser_delete_capacity_provider_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -315,7 +315,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_delete_code_signing_config::ser_delete_code_signing_config_input(&input)?,
++            super::protocol_serde::shape_delete_code_signing_config::ser_delete_code_signing_config_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -341,7 +341,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_delete_event_source_mapping::ser_delete_event_source_mapping_input(&input)?,
++            super::protocol_serde::shape_delete_event_source_mapping::ser_delete_event_source_mapping_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -366,7 +366,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_function::ser_delete_function_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_function::ser_delete_function_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -391,7 +391,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_delete_function_code_signing_config::ser_delete_function_code_signing_config_input(&input)?,
++            super::protocol_serde::shape_delete_function_code_signing_config::ser_delete_function_code_signing_config_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -417,7 +417,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_delete_function_concurrency::ser_delete_function_concurrency_input(&input)?,
++            super::protocol_serde::shape_delete_function_concurrency::ser_delete_function_concurrency_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -443,7 +443,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_delete_function_event_invoke_config::ser_delete_function_event_invoke_config_input(&input)?,
++            super::protocol_serde::shape_delete_function_event_invoke_config::ser_delete_function_event_invoke_config_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -469,7 +469,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_delete_function_url_config::ser_delete_function_url_config_input(&input)?,
++            super::protocol_serde::shape_delete_function_url_config::ser_delete_function_url_config_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -487,7 +487,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/delete_layer_version/_delete_layer_version_input.rs
 @@ -70,7 +70,7 @@
      {
-         ::std::result::Result::Ok(crate::operation::delete_layer_version::DeleteLayerVersionInput {
+         ::std::result::Result::Ok(super::operation::delete_layer_version::DeleteLayerVersionInput {
              layer_name: self.layer_name,
 -            version_number: self.version_number,
 +            version_number: self.version_number.unwrap_or_default(),
@@ -521,7 +521,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body =
-+            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_layer_version::ser_delete_layer_version_input(&input)?);
++            ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_layer_version::ser_delete_layer_version_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -546,7 +546,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_delete_provisioned_concurrency_config::ser_delete_provisioned_concurrency_config_input(&input)?,
++            super::protocol_serde::shape_delete_provisioned_concurrency_config::ser_delete_provisioned_concurrency_config_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -571,7 +571,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_resource_policy::ser_delete_resource_policy_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_resource_policy::ser_delete_resource_policy_input(
 +            &input,
 +        )?);
 +        if let Some(content_length) = body.content_length() {
@@ -598,7 +598,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body =
-+            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_account_settings::ser_get_account_settings_input(&input)?);
++            ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_account_settings::ser_get_account_settings_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -622,7 +622,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_alias::ser_get_alias_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_alias::ser_get_alias_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -646,7 +646,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_capacity_provider::ser_get_capacity_provider_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_capacity_provider::ser_get_capacity_provider_input(
 +            &input,
 +        )?);
 +        if let Some(content_length) = body.content_length() {
@@ -672,7 +672,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_code_signing_config::ser_get_code_signing_config_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_code_signing_config::ser_get_code_signing_config_input(
 +            &input,
 +        )?);
 +        if let Some(content_length) = body.content_length() {
@@ -691,7 +691,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/get_durable_execution/_get_durable_execution_input.rs
 @@ -69,7 +69,7 @@
      {
-         ::std::result::Result::Ok(crate::operation::get_durable_execution::GetDurableExecutionInput {
+         ::std::result::Result::Ok(super::operation::get_durable_execution::GetDurableExecutionInput {
              durable_execution_arn: self.durable_execution_arn,
 -            include_execution_data: self.include_execution_data,
 +            include_execution_data: self.include_execution_data.unwrap_or_default(),
@@ -714,7 +714,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_durable_execution::ser_get_durable_execution_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_durable_execution::ser_get_durable_execution_input(
 +            &input,
 +        )?);
 +        if let Some(content_length) = body.content_length() {
@@ -732,7 +732,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/operation/get_durable_execution_history/_get_durable_execution_history_input.rs
 +++ generated/src/operation/get_durable_execution_history/_get_durable_execution_history_input.rs
 @@ -135,7 +135,7 @@
-         ::std::result::Result::Ok(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryInput {
+         ::std::result::Result::Ok(super::operation::get_durable_execution_history::GetDurableExecutionHistoryInput {
              durable_execution_arn: self.durable_execution_arn,
              include_execution_data: self.include_execution_data,
 -            max_items: self.max_items,
@@ -757,7 +757,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_get_durable_execution_history::ser_get_durable_execution_history_input(&input)?,
++            super::protocol_serde::shape_get_durable_execution_history::ser_get_durable_execution_history_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -799,7 +799,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_get_durable_execution_state::ser_get_durable_execution_state_input(&input)?,
++            super::protocol_serde::shape_get_durable_execution_state::ser_get_durable_execution_state_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -825,7 +825,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_get_event_source_mapping::ser_get_event_source_mapping_input(&input)?,
++            super::protocol_serde::shape_get_event_source_mapping::ser_get_event_source_mapping_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -850,7 +850,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_function::ser_get_function_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_function::ser_get_function_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -875,7 +875,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_get_function_code_signing_config::ser_get_function_code_signing_config_input(&input)?,
++            super::protocol_serde::shape_get_function_code_signing_config::ser_get_function_code_signing_config_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -901,7 +901,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_get_function_concurrency::ser_get_function_concurrency_input(&input)?,
++            super::protocol_serde::shape_get_function_concurrency::ser_get_function_concurrency_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -927,7 +927,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_get_function_configuration::ser_get_function_configuration_input(&input)?,
++            super::protocol_serde::shape_get_function_configuration::ser_get_function_configuration_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -953,7 +953,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_get_function_event_invoke_config::ser_get_function_event_invoke_config_input(&input)?,
++            super::protocol_serde::shape_get_function_event_invoke_config::ser_get_function_event_invoke_config_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -979,7 +979,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_get_function_recursion_config::ser_get_function_recursion_config_input(&input)?,
++            super::protocol_serde::shape_get_function_recursion_config::ser_get_function_recursion_config_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -1005,7 +1005,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_get_function_scaling_config::ser_get_function_scaling_config_input(&input)?,
++            super::protocol_serde::shape_get_function_scaling_config::ser_get_function_scaling_config_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -1030,7 +1030,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_function_url_config::ser_get_function_url_config_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_function_url_config::ser_get_function_url_config_input(
 +            &input,
 +        )?);
 +        if let Some(content_length) = body.content_length() {
@@ -1048,8 +1048,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/operation/get_layer_version/_get_layer_version_input.rs
 +++ generated/src/operation/get_layer_version/_get_layer_version_input.rs
 @@ -69,7 +69,7 @@
-     ) -> ::std::result::Result<crate::operation::get_layer_version::GetLayerVersionInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::operation::get_layer_version::GetLayerVersionInput {
+     ) -> ::std::result::Result<super::operation::get_layer_version::GetLayerVersionInput, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(super::operation::get_layer_version::GetLayerVersionInput {
              layer_name: self.layer_name,
 -            version_number: self.version_number,
 +            version_number: self.version_number.unwrap_or_default(),
@@ -1067,8 +1067,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct GetLayerVersionOutput {
      /// <p>Details about the layer version.</p>
--    pub content: ::std::option::Option<crate::types::LayerVersionContentOutput>,
-+    pub content: ::std::option::Option<crate::operation::get_layer_version::Output>,
+-    pub content: ::std::option::Option<super::types::LayerVersionContentOutput>,
++    pub content: ::std::option::Option<super::operation::get_layer_version::Output>,
      /// <p>The ARN of the layer.</p>
      pub layer_arn: ::std::option::Option<::std::string::String>,
      /// <p>The ARN of the layer version.</p>
@@ -1076,8 +1076,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
  impl GetLayerVersionOutput {
      /// <p>Details about the layer version.</p>
--    pub fn content(&self) -> ::std::option::Option<&crate::types::LayerVersionContentOutput> {
-+    pub fn content(&self) -> ::std::option::Option<&crate::operation::get_layer_version::Output> {
+-    pub fn content(&self) -> ::std::option::Option<&super::types::LayerVersionContentOutput> {
++    pub fn content(&self) -> ::std::option::Option<&super::operation::get_layer_version::Output> {
          self.content.as_ref()
      }
      /// <p>The ARN of the layer.</p>
@@ -1085,8 +1085,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
  #[non_exhaustive]
  pub struct GetLayerVersionOutputBuilder {
--    pub(crate) content: ::std::option::Option<crate::types::LayerVersionContentOutput>,
-+    pub(crate) content: ::std::option::Option<crate::operation::get_layer_version::Output>,
+-    pub(crate) content: ::std::option::Option<super::types::LayerVersionContentOutput>,
++    pub(crate) content: ::std::option::Option<super::operation::get_layer_version::Output>,
      pub(crate) layer_arn: ::std::option::Option<::std::string::String>,
      pub(crate) layer_version_arn: ::std::option::Option<::std::string::String>,
      pub(crate) description: ::std::option::Option<::std::string::String>,
@@ -1094,20 +1094,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
  impl GetLayerVersionOutputBuilder {
      /// <p>Details about the layer version.</p>
--    pub fn content(mut self, input: crate::types::LayerVersionContentOutput) -> Self {
-+    pub fn content(mut self, input: crate::operation::get_layer_version::Output) -> Self {
+-    pub fn content(mut self, input: super::types::LayerVersionContentOutput) -> Self {
++    pub fn content(mut self, input: super::operation::get_layer_version::Output) -> Self {
          self.content = ::std::option::Option::Some(input);
          self
      }
      /// <p>Details about the layer version.</p>
--    pub fn set_content(mut self, input: ::std::option::Option<crate::types::LayerVersionContentOutput>) -> Self {
-+    pub fn set_content(mut self, input: ::std::option::Option<crate::operation::get_layer_version::Output>) -> Self {
+-    pub fn set_content(mut self, input: ::std::option::Option<super::types::LayerVersionContentOutput>) -> Self {
++    pub fn set_content(mut self, input: ::std::option::Option<super::operation::get_layer_version::Output>) -> Self {
          self.content = input;
          self
      }
      /// <p>Details about the layer version.</p>
--    pub fn get_content(&self) -> &::std::option::Option<crate::types::LayerVersionContentOutput> {
-+    pub fn get_content(&self) -> &::std::option::Option<crate::operation::get_layer_version::Output> {
+-    pub fn get_content(&self) -> &::std::option::Option<super::types::LayerVersionContentOutput> {
++    pub fn get_content(&self) -> &::std::option::Option<super::operation::get_layer_version::Output> {
          &self.content
      }
      /// <p>The ARN of the layer.</p>
@@ -1137,7 +1137,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_layer_version::ser_get_layer_version_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_layer_version::ser_get_layer_version_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1156,8 +1156,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct GetLayerVersionByArnOutput {
      /// <p>Details about the layer version.</p>
--    pub content: ::std::option::Option<crate::types::LayerVersionContentOutput>,
-+    pub content: ::std::option::Option<crate::operation::get_layer_version_by_arn::Output>,
+-    pub content: ::std::option::Option<super::types::LayerVersionContentOutput>,
++    pub content: ::std::option::Option<super::operation::get_layer_version_by_arn::Output>,
      /// <p>The ARN of the layer.</p>
      pub layer_arn: ::std::option::Option<::std::string::String>,
      /// <p>The ARN of the layer version.</p>
@@ -1165,8 +1165,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
  impl GetLayerVersionByArnOutput {
      /// <p>Details about the layer version.</p>
--    pub fn content(&self) -> ::std::option::Option<&crate::types::LayerVersionContentOutput> {
-+    pub fn content(&self) -> ::std::option::Option<&crate::operation::get_layer_version_by_arn::Output> {
+-    pub fn content(&self) -> ::std::option::Option<&super::types::LayerVersionContentOutput> {
++    pub fn content(&self) -> ::std::option::Option<&super::operation::get_layer_version_by_arn::Output> {
          self.content.as_ref()
      }
      /// <p>The ARN of the layer.</p>
@@ -1174,8 +1174,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
  #[non_exhaustive]
  pub struct GetLayerVersionByArnOutputBuilder {
--    pub(crate) content: ::std::option::Option<crate::types::LayerVersionContentOutput>,
-+    pub(crate) content: ::std::option::Option<crate::operation::get_layer_version_by_arn::Output>,
+-    pub(crate) content: ::std::option::Option<super::types::LayerVersionContentOutput>,
++    pub(crate) content: ::std::option::Option<super::operation::get_layer_version_by_arn::Output>,
      pub(crate) layer_arn: ::std::option::Option<::std::string::String>,
      pub(crate) layer_version_arn: ::std::option::Option<::std::string::String>,
      pub(crate) description: ::std::option::Option<::std::string::String>,
@@ -1183,20 +1183,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
  impl GetLayerVersionByArnOutputBuilder {
      /// <p>Details about the layer version.</p>
--    pub fn content(mut self, input: crate::types::LayerVersionContentOutput) -> Self {
-+    pub fn content(mut self, input: crate::operation::get_layer_version_by_arn::Output) -> Self {
+-    pub fn content(mut self, input: super::types::LayerVersionContentOutput) -> Self {
++    pub fn content(mut self, input: super::operation::get_layer_version_by_arn::Output) -> Self {
          self.content = ::std::option::Option::Some(input);
          self
      }
      /// <p>Details about the layer version.</p>
--    pub fn set_content(mut self, input: ::std::option::Option<crate::types::LayerVersionContentOutput>) -> Self {
-+    pub fn set_content(mut self, input: ::std::option::Option<crate::operation::get_layer_version_by_arn::Output>) -> Self {
+-    pub fn set_content(mut self, input: ::std::option::Option<super::types::LayerVersionContentOutput>) -> Self {
++    pub fn set_content(mut self, input: ::std::option::Option<super::operation::get_layer_version_by_arn::Output>) -> Self {
          self.content = input;
          self
      }
      /// <p>Details about the layer version.</p>
--    pub fn get_content(&self) -> &::std::option::Option<crate::types::LayerVersionContentOutput> {
-+    pub fn get_content(&self) -> &::std::option::Option<crate::operation::get_layer_version_by_arn::Output> {
+-    pub fn get_content(&self) -> &::std::option::Option<super::types::LayerVersionContentOutput> {
++    pub fn get_content(&self) -> &::std::option::Option<super::operation::get_layer_version_by_arn::Output> {
          &self.content
      }
      /// <p>The ARN of the layer.</p>
@@ -1217,7 +1217,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_get_layer_version_by_arn::ser_get_layer_version_by_arn_input(&input)?,
++            super::protocol_serde::shape_get_layer_version_by_arn::ser_get_layer_version_by_arn_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -1235,7 +1235,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/get_layer_version_policy/_get_layer_version_policy_input.rs
 @@ -70,7 +70,7 @@
      {
-         ::std::result::Result::Ok(crate::operation::get_layer_version_policy::GetLayerVersionPolicyInput {
+         ::std::result::Result::Ok(super::operation::get_layer_version_policy::GetLayerVersionPolicyInput {
              layer_name: self.layer_name,
 -            version_number: self.version_number,
 +            version_number: self.version_number.unwrap_or_default(),
@@ -1269,7 +1269,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_get_layer_version_policy::ser_get_layer_version_policy_input(&input)?,
++            super::protocol_serde::shape_get_layer_version_policy::ser_get_layer_version_policy_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -1294,7 +1294,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_policy::ser_get_policy_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_policy::ser_get_policy_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1319,7 +1319,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_get_provisioned_concurrency_config::ser_get_provisioned_concurrency_config_input(&input)?,
++            super::protocol_serde::shape_get_provisioned_concurrency_config::ser_get_provisioned_concurrency_config_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -1344,7 +1344,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_resource_policy::ser_get_resource_policy_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_get_resource_policy::ser_get_resource_policy_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1369,7 +1369,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_get_runtime_management_config::ser_get_runtime_management_config_input(&input)?,
++            super::protocol_serde::shape_get_runtime_management_config::ser_get_runtime_management_config_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -1403,8 +1403,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_invoke_input::ser_payload_http_payload(input.payload)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_invoke::ser_invoke_input(&input)?);
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_invoke_input::ser_payload_http_payload(input.payload)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_invoke::ser_invoke_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1433,8 +1433,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
              builder
          };
--        let body = crate::protocol_serde::shape_invoke_async_input::ser_invoke_args_http_payload(input.invoke_args)?.into_inner();
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_invoke_async::ser_invoke_async_input(&input)?);
+-        let body = super::protocol_serde::shape_invoke_async_input::ser_invoke_args_http_payload(input.invoke_args)?.into_inner();
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_invoke_async::ser_invoke_async_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1461,11 +1461,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_invoke_with_response_stream_input::ser_payload_http_payload(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_invoke_with_response_stream_input::ser_payload_http_payload(
 -            input.payload,
 -        )?);
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_invoke_with_response_stream::ser_invoke_with_response_stream_input(&input)?,
++            super::protocol_serde::shape_invoke_with_response_stream::ser_invoke_with_response_stream_input(&input)?,
 +        );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -1486,7 +1486,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_aliases::ser_list_aliases_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_aliases::ser_list_aliases_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1510,7 +1510,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_capacity_providers::ser_list_capacity_providers_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_capacity_providers::ser_list_capacity_providers_input(
 +            &input,
 +        )?);
 +        if let Some(content_length) = body.content_length() {
@@ -1537,7 +1537,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_list_code_signing_configs::ser_list_code_signing_configs_input(&input)?,
++            super::protocol_serde::shape_list_code_signing_configs::ser_list_code_signing_configs_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -1631,7 +1631,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_list_durable_executions_by_function::ser_list_durable_executions_by_function_input(&input)?,
++            super::protocol_serde::shape_list_durable_executions_by_function::ser_list_durable_executions_by_function_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -1657,7 +1657,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_list_event_source_mappings::ser_list_event_source_mappings_input(&input)?,
++            super::protocol_serde::shape_list_event_source_mappings::ser_list_event_source_mappings_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -1683,7 +1683,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_list_function_event_invoke_configs::ser_list_function_event_invoke_configs_input(&input)?,
++            super::protocol_serde::shape_list_function_event_invoke_configs::ser_list_function_event_invoke_configs_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -1709,7 +1709,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_list_function_url_configs::ser_list_function_url_configs_input(&input)?,
++            super::protocol_serde::shape_list_function_url_configs::ser_list_function_url_configs_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -1735,7 +1735,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_list_function_versions_by_capacity_provider::ser_list_function_versions_by_capacity_provider_input(&input)?,
++            super::protocol_serde::shape_list_function_versions_by_capacity_provider::ser_list_function_versions_by_capacity_provider_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -1760,7 +1760,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_functions::ser_list_functions_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_functions::ser_list_functions_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1785,7 +1785,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_list_functions_by_code_signing_config::ser_list_functions_by_code_signing_config_input(&input)?,
++            super::protocol_serde::shape_list_functions_by_code_signing_config::ser_list_functions_by_code_signing_config_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -1810,7 +1810,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_layer_versions::ser_list_layer_versions_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_layer_versions::ser_list_layer_versions_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1834,7 +1834,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_layers::ser_list_layers_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_layers::ser_list_layers_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1859,7 +1859,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_list_provisioned_concurrency_configs::ser_list_provisioned_concurrency_configs_input(&input)?,
++            super::protocol_serde::shape_list_provisioned_concurrency_configs::ser_list_provisioned_concurrency_configs_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -1884,7 +1884,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_tags::ser_list_tags_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_tags::ser_list_tags_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1909,7 +1909,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_list_versions_by_function::ser_list_versions_by_function_input(&input)?,
++            super::protocol_serde::shape_list_versions_by_function::ser_list_versions_by_function_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -1929,17 +1929,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The description of the version.</p>
      pub description: ::std::option::Option<::std::string::String>,
      /// <p>The function layer archive.</p>
--    pub content: ::std::option::Option<crate::types::LayerVersionContentInput>,
-+    pub content: ::std::option::Option<crate::operation::publish_layer_version::Input>,
+-    pub content: ::std::option::Option<super::types::LayerVersionContentInput>,
++    pub content: ::std::option::Option<super::operation::publish_layer_version::Input>,
      /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-     pub compatible_architectures: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
+     pub compatible_architectures: ::std::option::Option<::std::vec::Vec<super::types::Architecture>>,
      /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function runtimes</a>. Used for filtering with <code>ListLayers</code> and <code>ListLayerVersions</code>.</p>
 @@ -35,7 +35,7 @@
          self.description.as_deref()
      }
      /// <p>The function layer archive.</p>
--    pub fn content(&self) -> ::std::option::Option<&crate::types::LayerVersionContentInput> {
-+    pub fn content(&self) -> ::std::option::Option<&crate::operation::publish_layer_version::Input> {
+-    pub fn content(&self) -> ::std::option::Option<&super::types::LayerVersionContentInput> {
++    pub fn content(&self) -> ::std::option::Option<&super::operation::publish_layer_version::Input> {
          self.content.as_ref()
      }
      /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
@@ -1947,29 +1947,29 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct PublishLayerVersionInputBuilder {
      pub(crate) layer_name: ::std::option::Option<::std::string::String>,
      pub(crate) description: ::std::option::Option<::std::string::String>,
--    pub(crate) content: ::std::option::Option<crate::types::LayerVersionContentInput>,
-+    pub(crate) content: ::std::option::Option<crate::operation::publish_layer_version::Input>,
-     pub(crate) compatible_architectures: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
-     pub(crate) compatible_runtimes: ::std::option::Option<::std::vec::Vec<crate::types::Runtime>>,
+-    pub(crate) content: ::std::option::Option<super::types::LayerVersionContentInput>,
++    pub(crate) content: ::std::option::Option<super::operation::publish_layer_version::Input>,
+     pub(crate) compatible_architectures: ::std::option::Option<::std::vec::Vec<super::types::Architecture>>,
+     pub(crate) compatible_runtimes: ::std::option::Option<::std::vec::Vec<super::types::Runtime>>,
      pub(crate) license_info: ::std::option::Option<::std::string::String>,
 @@ -114,17 +114,17 @@
      }
      /// <p>The function layer archive.</p>
      /// This field is required.
--    pub fn content(mut self, input: crate::types::LayerVersionContentInput) -> Self {
-+    pub fn content(mut self, input: crate::operation::publish_layer_version::Input) -> Self {
+-    pub fn content(mut self, input: super::types::LayerVersionContentInput) -> Self {
++    pub fn content(mut self, input: super::operation::publish_layer_version::Input) -> Self {
          self.content = ::std::option::Option::Some(input);
          self
      }
      /// <p>The function layer archive.</p>
--    pub fn set_content(mut self, input: ::std::option::Option<crate::types::LayerVersionContentInput>) -> Self {
-+    pub fn set_content(mut self, input: ::std::option::Option<crate::operation::publish_layer_version::Input>) -> Self {
+-    pub fn set_content(mut self, input: ::std::option::Option<super::types::LayerVersionContentInput>) -> Self {
++    pub fn set_content(mut self, input: ::std::option::Option<super::operation::publish_layer_version::Input>) -> Self {
          self.content = input;
          self
      }
      /// <p>The function layer archive.</p>
--    pub fn get_content(&self) -> &::std::option::Option<crate::types::LayerVersionContentInput> {
-+    pub fn get_content(&self) -> &::std::option::Option<crate::operation::publish_layer_version::Input> {
+-    pub fn get_content(&self) -> &::std::option::Option<super::types::LayerVersionContentInput> {
++    pub fn get_content(&self) -> &::std::option::Option<super::operation::publish_layer_version::Input> {
          &self.content
      }
      /// Appends an item to `compatible_architectures`.
@@ -1984,8 +1984,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct PublishLayerVersionOutput {
      /// <p>Details about the layer version.</p>
--    pub content: ::std::option::Option<crate::types::LayerVersionContentOutput>,
-+    pub content: ::std::option::Option<crate::operation::publish_layer_version::Output>,
+-    pub content: ::std::option::Option<super::types::LayerVersionContentOutput>,
++    pub content: ::std::option::Option<super::operation::publish_layer_version::Output>,
      /// <p>The ARN of the layer.</p>
      pub layer_arn: ::std::option::Option<::std::string::String>,
      /// <p>The ARN of the layer version.</p>
@@ -1993,8 +1993,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
  impl PublishLayerVersionOutput {
      /// <p>Details about the layer version.</p>
--    pub fn content(&self) -> ::std::option::Option<&crate::types::LayerVersionContentOutput> {
-+    pub fn content(&self) -> ::std::option::Option<&crate::operation::publish_layer_version::Output> {
+-    pub fn content(&self) -> ::std::option::Option<&super::types::LayerVersionContentOutput> {
++    pub fn content(&self) -> ::std::option::Option<&super::operation::publish_layer_version::Output> {
          self.content.as_ref()
      }
      /// <p>The ARN of the layer.</p>
@@ -2002,8 +2002,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
  #[non_exhaustive]
  pub struct PublishLayerVersionOutputBuilder {
--    pub(crate) content: ::std::option::Option<crate::types::LayerVersionContentOutput>,
-+    pub(crate) content: ::std::option::Option<crate::operation::publish_layer_version::Output>,
+-    pub(crate) content: ::std::option::Option<super::types::LayerVersionContentOutput>,
++    pub(crate) content: ::std::option::Option<super::operation::publish_layer_version::Output>,
      pub(crate) layer_arn: ::std::option::Option<::std::string::String>,
      pub(crate) layer_version_arn: ::std::option::Option<::std::string::String>,
      pub(crate) description: ::std::option::Option<::std::string::String>,
@@ -2011,20 +2011,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
  impl PublishLayerVersionOutputBuilder {
      /// <p>Details about the layer version.</p>
--    pub fn content(mut self, input: crate::types::LayerVersionContentOutput) -> Self {
-+    pub fn content(mut self, input: crate::operation::publish_layer_version::Output) -> Self {
+-    pub fn content(mut self, input: super::types::LayerVersionContentOutput) -> Self {
++    pub fn content(mut self, input: super::operation::publish_layer_version::Output) -> Self {
          self.content = ::std::option::Option::Some(input);
          self
      }
      /// <p>Details about the layer version.</p>
--    pub fn set_content(mut self, input: ::std::option::Option<crate::types::LayerVersionContentOutput>) -> Self {
-+    pub fn set_content(mut self, input: ::std::option::Option<crate::operation::publish_layer_version::Output>) -> Self {
+-    pub fn set_content(mut self, input: ::std::option::Option<super::types::LayerVersionContentOutput>) -> Self {
++    pub fn set_content(mut self, input: ::std::option::Option<super::operation::publish_layer_version::Output>) -> Self {
          self.content = input;
          self
      }
      /// <p>Details about the layer version.</p>
--    pub fn get_content(&self) -> &::std::option::Option<crate::types::LayerVersionContentOutput> {
-+    pub fn get_content(&self) -> &::std::option::Option<crate::operation::publish_layer_version::Output> {
+-    pub fn get_content(&self) -> &::std::option::Option<super::types::LayerVersionContentOutput> {
++    pub fn get_content(&self) -> &::std::option::Option<super::operation::publish_layer_version::Output> {
          &self.content
      }
      /// <p>The ARN of the layer.</p>
@@ -2039,20 +2039,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.inner.get_description()
      }
      /// <p>The function layer archive.</p>
--    pub fn content(mut self, input: crate::types::LayerVersionContentInput) -> Self {
-+    pub fn content(mut self, input: crate::operation::publish_layer_version::Input) -> Self {
+-    pub fn content(mut self, input: super::types::LayerVersionContentInput) -> Self {
++    pub fn content(mut self, input: super::operation::publish_layer_version::Input) -> Self {
          self.inner = self.inner.content(input);
          self
      }
      /// <p>The function layer archive.</p>
--    pub fn set_content(mut self, input: ::std::option::Option<crate::types::LayerVersionContentInput>) -> Self {
-+    pub fn set_content(mut self, input: ::std::option::Option<crate::operation::publish_layer_version::Input>) -> Self {
+-    pub fn set_content(mut self, input: ::std::option::Option<super::types::LayerVersionContentInput>) -> Self {
++    pub fn set_content(mut self, input: ::std::option::Option<super::operation::publish_layer_version::Input>) -> Self {
          self.inner = self.inner.set_content(input);
          self
      }
      /// <p>The function layer archive.</p>
--    pub fn get_content(&self) -> &::std::option::Option<crate::types::LayerVersionContentInput> {
-+    pub fn get_content(&self) -> &::std::option::Option<crate::operation::publish_layer_version::Input> {
+-    pub fn get_content(&self) -> &::std::option::Option<super::types::LayerVersionContentInput> {
++    pub fn get_content(&self) -> &::std::option::Option<super::operation::publish_layer_version::Input> {
          self.inner.get_content()
      }
      ///
@@ -2065,7 +2065,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/operation/remove_layer_version_permission/_remove_layer_version_permission_input.rs
 @@ -115,7 +115,7 @@
      > {
-         ::std::result::Result::Ok(crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput {
+         ::std::result::Result::Ok(super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput {
              layer_name: self.layer_name,
 -            version_number: self.version_number,
 +            version_number: self.version_number.unwrap_or_default(),
@@ -2099,7 +2099,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_remove_layer_version_permission::ser_remove_layer_version_permission_input(&input)?,
++            super::protocol_serde::shape_remove_layer_version_permission::ser_remove_layer_version_permission_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -2124,7 +2124,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_remove_permission::ser_remove_permission_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_remove_permission::ser_remove_permission_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -2143,8 +2143,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_send_durable_execution_callback_failure_input::ser_error_http_payload(&input.error)?,
-+            crate::protocol_serde::shape_send_durable_execution_callback_failure::ser_send_durable_execution_callback_failure_input(&input)?,
+-            super::protocol_serde::shape_send_durable_execution_callback_failure_input::ser_error_http_payload(&input.error)?,
++            super::protocol_serde::shape_send_durable_execution_callback_failure::ser_send_durable_execution_callback_failure_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -2165,7 +2165,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_send_durable_execution_callback_heartbeat::ser_send_durable_execution_callback_heartbeat_input(&input)?,
++            super::protocol_serde::shape_send_durable_execution_callback_heartbeat::ser_send_durable_execution_callback_heartbeat_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -2190,8 +2190,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_send_durable_execution_callback_success_input::ser_result_http_payload(input.result)?,
-+            crate::protocol_serde::shape_send_durable_execution_callback_success::ser_send_durable_execution_callback_success_input(&input)?,
+-            super::protocol_serde::shape_send_durable_execution_callback_success_input::ser_result_http_payload(input.result)?,
++            super::protocol_serde::shape_send_durable_execution_callback_success::ser_send_durable_execution_callback_success_input(&input)?,
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
@@ -2206,9 +2206,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_stop_durable_execution_input::ser_error_http_payload(
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_stop_durable_execution_input::ser_error_http_payload(
 -            &input.error,
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_stop_durable_execution::ser_stop_durable_execution_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_stop_durable_execution::ser_stop_durable_execution_input(
 +            &input,
          )?);
          if let Some(content_length) = body.content_length() {
@@ -2240,7 +2240,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_untag_resource::ser_untag_resource_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_untag_resource::ser_untag_resource_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -2275,12 +2275,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_add_layer_version_permission.rs
 +++ generated/src/protocol_serde/shape_add_layer_version_permission.rs
 @@ -134,13 +134,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::add_layer_version_permission::AddLayerVersionPermissionError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::add_layer_version_permission::AddLayerVersionPermissionError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::add_layer_version_permission::AddLayerVersionPermissionError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::add_layer_version_permission::AddLayerVersionPermissionError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -2317,7 +2317,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_add_layer_version_permission_input.rs
 @@ -3,17 +3,29 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::add_layer_version_permission::AddLayerVersionPermissionInput,
+     input: &super::operation::add_layer_version_permission::AddLayerVersionPermissionInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.action {
 -        object.key("Action").string(var_1.as_str());
@@ -2361,12 +2361,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_add_permission.rs
 +++ generated/src/protocol_serde/shape_add_permission.rs
 @@ -136,11 +136,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::add_permission::AddPermissionError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::add_permission::AddPermissionError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::add_permission::AddPermissionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::add_permission::AddPermissionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
@@ -2381,7 +2381,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_add_permission_input.rs
 @@ -3,35 +3,41 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::add_permission::AddPermissionInput,
+     input: &super::operation::add_permission::AddPermissionInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.action {
 -        object.key("Action").string(var_1.as_str());
@@ -2450,7 +2450,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_alias_routing_configuration(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::AliasRoutingConfiguration,
++    input: &super::types::AliasRoutingConfiguration,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.additional_version_weights {
 +        #[allow(unused_mut)]
@@ -2478,7 +2478,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_alias_routing_configuration(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::AliasRoutingConfiguration,
+-    input: &super::types::AliasRoutingConfiguration,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.additional_version_weights {
 -        #[allow(unused_mut)]
@@ -2506,7 +2506,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_amazon_managed_kafka_event_source_config(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::AmazonManagedKafkaEventSourceConfig,
++    input: &super::types::AmazonManagedKafkaEventSourceConfig,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.consumer_group_id {
 +        object.key("ConsumerGroupId").string(var_1.as_str());
@@ -2514,7 +2514,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_2) = &input.schema_registry_config {
 +        #[allow(unused_mut)]
 +        let mut object_3 = object.key("SchemaRegistryConfig").start_object();
-+        crate::protocol_serde::shape_kafka_schema_registry_config::ser_kafka_schema_registry_config(&mut object_3, var_2)?;
++        super::protocol_serde::shape_kafka_schema_registry_config::ser_kafka_schema_registry_config(&mut object_3, var_2)?;
 +        object_3.finish();
 +    }
 +    Ok(())
@@ -2530,7 +2530,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_amazon_managed_kafka_event_source_config(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::AmazonManagedKafkaEventSourceConfig,
+-    input: &super::types::AmazonManagedKafkaEventSourceConfig,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.consumer_group_id {
 -        object.key("ConsumerGroupId").string(var_1.as_str());
@@ -2538,29 +2538,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_2) = &input.schema_registry_config {
 -        #[allow(unused_mut)]
 -        let mut object_3 = object.key("SchemaRegistryConfig").start_object();
--        crate::protocol_serde::shape_kafka_schema_registry_config::ser_kafka_schema_registry_config(&mut object_3, var_2)?;
+-        super::protocol_serde::shape_kafka_schema_registry_config::ser_kafka_schema_registry_config(&mut object_3, var_2)?;
 -        object_3.finish();
 -    }
 -    Ok(())
 -}
-```
-
-### `src/protocol_serde/shape_callback_failed_details.rs`
-
-```diff
---- reference/src/protocol_serde/shape_callback_failed_details.rs
-+++ generated/src/protocol_serde/shape_callback_failed_details.rs
-@@ -33,7 +33,9 @@
-                     }
-                 }
-             }
--            Ok(Some(crate::serde_util::callback_failed_details_correct_errors(builder).build()))
-+            Ok(Some(crate::serde_util::callback_failed_details_correct_errors(builder).build().map_err(
-+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-+            )?))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_callback_options.rs`
@@ -2570,7 +2552,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_callback_options.rs
 @@ -3,13 +3,13 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::types::CallbackOptions,
+     input: &super::types::CallbackOptions,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if input.timeout_seconds != 0 {
 +    {
@@ -2586,46 +2568,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ::aws_smithy_types::Number::NegInt((input.heartbeat_timeout_seconds).into()),
 ```
 
-### `src/protocol_serde/shape_callback_succeeded_details.rs`
-
-```diff
---- reference/src/protocol_serde/shape_callback_succeeded_details.rs
-+++ generated/src/protocol_serde/shape_callback_succeeded_details.rs
-@@ -33,7 +33,11 @@
-                     }
-                 }
-             }
--            Ok(Some(crate::serde_util::callback_succeeded_details_correct_errors(builder).build()))
-+            Ok(Some(
-+                crate::serde_util::callback_succeeded_details_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
-### `src/protocol_serde/shape_callback_timed_out_details.rs`
-
-```diff
---- reference/src/protocol_serde/shape_callback_timed_out_details.rs
-+++ generated/src/protocol_serde/shape_callback_timed_out_details.rs
-@@ -33,7 +33,11 @@
-                     }
-                 }
-             }
--            Ok(Some(crate::serde_util::callback_timed_out_details_correct_errors(builder).build()))
-+            Ok(Some(
-+                crate::serde_util::callback_timed_out_details_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
 ### `src/protocol_serde/shape_capacity_provider_config.rs`
 
 ```diff
@@ -2635,12 +2577,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_capacity_provider_config(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::CapacityProviderConfig,
++    input: &super::types::CapacityProviderConfig,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.lambda_managed_instances_capacity_provider_config {
 +        #[allow(unused_mut)]
 +        let mut object_2 = object.key("LambdaManagedInstancesCapacityProviderConfig").start_object();
-+        crate::protocol_serde::shape_lambda_managed_instances_capacity_provider_config::ser_lambda_managed_instances_capacity_provider_config(
++        super::protocol_serde::shape_lambda_managed_instances_capacity_provider_config::ser_lambda_managed_instances_capacity_provider_config(
 +            &mut object_2,
 +            var_1,
 +        )?;
@@ -2657,38 +2599,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                          "LambdaManagedInstancesCapacityProviderConfig" => {
 -                            builder = builder.set_lambda_managed_instances_capacity_provider_config(
--                                    crate::protocol_serde::shape_lambda_managed_instances_capacity_provider_config::de_lambda_managed_instances_capacity_provider_config(tokens, _value, depth + 1)?
+-                                    super::protocol_serde::shape_lambda_managed_instances_capacity_provider_config::de_lambda_managed_instances_capacity_provider_config(tokens, _value, depth + 1)?
 -                                );
-+                            builder = builder.set_lambda_managed_instances_capacity_provider_config(crate::protocol_serde::shape_lambda_managed_instances_capacity_provider_config::de_lambda_managed_instances_capacity_provider_config(tokens, _value, depth + 1)?);
++                            builder = builder.set_lambda_managed_instances_capacity_provider_config(super::protocol_serde::shape_lambda_managed_instances_capacity_provider_config::de_lambda_managed_instances_capacity_provider_config(tokens, _value, depth + 1)?);
                          }
                          _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                      },
-@@ -35,7 +49,11 @@
-                     }
-                 }
-             }
--            Ok(Some(crate::serde_util::capacity_provider_config_correct_errors(builder).build()))
-+            Ok(Some(
-+                crate::serde_util::capacity_provider_config_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-@@ -42,19 +60,3 @@
+@@ -42,19 +56,3 @@
          )),
      }
  }
 -
 -pub fn ser_capacity_provider_config(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::CapacityProviderConfig,
+-    input: &super::types::CapacityProviderConfig,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.lambda_managed_instances_capacity_provider_config {
 -        #[allow(unused_mut)]
 -        let mut object_2 = object.key("LambdaManagedInstancesCapacityProviderConfig").start_object();
--        crate::protocol_serde::shape_lambda_managed_instances_capacity_provider_config::ser_lambda_managed_instances_capacity_provider_config(
+-        super::protocol_serde::shape_lambda_managed_instances_capacity_provider_config::ser_lambda_managed_instances_capacity_provider_config(
 -            &mut object_2,
 -            var_1,
 -        )?;
@@ -2698,134 +2627,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 ```
 
-### `src/protocol_serde/shape_chained_invoke_failed_details.rs`
-
-```diff
---- reference/src/protocol_serde/shape_chained_invoke_failed_details.rs
-+++ generated/src/protocol_serde/shape_chained_invoke_failed_details.rs
-@@ -33,7 +33,11 @@
-                     }
-                 }
-             }
--            Ok(Some(crate::serde_util::chained_invoke_failed_details_correct_errors(builder).build()))
-+            Ok(Some(
-+                crate::serde_util::chained_invoke_failed_details_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
-### `src/protocol_serde/shape_chained_invoke_stopped_details.rs`
-
-```diff
---- reference/src/protocol_serde/shape_chained_invoke_stopped_details.rs
-+++ generated/src/protocol_serde/shape_chained_invoke_stopped_details.rs
-@@ -33,7 +33,11 @@
-                     }
-                 }
-             }
--            Ok(Some(crate::serde_util::chained_invoke_stopped_details_correct_errors(builder).build()))
-+            Ok(Some(
-+                crate::serde_util::chained_invoke_stopped_details_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
-### `src/protocol_serde/shape_chained_invoke_succeeded_details.rs`
-
-```diff
---- reference/src/protocol_serde/shape_chained_invoke_succeeded_details.rs
-+++ generated/src/protocol_serde/shape_chained_invoke_succeeded_details.rs
-@@ -33,7 +33,11 @@
-                     }
-                 }
-             }
--            Ok(Some(crate::serde_util::chained_invoke_succeeded_details_correct_errors(builder).build()))
-+            Ok(Some(
-+                crate::serde_util::chained_invoke_succeeded_details_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
-### `src/protocol_serde/shape_chained_invoke_timed_out_details.rs`
-
-```diff
---- reference/src/protocol_serde/shape_chained_invoke_timed_out_details.rs
-+++ generated/src/protocol_serde/shape_chained_invoke_timed_out_details.rs
-@@ -33,7 +33,11 @@
-                     }
-                 }
-             }
--            Ok(Some(crate::serde_util::chained_invoke_timed_out_details_correct_errors(builder).build()))
-+            Ok(Some(
-+                crate::serde_util::chained_invoke_timed_out_details_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
 ### `src/protocol_serde/shape_checkpoint_durable_execution.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_checkpoint_durable_execution.rs
 +++ generated/src/protocol_serde/shape_checkpoint_durable_execution.rs
-@@ -40,7 +40,7 @@
-                 tmp
-             })
-         }
--        "KMSAccessDeniedException" => crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsAccessDeniedException({
-+        "KmsAccessDeniedException" => crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsAccessDeniedException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -55,7 +55,7 @@
-             }
-             tmp
-         }),
--        "KMSDisabledException" => crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsDisabledException({
-+        "KmsDisabledException" => crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsDisabledException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -70,7 +70,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -85,7 +85,7 @@
-             }
-             tmp
-         }),
--        "KMSNotFoundException" => crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsNotFoundException({
-+        "KmsNotFoundException" => crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsNotFoundException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -122,13 +122,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -2833,17 +2646,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  let output = output.meta(generic);
                  output.build()
              };
-@@ -156,7 +149,9 @@
-         output = crate::protocol_serde::shape_checkpoint_durable_execution::de_checkpoint_durable_execution(_response_body, output)
-             .map_err(crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::unhandled)?;
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        crate::serde_util::checkpoint_durable_execution_output_output_correct_errors(output).build()
-+        crate::serde_util::checkpoint_durable_execution_output_output_correct_errors(output)
-+            .build()
-+            .map_err(crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::unhandled)?
-     })
- }
-
 ```
 
 ### `src/protocol_serde/shape_checkpoint_durable_execution_input.rs`
@@ -2853,7 +2655,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_checkpoint_durable_execution_input.rs
 @@ -3,11 +3,11 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionInput,
+     input: &super::operation::checkpoint_durable_execution::CheckpointDurableExecutionInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.checkpoint_token {
 -        object.key("CheckpointToken").string(var_1.as_str());
@@ -2878,44 +2680,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/protocol_serde/shape_context_failed_details.rs`
-
-```diff
---- reference/src/protocol_serde/shape_context_failed_details.rs
-+++ generated/src/protocol_serde/shape_context_failed_details.rs
-@@ -33,7 +33,9 @@
-                     }
-                 }
-             }
--            Ok(Some(crate::serde_util::context_failed_details_correct_errors(builder).build()))
-+            Ok(Some(crate::serde_util::context_failed_details_correct_errors(builder).build().map_err(
-+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-+            )?))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
-### `src/protocol_serde/shape_context_succeeded_details.rs`
-
-```diff
---- reference/src/protocol_serde/shape_context_succeeded_details.rs
-+++ generated/src/protocol_serde/shape_context_succeeded_details.rs
-@@ -33,7 +33,11 @@
-                     }
-                 }
-             }
--            Ok(Some(crate::serde_util::context_succeeded_details_correct_errors(builder).build()))
-+            Ok(Some(
-+                crate::serde_util::context_succeeded_details_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
 ### `src/protocol_serde/shape_cors.rs`
 
 ```diff
@@ -2925,7 +2689,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_cors(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::Cors,
++    input: &super::types::Cors,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.allow_credentials {
 +        object.key("AllowCredentials").boolean(*var_1);
@@ -2985,7 +2749,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_cors(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::Cors,
+-    input: &super::types::Cors,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.allow_credentials {
 -        object.key("AllowCredentials").boolean(*var_1);
@@ -3042,12 +2806,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_create_alias.rs
 +++ generated/src/protocol_serde/shape_create_alias.rs
 @@ -103,11 +103,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::create_alias::CreateAliasError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::create_alias::CreateAliasError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::create_alias::CreateAliasError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::create_alias::CreateAliasError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
@@ -3079,7 +2843,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
 +                    "RoutingConfig" => {
 +                        builder = builder.set_routing_config(
-+                            crate::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?,
++                            super::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?,
 +                        );
 +                    }
                      "RevisionId" => {
@@ -3091,7 +2855,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
 -                    "RoutingConfig" => {
 -                        builder = builder.set_routing_config(
--                            crate::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?,
+-                            super::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?,
 -                        );
 -                    }
                      _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -3106,7 +2870,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_create_alias_input.rs
 @@ -3,20 +3,23 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::create_alias::CreateAliasInput,
+     input: &super::operation::create_alias::CreateAliasInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.description {
 -        object.key("Description").string(var_1.as_str());
@@ -3130,10 +2894,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_5) = &input.routing_config {
          #[allow(unused_mut)]
 -        let mut object_5 = object.key("RoutingConfig").start_object();
--        crate::protocol_serde::shape_alias_routing_configuration::ser_alias_routing_configuration(&mut object_5, var_4)?;
+-        super::protocol_serde::shape_alias_routing_configuration::ser_alias_routing_configuration(&mut object_5, var_4)?;
 -        object_5.finish();
 +        let mut object_6 = object.key("RoutingConfig").start_object();
-+        crate::protocol_serde::shape_alias_routing_configuration::ser_alias_routing_configuration(&mut object_6, var_5)?;
++        super::protocol_serde::shape_alias_routing_configuration::ser_alias_routing_configuration(&mut object_6, var_5)?;
 +        object_6.finish();
      }
      Ok(())
@@ -3146,12 +2910,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_create_capacity_provider.rs
 +++ generated/src/protocol_serde/shape_create_capacity_provider.rs
 @@ -97,13 +97,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::create_capacity_provider::CreateCapacityProviderError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::create_capacity_provider::CreateCapacityProviderError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::create_capacity_provider::CreateCapacityProviderError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::create_capacity_provider::CreateCapacityProviderError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -3159,17 +2923,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  let output = output.meta(generic);
                  output.build()
              };
-@@ -131,7 +124,9 @@
-         output = crate::protocol_serde::shape_create_capacity_provider::de_create_capacity_provider(_response_body, output)
-             .map_err(crate::operation::create_capacity_provider::CreateCapacityProviderError::unhandled)?;
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        crate::serde_util::create_capacity_provider_output_output_correct_errors(output).build()
-+        crate::serde_util::create_capacity_provider_output_output_correct_errors(output)
-+            .build()
-+            .map_err(crate::operation::create_capacity_provider::CreateCapacityProviderError::unhandled)?
-     })
- }
-
 ```
 
 ### `src/protocol_serde/shape_create_capacity_provider_input.rs`
@@ -3185,18 +2938,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_2) = &input.vpc_config {
          #[allow(unused_mut)]
 -        let mut object_3 = object.key("CapacityProviderScalingConfig").start_object();
--        crate::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_3, var_2)?;
+-        super::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_3, var_2)?;
 +        let mut object_3 = object.key("VpcConfig").start_object();
-+        crate::protocol_serde::shape_capacity_provider_vpc_config::ser_capacity_provider_vpc_config(&mut object_3, var_2)?;
++        super::protocol_serde::shape_capacity_provider_vpc_config::ser_capacity_provider_vpc_config(&mut object_3, var_2)?;
          object_3.finish();
      }
 -    if let Some(var_4) = &input.instance_requirements {
 +    if let Some(var_4) = &input.permissions_config {
          #[allow(unused_mut)]
 -        let mut object_5 = object.key("InstanceRequirements").start_object();
--        crate::protocol_serde::shape_instance_requirements::ser_instance_requirements(&mut object_5, var_4)?;
+-        super::protocol_serde::shape_instance_requirements::ser_instance_requirements(&mut object_5, var_4)?;
 +        let mut object_5 = object.key("PermissionsConfig").start_object();
-+        crate::protocol_serde::shape_capacity_provider_permissions_config::ser_capacity_provider_permissions_config(&mut object_5, var_4)?;
++        super::protocol_serde::shape_capacity_provider_permissions_config::ser_capacity_provider_permissions_config(&mut object_5, var_4)?;
          object_5.finish();
      }
 -    if let Some(var_6) = &input.kms_key_arn {
@@ -3204,23 +2957,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_6) = &input.instance_requirements {
 +        #[allow(unused_mut)]
 +        let mut object_7 = object.key("InstanceRequirements").start_object();
-+        crate::protocol_serde::shape_instance_requirements::ser_instance_requirements(&mut object_7, var_6)?;
++        super::protocol_serde::shape_instance_requirements::ser_instance_requirements(&mut object_7, var_6)?;
 +        object_7.finish();
      }
 -    if let Some(var_7) = &input.permissions_config {
 +    if let Some(var_8) = &input.capacity_provider_scaling_config {
          #[allow(unused_mut)]
 -        let mut object_8 = object.key("PermissionsConfig").start_object();
--        crate::protocol_serde::shape_capacity_provider_permissions_config::ser_capacity_provider_permissions_config(&mut object_8, var_7)?;
+-        super::protocol_serde::shape_capacity_provider_permissions_config::ser_capacity_provider_permissions_config(&mut object_8, var_7)?;
 -        object_8.finish();
 +        let mut object_9 = object.key("CapacityProviderScalingConfig").start_object();
-+        crate::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_9, var_8)?;
++        super::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_9, var_8)?;
 +        object_9.finish();
      }
 -    if let Some(var_9) = &input.propagate_tags {
 -        #[allow(unused_mut)]
 -        let mut object_10 = object.key("PropagateTags").start_object();
--        crate::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_10, var_9)?;
+-        super::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_10, var_9)?;
 -        object_10.finish();
 +    if let Some(var_10) = &input.kms_key_arn {
 +        object.key("KmsKeyArn").string(var_10.as_str());
@@ -3235,39 +2988,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_15) = &input.propagate_tags {
          #[allow(unused_mut)]
 -        let mut object_16 = object.key("TelemetryConfig").start_object();
--        crate::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_16, var_15)?;
+-        super::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_16, var_15)?;
 +        let mut object_16 = object.key("PropagateTags").start_object();
-+        crate::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_16, var_15)?;
++        super::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_16, var_15)?;
          object_16.finish();
      }
 -    if let Some(var_17) = &input.vpc_config {
 +    if let Some(var_17) = &input.telemetry_config {
          #[allow(unused_mut)]
 -        let mut object_18 = object.key("VpcConfig").start_object();
--        crate::protocol_serde::shape_capacity_provider_vpc_config::ser_capacity_provider_vpc_config(&mut object_18, var_17)?;
+-        super::protocol_serde::shape_capacity_provider_vpc_config::ser_capacity_provider_vpc_config(&mut object_18, var_17)?;
 +        let mut object_18 = object.key("TelemetryConfig").start_object();
-+        crate::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_18, var_17)?;
++        super::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_18, var_17)?;
          object_18.finish();
      }
      Ok(())
-```
-
-### `src/protocol_serde/shape_create_code_signing_config.rs`
-
-```diff
---- reference/src/protocol_serde/shape_create_code_signing_config.rs
-+++ generated/src/protocol_serde/shape_create_code_signing_config.rs
-@@ -78,7 +78,9 @@
-         output = crate::protocol_serde::shape_create_code_signing_config::de_create_code_signing_config(_response_body, output)
-             .map_err(crate::operation::create_code_signing_config::CreateCodeSigningConfigError::unhandled)?;
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        crate::serde_util::create_code_signing_config_output_output_correct_errors(output).build()
-+        crate::serde_util::create_code_signing_config_output_output_correct_errors(output)
-+            .build()
-+            .map_err(crate::operation::create_code_signing_config::CreateCodeSigningConfigError::unhandled)?
-     })
- }
-
 ```
 
 ### `src/protocol_serde/shape_create_code_signing_config_input.rs`
@@ -3277,7 +3012,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_create_code_signing_config_input.rs
 @@ -3,20 +3,20 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::create_code_signing_config::CreateCodeSigningConfigInput,
+     input: &super::operation::create_code_signing_config::CreateCodeSigningConfigInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.allowed_publishers {
 +    if let Some(var_1) = &input.description {
@@ -3286,23 +3021,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_2) = &input.allowed_publishers {
          #[allow(unused_mut)]
 -        let mut object_2 = object.key("AllowedPublishers").start_object();
--        crate::protocol_serde::shape_allowed_publishers::ser_allowed_publishers(&mut object_2, var_1)?;
+-        super::protocol_serde::shape_allowed_publishers::ser_allowed_publishers(&mut object_2, var_1)?;
 -        object_2.finish();
 +        let mut object_3 = object.key("AllowedPublishers").start_object();
-+        crate::protocol_serde::shape_allowed_publishers::ser_allowed_publishers(&mut object_3, var_2)?;
++        super::protocol_serde::shape_allowed_publishers::ser_allowed_publishers(&mut object_3, var_2)?;
 +        object_3.finish();
      }
 -    if let Some(var_3) = &input.code_signing_policies {
 +    if let Some(var_4) = &input.code_signing_policies {
          #[allow(unused_mut)]
 -        let mut object_4 = object.key("CodeSigningPolicies").start_object();
--        crate::protocol_serde::shape_code_signing_policies::ser_code_signing_policies(&mut object_4, var_3)?;
+-        super::protocol_serde::shape_code_signing_policies::ser_code_signing_policies(&mut object_4, var_3)?;
 -        object_4.finish();
 -    }
 -    if let Some(var_5) = &input.description {
 -        object.key("Description").string(var_5.as_str());
 +        let mut object_5 = object.key("CodeSigningPolicies").start_object();
-+        crate::protocol_serde::shape_code_signing_policies::ser_code_signing_policies(&mut object_5, var_4)?;
++        super::protocol_serde::shape_code_signing_policies::ser_code_signing_policies(&mut object_5, var_4)?;
 +        object_5.finish();
      }
      if let Some(var_6) = &input.tags {
@@ -3315,12 +3050,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_create_event_source_mapping.rs
 +++ generated/src/protocol_serde/shape_create_event_source_mapping.rs
 @@ -96,13 +96,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::create_event_source_mapping::CreateEventSourceMappingError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::create_event_source_mapping::CreateEventSourceMappingError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::create_event_source_mapping::CreateEventSourceMappingError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::create_event_source_mapping::CreateEventSourceMappingError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -3334,7 +3069,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "AmazonManagedKafkaEventSourceConfig" => {
 -                    builder = builder.set_amazon_managed_kafka_event_source_config(
--                        crate::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
+-                        super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
 -                            tokens,
 -                            _value,
 -                            depth + 1,
@@ -3349,7 +3084,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "StartingPosition" => {
 +                    builder = builder.set_starting_position(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::EventSourcePosition::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::EventSourcePosition::from(u.as_ref())))
 +                            .transpose()?,
                      );
                  }
@@ -3370,7 +3105,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                    builder = builder.set_bisect_batch_on_function_error(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
 -                }
 -                "DestinationConfig" => {
--                    builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
+-                    builder = builder.set_destination_config(super::protocol_serde::shape_destination_config::de_destination_config(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -3378,7 +3113,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                }
 -                "DocumentDBEventSourceConfig" => {
 -                    builder = builder.set_document_db_event_source_config(
--                        crate::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?,
 +                "MaximumBatchingWindowInSeconds" => {
 +                    builder = builder.set_maximum_batching_window_in_seconds(
 +                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
@@ -3419,10 +3154,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "FunctionResponseTypes" => {
 -                    builder = builder.set_function_response_types(
--                        crate::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?,
 +                "MetricsConfig" => {
 +                    builder = builder.set_metrics_config(
-+                        crate::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
++                        super::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
 +                            tokens,
 +                            _value,
 +                            depth + 1,
@@ -3433,7 +3168,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                    builder = builder.set_kms_key_arn(
 +                "LoggingConfig" => {
 +                    builder = builder.set_logging_config(
-+                        crate::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
++                        super::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
 +                            tokens,
 +                            _value,
 +                            depth + 1,
@@ -3441,7 +3176,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    );
 +                }
 +                "ScalingConfig" => {
-+                    builder = builder.set_scaling_config(crate::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
++                    builder = builder.set_scaling_config(super::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
 +                }
 +                "FunctionArn" => {
 +                    builder = builder.set_function_arn(
@@ -3454,7 +3189,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "LoggingConfig" => {
 -                    builder = builder.set_logging_config(
--                        crate::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
+-                        super::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
 -                            tokens,
 -                            _value,
 -                            depth + 1,
@@ -3478,26 +3213,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 +                "DestinationConfig" => {
-+                    builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
++                    builder = builder.set_destination_config(super::protocol_serde::shape_destination_config::de_destination_config(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
 +                    )?);
 +                }
 +                "Topics" => {
-+                    builder = builder.set_topics(crate::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
++                    builder = builder.set_topics(super::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
 +                }
 +                "Queues" => {
-+                    builder = builder.set_queues(crate::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
++                    builder = builder.set_queues(super::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
 +                }
 +                "SourceAccessConfigurations" => {
 +                    builder = builder.set_source_access_configurations(
-+                        crate::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?,
 +                    );
 +                }
 +                "SelfManagedEventSource" => {
 +                    builder = builder.set_self_managed_event_source(
-+                        crate::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
 +                    );
 +                }
                  "MaximumRecordAgeInSeconds" => {
@@ -3519,7 +3254,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "MetricsConfig" => {
 -                    builder = builder.set_metrics_config(
--                        crate::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
+-                        super::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
 -                            tokens,
 -                            _value,
 -                            depth + 1,
@@ -3537,24 +3272,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "ProvisionedPollerConfig" => {
 -                    builder = builder.set_provisioned_poller_config(
--                        crate::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
 +                "FunctionResponseTypes" => {
 +                    builder = builder.set_function_response_types(
-+                        crate::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?,
                      );
                  }
 -                "Queues" => {
--                    builder = builder.set_queues(crate::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
+-                    builder = builder.set_queues(super::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
 -                }
 -                "ScalingConfig" => {
--                    builder = builder.set_scaling_config(crate::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
+-                    builder = builder.set_scaling_config(super::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
 -                }
 -                "SelfManagedEventSource" => {
 -                    builder = builder.set_self_managed_event_source(
--                        crate::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
 +                "AmazonManagedKafkaEventSourceConfig" => {
 +                    builder = builder.set_amazon_managed_kafka_event_source_config(
-+                        crate::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
++                        super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
 +                            tokens,
 +                            _value,
 +                            depth + 1,
@@ -3568,13 +3303,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "SourceAccessConfigurations" => {
 -                    builder = builder.set_source_access_configurations(
--                        crate::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?,
 -                    );
 -                }
 -                "StartingPosition" => {
 -                    builder = builder.set_starting_position(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::EventSourcePosition::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::EventSourcePosition::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 -                }
@@ -3591,7 +3326,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 +                "DocumentDBEventSourceConfig" => {
 +                    builder = builder.set_document_db_event_source_config(
-+                        crate::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?,
                      );
                  }
 -                "StateTransitionReason" => {
@@ -3604,7 +3339,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "Topics" => {
--                    builder = builder.set_topics(crate::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
+-                    builder = builder.set_topics(super::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
 -                }
 -                "TumblingWindowInSeconds" => {
 -                    builder = builder.set_tumbling_window_in_seconds(
@@ -3620,7 +3355,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 +                "ProvisionedPollerConfig" => {
 +                    builder = builder.set_provisioned_poller_config(
-+                        crate::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
                      );
                  }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -3633,12 +3368,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_create_event_source_mapping_input.rs
 @@ -3,77 +3,82 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::create_event_source_mapping::CreateEventSourceMappingInput,
+     input: &super::operation::create_event_source_mapping::CreateEventSourceMappingInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.amazon_managed_kafka_event_source_config {
 -        #[allow(unused_mut)]
 -        let mut object_2 = object.key("AmazonManagedKafkaEventSourceConfig").start_object();
--        crate::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_2, var_1)?;
+-        super::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_2, var_1)?;
 -        object_2.finish();
 +    if let Some(var_1) = &input.event_source_arn {
 +        object.key("EventSourceArn").string(var_1.as_str());
@@ -3664,9 +3399,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_5) = &input.filter_criteria {
          #[allow(unused_mut)]
 -        let mut object_6 = object.key("DestinationConfig").start_object();
--        crate::protocol_serde::shape_destination_config::ser_destination_config(&mut object_6, var_5)?;
+-        super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_6, var_5)?;
 +        let mut object_6 = object.key("FilterCriteria").start_object();
-+        crate::protocol_serde::shape_filter_criteria::ser_filter_criteria(&mut object_6, var_5)?;
++        super::protocol_serde::shape_filter_criteria::ser_filter_criteria(&mut object_6, var_5)?;
          object_6.finish();
      }
 -    if let Some(var_7) = &input.document_db_event_source_config {
@@ -3676,10 +3411,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_8) = &input.metrics_config {
          #[allow(unused_mut)]
 -        let mut object_8 = object.key("DocumentDBEventSourceConfig").start_object();
--        crate::protocol_serde::shape_document_db_event_source_config::ser_document_db_event_source_config(&mut object_8, var_7)?;
+-        super::protocol_serde::shape_document_db_event_source_config::ser_document_db_event_source_config(&mut object_8, var_7)?;
 -        object_8.finish();
 +        let mut object_9 = object.key("MetricsConfig").start_object();
-+        crate::protocol_serde::shape_event_source_mapping_metrics_config::ser_event_source_mapping_metrics_config(&mut object_9, var_8)?;
++        super::protocol_serde::shape_event_source_mapping_metrics_config::ser_event_source_mapping_metrics_config(&mut object_9, var_8)?;
 +        object_9.finish();
      }
 -    if let Some(var_9) = &input.enabled {
@@ -3687,7 +3422,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_10) = &input.logging_config {
 +        #[allow(unused_mut)]
 +        let mut object_11 = object.key("LoggingConfig").start_object();
-+        crate::protocol_serde::shape_event_source_mapping_logging_config::ser_event_source_mapping_logging_config(&mut object_11, var_10)?;
++        super::protocol_serde::shape_event_source_mapping_logging_config::ser_event_source_mapping_logging_config(&mut object_11, var_10)?;
 +        object_11.finish();
      }
 -    if let Some(var_10) = &input.event_source_arn {
@@ -3697,10 +3432,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_12) = &input.scaling_config {
          #[allow(unused_mut)]
 -        let mut object_12 = object.key("FilterCriteria").start_object();
--        crate::protocol_serde::shape_filter_criteria::ser_filter_criteria(&mut object_12, var_11)?;
+-        super::protocol_serde::shape_filter_criteria::ser_filter_criteria(&mut object_12, var_11)?;
 -        object_12.finish();
 +        let mut object_13 = object.key("ScalingConfig").start_object();
-+        crate::protocol_serde::shape_scaling_config::ser_scaling_config(&mut object_13, var_12)?;
++        super::protocol_serde::shape_scaling_config::ser_scaling_config(&mut object_13, var_12)?;
 +        object_13.finish();
      }
 -    if let Some(var_13) = &input.function_name {
@@ -3739,9 +3474,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_18) = &input.destination_config {
          #[allow(unused_mut)]
 -        let mut object_19 = object.key("LoggingConfig").start_object();
--        crate::protocol_serde::shape_event_source_mapping_logging_config::ser_event_source_mapping_logging_config(&mut object_19, var_18)?;
+-        super::protocol_serde::shape_event_source_mapping_logging_config::ser_event_source_mapping_logging_config(&mut object_19, var_18)?;
 +        let mut object_19 = object.key("DestinationConfig").start_object();
-+        crate::protocol_serde::shape_destination_config::ser_destination_config(&mut object_19, var_18)?;
++        super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_19, var_18)?;
          object_19.finish();
      }
 -    if let Some(var_20) = &input.maximum_batching_window_in_seconds {
@@ -3770,7 +3505,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_23) = &input.tags {
          #[allow(unused_mut)]
 -        let mut object_24 = object.key("MetricsConfig").start_object();
--        crate::protocol_serde::shape_event_source_mapping_metrics_config::ser_event_source_mapping_metrics_config(&mut object_24, var_23)?;
+-        super::protocol_serde::shape_event_source_mapping_metrics_config::ser_event_source_mapping_metrics_config(&mut object_24, var_23)?;
 +        let mut object_24 = object.key("Tags").start_object();
 +        for (key_25, value_26) in var_23 {
 +            {
@@ -3791,7 +3526,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_26) = &input.provisioned_poller_config {
 -        #[allow(unused_mut)]
 -        let mut object_27 = object.key("ProvisionedPollerConfig").start_object();
--        crate::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(&mut object_27, var_26)?;
+-        super::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(&mut object_27, var_26)?;
 -        object_27.finish();
 -    }
 -    if let Some(var_28) = &input.queues {
@@ -3808,7 +3543,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_31) = &input.scaling_config {
 -        #[allow(unused_mut)]
 -        let mut object_32 = object.key("ScalingConfig").start_object();
--        crate::protocol_serde::shape_scaling_config::ser_scaling_config(&mut object_32, var_31)?;
+-        super::protocol_serde::shape_scaling_config::ser_scaling_config(&mut object_32, var_31)?;
 -        object_32.finish();
 +    if let Some(var_31) = &input.queues {
 +        let mut array_32 = object.key("Queues").start_array();
@@ -3822,13 +3557,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_33) = &input.self_managed_event_source {
 -        #[allow(unused_mut)]
 -        let mut object_34 = object.key("SelfManagedEventSource").start_object();
--        crate::protocol_serde::shape_self_managed_event_source::ser_self_managed_event_source(&mut object_34, var_33)?;
+-        super::protocol_serde::shape_self_managed_event_source::ser_self_managed_event_source(&mut object_34, var_33)?;
 -        object_34.finish();
 -    }
 -    if let Some(var_35) = &input.self_managed_kafka_event_source_config {
 -        #[allow(unused_mut)]
 -        let mut object_36 = object.key("SelfManagedKafkaEventSourceConfig").start_object();
--        crate::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_36, var_35)?;
+-        super::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_36, var_35)?;
 -        object_36.finish();
 -    }
 -    if let Some(var_37) = &input.source_access_configurations {
@@ -3840,10 +3575,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_40 = array_38.value().start_object();
--                crate::protocol_serde::shape_source_access_configuration::ser_source_access_configuration(&mut object_40, item_39)?;
+-                super::protocol_serde::shape_source_access_configuration::ser_source_access_configuration(&mut object_40, item_39)?;
 -                object_40.finish();
 +                let mut object_37 = array_35.value().start_object();
-+                crate::protocol_serde::shape_source_access_configuration::ser_source_access_configuration(&mut object_37, item_36)?;
++                super::protocol_serde::shape_source_access_configuration::ser_source_access_configuration(&mut object_37, item_36)?;
 +                object_37.finish();
              }
          }
@@ -3860,7 +3595,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_38) = &input.self_managed_event_source {
 +        #[allow(unused_mut)]
 +        let mut object_39 = object.key("SelfManagedEventSource").start_object();
-+        crate::protocol_serde::shape_self_managed_event_source::ser_self_managed_event_source(&mut object_39, var_38)?;
++        super::protocol_serde::shape_self_managed_event_source::ser_self_managed_event_source(&mut object_39, var_38)?;
 +        object_39.finish();
      }
 -    if let Some(var_43) = &input.tags {
@@ -3880,7 +3615,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_43) = &input.amazon_managed_kafka_event_source_config {
 +        #[allow(unused_mut)]
 +        let mut object_44 = object.key("AmazonManagedKafkaEventSourceConfig").start_object();
-+        crate::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_44, var_43)?;
++        super::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_44, var_43)?;
          object_44.finish();
      }
 -    if let Some(var_47) = &input.topics {
@@ -3894,7 +3629,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_45) = &input.self_managed_kafka_event_source_config {
 +        #[allow(unused_mut)]
 +        let mut object_46 = object.key("SelfManagedKafkaEventSourceConfig").start_object();
-+        crate::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_46, var_45)?;
++        super::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_46, var_45)?;
 +        object_46.finish();
      }
 -    if let Some(var_50) = &input.tumbling_window_in_seconds {
@@ -3905,13 +3640,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_47) = &input.document_db_event_source_config {
 +        #[allow(unused_mut)]
 +        let mut object_48 = object.key("DocumentDBEventSourceConfig").start_object();
-+        crate::protocol_serde::shape_document_db_event_source_config::ser_document_db_event_source_config(&mut object_48, var_47)?;
++        super::protocol_serde::shape_document_db_event_source_config::ser_document_db_event_source_config(&mut object_48, var_47)?;
 +        object_48.finish();
 +    }
 +    if let Some(var_49) = &input.provisioned_poller_config {
 +        #[allow(unused_mut)]
 +        let mut object_50 = object.key("ProvisionedPollerConfig").start_object();
-+        crate::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(&mut object_50, var_49)?;
++        super::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(&mut object_50, var_49)?;
 +        object_50.finish();
      }
      Ok(())
@@ -3924,12 +3659,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_create_function.rs
 +++ generated/src/protocol_serde/shape_create_function.rs
 @@ -173,13 +173,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::create_function::CreateFunctionError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::create_function::CreateFunctionError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::create_function::CreateFunctionError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::create_function::CreateFunctionError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -3942,7 +3677,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "Architectures" => {
--                    builder = builder.set_architectures(crate::protocol_serde::shape_architectures_list::de_architectures_list(
+-                    builder = builder.set_architectures(super::protocol_serde::shape_architectures_list::de_architectures_list(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -3964,13 +3699,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "Runtime" => {
 +                    builder = builder.set_runtime(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::Runtime::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::Runtime::from(u.as_ref())))
 +                            .transpose()?,
 +                    );
                  }
 -                "CapacityProviderConfig" => {
 -                    builder = builder.set_capacity_provider_config(
--                        crate::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
 +                "Role" => {
 +                    builder = builder.set_role(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -3999,7 +3734,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "DeadLetterConfig" => {
--                    builder = builder.set_dead_letter_config(crate::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
+-                    builder = builder.set_dead_letter_config(super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -4028,7 +3763,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "DurableConfig" => {
--                    builder = builder.set_durable_config(crate::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
+-                    builder = builder.set_durable_config(super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
 +                "CodeSha256" => {
 +                    builder = builder.set_code_sha256(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -4037,7 +3772,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    );
                  }
 -                "Environment" => {
--                    builder = builder.set_environment(crate::protocol_serde::shape_environment_response::de_environment_response(
+-                    builder = builder.set_environment(super::protocol_serde::shape_environment_response::de_environment_response(
 +                "Version" => {
 +                    builder = builder.set_version(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -4046,25 +3781,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    );
 +                }
 +                "VpcConfig" => {
-+                    builder = builder.set_vpc_config(crate::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
++                    builder = builder.set_vpc_config(super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
                          tokens,
                          _value,
                          depth + 1,
                      )?);
                  }
 -                "EphemeralStorage" => {
--                    builder = builder.set_ephemeral_storage(crate::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
+-                    builder = builder.set_ephemeral_storage(super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
 +                "DeadLetterConfig" => {
-+                    builder = builder.set_dead_letter_config(crate::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
++                    builder = builder.set_dead_letter_config(super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
                          tokens,
                          _value,
                          depth + 1,
                      )?);
                  }
 -                "FileSystemConfigs" => {
--                    builder = builder.set_file_system_configs(crate::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
+-                    builder = builder.set_file_system_configs(super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
 +                "Environment" => {
-+                    builder = builder.set_environment(crate::protocol_serde::shape_environment_response::de_environment_response(
++                    builder = builder.set_environment(super::protocol_serde::shape_environment_response::de_environment_response(
                          tokens,
                          _value,
                          depth + 1,
@@ -4082,7 +3817,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "FunctionName" => {
 -                    builder = builder.set_function_name(
 +                "TracingConfig" => {
-+                    builder = builder.set_tracing_config(crate::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
++                    builder = builder.set_tracing_config(super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -4105,9 +3840,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "ImageConfigResponse" => {
--                    builder = builder.set_image_config_response(crate::protocol_serde::shape_image_config_response::de_image_config_response(
+-                    builder = builder.set_image_config_response(super::protocol_serde::shape_image_config_response::de_image_config_response(
 +                "Layers" => {
-+                    builder = builder.set_layers(crate::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
++                    builder = builder.set_layers(super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
                          tokens,
                          _value,
                          depth + 1,
@@ -4119,7 +3854,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    builder = builder.set_state(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::State::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::State::from(u.as_ref())))
                              .transpose()?,
                      );
                  }
@@ -4135,7 +3870,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "StateReasonCode" => {
 +                    builder = builder.set_state_reason_code(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::StateReasonCode::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::StateReasonCode::from(u.as_ref())))
 +                            .transpose()?,
 +                    );
 +                }
@@ -4147,16 +3882,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "Layers" => {
--                    builder = builder.set_layers(crate::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
+-                    builder = builder.set_layers(super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
 +                "FileSystemConfigs" => {
-+                    builder = builder.set_file_system_configs(crate::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
++                    builder = builder.set_file_system_configs(super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
                          tokens,
                          _value,
                          depth + 1,
                      )?);
                  }
 -                "LoggingConfig" => {
--                    builder = builder.set_logging_config(crate::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
+-                    builder = builder.set_logging_config(super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
 -                }
 -                "MasterArn" => {
 -                    builder = builder.set_master_arn(
@@ -4189,7 +3924,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 -                    );
 +                "ImageConfigResponse" => {
-+                    builder = builder.set_image_config_response(crate::protocol_serde::shape_image_config_response::de_image_config_response(
++                    builder = builder.set_image_config_response(super::protocol_serde::shape_image_config_response::de_image_config_response(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -4202,7 +3937,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 -                    );
 +                "Architectures" => {
-+                    builder = builder.set_architectures(crate::protocol_serde::shape_architectures_list::de_architectures_list(
++                    builder = builder.set_architectures(super::protocol_serde::shape_architectures_list::de_architectures_list(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -4211,14 +3946,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "Runtime" => {
 -                    builder = builder.set_runtime(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::Runtime::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::Runtime::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 -                }
 -                "RuntimeVersionConfig" => {
--                    builder = builder.set_runtime_version_config(crate::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
+-                    builder = builder.set_runtime_version_config(super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
 +                "EphemeralStorage" => {
-+                    builder = builder.set_ephemeral_storage(crate::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
++                    builder = builder.set_ephemeral_storage(super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
                          tokens,
                          _value,
                          depth + 1,
@@ -4239,7 +3974,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                    );
 -                }
                  "SnapStart" => {
-                     builder = builder.set_snap_start(crate::protocol_serde::shape_snap_start_response::de_snap_start_response(
+                     builder = builder.set_snap_start(super::protocol_serde::shape_snap_start_response::de_snap_start_response(
                          tokens,
 @@ -448,57 +465,33 @@
                          depth + 1,
@@ -4248,7 +3983,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "State" => {
 -                    builder = builder.set_state(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::State::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::State::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 -                }
@@ -4259,7 +3994,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 -                    );
 +                "RuntimeVersionConfig" => {
-+                    builder = builder.set_runtime_version_config(crate::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
++                    builder = builder.set_runtime_version_config(super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -4268,14 +4003,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "StateReasonCode" => {
 -                    builder = builder.set_state_reason_code(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::StateReasonCode::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::StateReasonCode::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 +                "LoggingConfig" => {
-+                    builder = builder.set_logging_config(crate::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
++                    builder = builder.set_logging_config(super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
                  }
                  "TenancyConfig" => {
-                     builder = builder.set_tenancy_config(crate::protocol_serde::shape_tenancy_config::de_tenancy_config(tokens, _value, depth + 1)?);
+                     builder = builder.set_tenancy_config(super::protocol_serde::shape_tenancy_config::de_tenancy_config(tokens, _value, depth + 1)?);
                  }
 -                "Timeout" => {
 -                    builder = builder.set_timeout(
@@ -4284,11 +4019,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 +                "CapacityProviderConfig" => {
 +                    builder = builder.set_capacity_provider_config(
-+                        crate::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
                      );
                  }
 -                "TracingConfig" => {
--                    builder = builder.set_tracing_config(crate::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
+-                    builder = builder.set_tracing_config(super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -4304,13 +4039,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "VpcConfig" => {
--                    builder = builder.set_vpc_config(crate::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
+-                    builder = builder.set_vpc_config(super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
 -                    )?);
 +                "DurableConfig" => {
-+                    builder = builder.set_durable_config(crate::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
++                    builder = builder.set_durable_config(super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
                  }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
@@ -4323,7 +4058,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_create_function_input.rs
 @@ -3,158 +3,158 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::create_function::CreateFunctionInput,
+     input: &super::operation::create_function::CreateFunctionInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.architectures {
 -        let mut array_2 = object.key("Architectures").start_array();
@@ -4349,10 +4084,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_5) = &input.code {
          #[allow(unused_mut)]
 -        let mut object_5 = object.key("CapacityProviderConfig").start_object();
--        crate::protocol_serde::shape_capacity_provider_config::ser_capacity_provider_config(&mut object_5, var_4)?;
+-        super::protocol_serde::shape_capacity_provider_config::ser_capacity_provider_config(&mut object_5, var_4)?;
 -        object_5.finish();
 +        let mut object_6 = object.key("Code").start_object();
-+        crate::protocol_serde::shape_function_code::ser_function_code(&mut object_6, var_5)?;
++        super::protocol_serde::shape_function_code::ser_function_code(&mut object_6, var_5)?;
 +        object_6.finish();
      }
 -    if let Some(var_6) = &input.code {
@@ -4380,10 +4115,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_12) = &input.vpc_config {
          #[allow(unused_mut)]
 -        let mut object_7 = object.key("Code").start_object();
--        crate::protocol_serde::shape_function_code::ser_function_code(&mut object_7, var_6)?;
+-        super::protocol_serde::shape_function_code::ser_function_code(&mut object_7, var_6)?;
 -        object_7.finish();
 +        let mut object_13 = object.key("VpcConfig").start_object();
-+        crate::protocol_serde::shape_vpc_config::ser_vpc_config(&mut object_13, var_12)?;
++        super::protocol_serde::shape_vpc_config::ser_vpc_config(&mut object_13, var_12)?;
 +        object_13.finish();
 +    }
 +    if let Some(var_14) = &input.package_type {
@@ -4394,17 +4129,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_15) = &input.dead_letter_config {
 +        #[allow(unused_mut)]
 +        let mut object_16 = object.key("DeadLetterConfig").start_object();
-+        crate::protocol_serde::shape_dead_letter_config::ser_dead_letter_config(&mut object_16, var_15)?;
++        super::protocol_serde::shape_dead_letter_config::ser_dead_letter_config(&mut object_16, var_15)?;
 +        object_16.finish();
      }
 -    if let Some(var_9) = &input.dead_letter_config {
 +    if let Some(var_17) = &input.environment {
          #[allow(unused_mut)]
 -        let mut object_10 = object.key("DeadLetterConfig").start_object();
--        crate::protocol_serde::shape_dead_letter_config::ser_dead_letter_config(&mut object_10, var_9)?;
+-        super::protocol_serde::shape_dead_letter_config::ser_dead_letter_config(&mut object_10, var_9)?;
 -        object_10.finish();
 +        let mut object_18 = object.key("Environment").start_object();
-+        crate::protocol_serde::shape_environment::ser_environment(&mut object_18, var_17)?;
++        super::protocol_serde::shape_environment::ser_environment(&mut object_18, var_17)?;
 +        object_18.finish();
      }
 -    if let Some(var_11) = &input.description {
@@ -4416,17 +4151,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_20) = &input.tracing_config {
          #[allow(unused_mut)]
 -        let mut object_13 = object.key("DurableConfig").start_object();
--        crate::protocol_serde::shape_durable_config::ser_durable_config(&mut object_13, var_12)?;
+-        super::protocol_serde::shape_durable_config::ser_durable_config(&mut object_13, var_12)?;
 -        object_13.finish();
 +        let mut object_21 = object.key("TracingConfig").start_object();
-+        crate::protocol_serde::shape_tracing_config::ser_tracing_config(&mut object_21, var_20)?;
++        super::protocol_serde::shape_tracing_config::ser_tracing_config(&mut object_21, var_20)?;
 +        object_21.finish();
      }
 -    if let Some(var_14) = &input.environment {
 +    if let Some(var_22) = &input.tags {
          #[allow(unused_mut)]
 -        let mut object_15 = object.key("Environment").start_object();
--        crate::protocol_serde::shape_environment::ser_environment(&mut object_15, var_14)?;
+-        super::protocol_serde::shape_environment::ser_environment(&mut object_15, var_14)?;
 -        object_15.finish();
 +        let mut object_23 = object.key("Tags").start_object();
 +        for (key_24, value_25) in var_22 {
@@ -4439,7 +4174,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_16) = &input.ephemeral_storage {
 -        #[allow(unused_mut)]
 -        let mut object_17 = object.key("EphemeralStorage").start_object();
--        crate::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_17, var_16)?;
+-        super::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_17, var_16)?;
 -        object_17.finish();
 +    if let Some(var_26) = &input.layers {
 +        let mut array_27 = object.key("Layers").start_array();
@@ -4459,10 +4194,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
                  #[allow(unused_mut)]
 -                let mut object_21 = array_19.value().start_object();
--                crate::protocol_serde::shape_file_system_config::ser_file_system_config(&mut object_21, item_20)?;
+-                super::protocol_serde::shape_file_system_config::ser_file_system_config(&mut object_21, item_20)?;
 -                object_21.finish();
 +                let mut object_32 = array_30.value().start_object();
-+                crate::protocol_serde::shape_file_system_config::ser_file_system_config(&mut object_32, item_31)?;
++                super::protocol_serde::shape_file_system_config::ser_file_system_config(&mut object_32, item_31)?;
 +                object_32.finish();
              }
          }
@@ -4481,13 +4216,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_34) = &input.image_config {
          #[allow(unused_mut)]
 -        let mut object_25 = object.key("ImageConfig").start_object();
--        crate::protocol_serde::shape_image_config::ser_image_config(&mut object_25, var_24)?;
+-        super::protocol_serde::shape_image_config::ser_image_config(&mut object_25, var_24)?;
 -        object_25.finish();
 -    }
 -    if let Some(var_26) = &input.kms_key_arn {
 -        object.key("KMSKeyArn").string(var_26.as_str());
 +        let mut object_35 = object.key("ImageConfig").start_object();
-+        crate::protocol_serde::shape_image_config::ser_image_config(&mut object_35, var_34)?;
++        super::protocol_serde::shape_image_config::ser_image_config(&mut object_35, var_34)?;
 +        object_35.finish();
      }
 -    if let Some(var_27) = &input.layers {
@@ -4508,10 +4243,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_39) = &input.ephemeral_storage {
          #[allow(unused_mut)]
 -        let mut object_31 = object.key("LoggingConfig").start_object();
--        crate::protocol_serde::shape_logging_config::ser_logging_config(&mut object_31, var_30)?;
+-        super::protocol_serde::shape_logging_config::ser_logging_config(&mut object_31, var_30)?;
 -        object_31.finish();
 +        let mut object_40 = object.key("EphemeralStorage").start_object();
-+        crate::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_40, var_39)?;
++        super::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_40, var_39)?;
 +        object_40.finish();
      }
 -    if let Some(var_32) = &input.memory_size {
@@ -4539,10 +4274,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_41) = &input.snap_start {
          #[allow(unused_mut)]
 -        let mut object_39 = object.key("SnapStart").start_object();
--        crate::protocol_serde::shape_snap_start::ser_snap_start(&mut object_39, var_38)?;
+-        super::protocol_serde::shape_snap_start::ser_snap_start(&mut object_39, var_38)?;
 -        object_39.finish();
 +        let mut object_42 = object.key("SnapStart").start_object();
-+        crate::protocol_serde::shape_snap_start::ser_snap_start(&mut object_42, var_41)?;
++        super::protocol_serde::shape_snap_start::ser_snap_start(&mut object_42, var_41)?;
 +        object_42.finish();
      }
 -    if let Some(var_40) = &input.tags {
@@ -4556,17 +4291,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        }
 -        object_41.finish();
 +        let mut object_44 = object.key("LoggingConfig").start_object();
-+        crate::protocol_serde::shape_logging_config::ser_logging_config(&mut object_44, var_43)?;
++        super::protocol_serde::shape_logging_config::ser_logging_config(&mut object_44, var_43)?;
 +        object_44.finish();
      }
 -    if let Some(var_44) = &input.tenancy_config {
 +    if let Some(var_45) = &input.tenancy_config {
          #[allow(unused_mut)]
 -        let mut object_45 = object.key("TenancyConfig").start_object();
--        crate::protocol_serde::shape_tenancy_config::ser_tenancy_config(&mut object_45, var_44)?;
+-        super::protocol_serde::shape_tenancy_config::ser_tenancy_config(&mut object_45, var_44)?;
 -        object_45.finish();
 +        let mut object_46 = object.key("TenancyConfig").start_object();
-+        crate::protocol_serde::shape_tenancy_config::ser_tenancy_config(&mut object_46, var_45)?;
++        super::protocol_serde::shape_tenancy_config::ser_tenancy_config(&mut object_46, var_45)?;
 +        object_46.finish();
      }
 -    if let Some(var_46) = &input.timeout {
@@ -4579,18 +4314,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_47) = &input.capacity_provider_config {
          #[allow(unused_mut)]
 -        let mut object_48 = object.key("TracingConfig").start_object();
--        crate::protocol_serde::shape_tracing_config::ser_tracing_config(&mut object_48, var_47)?;
+-        super::protocol_serde::shape_tracing_config::ser_tracing_config(&mut object_48, var_47)?;
 +        let mut object_48 = object.key("CapacityProviderConfig").start_object();
-+        crate::protocol_serde::shape_capacity_provider_config::ser_capacity_provider_config(&mut object_48, var_47)?;
++        super::protocol_serde::shape_capacity_provider_config::ser_capacity_provider_config(&mut object_48, var_47)?;
          object_48.finish();
      }
 -    if let Some(var_49) = &input.vpc_config {
 +    if let Some(var_49) = &input.durable_config {
          #[allow(unused_mut)]
 -        let mut object_50 = object.key("VpcConfig").start_object();
--        crate::protocol_serde::shape_vpc_config::ser_vpc_config(&mut object_50, var_49)?;
+-        super::protocol_serde::shape_vpc_config::ser_vpc_config(&mut object_50, var_49)?;
 +        let mut object_50 = object.key("DurableConfig").start_object();
-+        crate::protocol_serde::shape_durable_config::ser_durable_config(&mut object_50, var_49)?;
++        super::protocol_serde::shape_durable_config::ser_durable_config(&mut object_50, var_49)?;
          object_50.finish();
      }
      Ok(())
@@ -4602,12 +4337,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_create_function_url_config.rs
 +++ generated/src/protocol_serde/shape_create_function_url_config.rs
 @@ -96,13 +96,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::create_function_url_config::CreateFunctionUrlConfigError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::create_function_url_config::CreateFunctionUrlConfigError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::create_function_url_config::CreateFunctionUrlConfigError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::create_function_url_config::CreateFunctionUrlConfigError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -4624,13 +4359,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "FunctionUrl" => {
 +                    builder = builder.set_function_url(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::FunctionUrlAuthType::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::FunctionUrlAuthType::from(u.as_ref())))
 +                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
                      );
                  }
 -                "Cors" => {
--                    builder = builder.set_cors(crate::protocol_serde::shape_cors::de_cors(tokens, _value, depth + 1)?);
+-                    builder = builder.set_cors(super::protocol_serde::shape_cors::de_cors(tokens, _value, depth + 1)?);
 -                }
 -                "CreationTime" => {
 -                    builder = builder.set_creation_time(
@@ -4647,14 +4382,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    builder = builder.set_auth_type(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::FunctionUrlAuthType::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::FunctionUrlAuthType::from(u.as_ref())))
                              .transpose()?,
                      );
                  }
 -                "FunctionUrl" => {
 -                    builder = builder.set_function_url(
 +                "Cors" => {
-+                    builder = builder.set_cors(crate::protocol_serde::shape_cors::de_cors(tokens, _value, depth + 1)?);
++                    builder = builder.set_cors(super::protocol_serde::shape_cors::de_cors(tokens, _value, depth + 1)?);
 +                }
 +                "CreationTime" => {
 +                    builder = builder.set_creation_time(
@@ -4670,7 +4405,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_create_function_url_config_input.rs
 @@ -3,17 +3,23 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::create_function_url_config::CreateFunctionUrlConfigInput,
+     input: &super::operation::create_function_url_config::CreateFunctionUrlConfigInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.auth_type {
 -        object.key("AuthType").string(var_1.as_str());
@@ -4687,10 +4422,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_4) = &input.cors {
          #[allow(unused_mut)]
 -        let mut object_3 = object.key("Cors").start_object();
--        crate::protocol_serde::shape_cors::ser_cors(&mut object_3, var_2)?;
+-        super::protocol_serde::shape_cors::ser_cors(&mut object_3, var_2)?;
 -        object_3.finish();
 +        let mut object_5 = object.key("Cors").start_object();
-+        crate::protocol_serde::shape_cors::ser_cors(&mut object_5, var_4)?;
++        super::protocol_serde::shape_cors::ser_cors(&mut object_5, var_4)?;
 +        object_5.finish();
      }
 -    if let Some(var_4) = &input.invoke_mode {
@@ -4711,7 +4446,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_dead_letter_config(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::DeadLetterConfig,
++    input: &super::types::DeadLetterConfig,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.target_arn {
 +        object.key("TargetArn").string(var_1.as_str());
@@ -4729,7 +4464,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_dead_letter_config(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::DeadLetterConfig,
+-    input: &super::types::DeadLetterConfig,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.target_arn {
 -        object.key("TargetArn").string(var_1.as_str());
@@ -4744,12 +4479,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_delete_alias.rs
 +++ generated/src/protocol_serde/shape_delete_alias.rs
 @@ -87,11 +87,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::delete_alias::DeleteAliasError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::delete_alias::DeleteAliasError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::delete_alias::DeleteAliasError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::delete_alias::DeleteAliasError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
@@ -4761,21 +4496,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 +
 +pub fn ser_delete_alias_input(
-+    input: &crate::operation::delete_alias::DeleteAliasInput,
++    input: &super::operation::delete_alias::DeleteAliasInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_delete_alias_input::ser_delete_alias_input_input(&mut object, input)?;
++    super::protocol_serde::shape_delete_alias_input::ser_delete_alias_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
 +pub(crate) fn de_delete_alias(
 +    _value: &[u8],
-+    mut builder: crate::operation::delete_alias::builders::DeleteAliasOutputBuilder,
-+) -> ::std::result::Result<crate::operation::delete_alias::builders::DeleteAliasOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++    mut builder: super::operation::delete_alias::builders::DeleteAliasOutputBuilder,
++) -> ::std::result::Result<super::operation::delete_alias::builders::DeleteAliasOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
 +{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -4808,12 +4543,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_delete_capacity_provider.rs
 +++ generated/src/protocol_serde/shape_delete_capacity_provider.rs
 @@ -96,13 +96,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::delete_capacity_provider::DeleteCapacityProviderError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::delete_capacity_provider::DeleteCapacityProviderError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::delete_capacity_provider::DeleteCapacityProviderError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::delete_capacity_provider::DeleteCapacityProviderError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -4821,30 +4556,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  let output = output.meta(generic);
                  output.build()
              };
-@@ -130,10 +123,22 @@
-         output = crate::protocol_serde::shape_delete_capacity_provider::de_delete_capacity_provider(_response_body, output)
-             .map_err(crate::operation::delete_capacity_provider::DeleteCapacityProviderError::unhandled)?;
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        crate::serde_util::delete_capacity_provider_output_output_correct_errors(output).build()
-+        crate::serde_util::delete_capacity_provider_output_output_correct_errors(output)
-+            .build()
-+            .map_err(crate::operation::delete_capacity_provider::DeleteCapacityProviderError::unhandled)?
+@@ -134,6 +127,16 @@
      })
  }
 
 +pub fn ser_delete_capacity_provider_input(
-+    input: &crate::operation::delete_capacity_provider::DeleteCapacityProviderInput,
++    input: &super::operation::delete_capacity_provider::DeleteCapacityProviderInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_delete_capacity_provider_input::ser_delete_capacity_provider_input_input(&mut object, input)?;
++    super::protocol_serde::shape_delete_capacity_provider_input::ser_delete_capacity_provider_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_delete_capacity_provider(
      _value: &[u8],
-     mut builder: crate::operation::delete_capacity_provider::builders::DeleteCapacityProviderOutputBuilder,
+     mut builder: super::operation::delete_capacity_provider::builders::DeleteCapacityProviderOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_delete_code_signing_config.rs`
@@ -4858,23 +4586,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 +
 +pub fn ser_delete_code_signing_config_input(
-+    input: &crate::operation::delete_code_signing_config::DeleteCodeSigningConfigInput,
++    input: &super::operation::delete_code_signing_config::DeleteCodeSigningConfigInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_delete_code_signing_config_input::ser_delete_code_signing_config_input_input(&mut object, input)?;
++    super::protocol_serde::shape_delete_code_signing_config_input::ser_delete_code_signing_config_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
 +pub(crate) fn de_delete_code_signing_config(
 +    _value: &[u8],
-+    mut builder: crate::operation::delete_code_signing_config::builders::DeleteCodeSigningConfigOutputBuilder,
++    mut builder: super::operation::delete_code_signing_config::builders::DeleteCodeSigningConfigOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::delete_code_signing_config::builders::DeleteCodeSigningConfigOutputBuilder,
++    super::operation::delete_code_signing_config::builders::DeleteCodeSigningConfigOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -4907,12 +4635,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_delete_event_source_mapping.rs
 +++ generated/src/protocol_serde/shape_delete_event_source_mapping.rs
 @@ -111,13 +111,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::delete_event_source_mapping::DeleteEventSourceMappingError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::delete_event_source_mapping::DeleteEventSourceMappingError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::delete_event_source_mapping::DeleteEventSourceMappingError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::delete_event_source_mapping::DeleteEventSourceMappingError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -4925,25 +4653,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_delete_event_source_mapping_input(
-+    input: &crate::operation::delete_event_source_mapping::DeleteEventSourceMappingInput,
++    input: &super::operation::delete_event_source_mapping::DeleteEventSourceMappingInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_delete_event_source_mapping_input::ser_delete_event_source_mapping_input_input(&mut object, input)?;
++    super::protocol_serde::shape_delete_event_source_mapping_input::ser_delete_event_source_mapping_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_delete_event_source_mapping(
      _value: &[u8],
-     mut builder: crate::operation::delete_event_source_mapping::builders::DeleteEventSourceMappingOutputBuilder,
+     mut builder: super::operation::delete_event_source_mapping::builders::DeleteEventSourceMappingOutputBuilder,
 @@ -165,15 +168,26 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "AmazonManagedKafkaEventSourceConfig" => {
 -                    builder = builder.set_amazon_managed_kafka_event_source_config(
--                        crate::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
+-                        super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
 -                            tokens,
 -                            _value,
 -                            depth + 1,
@@ -4958,7 +4686,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "StartingPosition" => {
 +                    builder = builder.set_starting_position(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::EventSourcePosition::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::EventSourcePosition::from(u.as_ref())))
 +                            .transpose()?,
                      );
                  }
@@ -4985,7 +4713,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    );
                  }
 -                "DestinationConfig" => {
--                    builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
+-                    builder = builder.set_destination_config(super::protocol_serde::shape_destination_config::de_destination_config(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -4993,7 +4721,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                }
 -                "DocumentDBEventSourceConfig" => {
 -                    builder = builder.set_document_db_event_source_config(
--                        crate::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?,
 +                "ParallelizationFactor" => {
 +                    builder = builder.set_parallelization_factor(
 +                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
@@ -5014,7 +4742,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                    );
 -                }
                  "FilterCriteria" => {
-                     builder = builder.set_filter_criteria(crate::protocol_serde::shape_filter_criteria::de_filter_criteria(
+                     builder = builder.set_filter_criteria(super::protocol_serde::shape_filter_criteria::de_filter_criteria(
                          tokens,
 @@ -224,20 +230,36 @@
                          depth + 1,
@@ -5031,10 +4759,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "FunctionResponseTypes" => {
 -                    builder = builder.set_function_response_types(
--                        crate::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?,
 +                "MetricsConfig" => {
 +                    builder = builder.set_metrics_config(
-+                        crate::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
++                        super::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
 +                            tokens,
 +                            _value,
 +                            depth + 1,
@@ -5043,7 +4771,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                }
 +                "LoggingConfig" => {
 +                    builder = builder.set_logging_config(
-+                        crate::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
++                        super::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
 +                            tokens,
 +                            _value,
 +                            depth + 1,
@@ -5053,7 +4781,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "KMSKeyArn" => {
 -                    builder = builder.set_kms_key_arn(
 +                "ScalingConfig" => {
-+                    builder = builder.set_scaling_config(crate::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
++                    builder = builder.set_scaling_config(super::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
 +                }
 +                "FunctionArn" => {
 +                    builder = builder.set_function_arn(
@@ -5066,7 +4794,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "LoggingConfig" => {
 -                    builder = builder.set_logging_config(
--                        crate::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
+-                        super::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
 -                            tokens,
 -                            _value,
 -                            depth + 1,
@@ -5090,26 +4818,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 +                "DestinationConfig" => {
-+                    builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
++                    builder = builder.set_destination_config(super::protocol_serde::shape_destination_config::de_destination_config(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
 +                    )?);
 +                }
 +                "Topics" => {
-+                    builder = builder.set_topics(crate::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
++                    builder = builder.set_topics(super::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
 +                }
 +                "Queues" => {
-+                    builder = builder.set_queues(crate::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
++                    builder = builder.set_queues(super::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
 +                }
 +                "SourceAccessConfigurations" => {
 +                    builder = builder.set_source_access_configurations(
-+                        crate::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?,
 +                    );
 +                }
 +                "SelfManagedEventSource" => {
 +                    builder = builder.set_self_managed_event_source(
-+                        crate::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
 +                    );
 +                }
                  "MaximumRecordAgeInSeconds" => {
@@ -5131,7 +4859,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "MetricsConfig" => {
 -                    builder = builder.set_metrics_config(
--                        crate::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
+-                        super::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
 -                            tokens,
 -                            _value,
 -                            depth + 1,
@@ -5149,24 +4877,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "ProvisionedPollerConfig" => {
 -                    builder = builder.set_provisioned_poller_config(
--                        crate::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
 +                "FunctionResponseTypes" => {
 +                    builder = builder.set_function_response_types(
-+                        crate::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?,
                      );
                  }
 -                "Queues" => {
--                    builder = builder.set_queues(crate::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
+-                    builder = builder.set_queues(super::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
 -                }
 -                "ScalingConfig" => {
--                    builder = builder.set_scaling_config(crate::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
+-                    builder = builder.set_scaling_config(super::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
 -                }
 -                "SelfManagedEventSource" => {
 -                    builder = builder.set_self_managed_event_source(
--                        crate::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
 +                "AmazonManagedKafkaEventSourceConfig" => {
 +                    builder = builder.set_amazon_managed_kafka_event_source_config(
-+                        crate::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
++                        super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
 +                            tokens,
 +                            _value,
 +                            depth + 1,
@@ -5180,13 +4908,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "SourceAccessConfigurations" => {
 -                    builder = builder.set_source_access_configurations(
--                        crate::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?,
 -                    );
 -                }
 -                "StartingPosition" => {
 -                    builder = builder.set_starting_position(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::EventSourcePosition::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::EventSourcePosition::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 -                }
@@ -5203,7 +4931,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 +                "DocumentDBEventSourceConfig" => {
 +                    builder = builder.set_document_db_event_source_config(
-+                        crate::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?,
                      );
                  }
 -                "StateTransitionReason" => {
@@ -5216,7 +4944,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "Topics" => {
--                    builder = builder.set_topics(crate::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
+-                    builder = builder.set_topics(super::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
 -                }
 -                "TumblingWindowInSeconds" => {
 -                    builder = builder.set_tumbling_window_in_seconds(
@@ -5232,7 +4960,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 +                "ProvisionedPollerConfig" => {
 +                    builder = builder.set_provisioned_poller_config(
-+                        crate::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
                      );
                  }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -5244,12 +4972,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_delete_function.rs
 +++ generated/src/protocol_serde/shape_delete_function.rs
 @@ -87,13 +87,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::delete_function::DeleteFunctionError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::delete_function::DeleteFunctionError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::delete_function::DeleteFunctionError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::delete_function::DeleteFunctionError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -5260,33 +4988,33 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 @@ -115,8 +108,59 @@
      Ok({
          #[allow(unused_mut)]
-         let mut output = crate::operation::delete_function::builders::DeleteFunctionOutputBuilder::default();
+         let mut output = super::operation::delete_function::builders::DeleteFunctionOutputBuilder::default();
 -        output = output.set_status_code(Some(_response_status as _));
-+        output = crate::protocol_serde::shape_delete_function::de_delete_function(_response_body, output)
-+            .map_err(crate::operation::delete_function::DeleteFunctionError::unhandled)?;
++        output = super::protocol_serde::shape_delete_function::de_delete_function(_response_body, output)
++            .map_err(super::operation::delete_function::DeleteFunctionError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
  }
 +
 +pub fn ser_delete_function_input(
-+    input: &crate::operation::delete_function::DeleteFunctionInput,
++    input: &super::operation::delete_function::DeleteFunctionInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_delete_function_input::ser_delete_function_input_input(&mut object, input)?;
++    super::protocol_serde::shape_delete_function_input::ser_delete_function_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
 +pub(crate) fn de_delete_function(
 +    _value: &[u8],
-+    mut builder: crate::operation::delete_function::builders::DeleteFunctionOutputBuilder,
++    mut builder: super::operation::delete_function::builders::DeleteFunctionOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::delete_function::builders::DeleteFunctionOutputBuilder,
++    super::operation::delete_function::builders::DeleteFunctionOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -5327,11 +5055,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_delete_function_code_signing_config.rs
 @@ -121,13 +121,6 @@
                      output =
-                         crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(crate::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigError::unhandled)?;
+                         super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                             .map_err(super::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigError::unhandled)?;
 -                    output = output.set_retry_after_seconds(
--                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            crate::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigError::unhandled(
+-                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
@@ -5345,23 +5073,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 +
 +pub fn ser_delete_function_code_signing_config_input(
-+    input: &crate::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigInput,
++    input: &super::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_delete_function_code_signing_config_input::ser_delete_function_code_signing_config_input_input(&mut object, input)?;
++    super::protocol_serde::shape_delete_function_code_signing_config_input::ser_delete_function_code_signing_config_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
 +pub(crate) fn de_delete_function_code_signing_config(
 +    _value: &[u8],
-+    mut builder: crate::operation::delete_function_code_signing_config::builders::DeleteFunctionCodeSigningConfigOutputBuilder,
++    mut builder: super::operation::delete_function_code_signing_config::builders::DeleteFunctionCodeSigningConfigOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::delete_function_code_signing_config::builders::DeleteFunctionCodeSigningConfigOutputBuilder,
++    super::operation::delete_function_code_signing_config::builders::DeleteFunctionCodeSigningConfigOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -5394,12 +5122,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_delete_function_concurrency.rs
 +++ generated/src/protocol_serde/shape_delete_function_concurrency.rs
 @@ -96,13 +96,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::delete_function_concurrency::DeleteFunctionConcurrencyError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::delete_function_concurrency::DeleteFunctionConcurrencyError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -5413,23 +5141,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 +
 +pub fn ser_delete_function_concurrency_input(
-+    input: &crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyInput,
++    input: &super::operation::delete_function_concurrency::DeleteFunctionConcurrencyInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_delete_function_concurrency_input::ser_delete_function_concurrency_input_input(&mut object, input)?;
++    super::protocol_serde::shape_delete_function_concurrency_input::ser_delete_function_concurrency_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
 +pub(crate) fn de_delete_function_concurrency(
 +    _value: &[u8],
-+    mut builder: crate::operation::delete_function_concurrency::builders::DeleteFunctionConcurrencyOutputBuilder,
++    mut builder: super::operation::delete_function_concurrency::builders::DeleteFunctionConcurrencyOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::delete_function_concurrency::builders::DeleteFunctionConcurrencyOutputBuilder,
++    super::operation::delete_function_concurrency::builders::DeleteFunctionConcurrencyOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -5463,11 +5191,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_delete_function_event_invoke_config.rs
 @@ -100,13 +100,6 @@
                      output =
-                         crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigError::unhandled)?;
+                         super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                             .map_err(super::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigError::unhandled)?;
 -                    output = output.set_retry_after_seconds(
--                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigError::unhandled(
+-                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
@@ -5481,23 +5209,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 +
 +pub fn ser_delete_function_event_invoke_config_input(
-+    input: &crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigInput,
++    input: &super::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_delete_function_event_invoke_config_input::ser_delete_function_event_invoke_config_input_input(&mut object, input)?;
++    super::protocol_serde::shape_delete_function_event_invoke_config_input::ser_delete_function_event_invoke_config_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
 +pub(crate) fn de_delete_function_event_invoke_config(
 +    _value: &[u8],
-+    mut builder: crate::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigOutputBuilder,
++    mut builder: super::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigOutputBuilder,
++    super::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -5530,12 +5258,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_delete_function_url_config.rs
 +++ generated/src/protocol_serde/shape_delete_function_url_config.rs
 @@ -96,13 +96,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::delete_function_url_config::DeleteFunctionUrlConfigError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::delete_function_url_config::DeleteFunctionUrlConfigError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::delete_function_url_config::DeleteFunctionUrlConfigError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::delete_function_url_config::DeleteFunctionUrlConfigError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -5549,23 +5277,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 +
 +pub fn ser_delete_function_url_config_input(
-+    input: &crate::operation::delete_function_url_config::DeleteFunctionUrlConfigInput,
++    input: &super::operation::delete_function_url_config::DeleteFunctionUrlConfigInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_delete_function_url_config_input::ser_delete_function_url_config_input_input(&mut object, input)?;
++    super::protocol_serde::shape_delete_function_url_config_input::ser_delete_function_url_config_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
 +pub(crate) fn de_delete_function_url_config(
 +    _value: &[u8],
-+    mut builder: crate::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigOutputBuilder,
++    mut builder: super::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigOutputBuilder,
++    super::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -5598,12 +5326,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_delete_layer_version.rs
 +++ generated/src/protocol_serde/shape_delete_layer_version.rs
 @@ -75,13 +75,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::delete_layer_version::DeleteLayerVersionError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::delete_layer_version::DeleteLayerVersionError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::delete_layer_version::DeleteLayerVersionError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::delete_layer_version::DeleteLayerVersionError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -5617,23 +5345,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 +
 +pub fn ser_delete_layer_version_input(
-+    input: &crate::operation::delete_layer_version::DeleteLayerVersionInput,
++    input: &super::operation::delete_layer_version::DeleteLayerVersionInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_delete_layer_version_input::ser_delete_layer_version_input_input(&mut object, input)?;
++    super::protocol_serde::shape_delete_layer_version_input::ser_delete_layer_version_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
 +pub(crate) fn de_delete_layer_version(
 +    _value: &[u8],
-+    mut builder: crate::operation::delete_layer_version::builders::DeleteLayerVersionOutputBuilder,
++    mut builder: super::operation::delete_layer_version::builders::DeleteLayerVersionOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::delete_layer_version::builders::DeleteLayerVersionOutputBuilder,
++    super::operation::delete_layer_version::builders::DeleteLayerVersionOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -5667,11 +5395,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_delete_provisioned_concurrency_config.rs
 @@ -100,13 +100,6 @@
                      output =
-                         crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigError::unhandled)?;
+                         super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                             .map_err(super::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigError::unhandled)?;
 -                    output = output.set_retry_after_seconds(
--                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigError::unhandled(
+-                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
@@ -5685,11 +5413,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 +
 +pub fn ser_delete_provisioned_concurrency_config_input(
-+    input: &crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigInput,
++    input: &super::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_delete_provisioned_concurrency_config_input::ser_delete_provisioned_concurrency_config_input_input(
++    super::protocol_serde::shape_delete_provisioned_concurrency_config_input::ser_delete_provisioned_concurrency_config_input_input(
 +        &mut object,
 +        input,
 +    )?;
@@ -5699,12 +5427,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_delete_provisioned_concurrency_config(
 +    _value: &[u8],
-+    mut builder: crate::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigOutputBuilder,
++    mut builder: super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigOutputBuilder,
++    super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -5737,12 +5465,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_delete_resource_policy.rs
 +++ generated/src/protocol_serde/shape_delete_resource_policy.rs
 @@ -106,13 +106,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -5756,23 +5484,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 +
 +pub fn ser_delete_resource_policy_input(
-+    input: &crate::operation::delete_resource_policy::DeleteResourcePolicyInput,
++    input: &super::operation::delete_resource_policy::DeleteResourcePolicyInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_delete_resource_policy_input::ser_delete_resource_policy_input_input(&mut object, input)?;
++    super::protocol_serde::shape_delete_resource_policy_input::ser_delete_resource_policy_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
 +pub(crate) fn de_delete_resource_policy(
 +    _value: &[u8],
-+    mut builder: crate::operation::delete_resource_policy::builders::DeleteResourcePolicyOutputBuilder,
++    mut builder: super::operation::delete_resource_policy::builders::DeleteResourcePolicyOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::delete_resource_policy::builders::DeleteResourcePolicyOutputBuilder,
++    super::operation::delete_resource_policy::builders::DeleteResourcePolicyOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -5808,18 +5536,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_destination_config(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::DestinationConfig,
++    input: &super::types::DestinationConfig,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.on_success {
 +        #[allow(unused_mut)]
 +        let mut object_2 = object.key("OnSuccess").start_object();
-+        crate::protocol_serde::shape_on_success::ser_on_success(&mut object_2, var_1)?;
++        super::protocol_serde::shape_on_success::ser_on_success(&mut object_2, var_1)?;
 +        object_2.finish();
 +    }
 +    if let Some(var_3) = &input.on_failure {
 +        #[allow(unused_mut)]
 +        let mut object_4 = object.key("OnFailure").start_object();
-+        crate::protocol_serde::shape_on_failure::ser_on_failure(&mut object_4, var_3)?;
++        super::protocol_serde::shape_on_failure::ser_on_failure(&mut object_4, var_3)?;
 +        object_4.finish();
 +    }
 +    Ok(())
@@ -5835,18 +5563,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_destination_config(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::DestinationConfig,
+-    input: &super::types::DestinationConfig,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.on_success {
 -        #[allow(unused_mut)]
 -        let mut object_2 = object.key("OnSuccess").start_object();
--        crate::protocol_serde::shape_on_success::ser_on_success(&mut object_2, var_1)?;
+-        super::protocol_serde::shape_on_success::ser_on_success(&mut object_2, var_1)?;
 -        object_2.finish();
 -    }
 -    if let Some(var_3) = &input.on_failure {
 -        #[allow(unused_mut)]
 -        let mut object_4 = object.key("OnFailure").start_object();
--        crate::protocol_serde::shape_on_failure::ser_on_failure(&mut object_4, var_3)?;
+-        super::protocol_serde::shape_on_failure::ser_on_failure(&mut object_4, var_3)?;
 -        object_4.finish();
 -    }
 -    Ok(())
@@ -5862,7 +5590,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_document_db_event_source_config(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::DocumentDbEventSourceConfig,
++    input: &super::types::DocumentDbEventSourceConfig,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.database_name {
 +        object.key("DatabaseName").string(var_1.as_str());
@@ -5886,7 +5614,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_document_db_event_source_config(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::DocumentDbEventSourceConfig,
+-    input: &super::types::DocumentDbEventSourceConfig,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.database_name {
 -        object.key("DatabaseName").string(var_1.as_str());
@@ -5910,7 +5638,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_durable_config(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::DurableConfig,
++    input: &super::types::DurableConfig,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.kms_key_arn {
 +        object.key("KMSKeyArn").string(var_1.as_str());
@@ -5940,7 +5668,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_durable_config(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::DurableConfig,
+-    input: &super::types::DurableConfig,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.kms_key_arn {
 -        object.key("KMSKeyArn").string(var_1.as_str());
@@ -5970,9 +5698,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  match tokens.next().transpose()? {
                      Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                      Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                        let key = key.to_unescaped().map(|u| crate::types::EndPointType::from(u.as_ref()))?;
+-                        let key = key.to_unescaped().map(|u| super::types::EndPointType::from(u.as_ref()))?;
 +                        let key = key.to_unescaped().map(|u| u.into_owned())?;
-                         let value = crate::protocol_serde::shape_endpoint_lists::de_endpoint_lists(tokens, _value, depth + 1)?;
+                         let value = super::protocol_serde::shape_endpoint_lists::de_endpoint_lists(tokens, _value, depth + 1)?;
                          match value {
                              Some(value) => {
 ```
@@ -5986,7 +5714,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_ephemeral_storage(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::EphemeralStorage,
++    input: &super::types::EphemeralStorage,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    {
 +        object.key("Size").number(
@@ -6007,7 +5735,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_ephemeral_storage(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::EphemeralStorage,
+-    input: &super::types::EphemeralStorage,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    {
 -        object.key("Size").number(
@@ -6028,7 +5756,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_error_object(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::ErrorObject,
++    input: &super::types::ErrorObject,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.error_message {
 +        object.key("ErrorMessage").string(var_1.as_str());
@@ -6061,7 +5789,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_error_object(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::ErrorObject,
+-    input: &super::types::ErrorObject,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.error_message {
 -        object.key("ErrorMessage").string(var_1.as_str());
@@ -6105,7 +5833,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                        "StartingPosition" => {
 -                            builder = builder.set_starting_position(
 -                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                                    .map(|s| s.to_unescaped().map(|u| crate::types::EventSourcePosition::from(u.as_ref())))
+-                                    .map(|s| s.to_unescaped().map(|u| super::types::EventSourcePosition::from(u.as_ref())))
 -                                    .transpose()?,
 -                            );
 -                        }
@@ -6144,7 +5872,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            );
 -                        }
 -                        "FilterCriteria" => {
--                            builder = builder.set_filter_criteria(crate::protocol_serde::shape_filter_criteria::de_filter_criteria(
+-                            builder = builder.set_filter_criteria(super::protocol_serde::shape_filter_criteria::de_filter_criteria(
 -                                tokens,
 -                                _value,
 -                                depth + 1,
@@ -6152,7 +5880,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                        }
 -                        "FilterCriteriaError" => {
 -                            builder = builder.set_filter_criteria_error(
--                                crate::protocol_serde::shape_filter_criteria_error::de_filter_criteria_error(tokens, _value, depth + 1)?,
+-                                super::protocol_serde::shape_filter_criteria_error::de_filter_criteria_error(tokens, _value, depth + 1)?,
 -                            );
 -                        }
 -                        "KMSKeyArn" => {
@@ -6164,7 +5892,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                        }
 -                        "MetricsConfig" => {
 -                            builder = builder.set_metrics_config(
--                                crate::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
+-                                super::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
 +                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
 +                        match key.to_unescaped()?.as_ref() {
 +                            "UUID" => {
@@ -6177,7 +5905,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                            "StartingPosition" => {
 +                                builder = builder.set_starting_position(
 +                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                                        .map(|s| s.to_unescaped().map(|u| crate::types::EventSourcePosition::from(u.as_ref())))
++                                        .map(|s| s.to_unescaped().map(|u| super::types::EventSourcePosition::from(u.as_ref())))
 +                                        .transpose()?,
 +                                );
 +                            }
@@ -6216,7 +5944,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                                );
 +                            }
 +                            "FilterCriteria" => {
-+                                builder = builder.set_filter_criteria(crate::protocol_serde::shape_filter_criteria::de_filter_criteria(
++                                builder = builder.set_filter_criteria(super::protocol_serde::shape_filter_criteria::de_filter_criteria(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -6225,12 +5953,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                        }
 -                        "LoggingConfig" => {
 -                            builder = builder.set_logging_config(
--                                crate::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
+-                                super::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
 +                                )?);
 +                            }
 +                            "FilterCriteriaError" => {
 +                                builder = builder.set_filter_criteria_error(
-+                                    crate::protocol_serde::shape_filter_criteria_error::de_filter_criteria_error(tokens, _value, depth + 1)?,
++                                    super::protocol_serde::shape_filter_criteria_error::de_filter_criteria_error(tokens, _value, depth + 1)?,
 +                                );
 +                            }
 +                            "KMSKeyArn" => {
@@ -6242,7 +5970,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                            }
 +                            "MetricsConfig" => {
 +                                builder = builder.set_metrics_config(
-+                                    crate::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
++                                    super::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
 +                                        tokens,
 +                                        _value,
 +                                        depth + 1,
@@ -6251,7 +5979,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                            }
 +                            "LoggingConfig" => {
 +                                builder = builder.set_logging_config(
-+                                    crate::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
++                                    super::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
 +                                        tokens,
 +                                        _value,
 +                                        depth + 1,
@@ -6259,7 +5987,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                                );
 +                            }
 +                            "ScalingConfig" => {
-+                                builder = builder.set_scaling_config(crate::protocol_serde::shape_scaling_config::de_scaling_config(
++                                builder = builder.set_scaling_config(super::protocol_serde::shape_scaling_config::de_scaling_config(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -6267,7 +5995,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            );
 -                        }
 -                        "ScalingConfig" => {
--                            builder = builder.set_scaling_config(crate::protocol_serde::shape_scaling_config::de_scaling_config(
+-                            builder = builder.set_scaling_config(super::protocol_serde::shape_scaling_config::de_scaling_config(
 -                                tokens,
 -                                _value,
 -                                depth + 1,
@@ -6308,21 +6036,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            );
 -                        }
 -                        "DestinationConfig" => {
--                            builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
+-                            builder = builder.set_destination_config(super::protocol_serde::shape_destination_config::de_destination_config(
 -                                tokens,
 -                                _value,
 -                                depth + 1,
 -                            )?);
 -                        }
 -                        "Topics" => {
--                            builder = builder.set_topics(crate::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
+-                            builder = builder.set_topics(super::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
 -                        }
 -                        "Queues" => {
--                            builder = builder.set_queues(crate::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
+-                            builder = builder.set_queues(super::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
 -                        }
 -                        "SourceAccessConfigurations" => {
 -                            builder = builder.set_source_access_configurations(
--                                crate::protocol_serde::shape_source_access_configurations::de_source_access_configurations(
+-                                super::protocol_serde::shape_source_access_configurations::de_source_access_configurations(
 -                                    tokens,
 -                                    _value,
 -                                    depth + 1,
@@ -6331,7 +6059,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                        }
 -                        "SelfManagedEventSource" => {
 -                            builder = builder.set_self_managed_event_source(
--                                crate::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
+-                                super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
 -                            );
 -                        }
 -                        "MaximumRecordAgeInSeconds" => {
@@ -6361,12 +6089,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                        }
 -                        "FunctionResponseTypes" => {
 -                            builder = builder.set_function_response_types(
--                                crate::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?,
+-                                super::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?,
 -                            );
 -                        }
 -                        "AmazonManagedKafkaEventSourceConfig" => {
 -                            builder = builder.set_amazon_managed_kafka_event_source_config(
--                                crate::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
+-                                super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
 -                                    tokens,
 -                                    _value,
 -                                    depth + 1,
@@ -6375,7 +6103,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                        }
 -                        "SelfManagedKafkaEventSourceConfig" => {
 -                            builder = builder.set_self_managed_kafka_event_source_config(
--                                crate::protocol_serde::shape_self_managed_kafka_event_source_config::de_self_managed_kafka_event_source_config(
+-                                super::protocol_serde::shape_self_managed_kafka_event_source_config::de_self_managed_kafka_event_source_config(
 -                                    tokens,
 -                                    _value,
 -                                    depth + 1,
@@ -6384,7 +6112,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                        }
 -                        "DocumentDBEventSourceConfig" => {
 -                            builder = builder.set_document_db_event_source_config(
--                                crate::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(
+-                                super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(
 +                                )?);
 +                            }
 +                            "FunctionArn" => {
@@ -6422,7 +6150,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                                );
 +                            }
 +                            "DestinationConfig" => {
-+                                builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
++                                builder = builder.set_destination_config(super::protocol_serde::shape_destination_config::de_destination_config(
                                      tokens,
                                      _value,
                                      depth + 1,
@@ -6438,19 +6166,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                        }
 -                        "ProvisionedPollerConfig" => {
 -                            builder = builder.set_provisioned_poller_config(
--                                crate::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
+-                                super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
 -                            );
 +                                )?);
 +                            }
 +                            "Topics" => {
-+                                builder = builder.set_topics(crate::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
++                                builder = builder.set_topics(super::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
 +                            }
 +                            "Queues" => {
-+                                builder = builder.set_queues(crate::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
++                                builder = builder.set_queues(super::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
 +                            }
 +                            "SourceAccessConfigurations" => {
 +                                builder = builder.set_source_access_configurations(
-+                                    crate::protocol_serde::shape_source_access_configurations::de_source_access_configurations(
++                                    super::protocol_serde::shape_source_access_configurations::de_source_access_configurations(
 +                                        tokens,
 +                                        _value,
 +                                        depth + 1,
@@ -6459,7 +6187,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                            }
 +                            "SelfManagedEventSource" => {
 +                                builder = builder.set_self_managed_event_source(
-+                                    crate::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
++                                    super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
 +                                );
 +                            }
 +                            "MaximumRecordAgeInSeconds" => {
@@ -6489,7 +6217,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                            }
 +                            "FunctionResponseTypes" => {
 +                                builder = builder.set_function_response_types(
-+                                    crate::protocol_serde::shape_function_response_type_list::de_function_response_type_list(
++                                    super::protocol_serde::shape_function_response_type_list::de_function_response_type_list(
 +                                        tokens,
 +                                        _value,
 +                                        depth + 1,
@@ -6497,11 +6225,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                                );
 +                            }
 +                            "AmazonManagedKafkaEventSourceConfig" => {
-+                                builder = builder.set_amazon_managed_kafka_event_source_config(crate::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
++                                builder = builder.set_amazon_managed_kafka_event_source_config(super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
 +                            }
 +                            "SelfManagedKafkaEventSourceConfig" => {
 +                                builder = builder.set_self_managed_kafka_event_source_config(
-+                                    crate::protocol_serde::shape_self_managed_kafka_event_source_config::de_self_managed_kafka_event_source_config(
++                                    super::protocol_serde::shape_self_managed_kafka_event_source_config::de_self_managed_kafka_event_source_config(
 +                                        tokens,
 +                                        _value,
 +                                        depth + 1,
@@ -6510,7 +6238,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                            }
 +                            "DocumentDBEventSourceConfig" => {
 +                                builder = builder.set_document_db_event_source_config(
-+                                    crate::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(
++                                    super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(
 +                                        tokens,
 +                                        _value,
 +                                        depth + 1,
@@ -6526,7 +6254,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                            }
 +                            "ProvisionedPollerConfig" => {
 +                                builder = builder.set_provisioned_poller_config(
-+                                    crate::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
++                                    super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
 +                                );
 +                            }
 +                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -6548,7 +6276,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_event_source_mapping_logging_config(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::EventSourceMappingLoggingConfig,
++    input: &super::types::EventSourceMappingLoggingConfig,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.system_log_level {
 +        object.key("SystemLogLevel").string(var_1.as_str());
@@ -6566,7 +6294,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_event_source_mapping_logging_config(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::EventSourceMappingLoggingConfig,
+-    input: &super::types::EventSourceMappingLoggingConfig,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.system_log_level {
 -        object.key("SystemLogLevel").string(var_1.as_str());
@@ -6584,7 +6312,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_event_source_mapping_metrics_config(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::EventSourceMappingMetricsConfig,
++    input: &super::types::EventSourceMappingMetricsConfig,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.metrics {
 +        let mut array_2 = object.key("Metrics").start_array();
@@ -6608,7 +6336,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_event_source_mapping_metrics_config(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::EventSourceMappingMetricsConfig,
+-    input: &super::types::EventSourceMappingMetricsConfig,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.metrics {
 -        let mut array_2 = object.key("Metrics").start_array();
@@ -6623,66 +6351,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 ```
 
-### `src/protocol_serde/shape_execution_failed_details.rs`
-
-```diff
---- reference/src/protocol_serde/shape_execution_failed_details.rs
-+++ generated/src/protocol_serde/shape_execution_failed_details.rs
-@@ -33,7 +33,11 @@
-                     }
-                 }
-             }
--            Ok(Some(crate::serde_util::execution_failed_details_correct_errors(builder).build()))
-+            Ok(Some(
-+                crate::serde_util::execution_failed_details_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
-### `src/protocol_serde/shape_execution_stopped_details.rs`
-
-```diff
---- reference/src/protocol_serde/shape_execution_stopped_details.rs
-+++ generated/src/protocol_serde/shape_execution_stopped_details.rs
-@@ -33,7 +33,11 @@
-                     }
-                 }
-             }
--            Ok(Some(crate::serde_util::execution_stopped_details_correct_errors(builder).build()))
-+            Ok(Some(
-+                crate::serde_util::execution_stopped_details_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
-### `src/protocol_serde/shape_execution_succeeded_details.rs`
-
-```diff
---- reference/src/protocol_serde/shape_execution_succeeded_details.rs
-+++ generated/src/protocol_serde/shape_execution_succeeded_details.rs
-@@ -33,7 +33,11 @@
-                     }
-                 }
-             }
--            Ok(Some(crate::serde_util::execution_succeeded_details_correct_errors(builder).build()))
-+            Ok(Some(
-+                crate::serde_util::execution_succeeded_details_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
 ### `src/protocol_serde/shape_filter_criteria.rs`
 
 ```diff
@@ -6692,7 +6360,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_filter_criteria(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::FilterCriteria,
++    input: &super::types::FilterCriteria,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.filters {
 +        let mut array_2 = object.key("Filters").start_array();
@@ -6700,7 +6368,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            {
 +                #[allow(unused_mut)]
 +                let mut object_4 = array_2.value().start_object();
-+                crate::protocol_serde::shape_filter::ser_filter(&mut object_4, item_3)?;
++                super::protocol_serde::shape_filter::ser_filter(&mut object_4, item_3)?;
 +                object_4.finish();
 +            }
 +        }
@@ -6719,7 +6387,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_filter_criteria(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::FilterCriteria,
+-    input: &super::types::FilterCriteria,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.filters {
 -        let mut array_2 = object.key("Filters").start_array();
@@ -6727,7 +6395,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            {
 -                #[allow(unused_mut)]
 -                let mut object_4 = array_2.value().start_object();
--                crate::protocol_serde::shape_filter::ser_filter(&mut object_4, item_3)?;
+-                super::protocol_serde::shape_filter::ser_filter(&mut object_4, item_3)?;
 -                object_4.finish();
 -            }
 -        }
@@ -6746,7 +6414,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_function_scaling_config(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::FunctionScalingConfig,
++    input: &super::types::FunctionScalingConfig,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.min_execution_environments {
 +        object.key("MinExecutionEnvironments").number(
@@ -6773,7 +6441,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_function_scaling_config(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::FunctionScalingConfig,
+-    input: &super::types::FunctionScalingConfig,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.min_execution_environments {
 -        object.key("MinExecutionEnvironments").number(
@@ -6801,9 +6469,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                      _ => {
 -                        let value =
--                            crate::protocol_serde::shape_function_versions_by_capacity_provider_list_item::de_function_versions_by_capacity_provider_list_item(tokens, _value, depth + 1)?
+-                            super::protocol_serde::shape_function_versions_by_capacity_provider_list_item::de_function_versions_by_capacity_provider_list_item(tokens, _value, depth + 1)?
 -                        ;
-+                        let value = crate::protocol_serde::shape_function_versions_by_capacity_provider_list_item::de_function_versions_by_capacity_provider_list_item(tokens, _value, depth + 1)?;
++                        let value = super::protocol_serde::shape_function_versions_by_capacity_provider_list_item::de_function_versions_by_capacity_provider_list_item(tokens, _value, depth + 1)?;
                          if let Some(value) = value {
                              items.push(value);
                          } else {
@@ -6815,12 +6483,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_get_account_settings.rs
 +++ generated/src/protocol_serde/shape_get_account_settings.rs
 @@ -42,13 +42,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::get_account_settings::GetAccountSettingsError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::get_account_settings::GetAccountSettingsError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::get_account_settings::GetAccountSettingsError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::get_account_settings::GetAccountSettingsError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -6833,14 +6501,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_account_settings_input(
-+    _input: &crate::operation::get_account_settings::GetAccountSettingsInput,
++    _input: &super::operation::get_account_settings::GetAccountSettingsInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    Ok(::aws_smithy_types::body::SdkBody::from("{}"))
 +}
 +
  pub(crate) fn de_get_account_settings(
      _value: &[u8],
-     mut builder: crate::operation::get_account_settings::builders::GetAccountSettingsOutputBuilder,
+     mut builder: super::operation::get_account_settings::builders::GetAccountSettingsOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_get_alias.rs`
@@ -6849,12 +6517,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_get_alias.rs
 +++ generated/src/protocol_serde/shape_get_alias.rs
 @@ -72,11 +72,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::get_alias::GetAliasError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::get_alias::GetAliasError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::get_alias::GetAliasError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::get_alias::GetAliasError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
@@ -6865,18 +6533,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_alias_input(
-+    input: &crate::operation::get_alias::GetAliasInput,
++    input: &super::operation::get_alias::GetAliasInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_alias_input::ser_get_alias_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_alias_input::ser_get_alias_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_alias(
      _value: &[u8],
-     mut builder: crate::operation::get_alias::builders::GetAliasOutputBuilder,
+     mut builder: super::operation::get_alias::builders::GetAliasOutputBuilder,
 @@ -126,8 +131,8 @@
                                  .transpose()?,
                          );
@@ -6903,7 +6571,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
 +                    "RoutingConfig" => {
 +                        builder = builder.set_routing_config(
-+                            crate::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?,
++                            super::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?,
 +                        );
 +                    }
                      "RevisionId" => {
@@ -6915,7 +6583,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
 -                    "RoutingConfig" => {
 -                        builder = builder.set_routing_config(
--                            crate::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?,
+-                            super::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?,
 -                        );
 -                    }
                      _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -6929,12 +6597,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_get_capacity_provider.rs
 +++ generated/src/protocol_serde/shape_get_capacity_provider.rs
 @@ -75,13 +75,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::get_capacity_provider::GetCapacityProviderError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::get_capacity_provider::GetCapacityProviderError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::get_capacity_provider::GetCapacityProviderError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::get_capacity_provider::GetCapacityProviderError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -6942,30 +6610,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  let output = output.meta(generic);
                  output.build()
              };
-@@ -109,10 +102,22 @@
-         output = crate::protocol_serde::shape_get_capacity_provider::de_get_capacity_provider(_response_body, output)
-             .map_err(crate::operation::get_capacity_provider::GetCapacityProviderError::unhandled)?;
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        crate::serde_util::get_capacity_provider_output_output_correct_errors(output).build()
-+        crate::serde_util::get_capacity_provider_output_output_correct_errors(output)
-+            .build()
-+            .map_err(crate::operation::get_capacity_provider::GetCapacityProviderError::unhandled)?
+@@ -113,6 +106,16 @@
      })
  }
 
 +pub fn ser_get_capacity_provider_input(
-+    input: &crate::operation::get_capacity_provider::GetCapacityProviderInput,
++    input: &super::operation::get_capacity_provider::GetCapacityProviderInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_capacity_provider_input::ser_get_capacity_provider_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_capacity_provider_input::ser_get_capacity_provider_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_capacity_provider(
      _value: &[u8],
-     mut builder: crate::operation::get_capacity_provider::builders::GetCapacityProviderOutputBuilder,
+     mut builder: super::operation::get_capacity_provider::builders::GetCapacityProviderOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_get_code_signing_config.rs`
@@ -6973,30 +6634,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_code_signing_config.rs
 +++ generated/src/protocol_serde/shape_get_code_signing_config.rs
-@@ -87,10 +87,22 @@
-         output = crate::protocol_serde::shape_get_code_signing_config::de_get_code_signing_config(_response_body, output)
-             .map_err(crate::operation::get_code_signing_config::GetCodeSigningConfigError::unhandled)?;
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        crate::serde_util::get_code_signing_config_output_output_correct_errors(output).build()
-+        crate::serde_util::get_code_signing_config_output_output_correct_errors(output)
-+            .build()
-+            .map_err(crate::operation::get_code_signing_config::GetCodeSigningConfigError::unhandled)?
+@@ -91,6 +91,16 @@
      })
  }
 
 +pub fn ser_get_code_signing_config_input(
-+    input: &crate::operation::get_code_signing_config::GetCodeSigningConfigInput,
++    input: &super::operation::get_code_signing_config::GetCodeSigningConfigInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_code_signing_config_input::ser_get_code_signing_config_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_code_signing_config_input::ser_get_code_signing_config_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_code_signing_config(
      _value: &[u8],
-     mut builder: crate::operation::get_code_signing_config::builders::GetCodeSigningConfigOutputBuilder,
+     mut builder: super::operation::get_code_signing_config::builders::GetCodeSigningConfigOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_get_durable_execution.rs`
@@ -7004,49 +6658,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_durable_execution.rs
 +++ generated/src/protocol_serde/shape_get_durable_execution.rs
-@@ -38,7 +38,7 @@
-             }
-             tmp
-         }),
--        "KMSAccessDeniedException" => crate::operation::get_durable_execution::GetDurableExecutionError::KmsAccessDeniedException({
-+        "KmsAccessDeniedException" => crate::operation::get_durable_execution::GetDurableExecutionError::KmsAccessDeniedException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -53,7 +53,7 @@
-             }
-             tmp
-         }),
--        "KMSDisabledException" => crate::operation::get_durable_execution::GetDurableExecutionError::KmsDisabledException({
-+        "KmsDisabledException" => crate::operation::get_durable_execution::GetDurableExecutionError::KmsDisabledException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -68,7 +68,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::get_durable_execution::GetDurableExecutionError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::get_durable_execution::GetDurableExecutionError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -83,7 +83,7 @@
-             }
-             tmp
-         }),
--        "KMSNotFoundException" => crate::operation::get_durable_execution::GetDurableExecutionError::KmsNotFoundException({
-+        "KmsNotFoundException" => crate::operation::get_durable_execution::GetDurableExecutionError::KmsNotFoundException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -135,13 +135,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::get_durable_execution::GetDurableExecutionError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::get_durable_execution::GetDurableExecutionError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::get_durable_execution::GetDurableExecutionError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::get_durable_execution::GetDurableExecutionError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -7059,24 +6677,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_durable_execution_input(
-+    input: &crate::operation::get_durable_execution::GetDurableExecutionInput,
++    input: &super::operation::get_durable_execution::GetDurableExecutionInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_durable_execution_input::ser_get_durable_execution_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_durable_execution_input::ser_get_durable_execution_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_durable_execution(
      _value: &[u8],
-     mut builder: crate::operation::get_durable_execution::builders::GetDurableExecutionOutputBuilder,
+     mut builder: super::operation::get_durable_execution::builders::GetDurableExecutionOutputBuilder,
 @@ -191,9 +194,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "DurableConfig" => {
--                    builder = builder.set_durable_config(crate::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
+-                    builder = builder.set_durable_config(super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
 -                }
                  "DurableExecutionArn" => {
                      builder = builder.set_durable_execution_arn(
@@ -7092,7 +6710,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                    )?);
 -                }
 -                "Error" => {
--                    builder = builder.set_error(crate::protocol_serde::shape_error_object::de_error_object(tokens, _value, depth + 1)?);
+-                    builder = builder.set_error(super::protocol_serde::shape_error_object::de_error_object(tokens, _value, depth + 1)?);
 -                }
 -                "ExecutionDataIncluded" => {
 -                    builder = builder.set_execution_data_included(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
@@ -7105,7 +6723,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 +                "Error" => {
-+                    builder = builder.set_error(crate::protocol_serde::shape_error_object::de_error_object(tokens, _value, depth + 1)?);
++                    builder = builder.set_error(super::protocol_serde::shape_error_object::de_error_object(tokens, _value, depth + 1)?);
 +                }
                  "StartTimestamp" => {
                      builder = builder.set_start_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
@@ -7115,7 +6733,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "TraceHeader" => {
--                    builder = builder.set_trace_header(crate::protocol_serde::shape_trace_header::de_trace_header(tokens, _value, depth + 1)?);
+-                    builder = builder.set_trace_header(super::protocol_serde::shape_trace_header::de_trace_header(tokens, _value, depth + 1)?);
 +                "EndTimestamp" => {
 +                    builder = builder.set_end_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
 +                        tokens.next(),
@@ -7129,13 +6747,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 +                "TraceHeader" => {
-+                    builder = builder.set_trace_header(crate::protocol_serde::shape_trace_header::de_trace_header(tokens, _value, depth + 1)?);
++                    builder = builder.set_trace_header(super::protocol_serde::shape_trace_header::de_trace_header(tokens, _value, depth + 1)?);
 +                }
 +                "ExecutionDataIncluded" => {
 +                    builder = builder.set_execution_data_included(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
 +                }
 +                "DurableConfig" => {
-+                    builder = builder.set_durable_config(crate::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
++                    builder = builder.set_durable_config(super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
 +                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
@@ -7147,49 +6765,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_durable_execution_history.rs
 +++ generated/src/protocol_serde/shape_get_durable_execution_history.rs
-@@ -40,7 +40,7 @@
-                 tmp
-             })
-         }
--        "KMSAccessDeniedException" => crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsAccessDeniedException({
-+        "KmsAccessDeniedException" => crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsAccessDeniedException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -55,7 +55,7 @@
-             }
-             tmp
-         }),
--        "KMSDisabledException" => crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsDisabledException({
-+        "KmsDisabledException" => crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsDisabledException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -70,7 +70,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -85,7 +85,7 @@
-             }
-             tmp
-         }),
--        "KMSNotFoundException" => crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsNotFoundException({
-+        "KmsNotFoundException" => crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsNotFoundException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -137,13 +137,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -7202,18 +6784,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_durable_execution_history_input(
-+    input: &crate::operation::get_durable_execution_history::GetDurableExecutionHistoryInput,
++    input: &super::operation::get_durable_execution_history::GetDurableExecutionHistoryInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_durable_execution_history_input::ser_get_durable_execution_history_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_durable_execution_history_input::ser_get_durable_execution_history_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_durable_execution_history(
      _value: &[u8],
-     mut builder: crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder,
+     mut builder: super::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_get_durable_execution_state.rs`
@@ -7221,49 +6803,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_durable_execution_state.rs
 +++ generated/src/protocol_serde/shape_get_durable_execution_state.rs
-@@ -44,7 +44,7 @@
-                 tmp
-             })
-         }
--        "KMSAccessDeniedException" => crate::operation::get_durable_execution_state::GetDurableExecutionStateError::KmsAccessDeniedException({
-+        "KmsAccessDeniedException" => crate::operation::get_durable_execution_state::GetDurableExecutionStateError::KmsAccessDeniedException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -59,7 +59,7 @@
-             }
-             tmp
-         }),
--        "KMSDisabledException" => crate::operation::get_durable_execution_state::GetDurableExecutionStateError::KmsDisabledException({
-+        "KmsDisabledException" => crate::operation::get_durable_execution_state::GetDurableExecutionStateError::KmsDisabledException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -74,7 +74,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::get_durable_execution_state::GetDurableExecutionStateError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::get_durable_execution_state::GetDurableExecutionStateError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -89,7 +89,7 @@
-             }
-             tmp
-         }),
--        "KMSNotFoundException" => crate::operation::get_durable_execution_state::GetDurableExecutionStateError::KmsNotFoundException({
-+        "KmsNotFoundException" => crate::operation::get_durable_execution_state::GetDurableExecutionStateError::KmsNotFoundException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -126,13 +126,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::get_durable_execution_state::GetDurableExecutionStateError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::get_durable_execution_state::GetDurableExecutionStateError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::get_durable_execution_state::GetDurableExecutionStateError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::get_durable_execution_state::GetDurableExecutionStateError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -7276,24 +6822,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_durable_execution_state_input(
-+    input: &crate::operation::get_durable_execution_state::GetDurableExecutionStateInput,
++    input: &super::operation::get_durable_execution_state::GetDurableExecutionStateInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_durable_execution_state_input::ser_get_durable_execution_state_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_durable_execution_state_input::ser_get_durable_execution_state_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_durable_execution_state(
      _value: &[u8],
-     mut builder: crate::operation::get_durable_execution_state::builders::GetDurableExecutionStateOutputBuilder,
+     mut builder: super::operation::get_durable_execution_state::builders::GetDurableExecutionStateOutputBuilder,
 @@ -182,6 +185,9 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 +                "Operations" => {
-+                    builder = builder.set_operations(crate::protocol_serde::shape_operations::de_operations(tokens, _value, depth + 1)?);
++                    builder = builder.set_operations(super::protocol_serde::shape_operations::de_operations(tokens, _value, depth + 1)?);
 +                }
                  "NextMarker" => {
                      builder = builder.set_next_marker(
@@ -7303,7 +6849,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "Operations" => {
--                    builder = builder.set_operations(crate::protocol_serde::shape_operations::de_operations(tokens, _value, depth + 1)?);
+-                    builder = builder.set_operations(super::protocol_serde::shape_operations::de_operations(tokens, _value, depth + 1)?);
 -                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
@@ -7316,12 +6862,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_get_event_source_mapping.rs
 +++ generated/src/protocol_serde/shape_get_event_source_mapping.rs
 @@ -75,13 +75,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::get_event_source_mapping::GetEventSourceMappingError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::get_event_source_mapping::GetEventSourceMappingError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::get_event_source_mapping::GetEventSourceMappingError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::get_event_source_mapping::GetEventSourceMappingError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -7334,25 +6880,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_event_source_mapping_input(
-+    input: &crate::operation::get_event_source_mapping::GetEventSourceMappingInput,
++    input: &super::operation::get_event_source_mapping::GetEventSourceMappingInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_event_source_mapping_input::ser_get_event_source_mapping_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_event_source_mapping_input::ser_get_event_source_mapping_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_event_source_mapping(
      _value: &[u8],
-     mut builder: crate::operation::get_event_source_mapping::builders::GetEventSourceMappingOutputBuilder,
+     mut builder: super::operation::get_event_source_mapping::builders::GetEventSourceMappingOutputBuilder,
 @@ -129,15 +132,26 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "AmazonManagedKafkaEventSourceConfig" => {
 -                    builder = builder.set_amazon_managed_kafka_event_source_config(
--                        crate::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
+-                        super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
 -                            tokens,
 -                            _value,
 -                            depth + 1,
@@ -7367,7 +6913,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "StartingPosition" => {
 +                    builder = builder.set_starting_position(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::EventSourcePosition::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::EventSourcePosition::from(u.as_ref())))
 +                            .transpose()?,
                      );
                  }
@@ -7394,7 +6940,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    );
                  }
 -                "DestinationConfig" => {
--                    builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
+-                    builder = builder.set_destination_config(super::protocol_serde::shape_destination_config::de_destination_config(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -7402,7 +6948,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                }
 -                "DocumentDBEventSourceConfig" => {
 -                    builder = builder.set_document_db_event_source_config(
--                        crate::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?,
 +                "ParallelizationFactor" => {
 +                    builder = builder.set_parallelization_factor(
 +                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
@@ -7423,7 +6969,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                    );
 -                }
                  "FilterCriteria" => {
-                     builder = builder.set_filter_criteria(crate::protocol_serde::shape_filter_criteria::de_filter_criteria(
+                     builder = builder.set_filter_criteria(super::protocol_serde::shape_filter_criteria::de_filter_criteria(
                          tokens,
 @@ -188,20 +194,36 @@
                          depth + 1,
@@ -7440,10 +6986,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "FunctionResponseTypes" => {
 -                    builder = builder.set_function_response_types(
--                        crate::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?,
 +                "MetricsConfig" => {
 +                    builder = builder.set_metrics_config(
-+                        crate::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
++                        super::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
 +                            tokens,
 +                            _value,
 +                            depth + 1,
@@ -7452,7 +6998,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                }
 +                "LoggingConfig" => {
 +                    builder = builder.set_logging_config(
-+                        crate::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
++                        super::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
 +                            tokens,
 +                            _value,
 +                            depth + 1,
@@ -7462,7 +7008,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "KMSKeyArn" => {
 -                    builder = builder.set_kms_key_arn(
 +                "ScalingConfig" => {
-+                    builder = builder.set_scaling_config(crate::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
++                    builder = builder.set_scaling_config(super::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
 +                }
 +                "FunctionArn" => {
 +                    builder = builder.set_function_arn(
@@ -7475,7 +7021,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "LoggingConfig" => {
 -                    builder = builder.set_logging_config(
--                        crate::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
+-                        super::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
 -                            tokens,
 -                            _value,
 -                            depth + 1,
@@ -7499,26 +7045,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 +                "DestinationConfig" => {
-+                    builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
++                    builder = builder.set_destination_config(super::protocol_serde::shape_destination_config::de_destination_config(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
 +                    )?);
 +                }
 +                "Topics" => {
-+                    builder = builder.set_topics(crate::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
++                    builder = builder.set_topics(super::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
 +                }
 +                "Queues" => {
-+                    builder = builder.set_queues(crate::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
++                    builder = builder.set_queues(super::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
 +                }
 +                "SourceAccessConfigurations" => {
 +                    builder = builder.set_source_access_configurations(
-+                        crate::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?,
 +                    );
 +                }
 +                "SelfManagedEventSource" => {
 +                    builder = builder.set_self_managed_event_source(
-+                        crate::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
 +                    );
 +                }
                  "MaximumRecordAgeInSeconds" => {
@@ -7540,7 +7086,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "MetricsConfig" => {
 -                    builder = builder.set_metrics_config(
--                        crate::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
+-                        super::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
 -                            tokens,
 -                            _value,
 -                            depth + 1,
@@ -7558,24 +7104,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "ProvisionedPollerConfig" => {
 -                    builder = builder.set_provisioned_poller_config(
--                        crate::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
 +                "FunctionResponseTypes" => {
 +                    builder = builder.set_function_response_types(
-+                        crate::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?,
                      );
                  }
 -                "Queues" => {
--                    builder = builder.set_queues(crate::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
+-                    builder = builder.set_queues(super::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
 -                }
 -                "ScalingConfig" => {
--                    builder = builder.set_scaling_config(crate::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
+-                    builder = builder.set_scaling_config(super::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
 -                }
 -                "SelfManagedEventSource" => {
 -                    builder = builder.set_self_managed_event_source(
--                        crate::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
 +                "AmazonManagedKafkaEventSourceConfig" => {
 +                    builder = builder.set_amazon_managed_kafka_event_source_config(
-+                        crate::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
++                        super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
 +                            tokens,
 +                            _value,
 +                            depth + 1,
@@ -7589,13 +7135,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "SourceAccessConfigurations" => {
 -                    builder = builder.set_source_access_configurations(
--                        crate::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?,
 -                    );
 -                }
 -                "StartingPosition" => {
 -                    builder = builder.set_starting_position(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::EventSourcePosition::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::EventSourcePosition::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 -                }
@@ -7612,7 +7158,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 +                "DocumentDBEventSourceConfig" => {
 +                    builder = builder.set_document_db_event_source_config(
-+                        crate::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?,
                      );
                  }
 -                "StateTransitionReason" => {
@@ -7625,7 +7171,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "Topics" => {
--                    builder = builder.set_topics(crate::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
+-                    builder = builder.set_topics(super::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
 -                }
 -                "TumblingWindowInSeconds" => {
 -                    builder = builder.set_tumbling_window_in_seconds(
@@ -7641,7 +7187,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 +                "ProvisionedPollerConfig" => {
 +                    builder = builder.set_provisioned_poller_config(
-+                        crate::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
                      );
                  }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -7653,12 +7199,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_get_function.rs
 +++ generated/src/protocol_serde/shape_get_function.rs
 @@ -72,11 +72,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::get_function::GetFunctionError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::get_function::GetFunctionError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::get_function::GetFunctionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::get_function::GetFunctionError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
@@ -7669,47 +7215,47 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_function_input(
-+    input: &crate::operation::get_function::GetFunctionInput,
++    input: &super::operation::get_function::GetFunctionInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_function_input::ser_get_function_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_function_input::ser_get_function_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_function(
      _value: &[u8],
-     mut builder: crate::operation::get_function::builders::GetFunctionOutputBuilder,
+     mut builder: super::operation::get_function::builders::GetFunctionOutputBuilder,
 @@ -119,18 +124,15 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "Code" => {
--                    builder = builder.set_code(crate::protocol_serde::shape_function_code_location::de_function_code_location(
+-                    builder = builder.set_code(super::protocol_serde::shape_function_code_location::de_function_code_location(
 +                "Configuration" => {
-+                    builder = builder.set_configuration(crate::protocol_serde::shape_function_configuration::de_function_configuration(
++                    builder = builder.set_configuration(super::protocol_serde::shape_function_configuration::de_function_configuration(
                          tokens,
                          _value,
                          depth + 1,
                      )?);
                  }
 -                "Concurrency" => {
--                    builder = builder.set_concurrency(crate::protocol_serde::shape_concurrency::de_concurrency(tokens, _value, depth + 1)?);
+-                    builder = builder.set_concurrency(super::protocol_serde::shape_concurrency::de_concurrency(tokens, _value, depth + 1)?);
 -                }
 -                "Configuration" => {
--                    builder = builder.set_configuration(crate::protocol_serde::shape_function_configuration::de_function_configuration(
+-                    builder = builder.set_configuration(super::protocol_serde::shape_function_configuration::de_function_configuration(
 +                "Code" => {
-+                    builder = builder.set_code(crate::protocol_serde::shape_function_code_location::de_function_code_location(
++                    builder = builder.set_code(super::protocol_serde::shape_function_code_location::de_function_code_location(
                          tokens,
                          _value,
                          depth + 1,
 @@ -142,6 +144,9 @@
                  "TagsError" => {
-                     builder = builder.set_tags_error(crate::protocol_serde::shape_tags_error::de_tags_error(tokens, _value, depth + 1)?);
+                     builder = builder.set_tags_error(super::protocol_serde::shape_tags_error::de_tags_error(tokens, _value, depth + 1)?);
                  }
 +                "Concurrency" => {
-+                    builder = builder.set_concurrency(crate::protocol_serde::shape_concurrency::de_concurrency(tokens, _value, depth + 1)?);
++                    builder = builder.set_concurrency(super::protocol_serde::shape_concurrency::de_concurrency(tokens, _value, depth + 1)?);
 +                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
@@ -7723,11 +7269,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_get_function_code_signing_config.rs
 @@ -103,13 +103,6 @@
                      output =
-                         crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(crate::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigError::unhandled)?;
+                         super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                             .map_err(super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigError::unhandled)?;
 -                    output = output.set_retry_after_seconds(
--                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            crate::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigError::unhandled(
+-                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
@@ -7740,18 +7286,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_function_code_signing_config_input(
-+    input: &crate::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigInput,
++    input: &super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_function_code_signing_config_input::ser_get_function_code_signing_config_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_function_code_signing_config_input::ser_get_function_code_signing_config_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_function_code_signing_config(
      _value: &[u8],
-     mut builder: crate::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigOutputBuilder,
+     mut builder: super::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_get_function_concurrency.rs`
@@ -7760,12 +7306,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_get_function_concurrency.rs
 +++ generated/src/protocol_serde/shape_get_function_concurrency.rs
 @@ -81,13 +81,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::get_function_concurrency::GetFunctionConcurrencyError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::get_function_concurrency::GetFunctionConcurrencyError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::get_function_concurrency::GetFunctionConcurrencyError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::get_function_concurrency::GetFunctionConcurrencyError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -7778,18 +7324,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_function_concurrency_input(
-+    input: &crate::operation::get_function_concurrency::GetFunctionConcurrencyInput,
++    input: &super::operation::get_function_concurrency::GetFunctionConcurrencyInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_function_concurrency_input::ser_get_function_concurrency_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_function_concurrency_input::ser_get_function_concurrency_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_function_concurrency(
      _value: &[u8],
-     mut builder: crate::operation::get_function_concurrency::builders::GetFunctionConcurrencyOutputBuilder,
+     mut builder: super::operation::get_function_concurrency::builders::GetFunctionConcurrencyOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_get_function_configuration.rs`
@@ -7798,12 +7344,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_get_function_configuration.rs
 +++ generated/src/protocol_serde/shape_get_function_configuration.rs
 @@ -81,13 +81,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::get_function_configuration::GetFunctionConfigurationError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::get_function_configuration::GetFunctionConfigurationError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::get_function_configuration::GetFunctionConfigurationError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::get_function_configuration::GetFunctionConfigurationError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -7816,24 +7362,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_function_configuration_input(
-+    input: &crate::operation::get_function_configuration::GetFunctionConfigurationInput,
++    input: &super::operation::get_function_configuration::GetFunctionConfigurationInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_function_configuration_input::ser_get_function_configuration_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_function_configuration_input::ser_get_function_configuration_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_function_configuration(
      _value: &[u8],
-     mut builder: crate::operation::get_function_configuration::builders::GetFunctionConfigurationOutputBuilder,
+     mut builder: super::operation::get_function_configuration::builders::GetFunctionConfigurationOutputBuilder,
 @@ -135,20 +138,36 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "Architectures" => {
--                    builder = builder.set_architectures(crate::protocol_serde::shape_architectures_list::de_architectures_list(
+-                    builder = builder.set_architectures(super::protocol_serde::shape_architectures_list::de_architectures_list(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -7855,13 +7401,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "Runtime" => {
 +                    builder = builder.set_runtime(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::Runtime::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::Runtime::from(u.as_ref())))
 +                            .transpose()?,
 +                    );
                  }
 -                "CapacityProviderConfig" => {
 -                    builder = builder.set_capacity_provider_config(
--                        crate::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
 +                "Role" => {
 +                    builder = builder.set_role(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -7890,7 +7436,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "DeadLetterConfig" => {
--                    builder = builder.set_dead_letter_config(crate::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
+-                    builder = builder.set_dead_letter_config(super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -7926,7 +7472,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "DurableConfig" => {
--                    builder = builder.set_durable_config(crate::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
+-                    builder = builder.set_durable_config(super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
 +                "Version" => {
 +                    builder = builder.set_version(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -7935,27 +7481,27 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    );
                  }
 -                "Environment" => {
--                    builder = builder.set_environment(crate::protocol_serde::shape_environment_response::de_environment_response(
+-                    builder = builder.set_environment(super::protocol_serde::shape_environment_response::de_environment_response(
 +                "VpcConfig" => {
-+                    builder = builder.set_vpc_config(crate::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
++                    builder = builder.set_vpc_config(super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
                          tokens,
                          _value,
                          depth + 1,
                      )?);
                  }
 -                "EphemeralStorage" => {
--                    builder = builder.set_ephemeral_storage(crate::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
+-                    builder = builder.set_ephemeral_storage(super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
 +                "DeadLetterConfig" => {
-+                    builder = builder.set_dead_letter_config(crate::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
++                    builder = builder.set_dead_letter_config(super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
                          tokens,
                          _value,
                          depth + 1,
                      )?);
                  }
 -                "FileSystemConfigs" => {
--                    builder = builder.set_file_system_configs(crate::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
+-                    builder = builder.set_file_system_configs(super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
 +                "Environment" => {
-+                    builder = builder.set_environment(crate::protocol_serde::shape_environment_response::de_environment_response(
++                    builder = builder.set_environment(super::protocol_serde::shape_environment_response::de_environment_response(
                          tokens,
                          _value,
                          depth + 1,
@@ -7973,7 +7519,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "FunctionName" => {
 -                    builder = builder.set_function_name(
 +                "TracingConfig" => {
-+                    builder = builder.set_tracing_config(crate::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
++                    builder = builder.set_tracing_config(super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -7996,9 +7542,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "ImageConfigResponse" => {
--                    builder = builder.set_image_config_response(crate::protocol_serde::shape_image_config_response::de_image_config_response(
+-                    builder = builder.set_image_config_response(super::protocol_serde::shape_image_config_response::de_image_config_response(
 +                "Layers" => {
-+                    builder = builder.set_layers(crate::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
++                    builder = builder.set_layers(super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
                          tokens,
                          _value,
                          depth + 1,
@@ -8010,7 +7556,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    builder = builder.set_state(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::State::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::State::from(u.as_ref())))
                              .transpose()?,
                      );
                  }
@@ -8026,7 +7572,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "StateReasonCode" => {
 +                    builder = builder.set_state_reason_code(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::StateReasonCode::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::StateReasonCode::from(u.as_ref())))
 +                            .transpose()?,
 +                    );
 +                }
@@ -8038,16 +7584,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "Layers" => {
--                    builder = builder.set_layers(crate::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
+-                    builder = builder.set_layers(super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
 +                "FileSystemConfigs" => {
-+                    builder = builder.set_file_system_configs(crate::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
++                    builder = builder.set_file_system_configs(super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
                          tokens,
                          _value,
                          depth + 1,
                      )?);
                  }
 -                "LoggingConfig" => {
--                    builder = builder.set_logging_config(crate::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
+-                    builder = builder.set_logging_config(super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
 -                }
 -                "MasterArn" => {
 -                    builder = builder.set_master_arn(
@@ -8090,14 +7636,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "Runtime" => {
 -                    builder = builder.set_runtime(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::Runtime::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::Runtime::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 -                }
 -                "RuntimeVersionConfig" => {
--                    builder = builder.set_runtime_version_config(crate::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
+-                    builder = builder.set_runtime_version_config(super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
 +                "ImageConfigResponse" => {
-+                    builder = builder.set_image_config_response(crate::protocol_serde::shape_image_config_response::de_image_config_response(
++                    builder = builder.set_image_config_response(super::protocol_serde::shape_image_config_response::de_image_config_response(
                          tokens,
                          _value,
                          depth + 1,
@@ -8110,7 +7656,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 -                    );
 +                "Architectures" => {
-+                    builder = builder.set_architectures(crate::protocol_serde::shape_architectures_list::de_architectures_list(
++                    builder = builder.set_architectures(super::protocol_serde::shape_architectures_list::de_architectures_list(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -8123,14 +7669,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 -                    );
 +                "EphemeralStorage" => {
-+                    builder = builder.set_ephemeral_storage(crate::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
++                    builder = builder.set_ephemeral_storage(super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
 +                    )?);
                  }
                  "SnapStart" => {
-                     builder = builder.set_snap_start(crate::protocol_serde::shape_snap_start_response::de_snap_start_response(
+                     builder = builder.set_snap_start(super::protocol_serde::shape_snap_start_response::de_snap_start_response(
 @@ -349,57 +376,33 @@
                          depth + 1,
                      )?);
@@ -8138,7 +7684,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "State" => {
 -                    builder = builder.set_state(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::State::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::State::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 -                }
@@ -8149,7 +7695,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 -                    );
 +                "RuntimeVersionConfig" => {
-+                    builder = builder.set_runtime_version_config(crate::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
++                    builder = builder.set_runtime_version_config(super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -8158,14 +7704,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "StateReasonCode" => {
 -                    builder = builder.set_state_reason_code(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::StateReasonCode::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::StateReasonCode::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 +                "LoggingConfig" => {
-+                    builder = builder.set_logging_config(crate::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
++                    builder = builder.set_logging_config(super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
                  }
                  "TenancyConfig" => {
-                     builder = builder.set_tenancy_config(crate::protocol_serde::shape_tenancy_config::de_tenancy_config(tokens, _value, depth + 1)?);
+                     builder = builder.set_tenancy_config(super::protocol_serde::shape_tenancy_config::de_tenancy_config(tokens, _value, depth + 1)?);
                  }
 -                "Timeout" => {
 -                    builder = builder.set_timeout(
@@ -8174,11 +7720,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 +                "CapacityProviderConfig" => {
 +                    builder = builder.set_capacity_provider_config(
-+                        crate::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
                      );
                  }
 -                "TracingConfig" => {
--                    builder = builder.set_tracing_config(crate::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
+-                    builder = builder.set_tracing_config(super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -8194,13 +7740,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "VpcConfig" => {
--                    builder = builder.set_vpc_config(crate::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
+-                    builder = builder.set_vpc_config(super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
 -                    )?);
 +                "DurableConfig" => {
-+                    builder = builder.set_durable_config(crate::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
++                    builder = builder.set_durable_config(super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
                  }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
@@ -8213,11 +7759,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_get_function_event_invoke_config.rs
 @@ -82,13 +82,6 @@
                      output =
-                         crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError::unhandled)?;
+                         super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                             .map_err(super::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError::unhandled)?;
 -                    output = output.set_retry_after_seconds(
--                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError::unhandled(
+-                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
@@ -8230,24 +7776,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_function_event_invoke_config_input(
-+    input: &crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigInput,
++    input: &super::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_function_event_invoke_config_input::ser_get_function_event_invoke_config_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_function_event_invoke_config_input::ser_get_function_event_invoke_config_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_function_event_invoke_config(
      _value: &[u8],
-     mut builder: crate::operation::get_function_event_invoke_config::builders::GetFunctionEventInvokeConfigOutputBuilder,
+     mut builder: super::operation::get_function_event_invoke_config::builders::GetFunctionEventInvokeConfigOutputBuilder,
 @@ -137,11 +140,10 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "DestinationConfig" => {
--                    builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
+-                    builder = builder.set_destination_config(super::protocol_serde::shape_destination_config::de_destination_config(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -8287,7 +7833,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 +                "DestinationConfig" => {
-+                    builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
++                    builder = builder.set_destination_config(super::protocol_serde::shape_destination_config::de_destination_config(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -8304,12 +7850,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_get_function_recursion_config.rs
 +++ generated/src/protocol_serde/shape_get_function_recursion_config.rs
 @@ -77,13 +77,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::get_function_recursion_config::GetFunctionRecursionConfigError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::get_function_recursion_config::GetFunctionRecursionConfigError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::get_function_recursion_config::GetFunctionRecursionConfigError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::get_function_recursion_config::GetFunctionRecursionConfigError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -8322,18 +7868,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_function_recursion_config_input(
-+    input: &crate::operation::get_function_recursion_config::GetFunctionRecursionConfigInput,
++    input: &super::operation::get_function_recursion_config::GetFunctionRecursionConfigInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_function_recursion_config_input::ser_get_function_recursion_config_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_function_recursion_config_input::ser_get_function_recursion_config_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_function_recursion_config(
      _value: &[u8],
-     mut builder: crate::operation::get_function_recursion_config::builders::GetFunctionRecursionConfigOutputBuilder,
+     mut builder: super::operation::get_function_recursion_config::builders::GetFunctionRecursionConfigOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_get_function_scaling_config.rs`
@@ -8342,12 +7888,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_get_function_scaling_config.rs
 +++ generated/src/protocol_serde/shape_get_function_scaling_config.rs
 @@ -81,13 +81,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::get_function_scaling_config::GetFunctionScalingConfigError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::get_function_scaling_config::GetFunctionScalingConfigError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::get_function_scaling_config::GetFunctionScalingConfigError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::get_function_scaling_config::GetFunctionScalingConfigError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -8360,25 +7906,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_function_scaling_config_input(
-+    input: &crate::operation::get_function_scaling_config::GetFunctionScalingConfigInput,
++    input: &super::operation::get_function_scaling_config::GetFunctionScalingConfigInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_function_scaling_config_input::ser_get_function_scaling_config_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_function_scaling_config_input::ser_get_function_scaling_config_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_function_scaling_config(
      _value: &[u8],
-     mut builder: crate::operation::get_function_scaling_config::builders::GetFunctionScalingConfigOutputBuilder,
+     mut builder: super::operation::get_function_scaling_config::builders::GetFunctionScalingConfigOutputBuilder,
 @@ -135,11 +138,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "AppliedFunctionScalingConfig" => {
 -                    builder = builder.set_applied_function_scaling_config(
--                        crate::protocol_serde::shape_function_scaling_config::de_function_scaling_config(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_function_scaling_config::de_function_scaling_config(tokens, _value, depth + 1)?,
 -                    );
 -                }
                  "FunctionArn" => {
@@ -8390,12 +7936,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 +                "AppliedFunctionScalingConfig" => {
 +                    builder = builder.set_applied_function_scaling_config(
-+                        crate::protocol_serde::shape_function_scaling_config::de_function_scaling_config(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_function_scaling_config::de_function_scaling_config(tokens, _value, depth + 1)?,
 +                    );
 +                }
                  "RequestedFunctionScalingConfig" => {
                      builder = builder.set_requested_function_scaling_config(
-                         crate::protocol_serde::shape_function_scaling_config::de_function_scaling_config(tokens, _value, depth + 1)?,
+                         super::protocol_serde::shape_function_scaling_config::de_function_scaling_config(tokens, _value, depth + 1)?,
 ```
 
 ### `src/protocol_serde/shape_get_function_url_config.rs`
@@ -8404,12 +7950,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_get_function_url_config.rs
 +++ generated/src/protocol_serde/shape_get_function_url_config.rs
 @@ -75,13 +75,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::get_function_url_config::GetFunctionUrlConfigError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::get_function_url_config::GetFunctionUrlConfigError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::get_function_url_config::GetFunctionUrlConfigError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::get_function_url_config::GetFunctionUrlConfigError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -8422,18 +7968,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_function_url_config_input(
-+    input: &crate::operation::get_function_url_config::GetFunctionUrlConfigInput,
++    input: &super::operation::get_function_url_config::GetFunctionUrlConfigInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_function_url_config_input::ser_get_function_url_config_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_function_url_config_input::ser_get_function_url_config_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_function_url_config(
      _value: &[u8],
-     mut builder: crate::operation::get_function_url_config::builders::GetFunctionUrlConfigOutputBuilder,
+     mut builder: super::operation::get_function_url_config::builders::GetFunctionUrlConfigOutputBuilder,
 @@ -131,6 +134,20 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -8495,12 +8041,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_get_layer_version.rs
 +++ generated/src/protocol_serde/shape_get_layer_version.rs
 @@ -72,13 +72,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::get_layer_version::GetLayerVersionError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::get_layer_version::GetLayerVersionError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::get_layer_version::GetLayerVersionError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::get_layer_version::GetLayerVersionError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -8513,29 +8059,29 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_layer_version_input(
-+    input: &crate::operation::get_layer_version::GetLayerVersionInput,
++    input: &super::operation::get_layer_version::GetLayerVersionInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_layer_version_input::ser_get_layer_version_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_layer_version_input::ser_get_layer_version_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_layer_version(
      _value: &[u8],
-     mut builder: crate::operation::get_layer_version::builders::GetLayerVersionOutputBuilder,
+     mut builder: super::operation::get_layer_version::builders::GetLayerVersionOutputBuilder,
 @@ -123,53 +126,34 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "CompatibleArchitectures" => {
 -                    builder = builder.set_compatible_architectures(
--                        crate::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
 -                    );
 -                }
 -                "CompatibleRuntimes" => {
--                    builder = builder.set_compatible_runtimes(crate::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
+-                    builder = builder.set_compatible_runtimes(super::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -8543,7 +8089,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                }
                  "Content" => {
                      builder = builder.set_content(
-                         crate::protocol_serde::shape_layer_version_content_output::de_layer_version_content_output(tokens, _value, depth + 1)?,
+                         super::protocol_serde::shape_layer_version_content_output::de_layer_version_content_output(tokens, _value, depth + 1)?,
                      );
                  }
 -                "CreatedDate" => {
@@ -8593,11 +8139,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 +                "CompatibleArchitectures" => {
 +                    builder = builder.set_compatible_architectures(
-+                        crate::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
 +                    );
 +                }
 +                "CompatibleRuntimes" => {
-+                    builder = builder.set_compatible_runtimes(crate::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
++                    builder = builder.set_compatible_runtimes(super::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -8621,12 +8167,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_get_layer_version_by_arn.rs
 +++ generated/src/protocol_serde/shape_get_layer_version_by_arn.rs
 @@ -75,13 +75,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::get_layer_version_by_arn::GetLayerVersionByArnError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::get_layer_version_by_arn::GetLayerVersionByArnError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::get_layer_version_by_arn::GetLayerVersionByArnError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::get_layer_version_by_arn::GetLayerVersionByArnError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -8639,29 +8185,29 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_layer_version_by_arn_input(
-+    input: &crate::operation::get_layer_version_by_arn::GetLayerVersionByArnInput,
++    input: &super::operation::get_layer_version_by_arn::GetLayerVersionByArnInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_layer_version_by_arn_input::ser_get_layer_version_by_arn_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_layer_version_by_arn_input::ser_get_layer_version_by_arn_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_layer_version_by_arn(
      _value: &[u8],
-     mut builder: crate::operation::get_layer_version_by_arn::builders::GetLayerVersionByArnOutputBuilder,
+     mut builder: super::operation::get_layer_version_by_arn::builders::GetLayerVersionByArnOutputBuilder,
 @@ -129,53 +132,34 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "CompatibleArchitectures" => {
 -                    builder = builder.set_compatible_architectures(
--                        crate::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
 -                    );
 -                }
 -                "CompatibleRuntimes" => {
--                    builder = builder.set_compatible_runtimes(crate::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
+-                    builder = builder.set_compatible_runtimes(super::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -8669,7 +8215,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                }
                  "Content" => {
                      builder = builder.set_content(
-                         crate::protocol_serde::shape_layer_version_content_output::de_layer_version_content_output(tokens, _value, depth + 1)?,
+                         super::protocol_serde::shape_layer_version_content_output::de_layer_version_content_output(tokens, _value, depth + 1)?,
                      );
                  }
 -                "CreatedDate" => {
@@ -8719,11 +8265,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 +                "CompatibleArchitectures" => {
 +                    builder = builder.set_compatible_architectures(
-+                        crate::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
 +                    );
 +                }
 +                "CompatibleRuntimes" => {
-+                    builder = builder.set_compatible_runtimes(crate::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
++                    builder = builder.set_compatible_runtimes(super::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -8747,12 +8293,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_get_layer_version_policy.rs
 +++ generated/src/protocol_serde/shape_get_layer_version_policy.rs
 @@ -75,13 +75,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::get_layer_version_policy::GetLayerVersionPolicyError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::get_layer_version_policy::GetLayerVersionPolicyError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::get_layer_version_policy::GetLayerVersionPolicyError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::get_layer_version_policy::GetLayerVersionPolicyError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -8765,18 +8311,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_layer_version_policy_input(
-+    input: &crate::operation::get_layer_version_policy::GetLayerVersionPolicyInput,
++    input: &super::operation::get_layer_version_policy::GetLayerVersionPolicyInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_layer_version_policy_input::ser_get_layer_version_policy_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_layer_version_policy_input::ser_get_layer_version_policy_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_layer_version_policy(
      _value: &[u8],
-     mut builder: crate::operation::get_layer_version_policy::builders::GetLayerVersionPolicyOutputBuilder,
+     mut builder: super::operation::get_layer_version_policy::builders::GetLayerVersionPolicyOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_get_policy.rs`
@@ -8785,12 +8331,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_get_policy.rs
 +++ generated/src/protocol_serde/shape_get_policy.rs
 @@ -72,11 +72,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::get_policy::GetPolicyError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::get_policy::GetPolicyError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::get_policy::GetPolicyError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::get_policy::GetPolicyError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
@@ -8801,18 +8347,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_policy_input(
-+    input: &crate::operation::get_policy::GetPolicyInput,
++    input: &super::operation::get_policy::GetPolicyInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_policy_input::ser_get_policy_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_policy_input::ser_get_policy_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_policy(
      _value: &[u8],
-     mut builder: crate::operation::get_policy::builders::GetPolicyOutputBuilder,
+     mut builder: super::operation::get_policy::builders::GetPolicyOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_get_provisioned_concurrency_config.rs`
@@ -8822,11 +8368,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_get_provisioned_concurrency_config.rs
 @@ -100,13 +100,6 @@
                      output =
-                         crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(crate::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigError::unhandled)?;
+                         super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                             .map_err(super::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigError::unhandled)?;
 -                    output = output.set_retry_after_seconds(
--                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            crate::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigError::unhandled(
+-                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
@@ -8839,18 +8385,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_provisioned_concurrency_config_input(
-+    input: &crate::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigInput,
++    input: &super::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_provisioned_concurrency_config_input::ser_get_provisioned_concurrency_config_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_provisioned_concurrency_config_input::ser_get_provisioned_concurrency_config_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_provisioned_concurrency_config(
      _value: &[u8],
-     mut builder: crate::operation::get_provisioned_concurrency_config::builders::GetProvisionedConcurrencyConfigOutputBuilder,
+     mut builder: super::operation::get_provisioned_concurrency_config::builders::GetProvisionedConcurrencyConfigOutputBuilder,
 @@ -155,8 +158,8 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -8902,12 +8448,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_get_resource_policy.rs
 +++ generated/src/protocol_serde/shape_get_resource_policy.rs
 @@ -73,13 +73,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::get_resource_policy::GetResourcePolicyError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::get_resource_policy::GetResourcePolicyError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::get_resource_policy::GetResourcePolicyError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::get_resource_policy::GetResourcePolicyError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -8920,18 +8466,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_resource_policy_input(
-+    input: &crate::operation::get_resource_policy::GetResourcePolicyInput,
++    input: &super::operation::get_resource_policy::GetResourcePolicyInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_resource_policy_input::ser_get_resource_policy_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_resource_policy_input::ser_get_resource_policy_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_resource_policy(
      _value: &[u8],
-     mut builder: crate::operation::get_resource_policy::builders::GetResourcePolicyOutputBuilder,
+     mut builder: super::operation::get_resource_policy::builders::GetResourcePolicyOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_get_runtime_management_config.rs`
@@ -8940,12 +8486,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_get_runtime_management_config.rs
 +++ generated/src/protocol_serde/shape_get_runtime_management_config.rs
 @@ -77,13 +77,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::get_runtime_management_config::GetRuntimeManagementConfigError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::get_runtime_management_config::GetRuntimeManagementConfigError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::get_runtime_management_config::GetRuntimeManagementConfigError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::get_runtime_management_config::GetRuntimeManagementConfigError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -8958,18 +8504,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_get_runtime_management_config_input(
-+    input: &crate::operation::get_runtime_management_config::GetRuntimeManagementConfigInput,
++    input: &super::operation::get_runtime_management_config::GetRuntimeManagementConfigInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_get_runtime_management_config_input::ser_get_runtime_management_config_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_runtime_management_config_input::ser_get_runtime_management_config_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_get_runtime_management_config(
      _value: &[u8],
-     mut builder: crate::operation::get_runtime_management_config::builders::GetRuntimeManagementConfigOutputBuilder,
+     mut builder: super::operation::get_runtime_management_config::builders::GetRuntimeManagementConfigOutputBuilder,
 @@ -131,6 +134,13 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -8977,7 +8523,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "UpdateRuntimeOn" => {
 +                    builder = builder.set_update_runtime_on(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::UpdateRuntimeOn::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::UpdateRuntimeOn::from(u.as_ref())))
 +                            .transpose()?,
 +                    );
 +                }
@@ -8991,7 +8537,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "UpdateRuntimeOn" => {
 -                    builder = builder.set_update_runtime_on(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::UpdateRuntimeOn::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::UpdateRuntimeOn::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 -                }
@@ -9005,157 +8551,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_invoke.rs
 +++ generated/src/protocol_serde/shape_invoke.rs
-@@ -85,7 +85,7 @@
-             }
-             tmp
-         }),
--        "EC2AccessDeniedException" => crate::operation::invoke::InvokeError::Ec2AccessDeniedException({
-+        "Ec2AccessDeniedException" => crate::operation::invoke::InvokeError::Ec2AccessDeniedException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -100,7 +100,7 @@
-             }
-             tmp
-         }),
--        "EC2ThrottledException" => crate::operation::invoke::InvokeError::Ec2ThrottledException({
-+        "Ec2ThrottledException" => crate::operation::invoke::InvokeError::Ec2ThrottledException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -115,7 +115,7 @@
-             }
-             tmp
-         }),
--        "EC2UnexpectedException" => crate::operation::invoke::InvokeError::Ec2UnexpectedException({
-+        "Ec2UnexpectedException" => crate::operation::invoke::InvokeError::Ec2UnexpectedException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -130,7 +130,7 @@
-             }
-             tmp
-         }),
--        "EFSIOException" => crate::operation::invoke::InvokeError::EfsioException({
-+        "EfsioException" => crate::operation::invoke::InvokeError::EfsioException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -145,7 +145,7 @@
-             }
-             tmp
-         }),
--        "EFSMountConnectivityException" => crate::operation::invoke::InvokeError::EfsMountConnectivityException({
-+        "EfsMountConnectivityException" => crate::operation::invoke::InvokeError::EfsMountConnectivityException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -163,7 +163,7 @@
-             }
-             tmp
-         }),
--        "EFSMountFailureException" => crate::operation::invoke::InvokeError::EfsMountFailureException({
-+        "EfsMountFailureException" => crate::operation::invoke::InvokeError::EfsMountFailureException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -178,7 +178,7 @@
-             }
-             tmp
-         }),
--        "EFSMountTimeoutException" => crate::operation::invoke::InvokeError::EfsMountTimeoutException({
-+        "EfsMountTimeoutException" => crate::operation::invoke::InvokeError::EfsMountTimeoutException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -193,7 +193,7 @@
-             }
-             tmp
-         }),
--        "ENILimitReachedException" => crate::operation::invoke::InvokeError::EniLimitReachedException({
-+        "EniLimitReachedException" => crate::operation::invoke::InvokeError::EniLimitReachedException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -208,7 +208,7 @@
-             }
-             tmp
-         }),
--        "ENINotReadyException" => crate::operation::invoke::InvokeError::EniNotReadyException({
-+        "EniNotReadyException" => crate::operation::invoke::InvokeError::EniNotReadyException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -274,7 +274,7 @@
-             }
-             tmp
-         }),
--        "InvalidSecurityGroupIDException" => crate::operation::invoke::InvokeError::InvalidSecurityGroupIdException({
-+        "InvalidSecurityGroupIdException" => crate::operation::invoke::InvokeError::InvalidSecurityGroupIdException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -292,7 +292,7 @@
-             }
-             tmp
-         }),
--        "InvalidSubnetIDException" => crate::operation::invoke::InvokeError::InvalidSubnetIdException({
-+        "InvalidSubnetIdException" => crate::operation::invoke::InvokeError::InvalidSubnetIdException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -322,7 +322,7 @@
-             }
-             tmp
-         }),
--        "KMSAccessDeniedException" => crate::operation::invoke::InvokeError::KmsAccessDeniedException({
-+        "KmsAccessDeniedException" => crate::operation::invoke::InvokeError::KmsAccessDeniedException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -337,7 +337,7 @@
-             }
-             tmp
-         }),
--        "KMSDisabledException" => crate::operation::invoke::InvokeError::KmsDisabledException({
-+        "KmsDisabledException" => crate::operation::invoke::InvokeError::KmsDisabledException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -352,7 +352,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::invoke::InvokeError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::invoke::InvokeError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -367,7 +367,7 @@
-             }
-             tmp
-         }),
--        "KMSNotFoundException" => crate::operation::invoke::InvokeError::KmsNotFoundException({
-+        "KmsNotFoundException" => crate::operation::invoke::InvokeError::KmsNotFoundException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -652,7 +652,7 @@
-             }
-             tmp
-         }),
--        "SubnetIPAddressLimitReachedException" => {
-+        "SubnetIpAddressLimitReachedException" => {
-             crate::operation::invoke::InvokeError::SubnetIpAddressLimitReachedException({
-                 #[allow(unused_mut)]
-                 let mut tmp = {
 @@ -675,11 +675,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::invoke::InvokeError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::invoke::InvokeError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::invoke::InvokeError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::invoke::InvokeError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
@@ -9164,28 +8566,28 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 @@ -719,89 +714,86 @@
      Ok({
          #[allow(unused_mut)]
-         let mut output = crate::operation::invoke::builders::InvokeOutputBuilder::default();
+         let mut output = super::operation::invoke::builders::InvokeOutputBuilder::default();
 -        output = output.set_durable_execution_arn(
--            crate::protocol_serde::shape_invoke_output::de_durable_execution_arn_header(_response_headers).map_err(|_| {
--                crate::operation::invoke::InvokeError::unhandled("Failed to parse DurableExecutionArn from header `X-Amz-Durable-Execution-Arn")
+-            super::protocol_serde::shape_invoke_output::de_durable_execution_arn_header(_response_headers).map_err(|_| {
+-                super::operation::invoke::InvokeError::unhandled("Failed to parse DurableExecutionArn from header `X-Amz-Durable-Execution-Arn")
 -            })?,
 -        );
 -        output = output.set_executed_version(
--            crate::protocol_serde::shape_invoke_output::de_executed_version_header(_response_headers).map_err(|_| {
--                crate::operation::invoke::InvokeError::unhandled("Failed to parse ExecutedVersion from header `X-Amz-Executed-Version")
+-            super::protocol_serde::shape_invoke_output::de_executed_version_header(_response_headers).map_err(|_| {
+-                super::operation::invoke::InvokeError::unhandled("Failed to parse ExecutedVersion from header `X-Amz-Executed-Version")
 -            })?,
 -        );
 -        output = output.set_function_error(
--            crate::protocol_serde::shape_invoke_output::de_function_error_header(_response_headers)
--                .map_err(|_| crate::operation::invoke::InvokeError::unhandled("Failed to parse FunctionError from header `X-Amz-Function-Error"))?,
+-            super::protocol_serde::shape_invoke_output::de_function_error_header(_response_headers)
+-                .map_err(|_| super::operation::invoke::InvokeError::unhandled("Failed to parse FunctionError from header `X-Amz-Function-Error"))?,
 -        );
 -        output = output.set_log_result(
--            crate::protocol_serde::shape_invoke_output::de_log_result_header(_response_headers)
--                .map_err(|_| crate::operation::invoke::InvokeError::unhandled("Failed to parse LogResult from header `X-Amz-Log-Result"))?,
+-            super::protocol_serde::shape_invoke_output::de_log_result_header(_response_headers)
+-                .map_err(|_| super::operation::invoke::InvokeError::unhandled("Failed to parse LogResult from header `X-Amz-Log-Result"))?,
 -        );
--        output = output.set_payload(crate::protocol_serde::shape_invoke_output::de_payload_payload(_response_body)?);
+-        output = output.set_payload(super::protocol_serde::shape_invoke_output::de_payload_payload(_response_body)?);
 -        output = output.set_status_code(Some(_response_status as _));
-+        output = crate::protocol_serde::shape_invoke::de_invoke(_response_body, output).map_err(crate::operation::invoke::InvokeError::unhandled)?;
++        output = super::protocol_serde::shape_invoke::de_invoke(_response_body, output).map_err(super::operation::invoke::InvokeError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
@@ -9193,7 +8595,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 -pub fn ser_invoke_headers(
 +pub fn ser_invoke_input(
-     input: &crate::operation::invoke::InvokeInput,
+     input: &super::operation::invoke::InvokeInput,
 -    mut builder: ::http_1x::request::Builder,
 -) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
 -    if let ::std::option::Option::Some(inner_1) = &input.invocation_type {
@@ -9242,16 +8644,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_invoke_input::ser_invoke_input_input(&mut object, input)?;
++    super::protocol_serde::shape_invoke_input::ser_invoke_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
 +pub(crate) fn de_invoke(
 +    _value: &[u8],
-+    mut builder: crate::operation::invoke::builders::InvokeOutputBuilder,
-+) -> ::std::result::Result<crate::operation::invoke::builders::InvokeOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    mut builder: super::operation::invoke::builders::InvokeOutputBuilder,
++) -> ::std::result::Result<super::operation::invoke::builders::InvokeOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -9331,169 +8733,34 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_invoke_async.rs
 +++ generated/src/protocol_serde/shape_invoke_async.rs
-@@ -17,7 +17,7 @@
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-     Err(match error_code {
--        "EC2AccessDeniedException" => crate::operation::invoke_async::InvokeAsyncError::Ec2AccessDeniedException({
-+        "Ec2AccessDeniedException" => crate::operation::invoke_async::InvokeAsyncError::Ec2AccessDeniedException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -32,7 +32,7 @@
-             }
-             tmp
-         }),
--        "EC2ThrottledException" => crate::operation::invoke_async::InvokeAsyncError::Ec2ThrottledException({
-+        "Ec2ThrottledException" => crate::operation::invoke_async::InvokeAsyncError::Ec2ThrottledException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -47,7 +47,7 @@
-             }
-             tmp
-         }),
--        "EC2UnexpectedException" => crate::operation::invoke_async::InvokeAsyncError::Ec2UnexpectedException({
-+        "Ec2UnexpectedException" => crate::operation::invoke_async::InvokeAsyncError::Ec2UnexpectedException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -62,7 +62,7 @@
-             }
-             tmp
-         }),
--        "EFSIOException" => crate::operation::invoke_async::InvokeAsyncError::EfsioException({
-+        "EfsioException" => crate::operation::invoke_async::InvokeAsyncError::EfsioException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -77,7 +77,7 @@
-             }
-             tmp
-         }),
--        "EFSMountConnectivityException" => crate::operation::invoke_async::InvokeAsyncError::EfsMountConnectivityException({
-+        "EfsMountConnectivityException" => crate::operation::invoke_async::InvokeAsyncError::EfsMountConnectivityException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -95,7 +95,7 @@
-             }
-             tmp
-         }),
--        "EFSMountFailureException" => crate::operation::invoke_async::InvokeAsyncError::EfsMountFailureException({
-+        "EfsMountFailureException" => crate::operation::invoke_async::InvokeAsyncError::EfsMountFailureException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -110,7 +110,7 @@
-             }
-             tmp
-         }),
--        "EFSMountTimeoutException" => crate::operation::invoke_async::InvokeAsyncError::EfsMountTimeoutException({
-+        "EfsMountTimeoutException" => crate::operation::invoke_async::InvokeAsyncError::EfsMountTimeoutException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -125,7 +125,7 @@
-             }
-             tmp
-         }),
--        "ENILimitReachedException" => crate::operation::invoke_async::InvokeAsyncError::EniLimitReachedException({
-+        "EniLimitReachedException" => crate::operation::invoke_async::InvokeAsyncError::EniLimitReachedException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -173,7 +173,7 @@
-             }
-             tmp
-         }),
--        "InvalidSecurityGroupIDException" => crate::operation::invoke_async::InvokeAsyncError::InvalidSecurityGroupIdException({
-+        "InvalidSecurityGroupIdException" => crate::operation::invoke_async::InvokeAsyncError::InvalidSecurityGroupIdException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -191,7 +191,7 @@
-             }
-             tmp
-         }),
--        "InvalidSubnetIDException" => crate::operation::invoke_async::InvokeAsyncError::InvalidSubnetIdException({
-+        "InvalidSubnetIdException" => crate::operation::invoke_async::InvokeAsyncError::InvalidSubnetIdException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -206,7 +206,7 @@
-             }
-             tmp
-         }),
--        "KMSAccessDeniedException" => crate::operation::invoke_async::InvokeAsyncError::KmsAccessDeniedException({
-+        "KmsAccessDeniedException" => crate::operation::invoke_async::InvokeAsyncError::KmsAccessDeniedException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -221,7 +221,7 @@
-             }
-             tmp
-         }),
--        "KMSDisabledException" => crate::operation::invoke_async::InvokeAsyncError::KmsDisabledException({
-+        "KmsDisabledException" => crate::operation::invoke_async::InvokeAsyncError::KmsDisabledException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -236,7 +236,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::invoke_async::InvokeAsyncError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::invoke_async::InvokeAsyncError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -251,7 +251,7 @@
-             }
-             tmp
-         }),
--        "KMSNotFoundException" => crate::operation::invoke_async::InvokeAsyncError::KmsNotFoundException({
-+        "KmsNotFoundException" => crate::operation::invoke_async::InvokeAsyncError::KmsNotFoundException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -460,7 +460,7 @@
-             }
-             tmp
-         }),
--        "SubnetIPAddressLimitReachedException" => {
-+        "SubnetIpAddressLimitReachedException" => {
-             crate::operation::invoke_async::InvokeAsyncError::SubnetIpAddressLimitReachedException({
-                 #[allow(unused_mut)]
-                 let mut tmp = {
 @@ -489,8 +489,57 @@
      Ok({
          #[allow(unused_mut)]
-         let mut output = crate::operation::invoke_async::builders::InvokeAsyncOutputBuilder::default();
+         let mut output = super::operation::invoke_async::builders::InvokeAsyncOutputBuilder::default();
 -        output = output.set_status(Some(_response_status as _));
-+        output = crate::protocol_serde::shape_invoke_async::de_invoke_async(_response_body, output)
-+            .map_err(crate::operation::invoke_async::InvokeAsyncError::unhandled)?;
++        output = super::protocol_serde::shape_invoke_async::de_invoke_async(_response_body, output)
++            .map_err(super::operation::invoke_async::InvokeAsyncError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
          output.build()
      })
  }
 +
 +pub fn ser_invoke_async_input(
-+    input: &crate::operation::invoke_async::InvokeAsyncInput,
++    input: &super::operation::invoke_async::InvokeAsyncInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_invoke_async_input::ser_invoke_async_input_input(&mut object, input)?;
++    super::protocol_serde::shape_invoke_async_input::ser_invoke_async_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
 +pub(crate) fn de_invoke_async(
 +    _value: &[u8],
-+    mut builder: crate::operation::invoke_async::builders::InvokeAsyncOutputBuilder,
-+) -> ::std::result::Result<crate::operation::invoke_async::builders::InvokeAsyncOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++    mut builder: super::operation::invoke_async::builders::InvokeAsyncOutputBuilder,
++) -> ::std::result::Result<super::operation::invoke_async::builders::InvokeAsyncOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
 +{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -9610,8 +8877,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -pub fn de_invoke_with_response_stream_http_response(
 -    response: &mut ::aws_smithy_runtime_api::http::Response,
 -) -> std::result::Result<
--    crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput,
--    crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError,
+-    super::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput,
+-    super::operation::invoke_with_response_stream::InvokeWithResponseStreamError,
 -> {
 -    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
 -    std::mem::swap(&mut _response_body, response.body_mut());
@@ -9621,21 +8888,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    let _response_headers = response.headers();
 -    Ok({
 -        #[allow(unused_mut)]
--        let mut output = crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder::default();
+-        let mut output = super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder::default();
 -        output = output.set_event_stream(Some(
--            crate::protocol_serde::shape_invoke_with_response_stream_output::de_event_stream_payload(_response_body)?,
+-            super::protocol_serde::shape_invoke_with_response_stream_output::de_event_stream_payload(_response_body)?,
 -        ));
 -        output = output.set_executed_version(
--            crate::protocol_serde::shape_invoke_with_response_stream_output::de_executed_version_header(_response_headers).map_err(|_| {
--                crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled(
+-            super::protocol_serde::shape_invoke_with_response_stream_output::de_executed_version_header(_response_headers).map_err(|_| {
+-                super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled(
 -                    "Failed to parse ExecutedVersion from header `X-Amz-Executed-Version",
 -                )
 -            })?,
 -        );
 -        output = output.set_response_stream_content_type(
--            crate::protocol_serde::shape_invoke_with_response_stream_output::de_response_stream_content_type_header(_response_headers).map_err(
+-            super::protocol_serde::shape_invoke_with_response_stream_output::de_response_stream_content_type_header(_response_headers).map_err(
 -                |_| {
--                    crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled(
+-                    super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled(
 -                        "Failed to parse ResponseStreamContentType from header `Content-Type",
 -                    )
 -                },
@@ -9645,7 +8912,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
 -        output
 -            .build()
--            .map_err(crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled)?
+-            .map_err(super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled)?
 -    })
 -}
 -
@@ -9653,148 +8920,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn de_invoke_with_response_stream_http_error(
      _response_status: u16,
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
-@@ -67,7 +24,7 @@
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-     Err(match error_code {
--        "EC2AccessDeniedException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::Ec2AccessDeniedException({
-+        "Ec2AccessDeniedException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::Ec2AccessDeniedException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -82,7 +39,7 @@
-             }
-             tmp
-         }),
--        "EC2ThrottledException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::Ec2ThrottledException({
-+        "Ec2ThrottledException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::Ec2ThrottledException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -97,7 +54,7 @@
-             }
-             tmp
-         }),
--        "EC2UnexpectedException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::Ec2UnexpectedException({
-+        "Ec2UnexpectedException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::Ec2UnexpectedException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -112,7 +69,7 @@
-             }
-             tmp
-         }),
--        "EFSIOException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::EfsioException({
-+        "EfsioException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::EfsioException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -127,7 +84,7 @@
-             }
-             tmp
-         }),
--        "EFSMountConnectivityException" => {
-+        "EfsMountConnectivityException" => {
-             crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::EfsMountConnectivityException({
-                 #[allow(unused_mut)]
-                 let mut tmp = {
-@@ -147,7 +104,7 @@
-                 tmp
-             })
-         }
--        "EFSMountFailureException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::EfsMountFailureException({
-+        "EfsMountFailureException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::EfsMountFailureException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -162,7 +119,7 @@
-             }
-             tmp
-         }),
--        "EFSMountTimeoutException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::EfsMountTimeoutException({
-+        "EfsMountTimeoutException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::EfsMountTimeoutException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -177,7 +134,7 @@
-             }
-             tmp
-         }),
--        "ENILimitReachedException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::EniLimitReachedException({
-+        "EniLimitReachedException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::EniLimitReachedException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -247,7 +204,7 @@
-             }
-             tmp
-         }),
--        "InvalidSecurityGroupIDException" => {
-+        "InvalidSecurityGroupIdException" => {
-             crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::InvalidSecurityGroupIdException({
-                 #[allow(unused_mut)]
-                 let mut tmp = {
-@@ -267,7 +224,7 @@
-                 tmp
-             })
-         }
--        "InvalidSubnetIDException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::InvalidSubnetIdException({
-+        "InvalidSubnetIdException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::InvalidSubnetIdException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -297,7 +254,7 @@
-             }
-             tmp
-         }),
--        "KMSAccessDeniedException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::KmsAccessDeniedException({
-+        "KmsAccessDeniedException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::KmsAccessDeniedException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -312,7 +269,7 @@
-             }
-             tmp
-         }),
--        "KMSDisabledException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::KmsDisabledException({
-+        "KmsDisabledException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::KmsDisabledException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -327,7 +284,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -342,7 +299,7 @@
-             }
-             tmp
-         }),
--        "KMSNotFoundException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::KmsNotFoundException({
-+        "KmsNotFoundException" => crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::KmsNotFoundException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -626,7 +583,7 @@
-             }
-             tmp
-         }),
--        "SubnetIPAddressLimitReachedException" => {
-+        "SubnetIpAddressLimitReachedException" => {
-             crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::SubnetIpAddressLimitReachedException({
-                 #[allow(unused_mut)]
-                 let mut tmp = {
 @@ -649,13 +606,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -9813,21 +8945,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    _response_headers: &::aws_smithy_runtime_api::http::Headers,
 +    _response_body: &[u8],
 +) -> std::result::Result<
-+    crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput,
-+    crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError,
++    super::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput,
++    super::operation::invoke_with_response_stream::InvokeWithResponseStreamError,
 +> {
 +    Ok({
 +        #[allow(unused_mut)]
-+        let mut output = crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder::default();
-+        output = crate::protocol_serde::shape_invoke_with_response_stream::de_invoke_with_response_stream(_response_body, output)
-+            .map_err(crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled)?;
++        let mut output = super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder::default();
++        output = super::protocol_serde::shape_invoke_with_response_stream::de_invoke_with_response_stream(_response_body, output)
++            .map_err(super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled)?;
 +        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
 +        output.build()
 +    })
 +}
 +
 +pub fn ser_invoke_with_response_stream_input(
-     input: &crate::operation::invoke_with_response_stream::InvokeWithResponseStreamInput,
+     input: &super::operation::invoke_with_response_stream::InvokeWithResponseStreamInput,
 -    mut builder: ::http_1x::request::Builder,
 -) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
 -    if let ::std::option::Option::Some(inner_1) = &input.log_type {
@@ -9865,19 +8997,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_invoke_with_response_stream_input::ser_invoke_with_response_stream_input_input(&mut object, input)?;
++    super::protocol_serde::shape_invoke_with_response_stream_input::ser_invoke_with_response_stream_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
 +pub(crate) fn de_invoke_with_response_stream(
 +    _value: &[u8],
-+    mut builder: crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder,
++    mut builder: super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder,
++    super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -9902,7 +9034,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                }
 +                "EventStream" => {
 +                    builder = builder.set_event_stream(
-+                        crate::protocol_serde::shape_invoke_with_response_stream_response_event::de_invoke_with_response_stream_response_event(
++                        super::protocol_serde::shape_invoke_with_response_stream_response_event::de_invoke_with_response_stream_response_event(
 +                            tokens,
 +                            _value,
 +                            depth + 1,
@@ -9953,12 +9085,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub(crate) fn de_invoke_with_response_stream_complete_event_payload(
 -    _value: &[u8],
--) -> ::std::result::Result<crate::types::InvokeWithResponseStreamCompleteEvent, ::aws_smithy_json::deserialize::error::DeserializeError> {
--    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+-) -> ::std::result::Result<super::types::InvokeWithResponseStreamCompleteEvent, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 -    let tokens = &mut tokens_owned;
 -    #[allow(unused_variables)]
 -    let depth = 0u32;
--    let result = crate::protocol_serde::shape_invoke_with_response_stream_complete_event::de_invoke_with_response_stream_complete_event(
+-    let result = super::protocol_serde::shape_invoke_with_response_stream_complete_event::de_invoke_with_response_stream_complete_event(
 -        tokens,
 -        _value,
 -        depth + 1,
@@ -10030,7 +9162,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_kafka_schema_registry_config(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::KafkaSchemaRegistryConfig,
++    input: &super::types::KafkaSchemaRegistryConfig,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.schema_registry_uri {
 +        object.key("SchemaRegistryURI").string(var_1.as_str());
@@ -10044,7 +9176,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            {
 +                #[allow(unused_mut)]
 +                let mut object_6 = array_4.value().start_object();
-+                crate::protocol_serde::shape_kafka_schema_registry_access_config::ser_kafka_schema_registry_access_config(&mut object_6, item_5)?;
++                super::protocol_serde::shape_kafka_schema_registry_access_config::ser_kafka_schema_registry_access_config(&mut object_6, item_5)?;
 +                object_6.finish();
 +            }
 +        }
@@ -10056,7 +9188,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            {
 +                #[allow(unused_mut)]
 +                let mut object_10 = array_8.value().start_object();
-+                crate::protocol_serde::shape_kafka_schema_validation_config::ser_kafka_schema_validation_config(&mut object_10, item_9)?;
++                super::protocol_serde::shape_kafka_schema_validation_config::ser_kafka_schema_validation_config(&mut object_10, item_9)?;
 +                object_10.finish();
 +            }
 +        }
@@ -10073,9 +9205,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                              }
                              "AccessConfigs" => {
 -                                builder = builder.set_access_configs(
--                                    crate::protocol_serde::shape_kafka_schema_registry_access_config_list::de_kafka_schema_registry_access_config_list(tokens, _value, depth + 1)?
+-                                    super::protocol_serde::shape_kafka_schema_registry_access_config_list::de_kafka_schema_registry_access_config_list(tokens, _value, depth + 1)?
 -                                );
-+                                builder = builder.set_access_configs(crate::protocol_serde::shape_kafka_schema_registry_access_config_list::de_kafka_schema_registry_access_config_list(tokens, _value, depth + 1)?);
++                                builder = builder.set_access_configs(super::protocol_serde::shape_kafka_schema_registry_access_config_list::de_kafka_schema_registry_access_config_list(tokens, _value, depth + 1)?);
                              }
                              "SchemaValidationConfigs" => {
                                  builder = builder.set_schema_validation_configs(
@@ -10086,7 +9218,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_kafka_schema_registry_config(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::KafkaSchemaRegistryConfig,
+-    input: &super::types::KafkaSchemaRegistryConfig,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.schema_registry_uri {
 -        object.key("SchemaRegistryURI").string(var_1.as_str());
@@ -10100,7 +9232,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            {
 -                #[allow(unused_mut)]
 -                let mut object_6 = array_4.value().start_object();
--                crate::protocol_serde::shape_kafka_schema_registry_access_config::ser_kafka_schema_registry_access_config(&mut object_6, item_5)?;
+-                super::protocol_serde::shape_kafka_schema_registry_access_config::ser_kafka_schema_registry_access_config(&mut object_6, item_5)?;
 -                object_6.finish();
 -            }
 -        }
@@ -10112,7 +9244,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            {
 -                #[allow(unused_mut)]
 -                let mut object_10 = array_8.value().start_object();
--                crate::protocol_serde::shape_kafka_schema_validation_config::ser_kafka_schema_validation_config(&mut object_10, item_9)?;
+-                super::protocol_serde::shape_kafka_schema_validation_config::ser_kafka_schema_validation_config(&mut object_10, item_9)?;
 -                object_10.finish();
 -            }
 -        }
@@ -10131,7 +9263,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_lambda_managed_instances_capacity_provider_config(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::LambdaManagedInstancesCapacityProviderConfig,
++    input: &super::types::LambdaManagedInstancesCapacityProviderConfig,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    {
 +        object.key("CapacityProviderArn").string(input.capacity_provider_arn.as_str());
@@ -10170,7 +9302,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_lambda_managed_instances_capacity_provider_config(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::LambdaManagedInstancesCapacityProviderConfig,
+-    input: &super::types::LambdaManagedInstancesCapacityProviderConfig,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    {
 -        object.key("CapacityProviderArn").string(input.capacity_provider_arn.as_str());
@@ -10197,12 +9329,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_list_aliases.rs
 +++ generated/src/protocol_serde/shape_list_aliases.rs
 @@ -72,11 +72,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::list_aliases::ListAliasesError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::list_aliases::ListAliasesError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::list_aliases::ListAliasesError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::list_aliases::ListAliasesError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
@@ -10213,24 +9345,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_list_aliases_input(
-+    input: &crate::operation::list_aliases::ListAliasesInput,
++    input: &super::operation::list_aliases::ListAliasesInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_list_aliases_input::ser_list_aliases_input_input(&mut object, input)?;
++    super::protocol_serde::shape_list_aliases_input::ser_list_aliases_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_aliases(
      _value: &[u8],
-     mut builder: crate::operation::list_aliases::builders::ListAliasesOutputBuilder,
+     mut builder: super::operation::list_aliases::builders::ListAliasesOutputBuilder,
 @@ -119,9 +124,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "Aliases" => {
--                    builder = builder.set_aliases(crate::protocol_serde::shape_alias_list::de_alias_list(tokens, _value, depth + 1)?);
+-                    builder = builder.set_aliases(super::protocol_serde::shape_alias_list::de_alias_list(tokens, _value, depth + 1)?);
 -                }
                  "NextMarker" => {
                      builder = builder.set_next_marker(
@@ -10240,7 +9372,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 +                "Aliases" => {
-+                    builder = builder.set_aliases(crate::protocol_serde::shape_alias_list::de_alias_list(tokens, _value, depth + 1)?);
++                    builder = builder.set_aliases(super::protocol_serde::shape_alias_list::de_alias_list(tokens, _value, depth + 1)?);
 +                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
@@ -10253,12 +9385,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_list_capacity_providers.rs
 +++ generated/src/protocol_serde/shape_list_capacity_providers.rs
 @@ -60,13 +60,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::list_capacity_providers::ListCapacityProvidersError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::list_capacity_providers::ListCapacityProvidersError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::list_capacity_providers::ListCapacityProvidersError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::list_capacity_providers::ListCapacityProvidersError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -10271,18 +9403,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_list_capacity_providers_input(
-+    input: &crate::operation::list_capacity_providers::ListCapacityProvidersInput,
++    input: &super::operation::list_capacity_providers::ListCapacityProvidersInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_list_capacity_providers_input::ser_list_capacity_providers_input_input(&mut object, input)?;
++    super::protocol_serde::shape_list_capacity_providers_input::ser_list_capacity_providers_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_capacity_providers(
      _value: &[u8],
-     mut builder: crate::operation::list_capacity_providers::builders::ListCapacityProvidersOutputBuilder,
+     mut builder: super::operation::list_capacity_providers::builders::ListCapacityProvidersOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_list_code_signing_configs.rs`
@@ -10295,25 +9427,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_list_code_signing_configs_input(
-+    input: &crate::operation::list_code_signing_configs::ListCodeSigningConfigsInput,
++    input: &super::operation::list_code_signing_configs::ListCodeSigningConfigsInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_list_code_signing_configs_input::ser_list_code_signing_configs_input_input(&mut object, input)?;
++    super::protocol_serde::shape_list_code_signing_configs_input::ser_list_code_signing_configs_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_code_signing_configs(
      _value: &[u8],
-     mut builder: crate::operation::list_code_signing_configs::builders::ListCodeSigningConfigsOutputBuilder,
+     mut builder: super::operation::list_code_signing_configs::builders::ListCodeSigningConfigsOutputBuilder,
 @@ -99,11 +109,6 @@
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
                  match key.to_unescaped()?.as_ref() {
 -                    "CodeSigningConfigs" => {
 -                        builder = builder.set_code_signing_configs(
--                            crate::protocol_serde::shape_code_signing_config_list::de_code_signing_config_list(tokens, _value, depth + 1)?,
+-                            super::protocol_serde::shape_code_signing_config_list::de_code_signing_config_list(tokens, _value, depth + 1)?,
 -                        );
 -                    }
                      "NextMarker" => {
@@ -10325,7 +9457,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
 +                    "CodeSigningConfigs" => {
 +                        builder = builder.set_code_signing_configs(
-+                            crate::protocol_serde::shape_code_signing_config_list::de_code_signing_config_list(tokens, _value, depth + 1)?,
++                            super::protocol_serde::shape_code_signing_config_list::de_code_signing_config_list(tokens, _value, depth + 1)?,
 +                        );
 +                    }
                      _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -10340,11 +9472,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_list_durable_executions_by_function.rs
 @@ -82,13 +82,6 @@
                      output =
-                         crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError::unhandled)?;
+                         super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                             .map_err(super::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError::unhandled)?;
 -                    output = output.set_retry_after_seconds(
--                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError::unhandled(
+-                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
@@ -10357,18 +9489,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_list_durable_executions_by_function_input(
-+    input: &crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionInput,
++    input: &super::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_list_durable_executions_by_function_input::ser_list_durable_executions_by_function_input_input(&mut object, input)?;
++    super::protocol_serde::shape_list_durable_executions_by_function_input::ser_list_durable_executions_by_function_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_durable_executions_by_function(
      _value: &[u8],
-     mut builder: crate::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionOutputBuilder,
+     mut builder: super::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_list_event_source_mappings.rs`
@@ -10377,12 +9509,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_list_event_source_mappings.rs
 +++ generated/src/protocol_serde/shape_list_event_source_mappings.rs
 @@ -81,13 +81,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::list_event_source_mappings::ListEventSourceMappingsError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::list_event_source_mappings::ListEventSourceMappingsError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::list_event_source_mappings::ListEventSourceMappingsError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::list_event_source_mappings::ListEventSourceMappingsError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -10395,25 +9527,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_list_event_source_mappings_input(
-+    input: &crate::operation::list_event_source_mappings::ListEventSourceMappingsInput,
++    input: &super::operation::list_event_source_mappings::ListEventSourceMappingsInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_list_event_source_mappings_input::ser_list_event_source_mappings_input_input(&mut object, input)?;
++    super::protocol_serde::shape_list_event_source_mappings_input::ser_list_event_source_mappings_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_event_source_mappings(
      _value: &[u8],
-     mut builder: crate::operation::list_event_source_mappings::builders::ListEventSourceMappingsOutputBuilder,
+     mut builder: super::operation::list_event_source_mappings::builders::ListEventSourceMappingsOutputBuilder,
 @@ -135,11 +138,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "EventSourceMappings" => {
 -                    builder = builder.set_event_source_mappings(
--                        crate::protocol_serde::shape_event_source_mappings_list::de_event_source_mappings_list(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_event_source_mappings_list::de_event_source_mappings_list(tokens, _value, depth + 1)?,
 -                    );
 -                }
                  "NextMarker" => {
@@ -10425,7 +9557,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 +                "EventSourceMappings" => {
 +                    builder = builder.set_event_source_mappings(
-+                        crate::protocol_serde::shape_event_source_mappings_list::de_event_source_mappings_list(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_event_source_mappings_list::de_event_source_mappings_list(tokens, _value, depth + 1)?,
 +                    );
 +                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -10440,11 +9572,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_list_function_event_invoke_configs.rs
 @@ -82,13 +82,6 @@
                      output =
-                         crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsError::unhandled)?;
+                         super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                             .map_err(super::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsError::unhandled)?;
 -                    output = output.set_retry_after_seconds(
--                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsError::unhandled(
+-                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
@@ -10457,18 +9589,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_list_function_event_invoke_configs_input(
-+    input: &crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsInput,
++    input: &super::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_list_function_event_invoke_configs_input::ser_list_function_event_invoke_configs_input_input(&mut object, input)?;
++    super::protocol_serde::shape_list_function_event_invoke_configs_input::ser_list_function_event_invoke_configs_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_function_event_invoke_configs(
      _value: &[u8],
-     mut builder: crate::operation::list_function_event_invoke_configs::builders::ListFunctionEventInvokeConfigsOutputBuilder,
+     mut builder: super::operation::list_function_event_invoke_configs::builders::ListFunctionEventInvokeConfigsOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_list_function_url_configs.rs`
@@ -10477,12 +9609,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_list_function_url_configs.rs
 +++ generated/src/protocol_serde/shape_list_function_url_configs.rs
 @@ -81,13 +81,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::list_function_url_configs::ListFunctionUrlConfigsError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::list_function_url_configs::ListFunctionUrlConfigsError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::list_function_url_configs::ListFunctionUrlConfigsError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::list_function_url_configs::ListFunctionUrlConfigsError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -10495,18 +9627,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_list_function_url_configs_input(
-+    input: &crate::operation::list_function_url_configs::ListFunctionUrlConfigsInput,
++    input: &super::operation::list_function_url_configs::ListFunctionUrlConfigsInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_list_function_url_configs_input::ser_list_function_url_configs_input_input(&mut object, input)?;
++    super::protocol_serde::shape_list_function_url_configs_input::ser_list_function_url_configs_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_function_url_configs(
      _value: &[u8],
-     mut builder: crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsOutputBuilder,
+     mut builder: super::operation::list_function_url_configs::builders::ListFunctionUrlConfigsOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_list_function_versions_by_capacity_provider.rs`
@@ -10516,11 +9648,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_list_function_versions_by_capacity_provider.rs
 @@ -97,13 +97,6 @@
                              .map_err(
-                                 crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::unhandled,
+                                 super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::unhandled,
                              )?;
 -                    output = output.set_retry_after_seconds(
--                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::unhandled(
+-                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
@@ -10533,11 +9665,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_list_function_versions_by_capacity_provider_input(
-+    input: &crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderInput,
++    input: &super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_list_function_versions_by_capacity_provider_input::ser_list_function_versions_by_capacity_provider_input_input(
++    super::protocol_serde::shape_list_function_versions_by_capacity_provider_input::ser_list_function_versions_by_capacity_provider_input_input(
 +        &mut object,
 +        input,
 +    )?;
@@ -10547,7 +9679,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
  pub(crate) fn de_list_function_versions_by_capacity_provider(
      _value: &[u8],
-     mut builder: crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderOutputBuilder,
+     mut builder: super::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_list_functions.rs`
@@ -10556,12 +9688,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_list_functions.rs
 +++ generated/src/protocol_serde/shape_list_functions.rs
 @@ -57,11 +57,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::list_functions::ListFunctionsError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::list_functions::ListFunctionsError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::list_functions::ListFunctionsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::list_functions::ListFunctionsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
@@ -10572,24 +9704,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_list_functions_input(
-+    input: &crate::operation::list_functions::ListFunctionsInput,
++    input: &super::operation::list_functions::ListFunctionsInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_list_functions_input::ser_list_functions_input_input(&mut object, input)?;
++    super::protocol_serde::shape_list_functions_input::ser_list_functions_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_functions(
      _value: &[u8],
-     mut builder: crate::operation::list_functions::builders::ListFunctionsOutputBuilder,
+     mut builder: super::operation::list_functions::builders::ListFunctionsOutputBuilder,
 @@ -106,9 +111,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "Functions" => {
--                    builder = builder.set_functions(crate::protocol_serde::shape_function_list::de_function_list(tokens, _value, depth + 1)?);
+-                    builder = builder.set_functions(super::protocol_serde::shape_function_list::de_function_list(tokens, _value, depth + 1)?);
 -                }
                  "NextMarker" => {
                      builder = builder.set_next_marker(
@@ -10599,7 +9731,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 +                "Functions" => {
-+                    builder = builder.set_functions(crate::protocol_serde::shape_function_list::de_function_list(tokens, _value, depth + 1)?);
++                    builder = builder.set_functions(super::protocol_serde::shape_function_list::de_function_list(tokens, _value, depth + 1)?);
 +                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
@@ -10616,11 +9748,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_list_functions_by_code_signing_config_input(
-+    input: &crate::operation::list_functions_by_code_signing_config::ListFunctionsByCodeSigningConfigInput,
++    input: &super::operation::list_functions_by_code_signing_config::ListFunctionsByCodeSigningConfigInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_list_functions_by_code_signing_config_input::ser_list_functions_by_code_signing_config_input_input(
++    super::protocol_serde::shape_list_functions_by_code_signing_config_input::ser_list_functions_by_code_signing_config_input_input(
 +        &mut object,
 +        input,
 +    )?;
@@ -10630,13 +9762,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
  pub(crate) fn de_list_functions_by_code_signing_config(
      _value: &[u8],
-     mut builder: crate::operation::list_functions_by_code_signing_config::builders::ListFunctionsByCodeSigningConfigOutputBuilder,
+     mut builder: super::operation::list_functions_by_code_signing_config::builders::ListFunctionsByCodeSigningConfigOutputBuilder,
 @@ -112,13 +125,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "FunctionArns" => {
--                    builder = builder.set_function_arns(crate::protocol_serde::shape_function_arn_list::de_function_arn_list(
+-                    builder = builder.set_function_arns(super::protocol_serde::shape_function_arn_list::de_function_arn_list(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -10650,7 +9782,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 +                "FunctionArns" => {
-+                    builder = builder.set_function_arns(crate::protocol_serde::shape_function_arn_list::de_function_arn_list(
++                    builder = builder.set_function_arns(super::protocol_serde::shape_function_arn_list::de_function_arn_list(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -10667,12 +9799,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_list_layer_versions.rs
 +++ generated/src/protocol_serde/shape_list_layer_versions.rs
 @@ -73,13 +73,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::list_layer_versions::ListLayerVersionsError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::list_layer_versions::ListLayerVersionsError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::list_layer_versions::ListLayerVersionsError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::list_layer_versions::ListLayerVersionsError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -10685,24 +9817,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_list_layer_versions_input(
-+    input: &crate::operation::list_layer_versions::ListLayerVersionsInput,
++    input: &super::operation::list_layer_versions::ListLayerVersionsInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_list_layer_versions_input::ser_list_layer_versions_input_input(&mut object, input)?;
++    super::protocol_serde::shape_list_layer_versions_input::ser_list_layer_versions_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_layer_versions(
      _value: &[u8],
-     mut builder: crate::operation::list_layer_versions::builders::ListLayerVersionsOutputBuilder,
+     mut builder: super::operation::list_layer_versions::builders::ListLayerVersionsOutputBuilder,
 @@ -125,13 +128,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "LayerVersions" => {
--                    builder = builder.set_layer_versions(crate::protocol_serde::shape_layer_versions_list::de_layer_versions_list(
+-                    builder = builder.set_layer_versions(super::protocol_serde::shape_layer_versions_list::de_layer_versions_list(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -10716,7 +9848,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 +                "LayerVersions" => {
-+                    builder = builder.set_layer_versions(crate::protocol_serde::shape_layer_versions_list::de_layer_versions_list(
++                    builder = builder.set_layer_versions(super::protocol_serde::shape_layer_versions_list::de_layer_versions_list(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -10733,12 +9865,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_list_layers.rs
 +++ generated/src/protocol_serde/shape_list_layers.rs
 @@ -57,11 +57,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::list_layers::ListLayersError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::list_layers::ListLayersError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::list_layers::ListLayersError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::list_layers::ListLayersError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
@@ -10749,24 +9881,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_list_layers_input(
-+    input: &crate::operation::list_layers::ListLayersInput,
++    input: &super::operation::list_layers::ListLayersInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_list_layers_input::ser_list_layers_input_input(&mut object, input)?;
++    super::protocol_serde::shape_list_layers_input::ser_list_layers_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_layers(
      _value: &[u8],
-     mut builder: crate::operation::list_layers::builders::ListLayersOutputBuilder,
+     mut builder: super::operation::list_layers::builders::ListLayersOutputBuilder,
 @@ -104,9 +109,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "Layers" => {
--                    builder = builder.set_layers(crate::protocol_serde::shape_layers_list::de_layers_list(tokens, _value, depth + 1)?);
+-                    builder = builder.set_layers(super::protocol_serde::shape_layers_list::de_layers_list(tokens, _value, depth + 1)?);
 -                }
                  "NextMarker" => {
                      builder = builder.set_next_marker(
@@ -10776,7 +9908,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 +                "Layers" => {
-+                    builder = builder.set_layers(crate::protocol_serde::shape_layers_list::de_layers_list(tokens, _value, depth + 1)?);
++                    builder = builder.set_layers(super::protocol_serde::shape_layers_list::de_layers_list(tokens, _value, depth + 1)?);
 +                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
@@ -10790,11 +9922,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_list_provisioned_concurrency_configs.rs
 @@ -82,13 +82,6 @@
                      output =
-                         crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError::unhandled)?;
+                         super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                             .map_err(super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError::unhandled)?;
 -                    output = output.set_retry_after_seconds(
--                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError::unhandled(
+-                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
@@ -10807,11 +9939,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_list_provisioned_concurrency_configs_input(
-+    input: &crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsInput,
++    input: &super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_list_provisioned_concurrency_configs_input::ser_list_provisioned_concurrency_configs_input_input(
++    super::protocol_serde::shape_list_provisioned_concurrency_configs_input::ser_list_provisioned_concurrency_configs_input_input(
 +        &mut object,
 +        input,
 +    )?;
@@ -10821,7 +9953,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
  pub(crate) fn de_list_provisioned_concurrency_configs(
      _value: &[u8],
-     mut builder: crate::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsOutputBuilder,
+     mut builder: super::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsOutputBuilder,
 @@ -137,13 +143,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -10835,7 +9967,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                }
                  "ProvisionedConcurrencyConfigs" => {
                      builder = builder.set_provisioned_concurrency_configs(
-                         crate::protocol_serde::shape_provisioned_concurrency_config_list::de_provisioned_concurrency_config_list(
+                         super::protocol_serde::shape_provisioned_concurrency_config_list::de_provisioned_concurrency_config_list(
 @@ -153,6 +152,13 @@
                          )?,
                      );
@@ -10858,12 +9990,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_list_tags.rs
 +++ generated/src/protocol_serde/shape_list_tags.rs
 @@ -72,11 +72,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::list_tags::ListTagsError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::list_tags::ListTagsError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::list_tags::ListTagsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::list_tags::ListTagsError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
@@ -10874,18 +10006,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_list_tags_input(
-+    input: &crate::operation::list_tags::ListTagsInput,
++    input: &super::operation::list_tags::ListTagsInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_list_tags_input::ser_list_tags_input_input(&mut object, input)?;
++    super::protocol_serde::shape_list_tags_input::ser_list_tags_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_tags(
      _value: &[u8],
-     mut builder: crate::operation::list_tags::builders::ListTagsOutputBuilder,
+     mut builder: super::operation::list_tags::builders::ListTagsOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_list_versions_by_function.rs`
@@ -10894,12 +10026,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_list_versions_by_function.rs
 +++ generated/src/protocol_serde/shape_list_versions_by_function.rs
 @@ -81,13 +81,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::list_versions_by_function::ListVersionsByFunctionError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::list_versions_by_function::ListVersionsByFunctionError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::list_versions_by_function::ListVersionsByFunctionError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::list_versions_by_function::ListVersionsByFunctionError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -10912,18 +10044,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_list_versions_by_function_input(
-+    input: &crate::operation::list_versions_by_function::ListVersionsByFunctionInput,
++    input: &super::operation::list_versions_by_function::ListVersionsByFunctionInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_list_versions_by_function_input::ser_list_versions_by_function_input_input(&mut object, input)?;
++    super::protocol_serde::shape_list_versions_by_function_input::ser_list_versions_by_function_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_list_versions_by_function(
      _value: &[u8],
-     mut builder: crate::operation::list_versions_by_function::builders::ListVersionsByFunctionOutputBuilder,
+     mut builder: super::operation::list_versions_by_function::builders::ListVersionsByFunctionOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_logging_config.rs`
@@ -10935,7 +10067,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_logging_config(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::LoggingConfig,
++    input: &super::types::LoggingConfig,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.log_format {
 +        object.key("LogFormat").string(var_1.as_str());
@@ -10962,7 +10094,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_logging_config(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::LoggingConfig,
+-    input: &super::types::LoggingConfig,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.log_format {
 -        object.key("LogFormat").string(var_1.as_str());
@@ -10989,7 +10121,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_on_failure(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::OnFailure,
++    input: &super::types::OnFailure,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.destination {
 +        object.key("Destination").string(var_1.as_str());
@@ -11007,7 +10139,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_on_failure(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::OnFailure,
+-    input: &super::types::OnFailure,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.destination {
 -        object.key("Destination").string(var_1.as_str());
@@ -11025,7 +10157,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_on_success(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::OnSuccess,
++    input: &super::types::OnSuccess,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.destination {
 +        object.key("Destination").string(var_1.as_str());
@@ -11043,7 +10175,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_on_success(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::OnSuccess,
+-    input: &super::types::OnSuccess,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.destination {
 -        object.key("Destination").string(var_1.as_str());
@@ -11061,7 +10193,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_provisioned_poller_config(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::ProvisionedPollerConfig,
++    input: &super::types::ProvisionedPollerConfig,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.minimum_pollers {
 +        object.key("MinimumPollers").number(
@@ -11091,7 +10223,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_provisioned_poller_config(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::ProvisionedPollerConfig,
+-    input: &super::types::ProvisionedPollerConfig,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.minimum_pollers {
 -        object.key("MinimumPollers").number(
@@ -11118,12 +10250,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_publish_layer_version.rs
 +++ generated/src/protocol_serde/shape_publish_layer_version.rs
 @@ -91,13 +91,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::publish_layer_version::PublishLayerVersionError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::publish_layer_version::PublishLayerVersionError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::publish_layer_version::PublishLayerVersionError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::publish_layer_version::PublishLayerVersionError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -11137,11 +10269,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "CompatibleArchitectures" => {
 -                    builder = builder.set_compatible_architectures(
--                        crate::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
 -                    );
 -                }
 -                "CompatibleRuntimes" => {
--                    builder = builder.set_compatible_runtimes(crate::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
+-                    builder = builder.set_compatible_runtimes(super::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -11149,7 +10281,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                }
                  "Content" => {
                      builder = builder.set_content(
-                         crate::protocol_serde::shape_layer_version_content_output::de_layer_version_content_output(tokens, _value, depth + 1)?,
+                         super::protocol_serde::shape_layer_version_content_output::de_layer_version_content_output(tokens, _value, depth + 1)?,
                      );
                  }
 -                "CreatedDate" => {
@@ -11199,11 +10331,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 +                "CompatibleArchitectures" => {
 +                    builder = builder.set_compatible_architectures(
-+                        crate::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
 +                    );
 +                }
 +                "CompatibleRuntimes" => {
-+                    builder = builder.set_compatible_runtimes(crate::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
++                    builder = builder.set_compatible_runtimes(super::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -11228,7 +10360,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_publish_layer_version_input.rs
 @@ -3,35 +3,38 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::publish_layer_version::PublishLayerVersionInput,
+     input: &super::operation::publish_layer_version::PublishLayerVersionInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.compatible_architectures {
 -        let mut array_2 = object.key("CompatibleArchitectures").start_array();
@@ -11242,7 +10374,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_3) = &input.content {
 +        #[allow(unused_mut)]
 +        let mut object_4 = object.key("Content").start_object();
-+        crate::protocol_serde::shape_layer_version_content_input::ser_layer_version_content_input(&mut object_4, var_3)?;
++        super::protocol_serde::shape_layer_version_content_input::ser_layer_version_content_input(&mut object_4, var_3)?;
 +        object_4.finish();
 +    }
 +    if let Some(var_5) = &input.compatible_architectures {
@@ -11273,7 +10405,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_7) = &input.content {
 -        #[allow(unused_mut)]
 -        let mut object_8 = object.key("Content").start_object();
--        crate::protocol_serde::shape_layer_version_content_input::ser_layer_version_content_input(&mut object_8, var_7)?;
+-        super::protocol_serde::shape_layer_version_content_input::ser_layer_version_content_input(&mut object_8, var_7)?;
 -        object_8.finish();
 -    }
 -    if let Some(var_9) = &input.description {
@@ -11294,12 +10426,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_publish_version.rs
 +++ generated/src/protocol_serde/shape_publish_version.rs
 @@ -135,13 +135,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::publish_version::PublishVersionError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::publish_version::PublishVersionError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::publish_version::PublishVersionError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::publish_version::PublishVersionError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -11312,7 +10444,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "Architectures" => {
--                    builder = builder.set_architectures(crate::protocol_serde::shape_architectures_list::de_architectures_list(
+-                    builder = builder.set_architectures(super::protocol_serde::shape_architectures_list::de_architectures_list(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -11334,13 +10466,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "Runtime" => {
 +                    builder = builder.set_runtime(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::Runtime::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::Runtime::from(u.as_ref())))
 +                            .transpose()?,
 +                    );
                  }
 -                "CapacityProviderConfig" => {
 -                    builder = builder.set_capacity_provider_config(
--                        crate::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
 +                "Role" => {
 +                    builder = builder.set_role(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -11369,7 +10501,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "DeadLetterConfig" => {
--                    builder = builder.set_dead_letter_config(crate::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
+-                    builder = builder.set_dead_letter_config(super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -11398,7 +10530,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "DurableConfig" => {
--                    builder = builder.set_durable_config(crate::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
+-                    builder = builder.set_durable_config(super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
 +                "CodeSha256" => {
 +                    builder = builder.set_code_sha256(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -11407,7 +10539,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    );
                  }
 -                "Environment" => {
--                    builder = builder.set_environment(crate::protocol_serde::shape_environment_response::de_environment_response(
+-                    builder = builder.set_environment(super::protocol_serde::shape_environment_response::de_environment_response(
 +                "Version" => {
 +                    builder = builder.set_version(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -11416,25 +10548,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    );
 +                }
 +                "VpcConfig" => {
-+                    builder = builder.set_vpc_config(crate::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
++                    builder = builder.set_vpc_config(super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
                          tokens,
                          _value,
                          depth + 1,
                      )?);
                  }
 -                "EphemeralStorage" => {
--                    builder = builder.set_ephemeral_storage(crate::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
+-                    builder = builder.set_ephemeral_storage(super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
 +                "DeadLetterConfig" => {
-+                    builder = builder.set_dead_letter_config(crate::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
++                    builder = builder.set_dead_letter_config(super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
                          tokens,
                          _value,
                          depth + 1,
                      )?);
                  }
 -                "FileSystemConfigs" => {
--                    builder = builder.set_file_system_configs(crate::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
+-                    builder = builder.set_file_system_configs(super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
 +                "Environment" => {
-+                    builder = builder.set_environment(crate::protocol_serde::shape_environment_response::de_environment_response(
++                    builder = builder.set_environment(super::protocol_serde::shape_environment_response::de_environment_response(
                          tokens,
                          _value,
                          depth + 1,
@@ -11452,7 +10584,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "FunctionName" => {
 -                    builder = builder.set_function_name(
 +                "TracingConfig" => {
-+                    builder = builder.set_tracing_config(crate::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
++                    builder = builder.set_tracing_config(super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -11475,9 +10607,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "ImageConfigResponse" => {
--                    builder = builder.set_image_config_response(crate::protocol_serde::shape_image_config_response::de_image_config_response(
+-                    builder = builder.set_image_config_response(super::protocol_serde::shape_image_config_response::de_image_config_response(
 +                "Layers" => {
-+                    builder = builder.set_layers(crate::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
++                    builder = builder.set_layers(super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
                          tokens,
                          _value,
                          depth + 1,
@@ -11489,7 +10621,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    builder = builder.set_state(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::State::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::State::from(u.as_ref())))
                              .transpose()?,
                      );
                  }
@@ -11505,7 +10637,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "StateReasonCode" => {
 +                    builder = builder.set_state_reason_code(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::StateReasonCode::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::StateReasonCode::from(u.as_ref())))
 +                            .transpose()?,
 +                    );
 +                }
@@ -11517,16 +10649,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "Layers" => {
--                    builder = builder.set_layers(crate::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
+-                    builder = builder.set_layers(super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
 +                "FileSystemConfigs" => {
-+                    builder = builder.set_file_system_configs(crate::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
++                    builder = builder.set_file_system_configs(super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
                          tokens,
                          _value,
                          depth + 1,
                      )?);
                  }
 -                "LoggingConfig" => {
--                    builder = builder.set_logging_config(crate::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
+-                    builder = builder.set_logging_config(super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
 -                }
 -                "MasterArn" => {
 -                    builder = builder.set_master_arn(
@@ -11559,7 +10691,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 -                    );
 +                "ImageConfigResponse" => {
-+                    builder = builder.set_image_config_response(crate::protocol_serde::shape_image_config_response::de_image_config_response(
++                    builder = builder.set_image_config_response(super::protocol_serde::shape_image_config_response::de_image_config_response(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -11572,7 +10704,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 -                    );
 +                "Architectures" => {
-+                    builder = builder.set_architectures(crate::protocol_serde::shape_architectures_list::de_architectures_list(
++                    builder = builder.set_architectures(super::protocol_serde::shape_architectures_list::de_architectures_list(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -11581,14 +10713,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "Runtime" => {
 -                    builder = builder.set_runtime(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::Runtime::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::Runtime::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 -                }
 -                "RuntimeVersionConfig" => {
--                    builder = builder.set_runtime_version_config(crate::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
+-                    builder = builder.set_runtime_version_config(super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
 +                "EphemeralStorage" => {
-+                    builder = builder.set_ephemeral_storage(crate::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
++                    builder = builder.set_ephemeral_storage(super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
                          tokens,
                          _value,
                          depth + 1,
@@ -11609,7 +10741,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                    );
 -                }
                  "SnapStart" => {
-                     builder = builder.set_snap_start(crate::protocol_serde::shape_snap_start_response::de_snap_start_response(
+                     builder = builder.set_snap_start(super::protocol_serde::shape_snap_start_response::de_snap_start_response(
                          tokens,
 @@ -410,57 +427,33 @@
                          depth + 1,
@@ -11618,7 +10750,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "State" => {
 -                    builder = builder.set_state(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::State::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::State::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 -                }
@@ -11629,7 +10761,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 -                    );
 +                "RuntimeVersionConfig" => {
-+                    builder = builder.set_runtime_version_config(crate::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
++                    builder = builder.set_runtime_version_config(super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -11638,14 +10770,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "StateReasonCode" => {
 -                    builder = builder.set_state_reason_code(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::StateReasonCode::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::StateReasonCode::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 +                "LoggingConfig" => {
-+                    builder = builder.set_logging_config(crate::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
++                    builder = builder.set_logging_config(super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
                  }
                  "TenancyConfig" => {
-                     builder = builder.set_tenancy_config(crate::protocol_serde::shape_tenancy_config::de_tenancy_config(tokens, _value, depth + 1)?);
+                     builder = builder.set_tenancy_config(super::protocol_serde::shape_tenancy_config::de_tenancy_config(tokens, _value, depth + 1)?);
                  }
 -                "Timeout" => {
 -                    builder = builder.set_timeout(
@@ -11654,11 +10786,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 +                "CapacityProviderConfig" => {
 +                    builder = builder.set_capacity_provider_config(
-+                        crate::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
                      );
                  }
 -                "TracingConfig" => {
--                    builder = builder.set_tracing_config(crate::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
+-                    builder = builder.set_tracing_config(super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -11674,13 +10806,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "VpcConfig" => {
--                    builder = builder.set_vpc_config(crate::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
+-                    builder = builder.set_vpc_config(super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
 -                    )?);
 +                "DurableConfig" => {
-+                    builder = builder.set_durable_config(crate::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
++                    builder = builder.set_durable_config(super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
                  }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
@@ -11693,7 +10825,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_publish_version_input.rs
 @@ -3,17 +3,20 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::publish_version::PublishVersionInput,
+     input: &super::operation::publish_version::PublishVersionInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.code_sha256 {
 -        object.key("CodeSha256").string(var_1.as_str());
@@ -11727,11 +10859,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_put_function_code_signing_config.rs
 @@ -121,13 +121,6 @@
                      output =
-                         crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError::unhandled)?;
+                         super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                             .map_err(super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError::unhandled)?;
 -                    output = output.set_retry_after_seconds(
--                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError::unhandled(
+-                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
@@ -11763,12 +10895,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_put_function_concurrency.rs
 +++ generated/src/protocol_serde/shape_put_function_concurrency.rs
 @@ -96,13 +96,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::put_function_concurrency::PutFunctionConcurrencyError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::put_function_concurrency::PutFunctionConcurrencyError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::put_function_concurrency::PutFunctionConcurrencyError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::put_function_concurrency::PutFunctionConcurrencyError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -11785,7 +10917,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_put_function_concurrency_input.rs
 @@ -3,10 +3,13 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::put_function_concurrency::PutFunctionConcurrencyInput,
+     input: &super::operation::put_function_concurrency::PutFunctionConcurrencyInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.reserved_concurrent_executions {
 +    if let Some(var_1) = &input.function_name {
@@ -11808,11 +10940,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_put_function_event_invoke_config.rs
 @@ -100,13 +100,6 @@
                      output =
-                         crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled)?;
+                         super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                             .map_err(super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled)?;
 -                    output = output.set_retry_after_seconds(
--                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled(
+-                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
@@ -11825,7 +10957,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "DestinationConfig" => {
--                    builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
+-                    builder = builder.set_destination_config(super::protocol_serde::shape_destination_config::de_destination_config(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -11865,7 +10997,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 +                "DestinationConfig" => {
-+                    builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
++                    builder = builder.set_destination_config(super::protocol_serde::shape_destination_config::de_destination_config(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -11883,12 +11015,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_put_function_event_invoke_config_input.rs
 @@ -3,23 +3,29 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigInput,
+     input: &super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.destination_config {
 -        #[allow(unused_mut)]
 -        let mut object_2 = object.key("DestinationConfig").start_object();
--        crate::protocol_serde::shape_destination_config::ser_destination_config(&mut object_2, var_1)?;
+-        super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_2, var_1)?;
 -        object_2.finish();
 +    if let Some(var_1) = &input.function_name {
 +        object.key("FunctionName").string(var_1.as_str());
@@ -11915,7 +11047,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_5) = &input.destination_config {
 +        #[allow(unused_mut)]
 +        let mut object_6 = object.key("DestinationConfig").start_object();
-+        crate::protocol_serde::shape_destination_config::ser_destination_config(&mut object_6, var_5)?;
++        super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_6, var_5)?;
 +        object_6.finish();
 +    }
      Ok(())
@@ -11928,12 +11060,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_put_function_recursion_config.rs
 +++ generated/src/protocol_serde/shape_put_function_recursion_config.rs
 @@ -92,13 +92,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::put_function_recursion_config::PutFunctionRecursionConfigError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::put_function_recursion_config::PutFunctionRecursionConfigError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::put_function_recursion_config::PutFunctionRecursionConfigError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::put_function_recursion_config::PutFunctionRecursionConfigError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -11950,7 +11082,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_put_function_recursion_config_input.rs
 @@ -3,8 +3,11 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::put_function_recursion_config::PutFunctionRecursionConfigInput,
+     input: &super::operation::put_function_recursion_config::PutFunctionRecursionConfigInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.recursive_loop {
 -        object.key("RecursiveLoop").string(var_1.as_str());
@@ -11970,12 +11102,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_put_function_scaling_config.rs
 +++ generated/src/protocol_serde/shape_put_function_scaling_config.rs
 @@ -96,13 +96,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::put_function_scaling_config::PutFunctionScalingConfigError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::put_function_scaling_config::PutFunctionScalingConfigError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::put_function_scaling_config::PutFunctionScalingConfigError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::put_function_scaling_config::PutFunctionScalingConfigError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -11992,7 +11124,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_put_function_scaling_config_input.rs
 @@ -3,11 +3,17 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::put_function_scaling_config::PutFunctionScalingConfigInput,
+     input: &super::operation::put_function_scaling_config::PutFunctionScalingConfigInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.function_scaling_config {
 +    if let Some(var_1) = &input.function_name {
@@ -12004,10 +11136,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_3) = &input.function_scaling_config {
          #[allow(unused_mut)]
 -        let mut object_2 = object.key("FunctionScalingConfig").start_object();
--        crate::protocol_serde::shape_function_scaling_config::ser_function_scaling_config(&mut object_2, var_1)?;
+-        super::protocol_serde::shape_function_scaling_config::ser_function_scaling_config(&mut object_2, var_1)?;
 -        object_2.finish();
 +        let mut object_4 = object.key("FunctionScalingConfig").start_object();
-+        crate::protocol_serde::shape_function_scaling_config::ser_function_scaling_config(&mut object_4, var_3)?;
++        super::protocol_serde::shape_function_scaling_config::ser_function_scaling_config(&mut object_4, var_3)?;
 +        object_4.finish();
      }
      Ok(())
@@ -12021,11 +11153,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_put_provisioned_concurrency_config.rs
 @@ -100,13 +100,6 @@
                      output =
-                         crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled)?;
+                         super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                             .map_err(super::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled)?;
 -                    output = output.set_retry_after_seconds(
--                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled(
+-                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
@@ -12092,7 +11224,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_put_provisioned_concurrency_config_input.rs
 @@ -3,10 +3,16 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigInput,
+     input: &super::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.provisioned_concurrent_executions {
 +    if let Some(var_1) = &input.function_name {
@@ -12117,12 +11249,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_put_resource_policy.rs
 +++ generated/src/protocol_serde/shape_put_resource_policy.rs
 @@ -137,13 +137,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::put_resource_policy::PutResourcePolicyError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::put_resource_policy::PutResourcePolicyError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::put_resource_policy::PutResourcePolicyError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::put_resource_policy::PutResourcePolicyError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -12139,7 +11271,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_put_resource_policy_input.rs
 @@ -3,11 +3,14 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::put_resource_policy::PutResourcePolicyInput,
+     input: &super::operation::put_resource_policy::PutResourcePolicyInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.policy {
 -        object.key("Policy").string(var_1.as_str());
@@ -12164,12 +11296,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_put_runtime_management_config.rs
 +++ generated/src/protocol_serde/shape_put_runtime_management_config.rs
 @@ -92,13 +92,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::put_runtime_management_config::PutRuntimeManagementConfigError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::put_runtime_management_config::PutRuntimeManagementConfigError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::put_runtime_management_config::PutRuntimeManagementConfigError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::put_runtime_management_config::PutRuntimeManagementConfigError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -12184,7 +11316,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "UpdateRuntimeOn" => {
 +                    builder = builder.set_update_runtime_on(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::UpdateRuntimeOn::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::UpdateRuntimeOn::from(u.as_ref())))
 +                            .transpose()?,
 +                    );
 +                }
@@ -12198,7 +11330,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "UpdateRuntimeOn" => {
 -                    builder = builder.set_update_runtime_on(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::UpdateRuntimeOn::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::UpdateRuntimeOn::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 -                }
@@ -12214,7 +11346,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_put_runtime_management_config_input.rs
 @@ -3,11 +3,17 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::put_runtime_management_config::PutRuntimeManagementConfigInput,
+     input: &super::operation::put_runtime_management_config::PutRuntimeManagementConfigInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.runtime_version_arn {
 -        object.key("RuntimeVersionArn").string(var_1.as_str());
@@ -12243,11 +11375,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_remove_layer_version_permission.rs
 @@ -100,13 +100,6 @@
                      output =
-                         crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::unhandled)?;
+                         super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                             .map_err(super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::unhandled)?;
 -                    output = output.set_retry_after_seconds(
--                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::unhandled(
+-                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
@@ -12261,23 +11393,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 +
 +pub fn ser_remove_layer_version_permission_input(
-+    input: &crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput,
++    input: &super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_remove_layer_version_permission_input::ser_remove_layer_version_permission_input_input(&mut object, input)?;
++    super::protocol_serde::shape_remove_layer_version_permission_input::ser_remove_layer_version_permission_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
 +pub(crate) fn de_remove_layer_version_permission(
 +    _value: &[u8],
-+    mut builder: crate::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionOutputBuilder,
++    mut builder: super::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionOutputBuilder,
++    super::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -12310,12 +11442,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_remove_permission.rs
 +++ generated/src/protocol_serde/shape_remove_permission.rs
 @@ -103,13 +103,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::remove_permission::RemovePermissionError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::remove_permission::RemovePermissionError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::remove_permission::RemovePermissionError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::remove_permission::RemovePermissionError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -12329,23 +11461,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 +
 +pub fn ser_remove_permission_input(
-+    input: &crate::operation::remove_permission::RemovePermissionInput,
++    input: &super::operation::remove_permission::RemovePermissionInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_remove_permission_input::ser_remove_permission_input_input(&mut object, input)?;
++    super::protocol_serde::shape_remove_permission_input::ser_remove_permission_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
 +pub(crate) fn de_remove_permission(
 +    _value: &[u8],
-+    mut builder: crate::operation::remove_permission::builders::RemovePermissionOutputBuilder,
++    mut builder: super::operation::remove_permission::builders::RemovePermissionOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::remove_permission::builders::RemovePermissionOutputBuilder,
++    super::operation::remove_permission::builders::RemovePermissionOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -12381,7 +11513,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_scaling_config(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::ScalingConfig,
++    input: &super::types::ScalingConfig,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.maximum_concurrency {
 +        object.key("MaximumConcurrency").number(
@@ -12402,7 +11534,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_scaling_config(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::ScalingConfig,
+-    input: &super::types::ScalingConfig,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.maximum_concurrency {
 -        object.key("MaximumConcurrency").number(
@@ -12423,7 +11555,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_self_managed_event_source(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::SelfManagedEventSource,
++    input: &super::types::SelfManagedEventSource,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.endpoints {
 +        #[allow(unused_mut)]
@@ -12454,7 +11586,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_self_managed_event_source(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::SelfManagedEventSource,
+-    input: &super::types::SelfManagedEventSource,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.endpoints {
 -        #[allow(unused_mut)]
@@ -12485,7 +11617,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_self_managed_kafka_event_source_config(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::SelfManagedKafkaEventSourceConfig,
++    input: &super::types::SelfManagedKafkaEventSourceConfig,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.consumer_group_id {
 +        object.key("ConsumerGroupId").string(var_1.as_str());
@@ -12493,7 +11625,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_2) = &input.schema_registry_config {
 +        #[allow(unused_mut)]
 +        let mut object_3 = object.key("SchemaRegistryConfig").start_object();
-+        crate::protocol_serde::shape_kafka_schema_registry_config::ser_kafka_schema_registry_config(&mut object_3, var_2)?;
++        super::protocol_serde::shape_kafka_schema_registry_config::ser_kafka_schema_registry_config(&mut object_3, var_2)?;
 +        object_3.finish();
 +    }
 +    Ok(())
@@ -12509,7 +11641,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_self_managed_kafka_event_source_config(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::SelfManagedKafkaEventSourceConfig,
+-    input: &super::types::SelfManagedKafkaEventSourceConfig,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.consumer_group_id {
 -        object.key("ConsumerGroupId").string(var_1.as_str());
@@ -12517,7 +11649,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_2) = &input.schema_registry_config {
 -        #[allow(unused_mut)]
 -        let mut object_3 = object.key("SchemaRegistryConfig").start_object();
--        crate::protocol_serde::shape_kafka_schema_registry_config::ser_kafka_schema_registry_config(&mut object_3, var_2)?;
+-        super::protocol_serde::shape_kafka_schema_registry_config::ser_kafka_schema_registry_config(&mut object_3, var_2)?;
 -        object_3.finish();
 -    }
 -    Ok(())
@@ -12529,49 +11661,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_send_durable_execution_callback_failure.rs
 +++ generated/src/protocol_serde/shape_send_durable_execution_callback_failure.rs
-@@ -57,7 +57,7 @@
-                 tmp
-             })
-         }
--        "KMSAccessDeniedException" => {
-+        "KmsAccessDeniedException" => {
-             crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::KmsAccessDeniedException({
-                 #[allow(unused_mut)]
-                 let mut tmp = {
-@@ -77,7 +77,7 @@
-                 tmp
-             })
-         }
--        "KMSDisabledException" => {
-+        "KmsDisabledException" => {
-             crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::KmsDisabledException({
-                 #[allow(unused_mut)]
-                 let mut tmp = {
-@@ -94,7 +94,7 @@
-                 tmp
-             })
-         }
--        "KMSInvalidStateException" => {
-+        "KmsInvalidStateException" => {
-             crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::KmsInvalidStateException({
-                 #[allow(unused_mut)]
-                 let mut tmp = {
-@@ -114,7 +114,7 @@
-                 tmp
-             })
-         }
--        "KMSNotFoundException" => {
-+        "KmsNotFoundException" => {
-             crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::KmsNotFoundException({
-                 #[allow(unused_mut)]
-                 let mut tmp = {
 @@ -177,13 +177,6 @@
                              .map_err(
-                                 crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled,
+                                 super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled,
                              )?;
 -                    output = output.set_retry_after_seconds(
--                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled(
+-                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
@@ -12585,11 +11681,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 +
 +pub fn ser_send_durable_execution_callback_failure_input(
-+    input: &crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureInput,
++    input: &super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_send_durable_execution_callback_failure_input::ser_send_durable_execution_callback_failure_input_input(
++    super::protocol_serde::shape_send_durable_execution_callback_failure_input::ser_send_durable_execution_callback_failure_input_input(
 +        &mut object,
 +        input,
 +    )?;
@@ -12599,12 +11695,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_send_durable_execution_callback_failure(
 +    _value: &[u8],
-+    mut builder: crate::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder,
++    mut builder: super::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder,
++    super::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -12639,26 +11735,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 @@ -1,20 +1,16 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub fn ser_error_http_payload(
--    payload: &::std::option::Option<crate::types::ErrorObject>,
+-    payload: &::std::option::Option<super::types::ErrorObject>,
 -) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::BuildError> {
 -    let payload = match payload.as_ref() {
 -        Some(t) => t,
--        None => return Ok(crate::protocol_serde::rest_json_unset_struct_payload()),
+-        None => return Ok(super::protocol_serde::rest_json_unset_struct_payload()),
 -    };
--    Ok(crate::protocol_serde::shape_send_durable_execution_callback_failure_input::ser_error_payload(payload)?)
+-    Ok(super::protocol_serde::shape_send_durable_execution_callback_failure_input::ser_error_payload(payload)?)
 -}
 -
 -pub fn ser_error_payload(
--    input: &crate::types::ErrorObject,
+-    input: &super::types::ErrorObject,
 -) -> std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
 -    let mut out = String::new();
 -    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
--    crate::protocol_serde::shape_error_object::ser_error_object(&mut object, input)?;
+-    super::protocol_serde::shape_error_object::ser_error_object(&mut object, input)?;
 -    object.finish();
 -    Ok(out.into_bytes())
 +pub fn ser_send_durable_execution_callback_failure_input_input(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureInput,
++    input: &super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureInput,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.callback_id {
 +        object.key("CallbackId").string(var_1.as_str());
@@ -12666,7 +11762,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_2) = &input.error {
 +        #[allow(unused_mut)]
 +        let mut object_3 = object.key("Error").start_object();
-+        crate::protocol_serde::shape_error_object::ser_error_object(&mut object_3, var_2)?;
++        super::protocol_serde::shape_error_object::ser_error_object(&mut object_3, var_2)?;
 +        object_3.finish();
 +    }
 +    Ok(())
@@ -12680,11 +11776,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_send_durable_execution_callback_heartbeat.rs
 @@ -110,13 +110,6 @@
                              .map_err(
-                                 crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
+                                 super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
                              )?;
 -                    output = output.set_retry_after_seconds(
--                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled(
+-                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
@@ -12698,11 +11794,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 +
 +pub fn ser_send_durable_execution_callback_heartbeat_input(
-+    input: &crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput,
++    input: &super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_send_durable_execution_callback_heartbeat_input::ser_send_durable_execution_callback_heartbeat_input_input(
++    super::protocol_serde::shape_send_durable_execution_callback_heartbeat_input::ser_send_durable_execution_callback_heartbeat_input_input(
 +        &mut object,
 +        input,
 +    )?;
@@ -12712,12 +11808,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_send_durable_execution_callback_heartbeat(
 +    _value: &[u8],
-+    mut builder: crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder,
++    mut builder: super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder,
++    super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -12749,49 +11845,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_send_durable_execution_callback_success.rs
 +++ generated/src/protocol_serde/shape_send_durable_execution_callback_success.rs
-@@ -57,7 +57,7 @@
-                 tmp
-             })
-         }
--        "KMSAccessDeniedException" => {
-+        "KmsAccessDeniedException" => {
-             crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::KmsAccessDeniedException({
-                 #[allow(unused_mut)]
-                 let mut tmp = {
-@@ -77,7 +77,7 @@
-                 tmp
-             })
-         }
--        "KMSDisabledException" => {
-+        "KmsDisabledException" => {
-             crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::KmsDisabledException({
-                 #[allow(unused_mut)]
-                 let mut tmp = {
-@@ -94,7 +94,7 @@
-                 tmp
-             })
-         }
--        "KMSInvalidStateException" => {
-+        "KmsInvalidStateException" => {
-             crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::KmsInvalidStateException({
-                 #[allow(unused_mut)]
-                 let mut tmp = {
-@@ -114,7 +114,7 @@
-                 tmp
-             })
-         }
--        "KMSNotFoundException" => {
-+        "KmsNotFoundException" => {
-             crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::KmsNotFoundException({
-                 #[allow(unused_mut)]
-                 let mut tmp = {
 @@ -177,13 +177,6 @@
                              .map_err(
-                                 crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::unhandled,
+                                 super::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::unhandled,
                              )?;
 -                    output = output.set_retry_after_seconds(
--                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::unhandled(
+-                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
@@ -12805,11 +11865,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 +
 +pub fn ser_send_durable_execution_callback_success_input(
-+    input: &crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessInput,
++    input: &super::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_send_durable_execution_callback_success_input::ser_send_durable_execution_callback_success_input_input(
++    super::protocol_serde::shape_send_durable_execution_callback_success_input::ser_send_durable_execution_callback_success_input_input(
 +        &mut object,
 +        input,
 +    )?;
@@ -12819,12 +11879,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_send_durable_execution_callback_success(
 +    _value: &[u8],
-+    mut builder: crate::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessOutputBuilder,
++    mut builder: super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessOutputBuilder,
++    super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -12880,90 +11940,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/protocol_serde/shape_step_failed_details.rs`
-
-```diff
---- reference/src/protocol_serde/shape_step_failed_details.rs
-+++ generated/src/protocol_serde/shape_step_failed_details.rs
-@@ -37,7 +37,9 @@
-                     }
-                 }
-             }
--            Ok(Some(crate::serde_util::step_failed_details_correct_errors(builder).build()))
-+            Ok(Some(crate::serde_util::step_failed_details_correct_errors(builder).build().map_err(
-+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-+            )?))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
-### `src/protocol_serde/shape_step_succeeded_details.rs`
-
-```diff
---- reference/src/protocol_serde/shape_step_succeeded_details.rs
-+++ generated/src/protocol_serde/shape_step_succeeded_details.rs
-@@ -37,7 +37,9 @@
-                     }
-                 }
-             }
--            Ok(Some(crate::serde_util::step_succeeded_details_correct_errors(builder).build()))
-+            Ok(Some(crate::serde_util::step_succeeded_details_correct_errors(builder).build().map_err(
-+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-+            )?))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
 ### `src/protocol_serde/shape_stop_durable_execution.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_stop_durable_execution.rs
 +++ generated/src/protocol_serde/shape_stop_durable_execution.rs
-@@ -38,7 +38,7 @@
-             }
-             tmp
-         }),
--        "KMSAccessDeniedException" => crate::operation::stop_durable_execution::StopDurableExecutionError::KmsAccessDeniedException({
-+        "KmsAccessDeniedException" => crate::operation::stop_durable_execution::StopDurableExecutionError::KmsAccessDeniedException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -53,7 +53,7 @@
-             }
-             tmp
-         }),
--        "KMSDisabledException" => crate::operation::stop_durable_execution::StopDurableExecutionError::KmsDisabledException({
-+        "KmsDisabledException" => crate::operation::stop_durable_execution::StopDurableExecutionError::KmsDisabledException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -68,7 +68,7 @@
-             }
-             tmp
-         }),
--        "KMSInvalidStateException" => crate::operation::stop_durable_execution::StopDurableExecutionError::KmsInvalidStateException({
-+        "KmsInvalidStateException" => crate::operation::stop_durable_execution::StopDurableExecutionError::KmsInvalidStateException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
-@@ -83,7 +83,7 @@
-             }
-             tmp
-         }),
--        "KMSNotFoundException" => crate::operation::stop_durable_execution::StopDurableExecutionError::KmsNotFoundException({
-+        "KmsNotFoundException" => crate::operation::stop_durable_execution::StopDurableExecutionError::KmsNotFoundException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-                 #[allow(unused_mut)]
 @@ -135,13 +135,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::stop_durable_execution::StopDurableExecutionError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::stop_durable_execution::StopDurableExecutionError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::stop_durable_execution::StopDurableExecutionError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::stop_durable_execution::StopDurableExecutionError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -12976,18 +11964,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub fn ser_stop_durable_execution_input(
-+    input: &crate::operation::stop_durable_execution::StopDurableExecutionInput,
++    input: &super::operation::stop_durable_execution::StopDurableExecutionInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_stop_durable_execution_input::ser_stop_durable_execution_input_input(&mut object, input)?;
++    super::protocol_serde::shape_stop_durable_execution_input::ser_stop_durable_execution_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
  pub(crate) fn de_stop_durable_execution(
      _value: &[u8],
-     mut builder: crate::operation::stop_durable_execution::builders::StopDurableExecutionOutputBuilder,
+     mut builder: super::operation::stop_durable_execution::builders::StopDurableExecutionOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_stop_durable_execution_input.rs`
@@ -12998,26 +11986,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 @@ -1,20 +1,16 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub fn ser_error_http_payload(
--    payload: &::std::option::Option<crate::types::ErrorObject>,
+-    payload: &::std::option::Option<super::types::ErrorObject>,
 -) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::BuildError> {
 -    let payload = match payload.as_ref() {
 -        Some(t) => t,
--        None => return Ok(crate::protocol_serde::rest_json_unset_struct_payload()),
+-        None => return Ok(super::protocol_serde::rest_json_unset_struct_payload()),
 -    };
--    Ok(crate::protocol_serde::shape_stop_durable_execution_input::ser_error_payload(payload)?)
+-    Ok(super::protocol_serde::shape_stop_durable_execution_input::ser_error_payload(payload)?)
 -}
 -
 -pub fn ser_error_payload(
--    input: &crate::types::ErrorObject,
+-    input: &super::types::ErrorObject,
 -) -> std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
 -    let mut out = String::new();
 -    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
--    crate::protocol_serde::shape_error_object::ser_error_object(&mut object, input)?;
+-    super::protocol_serde::shape_error_object::ser_error_object(&mut object, input)?;
 -    object.finish();
 -    Ok(out.into_bytes())
 +pub fn ser_stop_durable_execution_input_input(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::operation::stop_durable_execution::StopDurableExecutionInput,
++    input: &super::operation::stop_durable_execution::StopDurableExecutionInput,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.durable_execution_arn {
 +        object.key("DurableExecutionArn").string(var_1.as_str());
@@ -13025,7 +12013,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_2) = &input.error {
 +        #[allow(unused_mut)]
 +        let mut object_3 = object.key("Error").start_object();
-+        crate::protocol_serde::shape_error_object::ser_error_object(&mut object_3, var_2)?;
++        super::protocol_serde::shape_error_object::ser_error_object(&mut object_3, var_2)?;
 +        object_3.finish();
 +    }
 +    Ok(())
@@ -13038,12 +12026,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_tag_resource.rs
 +++ generated/src/protocol_serde/shape_tag_resource.rs
 @@ -87,11 +87,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::tag_resource::TagResourceError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::tag_resource::TagResourceError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::tag_resource::TagResourceError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::tag_resource::TagResourceError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
@@ -13056,10 +12044,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +pub(crate) fn de_tag_resource(
 +    _value: &[u8],
-+    mut builder: crate::operation::tag_resource::builders::TagResourceOutputBuilder,
-+) -> ::std::result::Result<crate::operation::tag_resource::builders::TagResourceOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++    mut builder: super::operation::tag_resource::builders::TagResourceOutputBuilder,
++) -> ::std::result::Result<super::operation::tag_resource::builders::TagResourceOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
 +{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -13093,7 +12081,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_tag_resource_input.rs
 @@ -3,15 +3,18 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::tag_resource::TagResourceInput,
+     input: &super::operation::tag_resource::TagResourceInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.tags {
 +    if let Some(var_1) = &input.resource {
@@ -13126,7 +12114,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +pub fn ser_tenancy_config(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::types::TenancyConfig,
++    input: &super::types::TenancyConfig,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    {
 +        object.key("TenantIsolationMode").string(input.tenant_isolation_mode.as_str());
@@ -13144,7 +12132,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -pub fn ser_tenancy_config(
 -    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
--    input: &crate::types::TenancyConfig,
+-    input: &super::types::TenancyConfig,
 -) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    {
 -        object.key("TenantIsolationMode").string(input.tenant_isolation_mode.as_str());
@@ -13177,12 +12165,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_untag_resource.rs
 +++ generated/src/protocol_serde/shape_untag_resource.rs
 @@ -87,11 +87,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::untag_resource::UntagResourceError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::untag_resource::UntagResourceError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::untag_resource::UntagResourceError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::untag_resource::UntagResourceError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
@@ -13194,23 +12182,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 +
 +pub fn ser_untag_resource_input(
-+    input: &crate::operation::untag_resource::UntagResourceInput,
++    input: &super::operation::untag_resource::UntagResourceInput,
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    crate::protocol_serde::shape_untag_resource_input::ser_untag_resource_input_input(&mut object, input)?;
++    super::protocol_serde::shape_untag_resource_input::ser_untag_resource_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
 +
 +pub(crate) fn de_untag_resource(
 +    _value: &[u8],
-+    mut builder: crate::operation::untag_resource::builders::UntagResourceOutputBuilder,
++    mut builder: super::operation::untag_resource::builders::UntagResourceOutputBuilder,
 +) -> ::std::result::Result<
-+    crate::operation::untag_resource::builders::UntagResourceOutputBuilder,
++    super::operation::untag_resource::builders::UntagResourceOutputBuilder,
 +    ::aws_smithy_json::deserialize::error::DeserializeError,
 +> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
 +    let depth = 0u32;
@@ -13243,12 +12231,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_update_alias.rs
 +++ generated/src/protocol_serde/shape_update_alias.rs
 @@ -103,11 +103,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::update_alias::UpdateAliasError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::update_alias::UpdateAliasError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::update_alias::UpdateAliasError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::update_alias::UpdateAliasError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
 -                    })?,
 -                );
                  let output = output.meta(generic);
@@ -13280,7 +12268,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
 +                    "RoutingConfig" => {
 +                        builder = builder.set_routing_config(
-+                            crate::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?,
++                            super::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?,
 +                        );
 +                    }
                      "RevisionId" => {
@@ -13292,7 +12280,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
 -                    "RoutingConfig" => {
 -                        builder = builder.set_routing_config(
--                            crate::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?,
+-                            super::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?,
 -                        );
 -                    }
                      _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -13307,7 +12295,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_update_alias_input.rs
 @@ -3,20 +3,26 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::update_alias::UpdateAliasInput,
+     input: &super::operation::update_alias::UpdateAliasInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.description {
 -        object.key("Description").string(var_1.as_str());
@@ -13331,10 +12319,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_5) = &input.routing_config {
          #[allow(unused_mut)]
 -        let mut object_5 = object.key("RoutingConfig").start_object();
--        crate::protocol_serde::shape_alias_routing_configuration::ser_alias_routing_configuration(&mut object_5, var_4)?;
+-        super::protocol_serde::shape_alias_routing_configuration::ser_alias_routing_configuration(&mut object_5, var_4)?;
 -        object_5.finish();
 +        let mut object_6 = object.key("RoutingConfig").start_object();
-+        crate::protocol_serde::shape_alias_routing_configuration::ser_alias_routing_configuration(&mut object_6, var_5)?;
++        super::protocol_serde::shape_alias_routing_configuration::ser_alias_routing_configuration(&mut object_6, var_5)?;
 +        object_6.finish();
 +    }
 +    if let Some(var_7) = &input.revision_id {
@@ -13350,12 +12338,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_update_capacity_provider.rs
 +++ generated/src/protocol_serde/shape_update_capacity_provider.rs
 @@ -96,13 +96,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::update_capacity_provider::UpdateCapacityProviderError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::update_capacity_provider::UpdateCapacityProviderError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::update_capacity_provider::UpdateCapacityProviderError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::update_capacity_provider::UpdateCapacityProviderError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -13363,17 +12351,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  let output = output.meta(generic);
                  output.build()
              };
-@@ -130,7 +123,9 @@
-         output = crate::protocol_serde::shape_update_capacity_provider::de_update_capacity_provider(_response_body, output)
-             .map_err(crate::operation::update_capacity_provider::UpdateCapacityProviderError::unhandled)?;
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        crate::serde_util::update_capacity_provider_output_output_correct_errors(output).build()
-+        crate::serde_util::update_capacity_provider_output_output_correct_errors(output)
-+            .build()
-+            .map_err(crate::operation::update_capacity_provider::UpdateCapacityProviderError::unhandled)?
-     })
- }
-
 ```
 
 ### `src/protocol_serde/shape_update_capacity_provider_input.rs`
@@ -13383,7 +12360,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_update_capacity_provider_input.rs
 @@ -3,23 +3,26 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::update_capacity_provider::UpdateCapacityProviderInput,
+     input: &super::operation::update_capacity_provider::UpdateCapacityProviderInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.capacity_provider_scaling_config {
 +    if let Some(var_1) = &input.capacity_provider_name {
@@ -13392,52 +12369,34 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_2) = &input.capacity_provider_scaling_config {
          #[allow(unused_mut)]
 -        let mut object_2 = object.key("CapacityProviderScalingConfig").start_object();
--        crate::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_2, var_1)?;
+-        super::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_2, var_1)?;
 -        object_2.finish();
 +        let mut object_3 = object.key("CapacityProviderScalingConfig").start_object();
-+        crate::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_3, var_2)?;
++        super::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_3, var_2)?;
 +        object_3.finish();
      }
 -    if let Some(var_3) = &input.propagate_tags {
 +    if let Some(var_4) = &input.propagate_tags {
          #[allow(unused_mut)]
 -        let mut object_4 = object.key("PropagateTags").start_object();
--        crate::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_4, var_3)?;
+-        super::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_4, var_3)?;
 -        object_4.finish();
 +        let mut object_5 = object.key("PropagateTags").start_object();
-+        crate::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_5, var_4)?;
++        super::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_5, var_4)?;
 +        object_5.finish();
      }
 -    if let Some(var_5) = &input.telemetry_config {
 +    if let Some(var_6) = &input.telemetry_config {
          #[allow(unused_mut)]
 -        let mut object_6 = object.key("TelemetryConfig").start_object();
--        crate::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_6, var_5)?;
+-        super::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_6, var_5)?;
 -        object_6.finish();
 +        let mut object_7 = object.key("TelemetryConfig").start_object();
-+        crate::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_7, var_6)?;
++        super::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_7, var_6)?;
 +        object_7.finish();
      }
      Ok(())
  }
-```
-
-### `src/protocol_serde/shape_update_code_signing_config.rs`
-
-```diff
---- reference/src/protocol_serde/shape_update_code_signing_config.rs
-+++ generated/src/protocol_serde/shape_update_code_signing_config.rs
-@@ -93,7 +93,9 @@
-         output = crate::protocol_serde::shape_update_code_signing_config::de_update_code_signing_config(_response_body, output)
-             .map_err(crate::operation::update_code_signing_config::UpdateCodeSigningConfigError::unhandled)?;
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        crate::serde_util::update_code_signing_config_output_output_correct_errors(output).build()
-+        crate::serde_util::update_code_signing_config_output_output_correct_errors(output)
-+            .build()
-+            .map_err(crate::operation::update_code_signing_config::UpdateCodeSigningConfigError::unhandled)?
-     })
- }
-
 ```
 
 ### `src/protocol_serde/shape_update_code_signing_config_input.rs`
@@ -13447,12 +12406,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_update_code_signing_config_input.rs
 @@ -3,20 +3,23 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::update_code_signing_config::UpdateCodeSigningConfigInput,
+     input: &super::operation::update_code_signing_config::UpdateCodeSigningConfigInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.allowed_publishers {
 -        #[allow(unused_mut)]
 -        let mut object_2 = object.key("AllowedPublishers").start_object();
--        crate::protocol_serde::shape_allowed_publishers::ser_allowed_publishers(&mut object_2, var_1)?;
+-        super::protocol_serde::shape_allowed_publishers::ser_allowed_publishers(&mut object_2, var_1)?;
 -        object_2.finish();
 +    if let Some(var_1) = &input.code_signing_config_arn {
 +        object.key("CodeSigningConfigArn").string(var_1.as_str());
@@ -13464,9 +12423,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_3) = &input.allowed_publishers {
          #[allow(unused_mut)]
 -        let mut object_4 = object.key("CodeSigningPolicies").start_object();
--        crate::protocol_serde::shape_code_signing_policies::ser_code_signing_policies(&mut object_4, var_3)?;
+-        super::protocol_serde::shape_code_signing_policies::ser_code_signing_policies(&mut object_4, var_3)?;
 +        let mut object_4 = object.key("AllowedPublishers").start_object();
-+        crate::protocol_serde::shape_allowed_publishers::ser_allowed_publishers(&mut object_4, var_3)?;
++        super::protocol_serde::shape_allowed_publishers::ser_allowed_publishers(&mut object_4, var_3)?;
          object_4.finish();
      }
 -    if let Some(var_5) = &input.description {
@@ -13474,7 +12433,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_5) = &input.code_signing_policies {
 +        #[allow(unused_mut)]
 +        let mut object_6 = object.key("CodeSigningPolicies").start_object();
-+        crate::protocol_serde::shape_code_signing_policies::ser_code_signing_policies(&mut object_6, var_5)?;
++        super::protocol_serde::shape_code_signing_policies::ser_code_signing_policies(&mut object_6, var_5)?;
 +        object_6.finish();
      }
      Ok(())
@@ -13487,12 +12446,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_update_event_source_mapping.rs
 +++ generated/src/protocol_serde/shape_update_event_source_mapping.rs
 @@ -111,13 +111,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -13506,7 +12465,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "AmazonManagedKafkaEventSourceConfig" => {
 -                    builder = builder.set_amazon_managed_kafka_event_source_config(
--                        crate::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
+-                        super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
 -                            tokens,
 -                            _value,
 -                            depth + 1,
@@ -13521,7 +12480,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "StartingPosition" => {
 +                    builder = builder.set_starting_position(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::EventSourcePosition::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::EventSourcePosition::from(u.as_ref())))
 +                            .transpose()?,
                      );
                  }
@@ -13542,7 +12501,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                    builder = builder.set_bisect_batch_on_function_error(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
 -                }
 -                "DestinationConfig" => {
--                    builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
+-                    builder = builder.set_destination_config(super::protocol_serde::shape_destination_config::de_destination_config(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -13550,7 +12509,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                }
 -                "DocumentDBEventSourceConfig" => {
 -                    builder = builder.set_document_db_event_source_config(
--                        crate::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?,
 +                "MaximumBatchingWindowInSeconds" => {
 +                    builder = builder.set_maximum_batching_window_in_seconds(
 +                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
@@ -13591,10 +12550,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "FunctionResponseTypes" => {
 -                    builder = builder.set_function_response_types(
--                        crate::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?,
 +                "MetricsConfig" => {
 +                    builder = builder.set_metrics_config(
-+                        crate::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
++                        super::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
 +                            tokens,
 +                            _value,
 +                            depth + 1,
@@ -13605,7 +12564,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                    builder = builder.set_kms_key_arn(
 +                "LoggingConfig" => {
 +                    builder = builder.set_logging_config(
-+                        crate::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
++                        super::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
 +                            tokens,
 +                            _value,
 +                            depth + 1,
@@ -13613,7 +12572,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    );
 +                }
 +                "ScalingConfig" => {
-+                    builder = builder.set_scaling_config(crate::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
++                    builder = builder.set_scaling_config(super::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
 +                }
 +                "FunctionArn" => {
 +                    builder = builder.set_function_arn(
@@ -13626,7 +12585,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "LoggingConfig" => {
 -                    builder = builder.set_logging_config(
--                        crate::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
+-                        super::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
 -                            tokens,
 -                            _value,
 -                            depth + 1,
@@ -13650,26 +12609,26 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 +                "DestinationConfig" => {
-+                    builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
++                    builder = builder.set_destination_config(super::protocol_serde::shape_destination_config::de_destination_config(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
 +                    )?);
 +                }
 +                "Topics" => {
-+                    builder = builder.set_topics(crate::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
++                    builder = builder.set_topics(super::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
 +                }
 +                "Queues" => {
-+                    builder = builder.set_queues(crate::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
++                    builder = builder.set_queues(super::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
 +                }
 +                "SourceAccessConfigurations" => {
 +                    builder = builder.set_source_access_configurations(
-+                        crate::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?,
 +                    );
 +                }
 +                "SelfManagedEventSource" => {
 +                    builder = builder.set_self_managed_event_source(
-+                        crate::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
 +                    );
 +                }
                  "MaximumRecordAgeInSeconds" => {
@@ -13691,7 +12650,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "MetricsConfig" => {
 -                    builder = builder.set_metrics_config(
--                        crate::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
+-                        super::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
 -                            tokens,
 -                            _value,
 -                            depth + 1,
@@ -13709,24 +12668,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "ProvisionedPollerConfig" => {
 -                    builder = builder.set_provisioned_poller_config(
--                        crate::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
 +                "FunctionResponseTypes" => {
 +                    builder = builder.set_function_response_types(
-+                        crate::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?,
                      );
                  }
 -                "Queues" => {
--                    builder = builder.set_queues(crate::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
+-                    builder = builder.set_queues(super::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
 -                }
 -                "ScalingConfig" => {
--                    builder = builder.set_scaling_config(crate::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
+-                    builder = builder.set_scaling_config(super::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
 -                }
 -                "SelfManagedEventSource" => {
 -                    builder = builder.set_self_managed_event_source(
--                        crate::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
 +                "AmazonManagedKafkaEventSourceConfig" => {
 +                    builder = builder.set_amazon_managed_kafka_event_source_config(
-+                        crate::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
++                        super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
 +                            tokens,
 +                            _value,
 +                            depth + 1,
@@ -13740,13 +12699,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "SourceAccessConfigurations" => {
 -                    builder = builder.set_source_access_configurations(
--                        crate::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?,
 -                    );
 -                }
 -                "StartingPosition" => {
 -                    builder = builder.set_starting_position(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::EventSourcePosition::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::EventSourcePosition::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 -                }
@@ -13763,7 +12722,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 +                "DocumentDBEventSourceConfig" => {
 +                    builder = builder.set_document_db_event_source_config(
-+                        crate::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?,
                      );
                  }
 -                "StateTransitionReason" => {
@@ -13776,7 +12735,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "Topics" => {
--                    builder = builder.set_topics(crate::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
+-                    builder = builder.set_topics(super::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
 -                }
 -                "TumblingWindowInSeconds" => {
 -                    builder = builder.set_tumbling_window_in_seconds(
@@ -13792,7 +12751,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 +                "ProvisionedPollerConfig" => {
 +                    builder = builder.set_provisioned_poller_config(
-+                        crate::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
                      );
                  }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -13805,12 +12764,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_update_event_source_mapping_input.rs
 @@ -3,128 +3,131 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::update_event_source_mapping::UpdateEventSourceMappingInput,
+     input: &super::operation::update_event_source_mapping::UpdateEventSourceMappingInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.amazon_managed_kafka_event_source_config {
 -        #[allow(unused_mut)]
 -        let mut object_2 = object.key("AmazonManagedKafkaEventSourceConfig").start_object();
--        crate::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_2, var_1)?;
+-        super::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_2, var_1)?;
 -        object_2.finish();
 +    if let Some(var_1) = &input.uuid {
 +        object.key("UUID").string(var_1.as_str());
@@ -13836,9 +12795,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_5) = &input.filter_criteria {
          #[allow(unused_mut)]
 -        let mut object_6 = object.key("DestinationConfig").start_object();
--        crate::protocol_serde::shape_destination_config::ser_destination_config(&mut object_6, var_5)?;
+-        super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_6, var_5)?;
 +        let mut object_6 = object.key("FilterCriteria").start_object();
-+        crate::protocol_serde::shape_filter_criteria::ser_filter_criteria(&mut object_6, var_5)?;
++        super::protocol_serde::shape_filter_criteria::ser_filter_criteria(&mut object_6, var_5)?;
          object_6.finish();
      }
 -    if let Some(var_7) = &input.document_db_event_source_config {
@@ -13848,22 +12807,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_8) = &input.metrics_config {
          #[allow(unused_mut)]
 -        let mut object_8 = object.key("DocumentDBEventSourceConfig").start_object();
--        crate::protocol_serde::shape_document_db_event_source_config::ser_document_db_event_source_config(&mut object_8, var_7)?;
+-        super::protocol_serde::shape_document_db_event_source_config::ser_document_db_event_source_config(&mut object_8, var_7)?;
 -        object_8.finish();
 -    }
 -    if let Some(var_9) = &input.enabled {
 -        object.key("Enabled").boolean(*var_9);
 +        let mut object_9 = object.key("MetricsConfig").start_object();
-+        crate::protocol_serde::shape_event_source_mapping_metrics_config::ser_event_source_mapping_metrics_config(&mut object_9, var_8)?;
++        super::protocol_serde::shape_event_source_mapping_metrics_config::ser_event_source_mapping_metrics_config(&mut object_9, var_8)?;
 +        object_9.finish();
      }
 -    if let Some(var_10) = &input.filter_criteria {
 +    if let Some(var_10) = &input.logging_config {
          #[allow(unused_mut)]
 -        let mut object_11 = object.key("FilterCriteria").start_object();
--        crate::protocol_serde::shape_filter_criteria::ser_filter_criteria(&mut object_11, var_10)?;
+-        super::protocol_serde::shape_filter_criteria::ser_filter_criteria(&mut object_11, var_10)?;
 +        let mut object_11 = object.key("LoggingConfig").start_object();
-+        crate::protocol_serde::shape_event_source_mapping_logging_config::ser_event_source_mapping_logging_config(&mut object_11, var_10)?;
++        super::protocol_serde::shape_event_source_mapping_logging_config::ser_event_source_mapping_logging_config(&mut object_11, var_10)?;
          object_11.finish();
      }
 -    if let Some(var_12) = &input.function_name {
@@ -13871,7 +12830,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_12) = &input.scaling_config {
 +        #[allow(unused_mut)]
 +        let mut object_13 = object.key("ScalingConfig").start_object();
-+        crate::protocol_serde::shape_scaling_config::ser_scaling_config(&mut object_13, var_12)?;
++        super::protocol_serde::shape_scaling_config::ser_scaling_config(&mut object_13, var_12)?;
 +        object_13.finish();
      }
 -    if let Some(var_13) = &input.function_response_types {
@@ -13900,10 +12859,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_16) = &input.destination_config {
          #[allow(unused_mut)]
 -        let mut object_18 = object.key("LoggingConfig").start_object();
--        crate::protocol_serde::shape_event_source_mapping_logging_config::ser_event_source_mapping_logging_config(&mut object_18, var_17)?;
+-        super::protocol_serde::shape_event_source_mapping_logging_config::ser_event_source_mapping_logging_config(&mut object_18, var_17)?;
 -        object_18.finish();
 +        let mut object_17 = object.key("DestinationConfig").start_object();
-+        crate::protocol_serde::shape_destination_config::ser_destination_config(&mut object_17, var_16)?;
++        super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_17, var_16)?;
 +        object_17.finish();
      }
 -    if let Some(var_19) = &input.maximum_batching_window_in_seconds {
@@ -13937,7 +12896,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_22) = &input.metrics_config {
 -        #[allow(unused_mut)]
 -        let mut object_23 = object.key("MetricsConfig").start_object();
--        crate::protocol_serde::shape_event_source_mapping_metrics_config::ser_event_source_mapping_metrics_config(&mut object_23, var_22)?;
+-        super::protocol_serde::shape_event_source_mapping_metrics_config::ser_event_source_mapping_metrics_config(&mut object_23, var_22)?;
 -        object_23.finish();
 +    if let Some(var_22) = &input.source_access_configurations {
 +        let mut array_23 = object.key("SourceAccessConfigurations").start_array();
@@ -13945,7 +12904,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            {
 +                #[allow(unused_mut)]
 +                let mut object_25 = array_23.value().start_object();
-+                crate::protocol_serde::shape_source_access_configuration::ser_source_access_configuration(&mut object_25, item_24)?;
++                super::protocol_serde::shape_source_access_configuration::ser_source_access_configuration(&mut object_25, item_24)?;
 +                object_25.finish();
 +            }
 +        }
@@ -13969,27 +12928,27 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_29) = &input.amazon_managed_kafka_event_source_config {
          #[allow(unused_mut)]
 -        let mut object_26 = object.key("ProvisionedPollerConfig").start_object();
--        crate::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(&mut object_26, var_25)?;
+-        super::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(&mut object_26, var_25)?;
 -        object_26.finish();
 +        let mut object_30 = object.key("AmazonManagedKafkaEventSourceConfig").start_object();
-+        crate::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_30, var_29)?;
++        super::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_30, var_29)?;
 +        object_30.finish();
      }
 -    if let Some(var_27) = &input.scaling_config {
 +    if let Some(var_31) = &input.self_managed_kafka_event_source_config {
          #[allow(unused_mut)]
 -        let mut object_28 = object.key("ScalingConfig").start_object();
--        crate::protocol_serde::shape_scaling_config::ser_scaling_config(&mut object_28, var_27)?;
+-        super::protocol_serde::shape_scaling_config::ser_scaling_config(&mut object_28, var_27)?;
 -        object_28.finish();
 +        let mut object_32 = object.key("SelfManagedKafkaEventSourceConfig").start_object();
-+        crate::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_32, var_31)?;
++        super::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_32, var_31)?;
 +        object_32.finish();
      }
 -    if let Some(var_29) = &input.self_managed_kafka_event_source_config {
 +    if let Some(var_33) = &input.document_db_event_source_config {
          #[allow(unused_mut)]
 -        let mut object_30 = object.key("SelfManagedKafkaEventSourceConfig").start_object();
--        crate::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_30, var_29)?;
+-        super::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_30, var_29)?;
 -        object_30.finish();
 -    }
 -    if let Some(var_31) = &input.source_access_configurations {
@@ -13998,13 +12957,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            {
 -                #[allow(unused_mut)]
 -                let mut object_34 = array_32.value().start_object();
--                crate::protocol_serde::shape_source_access_configuration::ser_source_access_configuration(&mut object_34, item_33)?;
+-                super::protocol_serde::shape_source_access_configuration::ser_source_access_configuration(&mut object_34, item_33)?;
 -                object_34.finish();
 -            }
 -        }
 -        array_32.finish();
 +        let mut object_34 = object.key("DocumentDBEventSourceConfig").start_object();
-+        crate::protocol_serde::shape_document_db_event_source_config::ser_document_db_event_source_config(&mut object_34, var_33)?;
++        super::protocol_serde::shape_document_db_event_source_config::ser_document_db_event_source_config(&mut object_34, var_33)?;
 +        object_34.finish();
      }
 -    if let Some(var_35) = &input.tumbling_window_in_seconds {
@@ -14015,7 +12974,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_35) = &input.provisioned_poller_config {
 +        #[allow(unused_mut)]
 +        let mut object_36 = object.key("ProvisionedPollerConfig").start_object();
-+        crate::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(&mut object_36, var_35)?;
++        super::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(&mut object_36, var_35)?;
 +        object_36.finish();
      }
      Ok(())
@@ -14028,12 +12987,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_update_function_code.rs
 +++ generated/src/protocol_serde/shape_update_function_code.rs
 @@ -179,13 +179,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::update_function_code::UpdateFunctionCodeError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::update_function_code::UpdateFunctionCodeError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::update_function_code::UpdateFunctionCodeError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::update_function_code::UpdateFunctionCodeError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -14046,7 +13005,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "Architectures" => {
--                    builder = builder.set_architectures(crate::protocol_serde::shape_architectures_list::de_architectures_list(
+-                    builder = builder.set_architectures(super::protocol_serde::shape_architectures_list::de_architectures_list(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -14068,13 +13027,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "Runtime" => {
 +                    builder = builder.set_runtime(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::Runtime::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::Runtime::from(u.as_ref())))
 +                            .transpose()?,
 +                    );
                  }
 -                "CapacityProviderConfig" => {
 -                    builder = builder.set_capacity_provider_config(
--                        crate::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
 +                "Role" => {
 +                    builder = builder.set_role(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -14103,7 +13062,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "DeadLetterConfig" => {
--                    builder = builder.set_dead_letter_config(crate::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
+-                    builder = builder.set_dead_letter_config(super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -14132,7 +13091,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "DurableConfig" => {
--                    builder = builder.set_durable_config(crate::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
+-                    builder = builder.set_durable_config(super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
 +                "CodeSha256" => {
 +                    builder = builder.set_code_sha256(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -14141,7 +13100,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    );
                  }
 -                "Environment" => {
--                    builder = builder.set_environment(crate::protocol_serde::shape_environment_response::de_environment_response(
+-                    builder = builder.set_environment(super::protocol_serde::shape_environment_response::de_environment_response(
 +                "Version" => {
 +                    builder = builder.set_version(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -14150,25 +13109,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    );
 +                }
 +                "VpcConfig" => {
-+                    builder = builder.set_vpc_config(crate::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
++                    builder = builder.set_vpc_config(super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
                          tokens,
                          _value,
                          depth + 1,
                      )?);
                  }
 -                "EphemeralStorage" => {
--                    builder = builder.set_ephemeral_storage(crate::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
+-                    builder = builder.set_ephemeral_storage(super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
 +                "DeadLetterConfig" => {
-+                    builder = builder.set_dead_letter_config(crate::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
++                    builder = builder.set_dead_letter_config(super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
                          tokens,
                          _value,
                          depth + 1,
                      )?);
                  }
 -                "FileSystemConfigs" => {
--                    builder = builder.set_file_system_configs(crate::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
+-                    builder = builder.set_file_system_configs(super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
 +                "Environment" => {
-+                    builder = builder.set_environment(crate::protocol_serde::shape_environment_response::de_environment_response(
++                    builder = builder.set_environment(super::protocol_serde::shape_environment_response::de_environment_response(
                          tokens,
                          _value,
                          depth + 1,
@@ -14186,7 +13145,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "FunctionName" => {
 -                    builder = builder.set_function_name(
 +                "TracingConfig" => {
-+                    builder = builder.set_tracing_config(crate::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
++                    builder = builder.set_tracing_config(super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -14209,9 +13168,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "ImageConfigResponse" => {
--                    builder = builder.set_image_config_response(crate::protocol_serde::shape_image_config_response::de_image_config_response(
+-                    builder = builder.set_image_config_response(super::protocol_serde::shape_image_config_response::de_image_config_response(
 +                "Layers" => {
-+                    builder = builder.set_layers(crate::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
++                    builder = builder.set_layers(super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
                          tokens,
                          _value,
                          depth + 1,
@@ -14223,7 +13182,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    builder = builder.set_state(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::State::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::State::from(u.as_ref())))
                              .transpose()?,
                      );
                  }
@@ -14239,7 +13198,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "StateReasonCode" => {
 +                    builder = builder.set_state_reason_code(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::StateReasonCode::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::StateReasonCode::from(u.as_ref())))
 +                            .transpose()?,
 +                    );
 +                }
@@ -14251,16 +13210,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "Layers" => {
--                    builder = builder.set_layers(crate::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
+-                    builder = builder.set_layers(super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
 +                "FileSystemConfigs" => {
-+                    builder = builder.set_file_system_configs(crate::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
++                    builder = builder.set_file_system_configs(super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
                          tokens,
                          _value,
                          depth + 1,
                      )?);
                  }
 -                "LoggingConfig" => {
--                    builder = builder.set_logging_config(crate::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
+-                    builder = builder.set_logging_config(super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
 -                }
 -                "MasterArn" => {
 -                    builder = builder.set_master_arn(
@@ -14293,7 +13252,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 -                    );
 +                "ImageConfigResponse" => {
-+                    builder = builder.set_image_config_response(crate::protocol_serde::shape_image_config_response::de_image_config_response(
++                    builder = builder.set_image_config_response(super::protocol_serde::shape_image_config_response::de_image_config_response(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -14306,7 +13265,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 -                    );
 +                "Architectures" => {
-+                    builder = builder.set_architectures(crate::protocol_serde::shape_architectures_list::de_architectures_list(
++                    builder = builder.set_architectures(super::protocol_serde::shape_architectures_list::de_architectures_list(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -14315,14 +13274,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "Runtime" => {
 -                    builder = builder.set_runtime(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::Runtime::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::Runtime::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 -                }
 -                "RuntimeVersionConfig" => {
--                    builder = builder.set_runtime_version_config(crate::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
+-                    builder = builder.set_runtime_version_config(super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
 +                "EphemeralStorage" => {
-+                    builder = builder.set_ephemeral_storage(crate::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
++                    builder = builder.set_ephemeral_storage(super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
                          tokens,
                          _value,
                          depth + 1,
@@ -14343,7 +13302,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                    );
 -                }
                  "SnapStart" => {
-                     builder = builder.set_snap_start(crate::protocol_serde::shape_snap_start_response::de_snap_start_response(
+                     builder = builder.set_snap_start(super::protocol_serde::shape_snap_start_response::de_snap_start_response(
                          tokens,
 @@ -457,57 +474,33 @@
                          depth + 1,
@@ -14352,7 +13311,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "State" => {
 -                    builder = builder.set_state(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::State::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::State::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 -                }
@@ -14363,7 +13322,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 -                    );
 +                "RuntimeVersionConfig" => {
-+                    builder = builder.set_runtime_version_config(crate::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
++                    builder = builder.set_runtime_version_config(super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -14372,14 +13331,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "StateReasonCode" => {
 -                    builder = builder.set_state_reason_code(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::StateReasonCode::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::StateReasonCode::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 +                "LoggingConfig" => {
-+                    builder = builder.set_logging_config(crate::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
++                    builder = builder.set_logging_config(super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
                  }
                  "TenancyConfig" => {
-                     builder = builder.set_tenancy_config(crate::protocol_serde::shape_tenancy_config::de_tenancy_config(tokens, _value, depth + 1)?);
+                     builder = builder.set_tenancy_config(super::protocol_serde::shape_tenancy_config::de_tenancy_config(tokens, _value, depth + 1)?);
                  }
 -                "Timeout" => {
 -                    builder = builder.set_timeout(
@@ -14388,11 +13347,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 +                "CapacityProviderConfig" => {
 +                    builder = builder.set_capacity_provider_config(
-+                        crate::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
                      );
                  }
 -                "TracingConfig" => {
--                    builder = builder.set_tracing_config(crate::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
+-                    builder = builder.set_tracing_config(super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -14408,13 +13367,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "VpcConfig" => {
--                    builder = builder.set_vpc_config(crate::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
+-                    builder = builder.set_vpc_config(super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
 -                    )?);
 +                "DurableConfig" => {
-+                    builder = builder.set_durable_config(crate::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
++                    builder = builder.set_durable_config(super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
                  }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
@@ -14427,7 +13386,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_update_function_code_input.rs
 @@ -3,47 +3,50 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::update_function_code::UpdateFunctionCodeInput,
+     input: &super::operation::update_function_code::UpdateFunctionCodeInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.architectures {
 -        let mut array_2 = object.key("Architectures").start_array();
@@ -14514,12 +13473,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_update_function_configuration.rs
 +++ generated/src/protocol_serde/shape_update_function_configuration.rs
 @@ -177,13 +177,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::update_function_configuration::UpdateFunctionConfigurationError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::update_function_configuration::UpdateFunctionConfigurationError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::update_function_configuration::UpdateFunctionConfigurationError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::update_function_configuration::UpdateFunctionConfigurationError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -14532,7 +13491,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "Architectures" => {
--                    builder = builder.set_architectures(crate::protocol_serde::shape_architectures_list::de_architectures_list(
+-                    builder = builder.set_architectures(super::protocol_serde::shape_architectures_list::de_architectures_list(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -14554,13 +13513,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "Runtime" => {
 +                    builder = builder.set_runtime(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::Runtime::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::Runtime::from(u.as_ref())))
 +                            .transpose()?,
 +                    );
                  }
 -                "CapacityProviderConfig" => {
 -                    builder = builder.set_capacity_provider_config(
--                        crate::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
+-                        super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
 +                "Role" => {
 +                    builder = builder.set_role(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -14589,7 +13548,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "DeadLetterConfig" => {
--                    builder = builder.set_dead_letter_config(crate::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
+-                    builder = builder.set_dead_letter_config(super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -14618,7 +13577,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "DurableConfig" => {
--                    builder = builder.set_durable_config(crate::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
+-                    builder = builder.set_durable_config(super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
 +                "CodeSha256" => {
 +                    builder = builder.set_code_sha256(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -14627,7 +13586,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    );
                  }
 -                "Environment" => {
--                    builder = builder.set_environment(crate::protocol_serde::shape_environment_response::de_environment_response(
+-                    builder = builder.set_environment(super::protocol_serde::shape_environment_response::de_environment_response(
 +                "Version" => {
 +                    builder = builder.set_version(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -14636,25 +13595,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    );
 +                }
 +                "VpcConfig" => {
-+                    builder = builder.set_vpc_config(crate::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
++                    builder = builder.set_vpc_config(super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
                          tokens,
                          _value,
                          depth + 1,
                      )?);
                  }
 -                "EphemeralStorage" => {
--                    builder = builder.set_ephemeral_storage(crate::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
+-                    builder = builder.set_ephemeral_storage(super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
 +                "DeadLetterConfig" => {
-+                    builder = builder.set_dead_letter_config(crate::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
++                    builder = builder.set_dead_letter_config(super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
                          tokens,
                          _value,
                          depth + 1,
                      )?);
                  }
 -                "FileSystemConfigs" => {
--                    builder = builder.set_file_system_configs(crate::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
+-                    builder = builder.set_file_system_configs(super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
 +                "Environment" => {
-+                    builder = builder.set_environment(crate::protocol_serde::shape_environment_response::de_environment_response(
++                    builder = builder.set_environment(super::protocol_serde::shape_environment_response::de_environment_response(
                          tokens,
                          _value,
                          depth + 1,
@@ -14672,7 +13631,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "FunctionName" => {
 -                    builder = builder.set_function_name(
 +                "TracingConfig" => {
-+                    builder = builder.set_tracing_config(crate::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
++                    builder = builder.set_tracing_config(super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -14695,9 +13654,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "ImageConfigResponse" => {
--                    builder = builder.set_image_config_response(crate::protocol_serde::shape_image_config_response::de_image_config_response(
+-                    builder = builder.set_image_config_response(super::protocol_serde::shape_image_config_response::de_image_config_response(
 +                "Layers" => {
-+                    builder = builder.set_layers(crate::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
++                    builder = builder.set_layers(super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
                          tokens,
                          _value,
                          depth + 1,
@@ -14709,7 +13668,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    builder = builder.set_state(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::State::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::State::from(u.as_ref())))
                              .transpose()?,
                      );
                  }
@@ -14725,7 +13684,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                "StateReasonCode" => {
 +                    builder = builder.set_state_reason_code(
 +                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| crate::types::StateReasonCode::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::StateReasonCode::from(u.as_ref())))
 +                            .transpose()?,
 +                    );
 +                }
@@ -14737,16 +13696,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "Layers" => {
--                    builder = builder.set_layers(crate::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
+-                    builder = builder.set_layers(super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
 +                "FileSystemConfigs" => {
-+                    builder = builder.set_file_system_configs(crate::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
++                    builder = builder.set_file_system_configs(super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
                          tokens,
                          _value,
                          depth + 1,
                      )?);
                  }
 -                "LoggingConfig" => {
--                    builder = builder.set_logging_config(crate::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
+-                    builder = builder.set_logging_config(super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
 -                }
 -                "MasterArn" => {
 -                    builder = builder.set_master_arn(
@@ -14779,7 +13738,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 -                    );
 +                "ImageConfigResponse" => {
-+                    builder = builder.set_image_config_response(crate::protocol_serde::shape_image_config_response::de_image_config_response(
++                    builder = builder.set_image_config_response(super::protocol_serde::shape_image_config_response::de_image_config_response(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -14792,7 +13751,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 -                    );
 +                "Architectures" => {
-+                    builder = builder.set_architectures(crate::protocol_serde::shape_architectures_list::de_architectures_list(
++                    builder = builder.set_architectures(super::protocol_serde::shape_architectures_list::de_architectures_list(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -14801,14 +13760,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "Runtime" => {
 -                    builder = builder.set_runtime(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::Runtime::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::Runtime::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 -                }
 -                "RuntimeVersionConfig" => {
--                    builder = builder.set_runtime_version_config(crate::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
+-                    builder = builder.set_runtime_version_config(super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
 +                "EphemeralStorage" => {
-+                    builder = builder.set_ephemeral_storage(crate::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
++                    builder = builder.set_ephemeral_storage(super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
                          tokens,
                          _value,
                          depth + 1,
@@ -14829,7 +13788,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                    );
 -                }
                  "SnapStart" => {
-                     builder = builder.set_snap_start(crate::protocol_serde::shape_snap_start_response::de_snap_start_response(
+                     builder = builder.set_snap_start(super::protocol_serde::shape_snap_start_response::de_snap_start_response(
                          tokens,
 @@ -455,57 +472,33 @@
                          depth + 1,
@@ -14838,7 +13797,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "State" => {
 -                    builder = builder.set_state(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::State::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::State::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 -                }
@@ -14849,7 +13808,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 -                    );
 +                "RuntimeVersionConfig" => {
-+                    builder = builder.set_runtime_version_config(crate::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
++                    builder = builder.set_runtime_version_config(super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -14858,14 +13817,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                "StateReasonCode" => {
 -                    builder = builder.set_state_reason_code(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| crate::types::StateReasonCode::from(u.as_ref())))
+-                            .map(|s| s.to_unescaped().map(|u| super::types::StateReasonCode::from(u.as_ref())))
 -                            .transpose()?,
 -                    );
 +                "LoggingConfig" => {
-+                    builder = builder.set_logging_config(crate::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
++                    builder = builder.set_logging_config(super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
                  }
                  "TenancyConfig" => {
-                     builder = builder.set_tenancy_config(crate::protocol_serde::shape_tenancy_config::de_tenancy_config(tokens, _value, depth + 1)?);
+                     builder = builder.set_tenancy_config(super::protocol_serde::shape_tenancy_config::de_tenancy_config(tokens, _value, depth + 1)?);
                  }
 -                "Timeout" => {
 -                    builder = builder.set_timeout(
@@ -14874,11 +13833,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 +                "CapacityProviderConfig" => {
 +                    builder = builder.set_capacity_provider_config(
-+                        crate::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
++                        super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
                      );
                  }
 -                "TracingConfig" => {
--                    builder = builder.set_tracing_config(crate::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
+-                    builder = builder.set_tracing_config(super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -14894,13 +13853,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 -                "VpcConfig" => {
--                    builder = builder.set_vpc_config(crate::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
+-                    builder = builder.set_vpc_config(super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
 -                    )?);
 +                "DurableConfig" => {
-+                    builder = builder.set_durable_config(crate::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
++                    builder = builder.set_durable_config(super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
                  }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
@@ -14913,7 +13872,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_update_function_configuration_input.rs
 @@ -3,93 +3,96 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::update_function_configuration::UpdateFunctionConfigurationInput,
+     input: &super::operation::update_function_configuration::UpdateFunctionConfigurationInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.capacity_provider_config {
 +    if let Some(var_1) = &input.function_name {
@@ -14943,20 +13902,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_7) = &input.vpc_config {
          #[allow(unused_mut)]
 -        let mut object_2 = object.key("CapacityProviderConfig").start_object();
--        crate::protocol_serde::shape_capacity_provider_config::ser_capacity_provider_config(&mut object_2, var_1)?;
+-        super::protocol_serde::shape_capacity_provider_config::ser_capacity_provider_config(&mut object_2, var_1)?;
 -        object_2.finish();
 +        let mut object_8 = object.key("VpcConfig").start_object();
-+        crate::protocol_serde::shape_vpc_config::ser_vpc_config(&mut object_8, var_7)?;
++        super::protocol_serde::shape_vpc_config::ser_vpc_config(&mut object_8, var_7)?;
 +        object_8.finish();
      }
 -    if let Some(var_3) = &input.dead_letter_config {
 +    if let Some(var_9) = &input.environment {
          #[allow(unused_mut)]
 -        let mut object_4 = object.key("DeadLetterConfig").start_object();
--        crate::protocol_serde::shape_dead_letter_config::ser_dead_letter_config(&mut object_4, var_3)?;
+-        super::protocol_serde::shape_dead_letter_config::ser_dead_letter_config(&mut object_4, var_3)?;
 -        object_4.finish();
 +        let mut object_10 = object.key("Environment").start_object();
-+        crate::protocol_serde::shape_environment::ser_environment(&mut object_10, var_9)?;
++        super::protocol_serde::shape_environment::ser_environment(&mut object_10, var_9)?;
 +        object_10.finish();
      }
 -    if let Some(var_5) = &input.description {
@@ -14968,10 +13927,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_12) = &input.dead_letter_config {
          #[allow(unused_mut)]
 -        let mut object_7 = object.key("DurableConfig").start_object();
--        crate::protocol_serde::shape_durable_config::ser_durable_config(&mut object_7, var_6)?;
+-        super::protocol_serde::shape_durable_config::ser_durable_config(&mut object_7, var_6)?;
 -        object_7.finish();
 +        let mut object_13 = object.key("DeadLetterConfig").start_object();
-+        crate::protocol_serde::shape_dead_letter_config::ser_dead_letter_config(&mut object_13, var_12)?;
++        super::protocol_serde::shape_dead_letter_config::ser_dead_letter_config(&mut object_13, var_12)?;
 +        object_13.finish();
 +    }
 +    if let Some(var_14) = &input.kms_key_arn {
@@ -14981,16 +13940,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_15) = &input.tracing_config {
          #[allow(unused_mut)]
 -        let mut object_9 = object.key("Environment").start_object();
--        crate::protocol_serde::shape_environment::ser_environment(&mut object_9, var_8)?;
+-        super::protocol_serde::shape_environment::ser_environment(&mut object_9, var_8)?;
 -        object_9.finish();
 +        let mut object_16 = object.key("TracingConfig").start_object();
-+        crate::protocol_serde::shape_tracing_config::ser_tracing_config(&mut object_16, var_15)?;
++        super::protocol_serde::shape_tracing_config::ser_tracing_config(&mut object_16, var_15)?;
 +        object_16.finish();
      }
 -    if let Some(var_10) = &input.ephemeral_storage {
 -        #[allow(unused_mut)]
 -        let mut object_11 = object.key("EphemeralStorage").start_object();
--        crate::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_11, var_10)?;
+-        super::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_11, var_10)?;
 -        object_11.finish();
 +    if let Some(var_17) = &input.revision_id {
 +        object.key("RevisionId").string(var_17.as_str());
@@ -15004,7 +13963,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              {
 -                #[allow(unused_mut)]
 -                let mut object_15 = array_13.value().start_object();
--                crate::protocol_serde::shape_file_system_config::ser_file_system_config(&mut object_15, item_14)?;
+-                super::protocol_serde::shape_file_system_config::ser_file_system_config(&mut object_15, item_14)?;
 -                object_15.finish();
 +                array_19.value().string(item_20.as_str());
              }
@@ -15018,7 +13977,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    if let Some(var_17) = &input.image_config {
 -        #[allow(unused_mut)]
 -        let mut object_18 = object.key("ImageConfig").start_object();
--        crate::protocol_serde::shape_image_config::ser_image_config(&mut object_18, var_17)?;
+-        super::protocol_serde::shape_image_config::ser_image_config(&mut object_18, var_17)?;
 -        object_18.finish();
 -    }
 -    if let Some(var_19) = &input.kms_key_arn {
@@ -15034,7 +13993,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                array_21.value().string(item_22.as_str());
 +                #[allow(unused_mut)]
 +                let mut object_24 = array_22.value().start_object();
-+                crate::protocol_serde::shape_file_system_config::ser_file_system_config(&mut object_24, item_23)?;
++                super::protocol_serde::shape_file_system_config::ser_file_system_config(&mut object_24, item_23)?;
 +                object_24.finish();
              }
          }
@@ -15045,10 +14004,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_25) = &input.image_config {
          #[allow(unused_mut)]
 -        let mut object_24 = object.key("LoggingConfig").start_object();
--        crate::protocol_serde::shape_logging_config::ser_logging_config(&mut object_24, var_23)?;
+-        super::protocol_serde::shape_logging_config::ser_logging_config(&mut object_24, var_23)?;
 -        object_24.finish();
 +        let mut object_26 = object.key("ImageConfig").start_object();
-+        crate::protocol_serde::shape_image_config::ser_image_config(&mut object_26, var_25)?;
++        super::protocol_serde::shape_image_config::ser_image_config(&mut object_26, var_25)?;
 +        object_26.finish();
      }
 -    if let Some(var_25) = &input.memory_size {
@@ -15065,7 +14024,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_27) = &input.ephemeral_storage {
 +        #[allow(unused_mut)]
 +        let mut object_28 = object.key("EphemeralStorage").start_object();
-+        crate::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_28, var_27)?;
++        super::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_28, var_27)?;
 +        object_28.finish();
      }
 -    if let Some(var_28) = &input.runtime {
@@ -15075,7 +14034,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          #[allow(unused_mut)]
          let mut object_30 = object.key("SnapStart").start_object();
 @@ -96,23 +99,23 @@
-         crate::protocol_serde::shape_snap_start::ser_snap_start(&mut object_30, var_29)?;
+         super::protocol_serde::shape_snap_start::ser_snap_start(&mut object_30, var_29)?;
          object_30.finish();
      }
 -    if let Some(var_31) = &input.timeout {
@@ -15086,27 +14045,27 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_31) = &input.logging_config {
 +        #[allow(unused_mut)]
 +        let mut object_32 = object.key("LoggingConfig").start_object();
-+        crate::protocol_serde::shape_logging_config::ser_logging_config(&mut object_32, var_31)?;
++        super::protocol_serde::shape_logging_config::ser_logging_config(&mut object_32, var_31)?;
 +        object_32.finish();
      }
 -    if let Some(var_32) = &input.tracing_config {
 +    if let Some(var_33) = &input.capacity_provider_config {
          #[allow(unused_mut)]
 -        let mut object_33 = object.key("TracingConfig").start_object();
--        crate::protocol_serde::shape_tracing_config::ser_tracing_config(&mut object_33, var_32)?;
+-        super::protocol_serde::shape_tracing_config::ser_tracing_config(&mut object_33, var_32)?;
 -        object_33.finish();
 +        let mut object_34 = object.key("CapacityProviderConfig").start_object();
-+        crate::protocol_serde::shape_capacity_provider_config::ser_capacity_provider_config(&mut object_34, var_33)?;
++        super::protocol_serde::shape_capacity_provider_config::ser_capacity_provider_config(&mut object_34, var_33)?;
 +        object_34.finish();
      }
 -    if let Some(var_34) = &input.vpc_config {
 +    if let Some(var_35) = &input.durable_config {
          #[allow(unused_mut)]
 -        let mut object_35 = object.key("VpcConfig").start_object();
--        crate::protocol_serde::shape_vpc_config::ser_vpc_config(&mut object_35, var_34)?;
+-        super::protocol_serde::shape_vpc_config::ser_vpc_config(&mut object_35, var_34)?;
 -        object_35.finish();
 +        let mut object_36 = object.key("DurableConfig").start_object();
-+        crate::protocol_serde::shape_durable_config::ser_durable_config(&mut object_36, var_35)?;
++        super::protocol_serde::shape_durable_config::ser_durable_config(&mut object_36, var_35)?;
 +        object_36.finish();
      }
      Ok(())
@@ -15120,11 +14079,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_update_function_event_invoke_config.rs
 @@ -100,13 +100,6 @@
                      output =
-                         crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                             .map_err(crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigError::unhandled)?;
+                         super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                             .map_err(super::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigError::unhandled)?;
 -                    output = output.set_retry_after_seconds(
--                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                            crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigError::unhandled(
+-                        super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                            super::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigError::unhandled(
 -                                "Failed to parse retryAfterSeconds from header `Retry-After",
 -                            )
 -                        })?,
@@ -15137,7 +14096,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "DestinationConfig" => {
--                    builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
+-                    builder = builder.set_destination_config(super::protocol_serde::shape_destination_config::de_destination_config(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
@@ -15177,7 +14136,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      );
                  }
 +                "DestinationConfig" => {
-+                    builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
++                    builder = builder.set_destination_config(super::protocol_serde::shape_destination_config::de_destination_config(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
@@ -15195,12 +14154,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_update_function_event_invoke_config_input.rs
 @@ -3,23 +3,29 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigInput,
+     input: &super::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.destination_config {
 -        #[allow(unused_mut)]
 -        let mut object_2 = object.key("DestinationConfig").start_object();
--        crate::protocol_serde::shape_destination_config::ser_destination_config(&mut object_2, var_1)?;
+-        super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_2, var_1)?;
 -        object_2.finish();
 +    if let Some(var_1) = &input.function_name {
 +        object.key("FunctionName").string(var_1.as_str());
@@ -15227,7 +14186,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_5) = &input.destination_config {
 +        #[allow(unused_mut)]
 +        let mut object_6 = object.key("DestinationConfig").start_object();
-+        crate::protocol_serde::shape_destination_config::ser_destination_config(&mut object_6, var_5)?;
++        super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_6, var_5)?;
 +        object_6.finish();
 +    }
      Ok(())
@@ -15240,12 +14199,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/protocol_serde/shape_update_function_url_config.rs
 +++ generated/src/protocol_serde/shape_update_function_url_config.rs
 @@ -96,13 +96,6 @@
-                 let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                 output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                     .map_err(crate::operation::update_function_url_config::UpdateFunctionUrlConfigError::unhandled)?;
+                 let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                 output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                     .map_err(super::operation::update_function_url_config::UpdateFunctionUrlConfigError::unhandled)?;
 -                output = output.set_retry_after_seconds(
--                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
--                        crate::operation::update_function_url_config::UpdateFunctionUrlConfigError::unhandled(
+-                    super::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
+-                        super::operation::update_function_url_config::UpdateFunctionUrlConfigError::unhandled(
 -                            "Failed to parse retryAfterSeconds from header `Retry-After",
 -                        )
 -                    })?,
@@ -15315,7 +14274,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/protocol_serde/shape_update_function_url_config_input.rs
 @@ -3,17 +3,23 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &crate::operation::update_function_url_config::UpdateFunctionUrlConfigInput,
+     input: &super::operation::update_function_url_config::UpdateFunctionUrlConfigInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.auth_type {
 -        object.key("AuthType").string(var_1.as_str());
@@ -15332,10 +14291,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    if let Some(var_4) = &input.cors {
          #[allow(unused_mut)]
 -        let mut object_3 = object.key("Cors").start_object();
--        crate::protocol_serde::shape_cors::ser_cors(&mut object_3, var_2)?;
+-        super::protocol_serde::shape_cors::ser_cors(&mut object_3, var_2)?;
 -        object_3.finish();
 +        let mut object_5 = object.key("Cors").start_object();
-+        crate::protocol_serde::shape_cors::ser_cors(&mut object_5, var_4)?;
++        super::protocol_serde::shape_cors::ser_cors(&mut object_5, var_4)?;
 +        object_5.finish();
      }
 -    if let Some(var_4) = &input.invoke_mode {
@@ -15573,7 +14532,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -pub fn parse_event_stream_error_metadata(
 -    payload: &::bytes::Bytes,
 -) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {
--    crate::json_errors::parse_error_metadata(payload, &::aws_smithy_runtime_api::http::Headers::new())
+-    super::json_errors::parse_error_metadata(payload, &::aws_smithy_runtime_api::http::Headers::new())
 -}
 -
  pub(crate) mod shape_account_limit;
@@ -15627,8 +14586,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 
 +pub(crate) fn capacity_provider_vpc_config_correct_errors(
-+    mut builder: crate::types::builders::CapacityProviderVpcConfigBuilder,
-+) -> crate::types::builders::CapacityProviderVpcConfigBuilder {
++    mut builder: super::types::builders::CapacityProviderVpcConfigBuilder,
++) -> super::types::builders::CapacityProviderVpcConfigBuilder {
 +    if builder.subnet_ids.is_none() {
 +        builder.subnet_ids = Some(Default::default())
 +    }
@@ -15639,8 +14598,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 +
 +pub(crate) fn capacity_provider_permissions_config_correct_errors(
-+    mut builder: crate::types::builders::CapacityProviderPermissionsConfigBuilder,
-+) -> crate::types::builders::CapacityProviderPermissionsConfigBuilder {
++    mut builder: super::types::builders::CapacityProviderPermissionsConfigBuilder,
++) -> super::types::builders::CapacityProviderPermissionsConfigBuilder {
 +    if builder.capacity_provider_operator_role_arn.is_none() {
 +        builder.capacity_provider_operator_role_arn = Some(Default::default())
 +    }
@@ -15648,15 +14607,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 +
  pub(crate) fn code_signing_config_correct_errors(
-     mut builder: crate::types::builders::CodeSigningConfigBuilder,
- ) -> crate::types::builders::CodeSigningConfigBuilder {
+     mut builder: super::types::builders::CodeSigningConfigBuilder,
+ ) -> super::types::builders::CodeSigningConfigBuilder {
 @@ -322,6 +343,15 @@
      builder
  }
 
 +pub(crate) fn allowed_publishers_correct_errors(
-+    mut builder: crate::types::builders::AllowedPublishersBuilder,
-+) -> crate::types::builders::AllowedPublishersBuilder {
++    mut builder: super::types::builders::AllowedPublishersBuilder,
++) -> super::types::builders::AllowedPublishersBuilder {
 +    if builder.signing_profile_version_arns.is_none() {
 +        builder.signing_profile_version_arns = Some(Default::default())
 +    }
@@ -15664,15 +14623,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 +
  pub(crate) fn capacity_provider_config_correct_errors(
-     mut builder: crate::types::builders::CapacityProviderConfigBuilder,
- ) -> crate::types::builders::CapacityProviderConfigBuilder {
+     mut builder: super::types::builders::CapacityProviderConfigBuilder,
+ ) -> super::types::builders::CapacityProviderConfigBuilder {
 @@ -364,36 +394,6 @@
      builder
  }
 
 -pub(crate) fn capacity_provider_vpc_config_correct_errors(
--    mut builder: crate::types::builders::CapacityProviderVpcConfigBuilder,
--) -> crate::types::builders::CapacityProviderVpcConfigBuilder {
+-    mut builder: super::types::builders::CapacityProviderVpcConfigBuilder,
+-) -> super::types::builders::CapacityProviderVpcConfigBuilder {
 -    if builder.subnet_ids.is_none() {
 -        builder.subnet_ids = Some(Default::default())
 -    }
@@ -15683,8 +14642,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 -
 -pub(crate) fn capacity_provider_permissions_config_correct_errors(
--    mut builder: crate::types::builders::CapacityProviderPermissionsConfigBuilder,
--) -> crate::types::builders::CapacityProviderPermissionsConfigBuilder {
+-    mut builder: super::types::builders::CapacityProviderPermissionsConfigBuilder,
+-) -> super::types::builders::CapacityProviderPermissionsConfigBuilder {
 -    if builder.capacity_provider_operator_role_arn.is_none() {
 -        builder.capacity_provider_operator_role_arn = Some(Default::default())
 -    }
@@ -15692,17 +14651,35 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 -
 -pub(crate) fn allowed_publishers_correct_errors(
--    mut builder: crate::types::builders::AllowedPublishersBuilder,
--) -> crate::types::builders::AllowedPublishersBuilder {
+-    mut builder: super::types::builders::AllowedPublishersBuilder,
+-) -> super::types::builders::AllowedPublishersBuilder {
 -    if builder.signing_profile_version_arns.is_none() {
 -        builder.signing_profile_version_arns = Some(Default::default())
 -    }
 -    builder
 -}
 -
- pub(crate) fn execution_correct_errors(mut builder: crate::types::builders::ExecutionBuilder) -> crate::types::builders::ExecutionBuilder {
+ pub(crate) fn execution_correct_errors(mut builder: super::types::builders::ExecutionBuilder) -> super::types::builders::ExecutionBuilder {
      if builder.durable_execution_arn.is_none() {
          builder.durable_execution_arn = Some(Default::default())
+@@ -687,7 +687,7 @@
+     if builder.retry_details.is_none() {
+         builder.retry_details = {
+             let builder = super::types::builders::RetryDetailsBuilder::default();
+-            Some(builder.build())
++            builder.build().ok()
+         }
+     }
+     builder
+@@ -705,7 +705,7 @@
+     if builder.retry_details.is_none() {
+         builder.retry_details = {
+             let builder = super::types::builders::RetryDetailsBuilder::default();
+-            Some(builder.build())
++            builder.build().ok()
+         }
+     }
+     builder
 ```
 
 ### `src/types/_capacity_provider_logging_config.rs`
@@ -15713,14 +14690,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 @@ -6,7 +6,7 @@
  pub struct CapacityProviderLoggingConfig {
      /// <p>Set this property to filter the system logs for your capacity provider that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>
-     pub system_log_level: ::std::option::Option<crate::types::SystemLogLevel>,
+     pub system_log_level: ::std::option::Option<super::types::SystemLogLevel>,
 -    /// <p>The name of the Amazon CloudWatch log group the capacity provider sends logs to. By default, Lambda capacity providers send logs to a default log group named <code>/aws/lambda/capacity-provider/&lt;capacity provider name&gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
 +    /// <p>The name of the Amazon CloudWatch log group the capacity provider sends logs to. By default, Lambda capacity providers send logs to a default log group named <code>/aws/lambda/capacity-provider/&amp;lt;capacity provider name&amp;gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
      pub log_group: ::std::option::Option<::std::string::String>,
  }
  impl CapacityProviderLoggingConfig {
 @@ -14,7 +14,7 @@
-     pub fn system_log_level(&self) -> ::std::option::Option<&crate::types::SystemLogLevel> {
+     pub fn system_log_level(&self) -> ::std::option::Option<&super::types::SystemLogLevel> {
          self.system_log_level.as_ref()
      }
 -    /// <p>The name of the Amazon CloudWatch log group the capacity provider sends logs to. By default, Lambda capacity providers send logs to a default log group named <code>/aws/lambda/capacity-provider/&lt;capacity provider name&gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
@@ -15729,7 +14706,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.log_group.as_deref()
      }
 @@ -48,17 +48,17 @@
-     pub fn get_system_log_level(&self) -> &::std::option::Option<crate::types::SystemLogLevel> {
+     pub fn get_system_log_level(&self) -> &::std::option::Option<super::types::SystemLogLevel> {
          &self.system_log_level
      }
 -    /// <p>The name of the Amazon CloudWatch log group the capacity provider sends logs to. By default, Lambda capacity providers send logs to a default log group named <code>/aws/lambda/capacity-provider/&lt;capacity provider name&gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
@@ -15757,7 +14734,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/types/_event.rs
 +++ generated/src/types/_event.rs
 @@ -676,7 +676,7 @@
-         crate::types::Event {
+         super::types::Event {
              event_type: self.event_type,
              sub_type: self.sub_type,
 -            event_id: self.event_id.unwrap_or(1),
@@ -15843,16 +14820,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 --- reference/src/types/_logging_config.rs
 +++ generated/src/types/_logging_config.rs
 @@ -10,7 +10,7 @@
-     pub application_log_level: ::std::option::Option<crate::types::ApplicationLogLevel>,
+     pub application_log_level: ::std::option::Option<super::types::ApplicationLogLevel>,
      /// <p>Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>
-     pub system_log_level: ::std::option::Option<crate::types::SystemLogLevel>,
+     pub system_log_level: ::std::option::Option<super::types::SystemLogLevel>,
 -    /// <p>The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named <code>/aws/lambda/&lt;function name&gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
 +    /// <p>The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named <code>/aws/lambda/&amp;lt;function name&amp;gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
      pub log_group: ::std::option::Option<::std::string::String>,
  }
  impl LoggingConfig {
 @@ -26,7 +26,7 @@
-     pub fn system_log_level(&self) -> ::std::option::Option<&crate::types::SystemLogLevel> {
+     pub fn system_log_level(&self) -> ::std::option::Option<&super::types::SystemLogLevel> {
          self.system_log_level.as_ref()
      }
 -    /// <p>The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named <code>/aws/lambda/&lt;function name&gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
@@ -15861,7 +14838,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.log_group.as_deref()
      }
 @@ -90,17 +90,17 @@
-     pub fn get_system_log_level(&self) -> &::std::option::Option<crate::types::SystemLogLevel> {
+     pub fn get_system_log_level(&self) -> &::std::option::Option<super::types::SystemLogLevel> {
          &self.system_log_level
      }
 -    /// <p>The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named <code>/aws/lambda/&lt;function name&gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
@@ -15949,398 +14926,142 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/builders.rs
 @@ -7,6 +7,10 @@
 
- pub use crate::types::_error_object::ErrorObjectBuilder;
+ pub use super::types::_error_object::ErrorObjectBuilder;
 
-+pub use crate::types::_checkpoint_updated_execution_state::CheckpointUpdatedExecutionStateBuilder;
++pub use super::types::_checkpoint_updated_execution_state::CheckpointUpdatedExecutionStateBuilder;
 +
-+pub use crate::types::_alias_routing_configuration::AliasRoutingConfigurationBuilder;
++pub use super::types::_alias_routing_configuration::AliasRoutingConfigurationBuilder;
 +
- pub use crate::types::_capacity_provider_vpc_config::CapacityProviderVpcConfigBuilder;
+ pub use super::types::_capacity_provider_vpc_config::CapacityProviderVpcConfigBuilder;
 
- pub use crate::types::_capacity_provider_permissions_config::CapacityProviderPermissionsConfigBuilder;
+ pub use super::types::_capacity_provider_permissions_config::CapacityProviderPermissionsConfigBuilder;
 @@ -27,12 +31,6 @@
 
- pub use crate::types::_code_signing_config::CodeSigningConfigBuilder;
+ pub use super::types::_code_signing_config::CodeSigningConfigBuilder;
 
--pub use crate::types::_trace_header::TraceHeaderBuilder;
+-pub use super::types::_trace_header::TraceHeaderBuilder;
 -
--pub use crate::types::_durable_config::DurableConfigBuilder;
+-pub use super::types::_durable_config::DurableConfigBuilder;
 -
--pub use crate::types::_checkpoint_updated_execution_state::CheckpointUpdatedExecutionStateBuilder;
+-pub use super::types::_checkpoint_updated_execution_state::CheckpointUpdatedExecutionStateBuilder;
 -
- pub use crate::types::_filter_criteria::FilterCriteriaBuilder;
+ pub use super::types::_filter_criteria::FilterCriteriaBuilder;
 
- pub use crate::types::_event_source_mapping_metrics_config::EventSourceMappingMetricsConfigBuilder;
+ pub use super::types::_event_source_mapping_metrics_config::EventSourceMappingMetricsConfigBuilder;
 @@ -75,6 +73,8 @@
 
- pub use crate::types::_capacity_provider_config::CapacityProviderConfigBuilder;
+ pub use super::types::_capacity_provider_config::CapacityProviderConfigBuilder;
 
-+pub use crate::types::_durable_config::DurableConfigBuilder;
++pub use super::types::_durable_config::DurableConfigBuilder;
 +
- pub use crate::types::_vpc_config_response::VpcConfigResponseBuilder;
+ pub use super::types::_vpc_config_response::VpcConfigResponseBuilder;
 
- pub use crate::types::_environment_response::EnvironmentResponseBuilder;
+ pub use super::types::_environment_response::EnvironmentResponseBuilder;
 @@ -89,6 +89,8 @@
 
- pub use crate::types::_cors::CorsBuilder;
+ pub use super::types::_cors::CorsBuilder;
 
-+pub use crate::types::_trace_header::TraceHeaderBuilder;
++pub use super::types::_trace_header::TraceHeaderBuilder;
 +
- pub use crate::types::_function_configuration::FunctionConfigurationBuilder;
+ pub use super::types::_function_configuration::FunctionConfigurationBuilder;
 
- pub use crate::types::_function_code_location::FunctionCodeLocationBuilder;
+ pub use super::types::_function_code_location::FunctionCodeLocationBuilder;
 @@ -99,8 +101,6 @@
 
- pub use crate::types::_function_scaling_config::FunctionScalingConfigBuilder;
+ pub use super::types::_function_scaling_config::FunctionScalingConfigBuilder;
 
--pub use crate::types::_alias_routing_configuration::AliasRoutingConfigurationBuilder;
+-pub use super::types::_alias_routing_configuration::AliasRoutingConfigurationBuilder;
 -
- pub use crate::types::_layer_version_content_output::LayerVersionContentOutputBuilder;
+ pub use super::types::_layer_version_content_output::LayerVersionContentOutputBuilder;
 
- pub use crate::types::_layer_version_content_input::LayerVersionContentInputBuilder;
+ pub use super::types::_layer_version_content_input::LayerVersionContentInputBuilder;
 @@ -111,17 +111,9 @@
 
- pub use crate::types::_function_event_invoke_config::FunctionEventInvokeConfigBuilder;
+ pub use super::types::_function_event_invoke_config::FunctionEventInvokeConfigBuilder;
 
--pub use crate::types::_capacity_provider_logging_config::CapacityProviderLoggingConfigBuilder;
+-pub use super::types::_capacity_provider_logging_config::CapacityProviderLoggingConfigBuilder;
 -
--pub use crate::types::_function_versions_by_capacity_provider_list_item::FunctionVersionsByCapacityProviderListItemBuilder;
+-pub use super::types::_function_versions_by_capacity_provider_list_item::FunctionVersionsByCapacityProviderListItemBuilder;
 -
- pub use crate::types::_operation_update::OperationUpdateBuilder;
+ pub use super::types::_operation_update::OperationUpdateBuilder;
 
--pub use crate::types::_event::EventBuilder;
+-pub use super::types::_event::EventBuilder;
 -
--pub use crate::types::_operation::OperationBuilder;
+-pub use super::types::_operation::OperationBuilder;
 -
--pub use crate::types::_event_source_mapping_configuration::EventSourceMappingConfigurationBuilder;
-+pub use crate::types::_capacity_provider_logging_config::CapacityProviderLoggingConfigBuilder;
+-pub use super::types::_event_source_mapping_configuration::EventSourceMappingConfigurationBuilder;
++pub use super::types::_capacity_provider_logging_config::CapacityProviderLoggingConfigBuilder;
 
- pub use crate::types::_source_access_configuration::SourceAccessConfigurationBuilder;
+ pub use super::types::_source_access_configuration::SourceAccessConfigurationBuilder;
 
 @@ -139,7 +131,9 @@
 
- pub use crate::types::_runtime_version_error::RuntimeVersionErrorBuilder;
+ pub use super::types::_runtime_version_error::RuntimeVersionErrorBuilder;
 
--pub use crate::types::_provisioned_concurrency_config_list_item::ProvisionedConcurrencyConfigListItemBuilder;
-+pub use crate::types::_event::EventBuilder;
+-pub use super::types::_provisioned_concurrency_config_list_item::ProvisionedConcurrencyConfigListItemBuilder;
++pub use super::types::_event::EventBuilder;
 +
-+pub use crate::types::_operation::OperationBuilder;
++pub use super::types::_operation::OperationBuilder;
 
- pub use crate::types::_resolved_s3_object::ResolvedS3ObjectBuilder;
+ pub use super::types::_resolved_s3_object::ResolvedS3ObjectBuilder;
 
 @@ -149,18 +143,22 @@
 
- pub use crate::types::_invoke_with_response_stream_complete_event::InvokeWithResponseStreamCompleteEventBuilder;
+ pub use super::types::_invoke_with_response_stream_complete_event::InvokeWithResponseStreamCompleteEventBuilder;
 
-+pub use crate::types::_alias_configuration::AliasConfigurationBuilder;
++pub use super::types::_alias_configuration::AliasConfigurationBuilder;
 +
- pub use crate::types::_execution::ExecutionBuilder;
+ pub use super::types::_execution::ExecutionBuilder;
 
-+pub use crate::types::_event_source_mapping_configuration::EventSourceMappingConfigurationBuilder;
++pub use super::types::_event_source_mapping_configuration::EventSourceMappingConfigurationBuilder;
 +
- pub use crate::types::_function_url_config::FunctionUrlConfigBuilder;
+ pub use super::types::_function_url_config::FunctionUrlConfigBuilder;
 
--pub use crate::types::_alias_configuration::AliasConfigurationBuilder;
+-pub use super::types::_alias_configuration::AliasConfigurationBuilder;
 -
--pub use crate::types::_layers_list_item::LayersListItemBuilder;
-+pub use crate::types::_function_versions_by_capacity_provider_list_item::FunctionVersionsByCapacityProviderListItemBuilder;
+-pub use super::types::_layers_list_item::LayersListItemBuilder;
++pub use super::types::_function_versions_by_capacity_provider_list_item::FunctionVersionsByCapacityProviderListItemBuilder;
 
- pub use crate::types::_layer_versions_list_item::LayerVersionsListItemBuilder;
+ pub use super::types::_layer_versions_list_item::LayerVersionsListItemBuilder;
 
--pub use crate::types::_target_tracking_scaling_policy::TargetTrackingScalingPolicyBuilder;
-+pub use crate::types::_layers_list_item::LayersListItemBuilder;
+-pub use super::types::_target_tracking_scaling_policy::TargetTrackingScalingPolicyBuilder;
++pub use super::types::_layers_list_item::LayersListItemBuilder;
 
-+pub use crate::types::_provisioned_concurrency_config_list_item::ProvisionedConcurrencyConfigListItemBuilder;
++pub use super::types::_provisioned_concurrency_config_list_item::ProvisionedConcurrencyConfigListItemBuilder;
 +
- pub use crate::types::_context_options::ContextOptionsBuilder;
+ pub use super::types::_context_options::ContextOptionsBuilder;
 
- pub use crate::types::_step_options::StepOptionsBuilder;
+ pub use super::types::_step_options::StepOptionsBuilder;
 @@ -171,6 +169,10 @@
 
- pub use crate::types::_chained_invoke_options::ChainedInvokeOptionsBuilder;
+ pub use super::types::_chained_invoke_options::ChainedInvokeOptionsBuilder;
 
-+pub use crate::types::_target_tracking_scaling_policy::TargetTrackingScalingPolicyBuilder;
++pub use super::types::_target_tracking_scaling_policy::TargetTrackingScalingPolicyBuilder;
 +
-+pub use crate::types::_filter::FilterBuilder;
++pub use super::types::_filter::FilterBuilder;
 +
- pub use crate::types::_execution_started_details::ExecutionStartedDetailsBuilder;
+ pub use super::types::_execution_started_details::ExecutionStartedDetailsBuilder;
 
- pub use crate::types::_execution_succeeded_details::ExecutionSucceededDetailsBuilder;
+ pub use super::types::_execution_succeeded_details::ExecutionSucceededDetailsBuilder;
 @@ -231,7 +233,9 @@
 
- pub use crate::types::_chained_invoke_details::ChainedInvokeDetailsBuilder;
+ pub use super::types::_chained_invoke_details::ChainedInvokeDetailsBuilder;
 
--pub use crate::types::_filter::FilterBuilder;
-+pub use crate::types::_kafka_schema_registry_access_config::KafkaSchemaRegistryAccessConfigBuilder;
+-pub use super::types::_filter::FilterBuilder;
++pub use super::types::_kafka_schema_registry_access_config::KafkaSchemaRegistryAccessConfigBuilder;
 +
-+pub use crate::types::_kafka_schema_validation_config::KafkaSchemaValidationConfigBuilder;
++pub use super::types::_kafka_schema_validation_config::KafkaSchemaValidationConfigBuilder;
 
- pub use crate::types::_event_input::EventInputBuilder;
+ pub use super::types::_event_input::EventInputBuilder;
 
 @@ -240,7 +244,3 @@
- pub use crate::types::_event_error::EventErrorBuilder;
+ pub use super::types::_event_error::EventErrorBuilder;
 
- pub use crate::types::_retry_details::RetryDetailsBuilder;
+ pub use super::types::_retry_details::RetryDetailsBuilder;
 -
--pub use crate::types::_kafka_schema_registry_access_config::KafkaSchemaRegistryAccessConfigBuilder;
+-pub use super::types::_kafka_schema_registry_access_config::KafkaSchemaRegistryAccessConfigBuilder;
 -
--pub use crate::types::_kafka_schema_validation_config::KafkaSchemaValidationConfigBuilder;
-```
-
-### `src/types/error/_ec2_access_denied_exception.rs`
-
-```diff
---- reference/src/types/error/_ec2_access_denied_exception.rs
-+++ generated/src/types/error/_ec2_access_denied_exception.rs
-@@ -24,7 +24,7 @@
- }
- impl ::std::fmt::Display for Ec2AccessDeniedException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "Ec2AccessDeniedException [EC2AccessDeniedException]")?;
-+        ::std::write!(f, "Ec2AccessDeniedException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_ec2_throttled_exception.rs`
-
-```diff
---- reference/src/types/error/_ec2_throttled_exception.rs
-+++ generated/src/types/error/_ec2_throttled_exception.rs
-@@ -24,7 +24,7 @@
- }
- impl ::std::fmt::Display for Ec2ThrottledException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "Ec2ThrottledException [EC2ThrottledException]")?;
-+        ::std::write!(f, "Ec2ThrottledException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_ec2_unexpected_exception.rs`
-
-```diff
---- reference/src/types/error/_ec2_unexpected_exception.rs
-+++ generated/src/types/error/_ec2_unexpected_exception.rs
-@@ -30,7 +30,7 @@
- }
- impl ::std::fmt::Display for Ec2UnexpectedException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "Ec2UnexpectedException [EC2UnexpectedException]")?;
-+        ::std::write!(f, "Ec2UnexpectedException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_efs_mount_connectivity_exception.rs`
-
-```diff
---- reference/src/types/error/_efs_mount_connectivity_exception.rs
-+++ generated/src/types/error/_efs_mount_connectivity_exception.rs
-@@ -24,7 +24,7 @@
- }
- impl ::std::fmt::Display for EfsMountConnectivityException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "EfsMountConnectivityException [EFSMountConnectivityException]")?;
-+        ::std::write!(f, "EfsMountConnectivityException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_efs_mount_failure_exception.rs`
-
-```diff
---- reference/src/types/error/_efs_mount_failure_exception.rs
-+++ generated/src/types/error/_efs_mount_failure_exception.rs
-@@ -24,7 +24,7 @@
- }
- impl ::std::fmt::Display for EfsMountFailureException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "EfsMountFailureException [EFSMountFailureException]")?;
-+        ::std::write!(f, "EfsMountFailureException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_efs_mount_timeout_exception.rs`
-
-```diff
---- reference/src/types/error/_efs_mount_timeout_exception.rs
-+++ generated/src/types/error/_efs_mount_timeout_exception.rs
-@@ -24,7 +24,7 @@
- }
- impl ::std::fmt::Display for EfsMountTimeoutException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "EfsMountTimeoutException [EFSMountTimeoutException]")?;
-+        ::std::write!(f, "EfsMountTimeoutException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_efsio_exception.rs`
-
-```diff
---- reference/src/types/error/_efsio_exception.rs
-+++ generated/src/types/error/_efsio_exception.rs
-@@ -24,7 +24,7 @@
- }
- impl ::std::fmt::Display for EfsioException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "EfsioException [EFSIOException]")?;
-+        ::std::write!(f, "EfsioException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_eni_limit_reached_exception.rs`
-
-```diff
---- reference/src/types/error/_eni_limit_reached_exception.rs
-+++ generated/src/types/error/_eni_limit_reached_exception.rs
-@@ -24,7 +24,7 @@
- }
- impl ::std::fmt::Display for EniLimitReachedException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "EniLimitReachedException [ENILimitReachedException]")?;
-+        ::std::write!(f, "EniLimitReachedException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_eni_not_ready_exception.rs`
-
-```diff
---- reference/src/types/error/_eni_not_ready_exception.rs
-+++ generated/src/types/error/_eni_not_ready_exception.rs
-@@ -24,7 +24,7 @@
- }
- impl ::std::fmt::Display for EniNotReadyException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "EniNotReadyException [ENINotReadyException]")?;
-+        ::std::write!(f, "EniNotReadyException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_invalid_security_group_id_exception.rs`
-
-```diff
---- reference/src/types/error/_invalid_security_group_id_exception.rs
-+++ generated/src/types/error/_invalid_security_group_id_exception.rs
-@@ -24,7 +24,7 @@
- }
- impl ::std::fmt::Display for InvalidSecurityGroupIdException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "InvalidSecurityGroupIdException [InvalidSecurityGroupIDException]")?;
-+        ::std::write!(f, "InvalidSecurityGroupIdException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_invalid_subnet_id_exception.rs`
-
-```diff
---- reference/src/types/error/_invalid_subnet_id_exception.rs
-+++ generated/src/types/error/_invalid_subnet_id_exception.rs
-@@ -24,7 +24,7 @@
- }
- impl ::std::fmt::Display for InvalidSubnetIdException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "InvalidSubnetIdException [InvalidSubnetIDException]")?;
-+        ::std::write!(f, "InvalidSubnetIdException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_kms_access_denied_exception.rs`
-
-```diff
---- reference/src/types/error/_kms_access_denied_exception.rs
-+++ generated/src/types/error/_kms_access_denied_exception.rs
-@@ -24,7 +24,7 @@
- }
- impl ::std::fmt::Display for KmsAccessDeniedException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "KmsAccessDeniedException [KMSAccessDeniedException]")?;
-+        ::std::write!(f, "KmsAccessDeniedException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_kms_disabled_exception.rs`
-
-```diff
---- reference/src/types/error/_kms_disabled_exception.rs
-+++ generated/src/types/error/_kms_disabled_exception.rs
-@@ -24,7 +24,7 @@
- }
- impl ::std::fmt::Display for KmsDisabledException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "KmsDisabledException [KMSDisabledException]")?;
-+        ::std::write!(f, "KmsDisabledException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_kms_invalid_state_exception.rs`
-
-```diff
---- reference/src/types/error/_kms_invalid_state_exception.rs
-+++ generated/src/types/error/_kms_invalid_state_exception.rs
-@@ -24,7 +24,7 @@
- }
- impl ::std::fmt::Display for KmsInvalidStateException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "KmsInvalidStateException [KMSInvalidStateException]")?;
-+        ::std::write!(f, "KmsInvalidStateException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_kms_not_found_exception.rs`
-
-```diff
---- reference/src/types/error/_kms_not_found_exception.rs
-+++ generated/src/types/error/_kms_not_found_exception.rs
-@@ -24,7 +24,7 @@
- }
- impl ::std::fmt::Display for KmsNotFoundException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "KmsNotFoundException [KMSNotFoundException]")?;
-+        ::std::write!(f, "KmsNotFoundException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_subnet_ip_address_limit_reached_exception.rs`
-
-```diff
---- reference/src/types/error/_subnet_ip_address_limit_reached_exception.rs
-+++ generated/src/types/error/_subnet_ip_address_limit_reached_exception.rs
-@@ -24,7 +24,7 @@
- }
- impl ::std::fmt::Display for SubnetIpAddressLimitReachedException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
--        ::std::write!(f, "SubnetIpAddressLimitReachedException [SubnetIPAddressLimitReachedException]")?;
-+        ::std::write!(f, "SubnetIpAddressLimitReachedException")?;
-         if let ::std::option::Option::Some(inner_1) = &self.message {
-             {
-                 ::std::write!(f, ": {inner_1}")?;
+-pub use super::types::_kafka_schema_validation_config::KafkaSchemaValidationConfigBuilder;
 ```
 
 ### `src/types/error/builders.rs`
@@ -16350,62 +15071,62 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/error/builders.rs
 @@ -1,6 +1,10 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
- pub use crate::types::error::_invalid_parameter_value_exception::InvalidParameterValueExceptionBuilder;
+ pub use super::types::error::_invalid_parameter_value_exception::InvalidParameterValueExceptionBuilder;
 
-+pub use crate::types::error::_policy_length_exceeded_exception::PolicyLengthExceededExceptionBuilder;
++pub use super::types::error::_policy_length_exceeded_exception::PolicyLengthExceededExceptionBuilder;
 +
-+pub use crate::types::error::_precondition_failed_exception::PreconditionFailedExceptionBuilder;
++pub use super::types::error::_precondition_failed_exception::PreconditionFailedExceptionBuilder;
 +
- pub use crate::types::error::_resource_conflict_exception::ResourceConflictExceptionBuilder;
+ pub use super::types::error::_resource_conflict_exception::ResourceConflictExceptionBuilder;
 
- pub use crate::types::error::_resource_not_found_exception::ResourceNotFoundExceptionBuilder;
+ pub use super::types::error::_resource_not_found_exception::ResourceNotFoundExceptionBuilder;
 @@ -9,14 +13,8 @@
 
- pub use crate::types::error::_too_many_requests_exception::TooManyRequestsExceptionBuilder;
+ pub use super::types::error::_too_many_requests_exception::TooManyRequestsExceptionBuilder;
 
--pub use crate::types::error::_precondition_failed_exception::PreconditionFailedExceptionBuilder;
+-pub use super::types::error::_precondition_failed_exception::PreconditionFailedExceptionBuilder;
 -
--pub use crate::types::error::_policy_length_exceeded_exception::PolicyLengthExceededExceptionBuilder;
+-pub use super::types::error::_policy_length_exceeded_exception::PolicyLengthExceededExceptionBuilder;
 -
- pub use crate::types::error::_public_policy_exception::PublicPolicyExceptionBuilder;
+ pub use super::types::error::_public_policy_exception::PublicPolicyExceptionBuilder;
 
--pub use crate::types::error::_callback_timeout_exception::CallbackTimeoutExceptionBuilder;
+-pub use super::types::error::_callback_timeout_exception::CallbackTimeoutExceptionBuilder;
 -
- pub use crate::types::error::_kms_access_denied_exception::KmsAccessDeniedExceptionBuilder;
+ pub use super::types::error::_kms_access_denied_exception::KmsAccessDeniedExceptionBuilder;
 
- pub use crate::types::error::_kms_disabled_exception::KmsDisabledExceptionBuilder;
+ pub use super::types::error::_kms_disabled_exception::KmsDisabledExceptionBuilder;
 @@ -25,10 +23,10 @@
 
- pub use crate::types::error::_kms_not_found_exception::KmsNotFoundExceptionBuilder;
+ pub use super::types::error::_kms_not_found_exception::KmsNotFoundExceptionBuilder;
 
-+pub use crate::types::error::_alias_limit_exceeded_exception::AliasLimitExceededExceptionBuilder;
++pub use super::types::error::_alias_limit_exceeded_exception::AliasLimitExceededExceptionBuilder;
 +
- pub use crate::types::error::_capacity_provider_limit_exceeded_exception::CapacityProviderLimitExceededExceptionBuilder;
+ pub use super::types::error::_capacity_provider_limit_exceeded_exception::CapacityProviderLimitExceededExceptionBuilder;
 
--pub use crate::types::error::_resource_in_use_exception::ResourceInUseExceptionBuilder;
+-pub use super::types::error::_resource_in_use_exception::ResourceInUseExceptionBuilder;
 -
- pub use crate::types::error::_code_signing_config_not_found_exception::CodeSigningConfigNotFoundExceptionBuilder;
+ pub use super::types::error::_code_signing_config_not_found_exception::CodeSigningConfigNotFoundExceptionBuilder;
 
- pub use crate::types::error::_code_storage_exceeded_exception::CodeStorageExceededExceptionBuilder;
+ pub use super::types::error::_code_storage_exceeded_exception::CodeStorageExceededExceptionBuilder;
 @@ -39,6 +37,10 @@
 
- pub use crate::types::error::_invalid_code_signature_exception::InvalidCodeSignatureExceptionBuilder;
+ pub use super::types::error::_invalid_code_signature_exception::InvalidCodeSignatureExceptionBuilder;
 
-+pub use crate::types::error::_resource_in_use_exception::ResourceInUseExceptionBuilder;
++pub use super::types::error::_resource_in_use_exception::ResourceInUseExceptionBuilder;
 +
-+pub use crate::types::error::_provisioned_concurrency_config_not_found_exception::ProvisionedConcurrencyConfigNotFoundExceptionBuilder;
++pub use super::types::error::_provisioned_concurrency_config_not_found_exception::ProvisionedConcurrencyConfigNotFoundExceptionBuilder;
 +
- pub use crate::types::error::_code_artifact_user_deleted_exception::CodeArtifactUserDeletedExceptionBuilder;
+ pub use super::types::error::_code_artifact_user_deleted_exception::CodeArtifactUserDeletedExceptionBuilder;
 
- pub use crate::types::error::_code_artifact_user_failed_exception::CodeArtifactUserFailedExceptionBuilder;
+ pub use super::types::error::_code_artifact_user_failed_exception::CodeArtifactUserFailedExceptionBuilder;
 @@ -107,6 +109,4 @@
 
- pub use crate::types::error::_unsupported_media_type_exception::UnsupportedMediaTypeExceptionBuilder;
+ pub use super::types::error::_unsupported_media_type_exception::UnsupportedMediaTypeExceptionBuilder;
 
--pub use crate::types::error::_alias_limit_exceeded_exception::AliasLimitExceededExceptionBuilder;
+-pub use super::types::error::_alias_limit_exceeded_exception::AliasLimitExceededExceptionBuilder;
 -
--pub use crate::types::error::_provisioned_concurrency_config_not_found_exception::ProvisionedConcurrencyConfigNotFoundExceptionBuilder;
-+pub use crate::types::error::_callback_timeout_exception::CallbackTimeoutExceptionBuilder;
+-pub use super::types::error::_provisioned_concurrency_config_not_found_exception::ProvisionedConcurrencyConfigNotFoundExceptionBuilder;
++pub use super::types::error::_callback_timeout_exception::CallbackTimeoutExceptionBuilder;
 ```
 
 ### `src/types/error.rs`
@@ -16415,61 +15136,61 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types/error.rs
 @@ -1,6 +1,10 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
- pub use crate::types::error::_invalid_parameter_value_exception::InvalidParameterValueException;
+ pub use super::types::error::_invalid_parameter_value_exception::InvalidParameterValueException;
 
-+pub use crate::types::error::_policy_length_exceeded_exception::PolicyLengthExceededException;
++pub use super::types::error::_policy_length_exceeded_exception::PolicyLengthExceededException;
 +
-+pub use crate::types::error::_precondition_failed_exception::PreconditionFailedException;
++pub use super::types::error::_precondition_failed_exception::PreconditionFailedException;
 +
- pub use crate::types::error::_resource_conflict_exception::ResourceConflictException;
+ pub use super::types::error::_resource_conflict_exception::ResourceConflictException;
 
- pub use crate::types::error::_resource_not_found_exception::ResourceNotFoundException;
+ pub use super::types::error::_resource_not_found_exception::ResourceNotFoundException;
 @@ -9,14 +13,8 @@
 
- pub use crate::types::error::_too_many_requests_exception::TooManyRequestsException;
+ pub use super::types::error::_too_many_requests_exception::TooManyRequestsException;
 
--pub use crate::types::error::_precondition_failed_exception::PreconditionFailedException;
+-pub use super::types::error::_precondition_failed_exception::PreconditionFailedException;
 -
--pub use crate::types::error::_policy_length_exceeded_exception::PolicyLengthExceededException;
+-pub use super::types::error::_policy_length_exceeded_exception::PolicyLengthExceededException;
 -
- pub use crate::types::error::_public_policy_exception::PublicPolicyException;
+ pub use super::types::error::_public_policy_exception::PublicPolicyException;
 
--pub use crate::types::error::_callback_timeout_exception::CallbackTimeoutException;
+-pub use super::types::error::_callback_timeout_exception::CallbackTimeoutException;
 -
- pub use crate::types::error::_kms_access_denied_exception::KmsAccessDeniedException;
+ pub use super::types::error::_kms_access_denied_exception::KmsAccessDeniedException;
 
- pub use crate::types::error::_kms_disabled_exception::KmsDisabledException;
+ pub use super::types::error::_kms_disabled_exception::KmsDisabledException;
 @@ -25,9 +23,9 @@
 
- pub use crate::types::error::_kms_not_found_exception::KmsNotFoundException;
+ pub use super::types::error::_kms_not_found_exception::KmsNotFoundException;
 
--pub use crate::types::error::_capacity_provider_limit_exceeded_exception::CapacityProviderLimitExceededException;
-+pub use crate::types::error::_alias_limit_exceeded_exception::AliasLimitExceededException;
+-pub use super::types::error::_capacity_provider_limit_exceeded_exception::CapacityProviderLimitExceededException;
++pub use super::types::error::_alias_limit_exceeded_exception::AliasLimitExceededException;
 
--pub use crate::types::error::_resource_in_use_exception::ResourceInUseException;
-+pub use crate::types::error::_capacity_provider_limit_exceeded_exception::CapacityProviderLimitExceededException;
+-pub use super::types::error::_resource_in_use_exception::ResourceInUseException;
++pub use super::types::error::_capacity_provider_limit_exceeded_exception::CapacityProviderLimitExceededException;
 
- pub use crate::types::error::_code_signing_config_not_found_exception::CodeSigningConfigNotFoundException;
+ pub use super::types::error::_code_signing_config_not_found_exception::CodeSigningConfigNotFoundException;
 
 @@ -39,6 +37,10 @@
 
- pub use crate::types::error::_invalid_code_signature_exception::InvalidCodeSignatureException;
+ pub use super::types::error::_invalid_code_signature_exception::InvalidCodeSignatureException;
 
-+pub use crate::types::error::_resource_in_use_exception::ResourceInUseException;
++pub use super::types::error::_resource_in_use_exception::ResourceInUseException;
 +
-+pub use crate::types::error::_provisioned_concurrency_config_not_found_exception::ProvisionedConcurrencyConfigNotFoundException;
++pub use super::types::error::_provisioned_concurrency_config_not_found_exception::ProvisionedConcurrencyConfigNotFoundException;
 +
- pub use crate::types::error::_code_artifact_user_deleted_exception::CodeArtifactUserDeletedException;
+ pub use super::types::error::_code_artifact_user_deleted_exception::CodeArtifactUserDeletedException;
 
- pub use crate::types::error::_code_artifact_user_failed_exception::CodeArtifactUserFailedException;
+ pub use super::types::error::_code_artifact_user_failed_exception::CodeArtifactUserFailedException;
 @@ -107,9 +109,7 @@
 
- pub use crate::types::error::_unsupported_media_type_exception::UnsupportedMediaTypeException;
+ pub use super::types::error::_unsupported_media_type_exception::UnsupportedMediaTypeException;
 
--pub use crate::types::error::_alias_limit_exceeded_exception::AliasLimitExceededException;
+-pub use super::types::error::_alias_limit_exceeded_exception::AliasLimitExceededException;
 -
--pub use crate::types::error::_provisioned_concurrency_config_not_found_exception::ProvisionedConcurrencyConfigNotFoundException;
-+pub use crate::types::error::_callback_timeout_exception::CallbackTimeoutException;
+-pub use super::types::error::_provisioned_concurrency_config_not_found_exception::ProvisionedConcurrencyConfigNotFoundException;
++pub use super::types::error::_callback_timeout_exception::CallbackTimeoutException;
 
  /// Error type for the `InvokeWithResponseStreamResponseEventError` operation.
  #[non_exhaustive]
@@ -16477,12 +15198,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          })
      }
  }
-+impl crate::s3_request_id::RequestIdExt for crate::types::error::InvokeWithResponseStreamResponseEventError {
++impl super::s3_request_id::RequestIdExt for super::types::error::InvokeWithResponseStreamResponseEventError {
 +    fn extended_request_id(&self) -> Option<&str> {
 +        self.meta().extended_request_id()
 +    }
 +}
- impl ::aws_types::request_id::RequestId for crate::types::error::InvokeWithResponseStreamResponseEventError {
+ impl ::aws_types::request_id::RequestId for super::types::error::InvokeWithResponseStreamResponseEventError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
 ```
@@ -16494,216 +15215,216 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +++ generated/src/types.rs
 @@ -9,7 +9,11 @@
 
- pub use crate::types::_error_object::ErrorObject;
+ pub use super::types::_error_object::ErrorObject;
 
--pub use crate::types::_capacity_provider_state::CapacityProviderState;
-+pub use crate::types::_function_url_auth_type::FunctionUrlAuthType;
+-pub use super::types::_capacity_provider_state::CapacityProviderState;
++pub use super::types::_function_url_auth_type::FunctionUrlAuthType;
 +
-+pub use crate::types::_checkpoint_updated_execution_state::CheckpointUpdatedExecutionState;
++pub use super::types::_checkpoint_updated_execution_state::CheckpointUpdatedExecutionState;
 +
-+pub use crate::types::_alias_routing_configuration::AliasRoutingConfiguration;
++pub use super::types::_alias_routing_configuration::AliasRoutingConfiguration;
 
- pub use crate::types::_capacity_provider_vpc_config::CapacityProviderVpcConfig;
+ pub use super::types::_capacity_provider_vpc_config::CapacityProviderVpcConfig;
 
 @@ -31,14 +35,6 @@
 
- pub use crate::types::_code_signing_config::CodeSigningConfig;
+ pub use super::types::_code_signing_config::CodeSigningConfig;
 
--pub use crate::types::_execution_status::ExecutionStatus;
+-pub use super::types::_execution_status::ExecutionStatus;
 -
--pub use crate::types::_trace_header::TraceHeader;
+-pub use super::types::_trace_header::TraceHeader;
 -
--pub use crate::types::_durable_config::DurableConfig;
+-pub use super::types::_durable_config::DurableConfig;
 -
--pub use crate::types::_checkpoint_updated_execution_state::CheckpointUpdatedExecutionState;
+-pub use super::types::_checkpoint_updated_execution_state::CheckpointUpdatedExecutionState;
 -
- pub use crate::types::_filter_criteria::FilterCriteria;
+ pub use super::types::_filter_criteria::FilterCriteria;
 
- pub use crate::types::_event_source_mapping_metrics_config::EventSourceMappingMetricsConfig;
+ pub use super::types::_event_source_mapping_metrics_config::EventSourceMappingMetricsConfig;
 @@ -61,8 +57,6 @@
 
- pub use crate::types::_filter_criteria_error::FilterCriteriaError;
+ pub use super::types::_filter_criteria_error::FilterCriteriaError;
 
--pub use crate::types::_function_version::FunctionVersion;
+-pub use super::types::_function_version::FunctionVersion;
 -
- pub use crate::types::_runtime::Runtime;
+ pub use super::types::_runtime::Runtime;
 
- pub use crate::types::_function_code::FunctionCode;
+ pub use super::types::_function_code::FunctionCode;
 @@ -91,6 +85,8 @@
 
- pub use crate::types::_capacity_provider_config::CapacityProviderConfig;
+ pub use super::types::_capacity_provider_config::CapacityProviderConfig;
 
-+pub use crate::types::_durable_config::DurableConfig;
++pub use super::types::_durable_config::DurableConfig;
 +
- pub use crate::types::_vpc_config_response::VpcConfigResponse;
+ pub use super::types::_vpc_config_response::VpcConfigResponse;
 
- pub use crate::types::_environment_response::EnvironmentResponse;
+ pub use super::types::_environment_response::EnvironmentResponse;
 @@ -111,14 +107,14 @@
 
- pub use crate::types::_runtime_version_config::RuntimeVersionConfig;
+ pub use super::types::_runtime_version_config::RuntimeVersionConfig;
 
--pub use crate::types::_s3_object_storage_mode::S3ObjectStorageMode;
+-pub use super::types::_s3_object_storage_mode::S3ObjectStorageMode;
 -
--pub use crate::types::_function_url_auth_type::FunctionUrlAuthType;
+-pub use super::types::_function_url_auth_type::FunctionUrlAuthType;
 -
- pub use crate::types::_cors::Cors;
+ pub use super::types::_cors::Cors;
 
- pub use crate::types::_invoke_mode::InvokeMode;
+ pub use super::types::_invoke_mode::InvokeMode;
 
-+pub use crate::types::_execution_status::ExecutionStatus;
++pub use super::types::_execution_status::ExecutionStatus;
 +
-+pub use crate::types::_trace_header::TraceHeader;
++pub use super::types::_trace_header::TraceHeader;
 +
- pub use crate::types::_function_configuration::FunctionConfiguration;
+ pub use super::types::_function_configuration::FunctionConfiguration;
 
- pub use crate::types::_function_code_location::FunctionCodeLocation;
+ pub use super::types::_function_code_location::FunctionCodeLocation;
 @@ -131,6 +127,10 @@
 
- pub use crate::types::_function_scaling_config::FunctionScalingConfig;
+ pub use super::types::_function_scaling_config::FunctionScalingConfig;
 
-+pub use crate::types::_layer_version_content_output::LayerVersionContentOutput;
++pub use super::types::_layer_version_content_output::LayerVersionContentOutput;
 +
-+pub use crate::types::_provisioned_concurrency_status_enum::ProvisionedConcurrencyStatusEnum;
++pub use super::types::_provisioned_concurrency_status_enum::ProvisionedConcurrencyStatusEnum;
 +
- pub use crate::types::_update_runtime_on::UpdateRuntimeOn;
+ pub use super::types::_update_runtime_on::UpdateRuntimeOn;
 
- pub use crate::types::_invocation_type::InvocationType;
+ pub use super::types::_invocation_type::InvocationType;
 @@ -141,15 +141,15 @@
 
- pub use crate::types::_invoke_with_response_stream_response_event::InvokeWithResponseStreamResponseEvent;
+ pub use super::types::_invoke_with_response_stream_response_event::InvokeWithResponseStreamResponseEvent;
 
--pub use crate::types::_alias_routing_configuration::AliasRoutingConfiguration;
-+pub use crate::types::_capacity_provider_state::CapacityProviderState;
+-pub use super::types::_alias_routing_configuration::AliasRoutingConfiguration;
++pub use super::types::_capacity_provider_state::CapacityProviderState;
 +
-+pub use crate::types::_function_version::FunctionVersion;
++pub use super::types::_function_version::FunctionVersion;
 
- pub use crate::types::_architecture::Architecture;
+ pub use super::types::_architecture::Architecture;
 
--pub use crate::types::_layer_version_content_output::LayerVersionContentOutput;
+-pub use super::types::_layer_version_content_output::LayerVersionContentOutput;
 -
- pub use crate::types::_layer_version_content_input::LayerVersionContentInput;
+ pub use super::types::_layer_version_content_input::LayerVersionContentInput;
 
--pub use crate::types::_provisioned_concurrency_status_enum::ProvisionedConcurrencyStatusEnum;
-+pub use crate::types::_s3_object_storage_mode::S3ObjectStorageMode;
+-pub use super::types::_provisioned_concurrency_status_enum::ProvisionedConcurrencyStatusEnum;
++pub use super::types::_s3_object_storage_mode::S3ObjectStorageMode;
 
- pub use crate::types::_on_success::OnSuccess;
+ pub use super::types::_on_success::OnSuccess;
 
 @@ -157,6 +157,8 @@
 
- pub use crate::types::_function_event_invoke_config::FunctionEventInvokeConfig;
+ pub use super::types::_function_event_invoke_config::FunctionEventInvokeConfig;
 
-+pub use crate::types::_operation_update::OperationUpdate;
++pub use super::types::_operation_update::OperationUpdate;
 +
- pub use crate::types::_capacity_provider_scaling_mode::CapacityProviderScalingMode;
+ pub use super::types::_capacity_provider_scaling_mode::CapacityProviderScalingMode;
 
- pub use crate::types::_propagate_tags_mode::PropagateTagsMode;
+ pub use super::types::_propagate_tags_mode::PropagateTagsMode;
 @@ -163,18 +165,8 @@
 
- pub use crate::types::_capacity_provider_logging_config::CapacityProviderLoggingConfig;
+ pub use super::types::_capacity_provider_logging_config::CapacityProviderLoggingConfig;
 
--pub use crate::types::_function_versions_by_capacity_provider_list_item::FunctionVersionsByCapacityProviderListItem;
+-pub use super::types::_function_versions_by_capacity_provider_list_item::FunctionVersionsByCapacityProviderListItem;
 -
- pub use crate::types::_code_signing_policy::CodeSigningPolicy;
+ pub use super::types::_code_signing_policy::CodeSigningPolicy;
 
--pub use crate::types::_operation_update::OperationUpdate;
+-pub use super::types::_operation_update::OperationUpdate;
 -
--pub use crate::types::_event::Event;
+-pub use super::types::_event::Event;
 -
--pub use crate::types::_operation::Operation;
+-pub use super::types::_operation::Operation;
 -
--pub use crate::types::_event_source_mapping_configuration::EventSourceMappingConfiguration;
+-pub use super::types::_event_source_mapping_configuration::EventSourceMappingConfiguration;
 -
- pub use crate::types::_event_source_mapping_system_log_level::EventSourceMappingSystemLogLevel;
+ pub use super::types::_event_source_mapping_system_log_level::EventSourceMappingSystemLogLevel;
 
- pub use crate::types::_source_access_configuration::SourceAccessConfiguration;
+ pub use super::types::_source_access_configuration::SourceAccessConfiguration;
 @@ -211,7 +203,9 @@
 
- pub use crate::types::_runtime_version_error::RuntimeVersionError;
+ pub use super::types::_runtime_version_error::RuntimeVersionError;
 
--pub use crate::types::_provisioned_concurrency_config_list_item::ProvisionedConcurrencyConfigListItem;
-+pub use crate::types::_event::Event;
+-pub use super::types::_provisioned_concurrency_config_list_item::ProvisionedConcurrencyConfigListItem;
++pub use super::types::_event::Event;
 +
-+pub use crate::types::_operation::Operation;
++pub use super::types::_operation::Operation;
 
- pub use crate::types::_resolved_s3_object::ResolvedS3Object;
+ pub use super::types::_resolved_s3_object::ResolvedS3Object;
 
 @@ -221,17 +215,21 @@
 
- pub use crate::types::_invoke_with_response_stream_complete_event::InvokeWithResponseStreamCompleteEvent;
+ pub use super::types::_invoke_with_response_stream_complete_event::InvokeWithResponseStreamCompleteEvent;
 
-+pub use crate::types::_alias_configuration::AliasConfiguration;
++pub use super::types::_alias_configuration::AliasConfiguration;
 +
- pub use crate::types::_execution::Execution;
+ pub use super::types::_execution::Execution;
 
-+pub use crate::types::_event_source_mapping_configuration::EventSourceMappingConfiguration;
++pub use super::types::_event_source_mapping_configuration::EventSourceMappingConfiguration;
 +
- pub use crate::types::_function_url_config::FunctionUrlConfig;
+ pub use super::types::_function_url_config::FunctionUrlConfig;
 
--pub use crate::types::_alias_configuration::AliasConfiguration;
-+pub use crate::types::_function_versions_by_capacity_provider_list_item::FunctionVersionsByCapacityProviderListItem;
+-pub use super::types::_alias_configuration::AliasConfiguration;
++pub use super::types::_function_versions_by_capacity_provider_list_item::FunctionVersionsByCapacityProviderListItem;
 +
-+pub use crate::types::_layer_versions_list_item::LayerVersionsListItem;
++pub use super::types::_layer_versions_list_item::LayerVersionsListItem;
 
- pub use crate::types::_layers_list_item::LayersListItem;
+ pub use super::types::_layers_list_item::LayersListItem;
 
--pub use crate::types::_layer_versions_list_item::LayerVersionsListItem;
+-pub use super::types::_layer_versions_list_item::LayerVersionsListItem;
 -
--pub use crate::types::_target_tracking_scaling_policy::TargetTrackingScalingPolicy;
-+pub use crate::types::_provisioned_concurrency_config_list_item::ProvisionedConcurrencyConfigListItem;
+-pub use super::types::_target_tracking_scaling_policy::TargetTrackingScalingPolicy;
++pub use super::types::_provisioned_concurrency_config_list_item::ProvisionedConcurrencyConfigListItem;
 
- pub use crate::types::_operation_type::OperationType;
+ pub use super::types::_operation_type::OperationType;
 
 @@ -247,6 +245,18 @@
 
- pub use crate::types::_chained_invoke_options::ChainedInvokeOptions;
+ pub use super::types::_chained_invoke_options::ChainedInvokeOptions;
 
-+pub use crate::types::_target_tracking_scaling_policy::TargetTrackingScalingPolicy;
++pub use super::types::_target_tracking_scaling_policy::TargetTrackingScalingPolicy;
 +
-+pub use crate::types::_filter::Filter;
++pub use super::types::_filter::Filter;
 +
-+pub use crate::types::_event_source_mapping_metric::EventSourceMappingMetric;
++pub use super::types::_event_source_mapping_metric::EventSourceMappingMetric;
 +
-+pub use crate::types::_source_access_type::SourceAccessType;
++pub use super::types::_source_access_type::SourceAccessType;
 +
-+pub use crate::types::_end_point_type::EndPointType;
++pub use super::types::_end_point_type::EndPointType;
 +
-+pub use crate::types::_schema_registry_event_record_format::SchemaRegistryEventRecordFormat;
++pub use super::types::_schema_registry_event_record_format::SchemaRegistryEventRecordFormat;
 +
- pub use crate::types::_event_type::EventType;
+ pub use super::types::_event_type::EventType;
 
- pub use crate::types::_execution_started_details::ExecutionStartedDetails;
+ pub use super::types::_execution_started_details::ExecutionStartedDetails;
 @@ -311,17 +321,11 @@
 
- pub use crate::types::_chained_invoke_details::ChainedInvokeDetails;
+ pub use super::types::_chained_invoke_details::ChainedInvokeDetails;
 
--pub use crate::types::_filter::Filter;
+-pub use super::types::_filter::Filter;
 -
--pub use crate::types::_event_source_mapping_metric::EventSourceMappingMetric;
+-pub use super::types::_event_source_mapping_metric::EventSourceMappingMetric;
 -
--pub use crate::types::_source_access_type::SourceAccessType;
-+pub use crate::types::_capacity_provider_predefined_metric_type::CapacityProviderPredefinedMetricType;
+-pub use super::types::_source_access_type::SourceAccessType;
++pub use super::types::_capacity_provider_predefined_metric_type::CapacityProviderPredefinedMetricType;
 
--pub use crate::types::_end_point_type::EndPointType;
-+pub use crate::types::_kafka_schema_registry_access_config::KafkaSchemaRegistryAccessConfig;
+-pub use super::types::_end_point_type::EndPointType;
++pub use super::types::_kafka_schema_registry_access_config::KafkaSchemaRegistryAccessConfig;
 
--pub use crate::types::_schema_registry_event_record_format::SchemaRegistryEventRecordFormat;
+-pub use super::types::_schema_registry_event_record_format::SchemaRegistryEventRecordFormat;
 -
--pub use crate::types::_capacity_provider_predefined_metric_type::CapacityProviderPredefinedMetricType;
-+pub use crate::types::_kafka_schema_validation_config::KafkaSchemaValidationConfig;
+-pub use super::types::_capacity_provider_predefined_metric_type::CapacityProviderPredefinedMetricType;
++pub use super::types::_kafka_schema_validation_config::KafkaSchemaValidationConfig;
 
- pub use crate::types::_event_input::EventInput;
+ pub use super::types::_event_input::EventInput;
 
 @@ -331,10 +335,6 @@
 
- pub use crate::types::_retry_details::RetryDetails;
+ pub use super::types::_retry_details::RetryDetails;
 
--pub use crate::types::_kafka_schema_registry_access_config::KafkaSchemaRegistryAccessConfig;
+-pub use super::types::_kafka_schema_registry_access_config::KafkaSchemaRegistryAccessConfig;
 -
--pub use crate::types::_kafka_schema_validation_config::KafkaSchemaValidationConfig;
+-pub use super::types::_kafka_schema_validation_config::KafkaSchemaValidationConfig;
 -
- pub use crate::types::_kafka_schema_registry_auth_type::KafkaSchemaRegistryAuthType;
+ pub use super::types::_kafka_schema_registry_auth_type::KafkaSchemaRegistryAuthType;
 
- pub use crate::types::_kafka_schema_validation_attribute::KafkaSchemaValidationAttribute;
+ pub use super::types::_kafka_schema_validation_attribute::KafkaSchemaValidationAttribute;
 ```
 
 ### Missing reference files
@@ -16866,25 +15587,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde/shape_add_permission_input.rs`
 - `src/protocol_serde/shape_alias_routing_configuration.rs`
 - `src/protocol_serde/shape_amazon_managed_kafka_event_source_config.rs`
-- `src/protocol_serde/shape_callback_failed_details.rs`
 - `src/protocol_serde/shape_callback_options.rs`
-- `src/protocol_serde/shape_callback_succeeded_details.rs`
-- `src/protocol_serde/shape_callback_timed_out_details.rs`
 - `src/protocol_serde/shape_capacity_provider_config.rs`
-- `src/protocol_serde/shape_chained_invoke_failed_details.rs`
-- `src/protocol_serde/shape_chained_invoke_stopped_details.rs`
-- `src/protocol_serde/shape_chained_invoke_succeeded_details.rs`
-- `src/protocol_serde/shape_chained_invoke_timed_out_details.rs`
 - `src/protocol_serde/shape_checkpoint_durable_execution.rs`
 - `src/protocol_serde/shape_checkpoint_durable_execution_input.rs`
-- `src/protocol_serde/shape_context_failed_details.rs`
-- `src/protocol_serde/shape_context_succeeded_details.rs`
 - `src/protocol_serde/shape_cors.rs`
 - `src/protocol_serde/shape_create_alias.rs`
 - `src/protocol_serde/shape_create_alias_input.rs`
 - `src/protocol_serde/shape_create_capacity_provider.rs`
 - `src/protocol_serde/shape_create_capacity_provider_input.rs`
-- `src/protocol_serde/shape_create_code_signing_config.rs`
 - `src/protocol_serde/shape_create_code_signing_config_input.rs`
 - `src/protocol_serde/shape_create_event_source_mapping.rs`
 - `src/protocol_serde/shape_create_event_source_mapping_input.rs`
@@ -16914,9 +15625,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde/shape_event_source_mapping_configuration.rs`
 - `src/protocol_serde/shape_event_source_mapping_logging_config.rs`
 - `src/protocol_serde/shape_event_source_mapping_metrics_config.rs`
-- `src/protocol_serde/shape_execution_failed_details.rs`
-- `src/protocol_serde/shape_execution_stopped_details.rs`
-- `src/protocol_serde/shape_execution_succeeded_details.rs`
 - `src/protocol_serde/shape_filter_criteria.rs`
 - `src/protocol_serde/shape_function_scaling_config.rs`
 - `src/protocol_serde/shape_get_account_settings.rs`
@@ -17000,8 +15708,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde/shape_send_durable_execution_callback_heartbeat.rs`
 - `src/protocol_serde/shape_send_durable_execution_callback_success.rs`
 - `src/protocol_serde/shape_send_durable_execution_callback_success_input.rs`
-- `src/protocol_serde/shape_step_failed_details.rs`
-- `src/protocol_serde/shape_step_succeeded_details.rs`
 - `src/protocol_serde/shape_stop_durable_execution.rs`
 - `src/protocol_serde/shape_stop_durable_execution_input.rs`
 - `src/protocol_serde/shape_tag_resource.rs`
@@ -17013,7 +15719,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde/shape_update_alias_input.rs`
 - `src/protocol_serde/shape_update_capacity_provider.rs`
 - `src/protocol_serde/shape_update_capacity_provider_input.rs`
-- `src/protocol_serde/shape_update_code_signing_config.rs`
 - `src/protocol_serde/shape_update_code_signing_config_input.rs`
 - `src/protocol_serde/shape_update_event_source_mapping.rs`
 - `src/protocol_serde/shape_update_event_source_mapping_input.rs`
@@ -17035,22 +15740,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_propagate_tags_mode.rs`
 - `src/types/_s3_object_storage_mode.rs`
 - `src/types/builders.rs`
-- `src/types/error/_ec2_access_denied_exception.rs`
-- `src/types/error/_ec2_throttled_exception.rs`
-- `src/types/error/_ec2_unexpected_exception.rs`
-- `src/types/error/_efs_mount_connectivity_exception.rs`
-- `src/types/error/_efs_mount_failure_exception.rs`
-- `src/types/error/_efs_mount_timeout_exception.rs`
-- `src/types/error/_efsio_exception.rs`
-- `src/types/error/_eni_limit_reached_exception.rs`
-- `src/types/error/_eni_not_ready_exception.rs`
-- `src/types/error/_invalid_security_group_id_exception.rs`
-- `src/types/error/_invalid_subnet_id_exception.rs`
-- `src/types/error/_kms_access_denied_exception.rs`
-- `src/types/error/_kms_disabled_exception.rs`
-- `src/types/error/_kms_invalid_state_exception.rs`
-- `src/types/error/_kms_not_found_exception.rs`
-- `src/types/error/_subnet_ip_address_limit_reached_exception.rs`
 - `src/types/error/builders.rs`
 - `src/types/error.rs`
 - `src/types.rs`

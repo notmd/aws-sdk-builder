@@ -36,6 +36,8 @@ pub enum BuildError {
     StageCreate { path: PathBuf, source: io::Error },
     #[error("failed to read generated source {path}: {source}")]
     SourceRead { path: PathBuf, source: io::Error },
+    #[error("failed to parse generated Rust source {path}: {message}")]
+    GeneratedSourceParse { path: PathBuf, message: String },
     #[error("failed to write generated output {path}: {source}")]
     OutputWrite { path: PathBuf, source: io::Error },
     #[error("failed to parse builder state {path}: {source}")]

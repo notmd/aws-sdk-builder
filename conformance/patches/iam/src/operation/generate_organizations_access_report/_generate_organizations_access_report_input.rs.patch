@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -22,8 +22,8 @@
+ }
+ impl GenerateOrganizationsAccessReportInput {
+     /// Creates a new builder-style object to manufacture [`GenerateOrganizationsAccessReportInput`](crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportInput).
+-    pub fn builder() -> crate::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportInputBuilder {
+-        crate::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportInputBuilder::default()
++    pub fn builder() -> super::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportInputBuilder {
++        super::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportInputBuilder::default()
+     }
+ }
+
+@@ -71,11 +71,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportInput,
++        super::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportInput {
++            super::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportInput {
+                 entity_path: self.entity_path,
+                 organizations_policy_id: self.organizations_policy_id,
+             },

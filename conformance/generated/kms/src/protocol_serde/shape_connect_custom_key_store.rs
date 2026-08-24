@@ -97,7 +97,7 @@ pub fn de_connect_custom_key_store_http_error(
                 tmp
             })
         }
-        "KmsInternalException" => crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError::KmsInternalException({
+        "KMSInternalException" => crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

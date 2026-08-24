@@ -1,0 +1,124 @@
+--- original
++++ modified
+@@ -5,7 +5,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct GlobalTableDescription {
+     /// <p>The Regions where the global table has replicas.</p>
+-    pub replication_group: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaDescription>>,
++    pub replication_group: ::std::option::Option<::std::vec::Vec<super::types::ReplicaDescription>>,
+     /// <p>The unique identifier of the global table.</p>
+     pub global_table_arn: ::std::option::Option<::std::string::String>,
+     /// <p>The creation time of the global table.</p>
+@@ -21,7 +21,7 @@
+     /// <li>
+     /// <p><code>ACTIVE</code> - The global table is ready for use.</p></li>
+     /// </ul>
+-    pub global_table_status: ::std::option::Option<crate::types::GlobalTableStatus>,
++    pub global_table_status: ::std::option::Option<super::types::GlobalTableStatus>,
+     /// <p>The global table name.</p>
+     pub global_table_name: ::std::option::Option<::std::string::String>,
+ }
+@@ -29,7 +29,7 @@
+     /// <p>The Regions where the global table has replicas.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.replication_group.is_none()`.
+-    pub fn replication_group(&self) -> &[crate::types::ReplicaDescription] {
++    pub fn replication_group(&self) -> &[super::types::ReplicaDescription] {
+         self.replication_group.as_deref().unwrap_or_default()
+     }
+     /// <p>The unique identifier of the global table.</p>
+@@ -51,7 +51,7 @@
+     /// <li>
+     /// <p><code>ACTIVE</code> - The global table is ready for use.</p></li>
+     /// </ul>
+-    pub fn global_table_status(&self) -> ::std::option::Option<&crate::types::GlobalTableStatus> {
++    pub fn global_table_status(&self) -> ::std::option::Option<&super::types::GlobalTableStatus> {
+         self.global_table_status.as_ref()
+     }
+     /// <p>The global table name.</p>
+@@ -61,8 +61,8 @@
+ }
+ impl GlobalTableDescription {
+     /// Creates a new builder-style object to manufacture [`GlobalTableDescription`](crate::types::GlobalTableDescription).
+-    pub fn builder() -> crate::types::builders::GlobalTableDescriptionBuilder {
+-        crate::types::builders::GlobalTableDescriptionBuilder::default()
++    pub fn builder() -> super::types::builders::GlobalTableDescriptionBuilder {
++        super::types::builders::GlobalTableDescriptionBuilder::default()
+     }
+ }
+
+@@ -70,10 +70,10 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct GlobalTableDescriptionBuilder {
+-    pub(crate) replication_group: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaDescription>>,
++    pub(crate) replication_group: ::std::option::Option<::std::vec::Vec<super::types::ReplicaDescription>>,
+     pub(crate) global_table_arn: ::std::option::Option<::std::string::String>,
+     pub(crate) creation_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+-    pub(crate) global_table_status: ::std::option::Option<crate::types::GlobalTableStatus>,
++    pub(crate) global_table_status: ::std::option::Option<super::types::GlobalTableStatus>,
+     pub(crate) global_table_name: ::std::option::Option<::std::string::String>,
+ }
+ impl GlobalTableDescriptionBuilder {
+@@ -82,7 +82,7 @@
+     /// To override the contents of this collection use [`set_replication_group`](Self::set_replication_group).
+     ///
+     /// <p>The Regions where the global table has replicas.</p>
+-    pub fn replication_group(mut self, input: crate::types::ReplicaDescription) -> Self {
++    pub fn replication_group(mut self, input: super::types::ReplicaDescription) -> Self {
+         let mut v = self.replication_group.unwrap_or_default();
+         v.push(input);
+         self.replication_group = ::std::option::Option::Some(v);
+@@ -89,12 +89,12 @@
+         self
+     }
+     /// <p>The Regions where the global table has replicas.</p>
+-    pub fn set_replication_group(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaDescription>>) -> Self {
++    pub fn set_replication_group(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ReplicaDescription>>) -> Self {
+         self.replication_group = input;
+         self
+     }
+     /// <p>The Regions where the global table has replicas.</p>
+-    pub fn get_replication_group(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaDescription>> {
++    pub fn get_replication_group(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ReplicaDescription>> {
+         &self.replication_group
+     }
+     /// <p>The unique identifier of the global table.</p>
+@@ -136,7 +136,7 @@
+     /// <li>
+     /// <p><code>ACTIVE</code> - The global table is ready for use.</p></li>
+     /// </ul>
+-    pub fn global_table_status(mut self, input: crate::types::GlobalTableStatus) -> Self {
++    pub fn global_table_status(mut self, input: super::types::GlobalTableStatus) -> Self {
+         self.global_table_status = ::std::option::Option::Some(input);
+         self
+     }
+@@ -151,7 +151,7 @@
+     /// <li>
+     /// <p><code>ACTIVE</code> - The global table is ready for use.</p></li>
+     /// </ul>
+-    pub fn set_global_table_status(mut self, input: ::std::option::Option<crate::types::GlobalTableStatus>) -> Self {
++    pub fn set_global_table_status(mut self, input: ::std::option::Option<super::types::GlobalTableStatus>) -> Self {
+         self.global_table_status = input;
+         self
+     }
+@@ -166,7 +166,7 @@
+     /// <li>
+     /// <p><code>ACTIVE</code> - The global table is ready for use.</p></li>
+     /// </ul>
+-    pub fn get_global_table_status(&self) -> &::std::option::Option<crate::types::GlobalTableStatus> {
++    pub fn get_global_table_status(&self) -> &::std::option::Option<super::types::GlobalTableStatus> {
+         &self.global_table_status
+     }
+     /// <p>The global table name.</p>
+@@ -184,8 +184,8 @@
+         &self.global_table_name
+     }
+     /// Consumes the builder and constructs a [`GlobalTableDescription`](crate::types::GlobalTableDescription).
+-    pub fn build(self) -> crate::types::GlobalTableDescription {
+-        crate::types::GlobalTableDescription {
++    pub fn build(self) -> super::types::GlobalTableDescription {
++        super::types::GlobalTableDescription {
+             replication_group: self.replication_group,
+             global_table_arn: self.global_table_arn,
+             creation_date_time: self.creation_date_time,

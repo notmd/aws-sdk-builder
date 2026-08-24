@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -16,8 +16,8 @@
+ }
+ impl DeleteGlobalTableWitnessGroupMemberAction {
+     /// Creates a new builder-style object to manufacture [`DeleteGlobalTableWitnessGroupMemberAction`](crate::types::DeleteGlobalTableWitnessGroupMemberAction).
+-    pub fn builder() -> crate::types::builders::DeleteGlobalTableWitnessGroupMemberActionBuilder {
+-        crate::types::builders::DeleteGlobalTableWitnessGroupMemberActionBuilder::default()
++    pub fn builder() -> super::types::builders::DeleteGlobalTableWitnessGroupMemberActionBuilder {
++        super::types::builders::DeleteGlobalTableWitnessGroupMemberActionBuilder::default()
+     }
+ }
+
+@@ -48,8 +48,8 @@
+     /// - [`region_name`](crate::types::builders::DeleteGlobalTableWitnessGroupMemberActionBuilder::region_name)
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::types::DeleteGlobalTableWitnessGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::DeleteGlobalTableWitnessGroupMemberAction {
++    ) -> ::std::result::Result<super::types::DeleteGlobalTableWitnessGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::DeleteGlobalTableWitnessGroupMemberAction {
+             region_name: self.region_name.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "region_name",

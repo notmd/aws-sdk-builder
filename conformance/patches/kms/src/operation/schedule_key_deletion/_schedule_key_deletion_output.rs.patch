@@ -1,0 +1,74 @@
+--- original
++++ modified
+@@ -10,7 +10,7 @@
+     pub deletion_date: ::std::option::Option<::aws_smithy_types::DateTime>,
+     /// <p>The current status of the KMS key.</p>
+     /// <p>For more information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+-    pub key_state: ::std::option::Option<crate::types::KeyState>,
++    pub key_state: ::std::option::Option<super::types::KeyState>,
+     /// <p>The waiting period before the KMS key is deleted.</p>
+     /// <p>If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.</p>
+     pub pending_window_in_days: ::std::option::Option<i32>,
+@@ -28,7 +28,7 @@
+     }
+     /// <p>The current status of the KMS key.</p>
+     /// <p>For more information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+-    pub fn key_state(&self) -> ::std::option::Option<&crate::types::KeyState> {
++    pub fn key_state(&self) -> ::std::option::Option<&super::types::KeyState> {
+         self.key_state.as_ref()
+     }
+     /// <p>The waiting period before the KMS key is deleted.</p>
+@@ -44,8 +44,8 @@
+ }
+ impl ScheduleKeyDeletionOutput {
+     /// Creates a new builder-style object to manufacture [`ScheduleKeyDeletionOutput`](crate::operation::schedule_key_deletion::ScheduleKeyDeletionOutput).
+-    pub fn builder() -> crate::operation::schedule_key_deletion::builders::ScheduleKeyDeletionOutputBuilder {
+-        crate::operation::schedule_key_deletion::builders::ScheduleKeyDeletionOutputBuilder::default()
++    pub fn builder() -> super::operation::schedule_key_deletion::builders::ScheduleKeyDeletionOutputBuilder {
++        super::operation::schedule_key_deletion::builders::ScheduleKeyDeletionOutputBuilder::default()
+     }
+ }
+
+@@ -55,7 +55,7 @@
+ pub struct ScheduleKeyDeletionOutputBuilder {
+     pub(crate) key_id: ::std::option::Option<::std::string::String>,
+     pub(crate) deletion_date: ::std::option::Option<::aws_smithy_types::DateTime>,
+-    pub(crate) key_state: ::std::option::Option<crate::types::KeyState>,
++    pub(crate) key_state: ::std::option::Option<super::types::KeyState>,
+     pub(crate) pending_window_in_days: ::std::option::Option<i32>,
+     _request_id: Option<String>,
+ }
+@@ -93,19 +93,19 @@
+     }
+     /// <p>The current status of the KMS key.</p>
+     /// <p>For more information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+-    pub fn key_state(mut self, input: crate::types::KeyState) -> Self {
++    pub fn key_state(mut self, input: super::types::KeyState) -> Self {
+         self.key_state = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The current status of the KMS key.</p>
+     /// <p>For more information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+-    pub fn set_key_state(mut self, input: ::std::option::Option<crate::types::KeyState>) -> Self {
++    pub fn set_key_state(mut self, input: ::std::option::Option<super::types::KeyState>) -> Self {
+         self.key_state = input;
+         self
+     }
+     /// <p>The current status of the KMS key.</p>
+     /// <p>For more information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+-    pub fn get_key_state(&self) -> &::std::option::Option<crate::types::KeyState> {
++    pub fn get_key_state(&self) -> &::std::option::Option<super::types::KeyState> {
+         &self.key_state
+     }
+     /// <p>The waiting period before the KMS key is deleted.</p>
+@@ -135,8 +135,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ScheduleKeyDeletionOutput`](crate::operation::schedule_key_deletion::ScheduleKeyDeletionOutput).
+-    pub fn build(self) -> crate::operation::schedule_key_deletion::ScheduleKeyDeletionOutput {
+-        crate::operation::schedule_key_deletion::ScheduleKeyDeletionOutput {
++    pub fn build(self) -> super::operation::schedule_key_deletion::ScheduleKeyDeletionOutput {
++        super::operation::schedule_key_deletion::ScheduleKeyDeletionOutput {
+             key_id: self.key_id,
+             deletion_date: self.deletion_date,
+             key_state: self.key_state,

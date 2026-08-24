@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -50,8 +50,8 @@
+ }
+ impl PutGroupPolicyInput {
+     /// Creates a new builder-style object to manufacture [`PutGroupPolicyInput`](crate::operation::put_group_policy::PutGroupPolicyInput).
+-    pub fn builder() -> crate::operation::put_group_policy::builders::PutGroupPolicyInputBuilder {
+-        crate::operation::put_group_policy::builders::PutGroupPolicyInputBuilder::default()
++    pub fn builder() -> super::operation::put_group_policy::builders::PutGroupPolicyInputBuilder {
++        super::operation::put_group_policy::builders::PutGroupPolicyInputBuilder::default()
+     }
+ }
+
+@@ -148,8 +148,8 @@
+     /// Consumes the builder and constructs a [`PutGroupPolicyInput`](crate::operation::put_group_policy::PutGroupPolicyInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::put_group_policy::PutGroupPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::put_group_policy::PutGroupPolicyInput {
++    ) -> ::std::result::Result<super::operation::put_group_policy::PutGroupPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::put_group_policy::PutGroupPolicyInput {
+             group_name: self.group_name,
+             policy_name: self.policy_name,
+             policy_document: self.policy_document,

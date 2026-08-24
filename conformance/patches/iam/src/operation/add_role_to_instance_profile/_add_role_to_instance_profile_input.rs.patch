@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -24,8 +24,8 @@
+ }
+ impl AddRoleToInstanceProfileInput {
+     /// Creates a new builder-style object to manufacture [`AddRoleToInstanceProfileInput`](crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileInput).
+-    pub fn builder() -> crate::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileInputBuilder {
+-        crate::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileInputBuilder::default()
++    pub fn builder() -> super::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileInputBuilder {
++        super::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileInputBuilder::default()
+     }
+ }
+
+@@ -77,10 +77,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileInput,
++        super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileInput {
++        ::std::result::Result::Ok(super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileInput {
+             instance_profile_name: self.instance_profile_name,
+             role_name: self.role_name,
+         })

@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -6,7 +6,7 @@
+     _extended_request_id: Option<String>,
+     _request_id: Option<String>,
+ }
+-impl crate::s3_request_id::RequestIdExt for DeleteBucketMetricsConfigurationOutput {
++impl super::s3_request_id::RequestIdExt for DeleteBucketMetricsConfigurationOutput {
+     fn extended_request_id(&self) -> Option<&str> {
+         self._extended_request_id.as_deref()
+     }
+@@ -18,8 +18,8 @@
+ }
+ impl DeleteBucketMetricsConfigurationOutput {
+     /// Creates a new builder-style object to manufacture [`DeleteBucketMetricsConfigurationOutput`](crate::operation::delete_bucket_metrics_configuration::DeleteBucketMetricsConfigurationOutput).
+-    pub fn builder() -> crate::operation::delete_bucket_metrics_configuration::builders::DeleteBucketMetricsConfigurationOutputBuilder {
+-        crate::operation::delete_bucket_metrics_configuration::builders::DeleteBucketMetricsConfigurationOutputBuilder::default()
++    pub fn builder() -> super::operation::delete_bucket_metrics_configuration::builders::DeleteBucketMetricsConfigurationOutputBuilder {
++        super::operation::delete_bucket_metrics_configuration::builders::DeleteBucketMetricsConfigurationOutputBuilder::default()
+     }
+ }
+
+@@ -50,8 +50,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`DeleteBucketMetricsConfigurationOutput`](crate::operation::delete_bucket_metrics_configuration::DeleteBucketMetricsConfigurationOutput).
+-    pub fn build(self) -> crate::operation::delete_bucket_metrics_configuration::DeleteBucketMetricsConfigurationOutput {
+-        crate::operation::delete_bucket_metrics_configuration::DeleteBucketMetricsConfigurationOutput {
++    pub fn build(self) -> super::operation::delete_bucket_metrics_configuration::DeleteBucketMetricsConfigurationOutput {
++        super::operation::delete_bucket_metrics_configuration::DeleteBucketMetricsConfigurationOutput {
+             _extended_request_id: self._extended_request_id,
+             _request_id: self._request_id,
+         }

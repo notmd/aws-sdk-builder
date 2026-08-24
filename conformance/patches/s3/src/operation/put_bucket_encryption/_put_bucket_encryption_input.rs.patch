@@ -1,0 +1,107 @@
+--- original
++++ modified
+@@ -15,9 +15,9 @@
+     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p><note>
+     /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
+     /// </note>
+-    pub checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
++    pub checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
+     /// <p>Specifies the default server-side-encryption configuration.</p>
+-    pub server_side_encryption_configuration: ::std::option::Option<crate::types::ServerSideEncryptionConfiguration>,
++    pub server_side_encryption_configuration: ::std::option::Option<super::types::ServerSideEncryptionConfiguration>,
+     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
+     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
+     /// </note>
+@@ -40,11 +40,11 @@
+     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p><note>
+     /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
+     /// </note>
+-    pub fn checksum_algorithm(&self) -> ::std::option::Option<&crate::types::ChecksumAlgorithm> {
++    pub fn checksum_algorithm(&self) -> ::std::option::Option<&super::types::ChecksumAlgorithm> {
+         self.checksum_algorithm.as_ref()
+     }
+     /// <p>Specifies the default server-side-encryption configuration.</p>
+-    pub fn server_side_encryption_configuration(&self) -> ::std::option::Option<&crate::types::ServerSideEncryptionConfiguration> {
++    pub fn server_side_encryption_configuration(&self) -> ::std::option::Option<&super::types::ServerSideEncryptionConfiguration> {
+         self.server_side_encryption_configuration.as_ref()
+     }
+     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
+@@ -56,8 +56,8 @@
+ }
+ impl PutBucketEncryptionInput {
+     /// Creates a new builder-style object to manufacture [`PutBucketEncryptionInput`](crate::operation::put_bucket_encryption::PutBucketEncryptionInput).
+-    pub fn builder() -> crate::operation::put_bucket_encryption::builders::PutBucketEncryptionInputBuilder {
+-        crate::operation::put_bucket_encryption::builders::PutBucketEncryptionInputBuilder::default()
++    pub fn builder() -> super::operation::put_bucket_encryption::builders::PutBucketEncryptionInputBuilder {
++        super::operation::put_bucket_encryption::builders::PutBucketEncryptionInputBuilder::default()
+     }
+ }
+
+@@ -67,8 +67,8 @@
+ pub struct PutBucketEncryptionInputBuilder {
+     pub(crate) bucket: ::std::option::Option<::std::string::String>,
+     pub(crate) content_md5: ::std::option::Option<::std::string::String>,
+-    pub(crate) checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
+-    pub(crate) server_side_encryption_configuration: ::std::option::Option<crate::types::ServerSideEncryptionConfiguration>,
++    pub(crate) checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
++    pub(crate) server_side_encryption_configuration: ::std::option::Option<super::types::ServerSideEncryptionConfiguration>,
+     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
+ }
+ impl PutBucketEncryptionInputBuilder {
+@@ -117,7 +117,7 @@
+     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p><note>
+     /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
+     /// </note>
+-    pub fn checksum_algorithm(mut self, input: crate::types::ChecksumAlgorithm) -> Self {
++    pub fn checksum_algorithm(mut self, input: super::types::ChecksumAlgorithm) -> Self {
+         self.checksum_algorithm = ::std::option::Option::Some(input);
+         self
+     }
+@@ -125,7 +125,7 @@
+     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p><note>
+     /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
+     /// </note>
+-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
++    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<super::types::ChecksumAlgorithm>) -> Self {
+         self.checksum_algorithm = input;
+         self
+     }
+@@ -133,22 +133,22 @@
+     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p><note>
+     /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
+     /// </note>
+-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
++    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<super::types::ChecksumAlgorithm> {
+         &self.checksum_algorithm
+     }
+     /// <p>Specifies the default server-side-encryption configuration.</p>
+     /// This field is required.
+-    pub fn server_side_encryption_configuration(mut self, input: crate::types::ServerSideEncryptionConfiguration) -> Self {
++    pub fn server_side_encryption_configuration(mut self, input: super::types::ServerSideEncryptionConfiguration) -> Self {
+         self.server_side_encryption_configuration = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Specifies the default server-side-encryption configuration.</p>
+-    pub fn set_server_side_encryption_configuration(mut self, input: ::std::option::Option<crate::types::ServerSideEncryptionConfiguration>) -> Self {
++    pub fn set_server_side_encryption_configuration(mut self, input: ::std::option::Option<super::types::ServerSideEncryptionConfiguration>) -> Self {
+         self.server_side_encryption_configuration = input;
+         self
+     }
+     /// <p>Specifies the default server-side-encryption configuration.</p>
+-    pub fn get_server_side_encryption_configuration(&self) -> &::std::option::Option<crate::types::ServerSideEncryptionConfiguration> {
++    pub fn get_server_side_encryption_configuration(&self) -> &::std::option::Option<super::types::ServerSideEncryptionConfiguration> {
+         &self.server_side_encryption_configuration
+     }
+     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
+@@ -174,9 +174,9 @@
+     /// Consumes the builder and constructs a [`PutBucketEncryptionInput`](crate::operation::put_bucket_encryption::PutBucketEncryptionInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::put_bucket_encryption::PutBucketEncryptionInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::put_bucket_encryption::PutBucketEncryptionInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::put_bucket_encryption::PutBucketEncryptionInput {
++        ::std::result::Result::Ok(super::operation::put_bucket_encryption::PutBucketEncryptionInput {
+             bucket: self.bucket,
+             content_md5: self.content_md5,
+             checksum_algorithm: self.checksum_algorithm,

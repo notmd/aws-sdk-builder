@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -20,8 +20,8 @@
+ }
+ impl DescribeContributorInsightsInput {
+     /// Creates a new builder-style object to manufacture [`DescribeContributorInsightsInput`](crate::operation::describe_contributor_insights::DescribeContributorInsightsInput).
+-    pub fn builder() -> crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsInputBuilder {
+-        crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsInputBuilder::default()
++    pub fn builder() -> super::operation::describe_contributor_insights::builders::DescribeContributorInsightsInputBuilder {
++        super::operation::describe_contributor_insights::builders::DescribeContributorInsightsInputBuilder::default()
+     }
+ }
+
+@@ -66,10 +66,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::describe_contributor_insights::DescribeContributorInsightsInput,
++        super::operation::describe_contributor_insights::DescribeContributorInsightsInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::describe_contributor_insights::DescribeContributorInsightsInput {
++        ::std::result::Result::Ok(super::operation::describe_contributor_insights::DescribeContributorInsightsInput {
+             table_name: self.table_name,
+             index_name: self.index_name,
+         })

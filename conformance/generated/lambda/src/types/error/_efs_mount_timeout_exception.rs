@@ -24,7 +24,7 @@ impl EfsMountTimeoutException {
 }
 impl ::std::fmt::Display for EfsMountTimeoutException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(f, "EfsMountTimeoutException")?;
+        ::std::write!(f, "EfsMountTimeoutException [EFSMountTimeoutException]")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;

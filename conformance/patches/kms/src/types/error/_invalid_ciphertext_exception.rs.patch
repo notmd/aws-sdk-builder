@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -27,7 +27,7 @@
+     }
+ }
+ impl ::std::error::Error for InvalidCiphertextException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidCiphertextException {
++impl ::aws_types::request_id::RequestId for super::types::error::InvalidCiphertextException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -40,8 +40,8 @@
+ }
+ impl InvalidCiphertextException {
+     /// Creates a new builder-style object to manufacture [`InvalidCiphertextException`](crate::types::error::InvalidCiphertextException).
+-    pub fn builder() -> crate::types::error::builders::InvalidCiphertextExceptionBuilder {
+-        crate::types::error::builders::InvalidCiphertextExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::InvalidCiphertextExceptionBuilder {
++        super::types::error::builders::InvalidCiphertextExceptionBuilder::default()
+     }
+ }
+
+@@ -79,8 +79,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`InvalidCiphertextException`](crate::types::error::InvalidCiphertextException).
+-    pub fn build(self) -> crate::types::error::InvalidCiphertextException {
+-        crate::types::error::InvalidCiphertextException {
++    pub fn build(self) -> super::types::error::InvalidCiphertextException {
++        super::types::error::InvalidCiphertextException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

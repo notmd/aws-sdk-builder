@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -30,8 +30,8 @@
+ }
+ impl ListUserPoliciesInput {
+     /// Creates a new builder-style object to manufacture [`ListUserPoliciesInput`](crate::operation::list_user_policies::ListUserPoliciesInput).
+-    pub fn builder() -> crate::operation::list_user_policies::builders::ListUserPoliciesInputBuilder {
+-        crate::operation::list_user_policies::builders::ListUserPoliciesInputBuilder::default()
++    pub fn builder() -> super::operation::list_user_policies::builders::ListUserPoliciesInputBuilder {
++        super::operation::list_user_policies::builders::ListUserPoliciesInputBuilder::default()
+     }
+ }
+
+@@ -96,8 +96,8 @@
+     /// Consumes the builder and constructs a [`ListUserPoliciesInput`](crate::operation::list_user_policies::ListUserPoliciesInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::list_user_policies::ListUserPoliciesInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::list_user_policies::ListUserPoliciesInput {
++    ) -> ::std::result::Result<super::operation::list_user_policies::ListUserPoliciesInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::list_user_policies::ListUserPoliciesInput {
+             user_name: self.user_name,
+             marker: self.marker,
+             max_items: self.max_items,

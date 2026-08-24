@@ -1,0 +1,108 @@
+--- original
++++ modified
+@@ -5,18 +5,18 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::accept_delegation_request::AcceptDelegationRequestOutput,
+-    crate::operation::accept_delegation_request::AcceptDelegationRequestError,
++    super::operation::accept_delegation_request::AcceptDelegationRequestOutput,
++    super::operation::accept_delegation_request::AcceptDelegationRequestError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::accept_delegation_request::AcceptDelegationRequestError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::accept_delegation_request::AcceptDelegationRequestError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+         None => {
+-            return Err(crate::operation::accept_delegation_request::AcceptDelegationRequestError::unhandled(
++            return Err(super::operation::accept_delegation_request::AcceptDelegationRequestError::unhandled(
+                 generic,
+             ))
+         }
+@@ -24,16 +24,16 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ConcurrentModification" => crate::operation::accept_delegation_request::AcceptDelegationRequestError::ConcurrentModificationException({
++        "ConcurrentModification" => super::operation::accept_delegation_request::AcceptDelegationRequestError::ConcurrentModificationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(
++                let mut output = super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
++                output = super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(
+                     _response_body,
+                     output,
+                 )
+-                .map_err(crate::operation::accept_delegation_request::AcceptDelegationRequestError::unhandled)?;
++                .map_err(super::operation::accept_delegation_request::AcceptDelegationRequestError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -42,13 +42,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => crate::operation::accept_delegation_request::AcceptDelegationRequestError::NoSuchEntityException({
++        "NoSuchEntity" => super::operation::accept_delegation_request::AcceptDelegationRequestError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::accept_delegation_request::AcceptDelegationRequestError::unhandled)?;
++                let mut output = super::types::error::builders::NoSuchEntityExceptionBuilder::default();
++                output = super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::accept_delegation_request::AcceptDelegationRequestError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -57,13 +57,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => crate::operation::accept_delegation_request::AcceptDelegationRequestError::ServiceFailureException({
++        "ServiceFailure" => super::operation::accept_delegation_request::AcceptDelegationRequestError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::accept_delegation_request::AcceptDelegationRequestError::unhandled)?;
++                let mut output = super::types::error::builders::ServiceFailureExceptionBuilder::default();
++                output = super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::accept_delegation_request::AcceptDelegationRequestError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -72,7 +72,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::accept_delegation_request::AcceptDelegationRequestError::generic(generic),
++        _ => super::operation::accept_delegation_request::AcceptDelegationRequestError::generic(generic),
+     })
+ }
+
+@@ -82,12 +82,12 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::accept_delegation_request::AcceptDelegationRequestOutput,
+-    crate::operation::accept_delegation_request::AcceptDelegationRequestError,
++    super::operation::accept_delegation_request::AcceptDelegationRequestOutput,
++    super::operation::accept_delegation_request::AcceptDelegationRequestError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::accept_delegation_request::builders::AcceptDelegationRequestOutputBuilder::default();
++        let mut output = super::operation::accept_delegation_request::builders::AcceptDelegationRequestOutputBuilder::default();
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })

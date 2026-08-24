@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -20,8 +20,8 @@
+ }
+ impl GetAccountPropertiesOutput {
+     /// Creates a new builder-style object to manufacture [`GetAccountPropertiesOutput`](crate::operation::get_account_properties::GetAccountPropertiesOutput).
+-    pub fn builder() -> crate::operation::get_account_properties::builders::GetAccountPropertiesOutputBuilder {
+-        crate::operation::get_account_properties::builders::GetAccountPropertiesOutputBuilder::default()
++    pub fn builder() -> super::operation::get_account_properties::builders::GetAccountPropertiesOutputBuilder {
++        super::operation::get_account_properties::builders::GetAccountPropertiesOutputBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`GetAccountPropertiesOutput`](crate::operation::get_account_properties::GetAccountPropertiesOutput).
+-    pub fn build(self) -> crate::operation::get_account_properties::GetAccountPropertiesOutput {
+-        crate::operation::get_account_properties::GetAccountPropertiesOutput {
++    pub fn build(self) -> super::operation::get_account_properties::GetAccountPropertiesOutput {
++        super::operation::get_account_properties::GetAccountPropertiesOutput {
+             properties: self.properties,
+             _request_id: self._request_id,
+         }

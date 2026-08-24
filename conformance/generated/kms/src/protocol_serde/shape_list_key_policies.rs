@@ -47,7 +47,7 @@ pub fn de_list_key_policies_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::list_key_policies::ListKeyPoliciesError::KmsInternalException({
+        "KMSInternalException" => crate::operation::list_key_policies::ListKeyPoliciesError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -62,7 +62,7 @@ pub fn de_list_key_policies_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::list_key_policies::ListKeyPoliciesError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::list_key_policies::ListKeyPoliciesError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

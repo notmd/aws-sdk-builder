@@ -1,0 +1,68 @@
+--- original
++++ modified
+@@ -11,7 +11,7 @@
+     /// <p>The JSON response payload from the step operation.</p>
+     pub result: ::std::option::Option<::std::string::String>,
+     /// <p>Details about the step failure.</p>
+-    pub error: ::std::option::Option<crate::types::ErrorObject>,
++    pub error: ::std::option::Option<super::types::ErrorObject>,
+ }
+ impl StepDetails {
+     /// <p>The current attempt number for this step.</p>
+@@ -27,7 +27,7 @@
+         self.result.as_deref()
+     }
+     /// <p>Details about the step failure.</p>
+-    pub fn error(&self) -> ::std::option::Option<&crate::types::ErrorObject> {
++    pub fn error(&self) -> ::std::option::Option<&super::types::ErrorObject> {
+         self.error.as_ref()
+     }
+ }
+@@ -43,8 +43,8 @@
+ }
+ impl StepDetails {
+     /// Creates a new builder-style object to manufacture [`StepDetails`](crate::types::StepDetails).
+-    pub fn builder() -> crate::types::builders::StepDetailsBuilder {
+-        crate::types::builders::StepDetailsBuilder::default()
++    pub fn builder() -> super::types::builders::StepDetailsBuilder {
++        super::types::builders::StepDetailsBuilder::default()
+     }
+ }
+
+@@ -55,7 +55,7 @@
+     pub(crate) attempt: ::std::option::Option<i32>,
+     pub(crate) next_attempt_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
+     pub(crate) result: ::std::option::Option<::std::string::String>,
+-    pub(crate) error: ::std::option::Option<crate::types::ErrorObject>,
++    pub(crate) error: ::std::option::Option<super::types::ErrorObject>,
+ }
+ impl StepDetailsBuilder {
+     /// <p>The current attempt number for this step.</p>
+@@ -101,22 +101,22 @@
+         &self.result
+     }
+     /// <p>Details about the step failure.</p>
+-    pub fn error(mut self, input: crate::types::ErrorObject) -> Self {
++    pub fn error(mut self, input: super::types::ErrorObject) -> Self {
+         self.error = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Details about the step failure.</p>
+-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
++    pub fn set_error(mut self, input: ::std::option::Option<super::types::ErrorObject>) -> Self {
+         self.error = input;
+         self
+     }
+     /// <p>Details about the step failure.</p>
+-    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorObject> {
++    pub fn get_error(&self) -> &::std::option::Option<super::types::ErrorObject> {
+         &self.error
+     }
+     /// Consumes the builder and constructs a [`StepDetails`](crate::types::StepDetails).
+-    pub fn build(self) -> crate::types::StepDetails {
+-        crate::types::StepDetails {
++    pub fn build(self) -> super::types::StepDetails {
++        super::types::StepDetails {
+             attempt: self.attempt.unwrap_or_default(),
+             next_attempt_timestamp: self.next_attempt_timestamp,
+             result: self.result,

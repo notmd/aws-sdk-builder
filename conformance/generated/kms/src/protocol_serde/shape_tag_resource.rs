@@ -32,7 +32,7 @@ pub fn de_tag_resource_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::tag_resource::TagResourceError::KmsInternalException({
+        "KMSInternalException" => crate::operation::tag_resource::TagResourceError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -47,7 +47,7 @@ pub fn de_tag_resource_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::tag_resource::TagResourceError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::tag_resource::TagResourceError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

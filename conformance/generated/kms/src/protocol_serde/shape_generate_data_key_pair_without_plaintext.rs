@@ -134,7 +134,7 @@ pub fn de_generate_data_key_pair_without_plaintext_http_error(
                 tmp
             })
         }
-        "KmsInternalException" => {
+        "KMSInternalException" => {
             crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextError::KmsInternalException({
                 #[allow(unused_mut)]
                 let mut tmp = {
@@ -151,7 +151,7 @@ pub fn de_generate_data_key_pair_without_plaintext_http_error(
                 tmp
             })
         }
-        "KmsInvalidStateException" => {
+        "KMSInvalidStateException" => {
             crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextError::KmsInvalidStateException({
                 #[allow(unused_mut)]
                 let mut tmp = {

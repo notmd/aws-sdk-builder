@@ -1,0 +1,78 @@
+--- original
++++ modified
+@@ -20,7 +20,7 @@
+     /// <p>By default, Lambda sets your function's configuration to <code>Terminate</code>.</p><important>
+     /// <p>If your design intentionally uses a Lambda function to write data back to the same Amazon Web Services resource that invokes the function, then use caution and implement suitable guard rails to prevent unexpected charges being billed to your Amazon Web Services account. To learn more about best practices for using recursive invocation patterns, see <a href="https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/recursive-runaway">Recursive patterns that cause run-away Lambda functions</a> in Serverless Land.</p>
+     /// </important>
+-    pub recursive_loop: ::std::option::Option<crate::types::RecursiveLoop>,
++    pub recursive_loop: ::std::option::Option<super::types::RecursiveLoop>,
+ }
+ impl PutFunctionRecursionConfigInput {
+     /// <p>The name or ARN of the Lambda function.</p>
+@@ -42,14 +42,14 @@
+     /// <p>By default, Lambda sets your function's configuration to <code>Terminate</code>.</p><important>
+     /// <p>If your design intentionally uses a Lambda function to write data back to the same Amazon Web Services resource that invokes the function, then use caution and implement suitable guard rails to prevent unexpected charges being billed to your Amazon Web Services account. To learn more about best practices for using recursive invocation patterns, see <a href="https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/recursive-runaway">Recursive patterns that cause run-away Lambda functions</a> in Serverless Land.</p>
+     /// </important>
+-    pub fn recursive_loop(&self) -> ::std::option::Option<&crate::types::RecursiveLoop> {
++    pub fn recursive_loop(&self) -> ::std::option::Option<&super::types::RecursiveLoop> {
+         self.recursive_loop.as_ref()
+     }
+ }
+ impl PutFunctionRecursionConfigInput {
+     /// Creates a new builder-style object to manufacture [`PutFunctionRecursionConfigInput`](crate::operation::put_function_recursion_config::PutFunctionRecursionConfigInput).
+-    pub fn builder() -> crate::operation::put_function_recursion_config::builders::PutFunctionRecursionConfigInputBuilder {
+-        crate::operation::put_function_recursion_config::builders::PutFunctionRecursionConfigInputBuilder::default()
++    pub fn builder() -> super::operation::put_function_recursion_config::builders::PutFunctionRecursionConfigInputBuilder {
++        super::operation::put_function_recursion_config::builders::PutFunctionRecursionConfigInputBuilder::default()
+     }
+ }
+
+@@ -58,7 +58,7 @@
+ #[non_exhaustive]
+ pub struct PutFunctionRecursionConfigInputBuilder {
+     pub(crate) function_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) recursive_loop: ::std::option::Option<crate::types::RecursiveLoop>,
++    pub(crate) recursive_loop: ::std::option::Option<super::types::RecursiveLoop>,
+ }
+ impl PutFunctionRecursionConfigInputBuilder {
+     /// <p>The name or ARN of the Lambda function.</p>
+@@ -112,7 +112,7 @@
+     /// <p>If your design intentionally uses a Lambda function to write data back to the same Amazon Web Services resource that invokes the function, then use caution and implement suitable guard rails to prevent unexpected charges being billed to your Amazon Web Services account. To learn more about best practices for using recursive invocation patterns, see <a href="https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/recursive-runaway">Recursive patterns that cause run-away Lambda functions</a> in Serverless Land.</p>
+     /// </important>
+     /// This field is required.
+-    pub fn recursive_loop(mut self, input: crate::types::RecursiveLoop) -> Self {
++    pub fn recursive_loop(mut self, input: super::types::RecursiveLoop) -> Self {
+         self.recursive_loop = ::std::option::Option::Some(input);
+         self
+     }
+@@ -121,7 +121,7 @@
+     /// <p>By default, Lambda sets your function's configuration to <code>Terminate</code>.</p><important>
+     /// <p>If your design intentionally uses a Lambda function to write data back to the same Amazon Web Services resource that invokes the function, then use caution and implement suitable guard rails to prevent unexpected charges being billed to your Amazon Web Services account. To learn more about best practices for using recursive invocation patterns, see <a href="https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/recursive-runaway">Recursive patterns that cause run-away Lambda functions</a> in Serverless Land.</p>
+     /// </important>
+-    pub fn set_recursive_loop(mut self, input: ::std::option::Option<crate::types::RecursiveLoop>) -> Self {
++    pub fn set_recursive_loop(mut self, input: ::std::option::Option<super::types::RecursiveLoop>) -> Self {
+         self.recursive_loop = input;
+         self
+     }
+@@ -130,7 +130,7 @@
+     /// <p>By default, Lambda sets your function's configuration to <code>Terminate</code>.</p><important>
+     /// <p>If your design intentionally uses a Lambda function to write data back to the same Amazon Web Services resource that invokes the function, then use caution and implement suitable guard rails to prevent unexpected charges being billed to your Amazon Web Services account. To learn more about best practices for using recursive invocation patterns, see <a href="https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/recursive-runaway">Recursive patterns that cause run-away Lambda functions</a> in Serverless Land.</p>
+     /// </important>
+-    pub fn get_recursive_loop(&self) -> &::std::option::Option<crate::types::RecursiveLoop> {
++    pub fn get_recursive_loop(&self) -> &::std::option::Option<super::types::RecursiveLoop> {
+         &self.recursive_loop
+     }
+     /// Consumes the builder and constructs a [`PutFunctionRecursionConfigInput`](crate::operation::put_function_recursion_config::PutFunctionRecursionConfigInput).
+@@ -137,10 +137,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::put_function_recursion_config::PutFunctionRecursionConfigInput,
++        super::operation::put_function_recursion_config::PutFunctionRecursionConfigInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::put_function_recursion_config::PutFunctionRecursionConfigInput {
++        ::std::result::Result::Ok(super::operation::put_function_recursion_config::PutFunctionRecursionConfigInput {
+             function_name: self.function_name,
+             recursive_loop: self.recursive_loop,
+         })

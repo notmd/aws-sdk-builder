@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -48,8 +48,8 @@
+ }
+ impl ListResourceTagsInput {
+     /// Creates a new builder-style object to manufacture [`ListResourceTagsInput`](crate::operation::list_resource_tags::ListResourceTagsInput).
+-    pub fn builder() -> crate::operation::list_resource_tags::builders::ListResourceTagsInputBuilder {
+-        crate::operation::list_resource_tags::builders::ListResourceTagsInputBuilder::default()
++    pub fn builder() -> super::operation::list_resource_tags::builders::ListResourceTagsInputBuilder {
++        super::operation::list_resource_tags::builders::ListResourceTagsInputBuilder::default()
+     }
+ }
+
+@@ -141,8 +141,8 @@
+     /// Consumes the builder and constructs a [`ListResourceTagsInput`](crate::operation::list_resource_tags::ListResourceTagsInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::list_resource_tags::ListResourceTagsInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::list_resource_tags::ListResourceTagsInput {
++    ) -> ::std::result::Result<super::operation::list_resource_tags::ListResourceTagsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::list_resource_tags::ListResourceTagsInput {
+             key_id: self.key_id,
+             limit: self.limit,
+             marker: self.marker,

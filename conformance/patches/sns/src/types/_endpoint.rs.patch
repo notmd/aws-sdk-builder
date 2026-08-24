@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl Endpoint {
+     /// Creates a new builder-style object to manufacture [`Endpoint`](crate::types::Endpoint).
+-    pub fn builder() -> crate::types::builders::EndpointBuilder {
+-        crate::types::builders::EndpointBuilder::default()
++    pub fn builder() -> super::types::builders::EndpointBuilder {
++        super::types::builders::EndpointBuilder::default()
+     }
+ }
+
+@@ -69,8 +69,8 @@
+         &self.attributes
+     }
+     /// Consumes the builder and constructs a [`Endpoint`](crate::types::Endpoint).
+-    pub fn build(self) -> crate::types::Endpoint {
+-        crate::types::Endpoint {
++    pub fn build(self) -> super::types::Endpoint {
++        super::types::Endpoint {
+             endpoint_arn: self.endpoint_arn,
+             attributes: self.attributes,
+         }

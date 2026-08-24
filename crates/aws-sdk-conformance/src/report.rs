@@ -1,4 +1,4 @@
-use crate::manifest::Exclusions;
+use crate::{manifest::Exclusions, normalize};
 use std::{
     collections::BTreeSet,
     error::Error,
@@ -243,6 +243,24 @@ pub fn compare_directories_with_policy(
     snapshot: Option<String>,
     exclusions: &Exclusions,
 ) -> Result<ConformanceReport, ReportError> {
+    compare_directories_with_policy_and_patches(
+        reference_root,
+        generated_root,
+        None,
+        snapshot,
+        exclusions,
+    )
+}
+
+/// Compare directories after applying checked-in source-normalization patches
+/// to reference files in memory. The upstream reference tree remains intact.
+pub fn compare_directories_with_policy_and_patches(
+    reference_root: impl AsRef<Path>,
+    generated_root: impl AsRef<Path>,
+    patches_root: Option<&Path>,
+    snapshot: Option<String>,
+    exclusions: &Exclusions,
+) -> Result<ConformanceReport, ReportError> {
     let reference_root = reference_root.as_ref();
     let generated_root = generated_root.as_ref();
     validate_root(reference_root, "reference")?;
@@ -255,6 +273,7 @@ pub fn compare_directories_with_policy(
             &service,
             &reference_root.join(&service),
             &generated_root.join(&service),
+            patches_root.map(|root| root.join(&service)),
             exclusions,
         )?);
     }
@@ -377,6 +396,7 @@ fn compare_service(
     name: &str,
     reference_root: &Path,
     generated_root: &Path,
+    patches_root: Option<PathBuf>,
     exclusions: &Exclusions,
 ) -> Result<ServiceReport, ReportError> {
     let reference_files = collect_files(reference_root, exclusions)?;
@@ -432,11 +452,42 @@ fn compare_service(
                         continue;
                     }
                 };
+                let generated = match apply_generated_normalization(
+                    generated,
+                    patches_root.as_deref().and_then(|root| {
+                        let patch_path = normalize::patch_path(root, &relative_path);
+                        patch_path.exists().then_some(patch_path)
+                    }),
+                    &relative_path,
+                ) {
+                    Ok(bytes) => bytes,
+                    Err(error) => {
+                        report.read_errors.push(error);
+                        continue;
+                    }
+                };
+                let reference = match apply_reference_patch(
+                    &reference,
+                    patches_root.as_deref().and_then(|root| {
+                        let patch_path = normalize::patch_path(root, &relative_path);
+                        patch_path.exists().then_some(patch_path)
+                    }),
+                    &relative_path,
+                ) {
+                    Ok(reference) => reference,
+                    Err(error) => {
+                        report.read_errors.push(error);
+                        continue;
+                    }
+                };
                 if reference == generated {
                     report.matched_files += 1;
                 } else {
                     report.mismatched_files += 1;
-                    match (String::from_utf8(reference), String::from_utf8(generated)) {
+                    match (
+                        String::from_utf8(reference.clone()),
+                        String::from_utf8(generated.clone()),
+                    ) {
                         (Ok(reference), Ok(generated)) => {
                             let mut patch = diffy::create_patch(&reference, &generated).to_string();
                             patch = replace_patch_headers(&patch, &relative_path);
@@ -452,8 +503,8 @@ fn compare_service(
                 }
                 validate_rust_pair(
                     &relative_path,
-                    reference_path,
-                    generated_path,
+                    &reference,
+                    &generated,
                     &mut report.token_mismatches,
                     &mut report.read_errors,
                 );
@@ -465,10 +516,70 @@ fn compare_service(
     Ok(report)
 }
 
+fn apply_reference_patch(
+    reference: &[u8],
+    patch_path: Option<PathBuf>,
+    relative_path: &Path,
+) -> Result<Vec<u8>, String> {
+    let source = std::str::from_utf8(reference).map_err(|error| {
+        format!(
+            "reference file {} is not UTF-8: {error}",
+            relative_path.display()
+        )
+    })?;
+    let normalized = if let Some(patch_path) = patch_path {
+        let patch = fs::read_to_string(&patch_path)
+            .map_err(|error| format!("reference patch {}: {error}", patch_path.display()))?;
+        let patch = diffy::Patch::from_str(&patch).map_err(|error| {
+            format!(
+                "reference patch {} for {} is invalid: {error}",
+                patch_path.display(),
+                relative_path.display()
+            )
+        })?;
+        diffy::apply(source, &patch).map_err(|error| {
+            format!(
+                "reference patch {} for {} does not apply: {error}",
+                patch_path.display(),
+                relative_path.display()
+            )
+        })?
+    } else {
+        source.to_owned()
+    };
+    normalize::drop_inline_unit_tests(&normalized, relative_path).map(|source| source.into_bytes())
+}
+
+fn apply_generated_normalization(
+    generated: Vec<u8>,
+    patch_path: Option<PathBuf>,
+    relative_path: &Path,
+) -> Result<Vec<u8>, String> {
+    if relative_path
+        .extension()
+        .and_then(|extension| extension.to_str())
+        != Some("rs")
+    {
+        return Ok(generated);
+    }
+    let source = std::str::from_utf8(&generated).map_err(|error| {
+        format!(
+            "generated file {} is not UTF-8: {error}",
+            relative_path.display()
+        )
+    })?;
+    let source = if patch_path.is_some() {
+        normalize::normalize_crate_paths(source, relative_path)?
+    } else {
+        source.to_owned()
+    };
+    normalize::drop_inline_unit_tests(&source, relative_path).map(|source| source.into_bytes())
+}
+
 fn validate_rust_pair(
     relative_path: &Path,
-    reference_path: &Path,
-    generated_path: &Path,
+    reference: &[u8],
+    generated: &[u8],
     token_mismatches: &mut Vec<String>,
     errors: &mut Vec<String>,
 ) {
@@ -479,21 +590,21 @@ fn validate_rust_pair(
     {
         return;
     }
-    let reference = match fs::read_to_string(reference_path) {
+    let reference = match std::str::from_utf8(reference) {
         Ok(source) => source,
         Err(error) => {
             errors.push(format!("reference/{}: {}", relative_path.display(), error));
             return;
         }
     };
-    let generated = match fs::read_to_string(generated_path) {
+    let generated = match std::str::from_utf8(generated) {
         Ok(source) => source,
         Err(error) => {
             errors.push(format!("generated/{}: {}", relative_path.display(), error));
             return;
         }
     };
-    let reference_file = match syn::parse_file(&reference) {
+    let reference_file = match syn::parse_file(reference) {
         Ok(file) => file,
         Err(error) => {
             errors.push(format!(
@@ -504,7 +615,7 @@ fn validate_rust_pair(
             return;
         }
     };
-    let generated_file = match syn::parse_file(&generated) {
+    let generated_file = match syn::parse_file(generated) {
         Ok(file) => file,
         Err(error) => {
             errors.push(format!(
@@ -803,11 +914,13 @@ mod tests {
         fs::create_dir_all(reference.path().join("s3/tests")).unwrap();
         fs::create_dir_all(generated.path().join("s3/tests")).unwrap();
         fs::write(reference.path().join("s3/README.md"), "reference").unwrap();
+        fs::write(reference.path().join("s3/LICENSE"), "reference").unwrap();
         fs::write(generated.path().join("s3/tests/extra.rs"), "generated").unwrap();
+        fs::write(generated.path().join("s3/LICENSE"), "generated").unwrap();
         fs::write(reference.path().join("s3/src.rs"), "pub struct Same;\n").unwrap();
         fs::write(generated.path().join("s3/src.rs"), "pub struct Same;\n").unwrap();
         let exclusions = Exclusions {
-            files: vec!["README.md".to_owned()],
+            files: vec!["README.md".to_owned(), "LICENSE".to_owned()],
             directories: vec!["tests".to_owned()],
         };
 
@@ -817,6 +930,36 @@ mod tests {
 
         assert!(!report.has_differences());
         assert_eq!(report.services[0].compared_files, 1);
+        assert_eq!(report.services[0].matched_files, 1);
+    }
+
+    #[test]
+    fn applies_reference_normalization_patch_before_comparing() {
+        let reference = tempdir().unwrap();
+        let generated = tempdir().unwrap();
+        let patches = tempdir().unwrap();
+        fs::create_dir_all(reference.path().join("s3")).unwrap();
+        fs::create_dir_all(generated.path().join("s3")).unwrap();
+        fs::create_dir_all(patches.path().join("s3")).unwrap();
+        let original = "use crate::types::Thing;\n";
+        let normalized = "use super::types::Thing;\n";
+        fs::write(reference.path().join("s3/lib.rs"), original).unwrap();
+        fs::write(generated.path().join("s3/lib.rs"), normalized).unwrap();
+        fs::write(
+            normalize::patch_path(patches.path().join("s3").as_path(), Path::new("lib.rs")),
+            diffy::create_patch(original, normalized).to_string(),
+        )
+        .unwrap();
+
+        let report = compare_directories_with_policy_and_patches(
+            reference.path(),
+            generated.path(),
+            Some(patches.path()),
+            None,
+            &Exclusions::default(),
+        )
+        .unwrap();
+        assert!(!report.has_differences());
         assert_eq!(report.services[0].matched_files, 1);
     }
 

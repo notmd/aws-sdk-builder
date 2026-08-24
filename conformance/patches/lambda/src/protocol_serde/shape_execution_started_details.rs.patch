@@ -1,0 +1,36 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::ExecutionStartedDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::ExecutionStartedDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,13 +16,13 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::ExecutionStartedDetailsBuilder::default();
++            let mut builder = super::types::builders::ExecutionStartedDetailsBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                         "Input" => {
+-                            builder = builder.set_input(crate::protocol_serde::shape_event_input::de_event_input(tokens, _value, depth + 1)?);
++                            builder = builder.set_input(super::protocol_serde::shape_event_input::de_event_input(tokens, _value, depth + 1)?);
+                         }
+                         "ExecutionTimeout" => {
+                             builder = builder.set_execution_timeout(
+@@ -41,7 +41,7 @@
+                 }
+             }
+             Ok(Some(
+-                crate::serde_util::execution_started_details_correct_errors(builder)
++                super::serde_util::execution_started_details_correct_errors(builder)
+                     .build()
+                     .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
+             ))

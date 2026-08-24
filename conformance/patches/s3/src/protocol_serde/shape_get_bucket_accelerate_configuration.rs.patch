@@ -1,0 +1,88 @@
+--- original
++++ modified
+@@ -5,16 +5,16 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationOutput,
+-    crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationError,
++    super::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationOutput,
++    super::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationError::unhandled)?;
+-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationError::unhandled)?;
++    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+-    Err(crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationError::generic(generic))
++    Err(super::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationError::generic(generic))
+ }
+
+ #[allow(clippy::unnecessary_wraps)]
+@@ -23,22 +23,22 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationOutput,
+-    crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationError,
++    super::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationOutput,
++    super::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationOutputBuilder::default();
+-        output = crate::protocol_serde::shape_get_bucket_accelerate_configuration::de_get_bucket_accelerate_configuration(_response_body, output)
+-            .map_err(crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationError::unhandled)?;
++        let mut output = super::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationOutputBuilder::default();
++        output = super::protocol_serde::shape_get_bucket_accelerate_configuration::de_get_bucket_accelerate_configuration(_response_body, output)
++            .map_err(super::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationError::unhandled)?;
+         output = output.set_request_charged(
+-            crate::protocol_serde::shape_get_bucket_accelerate_configuration_output::de_request_charged_header(_response_headers).map_err(|_| {
+-                crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationError::unhandled(
++            super::protocol_serde::shape_get_bucket_accelerate_configuration_output::de_request_charged_header(_response_headers).map_err(|_| {
++                super::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationError::unhandled(
+                     "Failed to parse RequestCharged from header `x-amz-request-charged",
+                 )
+             })?,
+         );
+-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
++        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -45,7 +45,7 @@
+ }
+
+ pub fn ser_get_bucket_accelerate_configuration_headers(
+-    input: &crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationInput,
++    input: &super::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationInput,
+     mut builder: ::http_1x::request::Builder,
+ ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+     if let ::std::option::Option::Some(inner_1) = &input.expected_bucket_owner {
+@@ -76,9 +76,9 @@
+ #[allow(unused_mut)]
+ pub fn de_get_bucket_accelerate_configuration(
+     inp: &[u8],
+-    mut builder: crate::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationOutputBuilder,
++    mut builder: super::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationOutputBuilder,
+ ) -> std::result::Result<
+-    crate::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationOutputBuilder,
++    super::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationOutputBuilder,
+     ::aws_smithy_xml::decode::XmlDecodeError,
+ > {
+     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+@@ -99,8 +99,8 @@
+             s if s.matches("Status") /* Status com.amazonaws.s3.synthetic#GetBucketAccelerateConfigurationOutput$Status */ =>  {
+                 let var_5 =
+                     Some(
+-                        Result::<crate::types::BucketAccelerateStatus, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+-                            crate::types::BucketAccelerateStatus::from(
++                        Result::<super::types::BucketAccelerateStatus, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::types::BucketAccelerateStatus::from(
+                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                             )
+                         )

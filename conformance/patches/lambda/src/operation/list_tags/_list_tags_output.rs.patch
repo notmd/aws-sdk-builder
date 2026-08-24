@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -20,8 +20,8 @@
+ }
+ impl ListTagsOutput {
+     /// Creates a new builder-style object to manufacture [`ListTagsOutput`](crate::operation::list_tags::ListTagsOutput).
+-    pub fn builder() -> crate::operation::list_tags::builders::ListTagsOutputBuilder {
+-        crate::operation::list_tags::builders::ListTagsOutputBuilder::default()
++    pub fn builder() -> super::operation::list_tags::builders::ListTagsOutputBuilder {
++        super::operation::list_tags::builders::ListTagsOutputBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ListTagsOutput`](crate::operation::list_tags::ListTagsOutput).
+-    pub fn build(self) -> crate::operation::list_tags::ListTagsOutput {
+-        crate::operation::list_tags::ListTagsOutput {
++    pub fn build(self) -> super::operation::list_tags::ListTagsOutput {
++        super::operation::list_tags::ListTagsOutput {
+             tags: self.tags,
+             _request_id: self._request_id,
+         }

@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -14,8 +14,8 @@
+ }
+ impl ListTagsInput {
+     /// Creates a new builder-style object to manufacture [`ListTagsInput`](crate::operation::list_tags::ListTagsInput).
+-    pub fn builder() -> crate::operation::list_tags::builders::ListTagsInputBuilder {
+-        crate::operation::list_tags::builders::ListTagsInputBuilder::default()
++    pub fn builder() -> super::operation::list_tags::builders::ListTagsInputBuilder {
++        super::operation::list_tags::builders::ListTagsInputBuilder::default()
+     }
+ }
+
+@@ -42,7 +42,7 @@
+         &self.resource
+     }
+     /// Consumes the builder and constructs a [`ListTagsInput`](crate::operation::list_tags::ListTagsInput).
+-    pub fn build(self) -> ::std::result::Result<crate::operation::list_tags::ListTagsInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::list_tags::ListTagsInput { resource: self.resource })
++    pub fn build(self) -> ::std::result::Result<super::operation::list_tags::ListTagsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::list_tags::ListTagsInput { resource: self.resource })
+     }
+ }

@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -20,8 +20,8 @@
+ }
+ impl ListOriginationNumbersInput {
+     /// Creates a new builder-style object to manufacture [`ListOriginationNumbersInput`](crate::operation::list_origination_numbers::ListOriginationNumbersInput).
+-    pub fn builder() -> crate::operation::list_origination_numbers::builders::ListOriginationNumbersInputBuilder {
+-        crate::operation::list_origination_numbers::builders::ListOriginationNumbersInputBuilder::default()
++    pub fn builder() -> super::operation::list_origination_numbers::builders::ListOriginationNumbersInputBuilder {
++        super::operation::list_origination_numbers::builders::ListOriginationNumbersInputBuilder::default()
+     }
+ }
+
+@@ -65,10 +65,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::list_origination_numbers::ListOriginationNumbersInput,
++        super::operation::list_origination_numbers::ListOriginationNumbersInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::list_origination_numbers::ListOriginationNumbersInput {
++        ::std::result::Result::Ok(super::operation::list_origination_numbers::ListOriginationNumbersInput {
+             next_token: self.next_token,
+             max_results: self.max_results,
+         })

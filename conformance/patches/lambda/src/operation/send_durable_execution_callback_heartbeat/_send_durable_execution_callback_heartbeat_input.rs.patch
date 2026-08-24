@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -14,8 +14,8 @@
+ }
+ impl SendDurableExecutionCallbackHeartbeatInput {
+     /// Creates a new builder-style object to manufacture [`SendDurableExecutionCallbackHeartbeatInput`](crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput).
+-    pub fn builder() -> crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatInputBuilder {
+-        crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatInputBuilder::default()
++    pub fn builder() -> super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatInputBuilder {
++        super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatInputBuilder::default()
+     }
+ }
+
+@@ -45,11 +45,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput,
++        super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput {
++            super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput {
+                 callback_id: self.callback_id,
+             },
+         )

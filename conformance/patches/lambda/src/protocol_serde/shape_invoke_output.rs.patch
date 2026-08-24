@@ -1,0 +1,10 @@
+--- original
++++ modified
+@@ -29,6 +29,6 @@
+
+ pub(crate) fn de_payload_payload(
+     body: &[u8],
+-) -> std::result::Result<::std::option::Option<::aws_smithy_types::Blob>, crate::operation::invoke::InvokeError> {
++) -> std::result::Result<::std::option::Option<::aws_smithy_types::Blob>, super::operation::invoke::InvokeError> {
+     (!body.is_empty()).then(|| Ok(::aws_smithy_types::Blob::new(body))).transpose()
+ }

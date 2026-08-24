@@ -47,7 +47,7 @@ pub fn de_get_key_policy_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::get_key_policy::GetKeyPolicyError::KmsInternalException({
+        "KMSInternalException" => crate::operation::get_key_policy::GetKeyPolicyError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -62,7 +62,7 @@ pub fn de_get_key_policy_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::get_key_policy::GetKeyPolicyError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::get_key_policy::GetKeyPolicyError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

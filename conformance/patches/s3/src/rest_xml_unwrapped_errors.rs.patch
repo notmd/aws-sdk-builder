@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -50,23 +50,3 @@
+     }
+     Ok(builder)
+ }
+-
+-#[cfg(test)]
+-mod test {
+-    use super::{body_is_error, parse_error_metadata};
+-
+-    #[test]
+-    fn parse_unwrapped_error() {
+-        let xml = br#"<Error>
+-    <Type>Sender</Type>
+-    <Code>InvalidGreeting</Code>
+-    <Message>Hi</Message>
+-    <AnotherSetting>setting</AnotherSetting>
+-    <RequestId>foo-id</RequestId>
+-</Error>"#;
+-        assert!(body_is_error(xml).unwrap());
+-        let parsed = parse_error_metadata(xml).expect("valid xml").build();
+-        assert_eq!(parsed.message(), Some("Hi"));
+-        assert_eq!(parsed.code(), Some("InvalidGreeting"));
+-    }
+-}

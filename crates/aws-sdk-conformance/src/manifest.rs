@@ -1,4 +1,4 @@
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
 use std::{
     collections::BTreeSet,
     fs,
@@ -7,7 +7,7 @@ use std::{
 
 pub const DEFAULT_PATH: &str = "services-manifest.json";
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Deserialize)]
 pub struct ServicesManifest {
     pub schema_version: u32,
     pub upstream: Upstream,
@@ -16,32 +16,33 @@ pub struct ServicesManifest {
     pub services: Vec<ServiceManifest>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Deserialize)]
 pub struct Upstream {
     pub repository: String,
     pub commit: String,
     pub sdk_root: String,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Deserialize)]
 pub struct Roots {
     pub reference: String,
     pub generated: String,
+    pub patches: String,
     pub summary: String,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Deserialize)]
 pub struct Comparison {
     pub exclude: Exclusions,
 }
 
-#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+#[derive(Debug, Clone, Default, Deserialize)]
 pub struct Exclusions {
     pub files: Vec<String>,
     pub directories: Vec<String>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Deserialize)]
 pub struct ServiceManifest {
     pub key: String,
     pub upstream_path: String,
@@ -49,13 +50,7 @@ pub struct ServiceManifest {
     pub model_destination: String,
     pub reference_path: String,
     pub generated_path: String,
-    pub crate_name: String,
-    pub module_name: String,
     pub sdk_version: String,
-    #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub reference_files: Option<usize>,
-    #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub generated_files: Option<usize>,
 }
 
 impl ServicesManifest {
@@ -65,21 +60,6 @@ impl ServicesManifest {
             .map_err(|error| format!("{}: invalid JSON: {error}", path.display()))?;
         manifest.validate()?;
         Ok(manifest)
-    }
-
-    pub fn write_atomic(&self, path: &Path) -> Result<(), String> {
-        let parent = path.parent().unwrap_or_else(|| Path::new("."));
-        fs::create_dir_all(parent).map_err(|error| format!("{}: {error}", parent.display()))?;
-        let temporary = path.with_extension("json.tmp");
-        let contents = serde_json::to_string_pretty(self)
-            .map_err(|error| format!("{}: cannot serialize manifest: {error}", path.display()))?;
-        fs::write(&temporary, format!("{contents}\n"))
-            .map_err(|error| format!("{}: {error}", temporary.display()))?;
-        if let Err(error) = fs::rename(&temporary, path) {
-            let _ = fs::remove_file(&temporary);
-            return Err(format!("{}: {error}", path.display()));
-        }
-        Ok(())
     }
 
     pub fn root_path(&self, manifest_path: &Path, root: &str) -> PathBuf {
@@ -103,6 +83,7 @@ impl ServicesManifest {
         validate_relative_path("upstream.sdk_root", &self.upstream.sdk_root)?;
         validate_relative_path("roots.reference", &self.roots.reference)?;
         validate_relative_path("roots.generated", &self.roots.generated)?;
+        validate_relative_path("roots.patches", &self.roots.patches)?;
         validate_relative_path("roots.summary", &self.roots.summary)?;
         self.comparison.exclude.validate()?;
 
@@ -141,10 +122,7 @@ impl ServicesManifest {
                     service.generated_path
                 ));
             }
-            if service.crate_name.trim().is_empty()
-                || service.module_name.trim().is_empty()
-                || service.sdk_version.trim().is_empty()
-            {
+            if service.sdk_version.trim().is_empty() {
                 return Err(format!("service metadata is incomplete: {}", service.key));
             }
         }
@@ -198,10 +176,7 @@ pub fn validate_registered_services(manifest: &ServicesManifest) -> Result<(), S
     for service in &manifest.services {
         let metadata = aws_sdk_builder::registry::lookup(&service.key)
             .map_err(|error| format!("{}: {error}", service.key))?;
-        if metadata.crate_name != service.crate_name
-            || metadata.module_name != service.module_name
-            || metadata.sdk_version != Some(service.sdk_version.as_str())
-        {
+        if metadata.sdk_version != Some(service.sdk_version.as_str()) {
             return Err(format!(
                 "manifest metadata does not match registered service: {}",
                 service.key
@@ -260,11 +235,16 @@ mod tests {
             roots: Roots {
                 reference: "conformance/reference".to_owned(),
                 generated: "conformance/generated".to_owned(),
+                patches: "conformance/patches".to_owned(),
                 summary: "conformance/summary.md".to_owned(),
             },
             comparison: Comparison {
                 exclude: Exclusions {
-                    files: vec!["Cargo.toml".to_owned(), "README.md".to_owned()],
+                    files: vec![
+                        "Cargo.toml".to_owned(),
+                        "README.md".to_owned(),
+                        "LICENSE".to_owned(),
+                    ],
                     directories: vec!["tests".to_owned(), "benches".to_owned()],
                 },
             },
@@ -275,11 +255,7 @@ mod tests {
                 model_destination: "crates/aws-sdk-builder-s3/model.json".to_owned(),
                 reference_path: "s3".to_owned(),
                 generated_path: "s3".to_owned(),
-                crate_name: "aws-sdk-s3".to_owned(),
-                module_name: "aws_sdk_s3".to_owned(),
                 sdk_version: "1.0.0".to_owned(),
-                reference_files: None,
-                generated_files: None,
             }],
         }
     }
@@ -294,6 +270,7 @@ mod tests {
                 .exclude
                 .excludes(Path::new("Cargo.toml"))
         );
+        assert!(manifest.comparison.exclude.excludes(Path::new("LICENSE")));
         assert!(
             manifest
                 .comparison
@@ -322,11 +299,7 @@ mod tests {
             model_destination: "crates/aws-sdk-builder-dynamodb/model.json".to_owned(),
             reference_path: "dynamodb".to_owned(),
             generated_path: "dynamodb".to_owned(),
-            crate_name: "aws-sdk-dynamodb".to_owned(),
-            module_name: "aws_sdk_dynamodb".to_owned(),
             sdk_version: "1.0.0".to_owned(),
-            reference_files: None,
-            generated_files: None,
         });
         assert!(manifest.validate().is_err());
     }

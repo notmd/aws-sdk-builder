@@ -1,0 +1,60 @@
+--- original
++++ modified
+@@ -5,16 +5,16 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationOutput,
+-    crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationError,
++    super::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationOutput,
++    super::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationError::unhandled)?;
+-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationError::unhandled)?;
++    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+-    Err(crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationError::generic(generic))
++    Err(super::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationError::generic(generic))
+ }
+
+ #[allow(clippy::unnecessary_wraps)]
+@@ -23,20 +23,20 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationOutput,
+-    crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationError,
++    super::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationOutput,
++    super::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output =
+-            crate::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationOutputBuilder::default(
++            super::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationOutputBuilder::default(
+             );
+         output = output.set_intelligent_tiering_configuration(
+-            crate::protocol_serde::shape_get_bucket_intelligent_tiering_configuration_output::de_intelligent_tiering_configuration_payload(
++            super::protocol_serde::shape_get_bucket_intelligent_tiering_configuration_output::de_intelligent_tiering_configuration_payload(
+                 _response_body,
+             )?,
+         );
+-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
++        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -43,7 +43,7 @@
+ }
+
+ pub fn ser_get_bucket_intelligent_tiering_configuration_headers(
+-    input: &crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationInput,
++    input: &super::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationInput,
+     mut builder: ::http_1x::request::Builder,
+ ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+     if let ::std::option::Option::Some(inner_1) = &input.expected_bucket_owner {

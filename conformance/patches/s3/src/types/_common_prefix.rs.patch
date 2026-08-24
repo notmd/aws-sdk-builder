@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl CommonPrefix {
+     /// Creates a new builder-style object to manufacture [`CommonPrefix`](crate::types::CommonPrefix).
+-    pub fn builder() -> crate::types::builders::CommonPrefixBuilder {
+-        crate::types::builders::CommonPrefixBuilder::default()
++    pub fn builder() -> super::types::builders::CommonPrefixBuilder {
++        super::types::builders::CommonPrefixBuilder::default()
+     }
+ }
+
+@@ -42,7 +42,7 @@
+         &self.prefix
+     }
+     /// Consumes the builder and constructs a [`CommonPrefix`](crate::types::CommonPrefix).
+-    pub fn build(self) -> crate::types::CommonPrefix {
+-        crate::types::CommonPrefix { prefix: self.prefix }
++    pub fn build(self) -> super::types::CommonPrefix {
++        super::types::CommonPrefix { prefix: self.prefix }
+     }
+ }

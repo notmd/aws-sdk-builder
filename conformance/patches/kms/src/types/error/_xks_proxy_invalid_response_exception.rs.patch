@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -27,7 +27,7 @@
+     }
+ }
+ impl ::std::error::Error for XksProxyInvalidResponseException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::XksProxyInvalidResponseException {
++impl ::aws_types::request_id::RequestId for super::types::error::XksProxyInvalidResponseException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -40,8 +40,8 @@
+ }
+ impl XksProxyInvalidResponseException {
+     /// Creates a new builder-style object to manufacture [`XksProxyInvalidResponseException`](crate::types::error::XksProxyInvalidResponseException).
+-    pub fn builder() -> crate::types::error::builders::XksProxyInvalidResponseExceptionBuilder {
+-        crate::types::error::builders::XksProxyInvalidResponseExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::XksProxyInvalidResponseExceptionBuilder {
++        super::types::error::builders::XksProxyInvalidResponseExceptionBuilder::default()
+     }
+ }
+
+@@ -79,8 +79,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`XksProxyInvalidResponseException`](crate::types::error::XksProxyInvalidResponseException).
+-    pub fn build(self) -> crate::types::error::XksProxyInvalidResponseException {
+-        crate::types::error::XksProxyInvalidResponseException {
++    pub fn build(self) -> super::types::error::XksProxyInvalidResponseException {
++        super::types::error::XksProxyInvalidResponseException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

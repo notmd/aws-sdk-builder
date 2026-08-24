@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -40,7 +40,7 @@
+     }
+ }
+ impl ::std::error::Error for Ec2UnexpectedException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::Ec2UnexpectedException {
++impl ::aws_types::request_id::RequestId for super::types::error::Ec2UnexpectedException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -53,8 +53,8 @@
+ }
+ impl Ec2UnexpectedException {
+     /// Creates a new builder-style object to manufacture [`Ec2UnexpectedException`](crate::types::error::Ec2UnexpectedException).
+-    pub fn builder() -> crate::types::error::builders::Ec2UnexpectedExceptionBuilder {
+-        crate::types::error::builders::Ec2UnexpectedExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::Ec2UnexpectedExceptionBuilder {
++        super::types::error::builders::Ec2UnexpectedExceptionBuilder::default()
+     }
+ }
+
+@@ -122,8 +122,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`Ec2UnexpectedException`](crate::types::error::Ec2UnexpectedException).
+-    pub fn build(self) -> crate::types::error::Ec2UnexpectedException {
+-        crate::types::error::Ec2UnexpectedException {
++    pub fn build(self) -> super::types::error::Ec2UnexpectedException {
++        super::types::error::Ec2UnexpectedException {
+             r#type: self.r#type,
+             message: self.message,
+             ec2_error_code: self.ec2_error_code,

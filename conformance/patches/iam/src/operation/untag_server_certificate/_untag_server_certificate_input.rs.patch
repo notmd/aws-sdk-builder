@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -24,8 +24,8 @@
+ }
+ impl UntagServerCertificateInput {
+     /// Creates a new builder-style object to manufacture [`UntagServerCertificateInput`](crate::operation::untag_server_certificate::UntagServerCertificateInput).
+-    pub fn builder() -> crate::operation::untag_server_certificate::builders::UntagServerCertificateInputBuilder {
+-        crate::operation::untag_server_certificate::builders::UntagServerCertificateInputBuilder::default()
++    pub fn builder() -> super::operation::untag_server_certificate::builders::UntagServerCertificateInputBuilder {
++        super::operation::untag_server_certificate::builders::UntagServerCertificateInputBuilder::default()
+     }
+ }
+
+@@ -79,10 +79,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::untag_server_certificate::UntagServerCertificateInput,
++        super::operation::untag_server_certificate::UntagServerCertificateInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::untag_server_certificate::UntagServerCertificateInput {
++        ::std::result::Result::Ok(super::operation::untag_server_certificate::UntagServerCertificateInput {
+             server_certificate_name: self.server_certificate_name,
+             tag_keys: self.tag_keys,
+         })

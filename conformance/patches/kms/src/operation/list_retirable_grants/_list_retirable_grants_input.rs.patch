@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -40,8 +40,8 @@
+ }
+ impl ListRetirableGrantsInput {
+     /// Creates a new builder-style object to manufacture [`ListRetirableGrantsInput`](crate::operation::list_retirable_grants::ListRetirableGrantsInput).
+-    pub fn builder() -> crate::operation::list_retirable_grants::builders::ListRetirableGrantsInputBuilder {
+-        crate::operation::list_retirable_grants::builders::ListRetirableGrantsInputBuilder::default()
++    pub fn builder() -> super::operation::list_retirable_grants::builders::ListRetirableGrantsInputBuilder {
++        super::operation::list_retirable_grants::builders::ListRetirableGrantsInputBuilder::default()
+     }
+ }
+
+@@ -126,9 +126,9 @@
+     /// Consumes the builder and constructs a [`ListRetirableGrantsInput`](crate::operation::list_retirable_grants::ListRetirableGrantsInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::list_retirable_grants::ListRetirableGrantsInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::list_retirable_grants::ListRetirableGrantsInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::list_retirable_grants::ListRetirableGrantsInput {
++        ::std::result::Result::Ok(super::operation::list_retirable_grants::ListRetirableGrantsInput {
+             limit: self.limit,
+             marker: self.marker,
+             retiring_principal: self.retiring_principal,

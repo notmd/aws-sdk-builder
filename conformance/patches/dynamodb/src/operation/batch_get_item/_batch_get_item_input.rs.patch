@@ -1,0 +1,121 @@
+--- original
++++ modified
+@@ -46,7 +46,7 @@
+     /// <li>
+     /// <p><code>AttributesToGet</code> - This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li>
+     /// </ul>
+-    pub request_items: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::KeysAndAttributes>>,
++    pub request_items: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::KeysAndAttributes>>,
+     /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
+     /// <ul>
+     /// <li>
+@@ -57,7 +57,7 @@
+     /// <li>
+     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+     /// </ul>
+-    pub return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
++    pub return_consumed_capacity: ::std::option::Option<super::types::ReturnConsumedCapacity>,
+ }
+ impl BatchGetItemInput {
+     /// <p>A map of one or more table names or table ARNs and, for each table, a map that describes one or more items to retrieve from that table. Each table name or ARN can be used only once per <code>BatchGetItem</code> request.</p>
+@@ -102,7 +102,7 @@
+     /// <li>
+     /// <p><code>AttributesToGet</code> - This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li>
+     /// </ul>
+-    pub fn request_items(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::KeysAndAttributes>> {
++    pub fn request_items(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::types::KeysAndAttributes>> {
+         self.request_items.as_ref()
+     }
+     /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
+@@ -115,14 +115,14 @@
+     /// <li>
+     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+     /// </ul>
+-    pub fn return_consumed_capacity(&self) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
++    pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::types::ReturnConsumedCapacity> {
+         self.return_consumed_capacity.as_ref()
+     }
+ }
+ impl BatchGetItemInput {
+     /// Creates a new builder-style object to manufacture [`BatchGetItemInput`](crate::operation::batch_get_item::BatchGetItemInput).
+-    pub fn builder() -> crate::operation::batch_get_item::builders::BatchGetItemInputBuilder {
+-        crate::operation::batch_get_item::builders::BatchGetItemInputBuilder::default()
++    pub fn builder() -> super::operation::batch_get_item::builders::BatchGetItemInputBuilder {
++        super::operation::batch_get_item::builders::BatchGetItemInputBuilder::default()
+     }
+ }
+
+@@ -130,8 +130,8 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct BatchGetItemInputBuilder {
+-    pub(crate) request_items: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::KeysAndAttributes>>,
+-    pub(crate) return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
++    pub(crate) request_items: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::KeysAndAttributes>>,
++    pub(crate) return_consumed_capacity: ::std::option::Option<super::types::ReturnConsumedCapacity>,
+ }
+ impl BatchGetItemInputBuilder {
+     /// Adds a key-value pair to `request_items`.
+@@ -180,7 +180,7 @@
+     /// <li>
+     /// <p><code>AttributesToGet</code> - This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li>
+     /// </ul>
+-    pub fn request_items(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::KeysAndAttributes) -> Self {
++    pub fn request_items(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::types::KeysAndAttributes) -> Self {
+         let mut hash_map = self.request_items.unwrap_or_default();
+         hash_map.insert(k.into(), v);
+         self.request_items = ::std::option::Option::Some(hash_map);
+@@ -230,7 +230,7 @@
+     /// </ul>
+     pub fn set_request_items(
+         mut self,
+-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::KeysAndAttributes>>,
++        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::KeysAndAttributes>>,
+     ) -> Self {
+         self.request_items = input;
+         self
+@@ -277,7 +277,7 @@
+     /// <li>
+     /// <p><code>AttributesToGet</code> - This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li>
+     /// </ul>
+-    pub fn get_request_items(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::KeysAndAttributes>> {
++    pub fn get_request_items(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::KeysAndAttributes>> {
+         &self.request_items
+     }
+     /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
+@@ -290,7 +290,7 @@
+     /// <li>
+     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+     /// </ul>
+-    pub fn return_consumed_capacity(mut self, input: crate::types::ReturnConsumedCapacity) -> Self {
++    pub fn return_consumed_capacity(mut self, input: super::types::ReturnConsumedCapacity) -> Self {
+         self.return_consumed_capacity = ::std::option::Option::Some(input);
+         self
+     }
+@@ -304,7 +304,7 @@
+     /// <li>
+     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+     /// </ul>
+-    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self {
++    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::types::ReturnConsumedCapacity>) -> Self {
+         self.return_consumed_capacity = input;
+         self
+     }
+@@ -318,14 +318,14 @@
+     /// <li>
+     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+     /// </ul>
+-    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
++    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::types::ReturnConsumedCapacity> {
+         &self.return_consumed_capacity
+     }
+     /// Consumes the builder and constructs a [`BatchGetItemInput`](crate::operation::batch_get_item::BatchGetItemInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::batch_get_item::BatchGetItemInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::batch_get_item::BatchGetItemInput {
++    ) -> ::std::result::Result<super::operation::batch_get_item::BatchGetItemInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::batch_get_item::BatchGetItemInput {
+             request_items: self.request_items,
+             return_consumed_capacity: self.return_consumed_capacity,
+         })

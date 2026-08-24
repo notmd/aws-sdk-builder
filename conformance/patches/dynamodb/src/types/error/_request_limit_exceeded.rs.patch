@@ -1,0 +1,84 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     #[allow(missing_docs)] // documentation missing in model
+     pub message: ::std::option::Option<::std::string::String>,
+     /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
+-    pub throttling_reasons: ::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>>,
++    pub throttling_reasons: ::std::option::Option<::std::vec::Vec<super::types::ThrottlingReason>>,
+     pub(crate) meta: ::aws_smithy_types::error::ErrorMetadata,
+ }
+ impl RequestLimitExceeded {
+@@ -14,7 +14,7 @@
+     /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.throttling_reasons.is_none()`.
+-    pub fn throttling_reasons(&self) -> &[crate::types::ThrottlingReason] {
++    pub fn throttling_reasons(&self) -> &[super::types::ThrottlingReason] {
+         self.throttling_reasons.as_deref().unwrap_or_default()
+     }
+ }
+@@ -36,7 +36,7 @@
+     }
+ }
+ impl ::std::error::Error for RequestLimitExceeded {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::RequestLimitExceeded {
++impl ::aws_types::request_id::RequestId for super::types::error::RequestLimitExceeded {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -49,8 +49,8 @@
+ }
+ impl RequestLimitExceeded {
+     /// Creates a new builder-style object to manufacture [`RequestLimitExceeded`](crate::types::error::RequestLimitExceeded).
+-    pub fn builder() -> crate::types::error::builders::RequestLimitExceededBuilder {
+-        crate::types::error::builders::RequestLimitExceededBuilder::default()
++    pub fn builder() -> super::types::error::builders::RequestLimitExceededBuilder {
++        super::types::error::builders::RequestLimitExceededBuilder::default()
+     }
+ }
+
+@@ -59,7 +59,7 @@
+ #[non_exhaustive]
+ pub struct RequestLimitExceededBuilder {
+     pub(crate) message: ::std::option::Option<::std::string::String>,
+-    pub(crate) throttling_reasons: ::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>>,
++    pub(crate) throttling_reasons: ::std::option::Option<::std::vec::Vec<super::types::ThrottlingReason>>,
+     meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
+ }
+ impl RequestLimitExceededBuilder {
+@@ -82,7 +82,7 @@
+     /// To override the contents of this collection use [`set_throttling_reasons`](Self::set_throttling_reasons).
+     ///
+     /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
+-    pub fn throttling_reasons(mut self, input: crate::types::ThrottlingReason) -> Self {
++    pub fn throttling_reasons(mut self, input: super::types::ThrottlingReason) -> Self {
+         let mut v = self.throttling_reasons.unwrap_or_default();
+         v.push(input);
+         self.throttling_reasons = ::std::option::Option::Some(v);
+@@ -89,12 +89,12 @@
+         self
+     }
+     /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
+-    pub fn set_throttling_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>>) -> Self {
++    pub fn set_throttling_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ThrottlingReason>>) -> Self {
+         self.throttling_reasons = input;
+         self
+     }
+     /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
+-    pub fn get_throttling_reasons(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>> {
++    pub fn get_throttling_reasons(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ThrottlingReason>> {
+         &self.throttling_reasons
+     }
+     /// Sets error metadata
+@@ -109,8 +109,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`RequestLimitExceeded`](crate::types::error::RequestLimitExceeded).
+-    pub fn build(self) -> crate::types::error::RequestLimitExceeded {
+-        crate::types::error::RequestLimitExceeded {
++    pub fn build(self) -> super::types::error::RequestLimitExceeded {
++        super::types::error::RequestLimitExceeded {
+             message: self.message,
+             throttling_reasons: self.throttling_reasons,
+             meta: self.meta.unwrap_or_default(),

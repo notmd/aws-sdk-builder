@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -26,8 +26,8 @@
+ }
+ impl DeletePolicyVersionInput {
+     /// Creates a new builder-style object to manufacture [`DeletePolicyVersionInput`](crate::operation::delete_policy_version::DeletePolicyVersionInput).
+-    pub fn builder() -> crate::operation::delete_policy_version::builders::DeletePolicyVersionInputBuilder {
+-        crate::operation::delete_policy_version::builders::DeletePolicyVersionInputBuilder::default()
++    pub fn builder() -> super::operation::delete_policy_version::builders::DeletePolicyVersionInputBuilder {
++        super::operation::delete_policy_version::builders::DeletePolicyVersionInputBuilder::default()
+     }
+ }
+
+@@ -81,9 +81,9 @@
+     /// Consumes the builder and constructs a [`DeletePolicyVersionInput`](crate::operation::delete_policy_version::DeletePolicyVersionInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::delete_policy_version::DeletePolicyVersionInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::delete_policy_version::DeletePolicyVersionInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::delete_policy_version::DeletePolicyVersionInput {
++        ::std::result::Result::Ok(super::operation::delete_policy_version::DeletePolicyVersionInput {
+             policy_arn: self.policy_arn,
+             version_id: self.version_id,
+         })

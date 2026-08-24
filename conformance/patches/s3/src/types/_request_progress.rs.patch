@@ -1,0 +1,23 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl RequestProgress {
+     /// Creates a new builder-style object to manufacture [`RequestProgress`](crate::types::RequestProgress).
+-    pub fn builder() -> crate::types::builders::RequestProgressBuilder {
+-        crate::types::builders::RequestProgressBuilder::default()
++    pub fn builder() -> super::types::builders::RequestProgressBuilder {
++        super::types::builders::RequestProgressBuilder::default()
+     }
+ }
+
+@@ -42,7 +42,7 @@
+         &self.enabled
+     }
+     /// Consumes the builder and constructs a [`RequestProgress`](crate::types::RequestProgress).
+-    pub fn build(self) -> crate::types::RequestProgress {
+-        crate::types::RequestProgress { enabled: self.enabled }
++    pub fn build(self) -> super::types::RequestProgress {
++        super::types::RequestProgress { enabled: self.enabled }
+     }
+ }

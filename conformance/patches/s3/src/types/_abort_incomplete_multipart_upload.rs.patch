@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -15,8 +15,8 @@
+ }
+ impl AbortIncompleteMultipartUpload {
+     /// Creates a new builder-style object to manufacture [`AbortIncompleteMultipartUpload`](crate::types::AbortIncompleteMultipartUpload).
+-    pub fn builder() -> crate::types::builders::AbortIncompleteMultipartUploadBuilder {
+-        crate::types::builders::AbortIncompleteMultipartUploadBuilder::default()
++    pub fn builder() -> super::types::builders::AbortIncompleteMultipartUploadBuilder {
++        super::types::builders::AbortIncompleteMultipartUploadBuilder::default()
+     }
+ }
+
+@@ -42,8 +42,8 @@
+         &self.days_after_initiation
+     }
+     /// Consumes the builder and constructs a [`AbortIncompleteMultipartUpload`](crate::types::AbortIncompleteMultipartUpload).
+-    pub fn build(self) -> crate::types::AbortIncompleteMultipartUpload {
+-        crate::types::AbortIncompleteMultipartUpload {
++    pub fn build(self) -> super::types::AbortIncompleteMultipartUpload {
++        super::types::AbortIncompleteMultipartUpload {
+             days_after_initiation: self.days_after_initiation,
+         }
+     }

@@ -1,0 +1,57 @@
+--- original
++++ modified
+@@ -5,18 +5,18 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct WaitCancelledDetails {
+     /// <p>Details about why the wait operation was cancelled.</p>
+-    pub error: ::std::option::Option<crate::types::EventError>,
++    pub error: ::std::option::Option<super::types::EventError>,
+ }
+ impl WaitCancelledDetails {
+     /// <p>Details about why the wait operation was cancelled.</p>
+-    pub fn error(&self) -> ::std::option::Option<&crate::types::EventError> {
++    pub fn error(&self) -> ::std::option::Option<&super::types::EventError> {
+         self.error.as_ref()
+     }
+ }
+ impl WaitCancelledDetails {
+     /// Creates a new builder-style object to manufacture [`WaitCancelledDetails`](crate::types::WaitCancelledDetails).
+-    pub fn builder() -> crate::types::builders::WaitCancelledDetailsBuilder {
+-        crate::types::builders::WaitCancelledDetailsBuilder::default()
++    pub fn builder() -> super::types::builders::WaitCancelledDetailsBuilder {
++        super::types::builders::WaitCancelledDetailsBuilder::default()
+     }
+ }
+
+@@ -24,25 +24,25 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct WaitCancelledDetailsBuilder {
+-    pub(crate) error: ::std::option::Option<crate::types::EventError>,
++    pub(crate) error: ::std::option::Option<super::types::EventError>,
+ }
+ impl WaitCancelledDetailsBuilder {
+     /// <p>Details about why the wait operation was cancelled.</p>
+-    pub fn error(mut self, input: crate::types::EventError) -> Self {
++    pub fn error(mut self, input: super::types::EventError) -> Self {
+         self.error = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Details about why the wait operation was cancelled.</p>
+-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
++    pub fn set_error(mut self, input: ::std::option::Option<super::types::EventError>) -> Self {
+         self.error = input;
+         self
+     }
+     /// <p>Details about why the wait operation was cancelled.</p>
+-    pub fn get_error(&self) -> &::std::option::Option<crate::types::EventError> {
++    pub fn get_error(&self) -> &::std::option::Option<super::types::EventError> {
+         &self.error
+     }
+     /// Consumes the builder and constructs a [`WaitCancelledDetails`](crate::types::WaitCancelledDetails).
+-    pub fn build(self) -> crate::types::WaitCancelledDetails {
+-        crate::types::WaitCancelledDetails { error: self.error }
++    pub fn build(self) -> super::types::WaitCancelledDetails {
++        super::types::WaitCancelledDetails { error: self.error }
+     }
+ }

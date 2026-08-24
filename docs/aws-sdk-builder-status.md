@@ -1,8 +1,39 @@
 # aws-sdk-builder status and audit
 
-Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpoint
+Updated 2026-08-24. `Prompt.md` is the project specification. Superseded checkpoint
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
+
+### Checkpoint: 2026-08-24 — Make patch normalization and consumer ownership explicit
+- State: in progress
+- Changed: `update-reference` now stages and atomically installs the reference tree,
+  `conformance/patches`, and provider model assets together. It parses every included
+  reference Rust file with `syn`, rewrites parsed `crate::...` paths to relative
+  `super::...` paths, and stores the source-preserving transformation as a `diffy`
+  `.patch`. The comparator loads those patches and applies them in memory, while
+  applying the same path normalization to generated Rust for the consumer namespace.
+  It also removes inline `#[cfg(test)]` modules and their attached test-only attributes
+  before comparison; generated SDK sources do not emit those modules.
+  The generated aggregate `aws_sdk.rs` facade was removed; each provider owns
+  `include_sdk!()`, and callers choose the wrapper module name.
+- Evidence: 6,162 checked-in patches exist under `conformance/patches/`; focused
+  conformance tests pass; both `examples/my_aws_sdk` and `examples/multi_service`
+  compile with caller-owned wrapper modules. `services-manifest.json` no longer
+  carries redundant `crate_name`, `module_name`, or derived file-count metadata.
+  Error dispatch and display now preserve Smithy-RS's modeled error spelling while
+  retaining Rust's acronym-normalized symbol spelling, based on the pinned
+  `/tmp/smithy-rs` checkout at `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Conformance: `just conformance` compares 6,396 files with `4,905/723/713/55`
+  matched/mismatched/missing/extra (75.51% average), including S3 at 1,281/1,281
+  after removing upstream-only inline unit-test modules from comparison. It exits 1
+  because broader generator parity remains incomplete. This architecture checkpoint
+  does not claim full conformance completion.
+- Verification: `cargo test -p aws-sdk-conformance` passes all 15 tests; the mandatory
+  `just conformance` regeneration and comparison completed.
+- Blocker: remaining source parity mismatches and missing/extra generated files are
+  unrelated to patch storage or wrapper ownership.
+- Next action: continue the highest-impact generic codegen mismatch loop while
+  retaining this patch and caller-owned-module contract.
 
 ### Checkpoint: 2026-08-23 — Emit the complete pinned S3 integration asset tree
 - State: in progress
@@ -35,7 +66,8 @@ full audit trail.
   moved each supported model into exactly one provider crate, and removed all other
   service packages and the core model directory. The supported providers are
   DynamoDB, IAM, KMS, Lambda, S3, SNS, SQS, and STS. Build scripts now call a
-  provider's `compile()` and consumers use one aggregate `include_sdk!()` facade.
+  provider's `compile()` and service-owned `include_sdk!()` macro; consumers choose
+  their own wrapper modules rather than using an aggregate facade.
 - Evidence: registry metadata covers exactly eight services;
   package-content tests assert one `model.json` plus manifest/glue per provider;
   `/tmp/smithy-rs` is pinned at `f1b64a9c0` for the codegen reference.
@@ -637,8 +669,8 @@ full audit trail.
 ## Current implementation
 
 - M1: complete for the public surface. The eight service provider crates expose
-  `compile(operations)`, while the core owns shared generation, atomic installation,
-  and the aggregate facade.
+  `compile(operations)` and service-owned `include_sdk!()` macros, while the core owns
+  shared generation and atomic installation. There is no generated aggregate facade.
 - M2: complete for the supported tier. Each provider packages one `model.json`; the
   core contains metadata, service/module mappings, and pinned
   snapshot SHAs without embedding service models.
@@ -652,9 +684,10 @@ full audit trail.
   `src/client.rs` and declare `aws-runtime` as a downstream dependency. Full protocol
   serialization, runtime orchestration, endpoint resolution, auth/signing, retries,
   checksums, streaming, pagination, and service decorators remain incomplete.
-- M5: in progress. `aws_sdk.rs`, consumer-prefixed service modules, Rust-only output,
-  syntax validation, and atomic installation are implemented. The `my_aws_sdk`
-  consumer fixture compiles.
+- M5: in progress. Caller-owned wrapper modules, service-owned macros, relative
+  consumer paths, Rust-only output, syntax validation, and atomic installation are
+  implemented. The `my_aws_sdk` consumer fixture compiles; `aws_sdk.rs` is obsolete
+  and is not generated.
 - M6: in progress. The comparator runs against the pinned AWS SDK Rust `3c6d...` P0
   service trees and checks in deterministic summary and per-service reports. The
   current report compares 6,462 files: 3,607 exact, 967 mismatches, 1,887 missing,

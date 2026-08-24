@@ -16,7 +16,7 @@ impl KmsInternalException {
 }
 impl ::std::fmt::Display for KmsInternalException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(f, "KmsInternalException")?;
+        ::std::write!(f, "KmsInternalException [KMSInternalException]")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;

@@ -1,0 +1,72 @@
+--- original
++++ modified
+@@ -22,7 +22,7 @@
+     /// <p><b>Directory buckets</b> - For <code>GetObjectAttributes</code>, regardless of whether an additional checksum is applied to the object specified in the request, the response returns the <code>Part</code> element.</p></li>
+     /// </ul>
+     /// </note>
+-    pub parts: ::std::option::Option<::std::vec::Vec<crate::types::ObjectPart>>,
++    pub parts: ::std::option::Option<::std::vec::Vec<super::types::ObjectPart>>,
+ }
+ impl GetObjectAttributesParts {
+     /// <p>The total number of parts.</p>
+@@ -55,14 +55,14 @@
+     /// </note>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.parts.is_none()`.
+-    pub fn parts(&self) -> &[crate::types::ObjectPart] {
++    pub fn parts(&self) -> &[super::types::ObjectPart] {
+         self.parts.as_deref().unwrap_or_default()
+     }
+ }
+ impl GetObjectAttributesParts {
+     /// Creates a new builder-style object to manufacture [`GetObjectAttributesParts`](crate::types::GetObjectAttributesParts).
+-    pub fn builder() -> crate::types::builders::GetObjectAttributesPartsBuilder {
+-        crate::types::builders::GetObjectAttributesPartsBuilder::default()
++    pub fn builder() -> super::types::builders::GetObjectAttributesPartsBuilder {
++        super::types::builders::GetObjectAttributesPartsBuilder::default()
+     }
+ }
+
+@@ -75,7 +75,7 @@
+     pub(crate) next_part_number_marker: ::std::option::Option<::std::string::String>,
+     pub(crate) max_parts: ::std::option::Option<i32>,
+     pub(crate) is_truncated: ::std::option::Option<bool>,
+-    pub(crate) parts: ::std::option::Option<::std::vec::Vec<crate::types::ObjectPart>>,
++    pub(crate) parts: ::std::option::Option<::std::vec::Vec<super::types::ObjectPart>>,
+ }
+ impl GetObjectAttributesPartsBuilder {
+     /// <p>The total number of parts.</p>
+@@ -160,7 +160,7 @@
+     /// <p><b>Directory buckets</b> - For <code>GetObjectAttributes</code>, regardless of whether an additional checksum is applied to the object specified in the request, the response returns the <code>Part</code> element.</p></li>
+     /// </ul>
+     /// </note>
+-    pub fn parts(mut self, input: crate::types::ObjectPart) -> Self {
++    pub fn parts(mut self, input: super::types::ObjectPart) -> Self {
+         let mut v = self.parts.unwrap_or_default();
+         v.push(input);
+         self.parts = ::std::option::Option::Some(v);
+@@ -174,7 +174,7 @@
+     /// <p><b>Directory buckets</b> - For <code>GetObjectAttributes</code>, regardless of whether an additional checksum is applied to the object specified in the request, the response returns the <code>Part</code> element.</p></li>
+     /// </ul>
+     /// </note>
+-    pub fn set_parts(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ObjectPart>>) -> Self {
++    pub fn set_parts(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ObjectPart>>) -> Self {
+         self.parts = input;
+         self
+     }
+@@ -186,12 +186,12 @@
+     /// <p><b>Directory buckets</b> - For <code>GetObjectAttributes</code>, regardless of whether an additional checksum is applied to the object specified in the request, the response returns the <code>Part</code> element.</p></li>
+     /// </ul>
+     /// </note>
+-    pub fn get_parts(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ObjectPart>> {
++    pub fn get_parts(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ObjectPart>> {
+         &self.parts
+     }
+     /// Consumes the builder and constructs a [`GetObjectAttributesParts`](crate::types::GetObjectAttributesParts).
+-    pub fn build(self) -> crate::types::GetObjectAttributesParts {
+-        crate::types::GetObjectAttributesParts {
++    pub fn build(self) -> super::types::GetObjectAttributesParts {
++        super::types::GetObjectAttributesParts {
+             total_parts_count: self.total_parts_count,
+             part_number_marker: self.part_number_marker,
+             next_part_number_marker: self.next_part_number_marker,

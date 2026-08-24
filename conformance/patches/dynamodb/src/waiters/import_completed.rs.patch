@@ -1,0 +1,106 @@
+--- original
++++ modified
+@@ -13,12 +13,12 @@
+ ///
+ #[derive(::std::clone::Clone, ::std::fmt::Debug)]
+ pub struct ImportCompletedFluentBuilder {
+-    handle: ::std::sync::Arc<crate::client::Handle>,
+-    inner: crate::operation::describe_import::builders::DescribeImportInputBuilder,
++    handle: ::std::sync::Arc<super::client::Handle>,
++    inner: super::operation::describe_import::builders::DescribeImportInputBuilder,
+ }
+ impl ImportCompletedFluentBuilder {
+     /// Creates a new `ImportCompletedFluentBuilder`.
+-    pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
++    pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
+         Self {
+             handle,
+             inner: ::std::default::Default::default(),
+@@ -25,7 +25,7 @@
+         }
+     }
+     /// Access the DescribeImport as a reference.
+-    pub fn as_input(&self) -> &crate::operation::describe_import::builders::DescribeImportInputBuilder {
++    pub fn as_input(&self) -> &super::operation::describe_import::builders::DescribeImportInputBuilder {
+         &self.inner
+     }
+     /// Wait for `import_completed`
+@@ -33,19 +33,19 @@
+         self,
+         max_wait: ::std::time::Duration,
+     ) -> ::std::result::Result<
+-        crate::waiters::import_completed::ImportCompletedFinalPoll,
+-        crate::waiters::import_completed::WaitUntilImportCompletedError,
++        super::waiters::import_completed::ImportCompletedFinalPoll,
++        super::waiters::import_completed::WaitUntilImportCompletedError,
+     > {
+         let input = self
+             .inner
+             .build()
+             .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
+-        let runtime_plugins = crate::operation::describe_import::DescribeImport::operation_runtime_plugins(
++        let runtime_plugins = super::operation::describe_import::DescribeImport::operation_runtime_plugins(
+             self.handle.runtime_plugins.clone(),
+             &self.handle.conf,
+             ::std::option::Option::None,
+         )
+-        .with_operation_plugin(crate::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
++        .with_operation_plugin(super::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
+         let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
+         let runtime_components_builder = runtime_plugins
+             .apply_client_configuration(&mut cfg)
+@@ -55,19 +55,19 @@
+         let time_source = time_components.time_source().expect("a time source is required by waiters");
+
+         let acceptor = move |result: ::std::result::Result<
+-            &crate::operation::describe_import::DescribeImportOutput,
+-            &crate::operation::describe_import::DescribeImportError,
++            &super::operation::describe_import::DescribeImportOutput,
++            &super::operation::describe_import::DescribeImportError,
+         >| {
+             // Matches: {"output":{"path":"ImportTableDescription.ImportStatus","expected":"COMPLETED","comparator":"stringEquals"}}
+-            if crate::waiters::matchers::match_describe_import_6175a829c57972dc3(result) {
++            if super::waiters::matchers::match_describe_import_6175a829c57972dc3(result) {
+                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Success;
+             }
+             // Matches: {"output":{"path":"ImportTableDescription.ImportStatus","expected":"FAILED","comparator":"stringEquals"}}
+-            if crate::waiters::matchers::match_describe_import_ba4301a7fe05a6956(result) {
++            if super::waiters::matchers::match_describe_import_ba4301a7fe05a6956(result) {
+                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Failure;
+             }
+             // Matches: {"output":{"path":"ImportTableDescription.ImportStatus","expected":"CANCELLED","comparator":"stringEquals"}}
+-            if crate::waiters::matchers::match_describe_import_b4c5c86bd60d42041(result) {
++            if super::waiters::matchers::match_describe_import_b4c5c86bd60d42041(result) {
+                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Failure;
+             }
+             ::aws_smithy_runtime::client::waiters::AcceptorState::NoAcceptorsMatched
+@@ -75,7 +75,7 @@
+         let operation = move || {
+             let input = input.clone();
+             let runtime_plugins = runtime_plugins.clone();
+-            async move { crate::operation::describe_import::DescribeImport::orchestrate(&runtime_plugins, input).await }
++            async move { super::operation::describe_import::DescribeImport::orchestrate(&runtime_plugins, input).await }
+         };
+         let orchestrator = ::aws_smithy_runtime::client::waiters::WaiterOrchestrator::builder()
+             .min_delay(::std::time::Duration::from_secs(20))
+@@ -106,9 +106,9 @@
+
+ /// Successful return type for the `import_completed` waiter.
+ pub type ImportCompletedFinalPoll = ::aws_smithy_runtime_api::client::waiters::FinalPoll<
+-    crate::operation::describe_import::DescribeImportOutput,
++    super::operation::describe_import::DescribeImportOutput,
+     ::aws_smithy_runtime_api::client::result::SdkError<
+-        crate::operation::describe_import::DescribeImportError,
++        super::operation::describe_import::DescribeImportError,
+         ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+     >,
+ >;
+@@ -115,6 +115,6 @@
+
+ /// Error type for the `import_completed` waiter.
+ pub type WaitUntilImportCompletedError = ::aws_smithy_runtime_api::client::waiters::error::WaiterError<
+-    crate::operation::describe_import::DescribeImportOutput,
+-    crate::operation::describe_import::DescribeImportError,
++    super::operation::describe_import::DescribeImportOutput,
++    super::operation::describe_import::DescribeImportError,
+ >;

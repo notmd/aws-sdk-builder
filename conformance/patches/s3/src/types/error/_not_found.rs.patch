@@ -1,0 +1,40 @@
+--- original
++++ modified
+@@ -26,13 +26,13 @@
+     }
+ }
+ impl ::std::error::Error for NotFound {}
+-impl crate::s3_request_id::RequestIdExt for crate::types::error::NotFound {
++impl super::s3_request_id::RequestIdExt for super::types::error::NotFound {
+     fn extended_request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().extended_request_id()
+     }
+ }
+-impl ::aws_types::request_id::RequestId for crate::types::error::NotFound {
++impl ::aws_types::request_id::RequestId for super::types::error::NotFound {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -45,8 +45,8 @@
+ }
+ impl NotFound {
+     /// Creates a new builder-style object to manufacture [`NotFound`](crate::types::error::NotFound).
+-    pub fn builder() -> crate::types::error::builders::NotFoundBuilder {
+-        crate::types::error::builders::NotFoundBuilder::default()
++    pub fn builder() -> super::types::error::builders::NotFoundBuilder {
++        super::types::error::builders::NotFoundBuilder::default()
+     }
+ }
+
+@@ -84,8 +84,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`NotFound`](crate::types::error::NotFound).
+-    pub fn build(self) -> crate::types::error::NotFound {
+-        crate::types::error::NotFound {
++    pub fn build(self) -> super::types::error::NotFound {
++        super::types::error::NotFound {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

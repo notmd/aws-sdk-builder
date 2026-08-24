@@ -1,0 +1,37 @@
+--- original
++++ modified
+@@ -3,12 +3,12 @@
+ pub fn de_transition(
+     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+     depth: u32,
+-) -> ::std::result::Result<crate::types::Transition, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::types::Transition, ::aws_smithy_xml::decode::XmlDecodeError> {
+     if depth >= 128u32 {
+         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+     }
+     #[allow(unused_mut)]
+-    let mut builder = crate::types::Transition::builder();
++    let mut builder = super::types::Transition::builder();
+     while let Some(mut tag) = decoder.next_tag() {
+         match tag.start_el() {
+             s if s.matches("Date") /* Date com.amazonaws.s3#Transition$Date */ =>  {
+@@ -43,8 +43,8 @@
+             s if s.matches("StorageClass") /* StorageClass com.amazonaws.s3#Transition$StorageClass */ =>  {
+                 let var_3 =
+                     Some(
+-                        Result::<crate::types::TransitionStorageClass, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+-                            crate::types::TransitionStorageClass::from(
++                        Result::<super::types::TransitionStorageClass, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
++                            super::types::TransitionStorageClass::from(
+                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                             )
+                         )
+@@ -61,7 +61,7 @@
+ }
+
+ pub fn ser_transition(
+-    input: &crate::types::Transition,
++    input: &super::types::Transition,
+     writer: ::aws_smithy_xml::encode::ElWriter,
+ ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+     #[allow(unused_mut)]

@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for JwtPayloadSizeExceededException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::JwtPayloadSizeExceededException {
++impl ::aws_types::request_id::RequestId for super::types::error::JwtPayloadSizeExceededException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl JwtPayloadSizeExceededException {
+     /// Creates a new builder-style object to manufacture [`JwtPayloadSizeExceededException`](crate::types::error::JwtPayloadSizeExceededException).
+-    pub fn builder() -> crate::types::error::builders::JwtPayloadSizeExceededExceptionBuilder {
+-        crate::types::error::builders::JwtPayloadSizeExceededExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::JwtPayloadSizeExceededExceptionBuilder {
++        super::types::error::builders::JwtPayloadSizeExceededExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`JwtPayloadSizeExceededException`](crate::types::error::JwtPayloadSizeExceededException).
+-    pub fn build(self) -> crate::types::error::JwtPayloadSizeExceededException {
+-        crate::types::error::JwtPayloadSizeExceededException {
++    pub fn build(self) -> super::types::error::JwtPayloadSizeExceededException {
++        super::types::error::JwtPayloadSizeExceededException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

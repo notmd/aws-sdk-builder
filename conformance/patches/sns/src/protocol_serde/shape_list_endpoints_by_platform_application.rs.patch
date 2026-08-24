@@ -1,0 +1,148 @@
+--- original
++++ modified
+@@ -5,30 +5,30 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput,
+-    crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError,
++    super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput,
++    super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled(generic)),
++        None => return Err(super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+         "AuthorizationError" => {
+-            crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::AuthorizationErrorException({
++            super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::AuthorizationErrorException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::AuthorizationErrorExceptionBuilder::default();
++                    let mut output = super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                     output =
+-                        crate::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+-                            .map_err(crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
++                        super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
++                            .map_err(super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -39,13 +39,13 @@
+             })
+         }
+         "InternalError" => {
+-            crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::InternalErrorException({
++            super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::InternalErrorException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+-                        .map_err(crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
++                    let mut output = super::types::error::builders::InternalErrorExceptionBuilder::default();
++                    output = super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
++                        .map_err(super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -56,13 +56,13 @@
+             })
+         }
+         "InvalidParameter" => {
+-            crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::InvalidParameterException({
++            super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::InvalidParameterException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+-                        .map_err(crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
++                    let mut output = super::types::error::builders::InvalidParameterExceptionBuilder::default();
++                    output = super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
++                        .map_err(super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -72,13 +72,13 @@
+                 tmp
+             })
+         }
+-        "NotFound" => crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::NotFoundException({
++        "NotFound" => super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::NotFoundException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
++                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
++                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -87,7 +87,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::generic(generic),
++        _ => super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::generic(generic),
+     })
+ }
+
+@@ -97,16 +97,16 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput,
+-    crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError,
++    super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput,
++    super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output =
+-            crate::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationOutputBuilder::default();
++            super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationOutputBuilder::default();
+         output =
+-            crate::protocol_serde::shape_list_endpoints_by_platform_application::de_list_endpoints_by_platform_application(_response_body, output)
+-                .map_err(crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
++            super::protocol_serde::shape_list_endpoints_by_platform_application::de_list_endpoints_by_platform_application(_response_body, output)
++                .map_err(super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -115,9 +115,9 @@
+ #[allow(unused_mut)]
+ pub fn de_list_endpoints_by_platform_application(
+     inp: &[u8],
+-    mut builder: crate::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationOutputBuilder,
++    mut builder: super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationOutputBuilder,
+ ) -> std::result::Result<
+-    crate::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationOutputBuilder,
++    super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationOutputBuilder,
+     ::aws_smithy_xml::decode::XmlDecodeError,
+ > {
+     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+@@ -145,7 +145,7 @@
+             s if s.matches("Endpoints") /* Endpoints com.amazonaws.sns.synthetic#ListEndpointsByPlatformApplicationOutput$Endpoints */ =>  {
+                 let var_1 =
+                     Some(
+-                        crate::protocol_serde::shape_list_of_endpoints::de_list_of_endpoints(&mut tag, depth + 1)
++                        super::protocol_serde::shape_list_of_endpoints::de_list_of_endpoints(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;

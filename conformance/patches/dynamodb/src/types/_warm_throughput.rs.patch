@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -21,8 +21,8 @@
+ }
+ impl WarmThroughput {
+     /// Creates a new builder-style object to manufacture [`WarmThroughput`](crate::types::WarmThroughput).
+-    pub fn builder() -> crate::types::builders::WarmThroughputBuilder {
+-        crate::types::builders::WarmThroughputBuilder::default()
++    pub fn builder() -> super::types::builders::WarmThroughputBuilder {
++        super::types::builders::WarmThroughputBuilder::default()
+     }
+ }
+
+@@ -63,8 +63,8 @@
+         &self.write_units_per_second
+     }
+     /// Consumes the builder and constructs a [`WarmThroughput`](crate::types::WarmThroughput).
+-    pub fn build(self) -> crate::types::WarmThroughput {
+-        crate::types::WarmThroughput {
++    pub fn build(self) -> super::types::WarmThroughput {
++        super::types::WarmThroughput {
+             read_units_per_second: self.read_units_per_second,
+             write_units_per_second: self.write_units_per_second,
+         }

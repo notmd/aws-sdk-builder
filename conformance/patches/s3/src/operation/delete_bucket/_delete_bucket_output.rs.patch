@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -6,7 +6,7 @@
+     _extended_request_id: Option<String>,
+     _request_id: Option<String>,
+ }
+-impl crate::s3_request_id::RequestIdExt for DeleteBucketOutput {
++impl super::s3_request_id::RequestIdExt for DeleteBucketOutput {
+     fn extended_request_id(&self) -> Option<&str> {
+         self._extended_request_id.as_deref()
+     }
+@@ -18,8 +18,8 @@
+ }
+ impl DeleteBucketOutput {
+     /// Creates a new builder-style object to manufacture [`DeleteBucketOutput`](crate::operation::delete_bucket::DeleteBucketOutput).
+-    pub fn builder() -> crate::operation::delete_bucket::builders::DeleteBucketOutputBuilder {
+-        crate::operation::delete_bucket::builders::DeleteBucketOutputBuilder::default()
++    pub fn builder() -> super::operation::delete_bucket::builders::DeleteBucketOutputBuilder {
++        super::operation::delete_bucket::builders::DeleteBucketOutputBuilder::default()
+     }
+ }
+
+@@ -50,8 +50,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`DeleteBucketOutput`](crate::operation::delete_bucket::DeleteBucketOutput).
+-    pub fn build(self) -> crate::operation::delete_bucket::DeleteBucketOutput {
+-        crate::operation::delete_bucket::DeleteBucketOutput {
++    pub fn build(self) -> super::operation::delete_bucket::DeleteBucketOutput {
++        super::operation::delete_bucket::DeleteBucketOutput {
+             _extended_request_id: self._extended_request_id,
+             _request_id: self._request_id,
+         }

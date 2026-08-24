@@ -1,0 +1,118 @@
+--- original
++++ modified
+@@ -5,19 +5,19 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::delete_object_annotation::DeleteObjectAnnotationOutput,
+-    crate::operation::delete_object_annotation::DeleteObjectAnnotationError,
++    super::operation::delete_object_annotation::DeleteObjectAnnotationOutput,
++    super::operation::delete_object_annotation::DeleteObjectAnnotationError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::delete_object_annotation::DeleteObjectAnnotationError::unhandled)?;
+-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::delete_object_annotation::DeleteObjectAnnotationError::unhandled)?;
++    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+         None => {
+-            return Err(crate::operation::delete_object_annotation::DeleteObjectAnnotationError::unhandled(
++            return Err(super::operation::delete_object_annotation::DeleteObjectAnnotationError::unhandled(
+                 generic,
+             ))
+         }
+@@ -25,13 +25,13 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "NoSuchBucket" => crate::operation::delete_object_annotation::DeleteObjectAnnotationError::NoSuchBucket({
++        "NoSuchBucket" => super::operation::delete_object_annotation::DeleteObjectAnnotationError::NoSuchBucket({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NoSuchBucketBuilder::default();
+-                output = crate::protocol_serde::shape_no_such_bucket::de_no_such_bucket_xml_err(_response_body, output)
+-                    .map_err(crate::operation::delete_object_annotation::DeleteObjectAnnotationError::unhandled)?;
++                let mut output = super::types::error::builders::NoSuchBucketBuilder::default();
++                output = super::protocol_serde::shape_no_such_bucket::de_no_such_bucket_xml_err(_response_body, output)
++                    .map_err(super::operation::delete_object_annotation::DeleteObjectAnnotationError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -40,13 +40,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchKey" => crate::operation::delete_object_annotation::DeleteObjectAnnotationError::NoSuchKey({
++        "NoSuchKey" => super::operation::delete_object_annotation::DeleteObjectAnnotationError::NoSuchKey({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NoSuchKeyBuilder::default();
+-                output = crate::protocol_serde::shape_no_such_key::de_no_such_key_xml_err(_response_body, output)
+-                    .map_err(crate::operation::delete_object_annotation::DeleteObjectAnnotationError::unhandled)?;
++                let mut output = super::types::error::builders::NoSuchKeyBuilder::default();
++                output = super::protocol_serde::shape_no_such_key::de_no_such_key_xml_err(_response_body, output)
++                    .map_err(super::operation::delete_object_annotation::DeleteObjectAnnotationError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -55,7 +55,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::delete_object_annotation::DeleteObjectAnnotationError::generic(generic),
++        _ => super::operation::delete_object_annotation::DeleteObjectAnnotationError::generic(generic),
+     })
+ }
+
+@@ -65,27 +65,27 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::delete_object_annotation::DeleteObjectAnnotationOutput,
+-    crate::operation::delete_object_annotation::DeleteObjectAnnotationError,
++    super::operation::delete_object_annotation::DeleteObjectAnnotationOutput,
++    super::operation::delete_object_annotation::DeleteObjectAnnotationError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::delete_object_annotation::builders::DeleteObjectAnnotationOutputBuilder::default();
++        let mut output = super::operation::delete_object_annotation::builders::DeleteObjectAnnotationOutputBuilder::default();
+         output = output.set_object_version_id(
+-            crate::protocol_serde::shape_delete_object_annotation_output::de_object_version_id_header(_response_headers).map_err(|_| {
+-                crate::operation::delete_object_annotation::DeleteObjectAnnotationError::unhandled(
++            super::protocol_serde::shape_delete_object_annotation_output::de_object_version_id_header(_response_headers).map_err(|_| {
++                super::operation::delete_object_annotation::DeleteObjectAnnotationError::unhandled(
+                     "Failed to parse ObjectVersionId from header `x-amz-object-version-id",
+                 )
+             })?,
+         );
+         output = output.set_request_charged(
+-            crate::protocol_serde::shape_delete_object_annotation_output::de_request_charged_header(_response_headers).map_err(|_| {
+-                crate::operation::delete_object_annotation::DeleteObjectAnnotationError::unhandled(
++            super::protocol_serde::shape_delete_object_annotation_output::de_request_charged_header(_response_headers).map_err(|_| {
++                super::operation::delete_object_annotation::DeleteObjectAnnotationError::unhandled(
+                     "Failed to parse RequestCharged from header `x-amz-request-charged",
+                 )
+             })?,
+         );
+-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
++        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -92,7 +92,7 @@
+ }
+
+ pub fn ser_delete_object_annotation_headers(
+-    input: &crate::operation::delete_object_annotation::DeleteObjectAnnotationInput,
++    input: &super::operation::delete_object_annotation::DeleteObjectAnnotationInput,
+     mut builder: ::http_1x::request::Builder,
+ ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+     if let ::std::option::Option::Some(inner_1) = &input.request_payer {

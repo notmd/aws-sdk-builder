@@ -1,0 +1,63 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::ExportDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::ExportDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::ExportDescriptionBuilder::default();
++            let mut builder = super::types::builders::ExportDescriptionBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -31,7 +31,7 @@
+                         "ExportStatus" => {
+                             builder = builder.set_export_status(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| crate::types::ExportStatus::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::types::ExportStatus::from(u.as_ref())))
+                                     .transpose()?,
+                             );
+                         }
+@@ -105,7 +105,7 @@
+                         "S3SseAlgorithm" => {
+                             builder = builder.set_s3_sse_algorithm(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| crate::types::S3SseAlgorithm::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::types::S3SseAlgorithm::from(u.as_ref())))
+                                     .transpose()?,
+                             );
+                         }
+@@ -133,7 +133,7 @@
+                         "ExportFormat" => {
+                             builder = builder.set_export_format(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| crate::types::ExportFormat::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::types::ExportFormat::from(u.as_ref())))
+                                     .transpose()?,
+                             );
+                         }
+@@ -154,13 +154,13 @@
+                         "ExportType" => {
+                             builder = builder.set_export_type(
+                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                                    .map(|s| s.to_unescaped().map(|u| crate::types::ExportType::from(u.as_ref())))
++                                    .map(|s| s.to_unescaped().map(|u| super::types::ExportType::from(u.as_ref())))
+                                     .transpose()?,
+                             );
+                         }
+                         "IncrementalExportSpecification" => {
+                             builder = builder.set_incremental_export_specification(
+-                                crate::protocol_serde::shape_incremental_export_specification::de_incremental_export_specification(
++                                super::protocol_serde::shape_incremental_export_specification::de_incremental_export_specification(
+                                     tokens,
+                                     _value,
+                                     depth + 1,

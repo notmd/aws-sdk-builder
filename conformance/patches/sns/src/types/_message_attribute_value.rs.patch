@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -29,8 +29,8 @@
+ }
+ impl MessageAttributeValue {
+     /// Creates a new builder-style object to manufacture [`MessageAttributeValue`](crate::types::MessageAttributeValue).
+-    pub fn builder() -> crate::types::builders::MessageAttributeValueBuilder {
+-        crate::types::builders::MessageAttributeValueBuilder::default()
++    pub fn builder() -> super::types::builders::MessageAttributeValueBuilder {
++        super::types::builders::MessageAttributeValueBuilder::default()
+     }
+ }
+
+@@ -89,8 +89,8 @@
+     /// Consumes the builder and constructs a [`MessageAttributeValue`](crate::types::MessageAttributeValue).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`data_type`](crate::types::builders::MessageAttributeValueBuilder::data_type)
+-    pub fn build(self) -> ::std::result::Result<crate::types::MessageAttributeValue, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::MessageAttributeValue {
++    pub fn build(self) -> ::std::result::Result<super::types::MessageAttributeValue, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::MessageAttributeValue {
+             data_type: self.data_type.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "data_type",

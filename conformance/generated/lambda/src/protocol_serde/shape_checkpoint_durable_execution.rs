@@ -40,7 +40,7 @@ pub fn de_checkpoint_durable_execution_http_error(
                 tmp
             })
         }
-        "KmsAccessDeniedException" => crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsAccessDeniedException({
+        "KMSAccessDeniedException" => crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsAccessDeniedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -55,7 +55,7 @@ pub fn de_checkpoint_durable_execution_http_error(
             }
             tmp
         }),
-        "KmsDisabledException" => crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsDisabledException({
+        "KMSDisabledException" => crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsDisabledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -70,7 +70,7 @@ pub fn de_checkpoint_durable_execution_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -85,7 +85,7 @@ pub fn de_checkpoint_durable_execution_http_error(
             }
             tmp
         }),
-        "KmsNotFoundException" => crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsNotFoundException({
+        "KMSNotFoundException" => crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -149,9 +149,7 @@ pub fn de_checkpoint_durable_execution_http_response(
         output = crate::protocol_serde::shape_checkpoint_durable_execution::de_checkpoint_durable_execution(_response_body, output)
             .map_err(crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        crate::serde_util::checkpoint_durable_execution_output_output_correct_errors(output)
-            .build()
-            .map_err(crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::unhandled)?
+        crate::serde_util::checkpoint_durable_execution_output_output_correct_errors(output).build()
     })
 }
 

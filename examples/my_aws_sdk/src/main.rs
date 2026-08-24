@@ -1,6 +1,8 @@
 #![allow(warnings)]
 
-aws_sdk_builder::include_sdk!();
+mod aws_s3_sdk {
+    aws_sdk_builder_s3::include_sdk!();
+}
 
 fn main() {}
 
@@ -12,7 +14,7 @@ mod tests {
         thread,
     };
 
-    use super::aws_sdk_s3;
+    use super::aws_s3_sdk;
 
     #[tokio::test]
     async fn core_s3_operations_use_the_rest_runtime() {
@@ -45,8 +47,8 @@ mod tests {
         });
 
         let endpoint = format!("http://{address}");
-        let config = aws_sdk_s3::Config::builder().endpoint_url(endpoint).build();
-        let client = aws_sdk_s3::Client::new(&config);
+        let config = aws_s3_sdk::Config::builder().endpoint_url(endpoint).build();
+        let client = aws_s3_sdk::Client::new(&config);
         let bucket = "bucket";
 
         client.create_bucket().bucket(bucket).send().await.unwrap();
@@ -54,7 +56,7 @@ mod tests {
             .put_object()
             .bucket(bucket)
             .key("key")
-            .body(aws_sdk_s3::primitives::ByteStream::from_static(b"payload"))
+            .body(aws_s3_sdk::primitives::ByteStream::from_static(b"payload"))
             .send()
             .await
             .unwrap();

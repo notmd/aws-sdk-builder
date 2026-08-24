@@ -1,0 +1,72 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     /// <p>The name of the inline policy.</p>
+     pub policy_name: ::std::string::String,
+     /// <p>The type of IAM entity that the inline policy is attached to.</p>
+-    pub attachment_type: crate::types::AttachmentType,
++    pub attachment_type: super::types::AttachmentType,
+     /// <p>The name of the IAM user, group, or role that the inline policy is attached to. Wildcard characters are supported to match multiple entities: use at most one <code>*</code> (matches any sequence of characters, including none), and any number of <code>?</code> (each matches exactly one character).</p>
+     pub attachment_name: ::std::string::String,
+ }
+@@ -18,7 +18,7 @@
+         self.policy_name.deref()
+     }
+     /// <p>The type of IAM entity that the inline policy is attached to.</p>
+-    pub fn attachment_type(&self) -> &crate::types::AttachmentType {
++    pub fn attachment_type(&self) -> &super::types::AttachmentType {
+         &self.attachment_type
+     }
+     /// <p>The name of the IAM user, group, or role that the inline policy is attached to. Wildcard characters are supported to match multiple entities: use at most one <code>*</code> (matches any sequence of characters, including none), and any number of <code>?</code> (each matches exactly one character).</p>
+@@ -29,8 +29,8 @@
+ }
+ impl InlinePolicyIdentifierType {
+     /// Creates a new builder-style object to manufacture [`InlinePolicyIdentifierType`](crate::types::InlinePolicyIdentifierType).
+-    pub fn builder() -> crate::types::builders::InlinePolicyIdentifierTypeBuilder {
+-        crate::types::builders::InlinePolicyIdentifierTypeBuilder::default()
++    pub fn builder() -> super::types::builders::InlinePolicyIdentifierTypeBuilder {
++        super::types::builders::InlinePolicyIdentifierTypeBuilder::default()
+     }
+ }
+
+@@ -39,7 +39,7 @@
+ #[non_exhaustive]
+ pub struct InlinePolicyIdentifierTypeBuilder {
+     pub(crate) policy_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) attachment_type: ::std::option::Option<crate::types::AttachmentType>,
++    pub(crate) attachment_type: ::std::option::Option<super::types::AttachmentType>,
+     pub(crate) attachment_name: ::std::option::Option<::std::string::String>,
+ }
+ impl InlinePolicyIdentifierTypeBuilder {
+@@ -60,17 +60,17 @@
+     }
+     /// <p>The type of IAM entity that the inline policy is attached to.</p>
+     /// This field is required.
+-    pub fn attachment_type(mut self, input: crate::types::AttachmentType) -> Self {
++    pub fn attachment_type(mut self, input: super::types::AttachmentType) -> Self {
+         self.attachment_type = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The type of IAM entity that the inline policy is attached to.</p>
+-    pub fn set_attachment_type(mut self, input: ::std::option::Option<crate::types::AttachmentType>) -> Self {
++    pub fn set_attachment_type(mut self, input: ::std::option::Option<super::types::AttachmentType>) -> Self {
+         self.attachment_type = input;
+         self
+     }
+     /// <p>The type of IAM entity that the inline policy is attached to.</p>
+-    pub fn get_attachment_type(&self) -> &::std::option::Option<crate::types::AttachmentType> {
++    pub fn get_attachment_type(&self) -> &::std::option::Option<super::types::AttachmentType> {
+         &self.attachment_type
+     }
+     /// <p>The name of the IAM user, group, or role that the inline policy is attached to. Wildcard characters are supported to match multiple entities: use at most one <code>*</code> (matches any sequence of characters, including none), and any number of <code>?</code> (each matches exactly one character).</p>
+@@ -93,8 +93,8 @@
+     /// - [`policy_name`](crate::types::builders::InlinePolicyIdentifierTypeBuilder::policy_name)
+     /// - [`attachment_type`](crate::types::builders::InlinePolicyIdentifierTypeBuilder::attachment_type)
+     /// - [`attachment_name`](crate::types::builders::InlinePolicyIdentifierTypeBuilder::attachment_name)
+-    pub fn build(self) -> ::std::result::Result<crate::types::InlinePolicyIdentifierType, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::InlinePolicyIdentifierType {
++    pub fn build(self) -> ::std::result::Result<super::types::InlinePolicyIdentifierType, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::InlinePolicyIdentifierType {
+             policy_name: self.policy_name.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "policy_name",

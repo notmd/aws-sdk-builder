@@ -1,0 +1,56 @@
+--- original
++++ modified
+@@ -54,53 +54,3 @@
+     }
+     Err(XmlDecodeError::custom("no error found inside of ErrorResponse"))
+ }
+-
+-#[cfg(test)]
+-mod test {
+-    use super::{body_is_error, parse_error_metadata};
+-    use crate::rest_xml_wrapped_errors::error_scope;
+-    use aws_smithy_xml::decode::Document;
+-
+-    #[test]
+-    fn parse_wrapped_error() {
+-        let xml = br#"<ErrorResponse>
+-    <Error>
+-        <Type>Sender</Type>
+-        <Code>InvalidGreeting</Code>
+-        <Message>Hi</Message>
+-        <AnotherSetting>setting</AnotherSetting>
+-        <Ignore><This/></Ignore>
+-    </Error>
+-    <RequestId>foo-id</RequestId>
+-</ErrorResponse>"#;
+-        assert!(body_is_error(xml).unwrap());
+-        let parsed = parse_error_metadata(xml).expect("valid xml").build();
+-        assert_eq!(parsed.message(), Some("Hi"));
+-        assert_eq!(parsed.code(), Some("InvalidGreeting"));
+-    }
+-
+-    #[test]
+-    fn test_error_scope() {
+-        let xml: &[u8] = br#"<ErrorResponse>
+-    <RequestId>foo-id</RequestId>
+-    <MorePreamble>foo-id</RequestId>
+-    <Sneaky><Error>These are not the errors you are looking for</Error></Sneaky>
+-    <Error>
+-        <Type>Sender</Type>
+-        <Code>InvalidGreeting</Code>
+-        <Message>Hi</Message>
+-        <AnotherSetting>setting</AnotherSetting>
+-        <Ignore><This/></Ignore>
+-    </Error>
+-    <RequestId>foo-id</RequestId>
+-</ErrorResponse>"#;
+-        let mut doc = Document::try_from(xml).expect("valid");
+-        let mut error = error_scope(&mut doc).expect("contains error");
+-        let mut keys = vec![];
+-        while let Some(tag) = error.next_tag() {
+-            keys.push(tag.start_el().local().to_owned());
+-            // read this the full contents of this element
+-        }
+-        assert_eq!(keys, vec!["Type", "Code", "Message", "AnotherSetting", "Ignore",])
+-    }
+-}

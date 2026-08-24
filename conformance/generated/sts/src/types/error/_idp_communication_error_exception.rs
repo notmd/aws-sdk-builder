@@ -16,7 +16,7 @@ impl IdpCommunicationErrorException {
 }
 impl ::std::fmt::Display for IdpCommunicationErrorException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(f, "IdpCommunicationErrorException")?;
+        ::std::write!(f, "IdpCommunicationErrorException [IDPCommunicationErrorException]")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;

@@ -1,0 +1,13 @@
+--- original
++++ modified
+@@ -14,8 +14,8 @@
+     /// - On failure, responds with [`SdkError<ListFunctionVersionsByCapacityProviderError>`](crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError)
+     pub fn list_function_versions_by_capacity_provider(
+         &self,
+-    ) -> crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderFluentBuilder {
+-        crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderFluentBuilder::new(
++    ) -> super::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderFluentBuilder {
++        super::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderFluentBuilder::new(
+             self.handle.clone(),
+         )
+     }

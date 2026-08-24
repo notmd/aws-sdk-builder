@@ -65,7 +65,7 @@ pub fn de_disconnect_custom_key_store_http_error(
                 tmp
             })
         }
-        "KmsInternalException" => crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError::KmsInternalException({
+        "KMSInternalException" => crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

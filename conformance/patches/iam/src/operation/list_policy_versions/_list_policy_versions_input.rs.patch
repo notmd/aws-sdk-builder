@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -30,8 +30,8 @@
+ }
+ impl ListPolicyVersionsInput {
+     /// Creates a new builder-style object to manufacture [`ListPolicyVersionsInput`](crate::operation::list_policy_versions::ListPolicyVersionsInput).
+-    pub fn builder() -> crate::operation::list_policy_versions::builders::ListPolicyVersionsInputBuilder {
+-        crate::operation::list_policy_versions::builders::ListPolicyVersionsInputBuilder::default()
++    pub fn builder() -> super::operation::list_policy_versions::builders::ListPolicyVersionsInputBuilder {
++        super::operation::list_policy_versions::builders::ListPolicyVersionsInputBuilder::default()
+     }
+ }
+
+@@ -96,9 +96,9 @@
+     /// Consumes the builder and constructs a [`ListPolicyVersionsInput`](crate::operation::list_policy_versions::ListPolicyVersionsInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::list_policy_versions::ListPolicyVersionsInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::list_policy_versions::ListPolicyVersionsInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::list_policy_versions::ListPolicyVersionsInput {
++        ::std::result::Result::Ok(super::operation::list_policy_versions::ListPolicyVersionsInput {
+             policy_arn: self.policy_arn,
+             marker: self.marker,
+             max_items: self.max_items,

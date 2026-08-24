@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -33,8 +33,8 @@
+ }
+ impl AutoScalingTargetTrackingScalingPolicyConfigurationDescription {
+     /// Creates a new builder-style object to manufacture [`AutoScalingTargetTrackingScalingPolicyConfigurationDescription`](crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription).
+-    pub fn builder() -> crate::types::builders::AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilder {
+-        crate::types::builders::AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilder::default()
++    pub fn builder() -> super::types::builders::AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilder {
++        super::types::builders::AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilder::default()
+     }
+ }
+
+@@ -111,10 +111,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription,
++        super::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription {
++        ::std::result::Result::Ok(super::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription {
+             disable_scale_in: self.disable_scale_in,
+             scale_in_cooldown: self.scale_in_cooldown,
+             scale_out_cooldown: self.scale_out_cooldown,

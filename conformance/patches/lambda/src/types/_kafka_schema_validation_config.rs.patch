@@ -1,0 +1,57 @@
+--- original
++++ modified
+@@ -5,18 +5,18 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct KafkaSchemaValidationConfig {
+     /// <p>The attributes you want your schema registry to validate and filter for. If you selected <code>JSON</code> as the <code>EventRecordFormat</code>, Lambda also deserializes the selected message attributes.</p>
+-    pub attribute: ::std::option::Option<crate::types::KafkaSchemaValidationAttribute>,
++    pub attribute: ::std::option::Option<super::types::KafkaSchemaValidationAttribute>,
+ }
+ impl KafkaSchemaValidationConfig {
+     /// <p>The attributes you want your schema registry to validate and filter for. If you selected <code>JSON</code> as the <code>EventRecordFormat</code>, Lambda also deserializes the selected message attributes.</p>
+-    pub fn attribute(&self) -> ::std::option::Option<&crate::types::KafkaSchemaValidationAttribute> {
++    pub fn attribute(&self) -> ::std::option::Option<&super::types::KafkaSchemaValidationAttribute> {
+         self.attribute.as_ref()
+     }
+ }
+ impl KafkaSchemaValidationConfig {
+     /// Creates a new builder-style object to manufacture [`KafkaSchemaValidationConfig`](crate::types::KafkaSchemaValidationConfig).
+-    pub fn builder() -> crate::types::builders::KafkaSchemaValidationConfigBuilder {
+-        crate::types::builders::KafkaSchemaValidationConfigBuilder::default()
++    pub fn builder() -> super::types::builders::KafkaSchemaValidationConfigBuilder {
++        super::types::builders::KafkaSchemaValidationConfigBuilder::default()
+     }
+ }
+
+@@ -24,25 +24,25 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct KafkaSchemaValidationConfigBuilder {
+-    pub(crate) attribute: ::std::option::Option<crate::types::KafkaSchemaValidationAttribute>,
++    pub(crate) attribute: ::std::option::Option<super::types::KafkaSchemaValidationAttribute>,
+ }
+ impl KafkaSchemaValidationConfigBuilder {
+     /// <p>The attributes you want your schema registry to validate and filter for. If you selected <code>JSON</code> as the <code>EventRecordFormat</code>, Lambda also deserializes the selected message attributes.</p>
+-    pub fn attribute(mut self, input: crate::types::KafkaSchemaValidationAttribute) -> Self {
++    pub fn attribute(mut self, input: super::types::KafkaSchemaValidationAttribute) -> Self {
+         self.attribute = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The attributes you want your schema registry to validate and filter for. If you selected <code>JSON</code> as the <code>EventRecordFormat</code>, Lambda also deserializes the selected message attributes.</p>
+-    pub fn set_attribute(mut self, input: ::std::option::Option<crate::types::KafkaSchemaValidationAttribute>) -> Self {
++    pub fn set_attribute(mut self, input: ::std::option::Option<super::types::KafkaSchemaValidationAttribute>) -> Self {
+         self.attribute = input;
+         self
+     }
+     /// <p>The attributes you want your schema registry to validate and filter for. If you selected <code>JSON</code> as the <code>EventRecordFormat</code>, Lambda also deserializes the selected message attributes.</p>
+-    pub fn get_attribute(&self) -> &::std::option::Option<crate::types::KafkaSchemaValidationAttribute> {
++    pub fn get_attribute(&self) -> &::std::option::Option<super::types::KafkaSchemaValidationAttribute> {
+         &self.attribute
+     }
+     /// Consumes the builder and constructs a [`KafkaSchemaValidationConfig`](crate::types::KafkaSchemaValidationConfig).
+-    pub fn build(self) -> crate::types::KafkaSchemaValidationConfig {
+-        crate::types::KafkaSchemaValidationConfig { attribute: self.attribute }
++    pub fn build(self) -> super::types::KafkaSchemaValidationConfig {
++        super::types::KafkaSchemaValidationConfig { attribute: self.attribute }
+     }
+ }

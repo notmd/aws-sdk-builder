@@ -50,7 +50,7 @@ pub fn de_update_key_description_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::update_key_description::UpdateKeyDescriptionError::KmsInternalException({
+        "KMSInternalException" => crate::operation::update_key_description::UpdateKeyDescriptionError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -65,7 +65,7 @@ pub fn de_update_key_description_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::update_key_description::UpdateKeyDescriptionError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::update_key_description::UpdateKeyDescriptionError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

@@ -1,0 +1,173 @@
+--- original
++++ modified
+@@ -5,18 +5,18 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
+-    crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
++    super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
++    super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+         None => {
+-            return Err(crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled(
++            return Err(super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled(
+                 generic,
+             ))
+         }
+@@ -24,16 +24,16 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ConcurrentModification" => crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::ConcurrentModificationException({
++        "ConcurrentModification" => super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::ConcurrentModificationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(
++                let mut output = super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
++                output = super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(
+                     _response_body,
+                     output,
+                 )
+-                .map_err(crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
++                .map_err(super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -42,14 +42,14 @@
+             }
+             tmp
+         }),
+-        "EntityAlreadyExists" => crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::EntityAlreadyExistsException({
++        "EntityAlreadyExists" => super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::EntityAlreadyExistsException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
++                let mut output = super::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
+                 output =
+-                    crate::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
+-                        .map_err(crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
++                    super::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
++                        .map_err(super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -58,13 +58,13 @@
+             }
+             tmp
+         }),
+-        "InvalidInput" => crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::InvalidInputException({
++        "InvalidInput" => super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InvalidInputExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
++                let mut output = super::types::error::builders::InvalidInputExceptionBuilder::default();
++                output = super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -73,13 +73,13 @@
+             }
+             tmp
+         }),
+-        "LimitExceeded" => crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::LimitExceededException({
++        "LimitExceeded" => super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
++                let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
++                output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -88,13 +88,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::ServiceFailureException({
++        "ServiceFailure" => super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
++                let mut output = super::types::error::builders::ServiceFailureExceptionBuilder::default();
++                output = super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -103,7 +103,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::generic(generic),
++        _ => super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::generic(generic),
+     })
+ }
+
+@@ -113,16 +113,16 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
+-    crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
++    super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
++    super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::create_virtual_mfa_device::builders::CreateVirtualMfaDeviceOutputBuilder::default();
+-        output = crate::protocol_serde::shape_create_virtual_mfa_device::de_create_virtual_mfa_device(_response_body, output)
+-            .map_err(crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
++        let mut output = super::operation::create_virtual_mfa_device::builders::CreateVirtualMfaDeviceOutputBuilder::default();
++        output = super::protocol_serde::shape_create_virtual_mfa_device::de_create_virtual_mfa_device(_response_body, output)
++            .map_err(super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+-        crate::serde_util::create_virtual_mfa_device_output_output_correct_errors(output).build()
++        super::serde_util::create_virtual_mfa_device_output_output_correct_errors(output).build()
+     })
+ }
+
+@@ -129,9 +129,9 @@
+ #[allow(unused_mut)]
+ pub fn de_create_virtual_mfa_device(
+     inp: &[u8],
+-    mut builder: crate::operation::create_virtual_mfa_device::builders::CreateVirtualMfaDeviceOutputBuilder,
++    mut builder: super::operation::create_virtual_mfa_device::builders::CreateVirtualMfaDeviceOutputBuilder,
+ ) -> std::result::Result<
+-    crate::operation::create_virtual_mfa_device::builders::CreateVirtualMfaDeviceOutputBuilder,
++    super::operation::create_virtual_mfa_device::builders::CreateVirtualMfaDeviceOutputBuilder,
+     ::aws_smithy_xml::decode::XmlDecodeError,
+ > {
+     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+@@ -159,7 +159,7 @@
+             s if s.matches("VirtualMFADevice") /* VirtualMFADevice com.amazonaws.iam.synthetic#CreateVirtualMFADeviceOutput$VirtualMFADevice */ =>  {
+                 let var_1 =
+                     Some(
+-                        crate::protocol_serde::shape_virtual_mfa_device::de_virtual_mfa_device(&mut tag, depth + 1)
++                        super::protocol_serde::shape_virtual_mfa_device::de_virtual_mfa_device(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;

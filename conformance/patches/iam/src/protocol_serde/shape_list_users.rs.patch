@@ -1,0 +1,89 @@
+--- original
++++ modified
+@@ -4,26 +4,26 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<crate::operation::list_users::ListUsersOutput, crate::operation::list_users::ListUsersError> {
++) -> std::result::Result<super::operation::list_users::ListUsersOutput, super::operation::list_users::ListUsersError> {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::list_users::ListUsersError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::list_users::ListUsersError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::list_users::ListUsersError::unhandled(generic)),
++        None => return Err(super::operation::list_users::ListUsersError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ServiceFailure" => crate::operation::list_users::ListUsersError::ServiceFailureException({
++        "ServiceFailure" => super::operation::list_users::ListUsersError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::list_users::ListUsersError::unhandled)?;
++                let mut output = super::types::error::builders::ServiceFailureExceptionBuilder::default();
++                output = super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::list_users::ListUsersError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -32,7 +32,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::list_users::ListUsersError::generic(generic),
++        _ => super::operation::list_users::ListUsersError::generic(generic),
+     })
+ }
+
+@@ -41,16 +41,16 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<crate::operation::list_users::ListUsersOutput, crate::operation::list_users::ListUsersError> {
++) -> std::result::Result<super::operation::list_users::ListUsersOutput, super::operation::list_users::ListUsersError> {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::list_users::builders::ListUsersOutputBuilder::default();
+-        output = crate::protocol_serde::shape_list_users::de_list_users(_response_body, output)
+-            .map_err(crate::operation::list_users::ListUsersError::unhandled)?;
++        let mut output = super::operation::list_users::builders::ListUsersOutputBuilder::default();
++        output = super::protocol_serde::shape_list_users::de_list_users(_response_body, output)
++            .map_err(super::operation::list_users::ListUsersError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+-        crate::serde_util::list_users_output_output_correct_errors(output)
++        super::serde_util::list_users_output_output_correct_errors(output)
+             .build()
+-            .map_err(crate::operation::list_users::ListUsersError::unhandled)?
++            .map_err(super::operation::list_users::ListUsersError::unhandled)?
+     })
+ }
+
+@@ -57,8 +57,8 @@
+ #[allow(unused_mut)]
+ pub fn de_list_users(
+     inp: &[u8],
+-    mut builder: crate::operation::list_users::builders::ListUsersOutputBuilder,
+-) -> std::result::Result<crate::operation::list_users::builders::ListUsersOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
++    mut builder: super::operation::list_users::builders::ListUsersOutputBuilder,
++) -> std::result::Result<super::operation::list_users::builders::ListUsersOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+     #[allow(unused_mut)]
+@@ -84,7 +84,7 @@
+             s if s.matches("Users") /* Users com.amazonaws.iam.synthetic#ListUsersOutput$Users */ =>  {
+                 let var_1 =
+                     Some(
+-                        crate::protocol_serde::shape_user_list_type::de_user_list_type(&mut tag, depth + 1)
++                        super::protocol_serde::shape_user_list_type::de_user_list_type(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;

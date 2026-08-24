@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -28,8 +28,8 @@
+ }
+ impl ChangeMessageVisibilityInput {
+     /// Creates a new builder-style object to manufacture [`ChangeMessageVisibilityInput`](crate::operation::change_message_visibility::ChangeMessageVisibilityInput).
+-    pub fn builder() -> crate::operation::change_message_visibility::builders::ChangeMessageVisibilityInputBuilder {
+-        crate::operation::change_message_visibility::builders::ChangeMessageVisibilityInputBuilder::default()
++    pub fn builder() -> super::operation::change_message_visibility::builders::ChangeMessageVisibilityInputBuilder {
++        super::operation::change_message_visibility::builders::ChangeMessageVisibilityInputBuilder::default()
+     }
+ }
+
+@@ -94,10 +94,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::change_message_visibility::ChangeMessageVisibilityInput,
++        super::operation::change_message_visibility::ChangeMessageVisibilityInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::change_message_visibility::ChangeMessageVisibilityInput {
++        ::std::result::Result::Ok(super::operation::change_message_visibility::ChangeMessageVisibilityInput {
+             queue_url: self.queue_url,
+             receipt_handle: self.receipt_handle,
+             visibility_timeout: self.visibility_timeout,

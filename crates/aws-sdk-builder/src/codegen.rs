@@ -1,3 +1,4 @@
+use proc_macro2::LineColumn;
 use serde_json::Value;
 use sha2::{Digest, Sha256};
 use std::{
@@ -28,14 +29,6 @@ pub(crate) fn generate(
         path: generated.clone(),
         source,
     })?;
-    let mut facade = String::new();
-    header(&mut facade);
-    facade.push_str(
-        "#[doc(hidden)]\n\
-         pub mod meta {\n\
-             pub const PKG_VERSION: &str = env!(\"CARGO_PKG_VERSION\");\n\
-         }\n\n",
-    );
     let mut all_operations = Vec::new();
     for selection in selections {
         let entry = selection.source.metadata;
@@ -45,11 +38,6 @@ pub(crate) fn generate(
         let request_id_plan = request_id_plan(&selected);
         let service_dir = generated.join(entry.key);
         let mut service_files = vec![
-            ("README.md".to_owned(), render_service_readme(&selected)),
-            (
-                "LICENSE".to_owned(),
-                include_str!("../assets/LICENSE").to_owned(),
-            ),
             (
                 "src/lib.rs".to_owned(),
                 render_service_lib(entry.key, &selected, consumer_namespace),
@@ -70,7 +58,10 @@ pub(crate) fn generate(
                 "src/error.rs".to_owned(),
                 render_error_file(consumer_namespace, model_has_enum(&selected)),
             ),
-            ("src/meta.rs".to_owned(), render_meta(entry.key)),
+            (
+                "src/meta.rs".to_owned(),
+                render_meta(entry.key, consumer_namespace),
+            ),
             (
                 "src/observability_feature.rs".to_owned(),
                 render_observability_feature(),
@@ -132,32 +123,6 @@ pub(crate) fn generate(
                 render_serde_util_file(&selected),
             ),
         ];
-        if !selected.protocol_tests.is_empty() {
-            service_files.push((
-                "Cargo.toml".to_owned(),
-                render_service_manifest(&selected, protocol),
-            ));
-        }
-        if !consumer_namespace {
-            let endpoint_test_source = if endpoint_tests_need_placeholder(&selected) {
-                Some(render_endpoint_tests_placeholder())
-            } else if endpoint_tests_have_string_inputs(&selected) {
-                Some(render_endpoint_tests_file(&selected))
-            } else {
-                None
-            };
-            if let Some(source) = endpoint_test_source {
-                service_files.push(("tests/endpoint_tests.rs".to_owned(), source));
-            }
-            if !selected.protocol_tests.is_empty() {
-                for asset in selection.source.integration_tests {
-                    service_files.push((
-                        asset.path.to_owned(),
-                        String::from_utf8_lossy(asset.bytes).into_owned(),
-                    ));
-                }
-            }
-        }
         if has_idempotency_operations(&selected) {
             service_files.push((
                 "src/idempotency_token.rs".to_owned(),
@@ -423,46 +388,19 @@ pub(crate) fn generate(
                     source,
                 })?;
             }
-            let rendered_source = if consumer_namespace {
-                normalize_consumer_source(&source, entry.module_name)
-            } else {
-                normalize_source(&source)
-            };
+            let rendered_source = normalize_generated_source(
+                &source,
+                entry.module_name,
+                Path::new(&relative_path),
+                consumer_namespace,
+            )?;
             fs::write(&source_path, rendered_source).map_err(|source| BuildError::OutputWrite {
                 path: source_path.clone(),
                 source,
             })?;
         }
-        if consumer_namespace {
-            writeln!(
-                facade,
-                "#[allow(non_snake_case, dead_code, unused_imports, deprecated, clippy::unnecessary_to_owned)]"
-            )
-            .unwrap();
-        } else {
-            writeln!(
-                facade,
-                "#[allow(non_snake_case, dead_code, unused_imports)]"
-            )
-            .unwrap();
-        }
-        writeln!(facade, "pub mod {} {{", entry.module_name).unwrap();
-        writeln!(
-            facade,
-            "    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{}/src/lib.rs\"));",
-            entry.key
-        )
-        .unwrap();
-        facade.push_str("}\n\n");
         all_operations.extend(selected.operations.iter().cloned());
     }
-    let include_path = stage.join("aws_sdk.rs");
-    fs::write(&include_path, normalize_source(&facade)).map_err(|source| {
-        BuildError::OutputWrite {
-            path: include_path.clone(),
-            source,
-        }
-    })?;
     all_operations.sort();
     Ok(Generated {
         operations: all_operations,
@@ -485,14 +423,206 @@ fn normalize_source(source: &str) -> String {
     format!("{}\n", source.trim_end_matches('\n'))
 }
 
-fn normalize_consumer_source(source: &str, module_name: &str) -> String {
+fn normalize_generated_source(
+    source: &str,
+    module_name: &str,
+    relative_path: &Path,
+    consumer_namespace: bool,
+) -> Result<String, BuildError> {
+    let source = if relative_path
+        .extension()
+        .and_then(|extension| extension.to_str())
+        == Some("rs")
+    {
+        drop_inline_unit_tests(source, relative_path)?
+    } else {
+        source.to_owned()
+    };
+    Ok(if consumer_namespace {
+        normalize_consumer_source(&source, module_name, relative_path)
+    } else {
+        normalize_source(&source)
+    })
+}
+
+/// Remove test-only modules from generated source. The bundled Smithy-RS
+/// support assets contain their own unit tests, and generated SDKs are
+/// intentionally runtime-only source trees.
+fn drop_inline_unit_tests(source: &str, relative_path: &Path) -> Result<String, BuildError> {
+    let source = normalize_source(source);
+    let file = syn::parse_file(&source).map_err(|error| BuildError::GeneratedSourceParse {
+        path: relative_path.to_owned(),
+        message: error.to_string(),
+    })?;
+    let mut visitor = InlineUnitTestVisitor::default();
+    syn::visit::visit_file(&mut visitor, &file);
+    if visitor.spans.is_empty() {
+        return Ok(source);
+    }
+
+    let mut ranges = visitor
+        .spans
+        .into_iter()
+        .map(|span| {
+            let mut start = source_offset(&source, span.start(), relative_path)?;
+            let mut end = source_offset(&source, span.end(), relative_path)?;
+            loop {
+                while start > 0 && matches!(source.as_bytes()[start - 1], b' ' | b'\t') {
+                    start -= 1;
+                }
+                if start > 0 && source.as_bytes()[start - 1] == b'\n' {
+                    start -= 1;
+                }
+                let line_start = source[..start].rfind('\n').map_or(0, |index| index + 1);
+                let previous_line = source[line_start..start].trim();
+                if previous_line.starts_with("#[") {
+                    start = line_start;
+                } else {
+                    break;
+                }
+            }
+            if end < source.len() && source.as_bytes()[end] == b'\n' {
+                end += 1;
+            }
+            Ok((start, end))
+        })
+        .collect::<Result<Vec<_>, BuildError>>()?;
+    ranges.sort_by_key(|(start, _)| std::cmp::Reverse(*start));
+    ranges.dedup();
+
+    let mut normalized = source;
+    for (start, end) in ranges {
+        normalized.replace_range(start..end, "");
+    }
+    syn::parse_file(&normalized).map_err(|error| BuildError::GeneratedSourceParse {
+        path: relative_path.to_owned(),
+        message: format!("normalized source no longer parses: {error}"),
+    })?;
+    Ok(normalized)
+}
+
+#[derive(Default)]
+struct InlineUnitTestVisitor {
+    spans: Vec<proc_macro2::Span>,
+}
+
+impl<'ast> syn::visit::Visit<'ast> for InlineUnitTestVisitor {
+    fn visit_item_mod(&mut self, item: &'ast syn::ItemMod) {
+        if item.attrs.iter().any(is_cfg_test) {
+            use syn::spanned::Spanned;
+            self.spans.push(item.span());
+            return;
+        }
+        syn::visit::visit_item_mod(self, item);
+    }
+}
+
+fn is_cfg_test(attribute: &syn::Attribute) -> bool {
+    let syn::Meta::List(meta) = &attribute.meta else {
+        return false;
+    };
+    if !meta.path.is_ident("cfg") {
+        return false;
+    }
+    syn::parse2::<syn::Meta>(meta.tokens.clone())
+        .map(|meta| cfg_meta_contains_test(&meta))
+        .unwrap_or(false)
+}
+
+fn cfg_meta_contains_test(meta: &syn::Meta) -> bool {
+    use syn::parse::Parser;
+
+    match meta {
+        syn::Meta::Path(path) => path.is_ident("test"),
+        syn::Meta::List(list) if list.path.is_ident("all") || list.path.is_ident("any") => {
+            let parser = syn::punctuated::Punctuated::<syn::Meta, syn::Token![,]>::parse_terminated;
+            parser
+                .parse2(list.tokens.clone())
+                .map(|metas| metas.iter().any(cfg_meta_contains_test))
+                .unwrap_or(false)
+        }
+        syn::Meta::List(_) | syn::Meta::NameValue(_) => false,
+    }
+}
+
+fn source_offset(
+    source: &str,
+    location: LineColumn,
+    relative_path: &Path,
+) -> Result<usize, BuildError> {
+    let line = location
+        .line
+        .checked_sub(1)
+        .ok_or_else(|| BuildError::GeneratedSourceParse {
+            path: relative_path.to_owned(),
+            message: format!("invalid zero line in parsed source location: {location:?}"),
+        })?;
+    let line_start = source
+        .split_inclusive('\n')
+        .take(line)
+        .map(str::len)
+        .sum::<usize>();
+    let offset = line_start + location.column;
+    if offset > source.len() || !source.is_char_boundary(offset) {
+        Err(BuildError::GeneratedSourceParse {
+            path: relative_path.to_owned(),
+            message: format!("invalid parsed source location: {location:?}"),
+        })
+    } else {
+        Ok(offset)
+    }
+}
+
+fn normalize_consumer_source(source: &str, module_name: &str, relative_path: &Path) -> String {
+    let root_prefix = embedded_root_prefix(relative_path);
     let local_prefix = format!("crate::{module_name}::");
     normalize_source(source)
-        .replace("crate::meta::", "__AWS_SDK_BUILDER_META__")
         .replace(&local_prefix, "__AWS_SDK_BUILDER_LOCAL__")
-        .replace("crate::", &local_prefix)
-        .replace("__AWS_SDK_BUILDER_LOCAL__", &local_prefix)
-        .replace("__AWS_SDK_BUILDER_META__", "crate::meta::")
+        .replace("crate::", "__AWS_SDK_BUILDER_ROOT__")
+        .replace("__AWS_SDK_BUILDER_LOCAL__", "__AWS_SDK_BUILDER_ROOT__")
+        .replace("__AWS_SDK_BUILDER_ROOT__", &root_prefix)
+}
+
+/// The consumer generator includes source files into a user-owned module. A
+/// generated `crate::` path therefore has to point at that module's root using
+/// a relative path; the wrapper's name must never be part of generated code.
+fn embedded_root_prefix(relative_path: &Path) -> String {
+    let components = relative_path
+        .components()
+        .filter_map(|component| component.as_os_str().to_str())
+        .collect::<Vec<_>>();
+    let depth = match components.as_slice() {
+        ["src", "types", "builders.rs"] | ["src", "types", "error", "builders.rs"] => 2,
+        ["src", "types.rs"]
+        | ["src", "types", _]
+        | ["src", "types", "error", _]
+        | ["src", "config", "auth.rs"]
+        | ["src", "waiters", _]
+        | ["src", "waiters.rs"]
+        | ["src", "s3_request_id.rs"]
+        | ["src", "serde_util.rs"]
+        | ["src", "lens.rs"] => 1,
+        ["src", "operation", _] | ["src", "client", _] => 1,
+        ["src", "operation", _, _] => 2,
+        ["src", "lib.rs"]
+        | ["src", "primitives.rs"]
+        | ["src", "config.rs"]
+        | ["src", "error.rs"]
+        | ["src", "meta.rs"]
+        | ["src", "operation.rs"]
+        | ["src", "client.rs"] => 0,
+        _ => 0,
+    };
+    if depth == 0 {
+        "self::".to_owned()
+    } else {
+        format!(
+            "{}::",
+            std::iter::repeat_n("super", depth)
+                .collect::<Vec<_>>()
+                .join("::")
+        )
+    }
 }
 
 #[derive(Clone, Copy, Debug, Default)]
@@ -627,7 +757,7 @@ fn render_standalone_service_lib(selected: &SelectedModel) -> String {
         .expect("selected service shape exists");
     let protocol = selected.model.protocol().unwrap_or(ProtocolKind::RestJson1);
     let service_title = service_title(selected);
-    let crate_name = selected.model.entry.crate_name;
+    let crate_name = service_crate_name(selected.model.entry.key);
     let module_name = selected.model.entry.module_name;
     let module_alias = module_name.strip_prefix("aws_sdk_").unwrap_or(module_name);
     let sdk_version = selected.model.entry.sdk_version.unwrap_or("0.0.0");
@@ -674,7 +804,7 @@ fn render_service_readme(selected: &SelectedModel) -> String {
         .shapes
         .get(selected.model.service_shape_id.as_str())
         .expect("selected service shape exists");
-    let crate_name = selected.model.entry.crate_name;
+    let crate_name = service_crate_name(selected.model.entry.key);
     let module_name = selected.model.entry.module_name;
     let module_alias = module_name.strip_prefix("aws_sdk_").unwrap_or(module_name);
     let sdk_version = selected.model.entry.sdk_version.unwrap_or("0.0.0");
@@ -693,7 +823,7 @@ fn render_service_readme(selected: &SelectedModel) -> String {
     output.push_str(
         "\n\n## Getting Started\n\n> Examples are available for many services and operations, check out the\n> [usage examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1).\n\nThe SDK provides one crate per AWS service. You must add [Tokio](https://crates.io/crates/tokio)\nas a dependency within your Rust project to execute asynchronous code. To add `",
     );
-    output.push_str(crate_name);
+    output.push_str(&crate_name);
     output.push_str(
         "` to\nyour project, add the following to your **Cargo.toml** file:\n\n```toml\n[dependencies]\naws-config = { version = \"1.1.7\", features = [\"behavior-version-latest\"] }\n",
     );
@@ -713,7 +843,7 @@ fn render_service_readme(selected: &SelectedModel) -> String {
     output.push_str(
         "::Client::new(&config);\n\n    // ... make some calls with the client\n\n    Ok(())\n}\n```\n\nSee the [client documentation](https://docs.rs/",
     );
-    output.push_str(crate_name);
+    output.push_str(&crate_name);
     output.push_str("/latest/");
     output.push_str(module_name);
     output.push_str(
@@ -749,7 +879,12 @@ fn render_service_manifest(selected: &SelectedModel, protocol: ProtocolKind) -> 
     output.push_str(
         "# Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.\n[package]\n",
     );
-    writeln!(output, "name = {:?}", selected.model.entry.crate_name).unwrap();
+    writeln!(
+        output,
+        "name = {:?}",
+        service_crate_name(selected.model.entry.key)
+    )
+    .unwrap();
     writeln!(
         output,
         "version = {:?}",
@@ -2595,10 +2730,11 @@ fn serde_util_shape_needs_correction(shape: &Value) -> bool {
             .any(|(_, member)| member_is_required(member))
 }
 
-fn serde_util_builder_is_fallible(_selected: &SelectedModel, shape: &Value) -> bool {
-    members(shape)
-        .iter()
-        .any(|(_, member)| member_is_required(member) && !has_trait(member, "smithy.api#default"))
+fn serde_util_builder_is_fallible(selected: &SelectedModel, shape: &Value) -> bool {
+    members(shape).iter().any(|(_, member)| {
+        member_target(member)
+            .is_some_and(|target| member_is_effectively_required(selected, member, target))
+    })
 }
 
 fn render_serde_util_correction(
@@ -2761,77 +2897,6 @@ pub(crate) fn apply_extended_request_id(builder: ErrorMetadataBuilder, headers: 
     }
 }
 
-#[cfg(test)]
-mod test {
-    use super::*;
-    use aws_smithy_runtime_api::client::result::SdkError;
-    use aws_smithy_types::body::SdkBody;
-
-    #[test]
-    fn handle_missing_header() {
-        let resp = Response::try_from(http_1x::Response::builder().status(400).body("").unwrap()).unwrap();
-        let mut builder = ErrorMetadata::builder().message("123");
-        builder = apply_extended_request_id(builder, resp.headers());
-        assert_eq!(builder.build().extended_request_id(), None);
-    }
-
-    #[test]
-    fn test_extended_request_id_sdk_error() {
-        let without_extended_request_id = || Response::try_from(http_1x::Response::builder().body(SdkBody::empty()).unwrap()).unwrap();
-        let with_extended_request_id = || {
-            Response::try_from(
-                http_1x::Response::builder()
-                    .header("x-amz-id-2", "some-request-id")
-                    .body(SdkBody::empty())
-                    .unwrap(),
-            )
-            .unwrap()
-        };
-        assert_eq!(
-            None,
-            SdkError::<(), _>::response_error("test", without_extended_request_id()).extended_request_id()
-        );
-        assert_eq!(
-            Some("some-request-id"),
-            SdkError::<(), _>::response_error("test", with_extended_request_id()).extended_request_id()
-        );
-        assert_eq!(None, SdkError::service_error((), without_extended_request_id()).extended_request_id());
-        assert_eq!(
-            Some("some-request-id"),
-            SdkError::service_error((), with_extended_request_id()).extended_request_id()
-        );
-    }
-
-    #[test]
-    fn test_extract_extended_request_id() {
-        let mut headers = Headers::new();
-        assert_eq!(None, headers.extended_request_id());
-
-        headers.append("x-amz-id-2", "some-request-id");
-        assert_eq!(Some("some-request-id"), headers.extended_request_id());
-    }
-
-    #[test]
-    fn test_apply_extended_request_id() {
-        let mut headers = Headers::new();
-        assert_eq!(
-            ErrorMetadata::builder().build(),
-            apply_extended_request_id(ErrorMetadata::builder(), &headers).build(),
-        );
-
-        headers.append("x-amz-id-2", "some-request-id");
-        assert_eq!(
-            ErrorMetadata::builder().custom(EXTENDED_REQUEST_ID, "some-request-id").build(),
-            apply_extended_request_id(ErrorMetadata::builder(), &headers).build(),
-        );
-    }
-
-    #[test]
-    fn test_error_metadata_extended_request_id_impl() {
-        let err = ErrorMetadata::builder().custom(EXTENDED_REQUEST_ID, "some-request-id").build();
-        assert_eq!(Some("some-request-id"), err.extended_request_id());
-    }
-}
 "#,
     )
 }
@@ -4541,21 +4606,26 @@ fn streaming_error_union_ids(selected: &SelectedModel) -> Vec<String> {
     ids
 }
 
-fn render_meta(service_key: &str) -> String {
+fn render_meta(service_key: &str, consumer_namespace: bool) -> String {
     let mut output = String::new();
     output.push_str(
         "// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.\n",
     );
+    let version_path = if consumer_namespace {
+        "self::PKG_VERSION"
+    } else {
+        "crate::meta::PKG_VERSION"
+    };
     if matches!(service_key, "dynamodb" | "lambda") {
         writeln!(
             output,
-            "pub(crate) static API_METADATA: ::aws_runtime::user_agent::ApiMetadata =\n    ::aws_runtime::user_agent::ApiMetadata::new(\"{service_key}\", crate::meta::PKG_VERSION);"
+            "pub(crate) static API_METADATA: ::aws_runtime::user_agent::ApiMetadata =\n    ::aws_runtime::user_agent::ApiMetadata::new(\"{service_key}\", {version_path});"
         )
         .unwrap();
     } else {
         writeln!(
             output,
-            "pub(crate) static API_METADATA: ::aws_runtime::user_agent::ApiMetadata = ::aws_runtime::user_agent::ApiMetadata::new(\"{service_key}\", crate::meta::PKG_VERSION);"
+            "pub(crate) static API_METADATA: ::aws_runtime::user_agent::ApiMetadata = ::aws_runtime::user_agent::ApiMetadata::new(\"{service_key}\", {version_path});"
         )
         .unwrap();
     }
@@ -5083,6 +5153,10 @@ impl ::aws_types::request_id::RequestId for __ERROR_TYPE_PATH__ {
             .replace("__ERROR_TYPE_PATH__", &error_type_path)
             .replace("__REQUEST_ID_PATH__", &request_id_path),
     );
+}
+
+fn service_crate_name(service_key: &str) -> String {
+    format!("aws-sdk-{service_key}")
 }
 
 fn service_title(selected: &SelectedModel) -> String {
@@ -5634,14 +5708,6 @@ fn render_standalone_operation_file(selected: &SelectedModel, operation_name: &s
         &error_path,
     );
     render_standalone_endpoint_interceptor(&mut output, selected, operation_name, &operation_type);
-    render_standalone_protocol_tests(
-        &mut output,
-        selected,
-        operation_name,
-        operation,
-        &module,
-        &operation_type,
-    );
     render_standalone_operation_error(&mut output, selected, operation_name, operation);
     writeln!(
         output,
@@ -6189,7 +6255,7 @@ fn render_standalone_runtime_plugin(
     };
     let telemetry_interceptor = if operation_has_telemetry_members(selected, operation) {
         format!(
-            ".with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent({operation_type}TelemetryInputCaptureInterceptor))\n"
+            "                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent({operation_type}TelemetryInputCaptureInterceptor))\n"
         )
     } else {
         String::new()
@@ -11417,7 +11483,8 @@ fn render_json_protocol_error_arm(output: &mut String, error_path: &str, error: 
     let error_module = names::rust_module_name(terminal(error));
     writeln!(
         output,
-        "        {error_name:?} => {error_path}::{error_name}({{"
+        "        {:?} => {error_path}::{error_name}({{",
+        terminal(error)
     )
     .unwrap();
     output.push_str("            #[allow(unused_mut)]\n            let mut tmp = {\n");
@@ -13779,7 +13846,8 @@ fn render_protocol_error_arm(output: &mut String, error_path: &str, error: &str)
     let error_module = names::snake_case(terminal(error));
     writeln!(
         output,
-        "        {error_name:?} => {error_path}::{error_name}({{"
+        "        {:?} => {error_path}::{error_name}({{",
+        terminal(error)
     )
     .unwrap();
     output.push_str("            #[allow(unused_mut)]\n            let mut tmp = {\n");
@@ -15762,6 +15830,9 @@ fn render_error_impls(
     let message_name = error_message_member(shape)
         .map(|(name, _)| names::rust_identifier(&name))
         .unwrap_or_else(|| "message".to_owned());
+    let display_name = (rust_name != terminal(name))
+        .then(|| format!("{rust_name} [{}]", terminal(name)))
+        .unwrap_or_else(|| rust_name.clone());
 
     writeln!(output, "impl ::std::fmt::Display for {rust_name} {{").unwrap();
     writeln!(
@@ -15769,7 +15840,7 @@ fn render_error_impls(
         "    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {{"
     )
     .unwrap();
-    writeln!(output, "        ::std::write!(f, {rust_name:?})?;").unwrap();
+    writeln!(output, "        ::std::write!(f, {display_name:?})?;").unwrap();
     writeln!(
         output,
         "        if let ::std::option::Option::Some(inner_1) = &self.{message_name} {{"

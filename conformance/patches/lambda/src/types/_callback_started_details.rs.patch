@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -28,8 +28,8 @@
+ }
+ impl CallbackStartedDetails {
+     /// Creates a new builder-style object to manufacture [`CallbackStartedDetails`](crate::types::CallbackStartedDetails).
+-    pub fn builder() -> crate::types::builders::CallbackStartedDetailsBuilder {
+-        crate::types::builders::CallbackStartedDetailsBuilder::default()
++    pub fn builder() -> super::types::builders::CallbackStartedDetailsBuilder {
++        super::types::builders::CallbackStartedDetailsBuilder::default()
+     }
+ }
+
+@@ -88,8 +88,8 @@
+     /// Consumes the builder and constructs a [`CallbackStartedDetails`](crate::types::CallbackStartedDetails).
+     /// This method will fail if any of the following fields are not set:
+     /// - [`callback_id`](crate::types::builders::CallbackStartedDetailsBuilder::callback_id)
+-    pub fn build(self) -> ::std::result::Result<crate::types::CallbackStartedDetails, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::CallbackStartedDetails {
++    pub fn build(self) -> ::std::result::Result<super::types::CallbackStartedDetails, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::CallbackStartedDetails {
+             callback_id: self.callback_id.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "callback_id",

@@ -1,0 +1,163 @@
+--- original
++++ modified
+@@ -5,18 +5,18 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::set_subscription_attributes::SetSubscriptionAttributesOutput,
+-    crate::operation::set_subscription_attributes::SetSubscriptionAttributesError,
++    super::operation::set_subscription_attributes::SetSubscriptionAttributesOutput,
++    super::operation::set_subscription_attributes::SetSubscriptionAttributesError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+         None => {
+-            return Err(crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled(
++            return Err(super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled(
+                 generic,
+             ))
+         }
+@@ -24,13 +24,13 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AuthorizationError" => crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::AuthorizationErrorException({
++        "AuthorizationError" => super::operation::set_subscription_attributes::SetSubscriptionAttributesError::AuthorizationErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
++                let mut output = super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
++                output = super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -40,16 +40,16 @@
+             tmp
+         }),
+         "FilterPolicyLimitExceeded" => {
+-            crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::FilterPolicyLimitExceededException({
++            super::operation::set_subscription_attributes::SetSubscriptionAttributesError::FilterPolicyLimitExceededException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::FilterPolicyLimitExceededExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_filter_policy_limit_exceeded_exception::de_filter_policy_limit_exceeded_exception_xml_err(
++                    let mut output = super::types::error::builders::FilterPolicyLimitExceededExceptionBuilder::default();
++                    output = super::protocol_serde::shape_filter_policy_limit_exceeded_exception::de_filter_policy_limit_exceeded_exception_xml_err(
+                         _response_body,
+                         output,
+                     )
+-                    .map_err(crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
++                    .map_err(super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -59,13 +59,13 @@
+                 tmp
+             })
+         }
+-        "InternalError" => crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::InternalErrorException({
++        "InternalError" => super::operation::set_subscription_attributes::SetSubscriptionAttributesError::InternalErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
++                let mut output = super::types::error::builders::InternalErrorExceptionBuilder::default();
++                output = super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -74,13 +74,13 @@
+             }
+             tmp
+         }),
+-        "InvalidParameter" => crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::InvalidParameterException({
++        "InvalidParameter" => super::operation::set_subscription_attributes::SetSubscriptionAttributesError::InvalidParameterException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
++                let mut output = super::types::error::builders::InvalidParameterExceptionBuilder::default();
++                output = super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -89,13 +89,13 @@
+             }
+             tmp
+         }),
+-        "NotFound" => crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::NotFoundException({
++        "NotFound" => super::operation::set_subscription_attributes::SetSubscriptionAttributesError::NotFoundException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
++                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
++                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -104,14 +104,14 @@
+             }
+             tmp
+         }),
+-        "ReplayLimitExceeded" => crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::ReplayLimitExceededException({
++        "ReplayLimitExceeded" => super::operation::set_subscription_attributes::SetSubscriptionAttributesError::ReplayLimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ReplayLimitExceededExceptionBuilder::default();
++                let mut output = super::types::error::builders::ReplayLimitExceededExceptionBuilder::default();
+                 output =
+-                    crate::protocol_serde::shape_replay_limit_exceeded_exception::de_replay_limit_exceeded_exception_xml_err(_response_body, output)
+-                        .map_err(crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
++                    super::protocol_serde::shape_replay_limit_exceeded_exception::de_replay_limit_exceeded_exception_xml_err(_response_body, output)
++                        .map_err(super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -120,7 +120,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::generic(generic),
++        _ => super::operation::set_subscription_attributes::SetSubscriptionAttributesError::generic(generic),
+     })
+ }
+
+@@ -130,12 +130,12 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::set_subscription_attributes::SetSubscriptionAttributesOutput,
+-    crate::operation::set_subscription_attributes::SetSubscriptionAttributesError,
++    super::operation::set_subscription_attributes::SetSubscriptionAttributesOutput,
++    super::operation::set_subscription_attributes::SetSubscriptionAttributesError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::set_subscription_attributes::builders::SetSubscriptionAttributesOutputBuilder::default();
++        let mut output = super::operation::set_subscription_attributes::builders::SetSubscriptionAttributesOutputBuilder::default();
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })

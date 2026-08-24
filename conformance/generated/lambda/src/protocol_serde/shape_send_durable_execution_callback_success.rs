@@ -57,7 +57,7 @@ pub fn de_send_durable_execution_callback_success_http_error(
                 tmp
             })
         }
-        "KmsAccessDeniedException" => {
+        "KMSAccessDeniedException" => {
             crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::KmsAccessDeniedException({
                 #[allow(unused_mut)]
                 let mut tmp = {
@@ -77,7 +77,7 @@ pub fn de_send_durable_execution_callback_success_http_error(
                 tmp
             })
         }
-        "KmsDisabledException" => {
+        "KMSDisabledException" => {
             crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::KmsDisabledException({
                 #[allow(unused_mut)]
                 let mut tmp = {
@@ -94,7 +94,7 @@ pub fn de_send_durable_execution_callback_success_http_error(
                 tmp
             })
         }
-        "KmsInvalidStateException" => {
+        "KMSInvalidStateException" => {
             crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::KmsInvalidStateException({
                 #[allow(unused_mut)]
                 let mut tmp = {
@@ -114,7 +114,7 @@ pub fn de_send_durable_execution_callback_success_http_error(
                 tmp
             })
         }
-        "KmsNotFoundException" => {
+        "KMSNotFoundException" => {
             crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::KmsNotFoundException({
                 #[allow(unused_mut)]
                 let mut tmp = {

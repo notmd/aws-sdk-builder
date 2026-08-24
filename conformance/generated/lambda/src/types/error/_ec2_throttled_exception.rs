@@ -24,7 +24,7 @@ impl Ec2ThrottledException {
 }
 impl ::std::fmt::Display for Ec2ThrottledException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(f, "Ec2ThrottledException")?;
+        ::std::write!(f, "Ec2ThrottledException [EC2ThrottledException]")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;

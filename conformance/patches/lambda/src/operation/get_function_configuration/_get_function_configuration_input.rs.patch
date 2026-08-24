@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -40,8 +40,8 @@
+ }
+ impl GetFunctionConfigurationInput {
+     /// Creates a new builder-style object to manufacture [`GetFunctionConfigurationInput`](crate::operation::get_function_configuration::GetFunctionConfigurationInput).
+-    pub fn builder() -> crate::operation::get_function_configuration::builders::GetFunctionConfigurationInputBuilder {
+-        crate::operation::get_function_configuration::builders::GetFunctionConfigurationInputBuilder::default()
++    pub fn builder() -> super::operation::get_function_configuration::builders::GetFunctionConfigurationInputBuilder {
++        super::operation::get_function_configuration::builders::GetFunctionConfigurationInputBuilder::default()
+     }
+ }
+
+@@ -116,10 +116,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::get_function_configuration::GetFunctionConfigurationInput,
++        super::operation::get_function_configuration::GetFunctionConfigurationInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::get_function_configuration::GetFunctionConfigurationInput {
++        ::std::result::Result::Ok(super::operation::get_function_configuration::GetFunctionConfigurationInput {
+             function_name: self.function_name,
+             qualifier: self.qualifier,
+         })

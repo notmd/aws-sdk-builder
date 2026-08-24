@@ -123,9 +123,7 @@ pub fn de_update_capacity_provider_http_response(
         output = crate::protocol_serde::shape_update_capacity_provider::de_update_capacity_provider(_response_body, output)
             .map_err(crate::operation::update_capacity_provider::UpdateCapacityProviderError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        crate::serde_util::update_capacity_provider_output_output_correct_errors(output)
-            .build()
-            .map_err(crate::operation::update_capacity_provider::UpdateCapacityProviderError::unhandled)?
+        crate::serde_util::update_capacity_provider_output_output_correct_errors(output).build()
     })
 }
 

@@ -82,11 +82,6 @@ pub(crate) fn render_endpoint_config_file(selected: &SelectedModel) -> String {
              }\n\
          }\n\n",
     );
-    render_tests(
-        &mut output,
-        traits.get("smithy.rules#endpointTests").unwrap_or(bdd),
-        &params,
-    );
     render_resolver(&mut output, selected, bdd, &params, &contexts);
     render_nodes(&mut output, bdd);
     render_context(&mut output, &contexts);

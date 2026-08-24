@@ -520,9 +520,12 @@ Current Rust files combine several upstream responsibilities:
   operation selection, directed shape-reference closure, protocol trait selection, and
   a small model customization pass.
 - `crates/aws-sdk-builder/src/names.rs`: Rust module/type naming.
-- `crates/aws-sdk-builder/src/codegen.rs`: service facade, types/builders/errors, client,
-  operation builders, request binding, Rest XML serialization/parsing, and documentation.
-- `crates/aws-sdk-builder/src/output.rs`: staging, validation, and atomic installation.
+- `crates/aws-sdk-builder/src/codegen.rs`: per-service source-root assembly,
+  types/builders/errors, client, operation builders, request binding, Rest XML
+  serialization/parsing, and documentation. The provider crate's `include_sdk!()`
+  macro is the consumer entry point; the generator does not emit an aggregate facade.
+- `crates/aws-sdk-builder/src/output.rs`: staging, validation, obsolete-output cleanup,
+  and atomic installation.
 - `crates/aws-sdk-builder/src/config.rs`: deterministic service/operation selection.
 
 Current `model.rs` already uses `BTreeMap`/`BTreeSet` closure and model-derived protocol

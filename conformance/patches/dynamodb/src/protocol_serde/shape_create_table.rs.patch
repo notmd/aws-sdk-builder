@@ -1,0 +1,154 @@
+--- original
++++ modified
+@@ -4,26 +4,26 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<crate::operation::create_table::CreateTableOutput, crate::operation::create_table::CreateTableError> {
++) -> std::result::Result<super::operation::create_table::CreateTableOutput, super::operation::create_table::CreateTableError> {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::create_table::CreateTableError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::create_table::CreateTableError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::create_table::CreateTableError::unhandled(generic)),
++        None => return Err(super::operation::create_table::CreateTableError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "InternalServerError" => crate::operation::create_table::CreateTableError::InternalServerError({
++        "InternalServerError" => super::operation::create_table::CreateTableError::InternalServerError({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InternalServerErrorBuilder::default();
+-                output = crate::protocol_serde::shape_internal_server_error::de_internal_server_error_json_err(_response_body, output)
+-                    .map_err(crate::operation::create_table::CreateTableError::unhandled)?;
++                let mut output = super::types::error::builders::InternalServerErrorBuilder::default();
++                output = super::protocol_serde::shape_internal_server_error::de_internal_server_error_json_err(_response_body, output)
++                    .map_err(super::operation::create_table::CreateTableError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -32,13 +32,13 @@
+             }
+             tmp
+         }),
+-        "InvalidEndpointException" => crate::operation::create_table::CreateTableError::InvalidEndpointException({
++        "InvalidEndpointException" => super::operation::create_table::CreateTableError::InvalidEndpointException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InvalidEndpointExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::create_table::CreateTableError::unhandled)?;
++                let mut output = super::types::error::builders::InvalidEndpointExceptionBuilder::default();
++                output = super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
++                    .map_err(super::operation::create_table::CreateTableError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -47,13 +47,13 @@
+             }
+             tmp
+         }),
+-        "LimitExceededException" => crate::operation::create_table::CreateTableError::LimitExceededException({
++        "LimitExceededException" => super::operation::create_table::CreateTableError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::create_table::CreateTableError::unhandled)?;
++                let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
++                output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
++                    .map_err(super::operation::create_table::CreateTableError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -62,13 +62,13 @@
+             }
+             tmp
+         }),
+-        "ResourceInUseException" => crate::operation::create_table::CreateTableError::ResourceInUseException({
++        "ResourceInUseException" => super::operation::create_table::CreateTableError::ResourceInUseException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ResourceInUseExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::create_table::CreateTableError::unhandled)?;
++                let mut output = super::types::error::builders::ResourceInUseExceptionBuilder::default();
++                output = super::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output)
++                    .map_err(super::operation::create_table::CreateTableError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -77,7 +77,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::create_table::CreateTableError::generic(generic),
++        _ => super::operation::create_table::CreateTableError::generic(generic),
+     })
+ }
+
+@@ -86,12 +86,12 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<crate::operation::create_table::CreateTableOutput, crate::operation::create_table::CreateTableError> {
++) -> std::result::Result<super::operation::create_table::CreateTableOutput, super::operation::create_table::CreateTableError> {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::create_table::builders::CreateTableOutputBuilder::default();
+-        output = crate::protocol_serde::shape_create_table::de_create_table(_response_body, output)
+-            .map_err(crate::operation::create_table::CreateTableError::unhandled)?;
++        let mut output = super::operation::create_table::builders::CreateTableOutputBuilder::default();
++        output = super::protocol_serde::shape_create_table::de_create_table(_response_body, output)
++            .map_err(super::operation::create_table::CreateTableError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -98,11 +98,11 @@
+ }
+
+ pub fn ser_create_table_input(
+-    input: &crate::operation::create_table::CreateTableInput,
++    input: &super::operation::create_table::CreateTableInput,
+ ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+     let mut out = String::new();
+     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+-    crate::protocol_serde::shape_create_table_input::ser_create_table_input_input(&mut object, input)?;
++    super::protocol_serde::shape_create_table_input::ser_create_table_input_input(&mut object, input)?;
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
+@@ -109,10 +109,10 @@
+
+ pub(crate) fn de_create_table(
+     _value: &[u8],
+-    mut builder: crate::operation::create_table::builders::CreateTableOutputBuilder,
+-) -> ::std::result::Result<crate::operation::create_table::builders::CreateTableOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++    mut builder: super::operation::create_table::builders::CreateTableOutputBuilder,
++) -> ::std::result::Result<super::operation::create_table::builders::CreateTableOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+ {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+     let depth = 0u32;
+@@ -122,7 +122,7 @@
+             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                 "TableDescription" => {
+-                    builder = builder.set_table_description(crate::protocol_serde::shape_table_description::de_table_description(
++                    builder = builder.set_table_description(super::protocol_serde::shape_table_description::de_table_description(
+                         tokens,
+                         _value,
+                         depth + 1,

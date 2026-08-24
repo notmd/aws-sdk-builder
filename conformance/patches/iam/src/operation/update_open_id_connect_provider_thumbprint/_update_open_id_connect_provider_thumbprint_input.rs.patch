@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -24,8 +24,8 @@
+ }
+ impl UpdateOpenIdConnectProviderThumbprintInput {
+     /// Creates a new builder-style object to manufacture [`UpdateOpenIdConnectProviderThumbprintInput`](crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintInput).
+-    pub fn builder() -> crate::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintInputBuilder {
+-        crate::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintInputBuilder::default()
++    pub fn builder() -> super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintInputBuilder {
++        super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintInputBuilder::default()
+     }
+ }
+
+@@ -79,11 +79,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintInput,
++        super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintInput {
++            super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintInput {
+                 open_id_connect_provider_arn: self.open_id_connect_provider_arn,
+                 thumbprint_list: self.thumbprint_list,
+             },

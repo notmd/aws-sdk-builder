@@ -59,7 +59,7 @@ pub fn de_describe_custom_key_stores_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError::KmsInternalException({
+        "KMSInternalException" => crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

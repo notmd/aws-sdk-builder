@@ -1,0 +1,20 @@
+--- original
++++ modified
+@@ -2,7 +2,7 @@
+ #[allow(unused_mut)]
+ pub fn ser_publish_batch_request_entry(
+     mut writer: ::aws_smithy_query::QueryValueWriter,
+-    input: &crate::types::PublishBatchRequestEntry,
++    input: &super::types::PublishBatchRequestEntry,
+ ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+     #[allow(unused_mut)]
+     let mut scope_1 = writer.prefix("Id");
+@@ -32,7 +32,7 @@
+             #[allow(unused_mut)]
+             let mut entry_12 = map_9.entry(key_10);
+             {
+-                crate::protocol_serde::shape_message_attribute_value::ser_message_attribute_value(entry_12, value_11)?;
++                super::protocol_serde::shape_message_attribute_value::ser_message_attribute_value(entry_12, value_11)?;
+             }
+         }
+         map_9.finish();

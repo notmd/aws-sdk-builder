@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -4,7 +4,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct ListAliasesOutput {
+     /// <p>A list of aliases.</p>
+-    pub aliases: ::std::option::Option<::std::vec::Vec<crate::types::AliasListEntry>>,
++    pub aliases: ::std::option::Option<::std::vec::Vec<super::types::AliasListEntry>>,
+     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
+     pub next_marker: ::std::option::Option<::std::string::String>,
+     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
+@@ -15,7 +15,7 @@
+     /// <p>A list of aliases.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.aliases.is_none()`.
+-    pub fn aliases(&self) -> &[crate::types::AliasListEntry] {
++    pub fn aliases(&self) -> &[super::types::AliasListEntry] {
+         self.aliases.as_deref().unwrap_or_default()
+     }
+     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
+@@ -34,8 +34,8 @@
+ }
+ impl ListAliasesOutput {
+     /// Creates a new builder-style object to manufacture [`ListAliasesOutput`](crate::operation::list_aliases::ListAliasesOutput).
+-    pub fn builder() -> crate::operation::list_aliases::builders::ListAliasesOutputBuilder {
+-        crate::operation::list_aliases::builders::ListAliasesOutputBuilder::default()
++    pub fn builder() -> super::operation::list_aliases::builders::ListAliasesOutputBuilder {
++        super::operation::list_aliases::builders::ListAliasesOutputBuilder::default()
+     }
+ }
+
+@@ -43,7 +43,7 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct ListAliasesOutputBuilder {
+-    pub(crate) aliases: ::std::option::Option<::std::vec::Vec<crate::types::AliasListEntry>>,
++    pub(crate) aliases: ::std::option::Option<::std::vec::Vec<super::types::AliasListEntry>>,
+     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
+     pub(crate) truncated: ::std::option::Option<bool>,
+     _request_id: Option<String>,
+@@ -54,7 +54,7 @@
+     /// To override the contents of this collection use [`set_aliases`](Self::set_aliases).
+     ///
+     /// <p>A list of aliases.</p>
+-    pub fn aliases(mut self, input: crate::types::AliasListEntry) -> Self {
++    pub fn aliases(mut self, input: super::types::AliasListEntry) -> Self {
+         let mut v = self.aliases.unwrap_or_default();
+         v.push(input);
+         self.aliases = ::std::option::Option::Some(v);
+@@ -61,12 +61,12 @@
+         self
+     }
+     /// <p>A list of aliases.</p>
+-    pub fn set_aliases(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AliasListEntry>>) -> Self {
++    pub fn set_aliases(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::AliasListEntry>>) -> Self {
+         self.aliases = input;
+         self
+     }
+     /// <p>A list of aliases.</p>
+-    pub fn get_aliases(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AliasListEntry>> {
++    pub fn get_aliases(&self) -> &::std::option::Option<::std::vec::Vec<super::types::AliasListEntry>> {
+         &self.aliases
+     }
+     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
+@@ -107,8 +107,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ListAliasesOutput`](crate::operation::list_aliases::ListAliasesOutput).
+-    pub fn build(self) -> crate::operation::list_aliases::ListAliasesOutput {
+-        crate::operation::list_aliases::ListAliasesOutput {
++    pub fn build(self) -> super::operation::list_aliases::ListAliasesOutput {
++        super::operation::list_aliases::ListAliasesOutput {
+             aliases: self.aliases,
+             next_marker: self.next_marker,
+             truncated: self.truncated.unwrap_or_default(),

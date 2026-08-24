@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -57,7 +57,7 @@
+     }
+ }
+ impl ::std::error::Error for TransactionInProgressException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::TransactionInProgressException {
++impl ::aws_types::request_id::RequestId for super::types::error::TransactionInProgressException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -70,8 +70,8 @@
+ }
+ impl TransactionInProgressException {
+     /// Creates a new builder-style object to manufacture [`TransactionInProgressException`](crate::types::error::TransactionInProgressException).
+-    pub fn builder() -> crate::types::error::builders::TransactionInProgressExceptionBuilder {
+-        crate::types::error::builders::TransactionInProgressExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::TransactionInProgressExceptionBuilder {
++        super::types::error::builders::TransactionInProgressExceptionBuilder::default()
+     }
+ }
+
+@@ -109,8 +109,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`TransactionInProgressException`](crate::types::error::TransactionInProgressException).
+-    pub fn build(self) -> crate::types::error::TransactionInProgressException {
+-        crate::types::error::TransactionInProgressException {
++    pub fn build(self) -> super::types::error::TransactionInProgressException {
++        super::types::error::TransactionInProgressException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

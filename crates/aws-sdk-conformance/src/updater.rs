@@ -17,9 +17,11 @@ pub fn run(arguments: &[OsString]) -> Result<(), String> {
     let manifest = ServicesManifest::load(&manifest_path)?;
     manifest::validate_registered_services(&manifest)?;
 
-    let repository_root = manifest_path
+    let manifest_directory = manifest_path
         .parent()
-        .unwrap_or_else(|| Path::new("."))
+        .filter(|path| !path.as_os_str().is_empty())
+        .unwrap_or_else(|| Path::new("."));
+    let repository_root = manifest_directory
         .canonicalize()
         .map_err(|error| format!("{}: {error}", manifest_path.display()))?;
     let workspace = TempDir::new_in(&repository_root)
@@ -27,9 +29,12 @@ pub fn run(arguments: &[OsString]) -> Result<(), String> {
     let upstream = prepare_upstream(&manifest, workspace.path())?;
 
     let staged_reference = workspace.path().join("reference");
+    let staged_patches = workspace.path().join("patches");
     let staged_models = workspace.path().join("models");
     fs::create_dir_all(&staged_reference)
         .map_err(|error| format!("{}: {error}", staged_reference.display()))?;
+    fs::create_dir_all(&staged_patches)
+        .map_err(|error| format!("{}: {error}", staged_patches.display()))?;
     fs::create_dir_all(&staged_models)
         .map_err(|error| format!("{}: {error}", staged_models.display()))?;
 
@@ -61,6 +66,11 @@ pub fn run(arguments: &[OsString]) -> Result<(), String> {
                 service.key
             ));
         }
+        let patch_count = normalize::write_reference_patches(
+            &destination,
+            &staged_patches.join(&service.reference_path),
+            &manifest.comparison.exclude,
+        )?;
 
         let model_source = upstream.join(&service.model_path);
         reject_symlink(&model_source)?;
@@ -89,8 +99,8 @@ pub fn run(arguments: &[OsString]) -> Result<(), String> {
             repository_root.join(&service.model_destination),
         ));
         println!(
-            "{}: staged {count} reference files and model.json",
-            service.key
+            "{}: staged {count} reference files, {patch_count} normalization patches, and model.json",
+            service.key,
         );
     }
 
@@ -103,7 +113,11 @@ pub fn run(arguments: &[OsString]) -> Result<(), String> {
     }
 
     let reference_target = repository_root.join(&manifest.roots.reference);
-    let mut installs = vec![(staged_reference, reference_target)];
+    let patches_target = repository_root.join(&manifest.roots.patches);
+    let mut installs = vec![
+        (staged_reference, reference_target),
+        (staged_patches, patches_target),
+    ];
     installs.extend(model_targets);
     atomic_install(&installs, workspace.path())?;
     println!("updated conformance reference and service models");

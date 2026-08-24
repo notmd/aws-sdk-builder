@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -40,7 +40,7 @@
+     }
+ }
+ impl ::std::error::Error for PreconditionFailedException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::PreconditionFailedException {
++impl ::aws_types::request_id::RequestId for super::types::error::PreconditionFailedException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -53,8 +53,8 @@
+ }
+ impl PreconditionFailedException {
+     /// Creates a new builder-style object to manufacture [`PreconditionFailedException`](crate::types::error::PreconditionFailedException).
+-    pub fn builder() -> crate::types::error::builders::PreconditionFailedExceptionBuilder {
+-        crate::types::error::builders::PreconditionFailedExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::PreconditionFailedExceptionBuilder {
++        super::types::error::builders::PreconditionFailedExceptionBuilder::default()
+     }
+ }
+
+@@ -107,8 +107,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`PreconditionFailedException`](crate::types::error::PreconditionFailedException).
+-    pub fn build(self) -> crate::types::error::PreconditionFailedException {
+-        crate::types::error::PreconditionFailedException {
++    pub fn build(self) -> super::types::error::PreconditionFailedException {
++        super::types::error::PreconditionFailedException {
+             r#type: self.r#type,
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),

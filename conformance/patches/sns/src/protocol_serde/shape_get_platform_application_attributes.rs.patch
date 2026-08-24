@@ -1,0 +1,146 @@
+--- original
++++ modified
+@@ -5,30 +5,30 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesOutput,
+-    crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError,
++    super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesOutput,
++    super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled(generic)),
++        None => return Err(super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+         "AuthorizationError" => {
+-            crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::AuthorizationErrorException({
++            super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::AuthorizationErrorException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::AuthorizationErrorExceptionBuilder::default();
++                    let mut output = super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                     output =
+-                        crate::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+-                            .map_err(crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
++                        super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
++                            .map_err(super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -38,13 +38,13 @@
+                 tmp
+             })
+         }
+-        "InternalError" => crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::InternalErrorException({
++        "InternalError" => super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::InternalErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
++                let mut output = super::types::error::builders::InternalErrorExceptionBuilder::default();
++                output = super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -54,13 +54,13 @@
+             tmp
+         }),
+         "InvalidParameter" => {
+-            crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::InvalidParameterException({
++            super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::InvalidParameterException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+-                    output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+-                        .map_err(crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
++                    let mut output = super::types::error::builders::InvalidParameterExceptionBuilder::default();
++                    output = super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
++                        .map_err(super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -70,13 +70,13 @@
+                 tmp
+             })
+         }
+-        "NotFound" => crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::NotFoundException({
++        "NotFound" => super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::NotFoundException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+-                    .map_err(crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
++                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
++                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
++                    .map_err(super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -85,7 +85,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::generic(generic),
++        _ => super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::generic(generic),
+     })
+ }
+
+@@ -95,14 +95,14 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesOutput,
+-    crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError,
++    super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesOutput,
++    super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesOutputBuilder::default();
+-        output = crate::protocol_serde::shape_get_platform_application_attributes::de_get_platform_application_attributes(_response_body, output)
+-            .map_err(crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
++        let mut output = super::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesOutputBuilder::default();
++        output = super::protocol_serde::shape_get_platform_application_attributes::de_get_platform_application_attributes(_response_body, output)
++            .map_err(super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -111,9 +111,9 @@
+ #[allow(unused_mut)]
+ pub fn de_get_platform_application_attributes(
+     inp: &[u8],
+-    mut builder: crate::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesOutputBuilder,
++    mut builder: super::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesOutputBuilder,
+ ) -> std::result::Result<
+-    crate::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesOutputBuilder,
++    super::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesOutputBuilder,
+     ::aws_smithy_xml::decode::XmlDecodeError,
+ > {
+     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+@@ -141,7 +141,7 @@
+             s if s.matches("Attributes") /* Attributes com.amazonaws.sns.synthetic#GetPlatformApplicationAttributesOutput$Attributes */ =>  {
+                 let var_1 =
+                     Some(
+-                        crate::protocol_serde::shape_map_string_to_string::de_map_string_to_string(&mut tag, depth + 1)
++                        super::protocol_serde::shape_map_string_to_string::de_map_string_to_string(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;

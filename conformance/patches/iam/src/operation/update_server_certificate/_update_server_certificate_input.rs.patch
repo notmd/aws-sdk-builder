@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -32,8 +32,8 @@
+ }
+ impl UpdateServerCertificateInput {
+     /// Creates a new builder-style object to manufacture [`UpdateServerCertificateInput`](crate::operation::update_server_certificate::UpdateServerCertificateInput).
+-    pub fn builder() -> crate::operation::update_server_certificate::builders::UpdateServerCertificateInputBuilder {
+-        crate::operation::update_server_certificate::builders::UpdateServerCertificateInputBuilder::default()
++    pub fn builder() -> super::operation::update_server_certificate::builders::UpdateServerCertificateInputBuilder {
++        super::operation::update_server_certificate::builders::UpdateServerCertificateInputBuilder::default()
+     }
+ }
+
+@@ -102,10 +102,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::update_server_certificate::UpdateServerCertificateInput,
++        super::operation::update_server_certificate::UpdateServerCertificateInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::update_server_certificate::UpdateServerCertificateInput {
++        ::std::result::Result::Ok(super::operation::update_server_certificate::UpdateServerCertificateInput {
+             server_certificate_name: self.server_certificate_name,
+             new_path: self.new_path,
+             new_server_certificate_name: self.new_server_certificate_name,

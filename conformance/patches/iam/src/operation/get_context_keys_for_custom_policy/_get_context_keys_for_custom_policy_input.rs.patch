@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -34,8 +34,8 @@
+ }
+ impl GetContextKeysForCustomPolicyInput {
+     /// Creates a new builder-style object to manufacture [`GetContextKeysForCustomPolicyInput`](crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyInput).
+-    pub fn builder() -> crate::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyInputBuilder {
+-        crate::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyInputBuilder::default()
++    pub fn builder() -> super::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyInputBuilder {
++        super::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyInputBuilder::default()
+     }
+ }
+
+@@ -97,10 +97,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyInput,
++        super::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyInput {
++        ::std::result::Result::Ok(super::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyInput {
+             policy_input_list: self.policy_input_list,
+         })
+     }

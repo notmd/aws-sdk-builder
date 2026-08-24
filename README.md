@@ -5,10 +5,10 @@ small, build-time provider crates for the eight supported services:
 DynamoDB, IAM, KMS, Lambda, S3, SNS, SQS, and STS.
 
 For example, a consumer selects operations in `build.rs` through the service
-crate and includes the one aggregate facade from its source:
+crate and includes that service inside a wrapper module:
 
     [dependencies]
-    aws-sdk-builder = "0.1"
+    aws-sdk-builder-s3 = "0.1"
 
     [build-dependencies]
     aws-sdk-builder-s3 = "0.1"
@@ -20,15 +20,17 @@ crate and includes the one aggregate facade from its source:
     }
 
     // src/lib.rs
-    aws_sdk_builder::include_sdk!();
+    mod aws_s3_sdk {
+        aws_sdk_builder_s3::include_sdk!();
+    }
 
 Each service crate packages exactly one `model.json`. An empty operation array
 selects all operations, and repeated calls for the same service merge their
-selections deterministically. The generated facade and service modules are
-installed atomically below Cargo's `OUT_DIR`.
+selections deterministically. Generated service modules are installed
+atomically below Cargo's `OUT_DIR`.
 
-The generated facade exposes paths such as
-consumer_crate_name::aws_sdk_s3::operation::abort_multipart_upload::AbortMultipartUpload.
+The wrapper exposes paths such as
+`aws_s3_sdk::operation::abort_multipart_upload::AbortMultipartUpload`.
 Generated output is installed atomically, so a failed build cannot replace a
 previous result.
 
@@ -47,8 +49,8 @@ Run conformance with:
 
 The summary is `conformance/summary.md`; detailed per-service reports are stored under
 `conformance/summary/`. Reference and generated source trees are checked in under
-`conformance/`; Cargo metadata, README files, tests, and benches are excluded from
-both comparison inputs.
+`conformance/`; Cargo metadata, README files, LICENSE files, tests, and benches are
+excluded from both comparison inputs.
 
 For a local S3 emulator smoke test, start Floci yourself and run
 scripts/check-s3-floci.sh. The launcher never starts or stops the emulator

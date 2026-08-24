@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -26,7 +26,7 @@
+     }
+ }
+ impl ::std::error::Error for KmsNotFoundException {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::KmsNotFoundException {
++impl ::aws_types::request_id::RequestId for super::types::error::KmsNotFoundException {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -39,8 +39,8 @@
+ }
+ impl KmsNotFoundException {
+     /// Creates a new builder-style object to manufacture [`KmsNotFoundException`](crate::types::error::KmsNotFoundException).
+-    pub fn builder() -> crate::types::error::builders::KmsNotFoundExceptionBuilder {
+-        crate::types::error::builders::KmsNotFoundExceptionBuilder::default()
++    pub fn builder() -> super::types::error::builders::KmsNotFoundExceptionBuilder {
++        super::types::error::builders::KmsNotFoundExceptionBuilder::default()
+     }
+ }
+
+@@ -78,8 +78,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`KmsNotFoundException`](crate::types::error::KmsNotFoundException).
+-    pub fn build(self) -> crate::types::error::KmsNotFoundException {
+-        crate::types::error::KmsNotFoundException {
++    pub fn build(self) -> super::types::error::KmsNotFoundException {
++        super::types::error::KmsNotFoundException {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

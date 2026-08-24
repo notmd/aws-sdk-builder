@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -23,8 +23,8 @@
+ }
+ impl AssumedRoleUser {
+     /// Creates a new builder-style object to manufacture [`AssumedRoleUser`](crate::types::AssumedRoleUser).
+-    pub fn builder() -> crate::types::builders::AssumedRoleUserBuilder {
+-        crate::types::builders::AssumedRoleUserBuilder::default()
++    pub fn builder() -> super::types::builders::AssumedRoleUserBuilder {
++        super::types::builders::AssumedRoleUserBuilder::default()
+     }
+ }
+
+@@ -70,8 +70,8 @@
+     /// This method will fail if any of the following fields are not set:
+     /// - [`assumed_role_id`](crate::types::builders::AssumedRoleUserBuilder::assumed_role_id)
+     /// - [`arn`](crate::types::builders::AssumedRoleUserBuilder::arn)
+-    pub fn build(self) -> ::std::result::Result<crate::types::AssumedRoleUser, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::AssumedRoleUser {
++    pub fn build(self) -> ::std::result::Result<super::types::AssumedRoleUser, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::AssumedRoleUser {
+             assumed_role_id: self.assumed_role_id.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "assumed_role_id",

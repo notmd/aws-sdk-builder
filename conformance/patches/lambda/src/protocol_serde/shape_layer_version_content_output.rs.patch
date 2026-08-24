@@ -1,0 +1,29 @@
+--- original
++++ modified
+@@ -3,7 +3,7 @@
+     tokens: &mut ::std::iter::Peekable<I>,
+     _value: &'a [u8],
+     depth: u32,
+-) -> ::std::result::Result<Option<crate::types::LayerVersionContentOutput>, ::aws_smithy_json::deserialize::error::DeserializeError>
++) -> ::std::result::Result<Option<super::types::LayerVersionContentOutput>, ::aws_smithy_json::deserialize::error::DeserializeError>
+ where
+     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+ {
+@@ -16,7 +16,7 @@
+         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
+         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
+             #[allow(unused_mut)]
+-            let mut builder = crate::types::builders::LayerVersionContentOutputBuilder::default();
++            let mut builder = super::types::builders::LayerVersionContentOutputBuilder::default();
+             loop {
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+@@ -57,7 +57,7 @@
+                             );
+                         }
+                         "ResolvedS3Object" => {
+-                            builder = builder.set_resolved_s3_object(crate::protocol_serde::shape_resolved_s3_object::de_resolved_s3_object(
++                            builder = builder.set_resolved_s3_object(super::protocol_serde::shape_resolved_s3_object::de_resolved_s3_object(
+                                 tokens,
+                                 _value,
+                                 depth + 1,

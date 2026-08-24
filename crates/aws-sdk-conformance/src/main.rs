@@ -13,7 +13,7 @@ mod updater;
 #[allow(dead_code)]
 mod report;
 
-use report::{compare_directories_with_policy, write_reports};
+use report::write_reports;
 
 fn main() -> ExitCode {
     let arguments = env::args_os().skip(1).collect::<Vec<_>>();
@@ -70,6 +70,8 @@ fn run_conformance(arguments: &[OsString]) -> Result<bool, Box<dyn std::error::E
         .unwrap_or_else(|| manifest.root_path(&manifest_path, &manifest.roots.reference));
     let generated = optional_path(arguments, "--generated")
         .unwrap_or_else(|| manifest.root_path(&manifest_path, &manifest.roots.generated));
+    let patches = optional_path(arguments, "--patches")
+        .unwrap_or_else(|| manifest.root_path(&manifest_path, &manifest.roots.patches));
     let output = optional_path(arguments, "--output")
         .unwrap_or_else(|| manifest.root_path(&manifest_path, &manifest.roots.summary));
     let snapshot = optional_string(arguments, "--snapshot")?;
@@ -102,14 +104,14 @@ fn run_conformance(arguments: &[OsString]) -> Result<bool, Box<dyn std::error::E
         "formatted {} generated Rust snapshot file(s) with rustfmt",
         formatted_files
     );
-    let report = compare_directories_with_policy(
+    let report = report::compare_directories_with_policy_and_patches(
         &reference,
         &generated,
+        Some(&patches),
         snapshot,
         &manifest.comparison.exclude,
     )?;
     write_reports(&output, &report)?;
-    update_manifest_counts(&manifest_path, manifest, &reference, &generated)?;
     eprintln!(
         "compared {} service(s): {}/{} files matched",
         report.services.len(),
@@ -117,25 +119,6 @@ fn run_conformance(arguments: &[OsString]) -> Result<bool, Box<dyn std::error::E
         report.total_files()
     );
     Ok(report.has_differences())
-}
-
-fn update_manifest_counts(
-    manifest_path: &Path,
-    mut manifest: manifest::ServicesManifest,
-    reference: &Path,
-    generated: &Path,
-) -> Result<(), String> {
-    for service in &mut manifest.services {
-        service.reference_files = Some(normalize::count_files(
-            &reference.join(&service.reference_path),
-            &manifest.comparison.exclude,
-        )?);
-        service.generated_files = Some(normalize::count_files(
-            &generated.join(&service.generated_path),
-            &manifest.comparison.exclude,
-        )?);
-    }
-    manifest.write_atomic(manifest_path)
 }
 
 fn conformance_sources(services: &[String]) -> Result<Vec<aws_sdk_builder::ServiceSource>, String> {
@@ -247,5 +230,5 @@ fn print_usage() {
 }
 
 fn usage() -> &'static str {
-    "Usage: aws-sdk-conformance [conformance] [--manifest FILE] [--reference DIR] [--generated DIR] [--output FILE] [--snapshot SHA]\n       aws-sdk-conformance update-reference [--manifest FILE] [--dry-run]\n\nThe conformance command generates all packaged operations, removes configured non-source files, compares selected services, and writes deterministic reports. The update-reference command downloads the pinned upstream GitHub archive, refreshes reference trees and service model.json files atomically, and exits without changing files on --dry-run. Exit status: 0 means equal or update succeeded, 1 means conformance differences, 2 means the runner failed."
+    "Usage: aws-sdk-conformance [conformance] [--manifest FILE] [--reference DIR] [--generated DIR] [--patches DIR] [--output FILE] [--snapshot SHA]\n       aws-sdk-conformance update-reference [--manifest FILE] [--dry-run]\n\nThe conformance command generates all packaged operations, removes configured non-source files, applies checked-in reference normalization patches in memory, compares selected services, and writes deterministic reports. The update-reference command downloads the pinned upstream GitHub archive, refreshes reference trees, normalization patches, and service model.json files atomically, and exits without changing files on --dry-run. Exit status: 0 means equal or update succeeded, 1 means conformance differences, 2 means the runner failed."
 }

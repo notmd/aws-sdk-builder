@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -16,8 +16,8 @@
+ }
+ impl DeleteInstanceProfileInput {
+     /// Creates a new builder-style object to manufacture [`DeleteInstanceProfileInput`](crate::operation::delete_instance_profile::DeleteInstanceProfileInput).
+-    pub fn builder() -> crate::operation::delete_instance_profile::builders::DeleteInstanceProfileInputBuilder {
+-        crate::operation::delete_instance_profile::builders::DeleteInstanceProfileInputBuilder::default()
++    pub fn builder() -> super::operation::delete_instance_profile::builders::DeleteInstanceProfileInputBuilder {
++        super::operation::delete_instance_profile::builders::DeleteInstanceProfileInputBuilder::default()
+     }
+ }
+
+@@ -49,9 +49,9 @@
+     /// Consumes the builder and constructs a [`DeleteInstanceProfileInput`](crate::operation::delete_instance_profile::DeleteInstanceProfileInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::delete_instance_profile::DeleteInstanceProfileInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::delete_instance_profile::DeleteInstanceProfileInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::delete_instance_profile::DeleteInstanceProfileInput {
++        ::std::result::Result::Ok(super::operation::delete_instance_profile::DeleteInstanceProfileInput {
+             instance_profile_name: self.instance_profile_name,
+         })
+     }

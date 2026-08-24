@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -6,7 +6,7 @@
+     /// <p>The pagination token that's included if more results are available.</p>
+     pub next_marker: ::std::option::Option<::std::string::String>,
+     /// <p>The code signing configurations</p>
+-    pub code_signing_configs: ::std::option::Option<::std::vec::Vec<crate::types::CodeSigningConfig>>,
++    pub code_signing_configs: ::std::option::Option<::std::vec::Vec<super::types::CodeSigningConfig>>,
+     _request_id: Option<String>,
+ }
+ impl ListCodeSigningConfigsOutput {
+@@ -17,7 +17,7 @@
+     /// <p>The code signing configurations</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.code_signing_configs.is_none()`.
+-    pub fn code_signing_configs(&self) -> &[crate::types::CodeSigningConfig] {
++    pub fn code_signing_configs(&self) -> &[super::types::CodeSigningConfig] {
+         self.code_signing_configs.as_deref().unwrap_or_default()
+     }
+ }
+@@ -28,8 +28,8 @@
+ }
+ impl ListCodeSigningConfigsOutput {
+     /// Creates a new builder-style object to manufacture [`ListCodeSigningConfigsOutput`](crate::operation::list_code_signing_configs::ListCodeSigningConfigsOutput).
+-    pub fn builder() -> crate::operation::list_code_signing_configs::builders::ListCodeSigningConfigsOutputBuilder {
+-        crate::operation::list_code_signing_configs::builders::ListCodeSigningConfigsOutputBuilder::default()
++    pub fn builder() -> super::operation::list_code_signing_configs::builders::ListCodeSigningConfigsOutputBuilder {
++        super::operation::list_code_signing_configs::builders::ListCodeSigningConfigsOutputBuilder::default()
+     }
+ }
+
+@@ -38,7 +38,7 @@
+ #[non_exhaustive]
+ pub struct ListCodeSigningConfigsOutputBuilder {
+     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
+-    pub(crate) code_signing_configs: ::std::option::Option<::std::vec::Vec<crate::types::CodeSigningConfig>>,
++    pub(crate) code_signing_configs: ::std::option::Option<::std::vec::Vec<super::types::CodeSigningConfig>>,
+     _request_id: Option<String>,
+ }
+ impl ListCodeSigningConfigsOutputBuilder {
+@@ -61,7 +61,7 @@
+     /// To override the contents of this collection use [`set_code_signing_configs`](Self::set_code_signing_configs).
+     ///
+     /// <p>The code signing configurations</p>
+-    pub fn code_signing_configs(mut self, input: crate::types::CodeSigningConfig) -> Self {
++    pub fn code_signing_configs(mut self, input: super::types::CodeSigningConfig) -> Self {
+         let mut v = self.code_signing_configs.unwrap_or_default();
+         v.push(input);
+         self.code_signing_configs = ::std::option::Option::Some(v);
+@@ -68,12 +68,12 @@
+         self
+     }
+     /// <p>The code signing configurations</p>
+-    pub fn set_code_signing_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CodeSigningConfig>>) -> Self {
++    pub fn set_code_signing_configs(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::CodeSigningConfig>>) -> Self {
+         self.code_signing_configs = input;
+         self
+     }
+     /// <p>The code signing configurations</p>
+-    pub fn get_code_signing_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CodeSigningConfig>> {
++    pub fn get_code_signing_configs(&self) -> &::std::option::Option<::std::vec::Vec<super::types::CodeSigningConfig>> {
+         &self.code_signing_configs
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -86,8 +86,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`ListCodeSigningConfigsOutput`](crate::operation::list_code_signing_configs::ListCodeSigningConfigsOutput).
+-    pub fn build(self) -> crate::operation::list_code_signing_configs::ListCodeSigningConfigsOutput {
+-        crate::operation::list_code_signing_configs::ListCodeSigningConfigsOutput {
++    pub fn build(self) -> super::operation::list_code_signing_configs::ListCodeSigningConfigsOutput {
++        super::operation::list_code_signing_configs::ListCodeSigningConfigsOutput {
+             next_marker: self.next_marker,
+             code_signing_configs: self.code_signing_configs,
+             _request_id: self._request_id,

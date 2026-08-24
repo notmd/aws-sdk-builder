@@ -47,7 +47,7 @@ pub fn de_get_key_last_usage_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::get_key_last_usage::GetKeyLastUsageError::KmsInternalException({
+        "KMSInternalException" => crate::operation::get_key_last_usage::GetKeyLastUsageError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

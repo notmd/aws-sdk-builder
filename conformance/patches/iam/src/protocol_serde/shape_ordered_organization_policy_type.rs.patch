@@ -1,0 +1,11 @@
+--- original
++++ modified
+@@ -2,7 +2,7 @@
+ #[allow(unused_mut)]
+ pub fn ser_ordered_organization_policy_type(
+     mut writer: ::aws_smithy_query::QueryValueWriter,
+-    input: &crate::types::OrderedOrganizationPolicyType,
++    input: &super::types::OrderedOrganizationPolicyType,
+ ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+     #[allow(unused_mut)]
+     let mut scope_1 = writer.prefix("ServiceControlPolicyInputList");

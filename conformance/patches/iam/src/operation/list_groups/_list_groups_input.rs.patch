@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -30,8 +30,8 @@
+ }
+ impl ListGroupsInput {
+     /// Creates a new builder-style object to manufacture [`ListGroupsInput`](crate::operation::list_groups::ListGroupsInput).
+-    pub fn builder() -> crate::operation::list_groups::builders::ListGroupsInputBuilder {
+-        crate::operation::list_groups::builders::ListGroupsInputBuilder::default()
++    pub fn builder() -> super::operation::list_groups::builders::ListGroupsInputBuilder {
++        super::operation::list_groups::builders::ListGroupsInputBuilder::default()
+     }
+ }
+
+@@ -93,8 +93,8 @@
+         &self.max_items
+     }
+     /// Consumes the builder and constructs a [`ListGroupsInput`](crate::operation::list_groups::ListGroupsInput).
+-    pub fn build(self) -> ::std::result::Result<crate::operation::list_groups::ListGroupsInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::list_groups::ListGroupsInput {
++    pub fn build(self) -> ::std::result::Result<super::operation::list_groups::ListGroupsInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::list_groups::ListGroupsInput {
+             path_prefix: self.path_prefix,
+             marker: self.marker,
+             max_items: self.max_items,

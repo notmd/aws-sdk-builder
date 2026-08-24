@@ -1,0 +1,93 @@
+--- original
++++ modified
+@@ -9,9 +9,9 @@
+     /// <p>Name of the index associated with the summary, if any.</p>
+     pub index_name: ::std::option::Option<::std::string::String>,
+     /// <p>Describes the current status for contributor insights for the given table and index, if applicable.</p>
+-    pub contributor_insights_status: ::std::option::Option<crate::types::ContributorInsightsStatus>,
++    pub contributor_insights_status: ::std::option::Option<super::types::ContributorInsightsStatus>,
+     /// <p>Indicates the current mode of CloudWatch Contributor Insights, specifying whether it tracks all access and throttled events or throttled events only for the DynamoDB table or index.</p>
+-    pub contributor_insights_mode: ::std::option::Option<crate::types::ContributorInsightsMode>,
++    pub contributor_insights_mode: ::std::option::Option<super::types::ContributorInsightsMode>,
+ }
+ impl ContributorInsightsSummary {
+     /// <p>Name of the table associated with the summary.</p>
+@@ -23,18 +23,18 @@
+         self.index_name.as_deref()
+     }
+     /// <p>Describes the current status for contributor insights for the given table and index, if applicable.</p>
+-    pub fn contributor_insights_status(&self) -> ::std::option::Option<&crate::types::ContributorInsightsStatus> {
++    pub fn contributor_insights_status(&self) -> ::std::option::Option<&super::types::ContributorInsightsStatus> {
+         self.contributor_insights_status.as_ref()
+     }
+     /// <p>Indicates the current mode of CloudWatch Contributor Insights, specifying whether it tracks all access and throttled events or throttled events only for the DynamoDB table or index.</p>
+-    pub fn contributor_insights_mode(&self) -> ::std::option::Option<&crate::types::ContributorInsightsMode> {
++    pub fn contributor_insights_mode(&self) -> ::std::option::Option<&super::types::ContributorInsightsMode> {
+         self.contributor_insights_mode.as_ref()
+     }
+ }
+ impl ContributorInsightsSummary {
+     /// Creates a new builder-style object to manufacture [`ContributorInsightsSummary`](crate::types::ContributorInsightsSummary).
+-    pub fn builder() -> crate::types::builders::ContributorInsightsSummaryBuilder {
+-        crate::types::builders::ContributorInsightsSummaryBuilder::default()
++    pub fn builder() -> super::types::builders::ContributorInsightsSummaryBuilder {
++        super::types::builders::ContributorInsightsSummaryBuilder::default()
+     }
+ }
+
+@@ -44,8 +44,8 @@
+ pub struct ContributorInsightsSummaryBuilder {
+     pub(crate) table_name: ::std::option::Option<::std::string::String>,
+     pub(crate) index_name: ::std::option::Option<::std::string::String>,
+-    pub(crate) contributor_insights_status: ::std::option::Option<crate::types::ContributorInsightsStatus>,
+-    pub(crate) contributor_insights_mode: ::std::option::Option<crate::types::ContributorInsightsMode>,
++    pub(crate) contributor_insights_status: ::std::option::Option<super::types::ContributorInsightsStatus>,
++    pub(crate) contributor_insights_mode: ::std::option::Option<super::types::ContributorInsightsMode>,
+ }
+ impl ContributorInsightsSummaryBuilder {
+     /// <p>Name of the table associated with the summary.</p>
+@@ -77,36 +77,36 @@
+         &self.index_name
+     }
+     /// <p>Describes the current status for contributor insights for the given table and index, if applicable.</p>
+-    pub fn contributor_insights_status(mut self, input: crate::types::ContributorInsightsStatus) -> Self {
++    pub fn contributor_insights_status(mut self, input: super::types::ContributorInsightsStatus) -> Self {
+         self.contributor_insights_status = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Describes the current status for contributor insights for the given table and index, if applicable.</p>
+-    pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<crate::types::ContributorInsightsStatus>) -> Self {
++    pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<super::types::ContributorInsightsStatus>) -> Self {
+         self.contributor_insights_status = input;
+         self
+     }
+     /// <p>Describes the current status for contributor insights for the given table and index, if applicable.</p>
+-    pub fn get_contributor_insights_status(&self) -> &::std::option::Option<crate::types::ContributorInsightsStatus> {
++    pub fn get_contributor_insights_status(&self) -> &::std::option::Option<super::types::ContributorInsightsStatus> {
+         &self.contributor_insights_status
+     }
+     /// <p>Indicates the current mode of CloudWatch Contributor Insights, specifying whether it tracks all access and throttled events or throttled events only for the DynamoDB table or index.</p>
+-    pub fn contributor_insights_mode(mut self, input: crate::types::ContributorInsightsMode) -> Self {
++    pub fn contributor_insights_mode(mut self, input: super::types::ContributorInsightsMode) -> Self {
+         self.contributor_insights_mode = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Indicates the current mode of CloudWatch Contributor Insights, specifying whether it tracks all access and throttled events or throttled events only for the DynamoDB table or index.</p>
+-    pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self {
++    pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<super::types::ContributorInsightsMode>) -> Self {
+         self.contributor_insights_mode = input;
+         self
+     }
+     /// <p>Indicates the current mode of CloudWatch Contributor Insights, specifying whether it tracks all access and throttled events or throttled events only for the DynamoDB table or index.</p>
+-    pub fn get_contributor_insights_mode(&self) -> &::std::option::Option<crate::types::ContributorInsightsMode> {
++    pub fn get_contributor_insights_mode(&self) -> &::std::option::Option<super::types::ContributorInsightsMode> {
+         &self.contributor_insights_mode
+     }
+     /// Consumes the builder and constructs a [`ContributorInsightsSummary`](crate::types::ContributorInsightsSummary).
+-    pub fn build(self) -> crate::types::ContributorInsightsSummary {
+-        crate::types::ContributorInsightsSummary {
++    pub fn build(self) -> super::types::ContributorInsightsSummary {
++        super::types::ContributorInsightsSummary {
+             table_name: self.table_name,
+             index_name: self.index_name,
+             contributor_insights_status: self.contributor_insights_status,

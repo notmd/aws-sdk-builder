@@ -1,0 +1,165 @@
+--- original
++++ modified
+@@ -4,26 +4,26 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<crate::operation::get_key_policy::GetKeyPolicyOutput, crate::operation::get_key_policy::GetKeyPolicyError> {
++) -> std::result::Result<super::operation::get_key_policy::GetKeyPolicyOutput, super::operation::get_key_policy::GetKeyPolicyError> {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::get_key_policy::GetKeyPolicyError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::get_key_policy::GetKeyPolicyError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(crate::operation::get_key_policy::GetKeyPolicyError::unhandled(generic)),
++        None => return Err(super::operation::get_key_policy::GetKeyPolicyError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "DependencyTimeoutException" => crate::operation::get_key_policy::GetKeyPolicyError::DependencyTimeoutException({
++        "DependencyTimeoutException" => super::operation::get_key_policy::GetKeyPolicyError::DependencyTimeoutException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::DependencyTimeoutExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::get_key_policy::GetKeyPolicyError::unhandled)?;
++                let mut output = super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
++                output = super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
++                    .map_err(super::operation::get_key_policy::GetKeyPolicyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -32,13 +32,13 @@
+             }
+             tmp
+         }),
+-        "InvalidArnException" => crate::operation::get_key_policy::GetKeyPolicyError::InvalidArnException({
++        "InvalidArnException" => super::operation::get_key_policy::GetKeyPolicyError::InvalidArnException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InvalidArnExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_invalid_arn_exception::de_invalid_arn_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::get_key_policy::GetKeyPolicyError::unhandled)?;
++                let mut output = super::types::error::builders::InvalidArnExceptionBuilder::default();
++                output = super::protocol_serde::shape_invalid_arn_exception::de_invalid_arn_exception_json_err(_response_body, output)
++                    .map_err(super::operation::get_key_policy::GetKeyPolicyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -47,13 +47,13 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::get_key_policy::GetKeyPolicyError::KmsInternalException({
++        "KMSInternalException" => super::operation::get_key_policy::GetKeyPolicyError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::KmsInternalExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::get_key_policy::GetKeyPolicyError::unhandled)?;
++                let mut output = super::types::error::builders::KmsInternalExceptionBuilder::default();
++                output = super::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
++                    .map_err(super::operation::get_key_policy::GetKeyPolicyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -62,13 +62,13 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::get_key_policy::GetKeyPolicyError::KmsInvalidStateException({
++        "KMSInvalidStateException" => super::operation::get_key_policy::GetKeyPolicyError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::get_key_policy::GetKeyPolicyError::unhandled)?;
++                let mut output = super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
++                output = super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
++                    .map_err(super::operation::get_key_policy::GetKeyPolicyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -77,13 +77,13 @@
+             }
+             tmp
+         }),
+-        "NotFoundException" => crate::operation::get_key_policy::GetKeyPolicyError::NotFoundException({
++        "NotFoundException" => super::operation::get_key_policy::GetKeyPolicyError::NotFoundException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::get_key_policy::GetKeyPolicyError::unhandled)?;
++                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
++                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::operation::get_key_policy::GetKeyPolicyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -92,7 +92,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::get_key_policy::GetKeyPolicyError::generic(generic),
++        _ => super::operation::get_key_policy::GetKeyPolicyError::generic(generic),
+     })
+ }
+
+@@ -101,12 +101,12 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<crate::operation::get_key_policy::GetKeyPolicyOutput, crate::operation::get_key_policy::GetKeyPolicyError> {
++) -> std::result::Result<super::operation::get_key_policy::GetKeyPolicyOutput, super::operation::get_key_policy::GetKeyPolicyError> {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::get_key_policy::builders::GetKeyPolicyOutputBuilder::default();
+-        output = crate::protocol_serde::shape_get_key_policy::de_get_key_policy(_response_body, output)
+-            .map_err(crate::operation::get_key_policy::GetKeyPolicyError::unhandled)?;
++        let mut output = super::operation::get_key_policy::builders::GetKeyPolicyOutputBuilder::default();
++        output = super::protocol_serde::shape_get_key_policy::de_get_key_policy(_response_body, output)
++            .map_err(super::operation::get_key_policy::GetKeyPolicyError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -113,11 +113,11 @@
+ }
+
+ pub fn ser_get_key_policy_input(
+-    input: &crate::operation::get_key_policy::GetKeyPolicyInput,
++    input: &super::operation::get_key_policy::GetKeyPolicyInput,
+ ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+     let mut out = String::new();
+     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+-    crate::protocol_serde::shape_get_key_policy_input::ser_get_key_policy_input_input(&mut object, input)?;
++    super::protocol_serde::shape_get_key_policy_input::ser_get_key_policy_input_input(&mut object, input)?;
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
+@@ -124,12 +124,12 @@
+
+ pub(crate) fn de_get_key_policy(
+     _value: &[u8],
+-    mut builder: crate::operation::get_key_policy::builders::GetKeyPolicyOutputBuilder,
++    mut builder: super::operation::get_key_policy::builders::GetKeyPolicyOutputBuilder,
+ ) -> ::std::result::Result<
+-    crate::operation::get_key_policy::builders::GetKeyPolicyOutputBuilder,
++    super::operation::get_key_policy::builders::GetKeyPolicyOutputBuilder,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ > {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+     let depth = 0u32;

@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -35,8 +35,8 @@
+ }
+ impl ChangeMessageVisibilityBatchRequestEntry {
+     /// Creates a new builder-style object to manufacture [`ChangeMessageVisibilityBatchRequestEntry`](crate::types::ChangeMessageVisibilityBatchRequestEntry).
+-    pub fn builder() -> crate::types::builders::ChangeMessageVisibilityBatchRequestEntryBuilder {
+-        crate::types::builders::ChangeMessageVisibilityBatchRequestEntryBuilder::default()
++    pub fn builder() -> super::types::builders::ChangeMessageVisibilityBatchRequestEntryBuilder {
++        super::types::builders::ChangeMessageVisibilityBatchRequestEntryBuilder::default()
+     }
+ }
+
+@@ -108,8 +108,8 @@
+     /// - [`receipt_handle`](crate::types::builders::ChangeMessageVisibilityBatchRequestEntryBuilder::receipt_handle)
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::types::ChangeMessageVisibilityBatchRequestEntry, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::types::ChangeMessageVisibilityBatchRequestEntry {
++    ) -> ::std::result::Result<super::types::ChangeMessageVisibilityBatchRequestEntry, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::types::ChangeMessageVisibilityBatchRequestEntry {
+             id: self.id.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+                     "id",

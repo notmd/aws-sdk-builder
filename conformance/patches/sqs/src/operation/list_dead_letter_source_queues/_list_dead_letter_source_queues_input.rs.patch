@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -29,8 +29,8 @@
+ }
+ impl ListDeadLetterSourceQueuesInput {
+     /// Creates a new builder-style object to manufacture [`ListDeadLetterSourceQueuesInput`](crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesInput).
+-    pub fn builder() -> crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesInputBuilder {
+-        crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesInputBuilder::default()
++    pub fn builder() -> super::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesInputBuilder {
++        super::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesInputBuilder::default()
+     }
+ }
+
+@@ -93,10 +93,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesInput,
++        super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesInput {
++        ::std::result::Result::Ok(super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesInput {
+             queue_url: self.queue_url,
+             next_token: self.next_token,
+             max_results: self.max_results,

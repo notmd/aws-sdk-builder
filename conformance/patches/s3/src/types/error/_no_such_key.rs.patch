@@ -1,0 +1,40 @@
+--- original
++++ modified
+@@ -26,13 +26,13 @@
+     }
+ }
+ impl ::std::error::Error for NoSuchKey {}
+-impl crate::s3_request_id::RequestIdExt for crate::types::error::NoSuchKey {
++impl super::s3_request_id::RequestIdExt for super::types::error::NoSuchKey {
+     fn extended_request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().extended_request_id()
+     }
+ }
+-impl ::aws_types::request_id::RequestId for crate::types::error::NoSuchKey {
++impl ::aws_types::request_id::RequestId for super::types::error::NoSuchKey {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -45,8 +45,8 @@
+ }
+ impl NoSuchKey {
+     /// Creates a new builder-style object to manufacture [`NoSuchKey`](crate::types::error::NoSuchKey).
+-    pub fn builder() -> crate::types::error::builders::NoSuchKeyBuilder {
+-        crate::types::error::builders::NoSuchKeyBuilder::default()
++    pub fn builder() -> super::types::error::builders::NoSuchKeyBuilder {
++        super::types::error::builders::NoSuchKeyBuilder::default()
+     }
+ }
+
+@@ -84,8 +84,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`NoSuchKey`](crate::types::error::NoSuchKey).
+-    pub fn build(self) -> crate::types::error::NoSuchKey {
+-        crate::types::error::NoSuchKey {
++    pub fn build(self) -> super::types::error::NoSuchKey {
++        super::types::error::NoSuchKey {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

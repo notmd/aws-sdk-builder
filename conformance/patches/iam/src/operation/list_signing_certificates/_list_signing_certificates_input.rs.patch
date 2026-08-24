@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -30,8 +30,8 @@
+ }
+ impl ListSigningCertificatesInput {
+     /// Creates a new builder-style object to manufacture [`ListSigningCertificatesInput`](crate::operation::list_signing_certificates::ListSigningCertificatesInput).
+-    pub fn builder() -> crate::operation::list_signing_certificates::builders::ListSigningCertificatesInputBuilder {
+-        crate::operation::list_signing_certificates::builders::ListSigningCertificatesInputBuilder::default()
++    pub fn builder() -> super::operation::list_signing_certificates::builders::ListSigningCertificatesInputBuilder {
++        super::operation::list_signing_certificates::builders::ListSigningCertificatesInputBuilder::default()
+     }
+ }
+
+@@ -96,10 +96,10 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::list_signing_certificates::ListSigningCertificatesInput,
++        super::operation::list_signing_certificates::ListSigningCertificatesInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+-        ::std::result::Result::Ok(crate::operation::list_signing_certificates::ListSigningCertificatesInput {
++        ::std::result::Result::Ok(super::operation::list_signing_certificates::ListSigningCertificatesInput {
+             user_name: self.user_name,
+             marker: self.marker,
+             max_items: self.max_items,

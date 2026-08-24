@@ -1,0 +1,78 @@
+--- original
++++ modified
+@@ -32,7 +32,7 @@
+     /// <p>Specifies the encryption algorithm that KMS will use to encrypt the plaintext message. The algorithm must be compatible with the KMS key that you specify.</p>
+     /// <p>This parameter is required only for asymmetric KMS keys. The default value, <code>SYMMETRIC_DEFAULT</code>, is the algorithm used for symmetric encryption KMS keys. If you are using an asymmetric KMS key, we recommend RSAES_OAEP_SHA_256.</p>
+     /// <p>The SM2PKE algorithm is only available in China Regions.</p>
+-    pub encryption_algorithm: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>,
++    pub encryption_algorithm: ::std::option::Option<super::types::EncryptionAlgorithmSpec>,
+     /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
+     /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
+     pub dry_run: ::std::option::Option<bool>,
+@@ -77,7 +77,7 @@
+     /// <p>Specifies the encryption algorithm that KMS will use to encrypt the plaintext message. The algorithm must be compatible with the KMS key that you specify.</p>
+     /// <p>This parameter is required only for asymmetric KMS keys. The default value, <code>SYMMETRIC_DEFAULT</code>, is the algorithm used for symmetric encryption KMS keys. If you are using an asymmetric KMS key, we recommend RSAES_OAEP_SHA_256.</p>
+     /// <p>The SM2PKE algorithm is only available in China Regions.</p>
+-    pub fn encryption_algorithm(&self) -> ::std::option::Option<&crate::types::EncryptionAlgorithmSpec> {
++    pub fn encryption_algorithm(&self) -> ::std::option::Option<&super::types::EncryptionAlgorithmSpec> {
+         self.encryption_algorithm.as_ref()
+     }
+     /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
+@@ -100,8 +100,8 @@
+ }
+ impl EncryptInput {
+     /// Creates a new builder-style object to manufacture [`EncryptInput`](crate::operation::encrypt::EncryptInput).
+-    pub fn builder() -> crate::operation::encrypt::builders::EncryptInputBuilder {
+-        crate::operation::encrypt::builders::EncryptInputBuilder::default()
++    pub fn builder() -> super::operation::encrypt::builders::EncryptInputBuilder {
++        super::operation::encrypt::builders::EncryptInputBuilder::default()
+     }
+ }
+
+@@ -113,7 +113,7 @@
+     pub(crate) plaintext: ::std::option::Option<::aws_smithy_types::Blob>,
+     pub(crate) encryption_context: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+     pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+-    pub(crate) encryption_algorithm: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>,
++    pub(crate) encryption_algorithm: ::std::option::Option<super::types::EncryptionAlgorithmSpec>,
+     pub(crate) dry_run: ::std::option::Option<bool>,
+ }
+ impl EncryptInputBuilder {
+@@ -251,7 +251,7 @@
+     /// <p>Specifies the encryption algorithm that KMS will use to encrypt the plaintext message. The algorithm must be compatible with the KMS key that you specify.</p>
+     /// <p>This parameter is required only for asymmetric KMS keys. The default value, <code>SYMMETRIC_DEFAULT</code>, is the algorithm used for symmetric encryption KMS keys. If you are using an asymmetric KMS key, we recommend RSAES_OAEP_SHA_256.</p>
+     /// <p>The SM2PKE algorithm is only available in China Regions.</p>
+-    pub fn encryption_algorithm(mut self, input: crate::types::EncryptionAlgorithmSpec) -> Self {
++    pub fn encryption_algorithm(mut self, input: super::types::EncryptionAlgorithmSpec) -> Self {
+         self.encryption_algorithm = ::std::option::Option::Some(input);
+         self
+     }
+@@ -258,7 +258,7 @@
+     /// <p>Specifies the encryption algorithm that KMS will use to encrypt the plaintext message. The algorithm must be compatible with the KMS key that you specify.</p>
+     /// <p>This parameter is required only for asymmetric KMS keys. The default value, <code>SYMMETRIC_DEFAULT</code>, is the algorithm used for symmetric encryption KMS keys. If you are using an asymmetric KMS key, we recommend RSAES_OAEP_SHA_256.</p>
+     /// <p>The SM2PKE algorithm is only available in China Regions.</p>
+-    pub fn set_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>) -> Self {
++    pub fn set_encryption_algorithm(mut self, input: ::std::option::Option<super::types::EncryptionAlgorithmSpec>) -> Self {
+         self.encryption_algorithm = input;
+         self
+     }
+@@ -265,7 +265,7 @@
+     /// <p>Specifies the encryption algorithm that KMS will use to encrypt the plaintext message. The algorithm must be compatible with the KMS key that you specify.</p>
+     /// <p>This parameter is required only for asymmetric KMS keys. The default value, <code>SYMMETRIC_DEFAULT</code>, is the algorithm used for symmetric encryption KMS keys. If you are using an asymmetric KMS key, we recommend RSAES_OAEP_SHA_256.</p>
+     /// <p>The SM2PKE algorithm is only available in China Regions.</p>
+-    pub fn get_encryption_algorithm(&self) -> &::std::option::Option<crate::types::EncryptionAlgorithmSpec> {
++    pub fn get_encryption_algorithm(&self) -> &::std::option::Option<super::types::EncryptionAlgorithmSpec> {
+         &self.encryption_algorithm
+     }
+     /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
+@@ -286,8 +286,8 @@
+         &self.dry_run
+     }
+     /// Consumes the builder and constructs a [`EncryptInput`](crate::operation::encrypt::EncryptInput).
+-    pub fn build(self) -> ::std::result::Result<crate::operation::encrypt::EncryptInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::encrypt::EncryptInput {
++    pub fn build(self) -> ::std::result::Result<super::operation::encrypt::EncryptInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::encrypt::EncryptInput {
+             key_id: self.key_id,
+             plaintext: self.plaintext,
+             encryption_context: self.encryption_context,

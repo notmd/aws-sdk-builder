@@ -1,0 +1,48 @@
+--- original
++++ modified
+@@ -3,12 +3,12 @@
+ pub fn de_analytics_and_operator(
+     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+     depth: u32,
+-) -> ::std::result::Result<crate::types::AnalyticsAndOperator, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::types::AnalyticsAndOperator, ::aws_smithy_xml::decode::XmlDecodeError> {
+     if depth >= 128u32 {
+         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+     }
+     #[allow(unused_mut)]
+-    let mut builder = crate::types::AnalyticsAndOperator::builder();
++    let mut builder = super::types::AnalyticsAndOperator::builder();
+     while let Some(mut tag) = decoder.next_tag() {
+         match tag.start_el() {
+             s if s.matches("Prefix") /* Prefix com.amazonaws.s3#AnalyticsAndOperator$Prefix */ =>  {
+@@ -27,10 +27,10 @@
+             s if s.matches("Tag") /* Tags com.amazonaws.s3#AnalyticsAndOperator$Tags */ =>  {
+                 let var_2 =
+                     Some(
+-                        Result::<::std::vec::Vec::<crate::types::Tag>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
++                        Result::<::std::vec::Vec::<super::types::Tag>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                             let mut list_3 = builder.tags.take().unwrap_or_default();
+                             list_3.push(
+-                                crate::protocol_serde::shape_tag::de_tag(&mut tag, depth + 1)
++                                super::protocol_serde::shape_tag::de_tag(&mut tag, depth + 1)
+                                 ?
+                             );
+                             list_3
+@@ -48,7 +48,7 @@
+ }
+
+ pub fn ser_analytics_and_operator(
+-    input: &crate::types::AnalyticsAndOperator,
++    input: &super::types::AnalyticsAndOperator,
+     writer: ::aws_smithy_xml::encode::ElWriter,
+ ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+     #[allow(unused_mut)]
+@@ -61,7 +61,7 @@
+         for list_item_6 in var_5 {
+             {
+                 let inner_writer = scope.start_el("Tag");
+-                crate::protocol_serde::shape_tag::ser_tag(list_item_6, inner_writer)?
++                super::protocol_serde::shape_tag::ser_tag(list_item_6, inner_writer)?
+             }
+         }
+     }

@@ -1,0 +1,139 @@
+--- original
++++ modified
+@@ -5,18 +5,18 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::update_contributor_insights::UpdateContributorInsightsOutput,
+-    crate::operation::update_contributor_insights::UpdateContributorInsightsError,
++    super::operation::update_contributor_insights::UpdateContributorInsightsOutput,
++    super::operation::update_contributor_insights::UpdateContributorInsightsError,
+ > {
+     #[allow(unused_mut)]
+-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(crate::operation::update_contributor_insights::UpdateContributorInsightsError::unhandled)?;
++    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
++        .map_err(super::operation::update_contributor_insights::UpdateContributorInsightsError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+         None => {
+-            return Err(crate::operation::update_contributor_insights::UpdateContributorInsightsError::unhandled(
++            return Err(super::operation::update_contributor_insights::UpdateContributorInsightsError::unhandled(
+                 generic,
+             ))
+         }
+@@ -24,13 +24,13 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "InternalServerError" => crate::operation::update_contributor_insights::UpdateContributorInsightsError::InternalServerError({
++        "InternalServerError" => super::operation::update_contributor_insights::UpdateContributorInsightsError::InternalServerError({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::InternalServerErrorBuilder::default();
+-                output = crate::protocol_serde::shape_internal_server_error::de_internal_server_error_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_contributor_insights::UpdateContributorInsightsError::unhandled)?;
++                let mut output = super::types::error::builders::InternalServerErrorBuilder::default();
++                output = super::protocol_serde::shape_internal_server_error::de_internal_server_error_json_err(_response_body, output)
++                    .map_err(super::operation::update_contributor_insights::UpdateContributorInsightsError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -39,13 +39,13 @@
+             }
+             tmp
+         }),
+-        "ResourceNotFoundException" => crate::operation::update_contributor_insights::UpdateContributorInsightsError::ResourceNotFoundException({
++        "ResourceNotFoundException" => super::operation::update_contributor_insights::UpdateContributorInsightsError::ResourceNotFoundException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+-                    .map_err(crate::operation::update_contributor_insights::UpdateContributorInsightsError::unhandled)?;
++                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
++                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
++                    .map_err(super::operation::update_contributor_insights::UpdateContributorInsightsError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -54,7 +54,7 @@
+             }
+             tmp
+         }),
+-        _ => crate::operation::update_contributor_insights::UpdateContributorInsightsError::generic(generic),
++        _ => super::operation::update_contributor_insights::UpdateContributorInsightsError::generic(generic),
+     })
+ }
+
+@@ -64,14 +64,14 @@
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+ ) -> std::result::Result<
+-    crate::operation::update_contributor_insights::UpdateContributorInsightsOutput,
+-    crate::operation::update_contributor_insights::UpdateContributorInsightsError,
++    super::operation::update_contributor_insights::UpdateContributorInsightsOutput,
++    super::operation::update_contributor_insights::UpdateContributorInsightsError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+-        let mut output = crate::operation::update_contributor_insights::builders::UpdateContributorInsightsOutputBuilder::default();
+-        output = crate::protocol_serde::shape_update_contributor_insights::de_update_contributor_insights(_response_body, output)
+-            .map_err(crate::operation::update_contributor_insights::UpdateContributorInsightsError::unhandled)?;
++        let mut output = super::operation::update_contributor_insights::builders::UpdateContributorInsightsOutputBuilder::default();
++        output = super::protocol_serde::shape_update_contributor_insights::de_update_contributor_insights(_response_body, output)
++            .map_err(super::operation::update_contributor_insights::UpdateContributorInsightsError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -78,11 +78,11 @@
+ }
+
+ pub fn ser_update_contributor_insights_input(
+-    input: &crate::operation::update_contributor_insights::UpdateContributorInsightsInput,
++    input: &super::operation::update_contributor_insights::UpdateContributorInsightsInput,
+ ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+     let mut out = String::new();
+     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+-    crate::protocol_serde::shape_update_contributor_insights_input::ser_update_contributor_insights_input_input(&mut object, input)?;
++    super::protocol_serde::shape_update_contributor_insights_input::ser_update_contributor_insights_input_input(&mut object, input)?;
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
+@@ -89,12 +89,12 @@
+
+ pub(crate) fn de_update_contributor_insights(
+     _value: &[u8],
+-    mut builder: crate::operation::update_contributor_insights::builders::UpdateContributorInsightsOutputBuilder,
++    mut builder: super::operation::update_contributor_insights::builders::UpdateContributorInsightsOutputBuilder,
+ ) -> ::std::result::Result<
+-    crate::operation::update_contributor_insights::builders::UpdateContributorInsightsOutputBuilder,
++    super::operation::update_contributor_insights::builders::UpdateContributorInsightsOutputBuilder,
+     ::aws_smithy_json::deserialize::error::DeserializeError,
+ > {
+-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
+     let tokens = &mut tokens_owned;
+     #[allow(unused_variables)]
+     let depth = 0u32;
+@@ -120,7 +120,7 @@
+                 "ContributorInsightsStatus" => {
+                     builder = builder.set_contributor_insights_status(
+                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| crate::types::ContributorInsightsStatus::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::ContributorInsightsStatus::from(u.as_ref())))
+                             .transpose()?,
+                     );
+                 }
+@@ -127,7 +127,7 @@
+                 "ContributorInsightsMode" => {
+                     builder = builder.set_contributor_insights_mode(
+                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| crate::types::ContributorInsightsMode::from(u.as_ref())))
++                            .map(|s| s.to_unescaped().map(|u| super::types::ContributorInsightsMode::from(u.as_ref())))
+                             .transpose()?,
+                     );
+                 }

@@ -1,0 +1,26 @@
+--- original
++++ modified
+@@ -3,12 +3,12 @@
+ pub fn de_platform_application(
+     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+     depth: u32,
+-) -> ::std::result::Result<crate::types::PlatformApplication, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::types::PlatformApplication, ::aws_smithy_xml::decode::XmlDecodeError> {
+     if depth >= 128u32 {
+         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+     }
+     #[allow(unused_mut)]
+-    let mut builder = crate::types::PlatformApplication::builder();
++    let mut builder = super::types::PlatformApplication::builder();
+     while let Some(mut tag) = decoder.next_tag() {
+         match tag.start_el() {
+             s if s.matches("PlatformApplicationArn") /* PlatformApplicationArn com.amazonaws.sns#PlatformApplication$PlatformApplicationArn */ =>  {
+@@ -27,7 +27,7 @@
+             s if s.matches("Attributes") /* Attributes com.amazonaws.sns#PlatformApplication$Attributes */ =>  {
+                 let var_2 =
+                     Some(
+-                        crate::protocol_serde::shape_map_string_to_string::de_map_string_to_string(&mut tag, depth + 1)
++                        super::protocol_serde::shape_map_string_to_string::de_map_string_to_string(&mut tag, depth + 1)
+                         ?
+                     )
+                 ;

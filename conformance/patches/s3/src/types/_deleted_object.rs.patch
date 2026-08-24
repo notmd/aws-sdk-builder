@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -45,8 +45,8 @@
+ }
+ impl DeletedObject {
+     /// Creates a new builder-style object to manufacture [`DeletedObject`](crate::types::DeletedObject).
+-    pub fn builder() -> crate::types::builders::DeletedObjectBuilder {
+-        crate::types::builders::DeletedObjectBuilder::default()
++    pub fn builder() -> super::types::builders::DeletedObjectBuilder {
++        super::types::builders::DeletedObjectBuilder::default()
+     }
+ }
+
+@@ -135,8 +135,8 @@
+         &self.delete_marker_version_id
+     }
+     /// Consumes the builder and constructs a [`DeletedObject`](crate::types::DeletedObject).
+-    pub fn build(self) -> crate::types::DeletedObject {
+-        crate::types::DeletedObject {
++    pub fn build(self) -> super::types::DeletedObject {
++        super::types::DeletedObject {
+             key: self.key,
+             version_id: self.version_id,
+             delete_marker: self.delete_marker,

@@ -16,7 +16,7 @@ impl DuplicateSshPublicKeyException {
 }
 impl ::std::fmt::Display for DuplicateSshPublicKeyException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(f, "DuplicateSshPublicKeyException")?;
+        ::std::write!(f, "DuplicateSshPublicKeyException [DuplicateSSHPublicKeyException]")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;

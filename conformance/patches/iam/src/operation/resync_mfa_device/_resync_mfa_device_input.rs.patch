@@ -1,0 +1,24 @@
+--- original
++++ modified
+@@ -40,8 +40,8 @@
+ }
+ impl ResyncMfaDeviceInput {
+     /// Creates a new builder-style object to manufacture [`ResyncMfaDeviceInput`](crate::operation::resync_mfa_device::ResyncMfaDeviceInput).
+-    pub fn builder() -> crate::operation::resync_mfa_device::builders::ResyncMfaDeviceInputBuilder {
+-        crate::operation::resync_mfa_device::builders::ResyncMfaDeviceInputBuilder::default()
++    pub fn builder() -> super::operation::resync_mfa_device::builders::ResyncMfaDeviceInputBuilder {
++        super::operation::resync_mfa_device::builders::ResyncMfaDeviceInputBuilder::default()
+     }
+ }
+
+@@ -130,8 +130,8 @@
+     /// Consumes the builder and constructs a [`ResyncMfaDeviceInput`](crate::operation::resync_mfa_device::ResyncMfaDeviceInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::resync_mfa_device::ResyncMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
+-        ::std::result::Result::Ok(crate::operation::resync_mfa_device::ResyncMfaDeviceInput {
++    ) -> ::std::result::Result<super::operation::resync_mfa_device::ResyncMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
++        ::std::result::Result::Ok(super::operation::resync_mfa_device::ResyncMfaDeviceInput {
+             user_name: self.user_name,
+             serial_number: self.serial_number,
+             authentication_code1: self.authentication_code1,

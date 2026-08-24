@@ -1,0 +1,25 @@
+--- original
++++ modified
+@@ -16,8 +16,8 @@
+ }
+ impl GetServerCertificateInput {
+     /// Creates a new builder-style object to manufacture [`GetServerCertificateInput`](crate::operation::get_server_certificate::GetServerCertificateInput).
+-    pub fn builder() -> crate::operation::get_server_certificate::builders::GetServerCertificateInputBuilder {
+-        crate::operation::get_server_certificate::builders::GetServerCertificateInputBuilder::default()
++    pub fn builder() -> super::operation::get_server_certificate::builders::GetServerCertificateInputBuilder {
++        super::operation::get_server_certificate::builders::GetServerCertificateInputBuilder::default()
+     }
+ }
+
+@@ -49,9 +49,9 @@
+     /// Consumes the builder and constructs a [`GetServerCertificateInput`](crate::operation::get_server_certificate::GetServerCertificateInput).
+     pub fn build(
+         self,
+-    ) -> ::std::result::Result<crate::operation::get_server_certificate::GetServerCertificateInput, ::aws_smithy_types::error::operation::BuildError>
++    ) -> ::std::result::Result<super::operation::get_server_certificate::GetServerCertificateInput, ::aws_smithy_types::error::operation::BuildError>
+     {
+-        ::std::result::Result::Ok(crate::operation::get_server_certificate::GetServerCertificateInput {
++        ::std::result::Result::Ok(super::operation::get_server_certificate::GetServerCertificateInput {
+             server_certificate_name: self.server_certificate_name,
+         })
+     }

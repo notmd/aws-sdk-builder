@@ -1,0 +1,66 @@
+--- original
++++ modified
+@@ -4,12 +4,12 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct DeleteBackupOutput {
+     /// <p>Contains the description of the backup created for the table.</p>
+-    pub backup_description: ::std::option::Option<crate::types::BackupDescription>,
++    pub backup_description: ::std::option::Option<super::types::BackupDescription>,
+     _request_id: Option<String>,
+ }
+ impl DeleteBackupOutput {
+     /// <p>Contains the description of the backup created for the table.</p>
+-    pub fn backup_description(&self) -> ::std::option::Option<&crate::types::BackupDescription> {
++    pub fn backup_description(&self) -> ::std::option::Option<&super::types::BackupDescription> {
+         self.backup_description.as_ref()
+     }
+ }
+@@ -20,8 +20,8 @@
+ }
+ impl DeleteBackupOutput {
+     /// Creates a new builder-style object to manufacture [`DeleteBackupOutput`](crate::operation::delete_backup::DeleteBackupOutput).
+-    pub fn builder() -> crate::operation::delete_backup::builders::DeleteBackupOutputBuilder {
+-        crate::operation::delete_backup::builders::DeleteBackupOutputBuilder::default()
++    pub fn builder() -> super::operation::delete_backup::builders::DeleteBackupOutputBuilder {
++        super::operation::delete_backup::builders::DeleteBackupOutputBuilder::default()
+     }
+ }
+
+@@ -29,22 +29,22 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct DeleteBackupOutputBuilder {
+-    pub(crate) backup_description: ::std::option::Option<crate::types::BackupDescription>,
++    pub(crate) backup_description: ::std::option::Option<super::types::BackupDescription>,
+     _request_id: Option<String>,
+ }
+ impl DeleteBackupOutputBuilder {
+     /// <p>Contains the description of the backup created for the table.</p>
+-    pub fn backup_description(mut self, input: crate::types::BackupDescription) -> Self {
++    pub fn backup_description(mut self, input: super::types::BackupDescription) -> Self {
+         self.backup_description = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>Contains the description of the backup created for the table.</p>
+-    pub fn set_backup_description(mut self, input: ::std::option::Option<crate::types::BackupDescription>) -> Self {
++    pub fn set_backup_description(mut self, input: ::std::option::Option<super::types::BackupDescription>) -> Self {
+         self.backup_description = input;
+         self
+     }
+     /// <p>Contains the description of the backup created for the table.</p>
+-    pub fn get_backup_description(&self) -> &::std::option::Option<crate::types::BackupDescription> {
++    pub fn get_backup_description(&self) -> &::std::option::Option<super::types::BackupDescription> {
+         &self.backup_description
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -57,8 +57,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`DeleteBackupOutput`](crate::operation::delete_backup::DeleteBackupOutput).
+-    pub fn build(self) -> crate::operation::delete_backup::DeleteBackupOutput {
+-        crate::operation::delete_backup::DeleteBackupOutput {
++    pub fn build(self) -> super::operation::delete_backup::DeleteBackupOutput {
++        super::operation::delete_backup::DeleteBackupOutput {
+             backup_description: self.backup_description,
+             _request_id: self._request_id,
+         }

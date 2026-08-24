@@ -99,7 +99,7 @@ pub fn de_create_key_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::create_key::CreateKeyError::KmsInternalException({
+        "KMSInternalException" => crate::operation::create_key::CreateKeyError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

@@ -1,0 +1,75 @@
+--- original
++++ modified
+@@ -7,7 +7,7 @@
+     /// <p>Prefix identifying one or more objects to which the rule applies.</p>
+     pub prefix: ::std::option::Option<::std::string::String>,
+     /// <p>All of these tags must exist in the object's tag set in order for the rule to apply.</p>
+-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
+     /// <p>Minimum object size to which the rule applies.</p>
+     pub object_size_greater_than: ::std::option::Option<i64>,
+     /// <p>Maximum object size to which the rule applies.</p>
+@@ -21,7 +21,7 @@
+     /// <p>All of these tags must exist in the object's tag set in order for the rule to apply.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
+-    pub fn tags(&self) -> &[crate::types::Tag] {
++    pub fn tags(&self) -> &[super::types::Tag] {
+         self.tags.as_deref().unwrap_or_default()
+     }
+     /// <p>Minimum object size to which the rule applies.</p>
+@@ -35,8 +35,8 @@
+ }
+ impl LifecycleRuleAndOperator {
+     /// Creates a new builder-style object to manufacture [`LifecycleRuleAndOperator`](crate::types::LifecycleRuleAndOperator).
+-    pub fn builder() -> crate::types::builders::LifecycleRuleAndOperatorBuilder {
+-        crate::types::builders::LifecycleRuleAndOperatorBuilder::default()
++    pub fn builder() -> super::types::builders::LifecycleRuleAndOperatorBuilder {
++        super::types::builders::LifecycleRuleAndOperatorBuilder::default()
+     }
+ }
+
+@@ -45,7 +45,7 @@
+ #[non_exhaustive]
+ pub struct LifecycleRuleAndOperatorBuilder {
+     pub(crate) prefix: ::std::option::Option<::std::string::String>,
+-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
++    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
+     pub(crate) object_size_greater_than: ::std::option::Option<i64>,
+     pub(crate) object_size_less_than: ::std::option::Option<i64>,
+ }
+@@ -69,7 +69,7 @@
+     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+     ///
+     /// <p>All of these tags must exist in the object's tag set in order for the rule to apply.</p>
+-    pub fn tags(mut self, input: crate::types::Tag) -> Self {
++    pub fn tags(mut self, input: super::types::Tag) -> Self {
+         let mut v = self.tags.unwrap_or_default();
+         v.push(input);
+         self.tags = ::std::option::Option::Some(v);
+@@ -76,12 +76,12 @@
+         self
+     }
+     /// <p>All of these tags must exist in the object's tag set in order for the rule to apply.</p>
+-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
+         self.tags = input;
+         self
+     }
+     /// <p>All of these tags must exist in the object's tag set in order for the rule to apply.</p>
+-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
+         &self.tags
+     }
+     /// <p>Minimum object size to which the rule applies.</p>
+@@ -113,8 +113,8 @@
+         &self.object_size_less_than
+     }
+     /// Consumes the builder and constructs a [`LifecycleRuleAndOperator`](crate::types::LifecycleRuleAndOperator).
+-    pub fn build(self) -> crate::types::LifecycleRuleAndOperator {
+-        crate::types::LifecycleRuleAndOperator {
++    pub fn build(self) -> super::types::LifecycleRuleAndOperator {
++        super::types::LifecycleRuleAndOperator {
+             prefix: self.prefix,
+             tags: self.tags,
+             object_size_greater_than: self.object_size_greater_than,

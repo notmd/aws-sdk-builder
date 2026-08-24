@@ -17,7 +17,7 @@ pub fn de_invoke_async_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "Ec2AccessDeniedException" => crate::operation::invoke_async::InvokeAsyncError::Ec2AccessDeniedException({
+        "EC2AccessDeniedException" => crate::operation::invoke_async::InvokeAsyncError::Ec2AccessDeniedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -32,7 +32,7 @@ pub fn de_invoke_async_http_error(
             }
             tmp
         }),
-        "Ec2ThrottledException" => crate::operation::invoke_async::InvokeAsyncError::Ec2ThrottledException({
+        "EC2ThrottledException" => crate::operation::invoke_async::InvokeAsyncError::Ec2ThrottledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -47,7 +47,7 @@ pub fn de_invoke_async_http_error(
             }
             tmp
         }),
-        "Ec2UnexpectedException" => crate::operation::invoke_async::InvokeAsyncError::Ec2UnexpectedException({
+        "EC2UnexpectedException" => crate::operation::invoke_async::InvokeAsyncError::Ec2UnexpectedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -62,7 +62,7 @@ pub fn de_invoke_async_http_error(
             }
             tmp
         }),
-        "EfsioException" => crate::operation::invoke_async::InvokeAsyncError::EfsioException({
+        "EFSIOException" => crate::operation::invoke_async::InvokeAsyncError::EfsioException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -77,7 +77,7 @@ pub fn de_invoke_async_http_error(
             }
             tmp
         }),
-        "EfsMountConnectivityException" => crate::operation::invoke_async::InvokeAsyncError::EfsMountConnectivityException({
+        "EFSMountConnectivityException" => crate::operation::invoke_async::InvokeAsyncError::EfsMountConnectivityException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -95,7 +95,7 @@ pub fn de_invoke_async_http_error(
             }
             tmp
         }),
-        "EfsMountFailureException" => crate::operation::invoke_async::InvokeAsyncError::EfsMountFailureException({
+        "EFSMountFailureException" => crate::operation::invoke_async::InvokeAsyncError::EfsMountFailureException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -110,7 +110,7 @@ pub fn de_invoke_async_http_error(
             }
             tmp
         }),
-        "EfsMountTimeoutException" => crate::operation::invoke_async::InvokeAsyncError::EfsMountTimeoutException({
+        "EFSMountTimeoutException" => crate::operation::invoke_async::InvokeAsyncError::EfsMountTimeoutException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -125,7 +125,7 @@ pub fn de_invoke_async_http_error(
             }
             tmp
         }),
-        "EniLimitReachedException" => crate::operation::invoke_async::InvokeAsyncError::EniLimitReachedException({
+        "ENILimitReachedException" => crate::operation::invoke_async::InvokeAsyncError::EniLimitReachedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -173,7 +173,7 @@ pub fn de_invoke_async_http_error(
             }
             tmp
         }),
-        "InvalidSecurityGroupIdException" => crate::operation::invoke_async::InvokeAsyncError::InvalidSecurityGroupIdException({
+        "InvalidSecurityGroupIDException" => crate::operation::invoke_async::InvokeAsyncError::InvalidSecurityGroupIdException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -191,7 +191,7 @@ pub fn de_invoke_async_http_error(
             }
             tmp
         }),
-        "InvalidSubnetIdException" => crate::operation::invoke_async::InvokeAsyncError::InvalidSubnetIdException({
+        "InvalidSubnetIDException" => crate::operation::invoke_async::InvokeAsyncError::InvalidSubnetIdException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -206,7 +206,7 @@ pub fn de_invoke_async_http_error(
             }
             tmp
         }),
-        "KmsAccessDeniedException" => crate::operation::invoke_async::InvokeAsyncError::KmsAccessDeniedException({
+        "KMSAccessDeniedException" => crate::operation::invoke_async::InvokeAsyncError::KmsAccessDeniedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -221,7 +221,7 @@ pub fn de_invoke_async_http_error(
             }
             tmp
         }),
-        "KmsDisabledException" => crate::operation::invoke_async::InvokeAsyncError::KmsDisabledException({
+        "KMSDisabledException" => crate::operation::invoke_async::InvokeAsyncError::KmsDisabledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -236,7 +236,7 @@ pub fn de_invoke_async_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::invoke_async::InvokeAsyncError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::invoke_async::InvokeAsyncError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -251,7 +251,7 @@ pub fn de_invoke_async_http_error(
             }
             tmp
         }),
-        "KmsNotFoundException" => crate::operation::invoke_async::InvokeAsyncError::KmsNotFoundException({
+        "KMSNotFoundException" => crate::operation::invoke_async::InvokeAsyncError::KmsNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -460,7 +460,7 @@ pub fn de_invoke_async_http_error(
             }
             tmp
         }),
-        "SubnetIpAddressLimitReachedException" => {
+        "SubnetIPAddressLimitReachedException" => {
             crate::operation::invoke_async::InvokeAsyncError::SubnetIpAddressLimitReachedException({
                 #[allow(unused_mut)]
                 let mut tmp = {

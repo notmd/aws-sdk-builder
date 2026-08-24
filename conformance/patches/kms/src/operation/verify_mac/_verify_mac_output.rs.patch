@@ -1,0 +1,72 @@
+--- original
++++ modified
+@@ -9,7 +9,7 @@
+     /// <p>If the HMAC is not verified, the <code>VerifyMac</code> operation fails with a <code>KMSInvalidMacException</code> exception. This exception indicates that one or more of the inputs changed since the HMAC was computed.</p>
+     pub mac_valid: bool,
+     /// <p>The MAC algorithm used in the verification.</p>
+-    pub mac_algorithm: ::std::option::Option<crate::types::MacAlgorithmSpec>,
++    pub mac_algorithm: ::std::option::Option<super::types::MacAlgorithmSpec>,
+     _request_id: Option<String>,
+ }
+ impl VerifyMacOutput {
+@@ -23,7 +23,7 @@
+         self.mac_valid
+     }
+     /// <p>The MAC algorithm used in the verification.</p>
+-    pub fn mac_algorithm(&self) -> ::std::option::Option<&crate::types::MacAlgorithmSpec> {
++    pub fn mac_algorithm(&self) -> ::std::option::Option<&super::types::MacAlgorithmSpec> {
+         self.mac_algorithm.as_ref()
+     }
+ }
+@@ -34,8 +34,8 @@
+ }
+ impl VerifyMacOutput {
+     /// Creates a new builder-style object to manufacture [`VerifyMacOutput`](crate::operation::verify_mac::VerifyMacOutput).
+-    pub fn builder() -> crate::operation::verify_mac::builders::VerifyMacOutputBuilder {
+-        crate::operation::verify_mac::builders::VerifyMacOutputBuilder::default()
++    pub fn builder() -> super::operation::verify_mac::builders::VerifyMacOutputBuilder {
++        super::operation::verify_mac::builders::VerifyMacOutputBuilder::default()
+     }
+ }
+
+@@ -45,7 +45,7 @@
+ pub struct VerifyMacOutputBuilder {
+     pub(crate) key_id: ::std::option::Option<::std::string::String>,
+     pub(crate) mac_valid: ::std::option::Option<bool>,
+-    pub(crate) mac_algorithm: ::std::option::Option<crate::types::MacAlgorithmSpec>,
++    pub(crate) mac_algorithm: ::std::option::Option<super::types::MacAlgorithmSpec>,
+     _request_id: Option<String>,
+ }
+ impl VerifyMacOutputBuilder {
+@@ -81,17 +81,17 @@
+         &self.mac_valid
+     }
+     /// <p>The MAC algorithm used in the verification.</p>
+-    pub fn mac_algorithm(mut self, input: crate::types::MacAlgorithmSpec) -> Self {
++    pub fn mac_algorithm(mut self, input: super::types::MacAlgorithmSpec) -> Self {
+         self.mac_algorithm = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>The MAC algorithm used in the verification.</p>
+-    pub fn set_mac_algorithm(mut self, input: ::std::option::Option<crate::types::MacAlgorithmSpec>) -> Self {
++    pub fn set_mac_algorithm(mut self, input: ::std::option::Option<super::types::MacAlgorithmSpec>) -> Self {
+         self.mac_algorithm = input;
+         self
+     }
+     /// <p>The MAC algorithm used in the verification.</p>
+-    pub fn get_mac_algorithm(&self) -> &::std::option::Option<crate::types::MacAlgorithmSpec> {
++    pub fn get_mac_algorithm(&self) -> &::std::option::Option<super::types::MacAlgorithmSpec> {
+         &self.mac_algorithm
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -104,8 +104,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`VerifyMacOutput`](crate::operation::verify_mac::VerifyMacOutput).
+-    pub fn build(self) -> crate::operation::verify_mac::VerifyMacOutput {
+-        crate::operation::verify_mac::VerifyMacOutput {
++    pub fn build(self) -> super::operation::verify_mac::VerifyMacOutput {
++        super::operation::verify_mac::VerifyMacOutput {
+             key_id: self.key_id,
+             mac_valid: self.mac_valid.unwrap_or_default(),
+             mac_algorithm: self.mac_algorithm,

@@ -1,0 +1,67 @@
+--- original
++++ modified
+@@ -5,12 +5,12 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ pub struct CreateRoleOutput {
+     /// <p>A structure containing details about the new role.</p>
+-    pub role: ::std::option::Option<crate::types::Role>,
++    pub role: ::std::option::Option<super::types::Role>,
+     _request_id: Option<String>,
+ }
+ impl CreateRoleOutput {
+     /// <p>A structure containing details about the new role.</p>
+-    pub fn role(&self) -> ::std::option::Option<&crate::types::Role> {
++    pub fn role(&self) -> ::std::option::Option<&super::types::Role> {
+         self.role.as_ref()
+     }
+ }
+@@ -21,8 +21,8 @@
+ }
+ impl CreateRoleOutput {
+     /// Creates a new builder-style object to manufacture [`CreateRoleOutput`](crate::operation::create_role::CreateRoleOutput).
+-    pub fn builder() -> crate::operation::create_role::builders::CreateRoleOutputBuilder {
+-        crate::operation::create_role::builders::CreateRoleOutputBuilder::default()
++    pub fn builder() -> super::operation::create_role::builders::CreateRoleOutputBuilder {
++        super::operation::create_role::builders::CreateRoleOutputBuilder::default()
+     }
+ }
+
+@@ -30,23 +30,23 @@
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+ #[non_exhaustive]
+ pub struct CreateRoleOutputBuilder {
+-    pub(crate) role: ::std::option::Option<crate::types::Role>,
++    pub(crate) role: ::std::option::Option<super::types::Role>,
+     _request_id: Option<String>,
+ }
+ impl CreateRoleOutputBuilder {
+     /// <p>A structure containing details about the new role.</p>
+     /// This field is required.
+-    pub fn role(mut self, input: crate::types::Role) -> Self {
++    pub fn role(mut self, input: super::types::Role) -> Self {
+         self.role = ::std::option::Option::Some(input);
+         self
+     }
+     /// <p>A structure containing details about the new role.</p>
+-    pub fn set_role(mut self, input: ::std::option::Option<crate::types::Role>) -> Self {
++    pub fn set_role(mut self, input: ::std::option::Option<super::types::Role>) -> Self {
+         self.role = input;
+         self
+     }
+     /// <p>A structure containing details about the new role.</p>
+-    pub fn get_role(&self) -> &::std::option::Option<crate::types::Role> {
++    pub fn get_role(&self) -> &::std::option::Option<super::types::Role> {
+         &self.role
+     }
+     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+@@ -59,8 +59,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`CreateRoleOutput`](crate::operation::create_role::CreateRoleOutput).
+-    pub fn build(self) -> crate::operation::create_role::CreateRoleOutput {
+-        crate::operation::create_role::CreateRoleOutput {
++    pub fn build(self) -> super::operation::create_role::CreateRoleOutput {
++        super::operation::create_role::CreateRoleOutput {
+             role: self.role,
+             _request_id: self._request_id,
+         }

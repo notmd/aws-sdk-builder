@@ -1,0 +1,33 @@
+--- original
++++ modified
+@@ -32,7 +32,7 @@
+     }
+ }
+ impl ::std::error::Error for KmsInvalidKeyUsage {}
+-impl ::aws_types::request_id::RequestId for crate::types::error::KmsInvalidKeyUsage {
++impl ::aws_types::request_id::RequestId for super::types::error::KmsInvalidKeyUsage {
+     fn request_id(&self) -> Option<&str> {
+         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+         self.meta().request_id()
+@@ -45,8 +45,8 @@
+ }
+ impl KmsInvalidKeyUsage {
+     /// Creates a new builder-style object to manufacture [`KmsInvalidKeyUsage`](crate::types::error::KmsInvalidKeyUsage).
+-    pub fn builder() -> crate::types::error::builders::KmsInvalidKeyUsageBuilder {
+-        crate::types::error::builders::KmsInvalidKeyUsageBuilder::default()
++    pub fn builder() -> super::types::error::builders::KmsInvalidKeyUsageBuilder {
++        super::types::error::builders::KmsInvalidKeyUsageBuilder::default()
+     }
+ }
+
+@@ -84,8 +84,8 @@
+         self
+     }
+     /// Consumes the builder and constructs a [`KmsInvalidKeyUsage`](crate::types::error::KmsInvalidKeyUsage).
+-    pub fn build(self) -> crate::types::error::KmsInvalidKeyUsage {
+-        crate::types::error::KmsInvalidKeyUsage {
++    pub fn build(self) -> super::types::error::KmsInvalidKeyUsage {
++        super::types::error::KmsInvalidKeyUsage {
+             message: self.message,
+             meta: self.meta.unwrap_or_default(),
+         }

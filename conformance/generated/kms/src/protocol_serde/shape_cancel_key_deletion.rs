@@ -48,7 +48,7 @@ pub fn de_cancel_key_deletion_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::cancel_key_deletion::CancelKeyDeletionError::KmsInternalException({
+        "KMSInternalException" => crate::operation::cancel_key_deletion::CancelKeyDeletionError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -63,7 +63,7 @@ pub fn de_cancel_key_deletion_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::cancel_key_deletion::CancelKeyDeletionError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::cancel_key_deletion::CancelKeyDeletionError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

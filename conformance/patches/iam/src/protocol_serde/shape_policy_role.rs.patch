@@ -1,0 +1,17 @@
+--- original
++++ modified
+@@ -3,12 +3,12 @@
+ pub fn de_policy_role(
+     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+     depth: u32,
+-) -> ::std::result::Result<crate::types::PolicyRole, ::aws_smithy_xml::decode::XmlDecodeError> {
++) -> ::std::result::Result<super::types::PolicyRole, ::aws_smithy_xml::decode::XmlDecodeError> {
+     if depth >= 128u32 {
+         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+     }
+     #[allow(unused_mut)]
+-    let mut builder = crate::types::PolicyRole::builder();
++    let mut builder = super::types::PolicyRole::builder();
+     while let Some(mut tag) = decoder.next_tag() {
+         match tag.start_el() {
+             s if s.matches("RoleName") /* RoleName com.amazonaws.iam#PolicyRole$RoleName */ =>  {

@@ -138,7 +138,7 @@ pub fn de_decrypt_http_error(
             }
             tmp
         }),
-        "KmsInternalException" => crate::operation::decrypt::DecryptError::KmsInternalException({
+        "KMSInternalException" => crate::operation::decrypt::DecryptError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -153,7 +153,7 @@ pub fn de_decrypt_http_error(
             }
             tmp
         }),
-        "KmsInvalidStateException" => crate::operation::decrypt::DecryptError::KmsInvalidStateException({
+        "KMSInvalidStateException" => crate::operation::decrypt::DecryptError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

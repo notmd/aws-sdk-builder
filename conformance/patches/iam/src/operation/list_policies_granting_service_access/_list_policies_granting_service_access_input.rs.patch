@@ -1,0 +1,27 @@
+--- original
++++ modified
+@@ -30,8 +30,8 @@
+ }
+ impl ListPoliciesGrantingServiceAccessInput {
+     /// Creates a new builder-style object to manufacture [`ListPoliciesGrantingServiceAccessInput`](crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessInput).
+-    pub fn builder() -> crate::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessInputBuilder {
+-        crate::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessInputBuilder::default()
++    pub fn builder() -> super::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessInputBuilder {
++        super::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessInputBuilder::default()
+     }
+ }
+
+@@ -100,11 +100,11 @@
+     pub fn build(
+         self,
+     ) -> ::std::result::Result<
+-        crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessInput,
++        super::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessInput,
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(
+-            crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessInput {
++            super::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessInput {
+                 marker: self.marker,
+                 arn: self.arn,
+                 service_namespaces: self.service_namespaces,
