@@ -27,6 +27,10 @@ impl GetLogObjectOutput {
     pub fn builder() -> super::super::super::operation::get_log_object::builders::GetLogObjectOutputBuilder {
         super::super::super::operation::get_log_object::builders::GetLogObjectOutputBuilder::default()
     }
+    #[allow(unused)]
+    pub(crate) fn into_builder(self) -> super::super::super::operation::get_log_object::builders::GetLogObjectOutputBuilder {
+        Self::builder().field_stream(self.field_stream)
+    }
 }
 
 /// A builder for [`GetLogObjectOutput`](crate::operation::get_log_object::GetLogObjectOutput).

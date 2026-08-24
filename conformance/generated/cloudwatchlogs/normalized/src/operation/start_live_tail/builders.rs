@@ -43,6 +43,12 @@ impl super::super::super::operation::start_live_tail::builders::StartLiveTailInp
 /// <p>You can end a session before it times out by closing the session stream or by closing the client that is receiving the stream. The session also ends if the established connection between the client and the server breaks.</p>
 /// </important>
 /// <p>For examples of using an SDK to start a Live Tail session, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/example_cloudwatch-logs_StartLiveTail_section.html"> Start a Live Tail session using an Amazon Web Services SDK</a>.</p>
+///
+/// [`StartLiveTailOutput`](crate::operation::start_live_tail::StartLiveTailOutput) contains an event stream field as well as one or more non-event stream fields.
+/// Due to its current implementation, the non-event stream fields are not fully deserialized
+/// until the [`send`](Self::send) method completes. As a result, accessing these fields of the operation
+/// output struct within an interceptor may return uninitialized values.
+///
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct StartLiveTailFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
@@ -106,7 +112,37 @@ impl StartLiveTailFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        super::super::super::operation::start_live_tail::StartLiveTail::orchestrate(&runtime_plugins, input).await
+        let mut output = super::super::super::operation::start_live_tail::StartLiveTail::orchestrate(&runtime_plugins, input).await?;
+
+        // Converts any error encountered beyond this point into an `SdkError` response error
+        // with an `HttpResponse`. However, since we have already exited the `orchestrate`
+        // function, the original `HttpResponse` is no longer available and cannot be restored.
+        // This means that header information from the original response has been lost.
+        //
+        // Note that the response body would have been consumed by the deserializer
+        // regardless, even if the initial message was hypothetically processed during
+        // the orchestrator's deserialization phase but later resulted in an error.
+        fn response_error(
+            err: impl ::std::convert::Into<::aws_smithy_runtime_api::box_error::BoxError>,
+        ) -> ::aws_smithy_runtime_api::client::result::SdkError<
+            super::super::super::operation::start_live_tail::StartLiveTailError,
+            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+        > {
+            ::aws_smithy_runtime_api::client::result::SdkError::response_error(
+                err,
+                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse::new(
+                    ::aws_smithy_runtime_api::http::StatusCode::try_from(200).expect("valid successful code"),
+                    ::aws_smithy_types::body::SdkBody::empty(),
+                ),
+            )
+        }
+
+        let message = output.response_stream.try_recv_initial_response().await.map_err(response_error)?;
+
+        match message {
+            ::std::option::Option::Some(_message) => ::std::result::Result::Ok(output),
+            ::std::option::Option::None => ::std::result::Result::Ok(output),
+        }
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

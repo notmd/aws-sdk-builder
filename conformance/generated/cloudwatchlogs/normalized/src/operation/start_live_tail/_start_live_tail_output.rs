@@ -26,6 +26,10 @@ impl StartLiveTailOutput {
     pub fn builder() -> super::super::super::operation::start_live_tail::builders::StartLiveTailOutputBuilder {
         super::super::super::operation::start_live_tail::builders::StartLiveTailOutputBuilder::default()
     }
+    #[allow(unused)]
+    pub(crate) fn into_builder(self) -> super::super::super::operation::start_live_tail::builders::StartLiveTailOutputBuilder {
+        Self::builder().response_stream(self.response_stream)
+    }
 }
 
 /// A builder for [`StartLiveTailOutput`](crate::operation::start_live_tail::StartLiveTailOutput).

@@ -4681,6 +4681,57 @@ fn operation_has_input_event_stream(selected: &SelectedModel, operation: &Value)
         .is_some_and(|shape| shape_has_event_stream(selected, shape))
 }
 
+fn operation_has_output_event_stream(selected: &SelectedModel, operation: &Value) -> bool {
+    operation
+        .get("output")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id))
+        .is_some_and(|shape| shape_has_event_stream(selected, shape))
+}
+
+/// AwsJson protocols expose the first event-stream frame as an initial response
+/// which may contain the non-event-stream output members. This is the same
+/// model/protocol-driven predicate as Smithy-RS's
+/// `handlesEventStreamInitialResponse`, rather than an operation-name check.
+fn operation_handles_event_stream_initial_response(
+    selected: &SelectedModel,
+    operation: &Value,
+) -> bool {
+    selected.model.protocol().is_ok_and(|protocol| {
+        matches!(
+            protocol,
+            ProtocolKind::AwsJson1_0 | ProtocolKind::AwsJson1_1
+        )
+    }) && operation_has_output_event_stream(selected, operation)
+}
+
+fn operation_output_event_stream_member<'a>(
+    selected: &'a SelectedModel,
+    operation: &Value,
+) -> Option<(String, &'a Value)> {
+    let output = operation
+        .get("output")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id))?;
+    members(output)
+        .into_iter()
+        .find(|(_, member)| is_event_stream_member(selected, member))
+}
+
+fn event_stream_initial_response_field_for_module(
+    selected: &SelectedModel,
+    module: &str,
+) -> Option<String> {
+    selected
+        .operations
+        .iter()
+        .find(|operation_name| names::rust_module_name(operation_name) == module)
+        .and_then(|operation_name| operation_shape(selected, operation_name))
+        .filter(|operation| operation_handles_event_stream_initial_response(selected, operation))
+        .and_then(|operation| operation_output_event_stream_member(selected, operation))
+        .map(|(field, _)| names::rust_identifier(&field))
+}
+
 fn shape_has_event_stream(selected: &SelectedModel, shape: &Value) -> bool {
     members(shape)
         .into_iter()
@@ -7648,6 +7699,15 @@ fn render_standalone_fluent_operation_builder_file(
         .get("input")
         .and_then(target_value)
         .and_then(|id| selected.model.shapes.get(id));
+    let event_stream_initial_response =
+        operation_handles_event_stream_initial_response(selected, operation);
+    let send_epilogue = if event_stream_initial_response {
+        render_event_stream_initial_response_epilogue(selected, operation_name, operation)
+    } else {
+        format!(
+            "        crate::operation::{module}::{operation_type}::orchestrate(&runtime_plugins, input).await"
+        )
+    };
     let mut output = String::new();
     client_operation_header(&mut output);
     writeln!(
@@ -7669,6 +7729,13 @@ fn render_standalone_fluent_operation_builder_file(
     if let Some(documentation) = documentation(operation) {
         output.push_str("///\n");
         render_doc_lines(&mut output, &documentation, 0);
+    }
+    if event_stream_initial_response {
+        writeln!(
+            output,
+            "///\n/// [`{shape_type}Output`](crate::operation::{module}::{shape_type}Output) contains an event stream field as well as one or more non-event stream fields.\n/// Due to its current implementation, the non-event stream fields are not fully deserialized\n/// until the [`send`](Self::send) method completes. As a result, accessing these fields of the operation\n/// output struct within an interceptor may return uninitialized values.\n///"
+        )
+        .unwrap();
     }
     render_deprecated_attribute(&mut output, operation, 0);
     if input_shape.is_some_and(|shape| structure_has_streaming_member(selected, shape)) {
@@ -7730,6 +7797,12 @@ fn render_standalone_fluent_operation_builder_file(
         );
         output = output.replacen(&call_suffix, &corrected_suffix, 1);
     }
+    if event_stream_initial_response {
+        let default_send = format!(
+            "crate::operation::{module}::{operation_type}::orchestrate(&runtime_plugins, input).await"
+        );
+        output = output.replacen(&default_send, send_epilogue.trim_start(), 1);
+    }
     if operation_is_presignable(selected, operation) {
         writeln!(
             output,
@@ -7738,6 +7811,38 @@ fn render_standalone_fluent_operation_builder_file(
         .unwrap();
     }
     output
+}
+
+fn render_event_stream_initial_response_epilogue(
+    selected: &SelectedModel,
+    operation_name: &str,
+    operation: &Value,
+) -> String {
+    let module = names::rust_module_name(operation_name);
+    let operation_type = rust_type_name(operation_name);
+    let error_type = operation_error_type_name(operation_name);
+    let (event_stream_field, _) = operation_output_event_stream_member(selected, operation)
+        .expect("initial-response operations have an output event stream member");
+    let event_stream_field = names::rust_identifier(&event_stream_field);
+    let output_shape = operation
+        .get("output")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id));
+    let parse_initial_response = output_shape.is_some_and(|shape| {
+        members(shape)
+            .into_iter()
+            .any(|(_, member)| is_json_document_operation_member(selected, member))
+    });
+    let parse_initial_response = if parse_initial_response {
+        format!(
+            "            let mut builder = output.into_builder();\n            builder = crate::protocol_serde::shape_{module}::de_{module}(\n                _message.payload(),\n                builder\n            )\n            .map_err(response_error)?;\n            let output = builder.build().map_err(response_error)?;\n"
+        )
+    } else {
+        String::new()
+    };
+    format!(
+        "        let mut output = crate::operation::{module}::{operation_type}::orchestrate(&runtime_plugins, input).await?;\n\n        // Converts any error encountered beyond this point into an `SdkError` response error\n        // with an `HttpResponse`. However, since we have already exited the `orchestrate`\n        // function, the original `HttpResponse` is no longer available and cannot be restored.\n        // This means that header information from the original response has been lost.\n        //\n        // Note that the response body would have been consumed by the deserializer\n        // regardless, even if the initial message was hypothetically processed during\n        // the orchestrator's deserialization phase but later resulted in an error.\n        fn response_error(\n            err: impl ::std::convert::Into<::aws_smithy_runtime_api::box_error::BoxError>,\n        ) -> ::aws_smithy_runtime_api::client::result::SdkError<\n            crate::operation::{module}::{error_type}Error,\n            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,\n        > {{\n            ::aws_smithy_runtime_api::client::result::SdkError::response_error(\n                err,\n                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse::new(\n                    ::aws_smithy_runtime_api::http::StatusCode::try_from(200).expect(\"valid successful code\"),\n                    ::aws_smithy_types::body::SdkBody::empty(),\n                ),\n            )\n        }}\n\n        let message = output.{event_stream_field}.try_recv_initial_response().await.map_err(response_error)?;\n\n        match message {{\n            ::std::option::Option::Some(_message) => {{\n{parse_initial_response}            ::std::result::Result::Ok(output)\n            }}\n            ::std::option::Option::None => ::std::result::Result::Ok(output),\n        }}"
+    )
 }
 
 fn operation_is_presignable(selected: &SelectedModel, operation: &Value) -> bool {
@@ -14511,6 +14616,18 @@ fn render_type_builder(
         "{inner}pub fn builder() -> {builder_path} {{\n{inner}    {builder_path}::default()\n{inner}}}"
     )
     .unwrap();
+    if let Context::Builder {
+        module,
+        input: false,
+    } = &context
+        && let Some(field) = event_stream_initial_response_field_for_module(selected, module)
+    {
+        writeln!(
+            output,
+            "{inner}#[allow(unused)]\n{inner}pub(crate) fn into_builder(self) -> {builder_path} {{\n{inner}    Self::builder().{field}(self.{field})\n{inner}}}"
+        )
+        .unwrap();
+    }
     writeln!(output, "{padding}}}").unwrap();
     writeln!(output).unwrap();
     writeln!(
@@ -17729,6 +17846,65 @@ mod tests {
             render_json_protocol_operation_output_file(&selected, "Invoke")
                 .contains("de_events_payload")
         );
+    }
+
+    #[test]
+    fn aws_json_output_event_streams_handle_initial_responses() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Invoke"],
+                        "traits": {"aws.protocols#awsJson1_1": {}}
+                    },
+                    "example#Invoke": {
+                        "type": "operation",
+                        "output": {"target": "example#Output"}
+                    },
+                    "example#Output": {
+                        "type": "structure",
+                        "members": {
+                            "events": {"target": "example#Events"}
+                        }
+                    },
+                    "example#Events": {
+                        "type": "union",
+                        "members": {"chunk": {"target": "example#Chunk"}},
+                        "traits": {"smithy.api#streaming": {}}
+                    },
+                    "example#Chunk": {"type": "structure", "members": {}}
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+
+        let output = render_operation_shape_file(&selected, "Invoke", false);
+        assert!(output.contains("pub(crate) fn into_builder(self)"));
+        assert!(output.contains("Self::builder().events(self.events)"));
+
+        let builder = render_standalone_fluent_operation_builder_file(&selected, "Invoke");
+        assert!(builder.contains(
+            "contains an event stream field as well as one or more non-event stream fields."
+        ));
+        assert!(
+            builder.contains(
+                "output.events.try_recv_initial_response().await.map_err(response_error)?"
+            )
+        );
+        assert!(builder.contains("::std::option::Option::Some(_message) => {"));
+
+        let operation = render_json_protocol_operation_file(&selected, "Invoke");
+        assert!(operation.contains("de_events_payload"));
     }
 
     #[test]

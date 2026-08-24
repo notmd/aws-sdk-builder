@@ -4,6 +4,31 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Handle AwsJson event-stream initial responses
+- State: in progress
+- Changed: the shared model/protocol planner now recognizes AwsJson operations whose
+  output contains an event stream as Smithy-RS initial-response operations. Output types
+  emit `into_builder`, fluent builders document deferred non-stream fields, and `send`
+  receives the initial response with `try_recv_initial_response`, reparsing its payload
+  through the generated JSON operation parser when non-stream document members exist.
+  The rule is driven by the selected protocol and event-stream target union, with a
+  focused regression covering the generated output and builder paths. This follows the
+  pinned Smithy-RS `AwsJsonHttpBindingResolver` and `FluentBuilderGenerator` at
+  `/tmp/smithy-rs`, commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Evidence: `just conformance` regenerated and formatted all `13,166` generated Rust
+  files without parse errors. The focused event-stream suite, `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`, formatting, and
+  `git diff --check` pass. `just conformance` exits 1 only because broader parity gaps
+  remain.
+- Conformance: `12,855/13,168` exact, `310` mismatches, `2` missing, and `1` extra
+  (`97.38%`) -> `12,859/13,168` exact, `306` mismatches, `2` missing, and `1` extra
+  (`97.39%`). CloudWatch Logs improved from `1,268/19` to `1,272/15` exact/mismatched
+  files after the two initial-response operation projections became exact.
+- Blocker: broader protocol, shape, documentation, and runtime parity gaps remain; no
+  blocker in this checkpoint.
+- Next action: continue with the next largest generic protocol or shape mismatch after
+  committing this checkpoint.
+
 ### Checkpoint: 2026-08-25 — Detect event streams from target union shapes
 - State: in progress
 - Changed: event-stream discovery now follows Smithy-RS `MemberShape.isEventStream` and

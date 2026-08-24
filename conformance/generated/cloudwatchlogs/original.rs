@@ -60722,6 +60722,10 @@ impl GetLogObjectOutput {
     pub fn builder() -> super::super::super::operation::get_log_object::builders::GetLogObjectOutputBuilder {
         super::super::super::operation::get_log_object::builders::GetLogObjectOutputBuilder::default()
     }
+    #[allow(unused)]
+    pub(crate) fn into_builder(self) -> super::super::super::operation::get_log_object::builders::GetLogObjectOutputBuilder {
+        Self::builder().field_stream(self.field_stream)
+    }
 }
 
 /// A builder for [`GetLogObjectOutput`](crate::operation::get_log_object::GetLogObjectOutput).
@@ -60791,6 +60795,12 @@ impl super::super::super::operation::get_log_object::builders::GetLogObjectInput
 /// <p>Retrieves a large logging object (LLO) and streams it back. This API is used to fetch the content of large portions of log events that have been ingested through the PutOpenTelemetryLogs API. When log events contain fields that would cause the total event size to exceed 1MB, CloudWatch Logs automatically processes up to 10 fields, starting with the largest fields. Each field is truncated as needed to keep the total event size as close to 1MB as possible. The excess portions are stored as Large Log Objects (LLOs) and these fields are processed separately and LLO reference system fields (in the format <code>@ptr.$\[path.to.field\]</code>) are added. The path in the reference field reflects the original JSON structure where the large field was located. For example, this could be <code>@ptr.$\['input'\]\['message'\]</code>, <code>@ptr.$\['AAA'\]\['BBB'\]\['CCC'\]\['DDD'\]</code>, <code>@ptr.$\['AAA'\]</code>, or any other path matching your log structure.</p><note>
 /// <p>The <code>GetLogObject</code> API routes requests using SDK host prefix injection. SDK versions released before April 1, 2026 route to <code>streaming-logs.<i>Region</i>.amazonaws.com</code>, which does not support VPC endpoints. SDK versions released on or after April 1, 2026 route to <code>stream-logs.<i>Region</i>.amazonaws.com</code>, which supports VPC endpoints. To set up a VPC endpoint for this API, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.html#create-VPC-endpoint-for-CloudWatchLogs">Creating a VPC endpoint for CloudWatch Logs </a>.</p>
 /// </note>
+///
+/// [`GetLogObjectOutput`](crate::operation::get_log_object::GetLogObjectOutput) contains an event stream field as well as one or more non-event stream fields.
+/// Due to its current implementation, the non-event stream fields are not fully deserialized
+/// until the [`send`](Self::send) method completes. As a result, accessing these fields of the operation
+/// output struct within an interceptor may return uninitialized values.
+///
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetLogObjectFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
@@ -60854,7 +60864,39 @@ impl GetLogObjectFluentBuilder {
             &self.handle.conf,
             self.config_override,
             );
-        super::super::super::operation::get_log_object::GetLogObject::orchestrate(&runtime_plugins, input).await
+        let mut output = super::super::super::operation::get_log_object::GetLogObject::orchestrate(&runtime_plugins, input).await?;
+
+        // Converts any error encountered beyond this point into an `SdkError` response error
+        // with an `HttpResponse`. However, since we have already exited the `orchestrate`
+        // function, the original `HttpResponse` is no longer available and cannot be restored.
+        // This means that header information from the original response has been lost.
+        //
+        // Note that the response body would have been consumed by the deserializer
+        // regardless, even if the initial message was hypothetically processed during
+        // the orchestrator's deserialization phase but later resulted in an error.
+        fn response_error(
+            err: impl ::std::convert::Into<::aws_smithy_runtime_api::box_error::BoxError>,
+        ) -> ::aws_smithy_runtime_api::client::result::SdkError<
+            super::super::super::operation::get_log_object::GetLogObjectError,
+            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+        > {
+            ::aws_smithy_runtime_api::client::result::SdkError::response_error(
+                err,
+                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse::new(
+                    ::aws_smithy_runtime_api::http::StatusCode::try_from(200).expect("valid successful code"),
+                    ::aws_smithy_types::body::SdkBody::empty(),
+                ),
+            )
+        }
+
+        let message = output.field_stream.try_recv_initial_response().await.map_err(response_error)?;
+
+        match message {
+            ::std::option::Option::Some(_message) => {
+            ::std::result::Result::Ok(output)
+            }
+            ::std::option::Option::None => ::std::result::Result::Ok(output),
+        }
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -94545,6 +94587,10 @@ impl StartLiveTailOutput {
     pub fn builder() -> super::super::super::operation::start_live_tail::builders::StartLiveTailOutputBuilder {
         super::super::super::operation::start_live_tail::builders::StartLiveTailOutputBuilder::default()
     }
+    #[allow(unused)]
+    pub(crate) fn into_builder(self) -> super::super::super::operation::start_live_tail::builders::StartLiveTailOutputBuilder {
+        Self::builder().response_stream(self.response_stream)
+    }
 }
 
 /// A builder for [`StartLiveTailOutput`](crate::operation::start_live_tail::StartLiveTailOutput).
@@ -94632,6 +94678,12 @@ impl super::super::super::operation::start_live_tail::builders::StartLiveTailInp
 /// <p>You can end a session before it times out by closing the session stream or by closing the client that is receiving the stream. The session also ends if the established connection between the client and the server breaks.</p>
 /// </important>
 /// <p>For examples of using an SDK to start a Live Tail session, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/example_cloudwatch-logs_StartLiveTail_section.html"> Start a Live Tail session using an Amazon Web Services SDK</a>.</p>
+///
+/// [`StartLiveTailOutput`](crate::operation::start_live_tail::StartLiveTailOutput) contains an event stream field as well as one or more non-event stream fields.
+/// Due to its current implementation, the non-event stream fields are not fully deserialized
+/// until the [`send`](Self::send) method completes. As a result, accessing these fields of the operation
+/// output struct within an interceptor may return uninitialized values.
+///
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct StartLiveTailFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
@@ -94695,7 +94747,39 @@ impl StartLiveTailFluentBuilder {
             &self.handle.conf,
             self.config_override,
             );
-        super::super::super::operation::start_live_tail::StartLiveTail::orchestrate(&runtime_plugins, input).await
+        let mut output = super::super::super::operation::start_live_tail::StartLiveTail::orchestrate(&runtime_plugins, input).await?;
+
+        // Converts any error encountered beyond this point into an `SdkError` response error
+        // with an `HttpResponse`. However, since we have already exited the `orchestrate`
+        // function, the original `HttpResponse` is no longer available and cannot be restored.
+        // This means that header information from the original response has been lost.
+        //
+        // Note that the response body would have been consumed by the deserializer
+        // regardless, even if the initial message was hypothetically processed during
+        // the orchestrator's deserialization phase but later resulted in an error.
+        fn response_error(
+            err: impl ::std::convert::Into<::aws_smithy_runtime_api::box_error::BoxError>,
+        ) -> ::aws_smithy_runtime_api::client::result::SdkError<
+            super::super::super::operation::start_live_tail::StartLiveTailError,
+            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+        > {
+            ::aws_smithy_runtime_api::client::result::SdkError::response_error(
+                err,
+                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse::new(
+                    ::aws_smithy_runtime_api::http::StatusCode::try_from(200).expect("valid successful code"),
+                    ::aws_smithy_types::body::SdkBody::empty(),
+                ),
+            )
+        }
+
+        let message = output.response_stream.try_recv_initial_response().await.map_err(response_error)?;
+
+        match message {
+            ::std::option::Option::Some(_message) => {
+            ::std::result::Result::Ok(output)
+            }
+            ::std::option::Option::None => ::std::result::Result::Ok(output),
+        }
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
