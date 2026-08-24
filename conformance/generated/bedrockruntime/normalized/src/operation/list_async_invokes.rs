@@ -250,7 +250,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListAsyncInv
                     {
                         query.push_kv(
                             "submitTimeAfter",
-                            &::aws_smithy_http::query::fmt_timestamp(inner_1, ::aws_smithy_types::date_time::Format::HttpDate)?,
+                            &::aws_smithy_http::query::fmt_timestamp(inner_1, ::aws_smithy_types::date_time::Format::DateTime)?,
                         );
                     }
                 }
@@ -258,7 +258,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListAsyncInv
                     {
                         query.push_kv(
                             "submitTimeBefore",
-                            &::aws_smithy_http::query::fmt_timestamp(inner_2, ::aws_smithy_types::date_time::Format::HttpDate)?,
+                            &::aws_smithy_http::query::fmt_timestamp(inner_2, ::aws_smithy_types::date_time::Format::DateTime)?,
                         );
                     }
                 }

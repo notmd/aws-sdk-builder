@@ -263,7 +263,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDomainSta
                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("start_date", "cannot be empty or unset"))?;
                 query.push_kv(
                     "StartDate",
-                    &::aws_smithy_http::query::fmt_timestamp(inner_2, ::aws_smithy_types::date_time::Format::HttpDate)?,
+                    &::aws_smithy_http::query::fmt_timestamp(inner_2, ::aws_smithy_types::date_time::Format::DateTime)?,
                 );
                 let inner_3 = &_input.end_date;
                 let inner_3 = inner_3
@@ -271,7 +271,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDomainSta
                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("end_date", "cannot be empty or unset"))?;
                 query.push_kv(
                     "EndDate",
-                    &::aws_smithy_http::query::fmt_timestamp(inner_3, ::aws_smithy_types::date_time::Format::HttpDate)?,
+                    &::aws_smithy_http::query::fmt_timestamp(inner_3, ::aws_smithy_types::date_time::Format::DateTime)?,
                 );
                 ::std::result::Result::Ok(())
             }

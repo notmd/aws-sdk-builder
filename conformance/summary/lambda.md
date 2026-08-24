@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1077/1077` files compared · `951` matched · `125` mismatches · `0` missing · `1` extra · `88.30%` match (100.00% means fully matched)
+**Progress:** `1077/1077` files compared · `953` matched · `123` mismatches · `0` missing · `1` extra · `88.49%` match (100.00% means fully matched)
 
 ### `src/client/delete_resource_policy.rs`
 
@@ -307,65 +307,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          // If this is an error, defer to the non-streaming parser
 ```
 
-### `src/operation/list_durable_executions_by_function.rs`
-
-```diff
---- reference/src/operation/list_durable_executions_by_function.rs
-+++ generated/src/operation/list_durable_executions_by_function.rs
-@@ -296,40 +296,38 @@
-                 }
-                 if let ::std::option::Option::Some(inner_4) = &_input.statuses {
-                     {
--                        for inner_5 in inner_4 {
--                            query.push_kv("Statuses", &::aws_smithy_http::query::fmt_string(inner_5.as_str()));
--                        }
-+                        query.push_kv("Statuses", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
-                     }
-                 }
--                if let ::std::option::Option::Some(inner_6) = &_input.started_after {
-+                if let ::std::option::Option::Some(inner_5) = &_input.started_after {
-                     {
-                         query.push_kv(
-                             "StartedAfter",
--                            &::aws_smithy_http::query::fmt_timestamp(inner_6, ::aws_smithy_types::date_time::Format::DateTime)?,
-+                            &::aws_smithy_http::query::fmt_timestamp(inner_5, ::aws_smithy_types::date_time::Format::HttpDate)?,
-                         );
-                     }
-                 }
--                if let ::std::option::Option::Some(inner_7) = &_input.started_before {
-+                if let ::std::option::Option::Some(inner_6) = &_input.started_before {
-                     {
-                         query.push_kv(
-                             "StartedBefore",
--                            &::aws_smithy_http::query::fmt_timestamp(inner_7, ::aws_smithy_types::date_time::Format::DateTime)?,
-+                            &::aws_smithy_http::query::fmt_timestamp(inner_6, ::aws_smithy_types::date_time::Format::HttpDate)?,
-                         );
-                     }
-                 }
--                if let ::std::option::Option::Some(inner_8) = &_input.reverse_order {
-+                if let ::std::option::Option::Some(inner_7) = &_input.reverse_order {
-                     {
--                        query.push_kv("ReverseOrder", ::aws_smithy_types::primitive::Encoder::from(*inner_8).encode());
-+                        query.push_kv("ReverseOrder", ::aws_smithy_types::primitive::Encoder::from(*inner_7).encode());
-                     }
-                 }
--                if let ::std::option::Option::Some(inner_9) = &_input.marker {
-+                if let ::std::option::Option::Some(inner_8) = &_input.marker {
-                     {
--                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_9));
-+                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_8));
-                     }
-                 }
--                if let ::std::option::Option::Some(inner_10) = &_input.max_items {
-+                if let ::std::option::Option::Some(inner_9) = &_input.max_items {
-                     {
--                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_10).encode());
-+                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_9).encode());
-                     }
-                 }
-                 ::std::result::Result::Ok(())
-```
-
 ### `src/operation/remove_layer_version_permission.rs`
 
 ```diff
@@ -381,24 +322,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  if version_number.is_empty() {
                      return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
                          "version_number",
-```
-
-### `src/operation/untag_resource.rs`
-
-```diff
---- reference/src/operation/untag_resource.rs
-+++ generated/src/operation/untag_resource.rs
-@@ -257,9 +257,7 @@
-                 let inner_2 = inner_2
-                     .as_ref()
-                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("tag_keys", "cannot be empty or unset"))?;
--                for inner_3 in inner_2 {
--                    query.push_kv("tagKeys", &::aws_smithy_http::query::fmt_string(inner_3));
--                }
-+                query.push_kv("tagKeys", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
-                 ::std::result::Result::Ok(())
-             }
-             #[allow(clippy::unnecessary_wraps)]
 ```
 
 ### `src/protocol_serde/shape_add_layer_version_permission.rs`

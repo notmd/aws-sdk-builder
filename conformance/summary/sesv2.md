@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sesv2
-**Progress:** `1159/1159` files compared · `1069` matched · `89` mismatches · `1` missing · `0` extra · `92.23%` match (100.00% means fully matched)
+**Progress:** `1159/1159` files compared · `1074` matched · `84` mismatches · `1` missing · `0` extra · `92.67%` match (100.00% means fully matched)
 
 ### `src/config/auth.rs`
 
@@ -161,49 +161,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  mod lens;
 ```
 
-### `src/operation/get_blacklist_reports.rs`
-
-```diff
---- reference/src/operation/get_blacklist_reports.rs
-+++ generated/src/operation/get_blacklist_reports.rs
-@@ -203,9 +203,7 @@
-                 let inner_1 = inner_1.as_ref().ok_or_else(|| {
-                     ::aws_smithy_types::error::operation::BuildError::missing_field("blacklist_item_names", "cannot be empty or unset")
-                 })?;
--                for inner_2 in inner_1 {
--                    query.push_kv("BlacklistItemNames", &::aws_smithy_http::query::fmt_string(inner_2));
--                }
-+                query.push_kv("BlacklistItemNames", ::aws_smithy_types::primitive::Encoder::from(*inner_1).encode());
-                 ::std::result::Result::Ok(())
-             }
-             #[allow(clippy::unnecessary_wraps)]
-```
-
-### `src/operation/get_domain_statistics_report.rs`
-
-```diff
---- reference/src/operation/get_domain_statistics_report.rs
-+++ generated/src/operation/get_domain_statistics_report.rs
-@@ -263,7 +263,7 @@
-                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("start_date", "cannot be empty or unset"))?;
-                 query.push_kv(
-                     "StartDate",
--                    &::aws_smithy_http::query::fmt_timestamp(inner_2, ::aws_smithy_types::date_time::Format::DateTime)?,
-+                    &::aws_smithy_http::query::fmt_timestamp(inner_2, ::aws_smithy_types::date_time::Format::HttpDate)?,
-                 );
-                 let inner_3 = &_input.end_date;
-                 let inner_3 = inner_3
-@@ -271,7 +271,7 @@
-                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("end_date", "cannot be empty or unset"))?;
-                 query.push_kv(
-                     "EndDate",
--                    &::aws_smithy_http::query::fmt_timestamp(inner_3, ::aws_smithy_types::date_time::Format::DateTime)?,
-+                    &::aws_smithy_http::query::fmt_timestamp(inner_3, ::aws_smithy_types::date_time::Format::HttpDate)?,
-                 );
-                 ::std::result::Result::Ok(())
-             }
-```
-
 ### `src/operation/get_reputation_entity.rs`
 
 ```diff
@@ -219,83 +176,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  if reputation_entity_type.is_empty() {
                      return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
                          "reputation_entity_type",
-```
-
-### `src/operation/list_domain_deliverability_campaigns.rs`
-
-```diff
---- reference/src/operation/list_domain_deliverability_campaigns.rs
-+++ generated/src/operation/list_domain_deliverability_campaigns.rs
-@@ -282,7 +282,7 @@
-                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("start_date", "cannot be empty or unset"))?;
-                 query.push_kv(
-                     "StartDate",
--                    &::aws_smithy_http::query::fmt_timestamp(inner_2, ::aws_smithy_types::date_time::Format::DateTime)?,
-+                    &::aws_smithy_http::query::fmt_timestamp(inner_2, ::aws_smithy_types::date_time::Format::HttpDate)?,
-                 );
-                 let inner_3 = &_input.end_date;
-                 let inner_3 = inner_3
-@@ -290,7 +290,7 @@
-                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("end_date", "cannot be empty or unset"))?;
-                 query.push_kv(
-                     "EndDate",
--                    &::aws_smithy_http::query::fmt_timestamp(inner_3, ::aws_smithy_types::date_time::Format::DateTime)?,
-+                    &::aws_smithy_http::query::fmt_timestamp(inner_3, ::aws_smithy_types::date_time::Format::HttpDate)?,
-                 );
-                 if let ::std::option::Option::Some(inner_4) = &_input.next_token {
-                     {
-```
-
-### `src/operation/list_suppressed_destinations.rs`
-
-```diff
---- reference/src/operation/list_suppressed_destinations.rs
-+++ generated/src/operation/list_suppressed_destinations.rs
-@@ -257,35 +257,33 @@
-                 }
-                 if let ::std::option::Option::Some(inner_2) = &_input.reasons {
-                     {
--                        for inner_3 in inner_2 {
--                            query.push_kv("Reason", &::aws_smithy_http::query::fmt_string(inner_3.as_str()));
--                        }
-+                        query.push_kv("Reason", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
-                     }
-                 }
--                if let ::std::option::Option::Some(inner_4) = &_input.start_date {
-+                if let ::std::option::Option::Some(inner_3) = &_input.start_date {
-                     {
-                         query.push_kv(
-                             "StartDate",
--                            &::aws_smithy_http::query::fmt_timestamp(inner_4, ::aws_smithy_types::date_time::Format::DateTime)?,
-+                            &::aws_smithy_http::query::fmt_timestamp(inner_3, ::aws_smithy_types::date_time::Format::HttpDate)?,
-                         );
-                     }
-                 }
--                if let ::std::option::Option::Some(inner_5) = &_input.end_date {
-+                if let ::std::option::Option::Some(inner_4) = &_input.end_date {
-                     {
-                         query.push_kv(
-                             "EndDate",
--                            &::aws_smithy_http::query::fmt_timestamp(inner_5, ::aws_smithy_types::date_time::Format::DateTime)?,
-+                            &::aws_smithy_http::query::fmt_timestamp(inner_4, ::aws_smithy_types::date_time::Format::HttpDate)?,
-                         );
-                     }
-                 }
--                if let ::std::option::Option::Some(inner_6) = &_input.next_token {
-+                if let ::std::option::Option::Some(inner_5) = &_input.next_token {
-                     {
--                        query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_6));
-+                        query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_5));
-                     }
-                 }
--                if let ::std::option::Option::Some(inner_7) = &_input.page_size {
-+                if let ::std::option::Option::Some(inner_6) = &_input.page_size {
-                     {
--                        query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_7).encode());
-+                        query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_6).encode());
-                     }
-                 }
-                 ::std::result::Result::Ok(())
 ```
 
 ### `src/operation/put_email_identity_dkim_signing_attributes/_put_email_identity_dkim_signing_attributes_output.rs`
@@ -383,24 +263,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_signing_hosted_zone(&self) -> &::std::option::Option<::std::string::String> {
          &self.signing_hosted_zone
      }
-```
-
-### `src/operation/untag_resource.rs`
-
-```diff
---- reference/src/operation/untag_resource.rs
-+++ generated/src/operation/untag_resource.rs
-@@ -257,9 +257,7 @@
-                 let inner_2 = inner_2
-                     .as_ref()
-                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("tag_keys", "cannot be empty or unset"))?;
--                for inner_3 in inner_2 {
--                    query.push_kv("TagKeys", &::aws_smithy_http::query::fmt_string(inner_3));
--                }
-+                query.push_kv("TagKeys", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
-                 ::std::result::Result::Ok(())
-             }
-             #[allow(clippy::unnecessary_wraps)]
 ```
 
 ### `src/operation/update_reputation_entity_customer_managed_status.rs`

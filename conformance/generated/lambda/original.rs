@@ -8298,7 +8298,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AddLayerVers
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_3) = &_input.revision_id {
                     {
-                        query.push_kv("RevisionId", &::aws_smithy_http::query::fmt_string(inner_3));
+                    query.push_kv("RevisionId", &::aws_smithy_http::query::fmt_string(inner_3));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -9272,7 +9272,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AddPermissio
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
                     {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -19171,7 +19171,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CreateFuncti
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
                     {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -23669,7 +23669,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteFuncti
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
                     {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -25969,7 +25969,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteFuncti
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
                     {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -26758,7 +26758,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteFuncti
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
                     {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -29032,7 +29032,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteResour
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.revision_id {
                     {
-                        query.push_kv("RevisionId", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("RevisionId", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -32539,7 +32539,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDurableEx
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.include_execution_data {
                     {
-                        query.push_kv("IncludeExecutionData", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
+                    query.push_kv("IncludeExecutionData", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -33556,22 +33556,22 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDurableEx
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.include_execution_data {
                     {
-                        query.push_kv("IncludeExecutionData", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
+                    query.push_kv("IncludeExecutionData", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.max_items {
                     {
-                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
+                    query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
                     }
                 }
                 if let ::std::option::Option::Some(inner_4) = &_input.marker {
                     {
-                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_4));
+                    query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_4));
                     }
                 }
                 if let ::std::option::Option::Some(inner_5) = &_input.reverse_order {
                     {
-                        query.push_kv("ReverseOrder", ::aws_smithy_types::primitive::Encoder::from(*inner_5).encode());
+                    query.push_kv("ReverseOrder", ::aws_smithy_types::primitive::Encoder::from(*inner_5).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -34622,12 +34622,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDurableEx
                 query.push_kv("CheckpointToken", &::aws_smithy_http::query::fmt_string(inner_2));
                 if let ::std::option::Option::Some(inner_3) = &_input.marker {
                     {
-                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_3));
+                    query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_3));
                     }
                 }
                 if let ::std::option::Option::Some(inner_4) = &_input.max_items {
                     {
-                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
+                    query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -36903,7 +36903,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetFunctionR
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
                     {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -39357,7 +39357,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetFunctionC
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
                     {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -40908,7 +40908,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetFunctionE
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
                     {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -43286,7 +43286,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetFunctionU
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
                     {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -46670,7 +46670,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetPolicyReq
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
                     {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -49069,7 +49069,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetRuntimeMa
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
                     {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -49916,7 +49916,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for InvokeReques
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
                     {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -52589,7 +52589,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for InvokeWithRe
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
                     {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -54017,17 +54017,17 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListAliasesR
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.function_version {
                     {
-                        query.push_kv("FunctionVersion", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("FunctionVersion", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.marker {
                     {
-                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_3));
+                    query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_3));
                     }
                 }
                 if let ::std::option::Option::Some(inner_4) = &_input.max_items {
                     {
-                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
+                    query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -55053,17 +55053,17 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListCapacity
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_1) = &_input.state {
                     {
-                        query.push_kv("State", &::aws_smithy_http::query::fmt_string(inner_1.as_str()));
+                    query.push_kv("State", &::aws_smithy_http::query::fmt_string(inner_1.as_str()));
                     }
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.marker {
                     {
-                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.max_items {
                     {
-                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
+                    query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -55968,12 +55968,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListCodeSign
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_1) = &_input.marker {
                     {
-                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_1));
+                    query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_1));
                     }
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.max_items {
                     {
-                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
+                    query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -56860,42 +56860,44 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListDurableE
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
                     {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.durable_execution_name {
                     {
-                        query.push_kv("DurableExecutionName", &::aws_smithy_http::query::fmt_string(inner_3));
+                    query.push_kv("DurableExecutionName", &::aws_smithy_http::query::fmt_string(inner_3));
                     }
                 }
                 if let ::std::option::Option::Some(inner_4) = &_input.statuses {
                     {
-                        query.push_kv("Statuses", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
+                    for inner_5 in inner_4 {
+                        query.push_kv("Statuses", &::aws_smithy_http::query::fmt_string(inner_5.as_str()));
+                    }
                     }
                 }
-                if let ::std::option::Option::Some(inner_5) = &_input.started_after {
+                if let ::std::option::Option::Some(inner_6) = &_input.started_after {
                     {
-                        query.push_kv("StartedAfter", &::aws_smithy_http::query::fmt_timestamp(inner_5, ::aws_smithy_types::date_time::Format::HttpDate)?);
+                    query.push_kv("StartedAfter", &::aws_smithy_http::query::fmt_timestamp(inner_6, ::aws_smithy_types::date_time::Format::DateTime)?);
                     }
                 }
-                if let ::std::option::Option::Some(inner_6) = &_input.started_before {
+                if let ::std::option::Option::Some(inner_7) = &_input.started_before {
                     {
-                        query.push_kv("StartedBefore", &::aws_smithy_http::query::fmt_timestamp(inner_6, ::aws_smithy_types::date_time::Format::HttpDate)?);
+                    query.push_kv("StartedBefore", &::aws_smithy_http::query::fmt_timestamp(inner_7, ::aws_smithy_types::date_time::Format::DateTime)?);
                     }
                 }
-                if let ::std::option::Option::Some(inner_7) = &_input.reverse_order {
+                if let ::std::option::Option::Some(inner_8) = &_input.reverse_order {
                     {
-                        query.push_kv("ReverseOrder", ::aws_smithy_types::primitive::Encoder::from(*inner_7).encode());
+                    query.push_kv("ReverseOrder", ::aws_smithy_types::primitive::Encoder::from(*inner_8).encode());
                     }
                 }
-                if let ::std::option::Option::Some(inner_8) = &_input.marker {
+                if let ::std::option::Option::Some(inner_9) = &_input.marker {
                     {
-                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_8));
+                    query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_9));
                     }
                 }
-                if let ::std::option::Option::Some(inner_9) = &_input.max_items {
+                if let ::std::option::Option::Some(inner_10) = &_input.max_items {
                     {
-                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_9).encode());
+                    query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_10).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -58020,22 +58022,22 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListEventSou
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_1) = &_input.event_source_arn {
                     {
-                        query.push_kv("EventSourceArn", &::aws_smithy_http::query::fmt_string(inner_1));
+                    query.push_kv("EventSourceArn", &::aws_smithy_http::query::fmt_string(inner_1));
                     }
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.function_name {
                     {
-                        query.push_kv("FunctionName", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("FunctionName", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.marker {
                     {
-                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_3));
+                    query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_3));
                     }
                 }
                 if let ::std::option::Option::Some(inner_4) = &_input.max_items {
                     {
-                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
+                    query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -59202,12 +59204,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListFunction
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.marker {
                     {
-                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.max_items {
                     {
-                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
+                    query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -60217,12 +60219,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListFunction
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.marker {
                     {
-                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.max_items {
                     {
-                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
+                    query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -61232,12 +61234,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListFunction
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.marker {
                     {
-                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.max_items {
                     {
-                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
+                    query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -62179,22 +62181,22 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListFunction
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_1) = &_input.master_region {
                     {
-                        query.push_kv("MasterRegion", &::aws_smithy_http::query::fmt_string(inner_1));
+                    query.push_kv("MasterRegion", &::aws_smithy_http::query::fmt_string(inner_1));
                     }
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.function_version {
                     {
-                        query.push_kv("FunctionVersion", &::aws_smithy_http::query::fmt_string(inner_2.as_str()));
+                    query.push_kv("FunctionVersion", &::aws_smithy_http::query::fmt_string(inner_2.as_str()));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.marker {
                     {
-                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_3));
+                    query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_3));
                     }
                 }
                 if let ::std::option::Option::Some(inner_4) = &_input.max_items {
                     {
-                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
+                    query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -63147,12 +63149,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListFunction
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.marker {
                     {
-                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.max_items {
                     {
-                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
+                    query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -64071,22 +64073,22 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListLayerVer
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.compatible_architecture {
                     {
-                        query.push_kv("CompatibleArchitecture", &::aws_smithy_http::query::fmt_string(inner_2.as_str()));
+                    query.push_kv("CompatibleArchitecture", &::aws_smithy_http::query::fmt_string(inner_2.as_str()));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.compatible_runtime {
                     {
-                        query.push_kv("CompatibleRuntime", &::aws_smithy_http::query::fmt_string(inner_3.as_str()));
+                    query.push_kv("CompatibleRuntime", &::aws_smithy_http::query::fmt_string(inner_3.as_str()));
                     }
                 }
                 if let ::std::option::Option::Some(inner_4) = &_input.marker {
                     {
-                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_4));
+                    query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_4));
                     }
                 }
                 if let ::std::option::Option::Some(inner_5) = &_input.max_items {
                     {
-                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_5).encode());
+                    query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_5).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -65079,22 +65081,22 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListLayersRe
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_1) = &_input.compatible_architecture {
                     {
-                        query.push_kv("CompatibleArchitecture", &::aws_smithy_http::query::fmt_string(inner_1.as_str()));
+                    query.push_kv("CompatibleArchitecture", &::aws_smithy_http::query::fmt_string(inner_1.as_str()));
                     }
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.compatible_runtime {
                     {
-                        query.push_kv("CompatibleRuntime", &::aws_smithy_http::query::fmt_string(inner_2.as_str()));
+                    query.push_kv("CompatibleRuntime", &::aws_smithy_http::query::fmt_string(inner_2.as_str()));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.marker {
                     {
-                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_3));
+                    query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_3));
                     }
                 }
                 if let ::std::option::Option::Some(inner_4) = &_input.max_items {
                     {
-                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
+                    query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -66060,12 +66062,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListProvisio
                 query.push_kv("List", "ALL");
                 if let ::std::option::Option::Some(inner_2) = &_input.marker {
                     {
-                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.max_items {
                     {
-                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
+                    query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -67750,12 +67752,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListVersions
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.marker {
                     {
-                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.max_items {
                     {
-                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
+                    query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -73249,7 +73251,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PutFunctionE
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
                     {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -77787,7 +77789,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PutRuntimeMa
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
                     {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -78804,7 +78806,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for RemoveLayerV
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_4) = &_input.revision_id {
                     {
-                        query.push_kv("RevisionId", &::aws_smithy_http::query::fmt_string(inner_4));
+                    query.push_kv("RevisionId", &::aws_smithy_http::query::fmt_string(inner_4));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -79601,12 +79603,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for RemovePermis
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_3) = &_input.qualifier {
                     {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_3));
+                    query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_3));
                     }
                 }
                 if let ::std::option::Option::Some(inner_4) = &_input.revision_id {
                     {
-                        query.push_kv("RevisionId", &::aws_smithy_http::query::fmt_string(inner_4));
+                    query.push_kv("RevisionId", &::aws_smithy_http::query::fmt_string(inner_4));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -84069,7 +84071,9 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UntagResourc
                 let inner_2 = inner_2
                     .as_ref()
                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("tag_keys", "cannot be empty or unset"))?;
-                query.push_kv("tagKeys", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
+                for inner_3 in inner_2 {
+                    query.push_kv("tagKeys", &::aws_smithy_http::query::fmt_string(inner_3));
+                }
                 ::std::result::Result::Ok(())
             }            #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
@@ -94088,7 +94092,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdateFuncti
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
                     {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -95256,7 +95260,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdateFuncti
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
                     {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())

@@ -296,38 +296,40 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListDurableE
                 }
                 if let ::std::option::Option::Some(inner_4) = &_input.statuses {
                     {
-                        query.push_kv("Statuses", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
+                        for inner_5 in inner_4 {
+                            query.push_kv("Statuses", &::aws_smithy_http::query::fmt_string(inner_5.as_str()));
+                        }
                     }
                 }
-                if let ::std::option::Option::Some(inner_5) = &_input.started_after {
+                if let ::std::option::Option::Some(inner_6) = &_input.started_after {
                     {
                         query.push_kv(
                             "StartedAfter",
-                            &::aws_smithy_http::query::fmt_timestamp(inner_5, ::aws_smithy_types::date_time::Format::HttpDate)?,
+                            &::aws_smithy_http::query::fmt_timestamp(inner_6, ::aws_smithy_types::date_time::Format::DateTime)?,
                         );
                     }
                 }
-                if let ::std::option::Option::Some(inner_6) = &_input.started_before {
+                if let ::std::option::Option::Some(inner_7) = &_input.started_before {
                     {
                         query.push_kv(
                             "StartedBefore",
-                            &::aws_smithy_http::query::fmt_timestamp(inner_6, ::aws_smithy_types::date_time::Format::HttpDate)?,
+                            &::aws_smithy_http::query::fmt_timestamp(inner_7, ::aws_smithy_types::date_time::Format::DateTime)?,
                         );
                     }
                 }
-                if let ::std::option::Option::Some(inner_7) = &_input.reverse_order {
+                if let ::std::option::Option::Some(inner_8) = &_input.reverse_order {
                     {
-                        query.push_kv("ReverseOrder", ::aws_smithy_types::primitive::Encoder::from(*inner_7).encode());
+                        query.push_kv("ReverseOrder", ::aws_smithy_types::primitive::Encoder::from(*inner_8).encode());
                     }
                 }
-                if let ::std::option::Option::Some(inner_8) = &_input.marker {
+                if let ::std::option::Option::Some(inner_9) = &_input.marker {
                     {
-                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_8));
+                        query.push_kv("Marker", &::aws_smithy_http::query::fmt_string(inner_9));
                     }
                 }
-                if let ::std::option::Option::Some(inner_9) = &_input.max_items {
+                if let ::std::option::Option::Some(inner_10) = &_input.max_items {
                     {
-                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_9).encode());
+                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_10).encode());
                     }
                 }
                 ::std::result::Result::Ok(())

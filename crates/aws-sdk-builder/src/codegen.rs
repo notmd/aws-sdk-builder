@@ -5548,37 +5548,38 @@ fn render_standalone_request_serializer(
                     writeln!(output, "                let inner_{index} = inner_{index}").unwrap();
                     writeln!(output, "                    .as_ref()").unwrap();
                     writeln!(output, "                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field({field:?}, \"cannot be empty or unset\"))?;").unwrap();
-                    if kind == "string" {
+                    if matches!(kind, "string" | "String") {
                         writeln!(output, "                if inner_{index}.is_empty() {{").unwrap();
                         writeln!(output, "                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(").unwrap();
                         writeln!(output, "                        {field:?},").unwrap();
                         output.push_str("                        \"cannot be empty or unset\",\n                    ));\n                }\n");
                     }
-                    if kind == "enum" {
-                        writeln!(output, "                query.push_kv({query_name:?}, &::aws_smithy_http::query::fmt_string(inner_{index}.as_str()));").unwrap();
-                    } else if kind == "string" {
-                        writeln!(output, "                query.push_kv({query_name:?}, &::aws_smithy_http::query::fmt_string(inner_{index}));").unwrap();
-                    } else if kind == "timestamp" {
-                        writeln!(output, "                query.push_kv({query_name:?}, &::aws_smithy_http::query::fmt_timestamp(inner_{index}, ::aws_smithy_types::date_time::Format::HttpDate)?);").unwrap();
-                    } else {
-                        writeln!(output, "                query.push_kv({query_name:?}, ::aws_smithy_types::primitive::Encoder::from(*inner_{index}).encode());").unwrap();
-                    }
+                    index = render_standalone_query_value(
+                        output,
+                        selected,
+                        target,
+                        member,
+                        query_name,
+                        &format!("inner_{index}"),
+                        16,
+                        index + 1,
+                    );
                 } else {
                     writeln!(output, "                if let ::std::option::Option::Some(inner_{index}) = &_input.{field} {{").unwrap();
                     output.push_str("                    {\n");
-                    if kind == "enum" {
-                        writeln!(output, "                        query.push_kv({query_name:?}, &::aws_smithy_http::query::fmt_string(inner_{index}.as_str()));").unwrap();
-                    } else if kind == "string" {
-                        writeln!(output, "                        query.push_kv({query_name:?}, &::aws_smithy_http::query::fmt_string(inner_{index}));").unwrap();
-                    } else if kind == "timestamp" {
-                        writeln!(output, "                        query.push_kv({query_name:?}, &::aws_smithy_http::query::fmt_timestamp(inner_{index}, ::aws_smithy_types::date_time::Format::HttpDate)?);").unwrap();
-                    } else {
-                        writeln!(output, "                        query.push_kv({query_name:?}, ::aws_smithy_types::primitive::Encoder::from(*inner_{index}).encode());").unwrap();
-                    }
+                    index = render_standalone_query_value(
+                        output,
+                        selected,
+                        target,
+                        member,
+                        query_name,
+                        &format!("inner_{index}"),
+                        20,
+                        index + 1,
+                    );
                     output.push_str("                    }\n");
                     output.push_str("                }\n");
                 }
-                index += 1;
             }
         }
         output.push_str("                ::std::result::Result::Ok(())\n            }");
@@ -5634,6 +5635,98 @@ fn render_standalone_request_serializer(
         "            #[allow(clippy::unnecessary_wraps)]",
     );
     let _ = error_path;
+}
+
+#[allow(clippy::too_many_arguments)]
+fn render_standalone_query_value(
+    output: &mut String,
+    selected: &SelectedModel,
+    target: &str,
+    member: &Value,
+    query_name: &str,
+    expression: &str,
+    indent: usize,
+    index: usize,
+) -> usize {
+    let kind = protocol_shape_kind(selected, target);
+    if kind == "list" {
+        let Some(list_shape) = selected.model.shapes.get(target) else {
+            return index;
+        };
+        let Some(list_member) = list_shape.get("member") else {
+            return index;
+        };
+        let Some(item_target) = member_target(list_member) else {
+            return index;
+        };
+        let item_index = index;
+        let indentation = " ".repeat(indent);
+        writeln!(
+            output,
+            "{indentation}for inner_{item_index} in {expression} {{"
+        )
+        .unwrap();
+        let next_index = render_standalone_query_value(
+            output,
+            selected,
+            item_target,
+            member,
+            query_name,
+            &format!("inner_{item_index}"),
+            indent + 4,
+            item_index + 1,
+        );
+        writeln!(output, "{indentation}}}").unwrap();
+        return next_index;
+    }
+
+    let indentation = " ".repeat(indent);
+    match kind {
+        "enum" => writeln!(
+            output,
+            "{indentation}query.push_kv({query_name:?}, &::aws_smithy_http::query::fmt_string({expression}.as_str()));"
+        ),
+        "string" | "String" => writeln!(
+            output,
+            "{indentation}query.push_kv({query_name:?}, &::aws_smithy_http::query::fmt_string({expression}));"
+        ),
+        "timestamp" | "Timestamp" => writeln!(
+            output,
+            "{indentation}query.push_kv({query_name:?}, &::aws_smithy_http::query::fmt_timestamp({expression}, ::aws_smithy_types::date_time::Format::{})?);",
+            standalone_query_timestamp_format(selected, member, target)
+        ),
+        _ => writeln!(
+            output,
+            "{indentation}query.push_kv({query_name:?}, ::aws_smithy_types::primitive::Encoder::from(*{expression}).encode());"
+        ),
+    }
+    .unwrap();
+    index
+}
+
+fn standalone_query_timestamp_format(
+    selected: &SelectedModel,
+    member: &Value,
+    target: &str,
+) -> &'static str {
+    let format = member
+        .get("traits")
+        .and_then(|traits| traits.get("smithy.api#timestampFormat"))
+        .and_then(Value::as_str)
+        .or_else(|| {
+            selected
+                .model
+                .shapes
+                .get(target)
+                .and_then(|shape| shape.get("traits"))
+                .and_then(|traits| traits.get("smithy.api#timestampFormat"))
+                .and_then(Value::as_str)
+        });
+    match format {
+        Some("epoch-seconds") => "EpochSeconds",
+        Some("http-date") => "HttpDate",
+        _ => "DateTime",
+    }
 }
 
 fn standalone_json_target_header(selected: &SelectedModel, operation_name: &str) -> Option<String> {
@@ -16447,6 +16540,81 @@ mod tests {
 
         assert!(rendered.contains("flag: self.flag,"));
         assert!(!rendered.contains("flag: self.flag.unwrap_or_default()"));
+    }
+
+    #[test]
+    fn standalone_http_query_serialization_handles_lists_and_timestamp_formats() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "input": {"target": "example#GetInput"},
+                        "output": {"target": "smithy.api#Unit"},
+                        "traits": {"smithy.api#http": {"method": "GET", "uri": "/items", "code": 200}}
+                    },
+                    "example#GetInput": {
+                        "type": "structure",
+                        "members": {
+                            "values": {
+                                "target": "example#Values",
+                                "traits": {"smithy.api#httpQuery": "Value"}
+                            },
+                            "when": {
+                                "target": "example#When",
+                                "traits": {"smithy.api#httpQuery": "When"}
+                            },
+                            "epoch": {
+                                "target": "example#Epoch",
+                                "traits": {
+                                    "smithy.api#httpQuery": "Epoch",
+                                    "smithy.api#timestampFormat": "epoch-seconds"
+                                }
+                            }
+                        },
+                        "traits": {"smithy.api#input": {}}
+                    },
+                    "example#Values": {
+                        "type": "list",
+                        "member": {"target": "smithy.api#String"}
+                    },
+                    "example#When": {
+                        "type": "timestamp",
+                        "traits": {"smithy.api#timestampFormat": "date-time"}
+                    },
+                    "example#Epoch": {"type": "timestamp"}
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let rendered = render_standalone_operation_file(&selected, "Get");
+
+        assert!(rendered.contains("for inner_2 in inner_1 {"));
+        assert!(
+            rendered.contains(
+                "query.push_kv(\"Value\", &::aws_smithy_http::query::fmt_string(inner_2));"
+            )
+        );
+        assert!(rendered.contains(
+            "query.push_kv(\"When\", &::aws_smithy_http::query::fmt_timestamp(inner_3, ::aws_smithy_types::date_time::Format::DateTime)?);"
+        ));
+        assert!(rendered.contains(
+            "query.push_kv(\"Epoch\", &::aws_smithy_http::query::fmt_timestamp(inner_4, ::aws_smithy_types::date_time::Format::EpochSeconds)?);"
+        ));
     }
 
     #[test]

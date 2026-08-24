@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## batch
-**Progress:** `762/762` files compared · `703` matched · `59` mismatches · `0` missing · `0` extra · `92.26%` match (100.00% means fully matched)
+**Progress:** `762/762` files compared · `704` matched · `58` mismatches · `0` missing · `0` extra · `92.39%` match (100.00% means fully matched)
 
 ### `src/client/cancel_job.rs`
 
@@ -127,24 +127,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// - On success, responds with [`TerminateJobOutput`](crate::operation::terminate_job::TerminateJobOutput)
      /// - On failure, responds with [`SdkError<TerminateJobError>`](crate::operation::terminate_job::TerminateJobError)
      pub fn terminate_job(&self) -> super::super::operation::terminate_job::builders::TerminateJobFluentBuilder {
-```
-
-### `src/operation/untag_resource.rs`
-
-```diff
---- reference/src/operation/untag_resource.rs
-+++ generated/src/operation/untag_resource.rs
-@@ -257,9 +257,7 @@
-                 let inner_2 = inner_2
-                     .as_ref()
-                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("tag_keys", "cannot be empty or unset"))?;
--                for inner_3 in inner_2 {
--                    query.push_kv("tagKeys", &::aws_smithy_http::query::fmt_string(inner_3));
--                }
-+                query.push_kv("tagKeys", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
-                 ::std::result::Result::Ok(())
-             }
-             #[allow(clippy::unnecessary_wraps)]
 ```
 
 ### `src/protocol_serde/shape_create_compute_environment.rs`

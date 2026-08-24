@@ -257,33 +257,35 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListSuppress
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.reasons {
                     {
-                        query.push_kv("Reason", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
+                        for inner_3 in inner_2 {
+                            query.push_kv("Reason", &::aws_smithy_http::query::fmt_string(inner_3.as_str()));
+                        }
                     }
                 }
-                if let ::std::option::Option::Some(inner_3) = &_input.start_date {
+                if let ::std::option::Option::Some(inner_4) = &_input.start_date {
                     {
                         query.push_kv(
                             "StartDate",
-                            &::aws_smithy_http::query::fmt_timestamp(inner_3, ::aws_smithy_types::date_time::Format::HttpDate)?,
+                            &::aws_smithy_http::query::fmt_timestamp(inner_4, ::aws_smithy_types::date_time::Format::DateTime)?,
                         );
                     }
                 }
-                if let ::std::option::Option::Some(inner_4) = &_input.end_date {
+                if let ::std::option::Option::Some(inner_5) = &_input.end_date {
                     {
                         query.push_kv(
                             "EndDate",
-                            &::aws_smithy_http::query::fmt_timestamp(inner_4, ::aws_smithy_types::date_time::Format::HttpDate)?,
+                            &::aws_smithy_http::query::fmt_timestamp(inner_5, ::aws_smithy_types::date_time::Format::DateTime)?,
                         );
                     }
                 }
-                if let ::std::option::Option::Some(inner_5) = &_input.next_token {
+                if let ::std::option::Option::Some(inner_6) = &_input.next_token {
                     {
-                        query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_5));
+                        query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_6));
                     }
                 }
-                if let ::std::option::Option::Some(inner_6) = &_input.page_size {
+                if let ::std::option::Option::Some(inner_7) = &_input.page_size {
                     {
-                        query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_6).encode());
+                        query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_7).encode());
                     }
                 }
                 ::std::result::Result::Ok(())

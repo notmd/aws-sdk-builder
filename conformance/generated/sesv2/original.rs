@@ -27956,7 +27956,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteSuppre
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.tenant_name {
                     {
-                        query.push_kv("TenantName", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("TenantName", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -30651,7 +30651,9 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetBlacklist
                 let inner_1 = inner_1
                     .as_ref()
                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("blacklist_item_names", "cannot be empty or unset"))?;
-                query.push_kv("BlacklistItemNames", ::aws_smithy_types::primitive::Encoder::from(*inner_1).encode());
+                for inner_2 in inner_1 {
+                    query.push_kv("BlacklistItemNames", &::aws_smithy_http::query::fmt_string(inner_2));
+                }
                 ::std::result::Result::Ok(())
             }            #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
@@ -36509,17 +36511,17 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDedicated
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_1) = &_input.pool_name {
                     {
-                        query.push_kv("PoolName", &::aws_smithy_http::query::fmt_string(inner_1));
+                    query.push_kv("PoolName", &::aws_smithy_http::query::fmt_string(inner_1));
                     }
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.next_token {
                     {
-                        query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.page_size {
                     {
-                        query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
+                    query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -39468,12 +39470,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDomainSta
                 let inner_2 = inner_2
                     .as_ref()
                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("start_date", "cannot be empty or unset"))?;
-                query.push_kv("StartDate", &::aws_smithy_http::query::fmt_timestamp(inner_2, ::aws_smithy_types::date_time::Format::HttpDate)?);
+                query.push_kv("StartDate", &::aws_smithy_http::query::fmt_timestamp(inner_2, ::aws_smithy_types::date_time::Format::DateTime)?);
                 let inner_3 = &_input.end_date;
                 let inner_3 = inner_3
                     .as_ref()
                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("end_date", "cannot be empty or unset"))?;
-                query.push_kv("EndDate", &::aws_smithy_http::query::fmt_timestamp(inner_3, ::aws_smithy_types::date_time::Format::HttpDate)?);
+                query.push_kv("EndDate", &::aws_smithy_http::query::fmt_timestamp(inner_3, ::aws_smithy_types::date_time::Format::DateTime)?);
                 ::std::result::Result::Ok(())
             }            #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
@@ -47038,7 +47040,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetSuppresse
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.tenant_name {
                     {
-                        query.push_kv("TenantName", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("TenantName", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -48390,12 +48392,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListConfigur
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_1) = &_input.next_token {
                     {
-                        query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_1));
+                    query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_1));
                     }
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.page_size {
                     {
-                        query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
+                    query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -49225,12 +49227,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListContactL
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_1) = &_input.page_size {
                     {
-                        query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_1).encode());
+                    query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_1).encode());
                     }
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.next_token {
                     {
-                        query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -50964,12 +50966,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListCustomVe
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_1) = &_input.next_token {
                     {
-                        query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_1));
+                    query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_1));
                     }
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.page_size {
                     {
-                        query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
+                    query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -51808,12 +51810,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListDedicate
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_1) = &_input.next_token {
                     {
-                        query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_1));
+                    query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_1));
                     }
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.page_size {
                     {
-                        query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
+                    query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -52642,12 +52644,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListDelivera
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_1) = &_input.next_token {
                     {
-                        query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_1));
+                    query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_1));
                     }
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.page_size {
                     {
-                        query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
+                    query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -53511,20 +53513,20 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListDomainDe
                 let inner_2 = inner_2
                     .as_ref()
                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("start_date", "cannot be empty or unset"))?;
-                query.push_kv("StartDate", &::aws_smithy_http::query::fmt_timestamp(inner_2, ::aws_smithy_types::date_time::Format::HttpDate)?);
+                query.push_kv("StartDate", &::aws_smithy_http::query::fmt_timestamp(inner_2, ::aws_smithy_types::date_time::Format::DateTime)?);
                 let inner_3 = &_input.end_date;
                 let inner_3 = inner_3
                     .as_ref()
                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("end_date", "cannot be empty or unset"))?;
-                query.push_kv("EndDate", &::aws_smithy_http::query::fmt_timestamp(inner_3, ::aws_smithy_types::date_time::Format::HttpDate)?);
+                query.push_kv("EndDate", &::aws_smithy_http::query::fmt_timestamp(inner_3, ::aws_smithy_types::date_time::Format::DateTime)?);
                 if let ::std::option::Option::Some(inner_4) = &_input.next_token {
                     {
-                        query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_4));
+                    query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_4));
                     }
                 }
                 if let ::std::option::Option::Some(inner_5) = &_input.page_size {
                     {
-                        query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_5).encode());
+                    query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_5).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -54460,12 +54462,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListEmailIde
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_1) = &_input.next_token {
                     {
-                        query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_1));
+                    query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_1));
                     }
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.page_size {
                     {
-                        query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
+                    query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -55302,12 +55304,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListEmailTem
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_1) = &_input.next_token {
                     {
-                        query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_1));
+                    query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_1));
                     }
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.page_size {
                     {
-                        query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
+                    query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -57880,12 +57882,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListMultiReg
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_1) = &_input.next_token {
                     {
-                        query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_1));
+                    query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_1));
                     }
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.page_size {
                     {
-                        query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
+                    query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -61443,32 +61445,34 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListSuppress
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_1) = &_input.tenant_name {
                     {
-                        query.push_kv("TenantName", &::aws_smithy_http::query::fmt_string(inner_1));
+                    query.push_kv("TenantName", &::aws_smithy_http::query::fmt_string(inner_1));
                     }
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.reasons {
                     {
-                        query.push_kv("Reason", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
+                    for inner_3 in inner_2 {
+                        query.push_kv("Reason", &::aws_smithy_http::query::fmt_string(inner_3.as_str()));
+                    }
                     }
                 }
-                if let ::std::option::Option::Some(inner_3) = &_input.start_date {
+                if let ::std::option::Option::Some(inner_4) = &_input.start_date {
                     {
-                        query.push_kv("StartDate", &::aws_smithy_http::query::fmt_timestamp(inner_3, ::aws_smithy_types::date_time::Format::HttpDate)?);
+                    query.push_kv("StartDate", &::aws_smithy_http::query::fmt_timestamp(inner_4, ::aws_smithy_types::date_time::Format::DateTime)?);
                     }
                 }
-                if let ::std::option::Option::Some(inner_4) = &_input.end_date {
+                if let ::std::option::Option::Some(inner_5) = &_input.end_date {
                     {
-                        query.push_kv("EndDate", &::aws_smithy_http::query::fmt_timestamp(inner_4, ::aws_smithy_types::date_time::Format::HttpDate)?);
+                    query.push_kv("EndDate", &::aws_smithy_http::query::fmt_timestamp(inner_5, ::aws_smithy_types::date_time::Format::DateTime)?);
                     }
                 }
-                if let ::std::option::Option::Some(inner_5) = &_input.next_token {
+                if let ::std::option::Option::Some(inner_6) = &_input.next_token {
                     {
-                        query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_5));
+                    query.push_kv("NextToken", &::aws_smithy_http::query::fmt_string(inner_6));
                     }
                 }
-                if let ::std::option::Option::Some(inner_6) = &_input.page_size {
+                if let ::std::option::Option::Some(inner_7) = &_input.page_size {
                     {
-                        query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_6).encode());
+                    query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_7).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -86422,7 +86426,9 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UntagResourc
                 let inner_2 = inner_2
                     .as_ref()
                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("tag_keys", "cannot be empty or unset"))?;
-                query.push_kv("TagKeys", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
+                for inner_3 in inner_2 {
+                    query.push_kv("TagKeys", &::aws_smithy_http::query::fmt_string(inner_3));
+                }
                 ::std::result::Result::Ok(())
             }            #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `342` matched · `194` mismatches · `0` missing · `0` extra · `63.81%` match (100.00% means fully matched)
+**Progress:** `536/536` files compared · `343` matched · `193` mismatches · `0` missing · `0` extra · `63.99%` match (100.00% means fully matched)
 
 ### `src/client/converse.rs`
 
@@ -684,31 +684,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
 
          // If this is an error, defer to the non-streaming parser
-```
-
-### `src/operation/list_async_invokes.rs`
-
-```diff
---- reference/src/operation/list_async_invokes.rs
-+++ generated/src/operation/list_async_invokes.rs
-@@ -250,7 +250,7 @@
-                     {
-                         query.push_kv(
-                             "submitTimeAfter",
--                            &::aws_smithy_http::query::fmt_timestamp(inner_1, ::aws_smithy_types::date_time::Format::DateTime)?,
-+                            &::aws_smithy_http::query::fmt_timestamp(inner_1, ::aws_smithy_types::date_time::Format::HttpDate)?,
-                         );
-                     }
-                 }
-@@ -258,7 +258,7 @@
-                     {
-                         query.push_kv(
-                             "submitTimeBefore",
--                            &::aws_smithy_http::query::fmt_timestamp(inner_2, ::aws_smithy_types::date_time::Format::DateTime)?,
-+                            &::aws_smithy_http::query::fmt_timestamp(inner_2, ::aws_smithy_types::date_time::Format::HttpDate)?,
-                         );
-                     }
-                 }
 ```
 
 ### `src/primitives.rs`

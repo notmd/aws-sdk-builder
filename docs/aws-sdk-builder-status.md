@@ -4,6 +4,25 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match HTTP query collection and timestamp bindings
+- State: in progress
+- Changed: standalone HTTP request serializers now recursively emit one query parameter
+  per `@httpQuery` list item. Query timestamp serialization now honors the member-level
+  or target-shape `smithy.api#timestampFormat` trait and defaults to `DateTime`, matching
+  Smithy-RS `RequestBindingGenerator` behavior at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Conformance: `just conformance` generated 15 services and 1,133 operations,
+  formatted 13,164 generated Rust files, and compared `13,168` files: `12,354`
+  matched, `809` mismatched, `4` missing, and `1` extra (`91.99%` average match).
+  This is `+9` exact files and `-9` mismatches from the `12,345/818` checkpoint.
+  Generation and snapshot parsing completed without generated-source parse errors.
+  The command exits 1 only because broader parity gaps remain.
+- Verification: focused HTTP query regression, `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`, formatting, and
+  `git diff --check` pass. Conformance generation and rustfmt complete without
+  generated-source parse errors.
+- Next action: commit this generic serializer fix.
+
 ### Checkpoint: 2026-08-25 — Preserve optional defaulted operation inputs
 - State: in progress
 - Changed: operation-input builders now preserve members carrying

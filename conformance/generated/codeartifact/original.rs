@@ -5680,7 +5680,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AssociateExt
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -6713,7 +6713,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CopyPackageV
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.source_repository;
@@ -6745,7 +6745,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CopyPackageV
                 query.push_kv("format", &::aws_smithy_http::query::fmt_string(inner_5.as_str()));
                 if let ::std::option::Option::Some(inner_6) = &_input.namespace {
                     {
-                        query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_6));
+                    query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_6));
                     }
                 }
                 let inner_7 = &_input.package;
@@ -8933,7 +8933,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CreatePackag
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -9834,7 +9834,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CreateReposi
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -10749,7 +10749,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteDomain
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -11483,12 +11483,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteDomain
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.policy_revision {
                     {
-                        query.push_kv("policy-revision", &::aws_smithy_http::query::fmt_string(inner_3));
+                    query.push_kv("policy-revision", &::aws_smithy_http::query::fmt_string(inner_3));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -12273,7 +12273,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeletePackag
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -12294,7 +12294,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeletePackag
                 query.push_kv("format", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
                 if let ::std::option::Option::Some(inner_5) = &_input.namespace {
                     {
-                        query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
+                    query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
                     }
                 }
                 let inner_6 = &_input.package;
@@ -13336,7 +13336,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeletePackag
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.package_group;
@@ -14143,7 +14143,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeletePackag
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -14164,7 +14164,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeletePackag
                 query.push_kv("format", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
                 if let ::std::option::Option::Some(inner_5) = &_input.namespace {
                     {
-                        query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
+                    query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
                     }
                 }
                 let inner_6 = &_input.package;
@@ -15384,7 +15384,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteReposi
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -16176,7 +16176,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteReposi
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -16192,7 +16192,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteReposi
                 query.push_kv("repository", &::aws_smithy_http::query::fmt_string(inner_3));
                 if let ::std::option::Option::Some(inner_4) = &_input.policy_revision {
                     {
-                        query.push_kv("policy-revision", &::aws_smithy_http::query::fmt_string(inner_4));
+                    query.push_kv("policy-revision", &::aws_smithy_http::query::fmt_string(inner_4));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -16996,7 +16996,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribeDoma
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -17740,7 +17740,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribePack
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -17761,7 +17761,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribePack
                 query.push_kv("format", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
                 if let ::std::option::Option::Some(inner_5) = &_input.namespace {
                     {
-                        query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
+                    query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
                     }
                 }
                 let inner_6 = &_input.package;
@@ -18794,7 +18794,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribePack
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.package_group;
@@ -19586,7 +19586,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribePack
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -19607,7 +19607,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribePack
                 query.push_kv("format", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
                 if let ::std::option::Option::Some(inner_5) = &_input.namespace {
                     {
-                        query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
+                    query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
                     }
                 }
                 let inner_6 = &_input.package;
@@ -20693,7 +20693,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribeRepo
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -21475,7 +21475,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for Disassociate
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -22325,7 +22325,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DisposePacka
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -22346,7 +22346,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DisposePacka
                 query.push_kv("format", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
                 if let ::std::option::Option::Some(inner_5) = &_input.namespace {
                     {
-                        query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
+                    query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
                     }
                 }
                 let inner_6 = &_input.package;
@@ -23615,7 +23615,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetAssociate
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.format;
@@ -23625,7 +23625,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetAssociate
                 query.push_kv("format", &::aws_smithy_http::query::fmt_string(inner_3.as_str()));
                 if let ::std::option::Option::Some(inner_4) = &_input.namespace {
                     {
-                        query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_4));
+                    query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_4));
                     }
                 }
                 let inner_5 = &_input.package;
@@ -24629,12 +24629,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetAuthoriza
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.duration_seconds {
                     {
-                        query.push_kv("duration", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
+                    query.push_kv("duration", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -25433,7 +25433,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDomainPer
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -26207,7 +26207,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetPackageVe
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -26228,7 +26228,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetPackageVe
                 query.push_kv("format", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
                 if let ::std::option::Option::Some(inner_5) = &_input.namespace {
                     {
-                        query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
+                    query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
                     }
                 }
                 let inner_6 = &_input.package;
@@ -26266,7 +26266,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetPackageVe
                 query.push_kv("asset", &::aws_smithy_http::query::fmt_string(inner_8));
                 if let ::std::option::Option::Some(inner_9) = &_input.package_version_revision {
                     {
-                        query.push_kv("revision", &::aws_smithy_http::query::fmt_string(inner_9));
+                    query.push_kv("revision", &::aws_smithy_http::query::fmt_string(inner_9));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -27458,7 +27458,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetPackageVe
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -27479,7 +27479,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetPackageVe
                 query.push_kv("format", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
                 if let ::std::option::Option::Some(inner_5) = &_input.namespace {
                     {
-                        query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
+                    query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
                     }
                 }
                 let inner_6 = &_input.package;
@@ -28690,7 +28690,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetRepositor
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -28711,7 +28711,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetRepositor
                 query.push_kv("format", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
                 if let ::std::option::Option::Some(inner_5) = &_input.endpoint_type {
                     {
-                        query.push_kv("endpointType", &::aws_smithy_http::query::fmt_string(inner_5.as_str()));
+                    query.push_kv("endpointType", &::aws_smithy_http::query::fmt_string(inner_5.as_str()));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -29558,7 +29558,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetRepositor
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -30340,7 +30340,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListAllowedR
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.package_group;
@@ -30361,12 +30361,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListAllowedR
                 query.push_kv("originRestrictionType", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
                 if let ::std::option::Option::Some(inner_5) = &_input.max_results {
                     {
-                        query.push_kv("max-results", ::aws_smithy_types::primitive::Encoder::from(*inner_5).encode());
+                    query.push_kv("max-results", ::aws_smithy_types::primitive::Encoder::from(*inner_5).encode());
                     }
                 }
                 if let ::std::option::Option::Some(inner_6) = &_input.next_token {
                     {
-                        query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_6));
+                    query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_6));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -31422,7 +31422,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListAssociat
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.package_group;
@@ -31438,17 +31438,17 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListAssociat
                 query.push_kv("package-group", &::aws_smithy_http::query::fmt_string(inner_3));
                 if let ::std::option::Option::Some(inner_4) = &_input.max_results {
                     {
-                        query.push_kv("max-results", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
+                    query.push_kv("max-results", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
                     }
                 }
                 if let ::std::option::Option::Some(inner_5) = &_input.next_token {
                     {
-                        query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_5));
+                    query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_5));
                     }
                 }
                 if let ::std::option::Option::Some(inner_6) = &_input.preview {
                     {
-                        query.push_kv("preview", ::aws_smithy_types::primitive::Encoder::from(*inner_6).encode());
+                    query.push_kv("preview", ::aws_smithy_types::primitive::Encoder::from(*inner_6).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -33358,22 +33358,22 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPackageG
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.max_results {
                     {
-                        query.push_kv("max-results", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
+                    query.push_kv("max-results", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
                     }
                 }
                 if let ::std::option::Option::Some(inner_4) = &_input.next_token {
                     {
-                        query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_4));
+                    query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_4));
                     }
                 }
                 if let ::std::option::Option::Some(inner_5) = &_input.prefix {
                     {
-                        query.push_kv("prefix", &::aws_smithy_http::query::fmt_string(inner_5));
+                    query.push_kv("prefix", &::aws_smithy_http::query::fmt_string(inner_5));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -34401,7 +34401,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPackageV
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -34422,7 +34422,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPackageV
                 query.push_kv("format", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
                 if let ::std::option::Option::Some(inner_5) = &_input.namespace {
                     {
-                        query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
+                    query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
                     }
                 }
                 let inner_6 = &_input.package;
@@ -34449,12 +34449,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPackageV
                 query.push_kv("version", &::aws_smithy_http::query::fmt_string(inner_7));
                 if let ::std::option::Option::Some(inner_8) = &_input.max_results {
                     {
-                        query.push_kv("max-results", ::aws_smithy_types::primitive::Encoder::from(*inner_8).encode());
+                    query.push_kv("max-results", ::aws_smithy_types::primitive::Encoder::from(*inner_8).encode());
                     }
                 }
                 if let ::std::option::Option::Some(inner_9) = &_input.next_token {
                     {
-                        query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_9));
+                    query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_9));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -35905,7 +35905,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPackageV
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -35926,7 +35926,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPackageV
                 query.push_kv("format", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
                 if let ::std::option::Option::Some(inner_5) = &_input.namespace {
                     {
-                        query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
+                    query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
                     }
                 }
                 let inner_6 = &_input.package;
@@ -35953,7 +35953,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPackageV
                 query.push_kv("version", &::aws_smithy_http::query::fmt_string(inner_7));
                 if let ::std::option::Option::Some(inner_8) = &_input.next_token {
                     {
-                        query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_8));
+                    query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_8));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -37184,7 +37184,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPackageV
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -37205,7 +37205,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPackageV
                 query.push_kv("format", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
                 if let ::std::option::Option::Some(inner_5) = &_input.namespace {
                     {
-                        query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
+                    query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
                     }
                 }
                 let inner_6 = &_input.package;
@@ -37221,27 +37221,27 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPackageV
                 query.push_kv("package", &::aws_smithy_http::query::fmt_string(inner_6));
                 if let ::std::option::Option::Some(inner_7) = &_input.status {
                     {
-                        query.push_kv("status", &::aws_smithy_http::query::fmt_string(inner_7.as_str()));
+                    query.push_kv("status", &::aws_smithy_http::query::fmt_string(inner_7.as_str()));
                     }
                 }
                 if let ::std::option::Option::Some(inner_8) = &_input.sort_by {
                     {
-                        query.push_kv("sortBy", &::aws_smithy_http::query::fmt_string(inner_8.as_str()));
+                    query.push_kv("sortBy", &::aws_smithy_http::query::fmt_string(inner_8.as_str()));
                     }
                 }
                 if let ::std::option::Option::Some(inner_9) = &_input.max_results {
                     {
-                        query.push_kv("max-results", ::aws_smithy_types::primitive::Encoder::from(*inner_9).encode());
+                    query.push_kv("max-results", ::aws_smithy_types::primitive::Encoder::from(*inner_9).encode());
                     }
                 }
                 if let ::std::option::Option::Some(inner_10) = &_input.next_token {
                     {
-                        query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_10));
+                    query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_10));
                     }
                 }
                 if let ::std::option::Option::Some(inner_11) = &_input.origin_type {
                     {
-                        query.push_kv("originType", &::aws_smithy_http::query::fmt_string(inner_11.as_str()));
+                    query.push_kv("originType", &::aws_smithy_http::query::fmt_string(inner_11.as_str()));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -38761,7 +38761,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPackages
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -38777,37 +38777,37 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPackages
                 query.push_kv("repository", &::aws_smithy_http::query::fmt_string(inner_3));
                 if let ::std::option::Option::Some(inner_4) = &_input.format {
                     {
-                        query.push_kv("format", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
+                    query.push_kv("format", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
                     }
                 }
                 if let ::std::option::Option::Some(inner_5) = &_input.namespace {
                     {
-                        query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
+                    query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
                     }
                 }
                 if let ::std::option::Option::Some(inner_6) = &_input.package_prefix {
                     {
-                        query.push_kv("package-prefix", &::aws_smithy_http::query::fmt_string(inner_6));
+                    query.push_kv("package-prefix", &::aws_smithy_http::query::fmt_string(inner_6));
                     }
                 }
                 if let ::std::option::Option::Some(inner_7) = &_input.max_results {
                     {
-                        query.push_kv("max-results", ::aws_smithy_types::primitive::Encoder::from(*inner_7).encode());
+                    query.push_kv("max-results", ::aws_smithy_types::primitive::Encoder::from(*inner_7).encode());
                     }
                 }
                 if let ::std::option::Option::Some(inner_8) = &_input.next_token {
                     {
-                        query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_8));
+                    query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_8));
                     }
                 }
                 if let ::std::option::Option::Some(inner_9) = &_input.publish {
                     {
-                        query.push_kv("publish", &::aws_smithy_http::query::fmt_string(inner_9.as_str()));
+                    query.push_kv("publish", &::aws_smithy_http::query::fmt_string(inner_9.as_str()));
                     }
                 }
                 if let ::std::option::Option::Some(inner_10) = &_input.upstream {
                     {
-                        query.push_kv("upstream", &::aws_smithy_http::query::fmt_string(inner_10.as_str()));
+                    query.push_kv("upstream", &::aws_smithy_http::query::fmt_string(inner_10.as_str()));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -40043,17 +40043,17 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListReposito
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_1) = &_input.repository_prefix {
                     {
-                        query.push_kv("repository-prefix", &::aws_smithy_http::query::fmt_string(inner_1));
+                    query.push_kv("repository-prefix", &::aws_smithy_http::query::fmt_string(inner_1));
                     }
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.max_results {
                     {
-                        query.push_kv("max-results", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
+                    query.push_kv("max-results", ::aws_smithy_types::primitive::Encoder::from(*inner_2).encode());
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.next_token {
                     {
-                        query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_3));
+                    query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_3));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -40998,27 +40998,27 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListReposito
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.administrator_account {
                     {
-                        query.push_kv("administrator-account", &::aws_smithy_http::query::fmt_string(inner_3));
+                    query.push_kv("administrator-account", &::aws_smithy_http::query::fmt_string(inner_3));
                     }
                 }
                 if let ::std::option::Option::Some(inner_4) = &_input.repository_prefix {
                     {
-                        query.push_kv("repository-prefix", &::aws_smithy_http::query::fmt_string(inner_4));
+                    query.push_kv("repository-prefix", &::aws_smithy_http::query::fmt_string(inner_4));
                     }
                 }
                 if let ::std::option::Option::Some(inner_5) = &_input.max_results {
                     {
-                        query.push_kv("max-results", ::aws_smithy_types::primitive::Encoder::from(*inner_5).encode());
+                    query.push_kv("max-results", ::aws_smithy_types::primitive::Encoder::from(*inner_5).encode());
                     }
                 }
                 if let ::std::option::Option::Some(inner_6) = &_input.next_token {
                     {
-                        query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_6));
+                    query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_6));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -42062,7 +42062,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListSubPacka
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.package_group;
@@ -42078,12 +42078,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListSubPacka
                 query.push_kv("package-group", &::aws_smithy_http::query::fmt_string(inner_3));
                 if let ::std::option::Option::Some(inner_4) = &_input.max_results {
                     {
-                        query.push_kv("max-results", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
+                    query.push_kv("max-results", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
                     }
                 }
                 if let ::std::option::Option::Some(inner_5) = &_input.next_token {
                     {
-                        query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_5));
+                    query.push_kv("next-token", &::aws_smithy_http::query::fmt_string(inner_5));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -43804,7 +43804,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PublishPacka
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -43825,7 +43825,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PublishPacka
                 query.push_kv("format", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
                 if let ::std::option::Option::Some(inner_5) = &_input.namespace {
                     {
-                        query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
+                    query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
                     }
                 }
                 let inner_6 = &_input.package;
@@ -43863,7 +43863,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PublishPacka
                 query.push_kv("asset", &::aws_smithy_http::query::fmt_string(inner_8));
                 if let ::std::option::Option::Some(inner_9) = &_input.unfinished {
                     {
-                        query.push_kv("unfinished", ::aws_smithy_types::primitive::Encoder::from(*inner_9).encode());
+                    query.push_kv("unfinished", ::aws_smithy_types::primitive::Encoder::from(*inner_9).encode());
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -45851,7 +45851,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PutPackageOr
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -45872,7 +45872,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PutPackageOr
                 query.push_kv("format", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
                 if let ::std::option::Option::Some(inner_5) = &_input.namespace {
                     {
-                        query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
+                    query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
                     }
                 }
                 let inner_6 = &_input.package;
@@ -46880,7 +46880,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PutRepositor
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -49179,7 +49179,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdatePackag
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -50021,7 +50021,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdatePackag
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.package_group;
@@ -50976,7 +50976,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdatePackag
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
@@ -50997,7 +50997,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdatePackag
                 query.push_kv("format", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
                 if let ::std::option::Option::Some(inner_5) = &_input.namespace {
                     {
-                        query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
+                    query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
                     }
                 }
                 let inner_6 = &_input.package;
@@ -52146,7 +52146,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdateReposi
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
+                    query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
