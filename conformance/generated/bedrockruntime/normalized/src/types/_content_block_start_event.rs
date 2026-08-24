@@ -5,14 +5,14 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ContentBlockStartEvent {
     /// <p>Start information about a content block start event.</p>
-    pub start: super::super::types::ContentBlockStart,
+    pub start: ::std::option::Option<super::super::types::ContentBlockStart>,
     /// <p>The index for a content block start event.</p>
     pub content_block_index: i32,
 }
 impl ContentBlockStartEvent {
     /// <p>Start information about a content block start event.</p>
-    pub fn start(&self) -> &super::super::types::ContentBlockStart {
-        &self.start
+    pub fn start(&self) -> ::std::option::Option<&super::super::types::ContentBlockStart> {
+        self.start.as_ref()
     }
     /// <p>The index for a content block start event.</p>
     pub fn content_block_index(&self) -> i32 {
@@ -66,16 +66,10 @@ impl ContentBlockStartEventBuilder {
     }
     /// Consumes the builder and constructs a [`ContentBlockStartEvent`](crate::types::ContentBlockStartEvent).
     /// This method will fail if any of the following fields are not set:
-    /// - [`start`](crate::types::builders::ContentBlockStartEventBuilder::start)
     /// - [`content_block_index`](crate::types::builders::ContentBlockStartEventBuilder::content_block_index)
     pub fn build(self) -> ::std::result::Result<super::super::types::ContentBlockStartEvent, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::ContentBlockStartEvent {
-            start: self.start.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "start",
-                    "start was not specified but it is required when building ContentBlockStartEvent",
-                )
-            })?,
+            start: self.start,
             content_block_index: self.content_block_index.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "content_block_index",

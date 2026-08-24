@@ -23,7 +23,7 @@ pub struct DocumentBlock {
     /// </note>
     pub name: ::std::string::String,
     /// <p>Contains the content of the document.</p>
-    pub source: super::super::types::DocumentSource,
+    pub source: ::std::option::Option<super::super::types::DocumentSource>,
     /// <p>Contextual information about how the document should be processed or interpreted by the model when generating citations.</p>
     pub context: ::std::option::Option<::std::string::String>,
     /// <p>Configuration settings that control how citations should be generated for this specific document.</p>
@@ -54,8 +54,8 @@ impl DocumentBlock {
         self.name.deref()
     }
     /// <p>Contains the content of the document.</p>
-    pub fn source(&self) -> &super::super::types::DocumentSource {
-        &self.source
+    pub fn source(&self) -> ::std::option::Option<&super::super::types::DocumentSource> {
+        self.source.as_ref()
     }
     /// <p>Contextual information about how the document should be processed or interpreted by the model when generating citations.</p>
     pub fn context(&self) -> ::std::option::Option<&str> {
@@ -201,7 +201,6 @@ impl DocumentBlockBuilder {
     /// Consumes the builder and constructs a [`DocumentBlock`](crate::types::DocumentBlock).
     /// This method will fail if any of the following fields are not set:
     /// - [`name`](crate::types::builders::DocumentBlockBuilder::name)
-    /// - [`source`](crate::types::builders::DocumentBlockBuilder::source)
     pub fn build(self) -> ::std::result::Result<super::super::types::DocumentBlock, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::DocumentBlock {
             format: self.format.unwrap_or_default(),
@@ -211,12 +210,7 @@ impl DocumentBlockBuilder {
                     "name was not specified but it is required when building DocumentBlock",
                 )
             })?,
-            source: self.source.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "source",
-                    "source was not specified but it is required when building DocumentBlock",
-                )
-            })?,
+            source: self.source,
             context: self.context,
             citations: self.citations,
         })

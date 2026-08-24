@@ -7,7 +7,7 @@ pub struct GuardrailConverseImageBlock {
     /// <p>The format details for the image type of the guardrail converse image block.</p>
     pub format: super::super::types::GuardrailConverseImageFormat,
     /// <p>The image source (image bytes) of the guardrail converse image block.</p>
-    pub source: super::super::types::GuardrailConverseImageSource,
+    pub source: ::std::option::Option<super::super::types::GuardrailConverseImageSource>,
 }
 impl GuardrailConverseImageBlock {
     /// <p>The format details for the image type of the guardrail converse image block.</p>
@@ -15,8 +15,8 @@ impl GuardrailConverseImageBlock {
         &self.format
     }
     /// <p>The image source (image bytes) of the guardrail converse image block.</p>
-    pub fn source(&self) -> &super::super::types::GuardrailConverseImageSource {
-        &self.source
+    pub fn source(&self) -> ::std::option::Option<&super::super::types::GuardrailConverseImageSource> {
+        self.source.as_ref()
     }
 }
 impl ::std::fmt::Debug for GuardrailConverseImageBlock {
@@ -75,7 +75,6 @@ impl GuardrailConverseImageBlockBuilder {
     /// Consumes the builder and constructs a [`GuardrailConverseImageBlock`](crate::types::GuardrailConverseImageBlock).
     /// This method will fail if any of the following fields are not set:
     /// - [`format`](crate::types::builders::GuardrailConverseImageBlockBuilder::format)
-    /// - [`source`](crate::types::builders::GuardrailConverseImageBlockBuilder::source)
     pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailConverseImageBlock, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::GuardrailConverseImageBlock {
             format: self.format.ok_or_else(|| {
@@ -84,12 +83,7 @@ impl GuardrailConverseImageBlockBuilder {
                     "format was not specified but it is required when building GuardrailConverseImageBlock",
                 )
             })?,
-            source: self.source.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "source",
-                    "source was not specified but it is required when building GuardrailConverseImageBlock",
-                )
-            })?,
+            source: self.source,
         })
     }
 }

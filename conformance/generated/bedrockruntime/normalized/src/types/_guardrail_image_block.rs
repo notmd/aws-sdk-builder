@@ -7,7 +7,7 @@ pub struct GuardrailImageBlock {
     /// <p>The format details for the file type of the image blocked by the guardrail.</p>
     pub format: super::super::types::GuardrailImageFormat,
     /// <p>The image source (image bytes) details of the image blocked by the guardrail.</p>
-    pub source: super::super::types::GuardrailImageSource,
+    pub source: ::std::option::Option<super::super::types::GuardrailImageSource>,
 }
 impl GuardrailImageBlock {
     /// <p>The format details for the file type of the image blocked by the guardrail.</p>
@@ -15,8 +15,8 @@ impl GuardrailImageBlock {
         &self.format
     }
     /// <p>The image source (image bytes) details of the image blocked by the guardrail.</p>
-    pub fn source(&self) -> &super::super::types::GuardrailImageSource {
-        &self.source
+    pub fn source(&self) -> ::std::option::Option<&super::super::types::GuardrailImageSource> {
+        self.source.as_ref()
     }
 }
 impl ::std::fmt::Debug for GuardrailImageBlock {
@@ -75,7 +75,6 @@ impl GuardrailImageBlockBuilder {
     /// Consumes the builder and constructs a [`GuardrailImageBlock`](crate::types::GuardrailImageBlock).
     /// This method will fail if any of the following fields are not set:
     /// - [`format`](crate::types::builders::GuardrailImageBlockBuilder::format)
-    /// - [`source`](crate::types::builders::GuardrailImageBlockBuilder::source)
     pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailImageBlock, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::GuardrailImageBlock {
             format: self.format.ok_or_else(|| {
@@ -84,12 +83,7 @@ impl GuardrailImageBlockBuilder {
                     "format was not specified but it is required when building GuardrailImageBlock",
                 )
             })?,
-            source: self.source.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "source",
-                    "source was not specified but it is required when building GuardrailImageBlock",
-                )
-            })?,
+            source: self.source,
         })
     }
 }

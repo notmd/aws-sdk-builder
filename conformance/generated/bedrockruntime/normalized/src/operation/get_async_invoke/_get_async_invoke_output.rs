@@ -20,7 +20,7 @@ pub struct GetAsyncInvokeOutput {
     /// <p>When the invocation ended.</p>
     pub end_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>Output data settings.</p>
-    pub output_data_config: super::super::super::types::AsyncInvokeOutputDataConfig,
+    pub output_data_config: ::std::option::Option<super::super::super::types::AsyncInvokeOutputDataConfig>,
     _request_id: Option<String>,
 }
 impl GetAsyncInvokeOutput {
@@ -59,8 +59,8 @@ impl GetAsyncInvokeOutput {
         self.end_time.as_ref()
     }
     /// <p>Output data settings.</p>
-    pub fn output_data_config(&self) -> &super::super::super::types::AsyncInvokeOutputDataConfig {
-        &self.output_data_config
+    pub fn output_data_config(&self) -> ::std::option::Option<&super::super::super::types::AsyncInvokeOutputDataConfig> {
+        self.output_data_config.as_ref()
     }
 }
 impl ::std::fmt::Debug for GetAsyncInvokeOutput {
@@ -253,7 +253,6 @@ impl GetAsyncInvokeOutputBuilder {
     /// - [`model_arn`](crate::operation::get_async_invoke::builders::GetAsyncInvokeOutputBuilder::model_arn)
     /// - [`status`](crate::operation::get_async_invoke::builders::GetAsyncInvokeOutputBuilder::status)
     /// - [`submit_time`](crate::operation::get_async_invoke::builders::GetAsyncInvokeOutputBuilder::submit_time)
-    /// - [`output_data_config`](crate::operation::get_async_invoke::builders::GetAsyncInvokeOutputBuilder::output_data_config)
     pub fn build(
         self,
     ) -> ::std::result::Result<super::super::super::operation::get_async_invoke::GetAsyncInvokeOutput, ::aws_smithy_types::error::operation::BuildError> {
@@ -286,12 +285,7 @@ impl GetAsyncInvokeOutputBuilder {
             })?,
             last_modified_time: self.last_modified_time,
             end_time: self.end_time,
-            output_data_config: self.output_data_config.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "output_data_config",
-                    "output_data_config was not specified but it is required when building GetAsyncInvokeOutput",
-                )
-            })?,
+            output_data_config: self.output_data_config,
             _request_id: self._request_id,
         })
     }

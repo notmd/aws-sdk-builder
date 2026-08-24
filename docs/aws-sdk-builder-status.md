@@ -4,6 +4,24 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match careful nullability for required union members
+- State: in progress
+- Changed: member nullability now follows Smithy-RS `NullableIndex.CheckMode.CLIENT_CAREFUL`
+  for required members targeting both structures and unions. Required union members are
+  therefore represented as `Option<T>` in generated types and serializers, matching the
+  Smithy-RS `SymbolVisitor` behavior. A focused regression covers a required union member.
+- Conformance: `just conformance` generated 15 services and 1,133 operations,
+  formatted 13,164 generated Rust files, and compared `13,168` files: `12,603`
+  matched, `560` mismatched, `4` missing, and `1` extra (`94.30%` average match).
+  This is `+20` exact files and `-20` mismatches from the `12,583/580` checkpoint;
+  Bedrock Runtime improved from `393/143` to `413/123` exact/mismatched files.
+  Generation and snapshot parsing completed without generated-source parse errors.
+  The command exits 1 only because broader parity gaps remain.
+- Verification: focused union-nullability regression, `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`, formatting, and
+  `git diff --check` pass.
+- Next action: continue with the remaining generic protocol and service parity gaps.
+
 ### Checkpoint: 2026-08-25 — Match RestJson operation document member ordering
 - State: in progress
 - Changed: RestJson operation-level JSON serializers and deserializers now iterate HTTP

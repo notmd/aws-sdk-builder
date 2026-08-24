@@ -6,11 +6,11 @@ pub fn ser_output_format(
     {
         object.key("type").string(input.r#type.as_str());
     }
-    {
+    if let Some(var_1) = &input.structure {
         #[allow(unused_mut)]
-        let mut object_1 = object.key("structure").start_object();
-        super::super::protocol_serde::shape_output_format_structure::ser_output_format_structure(&mut object_1, &input.structure)?;
-        object_1.finish();
+        let mut object_2 = object.key("structure").start_object();
+        super::super::protocol_serde::shape_output_format_structure::ser_output_format_structure(&mut object_2, var_1)?;
+        object_2.finish();
     }
     Ok(())
 }

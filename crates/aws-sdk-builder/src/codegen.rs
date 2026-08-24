@@ -13490,13 +13490,12 @@ fn operation_input(context: &Context) -> bool {
 fn member_is_effectively_required(selected: &SelectedModel, member: &Value, target: &str) -> bool {
     !has_trait(member, "smithy.api#clientOptional")
         && (member_is_required(member) || has_trait(member, "smithy.api#default"))
-        && selected
-            .model
-            .shapes
-            .get(target)
-            .and_then(|shape| shape.get("type"))
-            .and_then(Value::as_str)
-            != Some("structure")
+        && !selected.model.shapes.get(target).is_some_and(|shape| {
+            matches!(
+                shape.get("type").and_then(Value::as_str),
+                Some("structure" | "union")
+            )
+        })
 }
 
 fn is_streaming_output_target(selected: &SelectedModel, target: &str, context: &Context) -> bool {
@@ -17051,6 +17050,67 @@ mod tests {
         assert_eq!(
             structure_member_type(&selected, member, target, &Context::Types {}),
             "::std::option::Option<::std::string::String>"
+        );
+    }
+
+    #[test]
+    fn careful_nullability_makes_required_union_members_optional() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Op"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Op": {
+                        "type": "operation",
+                        "input": {"target": "example#Input"},
+                        "output": {"target": "smithy.api#Unit"}
+                    },
+                    "example#Input": {
+                        "type": "structure",
+                        "members": {
+                            "choice": {
+                                "target": "example#Choice",
+                                "traits": {"smithy.api#required": {}}
+                            }
+                        },
+                        "traits": {"smithy.api#input": {}}
+                    },
+                    "example#Choice": {
+                        "type": "union",
+                        "members": {"value": {"target": "smithy.api#String"}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let input = selected
+            .model
+            .shapes
+            .get("example.synthetic#OpInput")
+            .unwrap();
+        let member = members(input)
+            .into_iter()
+            .find(|(name, _)| *name == "choice")
+            .map(|(_, member)| member)
+            .unwrap();
+        let target = member_target(member).unwrap();
+
+        assert!(!member_is_effectively_required(&selected, member, target));
+        assert_eq!(
+            structure_member_type(&selected, member, target, &Context::Types {}),
+            "::std::option::Option<crate::types::Choice>"
         );
     }
 }

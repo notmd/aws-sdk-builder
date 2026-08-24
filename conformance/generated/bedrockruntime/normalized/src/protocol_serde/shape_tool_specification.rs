@@ -9,14 +9,14 @@ pub fn ser_tool_specification(
     if let Some(var_1) = &input.description {
         object.key("description").string(var_1.as_str());
     }
-    {
+    if let Some(var_2) = &input.input_schema {
         #[allow(unused_mut)]
-        let mut object_2 = object.key("inputSchema").start_object();
-        super::super::protocol_serde::shape_tool_input_schema::ser_tool_input_schema(&mut object_2, &input.input_schema)?;
-        object_2.finish();
+        let mut object_3 = object.key("inputSchema").start_object();
+        super::super::protocol_serde::shape_tool_input_schema::ser_tool_input_schema(&mut object_3, var_2)?;
+        object_3.finish();
     }
-    if let Some(var_3) = &input.strict {
-        object.key("strict").boolean(*var_3);
+    if let Some(var_4) = &input.strict {
+        object.key("strict").boolean(*var_4);
     }
     Ok(())
 }

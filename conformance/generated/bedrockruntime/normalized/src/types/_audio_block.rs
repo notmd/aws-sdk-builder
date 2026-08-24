@@ -7,7 +7,7 @@ pub struct AudioBlock {
     /// <p>The format of the audio data, such as MP3, WAV, FLAC, or other supported audio formats.</p>
     pub format: super::super::types::AudioFormat,
     /// <p>The source of the audio data, which can be provided as raw bytes or an S3 location.</p>
-    pub source: super::super::types::AudioSource,
+    pub source: ::std::option::Option<super::super::types::AudioSource>,
     /// <p>Error information if the audio block could not be processed or contains invalid data.</p>
     pub error: ::std::option::Option<super::super::types::ErrorBlock>,
 }
@@ -17,8 +17,8 @@ impl AudioBlock {
         &self.format
     }
     /// <p>The source of the audio data, which can be provided as raw bytes or an S3 location.</p>
-    pub fn source(&self) -> &super::super::types::AudioSource {
-        &self.source
+    pub fn source(&self) -> ::std::option::Option<&super::super::types::AudioSource> {
+        self.source.as_ref()
     }
     /// <p>Error information if the audio block could not be processed or contains invalid data.</p>
     pub fn error(&self) -> ::std::option::Option<&super::super::types::ErrorBlock> {
@@ -97,7 +97,6 @@ impl AudioBlockBuilder {
     /// Consumes the builder and constructs a [`AudioBlock`](crate::types::AudioBlock).
     /// This method will fail if any of the following fields are not set:
     /// - [`format`](crate::types::builders::AudioBlockBuilder::format)
-    /// - [`source`](crate::types::builders::AudioBlockBuilder::source)
     pub fn build(self) -> ::std::result::Result<super::super::types::AudioBlock, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::AudioBlock {
             format: self.format.ok_or_else(|| {
@@ -106,12 +105,7 @@ impl AudioBlockBuilder {
                     "format was not specified but it is required when building AudioBlock",
                 )
             })?,
-            source: self.source.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "source",
-                    "source was not specified but it is required when building AudioBlock",
-                )
-            })?,
+            source: self.source,
             error: self.error,
         })
     }

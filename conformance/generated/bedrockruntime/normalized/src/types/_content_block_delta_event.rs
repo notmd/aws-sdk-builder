@@ -5,14 +5,14 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ContentBlockDeltaEvent {
     /// <p>The delta for a content block delta event.</p>
-    pub delta: super::super::types::ContentBlockDelta,
+    pub delta: ::std::option::Option<super::super::types::ContentBlockDelta>,
     /// <p>The block index for a content block delta event.</p>
     pub content_block_index: i32,
 }
 impl ContentBlockDeltaEvent {
     /// <p>The delta for a content block delta event.</p>
-    pub fn delta(&self) -> &super::super::types::ContentBlockDelta {
-        &self.delta
+    pub fn delta(&self) -> ::std::option::Option<&super::super::types::ContentBlockDelta> {
+        self.delta.as_ref()
     }
     /// <p>The block index for a content block delta event.</p>
     pub fn content_block_index(&self) -> i32 {
@@ -66,16 +66,10 @@ impl ContentBlockDeltaEventBuilder {
     }
     /// Consumes the builder and constructs a [`ContentBlockDeltaEvent`](crate::types::ContentBlockDeltaEvent).
     /// This method will fail if any of the following fields are not set:
-    /// - [`delta`](crate::types::builders::ContentBlockDeltaEventBuilder::delta)
     /// - [`content_block_index`](crate::types::builders::ContentBlockDeltaEventBuilder::content_block_index)
     pub fn build(self) -> ::std::result::Result<super::super::types::ContentBlockDeltaEvent, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::ContentBlockDeltaEvent {
-            delta: self.delta.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "delta",
-                    "delta was not specified but it is required when building ContentBlockDeltaEvent",
-                )
-            })?,
+            delta: self.delta,
             content_block_index: self.content_block_index.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "content_block_index",

@@ -6,17 +6,17 @@ pub fn ser_image_block(
     {
         object.key("format").string(input.format.as_str());
     }
-    {
+    if let Some(var_1) = &input.source {
         #[allow(unused_mut)]
-        let mut object_1 = object.key("source").start_object();
-        super::super::protocol_serde::shape_image_source::ser_image_source(&mut object_1, &input.source)?;
-        object_1.finish();
+        let mut object_2 = object.key("source").start_object();
+        super::super::protocol_serde::shape_image_source::ser_image_source(&mut object_2, var_1)?;
+        object_2.finish();
     }
-    if let Some(var_2) = &input.error {
+    if let Some(var_3) = &input.error {
         #[allow(unused_mut)]
-        let mut object_3 = object.key("error").start_object();
-        super::super::protocol_serde::shape_error_block::ser_error_block(&mut object_3, var_2)?;
-        object_3.finish();
+        let mut object_4 = object.key("error").start_object();
+        super::super::protocol_serde::shape_error_block::ser_error_block(&mut object_4, var_3)?;
+        object_4.finish();
     }
     Ok(())
 }

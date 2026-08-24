@@ -21,7 +21,7 @@ pub struct AsyncInvokeSummary {
     /// <p>When the invocation ended.</p>
     pub end_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The invocation's output data settings.</p>
-    pub output_data_config: super::super::types::AsyncInvokeOutputDataConfig,
+    pub output_data_config: ::std::option::Option<super::super::types::AsyncInvokeOutputDataConfig>,
 }
 impl AsyncInvokeSummary {
     /// <p>The invocation's ARN.</p>
@@ -59,8 +59,8 @@ impl AsyncInvokeSummary {
         self.end_time.as_ref()
     }
     /// <p>The invocation's output data settings.</p>
-    pub fn output_data_config(&self) -> &super::super::types::AsyncInvokeOutputDataConfig {
-        &self.output_data_config
+    pub fn output_data_config(&self) -> ::std::option::Option<&super::super::types::AsyncInvokeOutputDataConfig> {
+        self.output_data_config.as_ref()
     }
 }
 impl ::std::fmt::Debug for AsyncInvokeSummary {
@@ -235,7 +235,6 @@ impl AsyncInvokeSummaryBuilder {
     /// - [`invocation_arn`](crate::types::builders::AsyncInvokeSummaryBuilder::invocation_arn)
     /// - [`model_arn`](crate::types::builders::AsyncInvokeSummaryBuilder::model_arn)
     /// - [`submit_time`](crate::types::builders::AsyncInvokeSummaryBuilder::submit_time)
-    /// - [`output_data_config`](crate::types::builders::AsyncInvokeSummaryBuilder::output_data_config)
     pub fn build(self) -> ::std::result::Result<super::super::types::AsyncInvokeSummary, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::AsyncInvokeSummary {
             invocation_arn: self.invocation_arn.ok_or_else(|| {
@@ -261,12 +260,7 @@ impl AsyncInvokeSummaryBuilder {
             })?,
             last_modified_time: self.last_modified_time,
             end_time: self.end_time,
-            output_data_config: self.output_data_config.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "output_data_config",
-                    "output_data_config was not specified but it is required when building AsyncInvokeSummary",
-                )
-            })?,
+            output_data_config: self.output_data_config,
         })
     }
 }

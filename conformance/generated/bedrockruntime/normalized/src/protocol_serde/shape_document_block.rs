@@ -9,20 +9,20 @@ pub fn ser_document_block(
     {
         object.key("name").string(input.name.as_str());
     }
-    {
+    if let Some(var_1) = &input.source {
         #[allow(unused_mut)]
-        let mut object_1 = object.key("source").start_object();
-        super::super::protocol_serde::shape_document_source::ser_document_source(&mut object_1, &input.source)?;
-        object_1.finish();
+        let mut object_2 = object.key("source").start_object();
+        super::super::protocol_serde::shape_document_source::ser_document_source(&mut object_2, var_1)?;
+        object_2.finish();
     }
-    if let Some(var_2) = &input.context {
-        object.key("context").string(var_2.as_str());
+    if let Some(var_3) = &input.context {
+        object.key("context").string(var_3.as_str());
     }
-    if let Some(var_3) = &input.citations {
+    if let Some(var_4) = &input.citations {
         #[allow(unused_mut)]
-        let mut object_4 = object.key("citations").start_object();
-        super::super::protocol_serde::shape_citations_config::ser_citations_config(&mut object_4, var_3)?;
-        object_4.finish();
+        let mut object_5 = object.key("citations").start_object();
+        super::super::protocol_serde::shape_citations_config::ser_citations_config(&mut object_5, var_4)?;
+        object_5.finish();
     }
     Ok(())
 }

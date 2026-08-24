@@ -9,7 +9,7 @@ pub struct ToolSpecification {
     /// <p>The description for the tool.</p>
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>The input schema for the tool in JSON format.</p>
-    pub input_schema: super::super::types::ToolInputSchema,
+    pub input_schema: ::std::option::Option<super::super::types::ToolInputSchema>,
     /// <p>Flag to enable structured output enforcement on a tool usage response.</p>
     pub strict: ::std::option::Option<bool>,
 }
@@ -24,8 +24,8 @@ impl ToolSpecification {
         self.description.as_deref()
     }
     /// <p>The input schema for the tool in JSON format.</p>
-    pub fn input_schema(&self) -> &super::super::types::ToolInputSchema {
-        &self.input_schema
+    pub fn input_schema(&self) -> ::std::option::Option<&super::super::types::ToolInputSchema> {
+        self.input_schema.as_ref()
     }
     /// <p>Flag to enable structured output enforcement on a tool usage response.</p>
     pub fn strict(&self) -> ::std::option::Option<&bool> {
@@ -110,7 +110,6 @@ impl ToolSpecificationBuilder {
     /// Consumes the builder and constructs a [`ToolSpecification`](crate::types::ToolSpecification).
     /// This method will fail if any of the following fields are not set:
     /// - [`name`](crate::types::builders::ToolSpecificationBuilder::name)
-    /// - [`input_schema`](crate::types::builders::ToolSpecificationBuilder::input_schema)
     pub fn build(self) -> ::std::result::Result<super::super::types::ToolSpecification, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::ToolSpecification {
             name: self.name.ok_or_else(|| {
@@ -120,12 +119,7 @@ impl ToolSpecificationBuilder {
                 )
             })?,
             description: self.description,
-            input_schema: self.input_schema.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "input_schema",
-                    "input_schema was not specified but it is required when building ToolSpecification",
-                )
-            })?,
+            input_schema: self.input_schema,
             strict: self.strict,
         })
     }

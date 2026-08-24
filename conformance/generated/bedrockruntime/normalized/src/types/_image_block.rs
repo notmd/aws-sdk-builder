@@ -7,7 +7,7 @@ pub struct ImageBlock {
     /// <p>The format of the image.</p>
     pub format: super::super::types::ImageFormat,
     /// <p>The source for the image.</p>
-    pub source: super::super::types::ImageSource,
+    pub source: ::std::option::Option<super::super::types::ImageSource>,
     /// <p>Error information if the image block could not be processed or contains invalid data.</p>
     pub error: ::std::option::Option<super::super::types::ErrorBlock>,
 }
@@ -17,8 +17,8 @@ impl ImageBlock {
         &self.format
     }
     /// <p>The source for the image.</p>
-    pub fn source(&self) -> &super::super::types::ImageSource {
-        &self.source
+    pub fn source(&self) -> ::std::option::Option<&super::super::types::ImageSource> {
+        self.source.as_ref()
     }
     /// <p>Error information if the image block could not be processed or contains invalid data.</p>
     pub fn error(&self) -> ::std::option::Option<&super::super::types::ErrorBlock> {
@@ -97,7 +97,6 @@ impl ImageBlockBuilder {
     /// Consumes the builder and constructs a [`ImageBlock`](crate::types::ImageBlock).
     /// This method will fail if any of the following fields are not set:
     /// - [`format`](crate::types::builders::ImageBlockBuilder::format)
-    /// - [`source`](crate::types::builders::ImageBlockBuilder::source)
     pub fn build(self) -> ::std::result::Result<super::super::types::ImageBlock, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::ImageBlock {
             format: self.format.ok_or_else(|| {
@@ -106,12 +105,7 @@ impl ImageBlockBuilder {
                     "format was not specified but it is required when building ImageBlock",
                 )
             })?,
-            source: self.source.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "source",
-                    "source was not specified but it is required when building ImageBlock",
-                )
-            })?,
+            source: self.source,
             error: self.error,
         })
     }

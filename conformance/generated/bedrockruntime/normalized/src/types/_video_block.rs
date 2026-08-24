@@ -7,7 +7,7 @@ pub struct VideoBlock {
     /// <p>The block's format.</p>
     pub format: super::super::types::VideoFormat,
     /// <p>The block's source.</p>
-    pub source: super::super::types::VideoSource,
+    pub source: ::std::option::Option<super::super::types::VideoSource>,
 }
 impl VideoBlock {
     /// <p>The block's format.</p>
@@ -15,8 +15,8 @@ impl VideoBlock {
         &self.format
     }
     /// <p>The block's source.</p>
-    pub fn source(&self) -> &super::super::types::VideoSource {
-        &self.source
+    pub fn source(&self) -> ::std::option::Option<&super::super::types::VideoSource> {
+        self.source.as_ref()
     }
 }
 impl VideoBlock {
@@ -67,7 +67,6 @@ impl VideoBlockBuilder {
     /// Consumes the builder and constructs a [`VideoBlock`](crate::types::VideoBlock).
     /// This method will fail if any of the following fields are not set:
     /// - [`format`](crate::types::builders::VideoBlockBuilder::format)
-    /// - [`source`](crate::types::builders::VideoBlockBuilder::source)
     pub fn build(self) -> ::std::result::Result<super::super::types::VideoBlock, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::VideoBlock {
             format: self.format.ok_or_else(|| {
@@ -76,12 +75,7 @@ impl VideoBlockBuilder {
                     "format was not specified but it is required when building VideoBlock",
                 )
             })?,
-            source: self.source.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "source",
-                    "source was not specified but it is required when building VideoBlock",
-                )
-            })?,
+            source: self.source,
         })
     }
 }

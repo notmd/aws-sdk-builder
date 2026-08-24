@@ -7,7 +7,7 @@ pub struct OutputFormat {
     /// <p>The type of structured output format.</p>
     pub r#type: super::super::types::OutputFormatType,
     /// <p>The structure that the model's output must adhere to.</p>
-    pub structure: super::super::types::OutputFormatStructure,
+    pub structure: ::std::option::Option<super::super::types::OutputFormatStructure>,
 }
 impl OutputFormat {
     /// <p>The type of structured output format.</p>
@@ -15,8 +15,8 @@ impl OutputFormat {
         &self.r#type
     }
     /// <p>The structure that the model's output must adhere to.</p>
-    pub fn structure(&self) -> &super::super::types::OutputFormatStructure {
-        &self.structure
+    pub fn structure(&self) -> ::std::option::Option<&super::super::types::OutputFormatStructure> {
+        self.structure.as_ref()
     }
 }
 impl ::std::fmt::Debug for OutputFormat {
@@ -75,7 +75,6 @@ impl OutputFormatBuilder {
     /// Consumes the builder and constructs a [`OutputFormat`](crate::types::OutputFormat).
     /// This method will fail if any of the following fields are not set:
     /// - [`r#type`](crate::types::builders::OutputFormatBuilder::type)
-    /// - [`structure`](crate::types::builders::OutputFormatBuilder::structure)
     pub fn build(self) -> ::std::result::Result<super::super::types::OutputFormat, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::OutputFormat {
             r#type: self.r#type.ok_or_else(|| {
@@ -84,12 +83,7 @@ impl OutputFormatBuilder {
                     "r#type was not specified but it is required when building OutputFormat",
                 )
             })?,
-            structure: self.structure.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "structure",
-                    "structure was not specified but it is required when building OutputFormat",
-                )
-            })?,
+            structure: self.structure,
         })
     }
 }
