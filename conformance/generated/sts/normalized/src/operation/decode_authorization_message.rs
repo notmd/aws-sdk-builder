@@ -141,9 +141,17 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DecodeA
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                 super::super::operation::decode_authorization_message::DecodeAuthorizationMessageError,
             >::new())
-            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                super::super::operation::decode_authorization_message::DecodeAuthorizationMessageError,
-            >::new());
+            .with_retry_classifier(
+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+                    super::super::operation::decode_authorization_message::DecodeAuthorizationMessageError,
+                >::builder()
+                .transient_errors({
+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
+                    transient_errors.push("IDPCommunicationError");
+                    ::std::borrow::Cow::Owned(transient_errors)
+                })
+                .build(),
+            );
 
         ::std::borrow::Cow::Owned(rcb)
     }

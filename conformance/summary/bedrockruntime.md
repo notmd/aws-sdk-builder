@@ -9586,14 +9586,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/error/_model_not_ready_exception.rs
 +++ generated/src/types/error/_model_not_ready_exception.rs
-@@ -9,10 +9,6 @@
-     pub(crate) meta: ::aws_smithy_types::error::ErrorMetadata,
- }
+@@ -11,8 +11,10 @@
  impl ModelNotReadyException {
--    /// Returns `Some(ErrorKind)` if the error is retryable. Otherwise, returns `None`.
--    pub fn retryable_error_kind(&self) -> ::aws_smithy_types::retry::ErrorKind {
+     /// Returns `Some(ErrorKind)` if the error is retryable. Otherwise, returns `None`.
+     pub fn retryable_error_kind(&self) -> ::aws_smithy_types::retry::ErrorKind {
 -        ::aws_smithy_types::retry::ErrorKind::ClientError
--    }
++        ::aws_smithy_types::retry::ErrorKind::ServerError
+     }
++}
++impl ModelNotReadyException {
      /// Returns the error message.
      pub fn message(&self) -> ::std::option::Option<&str> {
          self.message.as_deref()

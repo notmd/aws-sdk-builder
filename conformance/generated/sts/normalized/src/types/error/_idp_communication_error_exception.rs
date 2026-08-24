@@ -9,6 +9,12 @@ pub struct IdpCommunicationErrorException {
     pub(crate) meta: ::aws_smithy_types::error::ErrorMetadata,
 }
 impl IdpCommunicationErrorException {
+    /// Returns `Some(ErrorKind)` if the error is retryable. Otherwise, returns `None`.
+    pub fn retryable_error_kind(&self) -> ::aws_smithy_types::retry::ErrorKind {
+        ::aws_smithy_types::retry::ErrorKind::ServerError
+    }
+}
+impl IdpCommunicationErrorException {
     /// Returns the error message.
     pub fn message(&self) -> ::std::option::Option<&str> {
         self.message.as_deref()

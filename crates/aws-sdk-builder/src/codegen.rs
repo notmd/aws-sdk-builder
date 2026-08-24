@@ -4102,6 +4102,23 @@ fn service_sdk_id(selected: &SelectedModel) -> String {
         .to_owned()
 }
 
+/// Smithy-RS's STS decorator applies a small set of model-derived customizations
+/// to the service namespace rather than branching on individual operations.
+fn is_sts_service(selected: &SelectedModel) -> bool {
+    selected
+        .model
+        .service_shape_id
+        .starts_with("com.amazonaws.sts#")
+}
+
+fn is_sts_idp_communication_error(selected: &SelectedModel, shape_id: &str) -> bool {
+    is_sts_service(selected) && terminal(shape_id) == "IDPCommunicationErrorException"
+}
+
+fn error_shape_is_retryable(selected: &SelectedModel, shape_id: &str, shape: &Value) -> bool {
+    has_trait(shape, "smithy.api#retryable") || is_sts_idp_communication_error(selected, shape_id)
+}
+
 fn operation_has_telemetry_members(selected: &SelectedModel, operation: &Value) -> bool {
     let Some(input_shape) = operation
         .get("input")
@@ -4691,7 +4708,11 @@ fn render_standalone_runtime_plugin(
     } else {
         String::new()
     };
-    let aws_error_classifier = if disable_sigv4_overrides {
+    let aws_error_classifier = if is_sts_service(selected) {
+        format!(
+            "::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<{error_path}>::builder().transient_errors({{\n                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();\n                                            transient_errors.push(\"IDPCommunicationError\");\n                                            ::std::borrow::Cow::Owned(transient_errors)\n                                            }}).build()"
+        )
+    } else if disable_sigv4_overrides {
         format!(
             "::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<{error_path}>::builder().transient_errors({{\n                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();\n                                            transient_errors.push(\"InternalError\");\n                                            ::std::borrow::Cow::Owned(transient_errors)\n                                            }}).build()"
         )
@@ -5751,7 +5772,7 @@ fn render_standalone_operation_error(
                 .model
                 .shapes
                 .get::<str>(*error)
-                .is_some_and(|shape| has_trait(shape, "smithy.api#retryable"))
+                .is_some_and(|shape| error_shape_is_retryable(selected, error, shape))
         })
         .map(|error| {
             format!(
@@ -13181,6 +13202,14 @@ fn render_structure_accessors(
         }
         writeln!(output, "{padding}}}").unwrap();
     }
+    if is_error && error_shape_is_retryable(selected, name, shape) {
+        writeln!(
+            output,
+            "{padding}impl {} {{\n{padding}    /// Returns `Some(ErrorKind)` if the error is retryable. Otherwise, returns `None`.\n{padding}    pub fn retryable_error_kind(&self) -> ::aws_smithy_types::retry::ErrorKind {{\n{padding}        ::aws_smithy_types::retry::ErrorKind::ServerError\n{padding}    }}\n{padding}}}",
+            rust_type_name(name)
+        )
+        .unwrap();
+    }
     if is_error {
         let (message_name, message_required) = error_message_member(shape)
             .map(|(name, member)| {
@@ -15788,6 +15817,57 @@ mod tests {
         assert!(operation_uses_sigv4(
             &selected,
             &serde_json::json!({"traits": {"smithy.api#auth": ["aws.auth#sigv4"]}})
+        ));
+    }
+
+    #[test]
+    fn sts_idp_error_uses_the_retryable_server_error_customization() {
+        let metadata = ServiceMetadata {
+            key: "sts",
+            filename: "model.json",
+            module_name: "aws_sdk_sts",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "com.amazonaws.sts#Service": {
+                        "type": "service",
+                        "version": "2011-06-15",
+                        "operations": ["com.amazonaws.sts#Op"],
+                        "traits": {
+                            "aws.auth#sigv4": {"name": "sts"},
+                            "aws.protocols#awsQuery": {}
+                        }
+                    },
+                    "com.amazonaws.sts#Op": {
+                        "type": "operation",
+                        "output": {"target": "smithy.api#Unit"},
+                        "errors": [{"target": "com.amazonaws.sts#IDPCommunicationErrorException"}]
+                    },
+                    "com.amazonaws.sts#IDPCommunicationErrorException": {
+                        "type": "structure",
+                        "members": {},
+                        "traits": {"smithy.api#error": "client"}
+                    },
+                    "smithy.api#Unit": {"type": "structure", "members": {}}
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let error = selected
+            .model
+            .shapes
+            .get("com.amazonaws.sts#IDPCommunicationErrorException")
+            .unwrap();
+
+        assert!(is_sts_service(&selected));
+        assert!(error_shape_is_retryable(
+            &selected,
+            "com.amazonaws.sts#IDPCommunicationErrorException",
+            error
         ));
     }
 
