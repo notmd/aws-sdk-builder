@@ -31311,7 +31311,7 @@ pub fn de_add_permission_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::add_permission::AddPermissionError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::add_permission::AddPermissionError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -31339,7 +31339,7 @@ pub fn de_add_permission_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::add_permission::AddPermissionError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::add_permission::AddPermissionError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -31458,7 +31458,7 @@ pub fn de_cancel_message_move_task_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::cancel_message_move_task::CancelMessageMoveTaskError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::cancel_message_move_task::CancelMessageMoveTaskError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -31587,7 +31587,7 @@ pub fn de_change_message_visibility_http_error(
             }
             tmp
         }),
-        "MessageNotInflight" => super::super::operation::change_message_visibility::ChangeMessageVisibilityError::MessageNotInflight({
+        "AWS.SimpleQueueService.MessageNotInflight" => super::super::operation::change_message_visibility::ChangeMessageVisibilityError::MessageNotInflight({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -31601,7 +31601,7 @@ pub fn de_change_message_visibility_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::change_message_visibility::ChangeMessageVisibilityError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::change_message_visibility::ChangeMessageVisibilityError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -31643,7 +31643,7 @@ pub fn de_change_message_visibility_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::change_message_visibility::ChangeMessageVisibilityError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::change_message_visibility::ChangeMessageVisibilityError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -31706,7 +31706,7 @@ pub fn de_change_message_visibility_batch_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "BatchEntryIdsNotDistinct" => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::BatchEntryIdsNotDistinct({
+        "AWS.SimpleQueueService.BatchEntryIdsNotDistinct" => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::BatchEntryIdsNotDistinct({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -31720,7 +31720,7 @@ pub fn de_change_message_visibility_batch_http_error(
             }
             tmp
         }),
-        "EmptyBatchRequest" => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::EmptyBatchRequest({
+        "AWS.SimpleQueueService.EmptyBatchRequest" => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::EmptyBatchRequest({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -31748,7 +31748,7 @@ pub fn de_change_message_visibility_batch_http_error(
             }
             tmp
         }),
-        "InvalidBatchEntryId" => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::InvalidBatchEntryId({
+        "AWS.SimpleQueueService.InvalidBatchEntryId" => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::InvalidBatchEntryId({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -31776,7 +31776,7 @@ pub fn de_change_message_visibility_batch_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -31804,7 +31804,7 @@ pub fn de_change_message_visibility_batch_http_error(
             }
             tmp
         }),
-        "TooManyEntriesInBatchRequest" => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::TooManyEntriesInBatchRequest({
+        "AWS.SimpleQueueService.TooManyEntriesInBatchRequest" => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::TooManyEntriesInBatchRequest({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -31818,7 +31818,7 @@ pub fn de_change_message_visibility_batch_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -31978,7 +31978,7 @@ pub fn de_create_queue_http_error(
             }
             tmp
         }),
-        "QueueDeletedRecently" => super::super::operation::create_queue::CreateQueueError::QueueDeletedRecently({
+        "AWS.SimpleQueueService.QueueDeletedRecently" => super::super::operation::create_queue::CreateQueueError::QueueDeletedRecently({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -31992,7 +31992,7 @@ pub fn de_create_queue_http_error(
             }
             tmp
         }),
-        "QueueNameExists" => super::super::operation::create_queue::CreateQueueError::QueueNameExists({
+        "QueueAlreadyExists" => super::super::operation::create_queue::CreateQueueError::QueueNameExists({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -32020,7 +32020,7 @@ pub fn de_create_queue_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::create_queue::CreateQueueError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::create_queue::CreateQueueError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -32163,7 +32163,7 @@ pub fn de_delete_message_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::delete_message::DeleteMessageError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::delete_message::DeleteMessageError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -32205,7 +32205,7 @@ pub fn de_delete_message_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::delete_message::DeleteMessageError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::delete_message::DeleteMessageError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -32268,7 +32268,7 @@ pub fn de_delete_message_batch_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "BatchEntryIdsNotDistinct" => super::super::operation::delete_message_batch::DeleteMessageBatchError::BatchEntryIdsNotDistinct({
+        "AWS.SimpleQueueService.BatchEntryIdsNotDistinct" => super::super::operation::delete_message_batch::DeleteMessageBatchError::BatchEntryIdsNotDistinct({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -32282,7 +32282,7 @@ pub fn de_delete_message_batch_http_error(
             }
             tmp
         }),
-        "EmptyBatchRequest" => super::super::operation::delete_message_batch::DeleteMessageBatchError::EmptyBatchRequest({
+        "AWS.SimpleQueueService.EmptyBatchRequest" => super::super::operation::delete_message_batch::DeleteMessageBatchError::EmptyBatchRequest({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -32310,7 +32310,7 @@ pub fn de_delete_message_batch_http_error(
             }
             tmp
         }),
-        "InvalidBatchEntryId" => super::super::operation::delete_message_batch::DeleteMessageBatchError::InvalidBatchEntryId({
+        "AWS.SimpleQueueService.InvalidBatchEntryId" => super::super::operation::delete_message_batch::DeleteMessageBatchError::InvalidBatchEntryId({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -32338,7 +32338,7 @@ pub fn de_delete_message_batch_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::delete_message_batch::DeleteMessageBatchError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::delete_message_batch::DeleteMessageBatchError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -32366,7 +32366,7 @@ pub fn de_delete_message_batch_http_error(
             }
             tmp
         }),
-        "TooManyEntriesInBatchRequest" => super::super::operation::delete_message_batch::DeleteMessageBatchError::TooManyEntriesInBatchRequest({
+        "AWS.SimpleQueueService.TooManyEntriesInBatchRequest" => super::super::operation::delete_message_batch::DeleteMessageBatchError::TooManyEntriesInBatchRequest({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -32380,7 +32380,7 @@ pub fn de_delete_message_batch_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::delete_message_batch::DeleteMessageBatchError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::delete_message_batch::DeleteMessageBatchError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -32512,7 +32512,7 @@ pub fn de_delete_queue_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::delete_queue::DeleteQueueError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::delete_queue::DeleteQueueError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -32540,7 +32540,7 @@ pub fn de_delete_queue_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::delete_queue::DeleteQueueError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::delete_queue::DeleteQueueError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -32645,7 +32645,7 @@ pub fn de_get_queue_attributes_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::get_queue_attributes::GetQueueAttributesError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::get_queue_attributes::GetQueueAttributesError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -32673,7 +32673,7 @@ pub fn de_get_queue_attributes_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::get_queue_attributes::GetQueueAttributesError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::get_queue_attributes::GetQueueAttributesError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -32800,7 +32800,7 @@ pub fn de_get_queue_url_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::get_queue_url::GetQueueUrlError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::get_queue_url::GetQueueUrlError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -32828,7 +32828,7 @@ pub fn de_get_queue_url_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::get_queue_url::GetQueueUrlError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::get_queue_url::GetQueueUrlError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -32957,7 +32957,7 @@ pub fn de_list_dead_letter_source_queues_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -32985,7 +32985,7 @@ pub fn de_list_dead_letter_source_queues_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -33147,7 +33147,7 @@ pub fn de_list_message_move_tasks_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::list_message_move_tasks::ListMessageMoveTasksError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::list_message_move_tasks::ListMessageMoveTasksError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -33274,7 +33274,7 @@ pub fn de_list_queue_tags_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::list_queue_tags::ListQueueTagsError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::list_queue_tags::ListQueueTagsError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -33302,7 +33302,7 @@ pub fn de_list_queue_tags_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::list_queue_tags::ListQueueTagsError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::list_queue_tags::ListQueueTagsError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -33443,7 +33443,7 @@ pub fn de_list_queues_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::list_queues::ListQueuesError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::list_queues::ListQueuesError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -33575,7 +33575,7 @@ pub fn de_purge_queue_http_error(
             }
             tmp
         }),
-        "PurgeQueueInProgress" => super::super::operation::purge_queue::PurgeQueueError::PurgeQueueInProgress({
+        "AWS.SimpleQueueService.PurgeQueueInProgress" => super::super::operation::purge_queue::PurgeQueueError::PurgeQueueInProgress({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -33589,7 +33589,7 @@ pub fn de_purge_queue_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::purge_queue::PurgeQueueError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::purge_queue::PurgeQueueError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -33617,7 +33617,7 @@ pub fn de_purge_queue_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::purge_queue::PurgeQueueError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::purge_queue::PurgeQueueError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -33708,7 +33708,7 @@ pub fn de_receive_message_http_error(
             }
             tmp
         }),
-        "KmsAccessDenied" => super::super::operation::receive_message::ReceiveMessageError::KmsAccessDenied({
+        "KMS.AccessDeniedException" => super::super::operation::receive_message::ReceiveMessageError::KmsAccessDenied({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -33722,7 +33722,7 @@ pub fn de_receive_message_http_error(
             }
             tmp
         }),
-        "KmsDisabled" => super::super::operation::receive_message::ReceiveMessageError::KmsDisabled({
+        "KMS.DisabledException" => super::super::operation::receive_message::ReceiveMessageError::KmsDisabled({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -33736,7 +33736,7 @@ pub fn de_receive_message_http_error(
             }
             tmp
         }),
-        "KmsInvalidKeyUsage" => super::super::operation::receive_message::ReceiveMessageError::KmsInvalidKeyUsage({
+        "KMS.InvalidKeyUsageException" => super::super::operation::receive_message::ReceiveMessageError::KmsInvalidKeyUsage({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -33750,7 +33750,7 @@ pub fn de_receive_message_http_error(
             }
             tmp
         }),
-        "KmsInvalidState" => super::super::operation::receive_message::ReceiveMessageError::KmsInvalidState({
+        "KMS.InvalidStateException" => super::super::operation::receive_message::ReceiveMessageError::KmsInvalidState({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -33764,7 +33764,7 @@ pub fn de_receive_message_http_error(
             }
             tmp
         }),
-        "KmsNotFound" => super::super::operation::receive_message::ReceiveMessageError::KmsNotFound({
+        "KMS.NotFoundException" => super::super::operation::receive_message::ReceiveMessageError::KmsNotFound({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -33778,7 +33778,7 @@ pub fn de_receive_message_http_error(
             }
             tmp
         }),
-        "KmsOptInRequired" => super::super::operation::receive_message::ReceiveMessageError::KmsOptInRequired({
+        "KMS.OptInRequired" => super::super::operation::receive_message::ReceiveMessageError::KmsOptInRequired({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -33792,7 +33792,7 @@ pub fn de_receive_message_http_error(
             }
             tmp
         }),
-        "KmsThrottled" => super::super::operation::receive_message::ReceiveMessageError::KmsThrottled({
+        "KMS.ThrottlingException" => super::super::operation::receive_message::ReceiveMessageError::KmsThrottled({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -33820,7 +33820,7 @@ pub fn de_receive_message_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::receive_message::ReceiveMessageError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::receive_message::ReceiveMessageError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -33848,7 +33848,7 @@ pub fn de_receive_message_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::receive_message::ReceiveMessageError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::receive_message::ReceiveMessageError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -33975,7 +33975,7 @@ pub fn de_remove_permission_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::remove_permission::RemovePermissionError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::remove_permission::RemovePermissionError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34003,7 +34003,7 @@ pub fn de_remove_permission_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::remove_permission::RemovePermissionError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::remove_permission::RemovePermissionError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34108,7 +34108,7 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "KmsAccessDenied" => super::super::operation::send_message::SendMessageError::KmsAccessDenied({
+        "KMS.AccessDeniedException" => super::super::operation::send_message::SendMessageError::KmsAccessDenied({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34122,7 +34122,7 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "KmsDisabled" => super::super::operation::send_message::SendMessageError::KmsDisabled({
+        "KMS.DisabledException" => super::super::operation::send_message::SendMessageError::KmsDisabled({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34136,7 +34136,7 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "KmsInvalidKeyUsage" => super::super::operation::send_message::SendMessageError::KmsInvalidKeyUsage({
+        "KMS.InvalidKeyUsageException" => super::super::operation::send_message::SendMessageError::KmsInvalidKeyUsage({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34150,7 +34150,7 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "KmsInvalidState" => super::super::operation::send_message::SendMessageError::KmsInvalidState({
+        "KMS.InvalidStateException" => super::super::operation::send_message::SendMessageError::KmsInvalidState({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34164,7 +34164,7 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "KmsNotFound" => super::super::operation::send_message::SendMessageError::KmsNotFound({
+        "KMS.NotFoundException" => super::super::operation::send_message::SendMessageError::KmsNotFound({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34178,7 +34178,7 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "KmsOptInRequired" => super::super::operation::send_message::SendMessageError::KmsOptInRequired({
+        "KMS.OptInRequired" => super::super::operation::send_message::SendMessageError::KmsOptInRequired({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34192,7 +34192,7 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "KmsThrottled" => super::super::operation::send_message::SendMessageError::KmsThrottled({
+        "KMS.ThrottlingException" => super::super::operation::send_message::SendMessageError::KmsThrottled({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34206,7 +34206,7 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::send_message::SendMessageError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::send_message::SendMessageError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34234,7 +34234,7 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::send_message::SendMessageError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::send_message::SendMessageError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34355,7 +34355,7 @@ pub fn de_send_message_batch_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "BatchEntryIdsNotDistinct" => super::super::operation::send_message_batch::SendMessageBatchError::BatchEntryIdsNotDistinct({
+        "AWS.SimpleQueueService.BatchEntryIdsNotDistinct" => super::super::operation::send_message_batch::SendMessageBatchError::BatchEntryIdsNotDistinct({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34369,7 +34369,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "BatchRequestTooLong" => super::super::operation::send_message_batch::SendMessageBatchError::BatchRequestTooLong({
+        "AWS.SimpleQueueService.BatchRequestTooLong" => super::super::operation::send_message_batch::SendMessageBatchError::BatchRequestTooLong({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34383,7 +34383,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "EmptyBatchRequest" => super::super::operation::send_message_batch::SendMessageBatchError::EmptyBatchRequest({
+        "AWS.SimpleQueueService.EmptyBatchRequest" => super::super::operation::send_message_batch::SendMessageBatchError::EmptyBatchRequest({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34411,7 +34411,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "InvalidBatchEntryId" => super::super::operation::send_message_batch::SendMessageBatchError::InvalidBatchEntryId({
+        "AWS.SimpleQueueService.InvalidBatchEntryId" => super::super::operation::send_message_batch::SendMessageBatchError::InvalidBatchEntryId({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34439,7 +34439,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "KmsAccessDenied" => super::super::operation::send_message_batch::SendMessageBatchError::KmsAccessDenied({
+        "KMS.AccessDeniedException" => super::super::operation::send_message_batch::SendMessageBatchError::KmsAccessDenied({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34453,7 +34453,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "KmsDisabled" => super::super::operation::send_message_batch::SendMessageBatchError::KmsDisabled({
+        "KMS.DisabledException" => super::super::operation::send_message_batch::SendMessageBatchError::KmsDisabled({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34467,7 +34467,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "KmsInvalidKeyUsage" => super::super::operation::send_message_batch::SendMessageBatchError::KmsInvalidKeyUsage({
+        "KMS.InvalidKeyUsageException" => super::super::operation::send_message_batch::SendMessageBatchError::KmsInvalidKeyUsage({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34481,7 +34481,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "KmsInvalidState" => super::super::operation::send_message_batch::SendMessageBatchError::KmsInvalidState({
+        "KMS.InvalidStateException" => super::super::operation::send_message_batch::SendMessageBatchError::KmsInvalidState({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34495,7 +34495,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "KmsNotFound" => super::super::operation::send_message_batch::SendMessageBatchError::KmsNotFound({
+        "KMS.NotFoundException" => super::super::operation::send_message_batch::SendMessageBatchError::KmsNotFound({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34509,7 +34509,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "KmsOptInRequired" => super::super::operation::send_message_batch::SendMessageBatchError::KmsOptInRequired({
+        "KMS.OptInRequired" => super::super::operation::send_message_batch::SendMessageBatchError::KmsOptInRequired({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34523,7 +34523,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "KmsThrottled" => super::super::operation::send_message_batch::SendMessageBatchError::KmsThrottled({
+        "KMS.ThrottlingException" => super::super::operation::send_message_batch::SendMessageBatchError::KmsThrottled({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34537,7 +34537,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::send_message_batch::SendMessageBatchError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::send_message_batch::SendMessageBatchError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34565,7 +34565,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "TooManyEntriesInBatchRequest" => super::super::operation::send_message_batch::SendMessageBatchError::TooManyEntriesInBatchRequest({
+        "AWS.SimpleQueueService.TooManyEntriesInBatchRequest" => super::super::operation::send_message_batch::SendMessageBatchError::TooManyEntriesInBatchRequest({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34579,7 +34579,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::send_message_batch::SendMessageBatchError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::send_message_batch::SendMessageBatchError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34753,7 +34753,7 @@ pub fn de_set_queue_attributes_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::set_queue_attributes::SetQueueAttributesError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::set_queue_attributes::SetQueueAttributesError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34781,7 +34781,7 @@ pub fn de_set_queue_attributes_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::set_queue_attributes::SetQueueAttributesError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::set_queue_attributes::SetQueueAttributesError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -34900,7 +34900,7 @@ pub fn de_start_message_move_task_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::start_message_move_task::StartMessageMoveTaskError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::start_message_move_task::StartMessageMoveTaskError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -35029,7 +35029,7 @@ pub fn de_tag_queue_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::tag_queue::TagQueueError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::tag_queue::TagQueueError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -35057,7 +35057,7 @@ pub fn de_tag_queue_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::tag_queue::TagQueueError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::tag_queue::TagQueueError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -35148,7 +35148,7 @@ pub fn de_untag_queue_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::untag_queue::UntagQueueError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::untag_queue::UntagQueueError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -35176,7 +35176,7 @@ pub fn de_untag_queue_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::untag_queue::UntagQueueError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::untag_queue::UntagQueueError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

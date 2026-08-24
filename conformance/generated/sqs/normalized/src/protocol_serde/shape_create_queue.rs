@@ -77,7 +77,7 @@ pub fn de_create_queue_http_error(
             }
             tmp
         }),
-        "QueueDeletedRecently" => super::super::operation::create_queue::CreateQueueError::QueueDeletedRecently({
+        "AWS.SimpleQueueService.QueueDeletedRecently" => super::super::operation::create_queue::CreateQueueError::QueueDeletedRecently({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -92,7 +92,7 @@ pub fn de_create_queue_http_error(
             }
             tmp
         }),
-        "QueueNameExists" => super::super::operation::create_queue::CreateQueueError::QueueNameExists({
+        "QueueAlreadyExists" => super::super::operation::create_queue::CreateQueueError::QueueNameExists({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -122,7 +122,7 @@ pub fn de_create_queue_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::create_queue::CreateQueueError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::create_queue::CreateQueueError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

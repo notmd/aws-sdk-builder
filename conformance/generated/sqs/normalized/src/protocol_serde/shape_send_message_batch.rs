@@ -17,7 +17,7 @@ pub fn de_send_message_batch_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "BatchEntryIdsNotDistinct" => super::super::operation::send_message_batch::SendMessageBatchError::BatchEntryIdsNotDistinct({
+        "AWS.SimpleQueueService.BatchEntryIdsNotDistinct" => super::super::operation::send_message_batch::SendMessageBatchError::BatchEntryIdsNotDistinct({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -32,7 +32,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "BatchRequestTooLong" => super::super::operation::send_message_batch::SendMessageBatchError::BatchRequestTooLong({
+        "AWS.SimpleQueueService.BatchRequestTooLong" => super::super::operation::send_message_batch::SendMessageBatchError::BatchRequestTooLong({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -47,7 +47,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "EmptyBatchRequest" => super::super::operation::send_message_batch::SendMessageBatchError::EmptyBatchRequest({
+        "AWS.SimpleQueueService.EmptyBatchRequest" => super::super::operation::send_message_batch::SendMessageBatchError::EmptyBatchRequest({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -77,7 +77,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "InvalidBatchEntryId" => super::super::operation::send_message_batch::SendMessageBatchError::InvalidBatchEntryId({
+        "AWS.SimpleQueueService.InvalidBatchEntryId" => super::super::operation::send_message_batch::SendMessageBatchError::InvalidBatchEntryId({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -107,7 +107,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "KmsAccessDenied" => super::super::operation::send_message_batch::SendMessageBatchError::KmsAccessDenied({
+        "KMS.AccessDeniedException" => super::super::operation::send_message_batch::SendMessageBatchError::KmsAccessDenied({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -122,7 +122,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "KmsDisabled" => super::super::operation::send_message_batch::SendMessageBatchError::KmsDisabled({
+        "KMS.DisabledException" => super::super::operation::send_message_batch::SendMessageBatchError::KmsDisabled({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -137,7 +137,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "KmsInvalidKeyUsage" => super::super::operation::send_message_batch::SendMessageBatchError::KmsInvalidKeyUsage({
+        "KMS.InvalidKeyUsageException" => super::super::operation::send_message_batch::SendMessageBatchError::KmsInvalidKeyUsage({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -152,7 +152,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "KmsInvalidState" => super::super::operation::send_message_batch::SendMessageBatchError::KmsInvalidState({
+        "KMS.InvalidStateException" => super::super::operation::send_message_batch::SendMessageBatchError::KmsInvalidState({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -167,7 +167,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "KmsNotFound" => super::super::operation::send_message_batch::SendMessageBatchError::KmsNotFound({
+        "KMS.NotFoundException" => super::super::operation::send_message_batch::SendMessageBatchError::KmsNotFound({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -182,7 +182,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "KmsOptInRequired" => super::super::operation::send_message_batch::SendMessageBatchError::KmsOptInRequired({
+        "KMS.OptInRequired" => super::super::operation::send_message_batch::SendMessageBatchError::KmsOptInRequired({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -197,7 +197,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "KmsThrottled" => super::super::operation::send_message_batch::SendMessageBatchError::KmsThrottled({
+        "KMS.ThrottlingException" => super::super::operation::send_message_batch::SendMessageBatchError::KmsThrottled({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -212,7 +212,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::send_message_batch::SendMessageBatchError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::send_message_batch::SendMessageBatchError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -242,25 +242,27 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "TooManyEntriesInBatchRequest" => super::super::operation::send_message_batch::SendMessageBatchError::TooManyEntriesInBatchRequest({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "AWS.SimpleQueueService.TooManyEntriesInBatchRequest" => {
+            super::super::operation::send_message_batch::SendMessageBatchError::TooManyEntriesInBatchRequest({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::TooManyEntriesInBatchRequestBuilder::default();
-                output = super::super::protocol_serde::shape_too_many_entries_in_batch_request::de_too_many_entries_in_batch_request_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::send_message_batch::SendMessageBatchError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "UnsupportedOperation" => super::super::operation::send_message_batch::SendMessageBatchError::UnsupportedOperation({
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::TooManyEntriesInBatchRequestBuilder::default();
+                    output = super::super::protocol_serde::shape_too_many_entries_in_batch_request::de_too_many_entries_in_batch_request_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::send_message_batch::SendMessageBatchError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::send_message_batch::SendMessageBatchError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

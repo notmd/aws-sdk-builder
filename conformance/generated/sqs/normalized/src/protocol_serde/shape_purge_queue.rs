@@ -47,7 +47,7 @@ pub fn de_purge_queue_http_error(
             }
             tmp
         }),
-        "PurgeQueueInProgress" => super::super::operation::purge_queue::PurgeQueueError::PurgeQueueInProgress({
+        "AWS.SimpleQueueService.PurgeQueueInProgress" => super::super::operation::purge_queue::PurgeQueueError::PurgeQueueInProgress({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -62,7 +62,7 @@ pub fn de_purge_queue_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::purge_queue::PurgeQueueError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::purge_queue::PurgeQueueError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -92,7 +92,7 @@ pub fn de_purge_queue_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::purge_queue::PurgeQueueError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::purge_queue::PurgeQueueError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

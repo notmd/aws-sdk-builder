@@ -50,21 +50,23 @@ pub fn de_list_dead_letter_source_queues_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::QueueDoesNotExist({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "AWS.SimpleQueueService.NonExistentQueue" => {
+            super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::QueueDoesNotExist({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::QueueDoesNotExistBuilder::default();
-                output = super::super::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
-                    .map_err(super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::QueueDoesNotExistBuilder::default();
+                    output = super::super::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
+                        .map_err(super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "RequestThrottled" => super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::RequestThrottled({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -80,21 +82,23 @@ pub fn de_list_dead_letter_source_queues_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::UnsupportedOperation({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "AWS.SimpleQueueService.UnsupportedOperation" => {
+            super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::UnsupportedOperation({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::UnsupportedOperationBuilder::default();
-                output = super::super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
-                    .map_err(super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::UnsupportedOperationBuilder::default();
+                    output = super::super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+                        .map_err(super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::generic(generic),
     })
 }

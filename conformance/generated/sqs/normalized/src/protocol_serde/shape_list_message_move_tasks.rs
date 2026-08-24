@@ -80,21 +80,23 @@ pub fn de_list_message_move_tasks_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::list_message_move_tasks::ListMessageMoveTasksError::UnsupportedOperation({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "AWS.SimpleQueueService.UnsupportedOperation" => {
+            super::super::operation::list_message_move_tasks::ListMessageMoveTasksError::UnsupportedOperation({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::UnsupportedOperationBuilder::default();
-                output = super::super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
-                    .map_err(super::super::operation::list_message_move_tasks::ListMessageMoveTasksError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::UnsupportedOperationBuilder::default();
+                    output = super::super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+                        .map_err(super::super::operation::list_message_move_tasks::ListMessageMoveTasksError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => super::super::operation::list_message_move_tasks::ListMessageMoveTasksError::generic(generic),
     })
 }

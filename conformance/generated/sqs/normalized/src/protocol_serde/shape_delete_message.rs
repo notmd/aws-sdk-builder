@@ -62,7 +62,7 @@ pub fn de_delete_message_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::delete_message::DeleteMessageError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::delete_message::DeleteMessageError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -107,7 +107,7 @@ pub fn de_delete_message_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::delete_message::DeleteMessageError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::delete_message::DeleteMessageError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

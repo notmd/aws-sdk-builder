@@ -65,7 +65,7 @@ pub fn de_get_queue_attributes_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::get_queue_attributes::GetQueueAttributesError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::get_queue_attributes::GetQueueAttributesError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -95,7 +95,7 @@ pub fn de_get_queue_attributes_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::get_queue_attributes::GetQueueAttributesError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::get_queue_attributes::GetQueueAttributesError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

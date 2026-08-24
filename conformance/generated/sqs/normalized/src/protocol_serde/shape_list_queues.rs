@@ -62,7 +62,7 @@ pub fn de_list_queues_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::list_queues::ListQueuesError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::list_queues::ListQueuesError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

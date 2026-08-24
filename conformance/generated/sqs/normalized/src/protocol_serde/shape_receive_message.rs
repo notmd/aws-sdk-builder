@@ -47,7 +47,7 @@ pub fn de_receive_message_http_error(
             }
             tmp
         }),
-        "KmsAccessDenied" => super::super::operation::receive_message::ReceiveMessageError::KmsAccessDenied({
+        "KMS.AccessDeniedException" => super::super::operation::receive_message::ReceiveMessageError::KmsAccessDenied({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -62,7 +62,7 @@ pub fn de_receive_message_http_error(
             }
             tmp
         }),
-        "KmsDisabled" => super::super::operation::receive_message::ReceiveMessageError::KmsDisabled({
+        "KMS.DisabledException" => super::super::operation::receive_message::ReceiveMessageError::KmsDisabled({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -77,7 +77,7 @@ pub fn de_receive_message_http_error(
             }
             tmp
         }),
-        "KmsInvalidKeyUsage" => super::super::operation::receive_message::ReceiveMessageError::KmsInvalidKeyUsage({
+        "KMS.InvalidKeyUsageException" => super::super::operation::receive_message::ReceiveMessageError::KmsInvalidKeyUsage({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -92,7 +92,7 @@ pub fn de_receive_message_http_error(
             }
             tmp
         }),
-        "KmsInvalidState" => super::super::operation::receive_message::ReceiveMessageError::KmsInvalidState({
+        "KMS.InvalidStateException" => super::super::operation::receive_message::ReceiveMessageError::KmsInvalidState({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -107,7 +107,7 @@ pub fn de_receive_message_http_error(
             }
             tmp
         }),
-        "KmsNotFound" => super::super::operation::receive_message::ReceiveMessageError::KmsNotFound({
+        "KMS.NotFoundException" => super::super::operation::receive_message::ReceiveMessageError::KmsNotFound({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -122,7 +122,7 @@ pub fn de_receive_message_http_error(
             }
             tmp
         }),
-        "KmsOptInRequired" => super::super::operation::receive_message::ReceiveMessageError::KmsOptInRequired({
+        "KMS.OptInRequired" => super::super::operation::receive_message::ReceiveMessageError::KmsOptInRequired({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -137,7 +137,7 @@ pub fn de_receive_message_http_error(
             }
             tmp
         }),
-        "KmsThrottled" => super::super::operation::receive_message::ReceiveMessageError::KmsThrottled({
+        "KMS.ThrottlingException" => super::super::operation::receive_message::ReceiveMessageError::KmsThrottled({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -167,7 +167,7 @@ pub fn de_receive_message_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::receive_message::ReceiveMessageError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::receive_message::ReceiveMessageError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -197,7 +197,7 @@ pub fn de_receive_message_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::receive_message::ReceiveMessageError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::receive_message::ReceiveMessageError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

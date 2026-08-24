@@ -62,7 +62,7 @@ pub fn de_add_permission_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::add_permission::AddPermissionError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::add_permission::AddPermissionError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -92,7 +92,7 @@ pub fn de_add_permission_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::add_permission::AddPermissionError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::add_permission::AddPermissionError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

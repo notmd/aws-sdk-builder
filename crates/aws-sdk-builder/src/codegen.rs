@@ -9951,10 +9951,10 @@ fn render_json_protocol_error_arm(
 ) {
     let error_name = rust_type_name(terminal(error));
     let error_module = names::rust_module_name(terminal(error));
+    let error_code = protocol_error_code(selected, error);
     writeln!(
         output,
-        "        {:?} => {error_path}::{error_name}({{",
-        terminal(error)
+        "        {error_code:?} => {error_path}::{error_name}({{",
     )
     .unwrap();
     output.push_str("            #[allow(unused_mut)]\n            let mut tmp = {\n");
@@ -12620,6 +12620,11 @@ fn render_protocol_error_arm(
 /// `HttpBindingResolver.errorCode` behavior for AWS Query. Other protocols
 /// continue to use the modeled shape name.
 fn protocol_error_code(selected: &SelectedModel, error: &str) -> String {
+    let query_protocol = service_has_protocol(selected, ProtocolKind::AwsQuery)
+        || service_has_protocol(selected, ProtocolKind::AwsQueryCompatible);
+    if !query_protocol {
+        return terminal(error).to_owned();
+    }
     selected
         .model
         .shapes
@@ -16807,12 +16812,21 @@ mod tests {
                         "type": "operation",
                         "input": {"target": "example#GetInput"},
                         "output": {"target": "smithy.api#Unit"},
+                        "errors": [{"target": "example#Oops"}],
                         "traits": {"smithy.api#http": {"method": "POST", "uri": "/", "code": 200}}
                     },
                     "example#GetInput": {
                         "type": "structure",
                         "members": {},
                         "traits": {"smithy.api#input": {}}
+                    },
+                    "example#Oops": {
+                        "type": "structure",
+                        "members": {},
+                        "traits": {
+                            "aws.protocols#awsQueryError": {"code": "Example.Oops"},
+                            "smithy.api#error": "client"
+                        }
                     }
                 }
             }"#,
@@ -16822,6 +16836,8 @@ mod tests {
         let rendered = render_standalone_operation_file(&selected, "Get");
 
         assert!(rendered.contains("HeaderName::from_static(\"x-amzn-query-mode\"), \"true\""));
+        let rendered_errors = render_json_protocol_operation_file(&selected, "Get");
+        assert!(rendered_errors.contains("\"Example.Oops\" =>"));
     }
 
     #[test]

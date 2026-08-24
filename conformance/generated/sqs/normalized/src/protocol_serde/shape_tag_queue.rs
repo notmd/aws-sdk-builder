@@ -47,7 +47,7 @@ pub fn de_tag_queue_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::tag_queue::TagQueueError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::tag_queue::TagQueueError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -77,7 +77,7 @@ pub fn de_tag_queue_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::tag_queue::TagQueueError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::tag_queue::TagQueueError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

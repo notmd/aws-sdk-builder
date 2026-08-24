@@ -4,6 +4,27 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Resolve AWS Query-compatible modeled error codes
+- State: in progress
+- Changed: JSON protocol error arms now use the model-driven AWS Query error-code
+  resolver whenever the selected service advertises `aws.protocols#awsQuery` or
+  `aws.protocols#awsQueryCompatible`. This matches Smithy-RS's compatible protocol,
+  which delegates JSON serialization while resolving errors through
+  `AwsQueryBindingResolver`; non-Query protocols continue to match shape names. A
+  focused regression covers both the compatibility marker and a modeled Query error.
+- Conformance: `just conformance` generated 15 services and 1,133 operations,
+  formatted 13,164 generated Rust files, and compared `13,168` files: `12,655`
+  matched, `508` mismatched, `4` missing, and `1` extra (`95.36%` average match).
+  This is `+23` exact files and `-23` mismatches from the `12,632/531` checkpoint;
+  SQS improved from `252/41` to `275/18`. Generation and snapshot parsing completed
+  without generated-source parse errors. The command exits 1 only because broader
+  parity gaps remain.
+- Verification: focused Query-compatible regression, `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`, formatting, and
+  `git diff --check` pass.
+- Next action: complete the verification gate, commit this checkpoint, then continue
+  with the remaining protocol, shape, and documentation parity gaps.
+
 ### Checkpoint: 2026-08-25 — Render protocol-decorator request headers
 - State: in progress
 - Changed: standalone operation request serialization now renders additional headers

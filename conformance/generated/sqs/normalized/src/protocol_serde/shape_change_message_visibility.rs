@@ -54,22 +54,24 @@ pub fn de_change_message_visibility_http_error(
             }
             tmp
         }),
-        "MessageNotInflight" => super::super::operation::change_message_visibility::ChangeMessageVisibilityError::MessageNotInflight({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "AWS.SimpleQueueService.MessageNotInflight" => {
+            super::super::operation::change_message_visibility::ChangeMessageVisibilityError::MessageNotInflight({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::MessageNotInflightBuilder::default();
-                output = super::super::protocol_serde::shape_message_not_inflight::de_message_not_inflight_json_err(_response_body, output)
-                    .map_err(super::super::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "QueueDoesNotExist" => super::super::operation::change_message_visibility::ChangeMessageVisibilityError::QueueDoesNotExist({
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::MessageNotInflightBuilder::default();
+                    output = super::super::protocol_serde::shape_message_not_inflight::de_message_not_inflight_json_err(_response_body, output)
+                        .map_err(super::super::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::change_message_visibility::ChangeMessageVisibilityError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -114,21 +116,23 @@ pub fn de_change_message_visibility_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::change_message_visibility::ChangeMessageVisibilityError::UnsupportedOperation({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "AWS.SimpleQueueService.UnsupportedOperation" => {
+            super::super::operation::change_message_visibility::ChangeMessageVisibilityError::UnsupportedOperation({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::UnsupportedOperationBuilder::default();
-                output = super::super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
-                    .map_err(super::super::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::UnsupportedOperationBuilder::default();
+                    output = super::super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+                        .map_err(super::super::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => super::super::operation::change_message_visibility::ChangeMessageVisibilityError::generic(generic),
     })
 }

@@ -20,22 +20,25 @@ pub fn de_delete_message_batch_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "BatchEntryIdsNotDistinct" => super::super::operation::delete_message_batch::DeleteMessageBatchError::BatchEntryIdsNotDistinct({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "AWS.SimpleQueueService.BatchEntryIdsNotDistinct" => {
+            super::super::operation::delete_message_batch::DeleteMessageBatchError::BatchEntryIdsNotDistinct({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::BatchEntryIdsNotDistinctBuilder::default();
-                output = super::super::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(_response_body, output)
-                    .map_err(super::super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "EmptyBatchRequest" => super::super::operation::delete_message_batch::DeleteMessageBatchError::EmptyBatchRequest({
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::BatchEntryIdsNotDistinctBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(_response_body, output)
+                            .map_err(super::super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "AWS.SimpleQueueService.EmptyBatchRequest" => super::super::operation::delete_message_batch::DeleteMessageBatchError::EmptyBatchRequest({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -65,7 +68,7 @@ pub fn de_delete_message_batch_http_error(
             }
             tmp
         }),
-        "InvalidBatchEntryId" => super::super::operation::delete_message_batch::DeleteMessageBatchError::InvalidBatchEntryId({
+        "AWS.SimpleQueueService.InvalidBatchEntryId" => super::super::operation::delete_message_batch::DeleteMessageBatchError::InvalidBatchEntryId({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -95,7 +98,7 @@ pub fn de_delete_message_batch_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::delete_message_batch::DeleteMessageBatchError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::delete_message_batch::DeleteMessageBatchError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -125,25 +128,27 @@ pub fn de_delete_message_batch_http_error(
             }
             tmp
         }),
-        "TooManyEntriesInBatchRequest" => super::super::operation::delete_message_batch::DeleteMessageBatchError::TooManyEntriesInBatchRequest({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "AWS.SimpleQueueService.TooManyEntriesInBatchRequest" => {
+            super::super::operation::delete_message_batch::DeleteMessageBatchError::TooManyEntriesInBatchRequest({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::TooManyEntriesInBatchRequestBuilder::default();
-                output = super::super::protocol_serde::shape_too_many_entries_in_batch_request::de_too_many_entries_in_batch_request_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "UnsupportedOperation" => super::super::operation::delete_message_batch::DeleteMessageBatchError::UnsupportedOperation({
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::TooManyEntriesInBatchRequestBuilder::default();
+                    output = super::super::protocol_serde::shape_too_many_entries_in_batch_request::de_too_many_entries_in_batch_request_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::delete_message_batch::DeleteMessageBatchError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

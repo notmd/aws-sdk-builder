@@ -47,7 +47,7 @@ pub fn de_untag_queue_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::untag_queue::UntagQueueError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::untag_queue::UntagQueueError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -77,7 +77,7 @@ pub fn de_untag_queue_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::untag_queue::UntagQueueError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::untag_queue::UntagQueueError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]

@@ -47,7 +47,7 @@ pub fn de_remove_permission_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => super::super::operation::remove_permission::RemovePermissionError::QueueDoesNotExist({
+        "AWS.SimpleQueueService.NonExistentQueue" => super::super::operation::remove_permission::RemovePermissionError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
@@ -77,7 +77,7 @@ pub fn de_remove_permission_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => super::super::operation::remove_permission::RemovePermissionError::UnsupportedOperation({
+        "AWS.SimpleQueueService.UnsupportedOperation" => super::super::operation::remove_permission::RemovePermissionError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
