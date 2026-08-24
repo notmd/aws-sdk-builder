@@ -17753,7 +17753,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ChangeP
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ChangePassword")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ChangePasswordEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::change_password::ChangePasswordError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::change_password::ChangePasswordError>::new())
@@ -33138,7 +33138,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DeleteA
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteAccountPasswordPolicy")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteAccountPasswordPolicyEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError>::new())
@@ -33208,10 +33208,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteAccoun
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_account_password_policy_input::ser_delete_account_password_policy_input_input_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -49202,7 +49198,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Disable
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DisableOrganizationsRootCredentialsManagement")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DisableOrganizationsRootCredentialsManagementEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError>::new())
@@ -49272,10 +49268,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DisableOrgan
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_disable_organizations_root_credentials_management_input::ser_disable_organizations_root_credentials_management_input_input_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -49810,7 +49802,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Disable
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DisableOrganizationsRootSessions")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DisableOrganizationsRootSessionsEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError>::new())
@@ -49880,10 +49872,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DisableOrgan
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_disable_organizations_root_sessions_input::ser_disable_organizations_root_sessions_input_input_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -50418,7 +50406,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Disable
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DisableOutboundWebIdentityFederation")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DisableOutboundWebIdentityFederationEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationError>::new())
@@ -50488,10 +50476,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DisableOutbo
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_disable_outbound_web_identity_federation_input::ser_disable_outbound_web_identity_federation_input_input_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -51802,7 +51786,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for EnableO
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("EnableOrganizationsRootCredentialsManagement")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(EnableOrganizationsRootCredentialsManagementEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError>::new())
@@ -51872,10 +51856,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for EnableOrgani
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_enable_organizations_root_credentials_management_input::ser_enable_organizations_root_credentials_management_input_input_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -52427,7 +52407,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for EnableO
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("EnableOrganizationsRootSessions")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(EnableOrganizationsRootSessionsEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError>::new())
@@ -52497,10 +52477,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for EnableOrgani
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_enable_organizations_root_sessions_input::ser_enable_organizations_root_sessions_input_input_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -53052,7 +53028,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for EnableO
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("EnableOutboundWebIdentityFederation")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(EnableOutboundWebIdentityFederationEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationError>::new())
@@ -53122,10 +53098,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for EnableOutbou
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_enable_outbound_web_identity_federation_input::ser_enable_outbound_web_identity_federation_input_input_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -53605,7 +53577,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Generat
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GenerateCredentialReport")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GenerateCredentialReportEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::generate_credential_report::GenerateCredentialReportError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::generate_credential_report::GenerateCredentialReportError>::new())
@@ -53675,10 +53647,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GenerateCred
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_generate_credential_report_input::ser_generate_credential_report_input_input_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -57206,7 +57174,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetAcco
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetAccountPasswordPolicy")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetAccountPasswordPolicyEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::get_account_password_policy::GetAccountPasswordPolicyError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::get_account_password_policy::GetAccountPasswordPolicyError>::new())
@@ -57276,10 +57244,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetAccountPa
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_account_password_policy_input::ser_get_account_password_policy_input_input_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -57771,7 +57735,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetAcco
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetAccountProperties")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetAccountPropertiesEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::get_account_properties::GetAccountPropertiesError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::get_account_properties::GetAccountPropertiesError>::new())
@@ -57841,10 +57805,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetAccountPr
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_account_properties_input::ser_get_account_properties_input_input_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -58341,7 +58301,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetAcco
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetAccountSummary")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetAccountSummaryEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::get_account_summary::GetAccountSummaryError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::get_account_summary::GetAccountSummaryError>::new())
@@ -58411,10 +58371,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetAccountSu
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_account_summary_input::ser_get_account_summary_input_input_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -58902,7 +58858,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetCont
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetContextKeysForCustomPolicy")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetContextKeysForCustomPolicyEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError>::new())
@@ -60366,7 +60322,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetCred
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetCredentialReport")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetCredentialReportEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::get_credential_report::GetCredentialReportError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::get_credential_report::GetCredentialReportError>::new())
@@ -60436,10 +60392,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetCredentia
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_credential_report_input::ser_get_credential_report_input_input_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -67933,7 +67885,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetOutb
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetOutboundWebIdentityFederationInfo")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetOutboundWebIdentityFederationInfoEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError>::new())
@@ -68003,10 +67955,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetOutboundW
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_outbound_web_identity_federation_info_input::ser_get_outbound_web_identity_federation_info_input_input_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -93021,7 +92969,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListOpe
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListOpenIDConnectProviders")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListOpenIDConnectProvidersEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError>::new())
@@ -93091,10 +93039,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListOpenIDCo
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_open_id_connect_providers_input::ser_list_open_id_connect_providers_input_input_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -93585,7 +93529,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListOrg
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListOrganizationsFeatures")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListOrganizationsFeaturesEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::list_organizations_features::ListOrganizationsFeaturesError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::list_organizations_features::ListOrganizationsFeaturesError>::new())
@@ -93655,10 +93599,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListOrganiza
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_organizations_features_input::ser_list_organizations_features_input_input_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -101624,7 +101564,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListSAM
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListSAMLProviders")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListSAMLProvidersEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::list_saml_providers::ListSAMLProvidersError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::list_saml_providers::ListSAMLProvidersError>::new())
@@ -101694,10 +101634,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListSAMLProv
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_saml_providers_input::ser_list_saml_providers_input_input_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -110394,7 +110330,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutAcco
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("PutAccountProperties")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(PutAccountPropertiesEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::put_account_properties::PutAccountPropertiesError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::put_account_properties::PutAccountPropertiesError>::new())
@@ -120499,7 +120435,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for SetSecu
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("SetSecurityTokenServicePreferences")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(SetSecurityTokenServicePreferencesEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError>::new())
@@ -136692,7 +136628,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UpdateA
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateAccountPasswordPolicy")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UpdateAccountPasswordPolicyEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::update_account_password_policy::UpdateAccountPasswordPolicyError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::update_account_password_policy::UpdateAccountPasswordPolicyError>::new())
@@ -192971,6 +192907,362 @@ pub fn ser_upload_ssh_public_key_input_input_input(
 }
 }
 
+pub(crate) mod shape_context_entry {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_context_entry(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::ContextEntry,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("ContextKeyName");
+    if let Some(var_2) = &input.context_key_name {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("ContextKeyValues");
+    if let Some(var_4) = &input.context_key_values {
+        let mut list_6 = scope_3.start_list(false, None);
+        for item_5 in var_4 {
+            #[allow(unused_mut)]
+            let mut entry_7 = list_6.entry();
+        entry_7.string(item_5);
+        }
+        list_6.finish();
+    }
+    #[allow(unused_mut)]
+    let mut scope_8 = writer.prefix("ContextKeyType");
+    if let Some(var_9) = &input.context_key_type {
+        scope_8.string(var_9.as_str());
+    }
+    Ok(())
+}
+}
+
+pub(crate) mod shape_delegation_permission {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_delegation_permission(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::DelegationPermission,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("PolicyTemplateArn");
+    if let Some(var_2) = &input.policy_template_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("Parameters");
+    if let Some(var_4) = &input.parameters {
+        let mut list_6 = scope_3.start_list(false, None);
+        for item_5 in var_4 {
+            #[allow(unused_mut)]
+            let mut entry_7 = list_6.entry();
+        super::super::protocol_serde::shape_policy_parameter::ser_policy_parameter(entry_7, item_5)?;
+        }
+        list_6.finish();
+    }
+    Ok(())
+}
+#[allow(clippy::needless_question_mark)]
+pub fn de_delegation_permission(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<super::super::types::DelegationPermission, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    #[allow(unused_mut)]
+    let mut builder = super::super::types::DelegationPermission::builder();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("PolicyTemplateArn") /* PolicyTemplateArn com.amazonaws.iam#DelegationPermission$PolicyTemplateArn */ =>  {
+                let var_8 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_policy_template_arn(var_8);
+            }
+            ,
+            s if s.matches("Parameters") /* Parameters com.amazonaws.iam#DelegationPermission$Parameters */ =>  {
+                let var_9 =
+                    Some(
+                        super::super::protocol_serde::shape_policy_parameter_list_type::de_policy_parameter_list_type(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_parameters(var_9);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder.build())
+}
+}
+
+pub(crate) mod shape_ordered_organization_policy_type {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_ordered_organization_policy_type(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::OrderedOrganizationPolicyType,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("ServiceControlPolicyInputList");
+    if let Some(var_2) = &input.service_control_policy_input_list {
+        let mut list_4 = scope_1.start_list(false, None);
+        for item_3 in var_2 {
+            #[allow(unused_mut)]
+            let mut entry_5 = list_4.entry();
+        entry_5.string(item_3);
+        }
+        list_4.finish();
+    }
+    Ok(())
+}
+}
+
+pub(crate) mod shape_policy_identifier {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_policy_identifier(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::PolicyIdentifier,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    match input {
+        super::super::types::PolicyIdentifier::PolicyType(inner) => {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("PolicyType");
+    {
+        scope_1.string(inner.as_str());
+    }
+        }
+        super::super::types::PolicyIdentifier::PolicyArn(inner) => {
+    #[allow(unused_mut)]
+    let mut scope_2 = writer.prefix("PolicyArn");
+    {
+        scope_2.string(inner);
+    }
+        }
+        super::super::types::PolicyIdentifier::InlinePolicyIdentifier(inner) => {
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("InlinePolicyIdentifier");
+    {
+        super::super::protocol_serde::shape_inline_policy_identifier_type::ser_inline_policy_identifier_type(scope_3, inner)?;
+    }
+        }
+        super::super::types::PolicyIdentifier::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("PolicyIdentifier")),
+    }
+    Ok(())
+}
+}
+
+pub(crate) mod shape_replacement_value_entry {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_replacement_value_entry(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::ReplacementValueEntry,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("Values");
+    {
+        let mut list_3 = scope_1.start_list(false, None);
+        for item_2 in &input.values {
+            #[allow(unused_mut)]
+            let mut entry_4 = list_3.entry();
+        entry_4.string(item_2);
+        }
+        list_3.finish();
+    }
+    Ok(())
+}
+}
+
+pub(crate) mod shape_tag {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_tag(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::Tag,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("Key");
+    {
+        scope_1.string(&input.key);
+    }
+    #[allow(unused_mut)]
+    let mut scope_2 = writer.prefix("Value");
+    {
+        scope_2.string(&input.value);
+    }
+    Ok(())
+}
+#[allow(clippy::needless_question_mark)]
+pub fn de_tag(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<super::super::types::Tag, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    #[allow(unused_mut)]
+    let mut builder = super::super::types::Tag::builder();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Key") /* Key com.amazonaws.iam#Tag$Key */ =>  {
+                let var_3 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_key(var_3);
+            }
+            ,
+            s if s.matches("Value") /* Value com.amazonaws.iam#Tag$Value */ =>  {
+                let var_4 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_value(var_4);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(super::super::serde_util::tag_correct_errors(builder)
+        .build()
+        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
+}
+}
+
+pub(crate) mod shape_inline_policy_identifier_type {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_inline_policy_identifier_type(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::InlinePolicyIdentifierType,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("PolicyName");
+    {
+        scope_1.string(&input.policy_name);
+    }
+    #[allow(unused_mut)]
+    let mut scope_2 = writer.prefix("AttachmentType");
+    {
+        scope_2.string(&input.attachment_type.as_str());
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("AttachmentName");
+    {
+        scope_3.string(&input.attachment_name);
+    }
+    Ok(())
+}
+}
+
+pub(crate) mod shape_policy_parameter {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_policy_parameter(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::PolicyParameter,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("Name");
+    if let Some(var_2) = &input.name {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("Values");
+    if let Some(var_4) = &input.values {
+        let mut list_6 = scope_3.start_list(false, None);
+        for item_5 in var_4 {
+            #[allow(unused_mut)]
+            let mut entry_7 = list_6.entry();
+        entry_7.string(item_5);
+        }
+        list_6.finish();
+    }
+    #[allow(unused_mut)]
+    let mut scope_8 = writer.prefix("Type");
+    if let Some(var_9) = &input.r#type {
+        scope_8.string(var_9.as_str());
+    }
+    Ok(())
+}
+#[allow(clippy::needless_question_mark)]
+pub fn de_policy_parameter(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<super::super::types::PolicyParameter, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    #[allow(unused_mut)]
+    let mut builder = super::super::types::PolicyParameter::builder();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Name") /* Name com.amazonaws.iam#PolicyParameter$Name */ =>  {
+                let var_10 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_name(var_10);
+            }
+            ,
+            s if s.matches("Values") /* Values com.amazonaws.iam#PolicyParameter$Values */ =>  {
+                let var_11 =
+                    Some(
+                        super::super::protocol_serde::shape_policy_parameter_values_list_type::de_policy_parameter_values_list_type(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_values(var_11);
+            }
+            ,
+            s if s.matches("Type") /* Type com.amazonaws.iam#PolicyParameter$Type */ =>  {
+                let var_12 =
+                    Some(
+                        Result::<super::super::types::PolicyParameterTypeEnum, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            super::super::types::PolicyParameterTypeEnum::from(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_type(var_12);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder.build())
+}
+}
+
 pub(crate) mod shape_account_not_management_or_delegated_administrator_exception {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 #[allow(unused_mut)]
@@ -194818,38 +195110,6 @@ pub fn de_client_id_list_type(
 }
 }
 
-pub(crate) mod shape_context_entry {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-#[allow(unused_mut)]
-pub fn ser_context_entry(
-    mut writer: ::aws_smithy_query::QueryValueWriter,
-    input: &super::super::types::ContextEntry,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    #[allow(unused_mut)]
-    let mut scope_1 = writer.prefix("ContextKeyName");
-    if let Some(var_2) = &input.context_key_name {
-        scope_1.string(var_2);
-    }
-    #[allow(unused_mut)]
-    let mut scope_3 = writer.prefix("ContextKeyValues");
-    if let Some(var_4) = &input.context_key_values {
-        let mut list_6 = scope_3.start_list(false, None);
-        for item_5 in var_4 {
-            #[allow(unused_mut)]
-            let mut entry_7 = list_6.entry();
-        entry_7.string(item_5);
-        }
-        list_6.finish();
-    }
-    #[allow(unused_mut)]
-    let mut scope_8 = writer.prefix("ContextKeyType");
-    if let Some(var_9) = &input.context_key_type {
-        scope_8.string(var_9.as_str());
-    }
-    Ok(())
-}
-}
-
 pub(crate) mod shape_context_key_names_result_list_type {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 pub fn de_context_key_names_result_list_type(
@@ -194876,73 +195136,6 @@ pub fn de_context_key_names_result_list_type(
         }
     }
     Ok(out)
-}
-}
-
-pub(crate) mod shape_delegation_permission {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-#[allow(unused_mut)]
-pub fn ser_delegation_permission(
-    mut writer: ::aws_smithy_query::QueryValueWriter,
-    input: &super::super::types::DelegationPermission,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    #[allow(unused_mut)]
-    let mut scope_1 = writer.prefix("PolicyTemplateArn");
-    if let Some(var_2) = &input.policy_template_arn {
-        scope_1.string(var_2);
-    }
-    #[allow(unused_mut)]
-    let mut scope_3 = writer.prefix("Parameters");
-    if let Some(var_4) = &input.parameters {
-        let mut list_6 = scope_3.start_list(false, None);
-        for item_5 in var_4 {
-            #[allow(unused_mut)]
-            let mut entry_7 = list_6.entry();
-        super::super::protocol_serde::shape_policy_parameter::ser_policy_parameter(entry_7, item_5)?;
-        }
-        list_6.finish();
-    }
-    Ok(())
-}
-#[allow(clippy::needless_question_mark)]
-pub fn de_delegation_permission(
-    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
-    depth: u32,
-) -> ::std::result::Result<super::super::types::DelegationPermission, ::aws_smithy_xml::decode::XmlDecodeError> {
-    if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
-    }
-    #[allow(unused_mut)]
-    let mut builder = super::super::types::DelegationPermission::builder();
-    while let Some(mut tag) = decoder.next_tag() {
-        match tag.start_el() {
-            s if s.matches("PolicyTemplateArn") /* PolicyTemplateArn com.amazonaws.iam#DelegationPermission$PolicyTemplateArn */ =>  {
-                let var_8 =
-                    Some(
-                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            .into()
-                        )
-                        ?
-                    )
-                ;
-                builder = builder.set_policy_template_arn(var_8);
-            }
-            ,
-            s if s.matches("Parameters") /* Parameters com.amazonaws.iam#DelegationPermission$Parameters */ =>  {
-                let var_9 =
-                    Some(
-                        super::super::protocol_serde::shape_policy_parameter_list_type::de_policy_parameter_list_type(&mut tag, depth + 1)
-                        ?
-                    )
-                ;
-                builder = builder.set_parameters(var_9);
-            }
-            ,
-            _ => {}
-        }
-    }
-    Ok(builder.build())
 }
 }
 
@@ -195875,28 +196068,6 @@ pub fn de_open_id_connect_provider_list_type(
 }
 }
 
-pub(crate) mod shape_ordered_organization_policy_type {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-#[allow(unused_mut)]
-pub fn ser_ordered_organization_policy_type(
-    mut writer: ::aws_smithy_query::QueryValueWriter,
-    input: &super::super::types::OrderedOrganizationPolicyType,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    #[allow(unused_mut)]
-    let mut scope_1 = writer.prefix("ServiceControlPolicyInputList");
-    if let Some(var_2) = &input.service_control_policy_input_list {
-        let mut list_4 = scope_1.start_list(false, None);
-        for item_3 in var_2 {
-            #[allow(unused_mut)]
-            let mut entry_5 = list_4.entry();
-        entry_5.string(item_3);
-        }
-        list_4.finish();
-    }
-    Ok(())
-}
-}
-
 pub(crate) mod shape_password_policy {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 #[allow(clippy::needless_question_mark)]
@@ -196302,41 +196473,6 @@ pub fn de_policy_group_list_type(
 }
 }
 
-pub(crate) mod shape_policy_identifier {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-#[allow(unused_mut)]
-pub fn ser_policy_identifier(
-    mut writer: ::aws_smithy_query::QueryValueWriter,
-    input: &super::super::types::PolicyIdentifier,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    match input {
-        super::super::types::PolicyIdentifier::PolicyType(inner) => {
-    #[allow(unused_mut)]
-    let mut scope_1 = writer.prefix("PolicyType");
-    {
-        scope_1.string(inner.as_str());
-    }
-        }
-        super::super::types::PolicyIdentifier::PolicyArn(inner) => {
-    #[allow(unused_mut)]
-    let mut scope_2 = writer.prefix("PolicyArn");
-    {
-        scope_2.string(inner);
-    }
-        }
-        super::super::types::PolicyIdentifier::InlinePolicyIdentifier(inner) => {
-    #[allow(unused_mut)]
-    let mut scope_3 = writer.prefix("InlinePolicyIdentifier");
-    {
-        super::super::protocol_serde::shape_inline_policy_identifier_type::ser_inline_policy_identifier_type(scope_3, inner)?;
-    }
-        }
-        super::super::types::PolicyIdentifier::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("PolicyIdentifier")),
-    }
-    Ok(())
-}
-}
-
 pub(crate) mod shape_policy_list_type {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 pub fn de_policy_list_type(
@@ -196543,28 +196679,6 @@ pub fn de_private_key_list(
         }
     }
     Ok(out)
-}
-}
-
-pub(crate) mod shape_replacement_value_entry {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-#[allow(unused_mut)]
-pub fn ser_replacement_value_entry(
-    mut writer: ::aws_smithy_query::QueryValueWriter,
-    input: &super::super::types::ReplacementValueEntry,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    #[allow(unused_mut)]
-    let mut scope_1 = writer.prefix("Values");
-    {
-        let mut list_3 = scope_1.start_list(false, None);
-        for item_2 in &input.values {
-            #[allow(unused_mut)]
-            let mut entry_4 = list_3.entry();
-        entry_4.string(item_2);
-        }
-        list_3.finish();
-    }
-    Ok(())
 }
 }
 
@@ -197830,72 +197944,6 @@ pub fn de_summary_map_type_entry(
 }
 }
 
-pub(crate) mod shape_tag {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-#[allow(unused_mut)]
-pub fn ser_tag(
-    mut writer: ::aws_smithy_query::QueryValueWriter,
-    input: &super::super::types::Tag,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    #[allow(unused_mut)]
-    let mut scope_1 = writer.prefix("Key");
-    {
-        scope_1.string(&input.key);
-    }
-    #[allow(unused_mut)]
-    let mut scope_2 = writer.prefix("Value");
-    {
-        scope_2.string(&input.value);
-    }
-    Ok(())
-}
-#[allow(clippy::needless_question_mark)]
-pub fn de_tag(
-    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
-    depth: u32,
-) -> ::std::result::Result<super::super::types::Tag, ::aws_smithy_xml::decode::XmlDecodeError> {
-    if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
-    }
-    #[allow(unused_mut)]
-    let mut builder = super::super::types::Tag::builder();
-    while let Some(mut tag) = decoder.next_tag() {
-        match tag.start_el() {
-            s if s.matches("Key") /* Key com.amazonaws.iam#Tag$Key */ =>  {
-                let var_3 =
-                    Some(
-                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            .into()
-                        )
-                        ?
-                    )
-                ;
-                builder = builder.set_key(var_3);
-            }
-            ,
-            s if s.matches("Value") /* Value com.amazonaws.iam#Tag$Value */ =>  {
-                let var_4 =
-                    Some(
-                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            .into()
-                        )
-                        ?
-                    )
-                ;
-                builder = builder.set_value(var_4);
-            }
-            ,
-            _ => {}
-        }
-    }
-    Ok(super::super::serde_util::tag_correct_errors(builder)
-        .build()
-        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
-}
-}
-
 pub(crate) mod shape_tag_list_type {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 pub fn de_tag_list_type(
@@ -198797,32 +198845,6 @@ pub fn de_group_detail(
 }
 }
 
-pub(crate) mod shape_inline_policy_identifier_type {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-#[allow(unused_mut)]
-pub fn ser_inline_policy_identifier_type(
-    mut writer: ::aws_smithy_query::QueryValueWriter,
-    input: &super::super::types::InlinePolicyIdentifierType,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    #[allow(unused_mut)]
-    let mut scope_1 = writer.prefix("PolicyName");
-    {
-        scope_1.string(&input.policy_name);
-    }
-    #[allow(unused_mut)]
-    let mut scope_2 = writer.prefix("AttachmentType");
-    {
-        scope_2.string(&input.attachment_type.as_str());
-    }
-    #[allow(unused_mut)]
-    let mut scope_3 = writer.prefix("AttachmentName");
-    {
-        scope_3.string(&input.attachment_name);
-    }
-    Ok(())
-}
-}
-
 pub(crate) mod shape_inline_policy_template_list_type {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 pub fn de_inline_policy_template_list_type(
@@ -199265,92 +199287,6 @@ pub fn de_policy_group(
                     )
                 ;
                 builder = builder.set_group_id(var_2);
-            }
-            ,
-            _ => {}
-        }
-    }
-    Ok(builder.build())
-}
-}
-
-pub(crate) mod shape_policy_parameter {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-#[allow(unused_mut)]
-pub fn ser_policy_parameter(
-    mut writer: ::aws_smithy_query::QueryValueWriter,
-    input: &super::super::types::PolicyParameter,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    #[allow(unused_mut)]
-    let mut scope_1 = writer.prefix("Name");
-    if let Some(var_2) = &input.name {
-        scope_1.string(var_2);
-    }
-    #[allow(unused_mut)]
-    let mut scope_3 = writer.prefix("Values");
-    if let Some(var_4) = &input.values {
-        let mut list_6 = scope_3.start_list(false, None);
-        for item_5 in var_4 {
-            #[allow(unused_mut)]
-            let mut entry_7 = list_6.entry();
-        entry_7.string(item_5);
-        }
-        list_6.finish();
-    }
-    #[allow(unused_mut)]
-    let mut scope_8 = writer.prefix("Type");
-    if let Some(var_9) = &input.r#type {
-        scope_8.string(var_9.as_str());
-    }
-    Ok(())
-}
-#[allow(clippy::needless_question_mark)]
-pub fn de_policy_parameter(
-    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
-    depth: u32,
-) -> ::std::result::Result<super::super::types::PolicyParameter, ::aws_smithy_xml::decode::XmlDecodeError> {
-    if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
-    }
-    #[allow(unused_mut)]
-    let mut builder = super::super::types::PolicyParameter::builder();
-    while let Some(mut tag) = decoder.next_tag() {
-        match tag.start_el() {
-            s if s.matches("Name") /* Name com.amazonaws.iam#PolicyParameter$Name */ =>  {
-                let var_10 =
-                    Some(
-                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            .into()
-                        )
-                        ?
-                    )
-                ;
-                builder = builder.set_name(var_10);
-            }
-            ,
-            s if s.matches("Values") /* Values com.amazonaws.iam#PolicyParameter$Values */ =>  {
-                let var_11 =
-                    Some(
-                        super::super::protocol_serde::shape_policy_parameter_values_list_type::de_policy_parameter_values_list_type(&mut tag, depth + 1)
-                        ?
-                    )
-                ;
-                builder = builder.set_values(var_11);
-            }
-            ,
-            s if s.matches("Type") /* Type com.amazonaws.iam#PolicyParameter$Type */ =>  {
-                let var_12 =
-                    Some(
-                        Result::<super::super::types::PolicyParameterTypeEnum, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            super::super::types::PolicyParameterTypeEnum::from(
-                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            )
-                        )
-                        ?
-                    )
-                ;
-                builder = builder.set_type(var_12);
             }
             ,
             _ => {}

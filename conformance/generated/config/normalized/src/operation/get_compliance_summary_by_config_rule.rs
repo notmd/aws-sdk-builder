@@ -222,8 +222,9 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetComplianc
             );
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+        let body = ::aws_smithy_types::body::SdkBody::from(
+            super::super::protocol_serde::shape_get_compliance_summary_by_config_rule::ser_get_compliance_summary_by_config_rule_input(&input)?,
+        );
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }

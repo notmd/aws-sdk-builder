@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sns
-**Progress:** `445/445` files compared · `429` matched · `16` mismatches · `0` missing · `0` extra · `96.40%` match (100.00% means fully matched)
+**Progress:** `445/445` files compared · `430` matched · `15` mismatches · `0` missing · `0` extra · `96.63%` match (100.00% means fully matched)
 
 ### `src/client/create_topic.rs`
 
@@ -51,25 +51,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`attribute_value(impl Into<String>)`](crate::operation::set_topic_attributes::builders::SetTopicAttributesFluentBuilder::attribute_value) / [`set_attribute_value(Option<String>)`](crate::operation::set_topic_attributes::builders::SetTopicAttributesFluentBuilder::set_attribute_value):<br>required: **false**<br><p>The new value for the attribute.</p><br>
      /// - On success, responds with [`SetTopicAttributesOutput`](crate::operation::set_topic_attributes::SetTopicAttributesOutput)
      /// - On failure, responds with [`SdkError<SetTopicAttributesError>`](crate::operation::set_topic_attributes::SetTopicAttributesError)
-```
-
-### `src/operation/get_sms_sandbox_account_status.rs`
-
-```diff
---- reference/src/operation/get_sms_sandbox_account_status.rs
-+++ generated/src/operation/get_sms_sandbox_account_status.rs
-@@ -211,7 +211,10 @@
-         let body = ::aws_smithy_types::body::SdkBody::from(
-             super::super::protocol_serde::shape_get_sms_sandbox_account_status_input::ser_get_sms_sandbox_account_status_input_input_input(&input)?,
-         );
--
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
 ```
 
 ### `src/operation/list_phone_numbers_opted_out/_list_phone_numbers_opted_out_output.rs`
@@ -408,7 +389,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde.rs
 +++ generated/src/protocol_serde.rs
-@@ -229,8 +229,6 @@
+@@ -191,6 +191,12 @@
+
+ pub(crate) mod shape_verify_sms_sandbox_phone_number_input;
+
++pub(crate) mod shape_message_attribute_value;
++
++pub(crate) mod shape_publish_batch_request_entry;
++
++pub(crate) mod shape_tag;
++
+ pub(crate) mod shape_authorization_error_exception;
+
+ pub(crate) mod shape_batch_entry_ids_not_distinct_exception;
+@@ -229,8 +235,6 @@
 
  pub(crate) mod shape_kms_throttling_exception;
 
@@ -417,7 +411,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_not_found_exception;
 
  pub(crate) mod shape_opted_out_exception;
-@@ -237,8 +235,6 @@
+@@ -237,8 +241,6 @@
 
  pub(crate) mod shape_platform_application_disabled_exception;
 
@@ -426,7 +420,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_replay_limit_exceeded_exception;
 
  pub(crate) mod shape_resource_not_found_exception;
-@@ -247,8 +243,6 @@
+@@ -247,8 +249,6 @@
 
  pub(crate) mod shape_subscription_limit_exceeded_exception;
 
@@ -435,28 +429,4 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_tag_limit_exceeded_exception;
 
  pub(crate) mod shape_tag_policy_exception;
-@@ -273,10 +267,14 @@
-
- pub(crate) mod shape_map_string_to_string;
-
-+pub(crate) mod shape_message_attribute_value;
-+
- pub(crate) mod shape_phone_number_information_list;
-
- pub(crate) mod shape_phone_number_list;
-
-+pub(crate) mod shape_publish_batch_request_entry;
-+
- pub(crate) mod shape_publish_batch_result_entry_list;
-
- pub(crate) mod shape_sms_sandbox_phone_number_list;
-@@ -285,6 +283,8 @@
-
- pub(crate) mod shape_subscriptions_list;
-
-+pub(crate) mod shape_tag;
-+
- pub(crate) mod shape_tag_list;
-
- pub(crate) mod shape_topic_attributes_map;
 ```

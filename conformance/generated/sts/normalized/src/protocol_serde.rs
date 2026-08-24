@@ -67,6 +67,12 @@ pub(crate) mod shape_get_web_identity_token;
 
 pub(crate) mod shape_get_web_identity_token_input;
 
+pub(crate) mod shape_policy_descriptor_type;
+
+pub(crate) mod shape_provided_context;
+
+pub(crate) mod shape_tag;
+
 pub(crate) mod shape_expired_token_exception;
 
 pub(crate) mod shape_expired_trade_in_token_exception;
@@ -96,9 +102,3 @@ pub(crate) mod shape_assumed_role_user;
 pub(crate) mod shape_credentials;
 
 pub(crate) mod shape_federated_user;
-
-pub(crate) mod shape_policy_descriptor_type;
-
-pub(crate) mod shape_provided_context;
-
-pub(crate) mod shape_tag;

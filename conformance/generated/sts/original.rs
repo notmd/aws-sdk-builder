@@ -136,52 +136,6 @@ pub(crate) runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::Ru
 ///
 /// Client for invoking operations on AWS Security Token Service. Each operation on AWS Security Token Service is a method on this
 /// this struct. `.send()` MUST be invoked on the generated operations to dispatch the request to the service.
-/// ## Constructing a `Client`
-///
-/// A [`Config`] is required to construct a client. For most use cases, the [`aws-config`]
-/// crate should be used to automatically resolve this config using
-/// [`aws_config::load_from_env()`], since this will resolve an [`SdkConfig`] which can be shared
-/// across multiple different AWS SDK clients. This config resolution process can be customized
-/// by calling [`aws_config::from_env()`] instead, which returns a [`ConfigLoader`] that uses
-/// the [builder pattern] to customize the default config.
-///
-/// In the simplest case, creating a client looks as follows:
-/// ```rust,no_run
-/// # async fn wrapper() {
-/// let config = aws_config::load_from_env().await;
-/// let client = aws_sdk_sts::Client::new(&config);
-/// # }
-/// ```
-///
-/// Occasionally, SDKs may have additional service-specific values that can be set on the [`Config`] that
-/// is absent from [`SdkConfig`], or slightly different settings for a specific client may be desired.
-/// The [`Builder`](crate::config::Builder) struct implements `From<&SdkConfig>`, so setting these specific settings can be
-/// done as follows:
-///
-/// ```rust,no_run
-/// # async fn wrapper() {
-/// let sdk_config = ::aws_config::load_from_env().await;
-/// let config = aws_sdk_sts::config::Builder::from(&sdk_config)
-/// # /*
-///     .some_service_specific_setting("value")
-/// # */
-///     .build();
-/// # }
-/// ```
-///
-/// See the [`aws-config` docs] and [`Config`] for more information on customizing configuration.
-///
-/// _Note:_ Client construction is expensive due to connection thread pool initialization, and should
-/// be done once at application start-up.
-///
-/// [`Config`]: crate::Config
-/// [`ConfigLoader`]: https://docs.rs/aws-config/*/aws_config/struct.ConfigLoader.html
-/// [`SdkConfig`]: https://docs.rs/aws-config/*/aws_config/struct.SdkConfig.html
-/// [`aws-config` docs]: https://docs.rs/aws-config/*
-/// [`aws-config`]: https://crates.io/crates/aws-config
-/// [`aws_config::from_env()`]: https://docs.rs/aws-config/*/aws_config/fn.from_env.html
-/// [`aws_config::load_from_env()`]: https://docs.rs/aws-config/*/aws_config/fn.load_from_env.html
-/// [builder pattern]: https://rust-lang.github.io/api-guidelines/type-safety.html#builders-enable-construction-of-complex-values-c-builder
 /// # Using the `Client`
 ///
 /// A client has a function for every operation that can be performed by the service.
@@ -10044,7 +9998,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetCall
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetCallerIdentity")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetCallerIdentityEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::get_caller_identity::GetCallerIdentityError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::get_caller_identity::GetCallerIdentityError>::new())
@@ -10118,10 +10072,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetCallerIde
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_caller_identity_input::ser_get_caller_identity_input_input_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -10629,7 +10579,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetDele
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetDelegatedAccessToken")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetDelegatedAccessTokenEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError>::new())
@@ -14552,8 +14502,6 @@ impl IdpCommunicationErrorException {
     pub fn retryable_error_kind(&self) -> ::aws_smithy_types::retry::ErrorKind {
         ::aws_smithy_types::retry::ErrorKind::ServerError
     }
-}
-impl IdpCommunicationErrorException {
     /// Returns the error message.
     pub fn message(&self) -> ::std::option::Option<&str> {
         self.message.as_deref()
@@ -17580,6 +17528,64 @@ pub fn ser_get_web_identity_token_input_input_input(
 }
 }
 
+pub(crate) mod shape_policy_descriptor_type {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_policy_descriptor_type(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::PolicyDescriptorType,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("arn");
+    if let Some(var_2) = &input.arn {
+        scope_1.string(var_2);
+    }
+    Ok(())
+}
+}
+
+pub(crate) mod shape_provided_context {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_provided_context(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::ProvidedContext,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("ProviderArn");
+    if let Some(var_2) = &input.provider_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("ContextAssertion");
+    if let Some(var_4) = &input.context_assertion {
+        scope_3.string(var_4);
+    }
+    Ok(())
+}
+}
+
+pub(crate) mod shape_tag {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_tag(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::Tag,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("Key");
+    {
+        scope_1.string(&input.key);
+    }
+    #[allow(unused_mut)]
+    let mut scope_2 = writer.prefix("Value");
+    {
+        scope_2.string(&input.value);
+    }
+    Ok(())
+}
+}
+
 pub(crate) mod shape_expired_token_exception {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 #[allow(unused_mut)]
@@ -18195,64 +18201,6 @@ pub fn de_federated_user(
     Ok(super::super::serde_util::federated_user_correct_errors(builder)
         .build()
         .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
-}
-}
-
-pub(crate) mod shape_policy_descriptor_type {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-#[allow(unused_mut)]
-pub fn ser_policy_descriptor_type(
-    mut writer: ::aws_smithy_query::QueryValueWriter,
-    input: &super::super::types::PolicyDescriptorType,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    #[allow(unused_mut)]
-    let mut scope_1 = writer.prefix("arn");
-    if let Some(var_2) = &input.arn {
-        scope_1.string(var_2);
-    }
-    Ok(())
-}
-}
-
-pub(crate) mod shape_provided_context {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-#[allow(unused_mut)]
-pub fn ser_provided_context(
-    mut writer: ::aws_smithy_query::QueryValueWriter,
-    input: &super::super::types::ProvidedContext,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    #[allow(unused_mut)]
-    let mut scope_1 = writer.prefix("ProviderArn");
-    if let Some(var_2) = &input.provider_arn {
-        scope_1.string(var_2);
-    }
-    #[allow(unused_mut)]
-    let mut scope_3 = writer.prefix("ContextAssertion");
-    if let Some(var_4) = &input.context_assertion {
-        scope_3.string(var_4);
-    }
-    Ok(())
-}
-}
-
-pub(crate) mod shape_tag {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-#[allow(unused_mut)]
-pub fn ser_tag(
-    mut writer: ::aws_smithy_query::QueryValueWriter,
-    input: &super::super::types::Tag,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    #[allow(unused_mut)]
-    let mut scope_1 = writer.prefix("Key");
-    {
-        scope_1.string(&input.key);
-    }
-    #[allow(unused_mut)]
-    let mut scope_2 = writer.prefix("Value");
-    {
-        scope_2.string(&input.value);
-    }
-    Ok(())
 }
 }
 }

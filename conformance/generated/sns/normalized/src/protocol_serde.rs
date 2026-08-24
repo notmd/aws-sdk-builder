@@ -191,6 +191,12 @@ pub(crate) mod shape_verify_sms_sandbox_phone_number;
 
 pub(crate) mod shape_verify_sms_sandbox_phone_number_input;
 
+pub(crate) mod shape_message_attribute_value;
+
+pub(crate) mod shape_publish_batch_request_entry;
+
+pub(crate) mod shape_tag;
+
 pub(crate) mod shape_authorization_error_exception;
 
 pub(crate) mod shape_batch_entry_ids_not_distinct_exception;
@@ -267,13 +273,9 @@ pub(crate) mod shape_list_of_platform_applications;
 
 pub(crate) mod shape_map_string_to_string;
 
-pub(crate) mod shape_message_attribute_value;
-
 pub(crate) mod shape_phone_number_information_list;
 
 pub(crate) mod shape_phone_number_list;
-
-pub(crate) mod shape_publish_batch_request_entry;
 
 pub(crate) mod shape_publish_batch_result_entry_list;
 
@@ -282,8 +284,6 @@ pub(crate) mod shape_sms_sandbox_phone_number_list;
 pub(crate) mod shape_subscription_attributes_map;
 
 pub(crate) mod shape_subscriptions_list;
-
-pub(crate) mod shape_tag;
 
 pub(crate) mod shape_tag_list;
 

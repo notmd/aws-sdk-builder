@@ -8140,7 +8140,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for BatchGe
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("BatchGetMetricData")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(BatchGetMetricDataEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::batch_get_metric_data::BatchGetMetricDataError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::batch_get_metric_data::BatchGetMetricDataError>::new())
@@ -8931,10 +8931,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CancelExport
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_cancel_export_job::ser_cancel_export_job_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -17498,7 +17494,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for CreateE
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateExportJob")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(CreateExportJobEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::create_export_job::CreateExportJobError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::create_export_job::CreateExportJobError>::new())
@@ -18153,7 +18149,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for CreateI
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateImportJob")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(CreateImportJobEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::create_import_job::CreateImportJobError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::create_import_job::CreateImportJobError>::new())
@@ -21271,10 +21267,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteConfig
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_configuration_set::ser_delete_configuration_set_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -21942,10 +21934,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteConfig
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_configuration_set_event_destination::ser_delete_configuration_set_event_destination_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -22635,10 +22623,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteContac
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_contact::ser_delete_contact_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -23311,10 +23295,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteContac
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_contact_list::ser_delete_contact_list_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -23965,10 +23945,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteCustom
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_custom_verification_email_template::ser_delete_custom_verification_email_template_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -24613,10 +24589,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteDedica
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_dedicated_ip_pool::ser_delete_dedicated_ip_pool_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -25269,10 +25241,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteEmailI
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_email_identity::ser_delete_email_identity_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -25939,10 +25907,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteEmailI
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_email_identity_policy::ser_delete_email_identity_policy_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -26629,10 +26593,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteEmailT
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_email_template::ser_delete_email_template_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -27276,10 +27236,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteMultiR
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_multi_region_endpoint::ser_delete_multi_region_endpoint_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -28019,10 +27975,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteSuppre
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_suppressed_destination::ser_delete_suppressed_destination_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -29887,7 +29839,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetAcco
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetAccount")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetAccountEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::get_account::GetAccountError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::get_account::GetAccountError>::new())
@@ -29957,10 +29909,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetAccountRe
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_account::ser_get_account_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -30638,7 +30586,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetBlac
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetBlacklistReports")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetBlacklistReportsEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::get_blacklist_reports::GetBlacklistReportsError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::get_blacklist_reports::GetBlacklistReportsError>::new())
@@ -30720,10 +30668,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetBlacklist
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_blacklist_reports::ser_get_blacklist_reports_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -31405,10 +31349,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetConfigura
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_configuration_set::ser_get_configuration_set_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -32215,10 +32155,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetConfigura
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_configuration_set_event_destinations::ser_get_configuration_set_event_destinations_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -32903,10 +32839,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetContactRe
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_contact::ser_get_contact_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -33733,10 +33665,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetContactLi
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_contact_list::ser_get_contact_list_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -34497,10 +34425,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetCustomVer
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_custom_verification_email_template::ser_get_custom_verification_email_template_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -35274,10 +35198,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDedicated
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_dedicated_ip::ser_get_dedicated_ip_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -35939,10 +35859,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDedicated
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_dedicated_ip_pool::ser_get_dedicated_ip_pool_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -36622,10 +36538,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDedicated
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_dedicated_ips::ser_get_dedicated_ips_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -37370,7 +37282,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetDeli
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetDeliverabilityDashboardOptions")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetDeliverabilityDashboardOptionsEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsError>::new())
@@ -37440,10 +37352,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDeliverab
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_deliverability_dashboard_options::ser_get_deliverability_dashboard_options_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -38155,10 +38063,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDeliverab
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_deliverability_test_report::ser_get_deliverability_test_report_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -38907,10 +38811,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDomainDel
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_domain_deliverability_campaign::ser_get_domain_deliverability_campaign_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -39590,10 +39490,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDomainSta
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_domain_statistics_report::ser_get_domain_statistics_report_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -40992,10 +40888,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetEmailIden
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_email_identity::ser_get_email_identity_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -41894,10 +41786,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetEmailIden
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_email_identity_policies::ser_get_email_identity_policies_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -42569,10 +42457,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetEmailTemp
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_email_template::ser_get_email_template_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -43283,10 +43167,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetExportJob
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_export_job::ser_get_export_job_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -44084,10 +43964,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetImportJob
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_import_job::ser_get_import_job_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -44886,10 +44762,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetMessageIn
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_message_insights::ser_get_message_insights_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -45660,10 +45532,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetMultiRegi
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_multi_region_endpoint::ser_get_multi_region_endpoint_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -46478,10 +46346,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetReputatio
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_reputation_entity::ser_get_reputation_entity_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -47193,10 +47057,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetSuppresse
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_suppressed_destination::ser_get_suppressed_destination_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -48554,10 +48414,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListConfigur
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_configuration_sets::ser_list_configuration_sets_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -49393,10 +49249,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListContactL
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_contact_lists::ser_list_contact_lists_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -51136,10 +50988,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListCustomVe
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_custom_verification_email_templates::ser_list_custom_verification_email_templates_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -51984,10 +51832,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListDedicate
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_dedicated_ip_pools::ser_list_dedicated_ip_pools_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -52822,10 +52666,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListDelivera
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_deliverability_test_reports::ser_list_deliverability_test_reports_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -53703,10 +53543,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListDomainDe
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_domain_deliverability_campaigns::ser_list_domain_deliverability_campaigns_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -54648,10 +54484,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListEmailIde
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_email_identities::ser_list_email_identities_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -55494,10 +55326,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListEmailTem
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_email_templates::ser_list_email_templates_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -58076,10 +57904,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListMultiReg
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_multi_region_endpoints::ser_list_multi_region_endpoints_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -61663,10 +61487,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListSuppress
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_suppressed_destinations::ser_list_suppressed_destinations_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -62659,10 +62479,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListTagsForR
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_tags_for_resource::ser_list_tags_for_resource_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -65013,7 +64829,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutAcco
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("PutAccountDedicatedIpWarmupAttributes")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(PutAccountDedicatedIpWarmupAttributesEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesError>::new())
@@ -65595,7 +65411,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutAcco
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("PutAccountDetails")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(PutAccountDetailsEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::put_account_details::PutAccountDetailsError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::put_account_details::PutAccountDetailsError>::new())
@@ -66397,7 +66213,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutAcco
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("PutAccountPricingAttributes")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(PutAccountPricingAttributesEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::put_account_pricing_attributes::PutAccountPricingAttributesError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::put_account_pricing_attributes::PutAccountPricingAttributesError>::new())
@@ -67070,7 +66886,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutAcco
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("PutAccountSendingAttributes")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(PutAccountSendingAttributesEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesError>::new())
@@ -67668,7 +67484,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutAcco
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("PutAccountSuppressionAttributes")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(PutAccountSuppressionAttributesEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesError>::new())
@@ -68342,7 +68158,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutAcco
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("PutAccountVdmAttributes")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(PutAccountVdmAttributesEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::put_account_vdm_attributes::PutAccountVdmAttributesError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::put_account_vdm_attributes::PutAccountVdmAttributesError>::new())
@@ -76014,7 +75830,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutDeli
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("PutDeliverabilityDashboardOption")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(PutDeliverabilityDashboardOptionEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError>::new())
@@ -86623,10 +86439,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UntagResourc
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_resource::ser_untag_resource_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }

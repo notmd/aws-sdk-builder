@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## config
-**Progress:** `1262/1262` files compared · `1179` matched · `83` mismatches · `0` missing · `0` extra · `93.42%` match (100.00% means fully matched)
+**Progress:** `1262/1262` files compared · `1180` matched · `82` mismatches · `0` missing · `0` extra · `93.50%` match (100.00% means fully matched)
 
 ### `src/client/associate_resource_types.rs`
 
@@ -498,24 +498,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  next_token: self.next_token,
              },
          )
-```
-
-### `src/operation/get_compliance_summary_by_config_rule.rs`
-
-```diff
---- reference/src/operation/get_compliance_summary_by_config_rule.rs
-+++ generated/src/operation/get_compliance_summary_by_config_rule.rs
-@@ -222,9 +222,7 @@
-             );
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_compliance_summary_by_config_rule::ser_get_compliance_summary_by_config_rule_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
 ```
 
 ### `src/operation/get_conformance_pack_compliance_details/_get_conformance_pack_compliance_details_input.rs`

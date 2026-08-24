@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## dynamodb
-**Progress:** `882/882` files compared · `859` matched · `23` mismatches · `0` missing · `0` extra · `97.39%` match (100.00% means fully matched)
+**Progress:** `882/882` files compared · `861` matched · `21` mismatches · `0` missing · `0` extra · `97.62%` match (100.00% means fully matched)
 
 ### `src/client/batch_get_item.rs`
 
@@ -985,38 +985,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                              let parsed_arn_ssa_1 = &context.parsed_arn_ssa_1;
 ```
 
-### `src/operation/describe_endpoints.rs`
-
-```diff
---- reference/src/operation/describe_endpoints.rs
-+++ generated/src/operation/describe_endpoints.rs
-@@ -212,7 +212,7 @@
-             );
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_describe_endpoints::ser_describe_endpoints_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
-```
-
-### `src/operation/describe_limits.rs`
-
-```diff
---- reference/src/operation/describe_limits.rs
-+++ generated/src/operation/describe_limits.rs
-@@ -212,7 +212,7 @@
-             );
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_describe_limits::ser_describe_limits_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
-```
-
 ### `src/operation/list_contributor_insights/_list_contributor_insights_input.rs`
 
 ```diff
@@ -1421,16 +1389,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/error/_replicated_write_conflict_exception.rs
 +++ generated/src/types/error/_replicated_write_conflict_exception.rs
-@@ -11,8 +11,10 @@
+@@ -11,7 +11,7 @@
  impl ReplicatedWriteConflictException {
      /// Returns `Some(ErrorKind)` if the error is retryable. Otherwise, returns `None`.
      pub fn retryable_error_kind(&self) -> ::aws_smithy_types::retry::ErrorKind {
 -        ::aws_smithy_types::retry::ErrorKind::ClientError
 +        ::aws_smithy_types::retry::ErrorKind::ServerError
      }
-+}
-+impl ReplicatedWriteConflictException {
      /// Returns the error message.
      pub fn message(&self) -> ::std::option::Option<&str> {
-         self.message.as_deref()
 ```

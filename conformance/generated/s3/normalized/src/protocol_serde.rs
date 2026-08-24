@@ -343,6 +343,166 @@ pub(crate) mod shape_write_get_object_response;
 
 pub(crate) mod shape_write_get_object_response_input;
 
+pub fn parse_event_stream_error_metadata(
+    payload: &::bytes::Bytes,
+) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    super::rest_xml_unwrapped_errors::parse_error_metadata(payload.as_ref())
+}
+
+pub(crate) mod shape_abac_status;
+
+pub(crate) mod shape_accelerate_configuration;
+
+pub(crate) mod shape_access_control_policy;
+
+pub(crate) mod shape_annotation_table_configuration_updates;
+
+pub(crate) mod shape_bucket_lifecycle_configuration;
+
+pub(crate) mod shape_bucket_logging_status;
+
+pub(crate) mod shape_completed_multipart_upload;
+
+pub(crate) mod shape_cors_configuration;
+
+pub(crate) mod shape_create_bucket_configuration;
+
+pub(crate) mod shape_delete;
+
+pub(crate) mod shape_input_serialization;
+
+pub(crate) mod shape_inventory_table_configuration_updates;
+
+pub(crate) mod shape_journal_table_configuration_updates;
+
+pub(crate) mod shape_metadata_configuration;
+
+pub(crate) mod shape_metadata_table_configuration;
+
+pub(crate) mod shape_notification_configuration;
+
+pub(crate) mod shape_object_encryption;
+
+pub(crate) mod shape_object_lock_configuration;
+
+pub(crate) mod shape_object_lock_legal_hold;
+
+pub(crate) mod shape_object_lock_retention;
+
+pub(crate) mod shape_output_serialization;
+
+pub(crate) mod shape_ownership_controls;
+
+pub(crate) mod shape_public_access_block_configuration;
+
+pub(crate) mod shape_replication_configuration;
+
+pub(crate) mod shape_request_payment_configuration;
+
+pub(crate) mod shape_request_progress;
+
+pub(crate) mod shape_restore_request;
+
+pub(crate) mod shape_scan_range;
+
+pub(crate) mod shape_server_side_encryption_configuration;
+
+pub(crate) mod shape_tagging;
+
+pub(crate) mod shape_versioning_configuration;
+
+pub(crate) mod shape_website_configuration;
+
+pub(crate) mod shape_annotation_table_configuration;
+
+pub(crate) mod shape_bucket_info;
+
+pub(crate) mod shape_completed_part;
+
+pub(crate) mod shape_csv_input;
+
+pub(crate) mod shape_csv_output;
+
+pub(crate) mod shape_glacier_job_parameters;
+
+pub(crate) mod shape_grant;
+
+pub(crate) mod shape_inventory_table_configuration;
+
+pub(crate) mod shape_journal_table_configuration;
+
+pub(crate) mod shape_json_input;
+
+pub(crate) mod shape_json_output;
+
+pub(crate) mod shape_location_info;
+
+pub(crate) mod shape_metadata_table_encryption_configuration;
+
+pub(crate) mod shape_object_identifier;
+
+pub(crate) mod shape_object_lock_rule;
+
+pub(crate) mod shape_output_location;
+
+pub(crate) mod shape_ownership_controls_rule;
+
+pub(crate) mod shape_record_expiration;
+
+pub(crate) mod shape_replication_rule;
+
+pub(crate) mod shape_s3_tables_destination;
+
+pub(crate) mod shape_select_parameters;
+
+pub(crate) mod shape_server_side_encryption_rule;
+
+pub(crate) mod shape_ssekms_encryption;
+
+pub(crate) mod shape_tag;
+
+pub(crate) mod shape_blocked_encryption_types;
+
+pub(crate) mod shape_default_retention;
+
+pub(crate) mod shape_delete_marker_replication;
+
+pub(crate) mod shape_destination;
+
+pub(crate) mod shape_existing_object_replication;
+
+pub(crate) mod shape_grantee;
+
+pub(crate) mod shape_replication_rule_filter;
+
+pub(crate) mod shape_s3_location;
+
+pub(crate) mod shape_server_side_encryption_by_default;
+
+pub(crate) mod shape_source_selection_criteria;
+
+pub(crate) mod shape_target_grant;
+
+pub(crate) mod shape_access_control_translation;
+
+pub(crate) mod shape_encryption;
+
+pub(crate) mod shape_encryption_configuration;
+
+pub(crate) mod shape_metadata_entry;
+
+pub(crate) mod shape_metrics;
+
+pub(crate) mod shape_replica_modifications;
+
+pub(crate) mod shape_replication_rule_and_operator;
+
+pub(crate) mod shape_replication_time;
+
+pub(crate) mod shape_sse_kms_encrypted_objects;
+
+pub(crate) mod shape_replication_time_value;
+
 pub(crate) mod shape_abort_multipart_upload_output;
 
 pub(crate) mod shape_access_denied;
@@ -497,27 +657,9 @@ pub(crate) mod shape_upload_part_copy_output;
 
 pub(crate) mod shape_upload_part_output;
 
-pub fn parse_event_stream_error_metadata(
-    payload: &::bytes::Bytes,
-) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_xml::decode::XmlDecodeError> {
-    super::rest_xml_unwrapped_errors::parse_error_metadata(payload.as_ref())
-}
-
-pub(crate) mod shape_abac_status;
-
-pub(crate) mod shape_accelerate_configuration;
-
-pub(crate) mod shape_access_control_policy;
-
 pub(crate) mod shape_analytics_configuration;
 
 pub(crate) mod shape_annotation_list;
-
-pub(crate) mod shape_annotation_table_configuration_updates;
-
-pub(crate) mod shape_bucket_lifecycle_configuration;
-
-pub(crate) mod shape_bucket_logging_status;
 
 pub(crate) mod shape_buckets;
 
@@ -525,15 +667,7 @@ pub(crate) mod shape_checksum;
 
 pub(crate) mod shape_common_prefix;
 
-pub(crate) mod shape_completed_multipart_upload;
-
-pub(crate) mod shape_cors_configuration;
-
 pub(crate) mod shape_cors_rule;
-
-pub(crate) mod shape_create_bucket_configuration;
-
-pub(crate) mod shape_delete;
 
 pub(crate) mod shape_delete_marker_entry;
 
@@ -553,15 +687,9 @@ pub(crate) mod shape_index_document;
 
 pub(crate) mod shape_initiator;
 
-pub(crate) mod shape_input_serialization;
-
 pub(crate) mod shape_intelligent_tiering_configuration;
 
 pub(crate) mod shape_inventory_configuration;
-
-pub(crate) mod shape_inventory_table_configuration_updates;
-
-pub(crate) mod shape_journal_table_configuration_updates;
 
 pub(crate) mod shape_lambda_function_configuration;
 
@@ -569,67 +697,29 @@ pub(crate) mod shape_lifecycle_rule;
 
 pub(crate) mod shape_logging_enabled;
 
-pub(crate) mod shape_metadata_configuration;
-
-pub(crate) mod shape_metadata_table_configuration;
-
 pub(crate) mod shape_metrics_configuration;
 
 pub(crate) mod shape_multipart_upload;
 
-pub(crate) mod shape_notification_configuration;
-
 pub(crate) mod shape_object;
-
-pub(crate) mod shape_object_encryption;
-
-pub(crate) mod shape_object_lock_configuration;
-
-pub(crate) mod shape_object_lock_legal_hold;
-
-pub(crate) mod shape_object_lock_retention;
 
 pub(crate) mod shape_object_version;
 
-pub(crate) mod shape_output_serialization;
-
 pub(crate) mod shape_owner;
 
-pub(crate) mod shape_ownership_controls;
-
 pub(crate) mod shape_part;
-
-pub(crate) mod shape_public_access_block_configuration;
 
 pub(crate) mod shape_queue_configuration;
 
 pub(crate) mod shape_redirect_all_requests_to;
 
-pub(crate) mod shape_replication_configuration;
-
-pub(crate) mod shape_request_payment_configuration;
-
-pub(crate) mod shape_request_progress;
-
-pub(crate) mod shape_restore_request;
-
 pub(crate) mod shape_routing_rules;
-
-pub(crate) mod shape_scan_range;
-
-pub(crate) mod shape_server_side_encryption_configuration;
 
 pub(crate) mod shape_session_credentials;
 
 pub(crate) mod shape_tag_set;
 
-pub(crate) mod shape_tagging;
-
 pub(crate) mod shape_topic_configuration;
-
-pub(crate) mod shape_versioning_configuration;
-
-pub(crate) mod shape_website_configuration;
 
 pub(crate) mod shape_abort_incomplete_multipart_upload;
 
@@ -637,29 +727,15 @@ pub(crate) mod shape_analytics_filter;
 
 pub(crate) mod shape_annotation_entry;
 
-pub(crate) mod shape_annotation_table_configuration;
-
 pub(crate) mod shape_bucket;
-
-pub(crate) mod shape_bucket_info;
-
-pub(crate) mod shape_completed_part;
 
 pub(crate) mod shape_copy_object_result;
 
 pub(crate) mod shape_copy_part_result;
 
-pub(crate) mod shape_csv_input;
-
-pub(crate) mod shape_csv_output;
-
 pub(crate) mod shape_get_bucket_metadata_configuration_result;
 
 pub(crate) mod shape_get_bucket_metadata_table_configuration_result;
-
-pub(crate) mod shape_glacier_job_parameters;
-
-pub(crate) mod shape_grant;
 
 pub(crate) mod shape_intelligent_tiering_filter;
 
@@ -671,21 +747,9 @@ pub(crate) mod shape_inventory_optional_fields;
 
 pub(crate) mod shape_inventory_schedule;
 
-pub(crate) mod shape_inventory_table_configuration;
-
-pub(crate) mod shape_journal_table_configuration;
-
-pub(crate) mod shape_json_input;
-
-pub(crate) mod shape_json_output;
-
 pub(crate) mod shape_lifecycle_expiration;
 
 pub(crate) mod shape_lifecycle_rule_filter;
-
-pub(crate) mod shape_location_info;
-
-pub(crate) mod shape_metadata_table_encryption_configuration;
 
 pub(crate) mod shape_metrics_filter;
 
@@ -695,41 +759,19 @@ pub(crate) mod shape_noncurrent_version_transition;
 
 pub(crate) mod shape_notification_configuration_filter;
 
-pub(crate) mod shape_object_identifier;
-
-pub(crate) mod shape_object_lock_rule;
-
 pub(crate) mod shape_object_part;
-
-pub(crate) mod shape_output_location;
-
-pub(crate) mod shape_ownership_controls_rule;
 
 pub(crate) mod shape_policy_status;
 
 pub(crate) mod shape_progress_event;
 
-pub(crate) mod shape_record_expiration;
-
-pub(crate) mod shape_replication_rule;
-
 pub(crate) mod shape_restore_status;
 
 pub(crate) mod shape_routing_rule;
 
-pub(crate) mod shape_s3_tables_destination;
-
-pub(crate) mod shape_select_parameters;
-
-pub(crate) mod shape_server_side_encryption_rule;
-
-pub(crate) mod shape_ssekms_encryption;
-
 pub(crate) mod shape_stats_event;
 
 pub(crate) mod shape_storage_class_analysis;
-
-pub(crate) mod shape_tag;
 
 pub(crate) mod shape_target_grants;
 
@@ -741,21 +783,9 @@ pub(crate) mod shape_transition;
 
 pub(crate) mod shape_analytics_and_operator;
 
-pub(crate) mod shape_blocked_encryption_types;
-
 pub(crate) mod shape_condition;
 
-pub(crate) mod shape_default_retention;
-
-pub(crate) mod shape_delete_marker_replication;
-
-pub(crate) mod shape_destination;
-
 pub(crate) mod shape_error_details;
-
-pub(crate) mod shape_existing_object_replication;
-
-pub(crate) mod shape_grantee;
 
 pub(crate) mod shape_intelligent_tiering_and_operator;
 
@@ -775,35 +805,19 @@ pub(crate) mod shape_progress;
 
 pub(crate) mod shape_redirect;
 
-pub(crate) mod shape_replication_rule_filter;
-
 pub(crate) mod shape_s3_key_filter;
 
-pub(crate) mod shape_s3_location;
-
-pub(crate) mod shape_server_side_encryption_by_default;
-
 pub(crate) mod shape_simple_prefix;
-
-pub(crate) mod shape_source_selection_criteria;
 
 pub(crate) mod shape_stats;
 
 pub(crate) mod shape_storage_class_analysis_data_export;
-
-pub(crate) mod shape_target_grant;
-
-pub(crate) mod shape_access_control_translation;
 
 pub(crate) mod shape_analytics_export_destination;
 
 pub(crate) mod shape_annotation_table_configuration_result;
 
 pub(crate) mod shape_destination_result;
-
-pub(crate) mod shape_encryption;
-
-pub(crate) mod shape_encryption_configuration;
 
 pub(crate) mod shape_filter_rule;
 
@@ -813,23 +827,9 @@ pub(crate) mod shape_inventory_table_configuration_result;
 
 pub(crate) mod shape_journal_table_configuration_result;
 
-pub(crate) mod shape_metadata_entry;
-
-pub(crate) mod shape_metrics;
-
-pub(crate) mod shape_replica_modifications;
-
-pub(crate) mod shape_replication_rule_and_operator;
-
-pub(crate) mod shape_replication_time;
-
 pub(crate) mod shape_s3_tables_destination_result;
 
-pub(crate) mod shape_sse_kms_encrypted_objects;
-
 pub(crate) mod shape_analytics_s3_bucket_destination;
-
-pub(crate) mod shape_replication_time_value;
 
 pub(crate) mod shape_ssekms;
 

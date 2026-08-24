@@ -4604,6 +4604,14 @@ fn standalone_request_body(
     )
 }
 
+fn request_has_document_or_payload_binding(input_shape: Option<&Value>) -> bool {
+    input_shape.is_some_and(|shape| {
+        members(shape)
+            .into_iter()
+            .any(|(_, member)| is_xml_document_member(member))
+    })
+}
+
 fn shape_media_type(shape: &Value) -> Option<&str> {
     shape
         .get("traits")
@@ -4726,7 +4734,7 @@ fn render_standalone_runtime_plugin(
             "                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent({operation_type}TelemetryInputCaptureInterceptor))\n"
         )
     } else {
-        String::new()
+        "                            ".to_owned()
     };
 
     let mut config_extras = String::new();
@@ -5223,11 +5231,14 @@ fn render_standalone_request_serializer(
     }
     let body_marker = "        let body = ::aws_smithy_types::body::SdkBody::from(\"\");\n\n";
     let mut body_replacement = format!("        let body = {body_expression};\n");
-    body_replacement.push_str("        if let Some(content_length) = body.content_length() {\n            let content_length = content_length.to_string();\n            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);\n        }\n");
     let add_content_length = content_type.is_some()
+        && request_has_document_or_payload_binding(input_shape)
         && (protocol != ProtocolKind::AwsJson1_0 && protocol != ProtocolKind::AwsJson1_1
             || input_shape.is_some_and(|shape| !members(shape).is_empty()));
     if add_content_length {
+        body_replacement.push_str("        if let Some(content_length) = body.content_length() {\n            let content_length = content_length.to_string();\n            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);\n        }\n");
+    }
+    if content_type.is_some() {
         *output = output.replacen(body_marker, &body_replacement, 1);
     }
     *output = output.replace(
@@ -8281,6 +8292,12 @@ fn render_protocol_serde_files(
     for module in initial_modules {
         add_module(module);
     }
+    let shared_shape_order = protocol_serde_shape_order(selected, &roles, query_mode);
+    for (shape_id, role) in &shared_shape_order {
+        if matches!(*role, ProtocolSerdeRole::Serialize) {
+            add_module(names::rust_module_name(terminal(shape_id)));
+        }
+    }
     for operation_name in &selected.operations {
         let module = names::rust_module_name(operation_name);
         if protocol_output_has_headers(selected, operation_name)
@@ -8296,17 +8313,17 @@ fn render_protocol_serde_files(
         add_module(module);
     }
 
-    for (shape_id, role) in protocol_serde_shape_order(selected, &roles, query_mode) {
-        let module = names::rust_module_name(terminal(&shape_id));
+    for (shape_id, role) in &shared_shape_order {
+        let module = names::rust_module_name(terminal(shape_id));
         add_module(module.clone());
         let mut shape_roles = roles
-            .get(&shape_id)
+            .get(shape_id)
             .copied()
             .expect("ordered protocol shape exists");
-        shape_roles.first = Some(role);
+        shape_roles.first = Some(*role);
         files.push((
             format!("src/protocol_serde/shape_{module}.rs"),
-            render_protocol_shape_file(selected, &shape_id, shape_roles, query_mode),
+            render_protocol_shape_file(selected, shape_id, shape_roles, query_mode),
         ));
     }
 
@@ -13097,7 +13114,9 @@ fn render_structure_accessors(
         .into_iter()
         .filter(|(member_name, _)| !is_error || !member_name.eq_ignore_ascii_case("message"))
         .collect::<Vec<_>>();
-    if !structure_members.is_empty() {
+    let has_structure_members = !structure_members.is_empty();
+    let retryable_error = is_error && error_shape_is_retryable(selected, name, shape);
+    if has_structure_members {
         writeln!(output, "{padding}impl {} {{", rust_type_name(name)).unwrap();
         for (member_name, member) in structure_members {
             let field = names::rust_identifier(&member_name);
@@ -13202,14 +13221,6 @@ fn render_structure_accessors(
         }
         writeln!(output, "{padding}}}").unwrap();
     }
-    if is_error && error_shape_is_retryable(selected, name, shape) {
-        writeln!(
-            output,
-            "{padding}impl {} {{\n{padding}    /// Returns `Some(ErrorKind)` if the error is retryable. Otherwise, returns `None`.\n{padding}    pub fn retryable_error_kind(&self) -> ::aws_smithy_types::retry::ErrorKind {{\n{padding}        ::aws_smithy_types::retry::ErrorKind::ServerError\n{padding}    }}\n{padding}}}",
-            rust_type_name(name)
-        )
-        .unwrap();
-    }
     if is_error {
         let (message_name, message_required) = error_message_member(shape)
             .map(|(name, member)| {
@@ -13220,7 +13231,23 @@ fn render_structure_accessors(
                 )
             })
             .unwrap_or_else(|| ("message".to_owned(), false));
-        writeln!(output, "{padding}impl {} {{", rust_type_name(name)).unwrap();
+        if retryable_error && !has_structure_members {
+            writeln!(output, "{padding}impl {} {{", rust_type_name(name)).unwrap();
+            writeln!(
+                output,
+                "{padding}    /// Returns `Some(ErrorKind)` if the error is retryable. Otherwise, returns `None`.\n{padding}    pub fn retryable_error_kind(&self) -> ::aws_smithy_types::retry::ErrorKind {{\n{padding}        ::aws_smithy_types::retry::ErrorKind::ServerError\n{padding}    }}"
+            )
+            .unwrap();
+        } else {
+            writeln!(output, "{padding}impl {} {{", rust_type_name(name)).unwrap();
+            if retryable_error {
+                writeln!(
+                    output,
+                    "{padding}    /// Returns `Some(ErrorKind)` if the error is retryable. Otherwise, returns `None`.\n{padding}    pub fn retryable_error_kind(&self) -> ::aws_smithy_types::retry::ErrorKind {{\n{padding}        ::aws_smithy_types::retry::ErrorKind::ServerError\n{padding}    }}"
+                )
+                .unwrap();
+            }
+        }
         writeln!(output, "{padding}    /// Returns the error message.").unwrap();
         if message_required {
             writeln!(
@@ -14213,25 +14240,27 @@ fn render_standalone_client_file(selected: &SelectedModel) -> String {
     output.push_str(
         "/// this struct. `.send()` MUST be invoked on the generated operations to dispatch the request to the service.\n",
     );
-    output.push_str(
-        "/// ## Constructing a `Client`\n///\n/// A [`Config`] is required to construct a client. For most use cases, the [`aws-config`]\n/// crate should be used to automatically resolve this config using\n/// [`aws_config::load_from_env()`], since this will resolve an [`SdkConfig`] which can be shared\n/// across multiple different AWS SDK clients. This config resolution process can be customized\n/// by calling [`aws_config::from_env()`] instead, which returns a [`ConfigLoader`] that uses\n/// the [builder pattern] to customize the default config.\n///\n/// In the simplest case, creating a client looks as follows:\n/// ```rust,no_run\n/// # async fn wrapper() {\n",
-    );
-    writeln!(
-        output,
-        "/// let config = aws_config::load_from_env().await;\n/// let client = {module_name}::Client::new(&config);"
-    )
-    .unwrap();
-    output.push_str(
-        "/// # }\n/// ```\n///\n/// Occasionally, SDKs may have additional service-specific values that can be set on the [`Config`] that\n/// is absent from [`SdkConfig`], or slightly different settings for a specific client may be desired.\n/// The [`Builder`](crate::config::Builder) struct implements `From<&SdkConfig>`, so setting these specific settings can be\n/// done as follows:\n///\n/// ```rust,no_run\n/// # async fn wrapper() {\n",
-    );
-    writeln!(
-        output,
-        "/// let sdk_config = ::aws_config::load_from_env().await;\n/// let config = {module_name}::config::Builder::from(&sdk_config)"
-    )
-    .unwrap();
-    output.push_str(
-        "/// # /*\n///     .some_service_specific_setting(\"value\")\n/// # */\n///     .build();\n/// # }\n/// ```\n///\n/// See the [`aws-config` docs] and [`Config`] for more information on customizing configuration.\n///\n/// _Note:_ Client construction is expensive due to connection thread pool initialization, and should\n/// be done once at application start-up.\n///\n/// [`Config`]: crate::Config\n/// [`ConfigLoader`]: https://docs.rs/aws-config/*/aws_config/struct.ConfigLoader.html\n/// [`SdkConfig`]: https://docs.rs/aws-config/*/aws_config/struct.SdkConfig.html\n/// [`aws-config` docs]: https://docs.rs/aws-config/*\n/// [`aws-config`]: https://crates.io/crates/aws-config\n/// [`aws_config::from_env()`]: https://docs.rs/aws-config/*/aws_config/fn.from_env.html\n/// [`aws_config::load_from_env()`]: https://docs.rs/aws-config/*/aws_config/fn.load_from_env.html\n/// [builder pattern]: https://rust-lang.github.io/api-guidelines/type-safety.html#builders-enable-construction-of-complex-values-c-builder\n",
-    );
+    if !is_sts_service(selected) {
+        output.push_str(
+            "/// ## Constructing a `Client`\n///\n/// A [`Config`] is required to construct a client. For most use cases, the [`aws-config`]\n/// crate should be used to automatically resolve this config using\n/// [`aws_config::load_from_env()`], since this will resolve an [`SdkConfig`] which can be shared\n/// across multiple different AWS SDK clients. This config resolution process can be customized\n/// by calling [`aws_config::from_env()`] instead, which returns a [`ConfigLoader`] that uses\n/// the [builder pattern] to customize the default config.\n///\n/// In the simplest case, creating a client looks as follows:\n/// ```rust,no_run\n/// # async fn wrapper() {\n",
+        );
+        writeln!(
+            output,
+            "/// let config = aws_config::load_from_env().await;\n/// let client = {module_name}::Client::new(&config);"
+        )
+        .unwrap();
+        output.push_str(
+            "/// # }\n/// ```\n///\n/// Occasionally, SDKs may have additional service-specific values that can be set on the [`Config`] that\n/// is absent from [`SdkConfig`], or slightly different settings for a specific client may be desired.\n/// The [`Builder`](crate::config::Builder) struct implements `From<&SdkConfig>`, so setting these specific settings can be\n/// done as follows:\n///\n/// ```rust,no_run\n/// # async fn wrapper() {\n",
+        );
+        writeln!(
+            output,
+            "/// let sdk_config = ::aws_config::load_from_env().await;\n/// let config = {module_name}::config::Builder::from(&sdk_config)"
+        )
+        .unwrap();
+        output.push_str(
+            "/// # /*\n///     .some_service_specific_setting(\"value\")\n/// # */\n///     .build();\n/// # }\n/// ```\n///\n/// See the [`aws-config` docs] and [`Config`] for more information on customizing configuration.\n///\n/// _Note:_ Client construction is expensive due to connection thread pool initialization, and should\n/// be done once at application start-up.\n///\n/// [`Config`]: crate::Config\n/// [`ConfigLoader`]: https://docs.rs/aws-config/*/aws_config/struct.ConfigLoader.html\n/// [`SdkConfig`]: https://docs.rs/aws-config/*/aws_config/struct.SdkConfig.html\n/// [`aws-config` docs]: https://docs.rs/aws-config/*\n/// [`aws-config`]: https://crates.io/crates/aws-config\n/// [`aws_config::from_env()`]: https://docs.rs/aws-config/*/aws_config/fn.from_env.html\n/// [`aws_config::load_from_env()`]: https://docs.rs/aws-config/*/aws_config/fn.load_from_env.html\n/// [builder pattern]: https://rust-lang.github.io/api-guidelines/type-safety.html#builders-enable-construction-of-complex-values-c-builder\n",
+        );
+    }
 
     if let Some((operation_name, member_name)) = client_usage_example(selected) {
         let module = names::snake_case(&operation_name);

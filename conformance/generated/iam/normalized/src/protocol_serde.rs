@@ -743,6 +743,22 @@ pub(crate) mod shape_upload_ssh_public_key;
 
 pub(crate) mod shape_upload_ssh_public_key_input;
 
+pub(crate) mod shape_context_entry;
+
+pub(crate) mod shape_delegation_permission;
+
+pub(crate) mod shape_ordered_organization_policy_type;
+
+pub(crate) mod shape_policy_identifier;
+
+pub(crate) mod shape_replacement_value_entry;
+
+pub(crate) mod shape_tag;
+
+pub(crate) mod shape_inline_policy_identifier_type;
+
+pub(crate) mod shape_policy_parameter;
+
 pub(crate) mod shape_account_not_management_or_delegated_administrator_exception;
 
 pub(crate) mod shape_caller_is_not_management_account_exception;
@@ -839,11 +855,7 @@ pub(crate) mod shape_certification_map_type;
 
 pub(crate) mod shape_client_id_list_type;
 
-pub(crate) mod shape_context_entry;
-
 pub(crate) mod shape_context_key_names_result_list_type;
-
-pub(crate) mod shape_delegation_permission;
 
 pub(crate) mod shape_delegation_request;
 
@@ -879,8 +891,6 @@ pub(crate) mod shape_mfa_device_list_type;
 
 pub(crate) mod shape_open_id_connect_provider_list_type;
 
-pub(crate) mod shape_ordered_organization_policy_type;
-
 pub(crate) mod shape_password_policy;
 
 pub(crate) mod shape_policy;
@@ -888,8 +898,6 @@ pub(crate) mod shape_policy;
 pub(crate) mod shape_policy_document_version_list_type;
 
 pub(crate) mod shape_policy_group_list_type;
-
-pub(crate) mod shape_policy_identifier;
 
 pub(crate) mod shape_policy_list_type;
 
@@ -902,8 +910,6 @@ pub(crate) mod shape_policy_user_list_type;
 pub(crate) mod shape_policy_version;
 
 pub(crate) mod shape_private_key_list;
-
-pub(crate) mod shape_replacement_value_entry;
 
 pub(crate) mod shape_role;
 
@@ -935,8 +941,6 @@ pub(crate) mod shape_ssh_public_key_list_type;
 
 pub(crate) mod shape_summary_map_type;
 
-pub(crate) mod shape_tag;
-
 pub(crate) mod shape_tag_list_type;
 
 pub(crate) mod shape_thumbprint_list_type;
@@ -965,8 +969,6 @@ pub(crate) mod shape_evaluation_result;
 
 pub(crate) mod shape_group_detail;
 
-pub(crate) mod shape_inline_policy_identifier_type;
-
 pub(crate) mod shape_inline_policy_template_list_type;
 
 pub(crate) mod shape_list_policies_granting_service_access_entry;
@@ -982,8 +984,6 @@ pub(crate) mod shape_open_id_connect_provider_list_entry;
 pub(crate) mod shape_parameters_definition_list_type;
 
 pub(crate) mod shape_policy_group;
-
-pub(crate) mod shape_policy_parameter;
 
 pub(crate) mod shape_policy_role;
 

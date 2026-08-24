@@ -286,10 +286,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetSuppresse
         let body = ::aws_smithy_types::body::SdkBody::from(
             super::super::protocol_serde::shape_get_suppressed_destination::ser_get_suppressed_destination_input(&input)?,
         );
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }

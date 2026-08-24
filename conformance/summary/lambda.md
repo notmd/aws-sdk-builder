@@ -233,7 +233,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_alias.rs
 +++ generated/src/operation/delete_alias.rs
-@@ -280,10 +280,14 @@
+@@ -280,10 +280,10 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -243,10 +243,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_alias::ser_delete_alias_input(&input)?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -257,7 +253,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_capacity_provider.rs
 +++ generated/src/operation/delete_capacity_provider.rs
-@@ -266,10 +266,16 @@
+@@ -266,10 +266,12 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -269,10 +265,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_delete_capacity_provider::ser_delete_capacity_provider_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -283,7 +275,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_code_signing_config.rs
 +++ generated/src/operation/delete_code_signing_config.rs
-@@ -266,10 +266,16 @@
+@@ -266,10 +266,12 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -295,10 +287,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_delete_code_signing_config::ser_delete_code_signing_config_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -309,7 +297,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_event_source_mapping.rs
 +++ generated/src/operation/delete_event_source_mapping.rs
-@@ -261,10 +261,16 @@
+@@ -261,10 +261,12 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -321,10 +309,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_delete_event_source_mapping::ser_delete_event_source_mapping_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -335,7 +319,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_function.rs
 +++ generated/src/operation/delete_function.rs
-@@ -276,10 +276,14 @@
+@@ -276,10 +276,10 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -345,10 +329,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_function::ser_delete_function_input(&input)?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -359,7 +339,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_function_code_signing_config.rs
 +++ generated/src/operation/delete_function_code_signing_config.rs
-@@ -274,10 +274,16 @@
+@@ -274,10 +274,12 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -371,10 +351,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_delete_function_code_signing_config::ser_delete_function_code_signing_config_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -385,7 +361,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_function_concurrency.rs
 +++ generated/src/operation/delete_function_concurrency.rs
-@@ -262,10 +262,16 @@
+@@ -262,10 +262,12 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -397,10 +373,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_delete_function_concurrency::ser_delete_function_concurrency_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -411,7 +383,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_function_event_invoke_config.rs
 +++ generated/src/operation/delete_function_event_invoke_config.rs
-@@ -292,10 +292,16 @@
+@@ -292,10 +292,12 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -423,10 +395,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_delete_function_event_invoke_config::ser_delete_function_event_invoke_config_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -437,7 +405,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_function_url_config.rs
 +++ generated/src/operation/delete_function_url_config.rs
-@@ -279,10 +279,16 @@
+@@ -279,10 +279,12 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -449,10 +417,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_delete_function_url_config::ser_delete_function_url_config_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -489,7 +453,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  if version_number.is_empty() {
                      return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
                          "version_number",
-@@ -279,10 +278,15 @@
+@@ -279,10 +278,11 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -500,10 +464,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 +        let body =
 +            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_layer_version::ser_delete_layer_version_input(&input)?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -514,7 +474,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_provisioned_concurrency_config.rs
 +++ generated/src/operation/delete_provisioned_concurrency_config.rs
-@@ -300,10 +300,16 @@
+@@ -300,10 +300,12 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -526,10 +486,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_delete_provisioned_concurrency_config::ser_delete_provisioned_concurrency_config_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -540,7 +496,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_resource_policy.rs
 +++ generated/src/operation/delete_resource_policy.rs
-@@ -279,10 +279,16 @@
+@@ -279,10 +279,12 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -552,10 +508,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_resource_policy::ser_delete_resource_policy_input(
 +            &input,
 +        )?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -566,7 +518,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_account_settings.rs
 +++ generated/src/operation/get_account_settings.rs
-@@ -204,10 +204,15 @@
+@@ -204,10 +204,11 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -577,10 +529,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 +        let body =
 +            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_account_settings::ser_get_account_settings_input(&input)?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -591,7 +539,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_alias.rs
 +++ generated/src/operation/get_alias.rs
-@@ -274,10 +274,14 @@
+@@ -274,10 +274,10 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -601,10 +549,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_alias::ser_get_alias_input(&input)?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -615,7 +559,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_capacity_provider.rs
 +++ generated/src/operation/get_capacity_provider.rs
-@@ -266,10 +266,16 @@
+@@ -266,10 +266,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -627,10 +571,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_capacity_provider::ser_get_capacity_provider_input(
 +            &input,
 +        )?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -641,7 +581,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_code_signing_config.rs
 +++ generated/src/operation/get_code_signing_config.rs
-@@ -266,10 +266,16 @@
+@@ -266,10 +266,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -653,10 +593,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_code_signing_config::ser_get_code_signing_config_input(
 +            &input,
 +        )?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -683,7 +619,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_durable_execution.rs
 +++ generated/src/operation/get_durable_execution.rs
-@@ -280,10 +280,16 @@
+@@ -280,10 +280,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -695,10 +631,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_durable_execution::ser_get_durable_execution_input(
 +            &input,
 +        )?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -725,7 +657,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_durable_execution_history.rs
 +++ generated/src/operation/get_durable_execution_history.rs
-@@ -300,10 +300,16 @@
+@@ -300,10 +300,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -737,10 +669,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_get_durable_execution_history::ser_get_durable_execution_history_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -767,7 +695,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_durable_execution_state.rs
 +++ generated/src/operation/get_durable_execution_state.rs
-@@ -306,10 +306,16 @@
+@@ -306,10 +306,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -779,10 +707,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_get_durable_execution_state::ser_get_durable_execution_state_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -793,7 +717,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_event_source_mapping.rs
 +++ generated/src/operation/get_event_source_mapping.rs
-@@ -261,10 +261,16 @@
+@@ -261,10 +261,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -805,10 +729,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_get_event_source_mapping::ser_get_event_source_mapping_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -819,7 +739,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_function.rs
 +++ generated/src/operation/get_function.rs
-@@ -277,10 +277,14 @@
+@@ -277,10 +277,10 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -829,10 +749,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_function::ser_get_function_input(&input)?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -843,7 +759,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_function_code_signing_config.rs
 +++ generated/src/operation/get_function_code_signing_config.rs
-@@ -272,10 +272,16 @@
+@@ -272,10 +272,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -855,10 +771,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_get_function_code_signing_config::ser_get_function_code_signing_config_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -869,7 +781,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_function_concurrency.rs
 +++ generated/src/operation/get_function_concurrency.rs
-@@ -262,10 +262,16 @@
+@@ -262,10 +262,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -881,10 +793,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_get_function_concurrency::ser_get_function_concurrency_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -895,7 +803,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_function_configuration.rs
 +++ generated/src/operation/get_function_configuration.rs
-@@ -281,10 +281,16 @@
+@@ -281,10 +281,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -907,10 +815,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_get_function_configuration::ser_get_function_configuration_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -921,7 +825,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_function_event_invoke_config.rs
 +++ generated/src/operation/get_function_event_invoke_config.rs
-@@ -290,10 +290,16 @@
+@@ -290,10 +290,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -933,10 +837,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_get_function_event_invoke_config::ser_get_function_event_invoke_config_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -947,7 +847,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_function_recursion_config.rs
 +++ generated/src/operation/get_function_recursion_config.rs
-@@ -266,10 +266,16 @@
+@@ -266,10 +266,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -959,10 +859,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_get_function_recursion_config::ser_get_function_recursion_config_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -973,7 +869,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_function_scaling_config.rs
 +++ generated/src/operation/get_function_scaling_config.rs
-@@ -290,10 +290,16 @@
+@@ -290,10 +290,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -985,10 +881,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_get_function_scaling_config::ser_get_function_scaling_config_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -999,7 +891,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_function_url_config.rs
 +++ generated/src/operation/get_function_url_config.rs
-@@ -279,10 +279,16 @@
+@@ -279,10 +279,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1011,10 +903,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_function_url_config::ser_get_function_url_config_input(
 +            &input,
 +        )?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1106,7 +994,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  if version_number.is_empty() {
                      return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
                          "version_number",
-@@ -276,10 +275,14 @@
+@@ -276,10 +275,10 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1116,10 +1004,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_layer_version::ser_get_layer_version_input(&input)?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1185,7 +1069,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_layer_version_by_arn.rs
 +++ generated/src/operation/get_layer_version_by_arn.rs
-@@ -270,10 +270,16 @@
+@@ -270,10 +270,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1197,10 +1081,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_get_layer_version_by_arn::ser_get_layer_version_by_arn_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1237,7 +1117,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  if version_number.is_empty() {
                      return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
                          "version_number",
-@@ -279,10 +278,16 @@
+@@ -279,10 +278,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1249,10 +1129,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_get_layer_version_policy::ser_get_layer_version_policy_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1263,7 +1139,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_policy.rs
 +++ generated/src/operation/get_policy.rs
-@@ -275,10 +275,14 @@
+@@ -275,10 +275,10 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1273,10 +1149,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_policy::ser_get_policy_input(&input)?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1287,7 +1159,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_provisioned_concurrency_config.rs
 +++ generated/src/operation/get_provisioned_concurrency_config.rs
-@@ -298,10 +298,16 @@
+@@ -298,10 +298,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1299,10 +1171,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_get_provisioned_concurrency_config::ser_get_provisioned_concurrency_config_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1313,7 +1181,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_resource_policy.rs
 +++ generated/src/operation/get_resource_policy.rs
-@@ -261,10 +261,14 @@
+@@ -261,10 +261,10 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1323,10 +1191,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_resource_policy::ser_get_resource_policy_input(&input)?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1337,7 +1201,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_runtime_management_config.rs
 +++ generated/src/operation/get_runtime_management_config.rs
-@@ -284,10 +284,16 @@
+@@ -284,10 +284,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1349,10 +1213,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_get_runtime_management_config::ser_get_runtime_management_config_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1423,7 +1283,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_aliases.rs
 +++ generated/src/operation/list_aliases.rs
-@@ -292,10 +292,14 @@
+@@ -292,10 +292,10 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1433,10 +1293,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_aliases::ser_list_aliases_input(&input)?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1447,7 +1303,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_capacity_providers.rs
 +++ generated/src/operation/list_capacity_providers.rs
-@@ -273,10 +273,16 @@
+@@ -273,10 +273,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1459,10 +1315,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_capacity_providers::ser_list_capacity_providers_input(
 +            &input,
 +        )?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1473,7 +1325,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_code_signing_configs.rs
 +++ generated/src/operation/list_code_signing_configs.rs
-@@ -268,10 +268,16 @@
+@@ -268,10 +268,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1485,10 +1337,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_list_code_signing_configs::ser_list_code_signing_configs_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1567,7 +1415,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                  }
                  ::std::result::Result::Ok(())
-@@ -345,10 +343,16 @@
+@@ -345,10 +343,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1579,10 +1427,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_list_durable_executions_by_function::ser_list_durable_executions_by_function_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1593,7 +1437,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_event_source_mappings.rs
 +++ generated/src/operation/list_event_source_mappings.rs
-@@ -288,10 +288,16 @@
+@@ -288,10 +288,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1605,10 +1449,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_list_event_source_mappings::ser_list_event_source_mappings_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1619,7 +1459,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_function_event_invoke_configs.rs
 +++ generated/src/operation/list_function_event_invoke_configs.rs
-@@ -297,10 +297,16 @@
+@@ -297,10 +297,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1631,10 +1471,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_list_function_event_invoke_configs::ser_list_function_event_invoke_configs_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1645,7 +1481,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_function_url_configs.rs
 +++ generated/src/operation/list_function_url_configs.rs
-@@ -284,10 +284,16 @@
+@@ -284,10 +284,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1657,10 +1493,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_list_function_url_configs::ser_list_function_url_configs_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1671,7 +1503,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_function_versions_by_capacity_provider.rs
 +++ generated/src/operation/list_function_versions_by_capacity_provider.rs
-@@ -299,10 +299,16 @@
+@@ -299,10 +299,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1683,10 +1515,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_list_function_versions_by_capacity_provider::ser_list_function_versions_by_capacity_provider_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1697,7 +1525,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_functions.rs
 +++ generated/src/operation/list_functions.rs
-@@ -281,10 +281,14 @@
+@@ -281,10 +281,10 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1707,10 +1535,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_functions::ser_list_functions_input(&input)?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1721,7 +1545,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_functions_by_code_signing_config.rs
 +++ generated/src/operation/list_functions_by_code_signing_config.rs
-@@ -299,10 +299,16 @@
+@@ -299,10 +299,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1733,10 +1557,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_list_functions_by_code_signing_config::ser_list_functions_by_code_signing_config_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1747,7 +1567,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_layer_versions.rs
 +++ generated/src/operation/list_layer_versions.rs
-@@ -294,10 +294,14 @@
+@@ -294,10 +294,10 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1757,10 +1577,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_layer_versions::ser_list_layer_versions_input(&input)?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1771,7 +1587,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_layers.rs
 +++ generated/src/operation/list_layers.rs
-@@ -273,10 +273,14 @@
+@@ -273,10 +273,10 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1781,10 +1597,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_layers::ser_list_layers_input(&input)?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1795,7 +1607,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_provisioned_concurrency_configs.rs
 +++ generated/src/operation/list_provisioned_concurrency_configs.rs
-@@ -300,10 +300,16 @@
+@@ -300,10 +300,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1807,10 +1619,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_list_provisioned_concurrency_configs::ser_list_provisioned_concurrency_configs_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1821,7 +1629,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_tags.rs
 +++ generated/src/operation/list_tags.rs
-@@ -252,10 +252,14 @@
+@@ -252,10 +252,10 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1831,10 +1639,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_tags::ser_list_tags_input(&input)?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1845,7 +1649,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_versions_by_function.rs
 +++ generated/src/operation/list_versions_by_function.rs
-@@ -286,10 +286,16 @@
+@@ -286,10 +286,12 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1857,10 +1661,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_list_versions_by_function::ser_list_versions_by_function_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -2035,7 +1835,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  if version_number.is_empty() {
                      return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
                          "version_number",
-@@ -320,10 +319,16 @@
+@@ -320,10 +319,12 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2047,10 +1847,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_remove_layer_version_permission::ser_remove_layer_version_permission_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -2061,7 +1857,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/remove_permission.rs
 +++ generated/src/operation/remove_permission.rs
-@@ -311,10 +311,14 @@
+@@ -311,10 +311,10 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2071,10 +1867,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_remove_permission::ser_remove_permission_input(&input)?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -2085,7 +1877,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/send_durable_execution_callback_heartbeat.rs
 +++ generated/src/operation/send_durable_execution_callback_heartbeat.rs
-@@ -276,10 +276,16 @@
+@@ -276,10 +276,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2097,10 +1889,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from(
 +            super::super::protocol_serde::shape_send_durable_execution_callback_heartbeat::ser_send_durable_execution_callback_heartbeat_input(&input)?,
 +        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -2122,7 +1910,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  ::std::result::Result::Ok(())
              }
              #[allow(clippy::unnecessary_wraps)]
-@@ -273,10 +271,14 @@
+@@ -273,10 +271,10 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2132,10 +1920,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_resource::ser_untag_resource_input(&input)?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }

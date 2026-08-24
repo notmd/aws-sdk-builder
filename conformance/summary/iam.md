@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1626/1626` files compared · `1571` matched · `55` mismatches · `0` missing · `0` extra · `96.62%` match (100.00% means fully matched)
+**Progress:** `1626/1626` files compared · `1587` matched · `39` mismatches · `0` missing · `0` extra · `97.60%` match (100.00% means fully matched)
 
 ### `src/client/delete_service_linked_role.rs`
 
@@ -117,234 +117,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/delete_account_password_policy.rs`
-
-```diff
---- reference/src/operation/delete_account_password_policy.rs
-+++ generated/src/operation/delete_account_password_policy.rs
-@@ -211,7 +211,10 @@
-         let body = ::aws_smithy_types::body::SdkBody::from(
-             super::super::protocol_serde::shape_delete_account_password_policy_input::ser_delete_account_password_policy_input_input_input(&input)?,
-         );
--
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/disable_organizations_root_credentials_management.rs`
-
-```diff
---- reference/src/operation/disable_organizations_root_credentials_management.rs
-+++ generated/src/operation/disable_organizations_root_credentials_management.rs
-@@ -216,7 +216,10 @@
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_disable_organizations_root_credentials_management_input::ser_disable_organizations_root_credentials_management_input_input_input(&input)?);
--
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/disable_organizations_root_sessions.rs`
-
-```diff
---- reference/src/operation/disable_organizations_root_sessions.rs
-+++ generated/src/operation/disable_organizations_root_sessions.rs
-@@ -221,7 +221,10 @@
-                 &input,
-             )?,
-         );
--
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/disable_outbound_web_identity_federation.rs`
-
-```diff
---- reference/src/operation/disable_outbound_web_identity_federation.rs
-+++ generated/src/operation/disable_outbound_web_identity_federation.rs
-@@ -219,7 +219,10 @@
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_disable_outbound_web_identity_federation_input::ser_disable_outbound_web_identity_federation_input_input_input(&input)?);
--
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/enable_organizations_root_credentials_management.rs`
-
-```diff
---- reference/src/operation/enable_organizations_root_credentials_management.rs
-+++ generated/src/operation/enable_organizations_root_credentials_management.rs
-@@ -217,7 +217,10 @@
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_enable_organizations_root_credentials_management_input::ser_enable_organizations_root_credentials_management_input_input_input(&input)?);
--
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/enable_organizations_root_sessions.rs`
-
-```diff
---- reference/src/operation/enable_organizations_root_sessions.rs
-+++ generated/src/operation/enable_organizations_root_sessions.rs
-@@ -219,7 +219,10 @@
-         let body = ::aws_smithy_types::body::SdkBody::from(
-             super::super::protocol_serde::shape_enable_organizations_root_sessions_input::ser_enable_organizations_root_sessions_input_input_input(&input)?,
-         );
--
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/enable_outbound_web_identity_federation.rs`
-
-```diff
---- reference/src/operation/enable_outbound_web_identity_federation.rs
-+++ generated/src/operation/enable_outbound_web_identity_federation.rs
-@@ -219,7 +219,10 @@
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_enable_outbound_web_identity_federation_input::ser_enable_outbound_web_identity_federation_input_input_input(&input)?);
--
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/generate_credential_report.rs`
-
-```diff
---- reference/src/operation/generate_credential_report.rs
-+++ generated/src/operation/generate_credential_report.rs
-@@ -211,7 +211,10 @@
-         let body = ::aws_smithy_types::body::SdkBody::from(
-             super::super::protocol_serde::shape_generate_credential_report_input::ser_generate_credential_report_input_input_input(&input)?,
-         );
--
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/get_account_password_policy.rs`
-
-```diff
---- reference/src/operation/get_account_password_policy.rs
-+++ generated/src/operation/get_account_password_policy.rs
-@@ -211,7 +211,10 @@
-         let body = ::aws_smithy_types::body::SdkBody::from(
-             super::super::protocol_serde::shape_get_account_password_policy_input::ser_get_account_password_policy_input_input_input(&input)?,
-         );
--
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/get_account_properties.rs`
-
-```diff
---- reference/src/operation/get_account_properties.rs
-+++ generated/src/operation/get_account_properties.rs
-@@ -211,7 +211,10 @@
-         let body = ::aws_smithy_types::body::SdkBody::from(
-             super::super::protocol_serde::shape_get_account_properties_input::ser_get_account_properties_input_input_input(&input)?,
-         );
--
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/get_account_summary.rs`
-
-```diff
---- reference/src/operation/get_account_summary.rs
-+++ generated/src/operation/get_account_summary.rs
-@@ -208,7 +208,10 @@
-         let body = ::aws_smithy_types::body::SdkBody::from(
-             super::super::protocol_serde::shape_get_account_summary_input::ser_get_account_summary_input_input_input(&input)?,
-         );
--
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/get_credential_report.rs`
-
-```diff
---- reference/src/operation/get_credential_report.rs
-+++ generated/src/operation/get_credential_report.rs
-@@ -211,7 +211,10 @@
-         let body = ::aws_smithy_types::body::SdkBody::from(
-             super::super::protocol_serde::shape_get_credential_report_input::ser_get_credential_report_input_input_input(&input)?,
-         );
--
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
 ### `src/operation/get_delegation_request/_get_delegation_request_input.rs`
 
 ```diff
@@ -375,25 +147,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
  pub struct GetHumanReadableSummaryFluentBuilder {
      handle: ::std::sync::Arc<super::super::super::client::Handle>,
-```
-
-### `src/operation/get_outbound_web_identity_federation_info.rs`
-
-```diff
---- reference/src/operation/get_outbound_web_identity_federation_info.rs
-+++ generated/src/operation/get_outbound_web_identity_federation_info.rs
-@@ -219,7 +219,10 @@
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_outbound_web_identity_federation_info_input::ser_get_outbound_web_identity_federation_info_input_input_input(&input)?);
--
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
 ```
 
 ### `src/operation/list_mfa_device_tags/builders.rs`
@@ -606,44 +359,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// _Note_: No requests will be dispatched until the stream is used
 ```
 
-### `src/operation/list_open_id_connect_providers.rs`
-
-```diff
---- reference/src/operation/list_open_id_connect_providers.rs
-+++ generated/src/operation/list_open_id_connect_providers.rs
-@@ -211,7 +211,10 @@
-         let body = ::aws_smithy_types::body::SdkBody::from(
-             super::super::protocol_serde::shape_list_open_id_connect_providers_input::ser_list_open_id_connect_providers_input_input_input(&input)?,
-         );
--
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/list_organizations_features.rs`
-
-```diff
---- reference/src/operation/list_organizations_features.rs
-+++ generated/src/operation/list_organizations_features.rs
-@@ -211,7 +211,10 @@
-         let body = ::aws_smithy_types::body::SdkBody::from(
-             super::super::protocol_serde::shape_list_organizations_features_input::ser_list_organizations_features_input_input_input(&input)?,
-         );
--
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
 ### `src/operation/list_policies/_list_policies_input.rs`
 
 ```diff
@@ -728,25 +443,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// Create the pagination stream
      ///
      /// _Note_: No requests will be dispatched until the stream is used
-```
-
-### `src/operation/list_saml_providers.rs`
-
-```diff
---- reference/src/operation/list_saml_providers.rs
-+++ generated/src/operation/list_saml_providers.rs
-@@ -208,7 +208,10 @@
-         let body = ::aws_smithy_types::body::SdkBody::from(
-             super::super::protocol_serde::shape_list_saml_providers_input::ser_list_saml_providers_input_input_input(&input)?,
-         );
--
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
 ```
 
 ### `src/operation/list_ssh_public_keys/builders.rs`
@@ -1889,7 +1585,30 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde.rs
 +++ generated/src/protocol_serde.rs
-@@ -749,8 +749,6 @@
+@@ -743,6 +743,22 @@
+
+ pub(crate) mod shape_upload_ssh_public_key_input;
+
++pub(crate) mod shape_context_entry;
++
++pub(crate) mod shape_delegation_permission;
++
++pub(crate) mod shape_ordered_organization_policy_type;
++
++pub(crate) mod shape_policy_identifier;
++
++pub(crate) mod shape_replacement_value_entry;
++
++pub(crate) mod shape_tag;
++
++pub(crate) mod shape_inline_policy_identifier_type;
++
++pub(crate) mod shape_policy_parameter;
++
+ pub(crate) mod shape_account_not_management_or_delegated_administrator_exception;
+
+ pub(crate) mod shape_caller_is_not_management_account_exception;
+@@ -749,8 +765,6 @@
 
  pub(crate) mod shape_concurrent_modification_exception;
 
@@ -1898,7 +1617,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_credential_report_expired_exception;
 
  pub(crate) mod shape_credential_report_not_present_exception;
-@@ -757,8 +755,6 @@
+@@ -757,8 +771,6 @@
 
  pub(crate) mod shape_credential_report_not_ready_exception;
 
@@ -1907,7 +1626,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_delete_conflict_exception;
 
  pub(crate) mod shape_duplicate_certificate_exception;
-@@ -797,8 +793,6 @@
+@@ -797,8 +809,6 @@
 
  pub(crate) mod shape_open_id_idp_communication_error_exception;
 
@@ -1916,7 +1635,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_organization_not_found_exception;
 
  pub(crate) mod shape_organization_not_in_all_features_mode_exception;
-@@ -807,12 +801,8 @@
+@@ -807,12 +817,8 @@
 
  pub(crate) mod shape_policy_evaluation_exception;
 
@@ -1929,7 +1648,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_report_generation_limit_exceeded_exception;
 
  pub(crate) mod shape_role_modified_exception;
-@@ -825,8 +815,6 @@
+@@ -825,8 +831,6 @@
 
  pub(crate) mod shape_service_not_supported_exception;
 
@@ -1938,20 +1657,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_unmodifiable_entity_exception;
 
  pub(crate) mod shape_unrecognized_public_key_encoding_exception;
-@@ -851,8 +839,12 @@
-
- pub(crate) mod shape_client_id_list_type;
-
-+pub(crate) mod shape_context_entry;
-+
- pub(crate) mod shape_context_key_names_result_list_type;
-
-+pub(crate) mod shape_delegation_permission;
-+
- pub(crate) mod shape_delegation_request;
-
- pub(crate) mod shape_delegation_requests_list_type;
-@@ -873,8 +865,6 @@
+@@ -873,8 +877,6 @@
 
  pub(crate) mod shape_group_list_type;
 
@@ -1960,22 +1666,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_instance_profile;
 
  pub(crate) mod shape_instance_profile_list_type;
-@@ -889,6 +879,8 @@
-
- pub(crate) mod shape_open_id_connect_provider_list_type;
-
-+pub(crate) mod shape_ordered_organization_policy_type;
-+
- pub(crate) mod shape_password_policy;
-
- pub(crate) mod shape_policy;
-@@ -897,12 +889,12 @@
-
- pub(crate) mod shape_policy_group_list_type;
-
-+pub(crate) mod shape_policy_identifier;
-+
- pub(crate) mod shape_policy_list_type;
+@@ -901,8 +903,6 @@
 
  pub(crate) mod shape_policy_name_list_type;
 
@@ -1984,42 +1675,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_policy_role_list_type;
 
  pub(crate) mod shape_policy_user_list_type;
-@@ -911,6 +903,8 @@
-
- pub(crate) mod shape_private_key_list;
-
-+pub(crate) mod shape_replacement_value_entry;
-+
- pub(crate) mod shape_role;
-
- pub(crate) mod shape_role_detail_list_type;
-@@ -941,6 +935,8 @@
-
- pub(crate) mod shape_summary_map_type;
-
-+pub(crate) mod shape_tag;
-+
- pub(crate) mod shape_tag_list_type;
-
- pub(crate) mod shape_thumbprint_list_type;
-@@ -969,6 +965,8 @@
-
- pub(crate) mod shape_group_detail;
-
-+pub(crate) mod shape_inline_policy_identifier_type;
-+
- pub(crate) mod shape_inline_policy_template_list_type;
-
- pub(crate) mod shape_list_policies_granting_service_access_entry;
-@@ -985,6 +983,8 @@
-
- pub(crate) mod shape_policy_group;
-
-+pub(crate) mod shape_policy_parameter;
-+
- pub(crate) mod shape_policy_role;
-
- pub(crate) mod shape_policy_user;
 ```
 
 ### `src/serde_util.rs`

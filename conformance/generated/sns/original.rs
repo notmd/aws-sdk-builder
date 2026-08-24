@@ -5962,7 +5962,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for CheckIf
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CheckIfPhoneNumberIsOptedOut")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(CheckIfPhoneNumberIsOptedOutEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError>::new())
@@ -8935,7 +8935,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for CreateS
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateSMSSandboxPhoneNumber")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(CreateSMSSandboxPhoneNumberEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError>::new())
@@ -12619,7 +12619,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DeleteS
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteSMSSandboxPhoneNumber")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteSMSSandboxPhoneNumberEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError>::new())
@@ -16136,7 +16136,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetSMSA
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetSMSAttributes")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetSMSAttributesEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::get_sms_attributes::GetSMSAttributesError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::get_sms_attributes::GetSMSAttributesError>::new())
@@ -16793,7 +16793,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetSMSS
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetSMSSandboxAccountStatus")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetSMSSandboxAccountStatusEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError>::new())
@@ -16863,10 +16863,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetSMSSandbo
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_sms_sandbox_account_status_input::ser_get_sms_sandbox_account_status_input_input_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -26759,7 +26755,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for OptInPh
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("OptInPhoneNumber")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(OptInPhoneNumberEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::opt_in_phone_number::OptInPhoneNumberError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::opt_in_phone_number::OptInPhoneNumberError>::new())
@@ -33241,7 +33237,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for SetSMSA
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("SetSMSAttributes")
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(SetSMSAttributesEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::set_sms_attributes::SetSMSAttributesError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::set_sms_attributes::SetSMSAttributesError>::new())
@@ -53153,6 +53149,152 @@ pub fn ser_verify_sms_sandbox_phone_number_input_input_input(
 }
 }
 
+pub(crate) mod shape_message_attribute_value {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_message_attribute_value(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::MessageAttributeValue,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("DataType");
+    {
+        scope_1.string(&input.data_type);
+    }
+    #[allow(unused_mut)]
+    let mut scope_2 = writer.prefix("StringValue");
+    if let Some(var_3) = &input.string_value {
+        scope_2.string(var_3);
+    }
+    #[allow(unused_mut)]
+    let mut scope_4 = writer.prefix("BinaryValue");
+    if let Some(var_5) = &input.binary_value {
+        scope_4.string(&::aws_smithy_types::base64::encode(var_5));
+    }
+    Ok(())
+}
+}
+
+pub(crate) mod shape_publish_batch_request_entry {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_publish_batch_request_entry(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::PublishBatchRequestEntry,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("Id");
+    {
+        scope_1.string(&input.id);
+    }
+    #[allow(unused_mut)]
+    let mut scope_2 = writer.prefix("Message");
+    {
+        scope_2.string(&input.message);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("Subject");
+    if let Some(var_4) = &input.subject {
+        scope_3.string(var_4);
+    }
+    #[allow(unused_mut)]
+    let mut scope_5 = writer.prefix("MessageStructure");
+    if let Some(var_6) = &input.message_structure {
+        scope_5.string(var_6);
+    }
+    #[allow(unused_mut)]
+    let mut scope_7 = writer.prefix("MessageAttributes");
+    if let Some(var_8) = &input.message_attributes {
+        let mut map_9 = scope_7.start_map(false, "Name", "Value");
+        for (key_10, value_11) in var_8 {
+            #[allow(unused_mut)]
+            let mut entry_12 = map_9.entry(key_10);
+            {
+        super::super::protocol_serde::shape_message_attribute_value::ser_message_attribute_value(entry_12, value_11)?;
+            }
+        }
+        map_9.finish();
+    }
+    #[allow(unused_mut)]
+    let mut scope_13 = writer.prefix("MessageDeduplicationId");
+    if let Some(var_14) = &input.message_deduplication_id {
+        scope_13.string(var_14);
+    }
+    #[allow(unused_mut)]
+    let mut scope_15 = writer.prefix("MessageGroupId");
+    if let Some(var_16) = &input.message_group_id {
+        scope_15.string(var_16);
+    }
+    Ok(())
+}
+}
+
+pub(crate) mod shape_tag {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_tag(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::Tag,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("Key");
+    {
+        scope_1.string(&input.key);
+    }
+    #[allow(unused_mut)]
+    let mut scope_2 = writer.prefix("Value");
+    {
+        scope_2.string(&input.value);
+    }
+    Ok(())
+}
+#[allow(clippy::needless_question_mark)]
+pub fn de_tag(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<super::super::types::Tag, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    #[allow(unused_mut)]
+    let mut builder = super::super::types::Tag::builder();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Key") /* Key com.amazonaws.sns#Tag$Key */ =>  {
+                let var_3 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_key(var_3);
+            }
+            ,
+            s if s.matches("Value") /* Value com.amazonaws.sns#Tag$Value */ =>  {
+                let var_4 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_value(var_4);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(super::super::serde_util::tag_correct_errors(builder)
+        .build()
+        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
+}
+}
+
 pub(crate) mod shape_authorization_error_exception {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 #[allow(unused_mut)]
@@ -54565,32 +54707,6 @@ pub fn de_map_string_to_string_entry(
 }
 }
 
-pub(crate) mod shape_message_attribute_value {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-#[allow(unused_mut)]
-pub fn ser_message_attribute_value(
-    mut writer: ::aws_smithy_query::QueryValueWriter,
-    input: &super::super::types::MessageAttributeValue,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    #[allow(unused_mut)]
-    let mut scope_1 = writer.prefix("DataType");
-    {
-        scope_1.string(&input.data_type);
-    }
-    #[allow(unused_mut)]
-    let mut scope_2 = writer.prefix("StringValue");
-    if let Some(var_3) = &input.string_value {
-        scope_2.string(var_3);
-    }
-    #[allow(unused_mut)]
-    let mut scope_4 = writer.prefix("BinaryValue");
-    if let Some(var_5) = &input.binary_value {
-        scope_4.string(&::aws_smithy_types::base64::encode(var_5));
-    }
-    Ok(())
-}
-}
-
 pub(crate) mod shape_phone_number_information_list {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 pub fn de_phone_number_information_list(
@@ -54643,60 +54759,6 @@ pub fn de_phone_number_list(
         }
     }
     Ok(out)
-}
-}
-
-pub(crate) mod shape_publish_batch_request_entry {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-#[allow(unused_mut)]
-pub fn ser_publish_batch_request_entry(
-    mut writer: ::aws_smithy_query::QueryValueWriter,
-    input: &super::super::types::PublishBatchRequestEntry,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    #[allow(unused_mut)]
-    let mut scope_1 = writer.prefix("Id");
-    {
-        scope_1.string(&input.id);
-    }
-    #[allow(unused_mut)]
-    let mut scope_2 = writer.prefix("Message");
-    {
-        scope_2.string(&input.message);
-    }
-    #[allow(unused_mut)]
-    let mut scope_3 = writer.prefix("Subject");
-    if let Some(var_4) = &input.subject {
-        scope_3.string(var_4);
-    }
-    #[allow(unused_mut)]
-    let mut scope_5 = writer.prefix("MessageStructure");
-    if let Some(var_6) = &input.message_structure {
-        scope_5.string(var_6);
-    }
-    #[allow(unused_mut)]
-    let mut scope_7 = writer.prefix("MessageAttributes");
-    if let Some(var_8) = &input.message_attributes {
-        let mut map_9 = scope_7.start_map(false, "Name", "Value");
-        for (key_10, value_11) in var_8 {
-            #[allow(unused_mut)]
-            let mut entry_12 = map_9.entry(key_10);
-            {
-        super::super::protocol_serde::shape_message_attribute_value::ser_message_attribute_value(entry_12, value_11)?;
-            }
-        }
-        map_9.finish();
-    }
-    #[allow(unused_mut)]
-    let mut scope_13 = writer.prefix("MessageDeduplicationId");
-    if let Some(var_14) = &input.message_deduplication_id {
-        scope_13.string(var_14);
-    }
-    #[allow(unused_mut)]
-    let mut scope_15 = writer.prefix("MessageGroupId");
-    if let Some(var_16) = &input.message_group_id {
-        scope_15.string(var_16);
-    }
-    Ok(())
 }
 }
 
@@ -54838,72 +54900,6 @@ pub fn de_subscriptions_list(
         }
     }
     Ok(out)
-}
-}
-
-pub(crate) mod shape_tag {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-#[allow(unused_mut)]
-pub fn ser_tag(
-    mut writer: ::aws_smithy_query::QueryValueWriter,
-    input: &super::super::types::Tag,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    #[allow(unused_mut)]
-    let mut scope_1 = writer.prefix("Key");
-    {
-        scope_1.string(&input.key);
-    }
-    #[allow(unused_mut)]
-    let mut scope_2 = writer.prefix("Value");
-    {
-        scope_2.string(&input.value);
-    }
-    Ok(())
-}
-#[allow(clippy::needless_question_mark)]
-pub fn de_tag(
-    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
-    depth: u32,
-) -> ::std::result::Result<super::super::types::Tag, ::aws_smithy_xml::decode::XmlDecodeError> {
-    if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
-    }
-    #[allow(unused_mut)]
-    let mut builder = super::super::types::Tag::builder();
-    while let Some(mut tag) = decoder.next_tag() {
-        match tag.start_el() {
-            s if s.matches("Key") /* Key com.amazonaws.sns#Tag$Key */ =>  {
-                let var_3 =
-                    Some(
-                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            .into()
-                        )
-                        ?
-                    )
-                ;
-                builder = builder.set_key(var_3);
-            }
-            ,
-            s if s.matches("Value") /* Value com.amazonaws.sns#Tag$Value */ =>  {
-                let var_4 =
-                    Some(
-                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            .into()
-                        )
-                        ?
-                    )
-                ;
-                builder = builder.set_value(var_4);
-            }
-            ,
-            _ => {}
-        }
-    }
-    Ok(super::super::serde_util::tag_correct_errors(builder)
-        .build()
-        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
 }
 }
 

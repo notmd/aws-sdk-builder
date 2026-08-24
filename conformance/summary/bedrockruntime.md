@@ -1049,7 +1049,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_async_invoke.rs
 +++ generated/src/operation/get_async_invoke.rs
-@@ -262,10 +262,14 @@
+@@ -262,10 +262,10 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1059,10 +1059,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_async_invoke::ser_get_async_invoke_input(&input)?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1348,7 +1344,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          );
                      }
                  }
-@@ -300,10 +300,14 @@
+@@ -300,10 +300,10 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1358,10 +1354,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_async_invokes::ser_list_async_invokes_input(&input)?);
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -9586,18 +9578,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/error/_model_not_ready_exception.rs
 +++ generated/src/types/error/_model_not_ready_exception.rs
-@@ -11,8 +11,10 @@
+@@ -11,7 +11,7 @@
  impl ModelNotReadyException {
      /// Returns `Some(ErrorKind)` if the error is retryable. Otherwise, returns `None`.
      pub fn retryable_error_kind(&self) -> ::aws_smithy_types::retry::ErrorKind {
 -        ::aws_smithy_types::retry::ErrorKind::ClientError
 +        ::aws_smithy_types::retry::ErrorKind::ServerError
      }
-+}
-+impl ModelNotReadyException {
      /// Returns the error message.
      pub fn message(&self) -> ::std::option::Option<&str> {
-         self.message.as_deref()
 ```
 
 ### `src/types/error/builders.rs`
