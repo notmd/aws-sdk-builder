@@ -52,19 +52,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/config.rs
 +++ generated/src/config.rs
-@@ -145,11 +145,7 @@
-     /// The signing service may be overridden by the `Endpoint`, or by specifying a custom
-     /// [`SigningName`](aws_types::SigningName) during operation construction
+@@ -147,10 +147,6 @@
      pub fn signing_name(&self) -> &'static str {
--        "ses"
--    }
+         "ses"
+     }
 -    /// Returns the SigV4a signing region set, if configured.
 -    pub fn sigv4a_signing_region_set(&self) -> Option<&::aws_types::region::SigningRegionSet> {
 -        self.config.load::<::aws_types::region::SigningRegionSet>()
-+        "sesv2"
-     }
+-    }
      /// Returns the AWS region, if it was provided.
      pub fn region(&self) -> ::std::option::Option<&super::config::Region> {
+         self.config.load::<super::config::Region>()
 @@ -209,7 +205,6 @@
          builder.set_endpoint_url(config_bag.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()));
          builder.set_use_dual_stack(config_bag.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0));
@@ -103,15 +101,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              self.runtime_components
                  .set_identity_resolver(::aws_runtime::auth::sigv4::SCHEME_ID, credentials_provider);
          }
-@@ -1406,7 +1385,7 @@
-                 .set_time_source(::std::option::Option::Some(::std::default::Default::default()));
-         }
-         layer.store_put(super::meta::API_METADATA.clone());
--        layer.store_put(::aws_types::SigningName::from_static("ses"));
-+        layer.store_put(::aws_types::SigningName::from_static("sesv2"));
-         layer
-             .load::<::aws_types::region::Region>()
-             .cloned()
 @@ -1463,12 +1442,6 @@
          runtime_components.push_auth_scheme(::aws_smithy_runtime_api::client::auth::SharedAuthScheme::new(
              ::aws_runtime::auth::sigv4::SigV4AuthScheme::new(),

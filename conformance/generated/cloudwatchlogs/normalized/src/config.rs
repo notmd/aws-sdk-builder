@@ -145,7 +145,7 @@ impl Config {
     /// The signing service may be overridden by the `Endpoint`, or by specifying a custom
     /// [`SigningName`](aws_types::SigningName) during operation construction
     pub fn signing_name(&self) -> &'static str {
-        "cloudwatchlogs"
+        "logs"
     }
     /// Returns the AWS region, if it was provided.
     pub fn region(&self) -> ::std::option::Option<&super::config::Region> {
@@ -1402,7 +1402,7 @@ impl Builder {
                 .set_time_source(::std::option::Option::Some(::std::default::Default::default()));
         }
         layer.store_put(super::meta::API_METADATA.clone());
-        layer.store_put(::aws_types::SigningName::from_static("cloudwatchlogs"));
+        layer.store_put(::aws_types::SigningName::from_static("logs"));
         layer
             .load::<::aws_types::region::Region>()
             .cloned()

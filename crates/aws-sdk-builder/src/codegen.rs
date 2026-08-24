@@ -2076,6 +2076,120 @@ fn render_sealed_enum_unknown() -> String {
     output
 }
 
+fn render_http_bearer_config_builder() -> String {
+    r#"    /// Sets the bearer token that will be used for HTTP bearer auth.
+    pub fn bearer_token(self, bearer_token: crate::config::Token) -> Self {
+        self.bearer_token_resolver(bearer_token)
+    }
+
+    /// Sets a bearer token provider that will be used for HTTP bearer auth.
+    pub fn bearer_token_resolver(mut self, bearer_token_resolver: impl crate::config::ResolveIdentity + 'static) -> Self {
+        self.runtime_components.set_identity_resolver(
+            ::aws_smithy_runtime_api::client::auth::http::HTTP_BEARER_AUTH_SCHEME_ID,
+            ::aws_smithy_runtime_api::shared::IntoShared::<::aws_smithy_runtime_api::client::identity::SharedIdentityResolver>::into_shared(
+                bearer_token_resolver,
+            ),
+        );
+        self
+    }"#
+        .to_owned()
+}
+
+fn render_bearer_token_provider_builder() -> String {
+    r#"    /// Sets the access token provider for this service
+    ///
+    /// Note: the [`Self::bearer_token`] and [`Self::bearer_token_resolver`] methods are
+    /// equivalent to this method, but take the [`Token`] and [`ResolveIdentity`] types
+    /// respectively.
+    ///
+    /// [`Token`]: crate::config::Token
+    /// [`ResolveIdentity`]: crate::config::ResolveIdentity
+    pub fn token_provider(mut self, token_provider: impl crate::config::ProvideToken + 'static) -> Self {
+        self.set_token_provider(::std::option::Option::Some(::aws_smithy_runtime_api::shared::IntoShared::<
+            crate::config::SharedTokenProvider,
+        >::into_shared(token_provider)));
+        self
+    }
+
+    /// Sets the access token provider for this service
+    ///
+    /// Note: the [`Self::bearer_token`] and [`Self::bearer_token_resolver`] methods are
+    /// equivalent to this method, but take the [`Token`] and [`ResolveIdentity`] types
+    /// respectively.
+    ///
+    /// [`Token`]: crate::config::Token
+    /// [`ResolveIdentity`]: crate::config::ResolveIdentity
+    pub fn set_token_provider(&mut self, token_provider: ::std::option::Option<crate::config::SharedTokenProvider>) -> &mut Self {
+        if let Some(token_provider) = token_provider {
+            self.runtime_components
+                .set_identity_resolver(::aws_smithy_runtime_api::client::auth::http::HTTP_BEARER_AUTH_SCHEME_ID, token_provider);
+        }
+        self
+    }"#
+        .to_owned()
+}
+
+fn render_bearer_http_exports() -> String {
+    r#"
+pub use ::aws_smithy_runtime_api::client::identity::http::Token;
+
+pub use ::aws_smithy_runtime_api::client::identity::ResolveIdentity;"#
+        .to_owned()
+}
+
+fn render_bearer_token_exports() -> String {
+    r#"
+pub use ::aws_credential_types::provider::token::ProvideToken;
+
+pub use ::aws_credential_types::provider::token::SharedTokenProvider;"#
+        .to_owned()
+}
+
+fn render_bearer_test_default() -> String {
+    "        self.set_token_provider(Some(crate::config::SharedTokenProvider::new(::aws_credential_types::Token::for_tests())));".to_owned()
+}
+
+fn render_bearer_runtime_auth_scheme() -> String {
+    "        runtime_components.push_auth_scheme(::aws_smithy_runtime_api::client::auth::SharedAuthScheme::new(\n            ::aws_smithy_runtime::client::auth::http::BearerAuthScheme::new(),\n        ));".to_owned()
+}
+
+fn render_sdk_config_token_provider() -> String {
+    "        builder.set_token_provider(input.token_provider());".to_owned()
+}
+
+fn render_environment_token_provider(selected: &SelectedModel) -> String {
+    let signing_name = service_signing_name(selected);
+    if signing_name != "bedrock" {
+        return String::new();
+    }
+    format!(
+        r#"        if let ::std::option::Option::Some(val) = input.service_config().and_then(|conf| {{
+            // Passing an empty string for the last argument of `service_config_key`,
+            // since shared config/profile for environment token provider is not supported.
+            ::aws_types::service_config::LoadServiceConfig::load_config(conf, service_config_key("bedrock", "AWS_BEARER_TOKEN", ""))
+                .and_then(|it| it.parse::<::std::string::String>().ok())
+        }}) {{
+            if !input.get_origin("auth_scheme_preference").is_client_config() {{
+                builder.set_auth_scheme_preference(::std::option::Option::Some(
+                    [::aws_smithy_runtime_api::client::auth::http::HTTP_BEARER_AUTH_SCHEME_ID].into(),
+                ));
+            }}
+            if !input.get_origin("token_provider").is_client_config() {{
+                let mut layer = ::aws_smithy_types::config_bag::Layer::new("AwsBearerTokenBedrock");
+                layer.store_append(::aws_credential_types::credential_feature::AwsCredentialFeature::BearerServiceEnvVars);
+                let identity = ::aws_smithy_runtime_api::client::identity::Identity::builder()
+                    .data(crate::config::Token::new(val, ::std::option::Option::None))
+                    .property(layer.freeze())
+                    .build()
+                    .expect("required fields set");
+                builder
+                    .runtime_components
+                    .set_identity_resolver(::aws_smithy_runtime_api::client::auth::http::HTTP_BEARER_AUTH_SCHEME_ID, identity);
+            }}
+        }}"#
+    )
+}
+
 fn render_config_file(selected: &SelectedModel) -> String {
     render_standalone_config_file(selected)
 }
@@ -2083,6 +2197,7 @@ fn render_config_file(selected: &SelectedModel) -> String {
 fn render_standalone_config_file(selected: &SelectedModel) -> String {
     let mut output = include_str!("../assets/config_base.rs.in").to_owned();
     let checksums = model_contains_trait(selected, "aws.protocols#httpChecksum");
+    let bearer_auth = service_uses_http_bearer_auth(selected);
     let s3_express = service_supports_s3_express(selected);
     let sigv4a = service_uses_sigv4a(selected);
     let idempotency = has_idempotency_operations(selected);
@@ -2090,6 +2205,75 @@ fn render_standalone_config_file(selected: &SelectedModel) -> String {
         service_has_endpoint_builtin(selected, "AWS::Auth::AccountIdEndpointMode");
     let dynamodb_retry = account_id_endpoint;
     let aws_chunked = model_has_aws_chunked_operations(selected);
+
+    replace_config_placeholder(
+        &mut output,
+        "__BEARER_CONFIG_BUILDER__",
+        if bearer_auth {
+            render_http_bearer_config_builder()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__BEARER_TOKEN_PROVIDER_BUILDER__",
+        if bearer_auth {
+            render_bearer_token_provider_builder()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__BEARER_TEST_DEFAULT__",
+        if bearer_auth {
+            render_bearer_test_default()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__BEARER_RUNTIME_AUTH_SCHEME__",
+        if bearer_auth {
+            render_bearer_runtime_auth_scheme()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__SDK_CONFIG_TOKEN_PROVIDER__",
+        if bearer_auth {
+            render_sdk_config_token_provider()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__SDK_CONFIG_ENV_BEARER__",
+        render_environment_token_provider(selected),
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__BEARER_HTTP_EXPORTS__",
+        if bearer_auth {
+            render_bearer_http_exports()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__BEARER_TOKEN_EXPORTS__",
+        if bearer_auth {
+            render_bearer_token_exports()
+        } else {
+            String::new()
+        },
+    );
 
     replace_config_placeholder(
         &mut output,
@@ -2401,6 +2585,7 @@ fn render_standalone_config_file(selected: &SelectedModel) -> String {
             terminal(selected.model.service_shape_id.as_str()),
         )
         .replace("__SERVICE_TITLE__", &service_sdk_id(selected))
+        .replace("__SIGNING_NAME__", &service_signing_name(selected))
         .replace("__SERVICE_KEY__", selected.model.entry.key);
     output
 }
@@ -2419,6 +2604,37 @@ fn selected_service(selected: &SelectedModel) -> Option<&Value> {
         .model
         .shapes
         .get(selected.model.service_shape_id.as_str())
+}
+
+fn service_signing_name(selected: &SelectedModel) -> String {
+    selected_service(selected)
+        .and_then(|service| service.get("traits"))
+        .and_then(Value::as_object)
+        .and_then(|traits| traits.get("aws.auth#sigv4"))
+        .and_then(Value::as_object)
+        .and_then(|sigv4| sigv4.get("name"))
+        .and_then(Value::as_str)
+        .unwrap_or(selected.model.entry.key)
+        .to_owned()
+}
+
+fn service_uses_http_bearer_auth(selected: &SelectedModel) -> bool {
+    selected_service(selected).is_some_and(|service| {
+        service
+            .get("traits")
+            .and_then(Value::as_object)
+            .is_some_and(|traits| {
+                traits.contains_key("smithy.api#httpBearerAuth")
+                    || traits
+                        .get("smithy.api#auth")
+                        .and_then(Value::as_array)
+                        .is_some_and(|auth| {
+                            auth.iter()
+                                .filter_map(Value::as_str)
+                                .any(|id| id == "smithy.api#httpBearerAuth")
+                        })
+            })
+    })
 }
 
 fn service_has_endpoint_builtin(selected: &SelectedModel, built_in: &str) -> bool {
@@ -3104,6 +3320,7 @@ fn render_auth_option(
     let (module, cfg) = match id {
         "aws.auth#sigv4" => ("sigv4", false),
         "aws.auth#sigv4a" => ("sigv4a", true),
+        "smithy.api#httpBearerAuth" => ("http::HTTP_BEARER_AUTH_SCHEME_ID", false),
         _ => {
             return "::aws_smithy_runtime_api::client::auth::AuthSchemeOption::from(\"unknown\")"
                 .to_owned();
@@ -3119,8 +3336,13 @@ fn render_auth_option(
             )
         })
         .unwrap_or_default();
+    let scheme_id = if module.starts_with("http::") {
+        format!("::aws_smithy_runtime_api::client::auth::{module}")
+    } else {
+        format!("::aws_runtime::auth::{module}::SCHEME_ID")
+    };
     let expression = format!(
-        "::aws_smithy_runtime_api::client::auth::AuthSchemeOption::builder().scheme_id(::aws_runtime::auth::{module}::SCHEME_ID){properties}.build().expect(\"required fields set\")"
+        "::aws_smithy_runtime_api::client::auth::AuthSchemeOption::builder().scheme_id({scheme_id}){properties}.build().expect(\"required fields set\")"
     );
     if cfg && service_defaults {
         format!("#[cfg(feature = \"sigv4a\")] {{ {expression} }}")
@@ -3227,7 +3449,7 @@ fn render_service_error_metadata(selected: &SelectedModel) -> String {
     }
     for union_id in streaming_error_union_ids(selected) {
         let error_name = format!("{}Error", rust_type_name(terminal(&union_id)));
-        render_service_event_stream_conversions(&mut output, &error_name);
+        render_service_event_stream_conversions(&mut output, selected, &union_id, &error_name);
     }
 
     output.push_str(
@@ -3313,11 +3535,44 @@ fn render_service_operation_error_conversions(
     .unwrap();
 }
 
-fn render_service_event_stream_conversions(output: &mut String, error_name: &str) {
+fn render_service_event_stream_conversions(
+    output: &mut String,
+    selected: &SelectedModel,
+    union_id: &str,
+    error_name: &str,
+) {
     let error_path = format!("crate::types::error::{error_name}");
+    let modeled_arms = selected
+        .model
+        .shapes
+        .get(union_id)
+        .map(|shape| {
+            members(shape)
+                .into_iter()
+                .filter_map(|(_, member)| member_target(member))
+                .filter(|target| {
+                    selected
+                        .model
+                        .shapes
+                        .get(*target)
+                        .is_some_and(is_error_shape)
+                })
+                .map(|target| {
+                    let name = rust_type_name(terminal(target));
+                    format!("            {error_path}::{name}(inner) => Error::{name}(inner),")
+                })
+                .collect::<Vec<_>>()
+                .join("\n")
+        })
+        .unwrap_or_default();
+    let modeled_arms = if modeled_arms.is_empty() {
+        String::new()
+    } else {
+        format!("{modeled_arms}\n")
+    };
     writeln!(
         output,
-        "impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<{error_path}, R>> for Error\nwhere\n    R: Send + Sync + std::fmt::Debug + 'static,\n{{\n    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<{error_path}, R>) -> Self {{\n        match err {{\n            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),\n            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {{\n                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),\n                source: err.into(),\n            }}),\n        }}\n    }}\n}}\nimpl From<{error_path}> for Error {{\n    fn from(err: {error_path}) -> Self {{\n        match err {{\n            {error_path}::Unhandled(inner) => Error::Unhandled(inner),\n        }}\n    }}\n}}"
+        "impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<{error_path}, R>> for Error\nwhere\n    R: Send + Sync + std::fmt::Debug + 'static,\n{{\n    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<{error_path}, R>) -> Self {{\n        match err {{\n            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),\n            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {{\n                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),\n                source: err.into(),\n            }}),\n        }}\n    }}\n}}\nimpl From<{error_path}> for Error {{\n    fn from(err: {error_path}) -> Self {{\n        match err {{\n{modeled_arms}            {error_path}::Unhandled(inner) => Error::Unhandled(inner),\n        }}\n    }}\n}}"
     )
     .unwrap();
 }
@@ -3493,7 +3748,7 @@ fn render_error_types_file(selected: &SelectedModel) -> String {
         .collect::<Vec<_>>();
     event_stream_ids.sort();
     for id in event_stream_ids {
-        render_event_stream_error(&mut output, &id);
+        render_event_stream_error(&mut output, selected, &id);
     }
 
     let mut module_ids = error_shape_ids(selected);
@@ -3510,15 +3765,33 @@ fn render_error_types_file(selected: &SelectedModel) -> String {
     output
 }
 
-fn render_event_stream_error(output: &mut String, union_id: &str) {
+fn render_event_stream_error(output: &mut String, selected: &SelectedModel, union_id: &str) {
     let error_name = format!("{}Error", rust_type_name(terminal(union_id)));
     let error_type_path = { format!("crate::types::error::{error_name}") };
-    let request_id_path = { "crate::s3_request_id".to_owned() };
+    let errors = selected
+        .model
+        .shapes
+        .get(union_id)
+        .map(|shape| {
+            members(shape)
+                .into_iter()
+                .filter_map(|(_, member)| member_target(member))
+                .filter(|target| {
+                    selected
+                        .model
+                        .shapes
+                        .get(*target)
+                        .is_some_and(is_error_shape)
+                })
+                .map(ToOwned::to_owned)
+                .collect::<Vec<_>>()
+        })
+        .unwrap_or_default();
     let template = r###"/// Error type for the `__ERROR_NAME__` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum __ERROR_NAME__ {
-    /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
+__MODELED_VARIANTS__    /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
@@ -3551,21 +3824,21 @@ impl __ERROR_NAME__ {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::Unhandled(e) => &e.meta,
+__MODELED_META__            Self::Unhandled(e) => &e.meta,
         }
     }
-}
+__MODELED_METHODS__}
 impl ::std::error::Error for __ERROR_NAME__ {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
+__MODELED_SOURCE__            Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
         }
     }
 }
 impl ::std::fmt::Display for __ERROR_NAME__ {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
-            Self::Unhandled(_inner) => {
+__MODELED_DISPLAY__            Self::Unhandled(_inner) => {
                 if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
                     write!(f, "unhandled error ({code})")
                 } else {
@@ -3580,13 +3853,13 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for __ERROR_NAME__ {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
     }
     fn retryable_error_kind(&self) -> ::std::option::Option<::aws_smithy_types::retry::ErrorKind> {
-        ::std::option::Option::None
+        __MODELED_RETRYABLE__
     }
 }
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for __ERROR_NAME__ {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::Unhandled(_inner) => &_inner.meta,
+__MODELED_META__            Self::Unhandled(_inner) => &_inner.meta,
         }
     }
 }
@@ -3601,11 +3874,6 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for __ERROR_
         })
     }
 }
-impl __REQUEST_ID_PATH__::RequestIdExt for __ERROR_TYPE_PATH__ {
-    fn extended_request_id(&self) -> Option<&str> {
-        self.meta().extended_request_id()
-    }
-}
 impl ::aws_types::request_id::RequestId for __ERROR_TYPE_PATH__ {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
@@ -3613,12 +3881,128 @@ impl ::aws_types::request_id::RequestId for __ERROR_TYPE_PATH__ {
 }
 
 "###;
-    output.push_str(
-        &template
-            .replace("__ERROR_NAME__", &error_name)
-            .replace("__ERROR_TYPE_PATH__", &error_type_path)
-            .replace("__REQUEST_ID_PATH__", &request_id_path),
-    );
+    let mut modeled_variants = String::new();
+    for error in &errors {
+        let error_name = rust_type_name(terminal(error));
+        if let Some(shape) = selected.model.shapes.get(error)
+            && let Some(documentation) = documentation(shape)
+        {
+            render_doc_lines(&mut modeled_variants, &documentation, 4);
+        } else {
+            modeled_variants
+                .push_str("    #[allow(missing_docs)] // documentation missing in model\n");
+        }
+        if let Some(shape) = selected.model.shapes.get(error) {
+            render_deprecated_attribute(&mut modeled_variants, shape, 4);
+        }
+        writeln!(
+            modeled_variants,
+            "    {error_name}(crate::types::error::{error_name}),"
+        )
+        .unwrap();
+    }
+    let mut modeled_meta = errors
+        .iter()
+        .map(|error| {
+            format!(
+                "            Self::{}(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),",
+                rust_type_name(terminal(error))
+            )
+        })
+        .collect::<Vec<_>>()
+        .join("\n            ");
+    if !modeled_meta.is_empty() {
+        modeled_meta.push('\n');
+    }
+    let mut modeled_source = errors
+        .iter()
+        .map(|error| {
+            format!(
+                "            Self::{}(_inner) => ::std::option::Option::Some(_inner),",
+                rust_type_name(terminal(error))
+            )
+        })
+        .collect::<Vec<_>>()
+        .join("\n            ");
+    if !modeled_source.is_empty() {
+        modeled_source.push('\n');
+    }
+    let mut modeled_display = errors
+        .iter()
+        .map(|error| {
+            format!(
+                "            Self::{}(_inner) => _inner.fmt(f),",
+                rust_type_name(terminal(error))
+            )
+        })
+        .collect::<Vec<_>>()
+        .join("\n            ");
+    if !modeled_display.is_empty() {
+        modeled_display.push('\n');
+    }
+    let modeled_methods = errors
+        .iter()
+        .map(|error| {
+            let error_name = rust_type_name(terminal(error));
+            let method = names::snake_case(&error_name);
+            format!(
+                "    /// Returns `true` if the error kind is `{error_name}::{error_name}`.\n    pub fn is_{method}(&self) -> bool {{\n        matches!(self, Self::{error_name}(_))\n    }}\n"
+            )
+        })
+        .collect::<String>();
+    let retryable_arms = errors
+        .iter()
+        .filter(|error| {
+            selected
+                .model
+                .shapes
+                .get(error.as_str())
+                .is_some_and(|shape| error_shape_is_retryable(selected, error, shape))
+        })
+        .map(|error| {
+            format!(
+                "Self::{}(inner) => ::std::option::Option::Some(inner.retryable_error_kind()),",
+                rust_type_name(terminal(error))
+            )
+        })
+        .collect::<Vec<_>>();
+    let retryable_body = if retryable_arms.is_empty() {
+        "::std::option::Option::None".to_owned()
+    } else {
+        let arms = retryable_arms
+            .into_iter()
+            .chain(std::iter::once(
+                "_ => ::std::option::Option::None,".to_owned(),
+            ))
+            .collect::<Vec<_>>()
+            .join("\n            ");
+        format!("match self {{\n            {arms}\n        }}")
+    };
+    let rendered = template
+        .replace("__ERROR_NAME__", &error_name)
+        .replace("__MODELED_VARIANTS__", &modeled_variants)
+        .replace("__MODELED_META__", &modeled_meta)
+        .replace("__MODELED_METHODS__", &modeled_methods)
+        .replace("__MODELED_SOURCE__", &modeled_source)
+        .replace("__MODELED_DISPLAY__", &modeled_display)
+        .replace("__MODELED_RETRYABLE__", &retryable_body)
+        .replace("__ERROR_TYPE_PATH__", &error_type_path);
+    output.push_str(&rendered);
+    let request_id_plan = request_id_plan(selected);
+    if request_id_plan.extended {
+        writeln!(
+            output,
+            "impl crate::s3_request_id::RequestIdExt for {error_type_path} {{\n    fn extended_request_id(&self) -> Option<&str> {{\n        self.meta().extended_request_id()\n    }}\n}}"
+        )
+        .unwrap();
+    }
+    if request_id_plan.standard {
+        writeln!(
+            output,
+            "impl ::aws_types::request_id::RequestId for {error_type_path} {{\n    fn request_id(&self) -> Option<&str> {{\n        self.meta().request_id()\n    }}\n}}"
+        )
+        .unwrap();
+    }
 }
 
 fn service_crate_name(service_key: &str) -> String {
@@ -15791,6 +16175,48 @@ mod tests {
         assert_eq!(
             primitive_type_for_namespace("Document"),
             "::aws_smithy_types::Document"
+        );
+    }
+
+    #[test]
+    fn http_bearer_and_sigv4_settings_follow_service_traits() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Op"],
+                        "traits": {
+                            "aws.auth#sigv4": {"name": "example-signing"},
+                            "smithy.api#auth": ["aws.auth#sigv4", "smithy.api#httpBearerAuth"],
+                            "smithy.api#httpBearerAuth": {},
+                            "aws.protocols#restJson1": {}
+                        }
+                    },
+                    "example#Op": {
+                        "type": "operation",
+                        "output": {"target": "smithy.api#Unit"},
+                        "traits": {"smithy.api#http": {"method": "GET", "uri": "/", "code": 200}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+
+        assert_eq!(service_signing_name(&selected), "example-signing");
+        assert!(service_uses_http_bearer_auth(&selected));
+        assert!(
+            render_auth_option("smithy.api#httpBearerAuth", None, None, true)
+                .contains("HTTP_BEARER_AUTH_SCHEME_ID")
         );
     }
 

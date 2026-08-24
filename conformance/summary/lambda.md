@@ -9870,18 +9870,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
  /// Error type for the `InvokeWithResponseStreamResponseEventError` operation.
  #[non_exhaustive]
-@@ -198,6 +198,11 @@
-         })
+@@ -204,6 +204,11 @@
      }
  }
-+impl super::super::s3_request_id::RequestIdExt for super::super::types::error::InvokeWithResponseStreamResponseEventError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
+
++impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeWithResponseStreamResponseEventError {
++    fn request_id(&self) -> Option<&str> {
++        self.meta().request_id()
 +    }
 +}
- impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeWithResponseStreamResponseEventError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+ mod _alias_limit_exceeded_exception;
+
+ mod _callback_timeout_exception;
 ```
 
 ### `src/types.rs`

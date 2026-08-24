@@ -146,7 +146,7 @@ __CONFIG_CHECKSUM_GETTERS__
     /// The signing service may be overridden by the `Endpoint`, or by specifying a custom
     /// [`SigningName`](aws_types::SigningName) during operation construction
     pub fn signing_name(&self) -> &'static str {
-        "__SERVICE_KEY__"
+        "__SIGNING_NAME__"
     }
 __CONFIG_SIGV4A_GETTER__
     /// Returns the AWS region, if it was provided.
@@ -340,6 +340,7 @@ __IDEMPOTENCY_BUILDER__
         self.runtime_components.set_http_client(http_client);
         self
     }
+__BEARER_CONFIG_BUILDER__
     /// Adds an auth scheme to the builder
     ///
     /// If `auth_scheme` has an existing [AuthSchemeId](aws_smithy_runtime_api::client::auth::AuthSchemeId) in the runtime, the current identity
@@ -1165,6 +1166,7 @@ __S3_BUILDER__
         self.config.store_append(framework_metadata);
         self
     }
+__BEARER_TOKEN_PROVIDER_BUILDER__
 __S3_EXPRESS_BUILDER__
     /// Overrides the default invocation ID generator.
     ///
@@ -1361,6 +1363,7 @@ __S3_IDEMPOTENCY_BLANK__        self.set_time_source(::std::option::Option::Some
             ::aws_smithy_async::time::StaticTimeSource::new(::std::time::UNIX_EPOCH + ::std::time::Duration::from_secs(1234567890)),
         )));
         self.config.store_put(::aws_runtime::user_agent::AwsUserAgent::for_tests());
+__BEARER_TEST_DEFAULT__
         self.set_credentials_provider(Some(crate::config::SharedCredentialsProvider::new(
             ::aws_credential_types::Credentials::for_tests(),
         )));
@@ -1400,7 +1403,7 @@ __S3_BUILD_BLANK__        if self.runtime_components.time_source().is_none() {
                 .set_time_source(::std::option::Option::Some(::std::default::Default::default()));
         }
         layer.store_put(crate::meta::API_METADATA.clone());
-        layer.store_put(::aws_types::SigningName::from_static("__SERVICE_KEY__"));
+        layer.store_put(::aws_types::SigningName::from_static("__SIGNING_NAME__"));
         layer
             .load::<::aws_types::region::Region>()
             .cloned()
@@ -1431,6 +1434,7 @@ __IDEMPOTENCY_RUNTIME_CONFIG__
             ::std::option::Option::Some(cfg.freeze())
         };
         let mut runtime_components = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ServiceRuntimePlugin");
+__BEARER_RUNTIME_AUTH_SCHEME__
         runtime_components.set_auth_scheme_option_resolver(::std::option::Option::Some({
             use crate::config::auth::ResolveAuthScheme;
             crate::config::auth::DefaultAuthSchemeResolver::default().into_shared_resolver()
@@ -1602,6 +1606,8 @@ __SDK_CONFIG_ACCOUNT_ID__
         if let Some(cache) = input.identity_cache() {
             builder.set_identity_cache(cache);
         }
+__SDK_CONFIG_TOKEN_PROVIDER__
+__SDK_CONFIG_ENV_BEARER__
 __SDK_CONFIG_S3_EXPRESS__
 __SDK_CONFIG_DYNAMODB_RETRY__
         builder.set_app_name(input.app_name().cloned());
@@ -1712,12 +1718,14 @@ __S3_STORABLES__
 pub use ::aws_smithy_runtime_api::client::http::HttpClient;
 
 pub use ::aws_smithy_runtime_api::shared::IntoShared;
+__BEARER_HTTP_EXPORTS__
 
 pub use ::aws_smithy_async::rt::sleep::AsyncSleep;
 
 pub use ::aws_smithy_runtime_api::client::identity::ResolveCachedIdentity;
 
 pub use ::aws_smithy_runtime_api::client::interceptors::Intercept;
+__BEARER_TOKEN_EXPORTS__
 
 pub use ::aws_credential_types::provider::ProvideCredentials;
 

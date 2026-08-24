@@ -45,6 +45,8 @@ pub use super::super::types::error::_session_timeout_exception::SessionTimeoutEx
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum GetLogObjectResponseStreamError {
+    /// <p>An internal error occurred during the streaming of log data. This exception is thrown when there's an issue with the internal streaming mechanism used by the GetLogObject operation.</p>
+    InternalStreamingException(super::super::types::error::InternalStreamingException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -78,13 +80,19 @@ impl GetLogObjectResponseStreamError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
+            Self::InternalStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
+    }
+    /// Returns `true` if the error kind is `InternalStreamingException::InternalStreamingException`.
+    pub fn is_internal_streaming_exception(&self) -> bool {
+        matches!(self, Self::InternalStreamingException(_))
     }
 }
 impl ::std::error::Error for GetLogObjectResponseStreamError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
+            Self::InternalStreamingException(_inner) => ::std::option::Option::Some(_inner),
             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
         }
     }
@@ -92,6 +100,7 @@ impl ::std::error::Error for GetLogObjectResponseStreamError {
 impl ::std::fmt::Display for GetLogObjectResponseStreamError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
+            Self::InternalStreamingException(_inner) => _inner.fmt(f),
             Self::Unhandled(_inner) => {
                 if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
                     write!(f, "unhandled error ({code})")
@@ -113,6 +122,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for GetLogObjectResponseStreamE
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetLogObjectResponseStreamError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
+            Self::InternalStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
@@ -128,21 +138,25 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetLogOb
         })
     }
 }
-impl super::super::s3_request_id::RequestIdExt for super::super::types::error::GetLogObjectResponseStreamError {
-    fn extended_request_id(&self) -> Option<&str> {
-        self.meta().extended_request_id()
-    }
-}
 impl ::aws_types::request_id::RequestId for super::super::types::error::GetLogObjectResponseStreamError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
+impl ::aws_types::request_id::RequestId for super::super::types::error::GetLogObjectResponseStreamError {
+    fn request_id(&self) -> Option<&str> {
+        self.meta().request_id()
+    }
+}
 /// Error type for the `StartLiveTailResponseStreamError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum StartLiveTailResponseStreamError {
+    /// <p>This exception is returned in a Live Tail stream when the Live Tail session times out. Live Tail sessions time out after three hours.</p>
+    SessionTimeoutException(super::super::types::error::SessionTimeoutException),
+    /// <p>This exception is returned if an unknown error occurs during a Live Tail session.</p>
+    SessionStreamingException(super::super::types::error::SessionStreamingException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -176,13 +190,25 @@ impl StartLiveTailResponseStreamError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
+            Self::SessionTimeoutException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::SessionStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
+    }
+    /// Returns `true` if the error kind is `SessionTimeoutException::SessionTimeoutException`.
+    pub fn is_session_timeout_exception(&self) -> bool {
+        matches!(self, Self::SessionTimeoutException(_))
+    }
+    /// Returns `true` if the error kind is `SessionStreamingException::SessionStreamingException`.
+    pub fn is_session_streaming_exception(&self) -> bool {
+        matches!(self, Self::SessionStreamingException(_))
     }
 }
 impl ::std::error::Error for StartLiveTailResponseStreamError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
+            Self::SessionTimeoutException(_inner) => ::std::option::Option::Some(_inner),
+            Self::SessionStreamingException(_inner) => ::std::option::Option::Some(_inner),
             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
         }
     }
@@ -190,6 +216,8 @@ impl ::std::error::Error for StartLiveTailResponseStreamError {
 impl ::std::fmt::Display for StartLiveTailResponseStreamError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
+            Self::SessionTimeoutException(_inner) => _inner.fmt(f),
+            Self::SessionStreamingException(_inner) => _inner.fmt(f),
             Self::Unhandled(_inner) => {
                 if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
                     write!(f, "unhandled error ({code})")
@@ -211,6 +239,8 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for StartLiveTailResponseStream
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for StartLiveTailResponseStreamError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
+            Self::SessionTimeoutException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::SessionStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
@@ -226,17 +256,17 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for StartLiv
         })
     }
 }
-impl super::super::s3_request_id::RequestIdExt for super::super::types::error::StartLiveTailResponseStreamError {
-    fn extended_request_id(&self) -> Option<&str> {
-        self.meta().extended_request_id()
-    }
-}
 impl ::aws_types::request_id::RequestId for super::super::types::error::StartLiveTailResponseStreamError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
+impl ::aws_types::request_id::RequestId for super::super::types::error::StartLiveTailResponseStreamError {
+    fn request_id(&self) -> Option<&str> {
+        self.meta().request_id()
+    }
+}
 mod _access_denied_exception;
 
 mod _conflict_exception;

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cognitoidentityprovider
-**Progress:** `1361/1361` files compared · `1312` matched · `49` mismatches · `0` missing · `0` extra · `96.40%` match (100.00% means fully matched)
+**Progress:** `1361/1361` files compared · `1313` matched · `48` mismatches · `0` missing · `0` extra · `96.47%` match (100.00% means fully matched)
 
 ### `src/client/add_custom_attributes.rs`
 
@@ -181,31 +181,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`allowed_o_auth_scopes(impl Into<String>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::allowed_o_auth_scopes) / [`set_allowed_o_auth_scopes(Option<Vec::<String>>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::set_allowed_o_auth_scopes):<br>required: **false**<br><p>The OAuth, OpenID Connect (OIDC), and custom scopes that you want to permit your app client to authorize access with. Scopes govern access control to user pool self-service API operations, user data from the <code>userInfo</code> endpoint, and third-party APIs. Scope values include <code>phone</code>, <code>email</code>, <code>openid</code>, and <code>profile</code>. The <code>aws.cognito.signin.user.admin</code> scope authorizes user self-service operations. Custom scopes with resource servers authorize access to external APIs.</p><br>
      ///   - [`allowed_o_auth_flows_user_pool_client(bool)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::allowed_o_auth_flows_user_pool_client) / [`set_allowed_o_auth_flows_user_pool_client(Option<bool>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::set_allowed_o_auth_flows_user_pool_client):<br>required: **false**<br><p>Set to <code>true</code> to use OAuth 2.0 authorization server features in your app client.</p> <p>This parameter must have a value of <code>true</code> before you can configure the following features in your app client.</p> <ul>  <li>   <p><code>CallBackURLs</code>: Callback URLs.</p></li>  <li>   <p><code>LogoutURLs</code>: Sign-out redirect URLs.</p></li>  <li>   <p><code>AllowedOAuthScopes</code>: OAuth 2.0 scopes.</p></li>  <li>   <p><code>AllowedOAuthFlows</code>: Support for authorization code, implicit, and client credentials OAuth 2.0 grants.</p></li> </ul> <p>To use authorization server features, configure one of these features in the Amazon Cognito console or set <code>AllowedOAuthFlowsUserPoolClient</code> to <code>true</code> in a <code>CreateUserPoolClient</code> or <code>UpdateUserPoolClient</code> API request. If you don't set a value for <code>AllowedOAuthFlowsUserPoolClient</code> in a request with the CLI or SDKs, it defaults to <code>false</code>. When <code>false</code>, only SDK-based API sign-in is permitted.</p><br>
      ///   - [`analytics_configuration(AnalyticsConfigurationType)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::analytics_configuration) / [`set_analytics_configuration(Option<AnalyticsConfigurationType>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::set_analytics_configuration):<br>required: **false**<br><p>The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.</p> <p>In Amazon Web Services Regions where Amazon Pinpoint isn't available, user pools might not have access to analytics or might be configurable with campaigns in the US East (N. Virginia) Region. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-pinpoint-integration.html">Using Amazon Pinpoint analytics</a>.</p><br>
-```
-
-### `src/config.rs`
-
-```diff
---- reference/src/config.rs
-+++ generated/src/config.rs
-@@ -145,7 +145,7 @@
-     /// The signing service may be overridden by the `Endpoint`, or by specifying a custom
-     /// [`SigningName`](aws_types::SigningName) during operation construction
-     pub fn signing_name(&self) -> &'static str {
--        "cognito-idp"
-+        "cognitoidentityprovider"
-     }
-     /// Returns the AWS region, if it was provided.
-     pub fn region(&self) -> ::std::option::Option<&super::config::Region> {
-@@ -1385,7 +1385,7 @@
-                 .set_time_source(::std::option::Option::Some(::std::default::Default::default()));
-         }
-         layer.store_put(super::meta::API_METADATA.clone());
--        layer.store_put(::aws_types::SigningName::from_static("cognito-idp"));
-+        layer.store_put(::aws_types::SigningName::from_static("cognitoidentityprovider"));
-         layer
-             .load::<::aws_types::region::Region>()
-             .cloned()
 ```
 
 ### `src/lib.rs`

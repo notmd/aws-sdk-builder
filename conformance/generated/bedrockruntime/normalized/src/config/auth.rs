@@ -60,7 +60,10 @@ impl Default for DefaultAuthSchemeResolver {
                     .scheme_id(::aws_runtime::auth::sigv4::SCHEME_ID)
                     .build()
                     .expect("required fields set"),
-                ::aws_smithy_runtime_api::client::auth::AuthSchemeOption::from("unknown"),
+                ::aws_smithy_runtime_api::client::auth::AuthSchemeOption::builder()
+                    .scheme_id(::aws_smithy_runtime_api::client::auth::http::HTTP_BEARER_AUTH_SCHEME_ID)
+                    .build()
+                    .expect("required fields set"),
             ],
             operation_overrides: ::std::collections::HashMap::new(),
         }

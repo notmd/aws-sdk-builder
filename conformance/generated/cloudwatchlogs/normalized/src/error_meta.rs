@@ -3894,6 +3894,7 @@ where
 impl From<super::types::error::GetLogObjectResponseStreamError> for Error {
     fn from(err: super::types::error::GetLogObjectResponseStreamError) -> Self {
         match err {
+            super::types::error::GetLogObjectResponseStreamError::InternalStreamingException(inner) => Error::InternalStreamingException(inner),
             super::types::error::GetLogObjectResponseStreamError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -3915,6 +3916,8 @@ where
 impl From<super::types::error::StartLiveTailResponseStreamError> for Error {
     fn from(err: super::types::error::StartLiveTailResponseStreamError) -> Self {
         match err {
+            super::types::error::StartLiveTailResponseStreamError::SessionTimeoutException(inner) => Error::SessionTimeoutException(inner),
+            super::types::error::StartLiveTailResponseStreamError::SessionStreamingException(inner) => Error::SessionStreamingException(inner),
             super::types::error::StartLiveTailResponseStreamError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }

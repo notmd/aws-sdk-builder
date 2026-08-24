@@ -145,7 +145,7 @@ impl Config {
     /// The signing service may be overridden by the `Endpoint`, or by specifying a custom
     /// [`SigningName`](aws_types::SigningName) during operation construction
     pub fn signing_name(&self) -> &'static str {
-        "bedrockruntime"
+        "bedrock"
     }
     /// Returns the AWS region, if it was provided.
     pub fn region(&self) -> ::std::option::Option<&super::config::Region> {
@@ -347,6 +347,21 @@ impl Builder {
     /// ```
     pub fn set_http_client(&mut self, http_client: Option<super::config::SharedHttpClient>) -> &mut Self {
         self.runtime_components.set_http_client(http_client);
+        self
+    }
+    /// Sets the bearer token that will be used for HTTP bearer auth.
+    pub fn bearer_token(self, bearer_token: super::config::Token) -> Self {
+        self.bearer_token_resolver(bearer_token)
+    }
+
+    /// Sets a bearer token provider that will be used for HTTP bearer auth.
+    pub fn bearer_token_resolver(mut self, bearer_token_resolver: impl super::config::ResolveIdentity + 'static) -> Self {
+        self.runtime_components.set_identity_resolver(
+            ::aws_smithy_runtime_api::client::auth::http::HTTP_BEARER_AUTH_SCHEME_ID,
+            ::aws_smithy_runtime_api::shared::IntoShared::<::aws_smithy_runtime_api::client::identity::SharedIdentityResolver>::into_shared(
+                bearer_token_resolver,
+            ),
+        );
         self
     }
     /// Adds an auth scheme to the builder
@@ -1173,6 +1188,36 @@ impl Builder {
         self.config.store_append(framework_metadata);
         self
     }
+    /// Sets the access token provider for this service
+    ///
+    /// Note: the [`Self::bearer_token`] and [`Self::bearer_token_resolver`] methods are
+    /// equivalent to this method, but take the [`Token`] and [`ResolveIdentity`] types
+    /// respectively.
+    ///
+    /// [`Token`]: crate::config::Token
+    /// [`ResolveIdentity`]: crate::config::ResolveIdentity
+    pub fn token_provider(mut self, token_provider: impl super::config::ProvideToken + 'static) -> Self {
+        self.set_token_provider(::std::option::Option::Some(::aws_smithy_runtime_api::shared::IntoShared::<
+            super::config::SharedTokenProvider,
+        >::into_shared(token_provider)));
+        self
+    }
+
+    /// Sets the access token provider for this service
+    ///
+    /// Note: the [`Self::bearer_token`] and [`Self::bearer_token_resolver`] methods are
+    /// equivalent to this method, but take the [`Token`] and [`ResolveIdentity`] types
+    /// respectively.
+    ///
+    /// [`Token`]: crate::config::Token
+    /// [`ResolveIdentity`]: crate::config::ResolveIdentity
+    pub fn set_token_provider(&mut self, token_provider: ::std::option::Option<super::config::SharedTokenProvider>) -> &mut Self {
+        if let Some(token_provider) = token_provider {
+            self.runtime_components
+                .set_identity_resolver(::aws_smithy_runtime_api::client::auth::http::HTTP_BEARER_AUTH_SCHEME_ID, token_provider);
+        }
+        self
+    }
     /// Overrides the default invocation ID generator.
     ///
     /// The invocation ID generator generates ID values for the `amz-sdk-invocation-id` header. By default, this will be a random UUID. Overriding it may be useful in tests that examine the HTTP request and need to be deterministic.
@@ -1363,6 +1408,7 @@ impl Builder {
             ::aws_smithy_async::time::StaticTimeSource::new(::std::time::UNIX_EPOCH + ::std::time::Duration::from_secs(1234567890)),
         )));
         self.config.store_put(::aws_runtime::user_agent::AwsUserAgent::for_tests());
+        self.set_token_provider(Some(super::config::SharedTokenProvider::new(::aws_credential_types::Token::for_tests())));
         self.set_credentials_provider(Some(super::config::SharedCredentialsProvider::new(
             ::aws_credential_types::Credentials::for_tests(),
         )));
@@ -1402,7 +1448,7 @@ impl Builder {
                 .set_time_source(::std::option::Option::Some(::std::default::Default::default()));
         }
         layer.store_put(super::meta::API_METADATA.clone());
-        layer.store_put(::aws_types::SigningName::from_static("bedrockruntime"));
+        layer.store_put(::aws_types::SigningName::from_static("bedrock"));
         layer
             .load::<::aws_types::region::Region>()
             .cloned()
@@ -1433,6 +1479,9 @@ impl ServiceRuntimePlugin {
             ::std::option::Option::Some(cfg.freeze())
         };
         let mut runtime_components = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ServiceRuntimePlugin");
+        runtime_components.push_auth_scheme(::aws_smithy_runtime_api::client::auth::SharedAuthScheme::new(
+            ::aws_smithy_runtime::client::auth::http::BearerAuthScheme::new(),
+        ));
         runtime_components.set_auth_scheme_option_resolver(::std::option::Option::Some({
             use super::config::auth::ResolveAuthScheme;
             super::config::auth::DefaultAuthSchemeResolver::default().into_shared_resolver()
@@ -1598,6 +1647,31 @@ impl From<&::aws_types::sdk_config::SdkConfig> for Builder {
         if let Some(cache) = input.identity_cache() {
             builder.set_identity_cache(cache);
         }
+        builder.set_token_provider(input.token_provider());
+        if let ::std::option::Option::Some(val) = input.service_config().and_then(|conf| {
+            // Passing an empty string for the last argument of `service_config_key`,
+            // since shared config/profile for environment token provider is not supported.
+            ::aws_types::service_config::LoadServiceConfig::load_config(conf, service_config_key("bedrock", "AWS_BEARER_TOKEN", ""))
+                .and_then(|it| it.parse::<::std::string::String>().ok())
+        }) {
+            if !input.get_origin("auth_scheme_preference").is_client_config() {
+                builder.set_auth_scheme_preference(::std::option::Option::Some(
+                    [::aws_smithy_runtime_api::client::auth::http::HTTP_BEARER_AUTH_SCHEME_ID].into(),
+                ));
+            }
+            if !input.get_origin("token_provider").is_client_config() {
+                let mut layer = ::aws_smithy_types::config_bag::Layer::new("AwsBearerTokenBedrock");
+                layer.store_append(::aws_credential_types::credential_feature::AwsCredentialFeature::BearerServiceEnvVars);
+                let identity = ::aws_smithy_runtime_api::client::identity::Identity::builder()
+                    .data(super::config::Token::new(val, ::std::option::Option::None))
+                    .property(layer.freeze())
+                    .build()
+                    .expect("required fields set");
+                builder
+                    .runtime_components
+                    .set_identity_resolver(::aws_smithy_runtime_api::client::auth::http::HTTP_BEARER_AUTH_SCHEME_ID, identity);
+            }
+        }
         builder.set_app_name(input.app_name().cloned());
         for framework_metadata in input.framework_metadata() {
             builder.push_framework_metadata(framework_metadata.clone());
@@ -1704,11 +1778,19 @@ pub use ::aws_smithy_runtime_api::client::http::HttpClient;
 
 pub use ::aws_smithy_runtime_api::shared::IntoShared;
 
+pub use ::aws_smithy_runtime_api::client::identity::http::Token;
+
+pub use ::aws_smithy_runtime_api::client::identity::ResolveIdentity;
+
 pub use ::aws_smithy_async::rt::sleep::AsyncSleep;
 
 pub use ::aws_smithy_runtime_api::client::identity::ResolveCachedIdentity;
 
 pub use ::aws_smithy_runtime_api::client::interceptors::Intercept;
+
+pub use ::aws_credential_types::provider::token::ProvideToken;
+
+pub use ::aws_credential_types::provider::token::SharedTokenProvider;
 
 pub use ::aws_credential_types::provider::ProvideCredentials;
 

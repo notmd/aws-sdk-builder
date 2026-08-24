@@ -502,6 +502,11 @@ where
 impl From<super::types::error::ConverseStreamOutputError> for Error {
     fn from(err: super::types::error::ConverseStreamOutputError) -> Self {
         match err {
+            super::types::error::ConverseStreamOutputError::InternalServerException(inner) => Error::InternalServerException(inner),
+            super::types::error::ConverseStreamOutputError::ModelStreamErrorException(inner) => Error::ModelStreamErrorException(inner),
+            super::types::error::ConverseStreamOutputError::ValidationException(inner) => Error::ValidationException(inner),
+            super::types::error::ConverseStreamOutputError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            super::types::error::ConverseStreamOutputError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             super::types::error::ConverseStreamOutputError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -544,6 +549,18 @@ where
 impl From<super::types::error::InvokeModelWithBidirectionalStreamOutputError> for Error {
     fn from(err: super::types::error::InvokeModelWithBidirectionalStreamOutputError) -> Self {
         match err {
+            super::types::error::InvokeModelWithBidirectionalStreamOutputError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            super::types::error::InvokeModelWithBidirectionalStreamOutputError::ModelStreamErrorException(inner) => {
+                Error::ModelStreamErrorException(inner)
+            }
+            super::types::error::InvokeModelWithBidirectionalStreamOutputError::ValidationException(inner) => Error::ValidationException(inner),
+            super::types::error::InvokeModelWithBidirectionalStreamOutputError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            super::types::error::InvokeModelWithBidirectionalStreamOutputError::ModelTimeoutException(inner) => Error::ModelTimeoutException(inner),
+            super::types::error::InvokeModelWithBidirectionalStreamOutputError::ServiceUnavailableException(inner) => {
+                Error::ServiceUnavailableException(inner)
+            }
             super::types::error::InvokeModelWithBidirectionalStreamOutputError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -565,6 +582,12 @@ where
 impl From<super::types::error::ResponseStreamError> for Error {
     fn from(err: super::types::error::ResponseStreamError) -> Self {
         match err {
+            super::types::error::ResponseStreamError::InternalServerException(inner) => Error::InternalServerException(inner),
+            super::types::error::ResponseStreamError::ModelStreamErrorException(inner) => Error::ModelStreamErrorException(inner),
+            super::types::error::ResponseStreamError::ValidationException(inner) => Error::ValidationException(inner),
+            super::types::error::ResponseStreamError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            super::types::error::ResponseStreamError::ModelTimeoutException(inner) => Error::ModelTimeoutException(inner),
+            super::types::error::ResponseStreamError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             super::types::error::ResponseStreamError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }

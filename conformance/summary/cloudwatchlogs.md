@@ -3,32 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cloudwatchlogs
-**Progress:** `1287/1287` files compared · `1235` matched · `50` mismatches · `2` missing · `0` extra · `95.96%` match (100.00% means fully matched)
-
-### `src/config.rs`
-
-```diff
---- reference/src/config.rs
-+++ generated/src/config.rs
-@@ -145,7 +145,7 @@
-     /// The signing service may be overridden by the `Endpoint`, or by specifying a custom
-     /// [`SigningName`](aws_types::SigningName) during operation construction
-     pub fn signing_name(&self) -> &'static str {
--        "logs"
-+        "cloudwatchlogs"
-     }
-     /// Returns the AWS region, if it was provided.
-     pub fn region(&self) -> ::std::option::Option<&super::config::Region> {
-@@ -1402,7 +1402,7 @@
-                 .set_time_source(::std::option::Option::Some(::std::default::Default::default()));
-         }
-         layer.store_put(super::meta::API_METADATA.clone());
--        layer.store_put(::aws_types::SigningName::from_static("logs"));
-+        layer.store_put(::aws_types::SigningName::from_static("cloudwatchlogs"));
-         layer
-             .load::<::aws_types::region::Region>()
-             .cloned()
-```
+**Progress:** `1287/1287` files compared · `1236` matched · `49` mismatches · `2` missing · `0` extra · `96.04%` match (100.00% means fully matched)
 
 ### `src/error_meta.rs`
 
@@ -50,23 +25,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            super::operation::start_live_tail::StartLiveTailError::SessionTimeoutException(inner) => Error::SessionTimeoutException(inner),
 -            super::operation::start_live_tail::StartLiveTailError::SessionStreamingException(inner) => Error::SessionStreamingException(inner),
              super::operation::start_live_tail::StartLiveTailError::Unhandled(inner) => Error::Unhandled(inner),
-         }
-     }
-@@ -3897,7 +3894,6 @@
- impl From<super::types::error::GetLogObjectResponseStreamError> for Error {
-     fn from(err: super::types::error::GetLogObjectResponseStreamError) -> Self {
-         match err {
--            super::types::error::GetLogObjectResponseStreamError::InternalStreamingException(inner) => Error::InternalStreamingException(inner),
-             super::types::error::GetLogObjectResponseStreamError::Unhandled(inner) => Error::Unhandled(inner),
-         }
-     }
-@@ -3919,8 +3915,6 @@
- impl From<super::types::error::StartLiveTailResponseStreamError> for Error {
-     fn from(err: super::types::error::StartLiveTailResponseStreamError) -> Self {
-         match err {
--            super::types::error::StartLiveTailResponseStreamError::SessionTimeoutException(inner) => Error::SessionTimeoutException(inner),
--            super::types::error::StartLiveTailResponseStreamError::SessionStreamingException(inner) => Error::SessionStreamingException(inner),
-             super::types::error::StartLiveTailResponseStreamError::Unhandled(inner) => Error::Unhandled(inner),
          }
      }
 ```
@@ -2100,7 +2058,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub use super::super::types::error::_data_already_accepted_exception::DataAlreadyAcceptedException;
 
  pub use super::super::types::error::_invalid_sequence_token_exception::InvalidSequenceTokenException;
-@@ -33,20 +31,20 @@
+@@ -33,14 +31,16 @@
 
  pub use super::super::types::error::_unrecognized_client_exception::UnrecognizedClientException;
 
@@ -2121,127 +2079,73 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  /// Error type for the `GetLogObjectResponseStreamError` operation.
  #[non_exhaustive]
  #[derive(::std::fmt::Debug)]
- pub enum GetLogObjectResponseStreamError {
--    /// <p>An internal error occurred during the streaming of log data. This exception is thrown when there's an issue with the internal streaming mechanism used by the GetLogObject operation.</p>
--    InternalStreamingException(super::super::types::error::InternalStreamingException),
-     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
-     variable wildcard pattern and check `.code()`:
-@@ -80,19 +78,13 @@
-     ///
-     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
-         match self {
--            Self::InternalStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+@@ -84,7 +84,7 @@
              Self::Unhandled(e) => &e.meta,
          }
      }
 -    /// Returns `true` if the error kind is `GetLogObjectResponseStreamError::InternalStreamingException`.
--    pub fn is_internal_streaming_exception(&self) -> bool {
--        matches!(self, Self::InternalStreamingException(_))
--    }
- }
- impl ::std::error::Error for GetLogObjectResponseStreamError {
-     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
-         match self {
--            Self::InternalStreamingException(_inner) => ::std::option::Option::Some(_inner),
-             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
-         }
++    /// Returns `true` if the error kind is `InternalStreamingException::InternalStreamingException`.
+     pub fn is_internal_streaming_exception(&self) -> bool {
+         matches!(self, Self::InternalStreamingException(_))
      }
-@@ -100,7 +92,6 @@
- impl ::std::fmt::Display for GetLogObjectResponseStreamError {
-     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-         match self {
--            Self::InternalStreamingException(_inner) => _inner.fmt(f),
-             Self::Unhandled(_inner) => {
-                 if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
-                     write!(f, "unhandled error ({code})")
-@@ -122,7 +113,6 @@
+@@ -122,7 +122,7 @@
  impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetLogObjectResponseStreamError {
      fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
          match self {
 -            Self::InternalStreamingException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
++            Self::InternalStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
              Self::Unhandled(_inner) => &_inner.meta,
          }
      }
-@@ -138,6 +128,11 @@
-         })
+@@ -144,6 +144,11 @@
      }
  }
-+impl super::super::s3_request_id::RequestIdExt for super::super::types::error::GetLogObjectResponseStreamError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
+
++impl ::aws_types::request_id::RequestId for super::super::types::error::GetLogObjectResponseStreamError {
++    fn request_id(&self) -> Option<&str> {
++        self.meta().request_id()
 +    }
 +}
- impl ::aws_types::request_id::RequestId for super::super::types::error::GetLogObjectResponseStreamError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-@@ -148,10 +143,6 @@
+ /// Error type for the `StartLiveTailResponseStreamError` operation.
  #[non_exhaustive]
  #[derive(::std::fmt::Debug)]
- pub enum StartLiveTailResponseStreamError {
--    /// <p>This exception is returned in a Live Tail stream when the Live Tail session times out. Live Tail sessions time out after three hours.</p>
--    SessionTimeoutException(super::super::types::error::SessionTimeoutException),
--    /// <p>This exception is returned if an unknown error occurs during a Live Tail session.</p>
--    SessionStreamingException(super::super::types::error::SessionStreamingException),
-     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
-     variable wildcard pattern and check `.code()`:
-@@ -185,25 +176,13 @@
-     ///
-     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
-         match self {
--            Self::SessionTimeoutException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
--            Self::SessionStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+@@ -190,11 +195,11 @@
              Self::Unhandled(e) => &e.meta,
          }
      }
 -    /// Returns `true` if the error kind is `StartLiveTailResponseStreamError::SessionTimeoutException`.
--    pub fn is_session_timeout_exception(&self) -> bool {
--        matches!(self, Self::SessionTimeoutException(_))
--    }
--    /// Returns `true` if the error kind is `StartLiveTailResponseStreamError::SessionStreamingException`.
--    pub fn is_session_streaming_exception(&self) -> bool {
--        matches!(self, Self::SessionStreamingException(_))
--    }
- }
- impl ::std::error::Error for StartLiveTailResponseStreamError {
-     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
-         match self {
--            Self::SessionTimeoutException(_inner) => ::std::option::Option::Some(_inner),
--            Self::SessionStreamingException(_inner) => ::std::option::Option::Some(_inner),
-             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
-         }
++    /// Returns `true` if the error kind is `SessionTimeoutException::SessionTimeoutException`.
+     pub fn is_session_timeout_exception(&self) -> bool {
+         matches!(self, Self::SessionTimeoutException(_))
      }
-@@ -211,8 +190,6 @@
- impl ::std::fmt::Display for StartLiveTailResponseStreamError {
-     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-         match self {
--            Self::SessionTimeoutException(_inner) => _inner.fmt(f),
--            Self::SessionStreamingException(_inner) => _inner.fmt(f),
-             Self::Unhandled(_inner) => {
-                 if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
-                     write!(f, "unhandled error ({code})")
-@@ -234,8 +211,6 @@
+-    /// Returns `true` if the error kind is `StartLiveTailResponseStreamError::SessionStreamingException`.
++    /// Returns `true` if the error kind is `SessionStreamingException::SessionStreamingException`.
+     pub fn is_session_streaming_exception(&self) -> bool {
+         matches!(self, Self::SessionStreamingException(_))
+     }
+@@ -234,8 +239,8 @@
  impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for StartLiveTailResponseStreamError {
      fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
          match self {
 -            Self::SessionTimeoutException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
 -            Self::SessionStreamingException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
++            Self::SessionTimeoutException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
++            Self::SessionStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
              Self::Unhandled(_inner) => &_inner.meta,
          }
      }
-@@ -251,6 +226,11 @@
-         })
+@@ -257,6 +262,11 @@
      }
  }
-+impl super::super::s3_request_id::RequestIdExt for super::super::types::error::StartLiveTailResponseStreamError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
+
++impl ::aws_types::request_id::RequestId for super::super::types::error::StartLiveTailResponseStreamError {
++    fn request_id(&self) -> Option<&str> {
++        self.meta().request_id()
 +    }
 +}
- impl ::aws_types::request_id::RequestId for super::super::types::error::StartLiveTailResponseStreamError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+ mod _access_denied_exception;
+
+ mod _conflict_exception;
 ```
 
 ### Missing reference files

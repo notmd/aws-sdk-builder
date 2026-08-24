@@ -128,6 +128,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for SelectOb
         })
     }
 }
+impl ::aws_types::request_id::RequestId for super::super::types::error::SelectObjectContentEventStreamError {
+    fn request_id(&self) -> Option<&str> {
+        self.meta().request_id()
+    }
+}
+
 impl super::super::s3_request_id::RequestIdExt for super::super::types::error::SelectObjectContentEventStreamError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
@@ -138,7 +144,6 @@ impl ::aws_types::request_id::RequestId for super::super::types::error::SelectOb
         self.meta().request_id()
     }
 }
-
 mod _access_denied;
 
 mod _annotation_limit_exceeded;

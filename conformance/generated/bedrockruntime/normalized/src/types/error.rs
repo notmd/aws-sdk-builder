@@ -27,6 +27,16 @@ pub use super::super::types::error::_conflict_exception::ConflictException;
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum ConverseStreamOutputError {
+    /// <p>An internal server error occurred. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure">InternalFailure</a> in the Amazon Bedrock User Guide</p>
+    InternalServerException(super::super::types::error::InternalServerException),
+    /// <p>An error occurred while streaming the response. Retry your request.</p>
+    ModelStreamErrorException(super::super::types::error::ModelStreamErrorException),
+    /// <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide</p>
+    ValidationException(super::super::types::error::ValidationException),
+    /// <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
+    ThrottlingException(super::super::types::error::ThrottlingException),
+    /// <p>The service isn't currently available. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
+    ServiceUnavailableException(super::super::types::error::ServiceUnavailableException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -60,13 +70,43 @@ impl ConverseStreamOutputError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
+            Self::InternalServerException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ModelStreamErrorException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ValidationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ThrottlingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ServiceUnavailableException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
+    }
+    /// Returns `true` if the error kind is `InternalServerException::InternalServerException`.
+    pub fn is_internal_server_exception(&self) -> bool {
+        matches!(self, Self::InternalServerException(_))
+    }
+    /// Returns `true` if the error kind is `ModelStreamErrorException::ModelStreamErrorException`.
+    pub fn is_model_stream_error_exception(&self) -> bool {
+        matches!(self, Self::ModelStreamErrorException(_))
+    }
+    /// Returns `true` if the error kind is `ValidationException::ValidationException`.
+    pub fn is_validation_exception(&self) -> bool {
+        matches!(self, Self::ValidationException(_))
+    }
+    /// Returns `true` if the error kind is `ThrottlingException::ThrottlingException`.
+    pub fn is_throttling_exception(&self) -> bool {
+        matches!(self, Self::ThrottlingException(_))
+    }
+    /// Returns `true` if the error kind is `ServiceUnavailableException::ServiceUnavailableException`.
+    pub fn is_service_unavailable_exception(&self) -> bool {
+        matches!(self, Self::ServiceUnavailableException(_))
     }
 }
 impl ::std::error::Error for ConverseStreamOutputError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
+            Self::InternalServerException(_inner) => ::std::option::Option::Some(_inner),
+            Self::ModelStreamErrorException(_inner) => ::std::option::Option::Some(_inner),
+            Self::ValidationException(_inner) => ::std::option::Option::Some(_inner),
+            Self::ThrottlingException(_inner) => ::std::option::Option::Some(_inner),
+            Self::ServiceUnavailableException(_inner) => ::std::option::Option::Some(_inner),
             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
         }
     }
@@ -74,6 +114,11 @@ impl ::std::error::Error for ConverseStreamOutputError {
 impl ::std::fmt::Display for ConverseStreamOutputError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
+            Self::InternalServerException(_inner) => _inner.fmt(f),
+            Self::ModelStreamErrorException(_inner) => _inner.fmt(f),
+            Self::ValidationException(_inner) => _inner.fmt(f),
+            Self::ThrottlingException(_inner) => _inner.fmt(f),
+            Self::ServiceUnavailableException(_inner) => _inner.fmt(f),
             Self::Unhandled(_inner) => {
                 if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
                     write!(f, "unhandled error ({code})")
@@ -95,6 +140,11 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for ConverseStreamOutputError {
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ConverseStreamOutputError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
+            Self::InternalServerException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ModelStreamErrorException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ValidationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ThrottlingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ServiceUnavailableException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
@@ -110,17 +160,17 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for Converse
         })
     }
 }
-impl super::super::s3_request_id::RequestIdExt for super::super::types::error::ConverseStreamOutputError {
-    fn extended_request_id(&self) -> Option<&str> {
-        self.meta().extended_request_id()
-    }
-}
 impl ::aws_types::request_id::RequestId for super::super::types::error::ConverseStreamOutputError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
+impl ::aws_types::request_id::RequestId for super::super::types::error::ConverseStreamOutputError {
+    fn request_id(&self) -> Option<&str> {
+        self.meta().request_id()
+    }
+}
 /// Error type for the `InvokeModelWithBidirectionalStreamInputError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -208,21 +258,33 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for InvokeMo
         })
     }
 }
-impl super::super::s3_request_id::RequestIdExt for super::super::types::error::InvokeModelWithBidirectionalStreamInputError {
-    fn extended_request_id(&self) -> Option<&str> {
-        self.meta().extended_request_id()
-    }
-}
 impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeModelWithBidirectionalStreamInputError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
+impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeModelWithBidirectionalStreamInputError {
+    fn request_id(&self) -> Option<&str> {
+        self.meta().request_id()
+    }
+}
 /// Error type for the `InvokeModelWithBidirectionalStreamOutputError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum InvokeModelWithBidirectionalStreamOutputError {
+    /// <p>An internal server error occurred. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure">InternalFailure</a> in the Amazon Bedrock User Guide</p>
+    InternalServerException(super::super::types::error::InternalServerException),
+    /// <p>An error occurred while streaming the response. Retry your request.</p>
+    ModelStreamErrorException(super::super::types::error::ModelStreamErrorException),
+    /// <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide</p>
+    ValidationException(super::super::types::error::ValidationException),
+    /// <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
+    ThrottlingException(super::super::types::error::ThrottlingException),
+    /// <p>The request took too long to process. Processing time exceeded the model timeout length.</p>
+    ModelTimeoutException(super::super::types::error::ModelTimeoutException),
+    /// <p>The service isn't currently available. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
+    ServiceUnavailableException(super::super::types::error::ServiceUnavailableException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -256,13 +318,49 @@ impl InvokeModelWithBidirectionalStreamOutputError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
+            Self::InternalServerException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ModelStreamErrorException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ValidationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ThrottlingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ModelTimeoutException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ServiceUnavailableException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
+    }
+    /// Returns `true` if the error kind is `InternalServerException::InternalServerException`.
+    pub fn is_internal_server_exception(&self) -> bool {
+        matches!(self, Self::InternalServerException(_))
+    }
+    /// Returns `true` if the error kind is `ModelStreamErrorException::ModelStreamErrorException`.
+    pub fn is_model_stream_error_exception(&self) -> bool {
+        matches!(self, Self::ModelStreamErrorException(_))
+    }
+    /// Returns `true` if the error kind is `ValidationException::ValidationException`.
+    pub fn is_validation_exception(&self) -> bool {
+        matches!(self, Self::ValidationException(_))
+    }
+    /// Returns `true` if the error kind is `ThrottlingException::ThrottlingException`.
+    pub fn is_throttling_exception(&self) -> bool {
+        matches!(self, Self::ThrottlingException(_))
+    }
+    /// Returns `true` if the error kind is `ModelTimeoutException::ModelTimeoutException`.
+    pub fn is_model_timeout_exception(&self) -> bool {
+        matches!(self, Self::ModelTimeoutException(_))
+    }
+    /// Returns `true` if the error kind is `ServiceUnavailableException::ServiceUnavailableException`.
+    pub fn is_service_unavailable_exception(&self) -> bool {
+        matches!(self, Self::ServiceUnavailableException(_))
     }
 }
 impl ::std::error::Error for InvokeModelWithBidirectionalStreamOutputError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
+            Self::InternalServerException(_inner) => ::std::option::Option::Some(_inner),
+            Self::ModelStreamErrorException(_inner) => ::std::option::Option::Some(_inner),
+            Self::ValidationException(_inner) => ::std::option::Option::Some(_inner),
+            Self::ThrottlingException(_inner) => ::std::option::Option::Some(_inner),
+            Self::ModelTimeoutException(_inner) => ::std::option::Option::Some(_inner),
+            Self::ServiceUnavailableException(_inner) => ::std::option::Option::Some(_inner),
             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
         }
     }
@@ -270,6 +368,12 @@ impl ::std::error::Error for InvokeModelWithBidirectionalStreamOutputError {
 impl ::std::fmt::Display for InvokeModelWithBidirectionalStreamOutputError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
+            Self::InternalServerException(_inner) => _inner.fmt(f),
+            Self::ModelStreamErrorException(_inner) => _inner.fmt(f),
+            Self::ValidationException(_inner) => _inner.fmt(f),
+            Self::ThrottlingException(_inner) => _inner.fmt(f),
+            Self::ModelTimeoutException(_inner) => _inner.fmt(f),
+            Self::ServiceUnavailableException(_inner) => _inner.fmt(f),
             Self::Unhandled(_inner) => {
                 if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
                     write!(f, "unhandled error ({code})")
@@ -291,6 +395,12 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for InvokeModelWithBidirectiona
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvokeModelWithBidirectionalStreamOutputError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
+            Self::InternalServerException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ModelStreamErrorException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ValidationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ThrottlingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ModelTimeoutException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ServiceUnavailableException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
@@ -306,21 +416,33 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for InvokeMo
         })
     }
 }
-impl super::super::s3_request_id::RequestIdExt for super::super::types::error::InvokeModelWithBidirectionalStreamOutputError {
-    fn extended_request_id(&self) -> Option<&str> {
-        self.meta().extended_request_id()
-    }
-}
 impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeModelWithBidirectionalStreamOutputError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
+impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeModelWithBidirectionalStreamOutputError {
+    fn request_id(&self) -> Option<&str> {
+        self.meta().request_id()
+    }
+}
 /// Error type for the `ResponseStreamError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum ResponseStreamError {
+    /// <p>An internal server error occurred. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure">InternalFailure</a> in the Amazon Bedrock User Guide</p>
+    InternalServerException(super::super::types::error::InternalServerException),
+    /// <p>An error occurred while streaming the response. Retry your request.</p>
+    ModelStreamErrorException(super::super::types::error::ModelStreamErrorException),
+    /// <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide</p>
+    ValidationException(super::super::types::error::ValidationException),
+    /// <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
+    ThrottlingException(super::super::types::error::ThrottlingException),
+    /// <p>The request took too long to process. Processing time exceeded the model timeout length.</p>
+    ModelTimeoutException(super::super::types::error::ModelTimeoutException),
+    /// <p>The service isn't currently available. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
+    ServiceUnavailableException(super::super::types::error::ServiceUnavailableException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -354,13 +476,49 @@ impl ResponseStreamError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
+            Self::InternalServerException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ModelStreamErrorException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ValidationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ThrottlingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ModelTimeoutException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ServiceUnavailableException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
+    }
+    /// Returns `true` if the error kind is `InternalServerException::InternalServerException`.
+    pub fn is_internal_server_exception(&self) -> bool {
+        matches!(self, Self::InternalServerException(_))
+    }
+    /// Returns `true` if the error kind is `ModelStreamErrorException::ModelStreamErrorException`.
+    pub fn is_model_stream_error_exception(&self) -> bool {
+        matches!(self, Self::ModelStreamErrorException(_))
+    }
+    /// Returns `true` if the error kind is `ValidationException::ValidationException`.
+    pub fn is_validation_exception(&self) -> bool {
+        matches!(self, Self::ValidationException(_))
+    }
+    /// Returns `true` if the error kind is `ThrottlingException::ThrottlingException`.
+    pub fn is_throttling_exception(&self) -> bool {
+        matches!(self, Self::ThrottlingException(_))
+    }
+    /// Returns `true` if the error kind is `ModelTimeoutException::ModelTimeoutException`.
+    pub fn is_model_timeout_exception(&self) -> bool {
+        matches!(self, Self::ModelTimeoutException(_))
+    }
+    /// Returns `true` if the error kind is `ServiceUnavailableException::ServiceUnavailableException`.
+    pub fn is_service_unavailable_exception(&self) -> bool {
+        matches!(self, Self::ServiceUnavailableException(_))
     }
 }
 impl ::std::error::Error for ResponseStreamError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
+            Self::InternalServerException(_inner) => ::std::option::Option::Some(_inner),
+            Self::ModelStreamErrorException(_inner) => ::std::option::Option::Some(_inner),
+            Self::ValidationException(_inner) => ::std::option::Option::Some(_inner),
+            Self::ThrottlingException(_inner) => ::std::option::Option::Some(_inner),
+            Self::ModelTimeoutException(_inner) => ::std::option::Option::Some(_inner),
+            Self::ServiceUnavailableException(_inner) => ::std::option::Option::Some(_inner),
             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
         }
     }
@@ -368,6 +526,12 @@ impl ::std::error::Error for ResponseStreamError {
 impl ::std::fmt::Display for ResponseStreamError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
+            Self::InternalServerException(_inner) => _inner.fmt(f),
+            Self::ModelStreamErrorException(_inner) => _inner.fmt(f),
+            Self::ValidationException(_inner) => _inner.fmt(f),
+            Self::ThrottlingException(_inner) => _inner.fmt(f),
+            Self::ModelTimeoutException(_inner) => _inner.fmt(f),
+            Self::ServiceUnavailableException(_inner) => _inner.fmt(f),
             Self::Unhandled(_inner) => {
                 if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
                     write!(f, "unhandled error ({code})")
@@ -389,6 +553,12 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for ResponseStreamError {
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ResponseStreamError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
+            Self::InternalServerException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ModelStreamErrorException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ValidationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ThrottlingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ModelTimeoutException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ServiceUnavailableException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
@@ -404,17 +574,17 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for Response
         })
     }
 }
-impl super::super::s3_request_id::RequestIdExt for super::super::types::error::ResponseStreamError {
-    fn extended_request_id(&self) -> Option<&str> {
-        self.meta().extended_request_id()
-    }
-}
 impl ::aws_types::request_id::RequestId for super::super::types::error::ResponseStreamError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
+impl ::aws_types::request_id::RequestId for super::super::types::error::ResponseStreamError {
+    fn request_id(&self) -> Option<&str> {
+        self.meta().request_id()
+    }
+}
 mod _access_denied_exception;
 
 mod _conflict_exception;
