@@ -2,7 +2,7 @@
 
 /// <p>Contains content regarding the reasoning that is carried out by the model with respect to the content in the content block. Reasoning refers to a Chain of Thought (CoT) that the model generates to enhance the accuracy of its final response.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum ReasoningContentBlockDelta {
     /// <p>The content in the reasoning that was encrypted by the model provider for safety reasons. The encryption doesn't affect the quality of responses.</p>
     RedactedContent(::aws_smithy_types::Blob),
@@ -63,5 +63,10 @@ impl ReasoningContentBlockDelta {
     /// Returns true if the enum instance is the `Unknown` variant.
     pub fn is_unknown(&self) -> bool {
         matches!(self, Self::Unknown)
+    }
+}
+impl ::std::fmt::Debug for ReasoningContentBlockDelta {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        ::std::write!(f, "*** Sensitive Data Redacted ***")
     }
 }

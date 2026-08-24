@@ -3,7 +3,7 @@
 /// <p/>
 /// <p>A content block for selective guarding with the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a> API operations.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum GuardrailConverseContentBlock {
     /// <p>Image within converse content block to be evaluated by the guardrail.</p>
     Image(super::super::types::GuardrailConverseImageBlock),
@@ -49,5 +49,14 @@ impl GuardrailConverseContentBlock {
     /// Returns true if the enum instance is the `Unknown` variant.
     pub fn is_unknown(&self) -> bool {
         matches!(self, Self::Unknown)
+    }
+}
+impl ::std::fmt::Debug for GuardrailConverseContentBlock {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        match self {
+            GuardrailConverseContentBlock::Image(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
+            GuardrailConverseContentBlock::Text(val) => f.debug_tuple("Text").field(&val).finish(),
+            GuardrailConverseContentBlock::Unknown => f.debug_tuple("Unknown").finish(),
+        }
     }
 }

@@ -2,7 +2,7 @@
 
 /// <p>A block of content in a streaming response.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum ContentBlockDelta {
     /// <p>Incremental citation information that is streamed as part of the response generation process.</p>
     Citation(super::super::types::CitationsDelta),
@@ -108,5 +108,18 @@ impl ContentBlockDelta {
     /// Returns true if the enum instance is the `Unknown` variant.
     pub fn is_unknown(&self) -> bool {
         matches!(self, Self::Unknown)
+    }
+}
+impl ::std::fmt::Debug for ContentBlockDelta {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        match self {
+            ContentBlockDelta::Citation(val) => f.debug_tuple("Citation").field(&val).finish(),
+            ContentBlockDelta::Image(val) => f.debug_tuple("Image").field(&val).finish(),
+            ContentBlockDelta::ReasoningContent(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
+            ContentBlockDelta::Text(val) => f.debug_tuple("Text").field(&val).finish(),
+            ContentBlockDelta::ToolResult(val) => f.debug_tuple("ToolResult").field(&val).finish(),
+            ContentBlockDelta::ToolUse(val) => f.debug_tuple("ToolUse").field(&val).finish(),
+            ContentBlockDelta::Unknown => f.debug_tuple("Unknown").finish(),
+        }
     }
 }

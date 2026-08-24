@@ -2,7 +2,7 @@
 
 /// <p>The source of audio data, which can be provided either as raw bytes or a reference to an S3 location.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum AudioSource {
     /// <p>Audio data encoded in base64.</p>
     Bytes(::aws_smithy_types::Blob),
@@ -48,5 +48,10 @@ impl AudioSource {
     /// Returns true if the enum instance is the `Unknown` variant.
     pub fn is_unknown(&self) -> bool {
         matches!(self, Self::Unknown)
+    }
+}
+impl ::std::fmt::Debug for AudioSource {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        ::std::write!(f, "*** Sensitive Data Redacted ***")
     }
 }

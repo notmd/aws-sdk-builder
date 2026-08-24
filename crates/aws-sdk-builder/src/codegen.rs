@@ -15033,13 +15033,20 @@ fn render_union(
     context: &Context,
 ) {
     let rust_name = rust_type_name(name);
+    let shape_sensitive = has_trait(shape, "smithy.api#sensitive");
+    let has_sensitive_member = members(shape)
+        .iter()
+        .any(|(_, member)| value_should_redact(selected, member, &mut BTreeSet::new()));
     if let Some(documentation) = documentation(shape) {
         render_doc_lines(output, &documentation, 4);
     }
     render_deprecated_attribute(output, shape, 4);
-    output.push_str(
-        "    #[non_exhaustive]\n    #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]\n",
-    );
+    let derives = if shape_sensitive || has_sensitive_member {
+        "::std::clone::Clone, ::std::cmp::PartialEq"
+    } else {
+        "::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug"
+    };
+    writeln!(output, "    #[non_exhaustive]\n    #[derive({derives})]").unwrap();
     writeln!(output, "    pub enum {rust_name} {{").unwrap();
     let ordered_members = sorted_members(shape)
         .into_iter()
@@ -15099,7 +15106,67 @@ fn render_union(
     output.push_str(
         "    /// Returns true if the enum instance is the __BT__Unknown__BT__ variant.\n    pub fn is_unknown(&self) -> bool {\n        matches!(self, Self::Unknown)\n    }\n}\n\n",
     );
+    if shape_sensitive || has_sensitive_member {
+        // Smithy-RS separates the union implementation block and its custom
+        // debug implementation with one newline, while the generated helper
+        // above ends with two.
+        output.pop();
+    }
+    if shape_sensitive {
+        render_fully_redacted_union_debug_impl(output, &rust_name);
+    } else if has_sensitive_member {
+        render_union_debug_impl(output, selected, &rust_name, &ordered_members);
+    }
     *output = output.replace("__BT__", "\x60");
+}
+
+fn render_fully_redacted_union_debug_impl(output: &mut String, rust_name: &str) {
+    writeln!(
+        output,
+        "impl ::std::fmt::Debug for {rust_name} {{\n    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {{\n        ::std::write!(f, \"*** Sensitive Data Redacted ***\")\n    }}\n}}\n"
+    )
+    .unwrap();
+}
+
+fn render_union_debug_impl(
+    output: &mut String,
+    selected: &SelectedModel,
+    rust_name: &str,
+    ordered_members: &BTreeMap<String, &Value>,
+) {
+    output.push_str("impl ::std::fmt::Debug for ");
+    writeln!(output, "{rust_name} {{").unwrap();
+    output.push_str(
+        "    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {\n        match self {\n",
+    );
+    for (member_name, member) in ordered_members {
+        let variant = rust_type_name(member_name);
+        let target = member_target(member).unwrap_or("smithy.api#Unit");
+        if value_should_redact(selected, member, &mut BTreeSet::new()) {
+            writeln!(
+                output,
+                "            {rust_name}::{variant}(_) => f.debug_tuple(\"*** Sensitive Data Redacted ***\").finish(),"
+            )
+            .unwrap();
+        } else if target == "smithy.api#Unit" {
+            writeln!(
+                output,
+                "            {rust_name}::{variant} => f.debug_tuple(\"{variant}\").finish(),"
+            )
+            .unwrap();
+        } else {
+            writeln!(
+                output,
+                "            {rust_name}::{variant}(val) => f.debug_tuple(\"{variant}\").field(&val).finish(),"
+            )
+            .unwrap();
+        }
+    }
+    writeln!(
+        output,
+        "            {rust_name}::Unknown => f.debug_tuple(\"Unknown\").finish(),\n        }}\n    }}\n}}\n"
+    )
+    .unwrap();
 }
 
 fn render_enum(output: &mut String, shape: &Value, name: &str) {
@@ -17949,6 +18016,72 @@ mod tests {
 
         assert!(rendered.contains("Option<crate::types::Empty>"));
         assert!(!rendered.contains("crate::types::crate::types::"));
+    }
+
+    #[test]
+    fn sensitive_union_uses_redacting_debug_impl() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "output": {"target": "example#GetOutput"}
+                    },
+                    "example#GetOutput": {
+                        "type": "structure",
+                        "members": {"payload": {"target": "example#Payload"}}
+                    },
+                    "example#Payload": {
+                        "type": "union",
+                        "members": {
+                            "visible": {"target": "smithy.api#String"},
+                            "secret": {
+                                "target": "smithy.api#String",
+                                "traits": {"smithy.api#sensitive": {}}
+                            }
+                        }
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let mut rendered = String::new();
+        render_union(
+            &mut rendered,
+            &selected,
+            selected.model.shapes.get("example#Payload").unwrap(),
+            "Payload",
+            &Context::Types {},
+        );
+
+        assert!(rendered.contains("#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]"));
+        assert!(
+            !rendered.contains(
+                "#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]"
+            )
+        );
+        assert!(rendered.contains(
+            "Payload::Secret(_) => f.debug_tuple(\"*** Sensitive Data Redacted ***\").finish(),"
+        ));
+        assert!(
+            rendered.contains(
+                "Payload::Visible(val) => f.debug_tuple(\"Visible\").field(&val).finish(),"
+            )
+        );
     }
 
     #[test]

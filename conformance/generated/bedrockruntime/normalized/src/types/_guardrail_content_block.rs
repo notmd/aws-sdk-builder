@@ -2,7 +2,7 @@
 
 /// <p>The content block to be evaluated by the guardrail.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum GuardrailContentBlock {
     /// <p>Image within guardrail content block to be evaluated by the guardrail.</p>
     Image(super::super::types::GuardrailImageBlock),
@@ -48,5 +48,14 @@ impl GuardrailContentBlock {
     /// Returns true if the enum instance is the `Unknown` variant.
     pub fn is_unknown(&self) -> bool {
         matches!(self, Self::Unknown)
+    }
+}
+impl ::std::fmt::Debug for GuardrailContentBlock {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        match self {
+            GuardrailContentBlock::Image(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
+            GuardrailContentBlock::Text(val) => f.debug_tuple("Text").field(&val).finish(),
+            GuardrailContentBlock::Unknown => f.debug_tuple("Unknown").finish(),
+        }
     }
 }

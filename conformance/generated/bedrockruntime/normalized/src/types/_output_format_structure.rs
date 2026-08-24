@@ -2,7 +2,7 @@
 
 /// <p>The structure that the model's output must adhere to.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum OutputFormatStructure {
     /// <p>A JSON schema structure that the model's output must adhere to.</p>
     JsonSchema(super::super::types::JsonSchemaDefinition),
@@ -34,5 +34,10 @@ impl OutputFormatStructure {
     /// Returns true if the enum instance is the `Unknown` variant.
     pub fn is_unknown(&self) -> bool {
         matches!(self, Self::Unknown)
+    }
+}
+impl ::std::fmt::Debug for OutputFormatStructure {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        ::std::write!(f, "*** Sensitive Data Redacted ***")
     }
 }

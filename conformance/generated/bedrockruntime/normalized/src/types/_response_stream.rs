@@ -2,7 +2,7 @@
 
 /// <p>Definition of content in the response stream.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum ResponseStream {
     /// <p>Content included in the response.</p>
     Chunk(super::super::types::PayloadPart),
@@ -34,5 +34,13 @@ impl ResponseStream {
     /// Returns true if the enum instance is the `Unknown` variant.
     pub fn is_unknown(&self) -> bool {
         matches!(self, Self::Unknown)
+    }
+}
+impl ::std::fmt::Debug for ResponseStream {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        match self {
+            ResponseStream::Chunk(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
+            ResponseStream::Unknown => f.debug_tuple("Unknown").finish(),
+        }
     }
 }

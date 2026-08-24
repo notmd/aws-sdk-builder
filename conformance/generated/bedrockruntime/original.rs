@@ -16804,7 +16804,7 @@ mod _audio_source {
 
 /// <p>The source of audio data, which can be provided either as raw bytes or a reference to an S3 location.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum AudioSource {
     /// <p>Audio data encoded in base64.</p>
     Bytes(::aws_smithy_types::Blob),
@@ -16850,6 +16850,11 @@ pub fn is_s3_location(&self) -> bool {
 /// Returns true if the enum instance is the `Unknown` variant.
 pub fn is_unknown(&self) -> bool {
     matches!(self, Self::Unknown)
+}
+}
+impl ::std::fmt::Debug for AudioSource {
+fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+    ::std::write!(f, "*** Sensitive Data Redacted ***")
 }
 }
 }
@@ -17939,7 +17944,7 @@ mod _content_block {
 
 /// <p>A block of content for a message that you pass to, or receive from, a model with the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a> API operations.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum ContentBlock {
     /// <p>An audio content block containing audio data in the conversation.</p>
     Audio(super::super::types::AudioBlock),
@@ -18170,6 +18175,27 @@ pub fn is_unknown(&self) -> bool {
     matches!(self, Self::Unknown)
 }
 }
+impl ::std::fmt::Debug for ContentBlock {
+fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+    match self {
+        ContentBlock::Audio(val) => f.debug_tuple("Audio").field(&val).finish(),
+        ContentBlock::CachePoint(val) => f.debug_tuple("CachePoint").field(&val).finish(),
+        ContentBlock::CitationsContent(val) => f.debug_tuple("CitationsContent").field(&val).finish(),
+        ContentBlock::Document(val) => f.debug_tuple("Document").field(&val).finish(),
+        ContentBlock::GuardContent(val) => f.debug_tuple("GuardContent").field(&val).finish(),
+        ContentBlock::Image(val) => f.debug_tuple("Image").field(&val).finish(),
+        ContentBlock::ReasoningContent(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
+        ContentBlock::SearchResult(val) => f.debug_tuple("SearchResult").field(&val).finish(),
+        ContentBlock::Text(val) => f.debug_tuple("Text").field(&val).finish(),
+        ContentBlock::ToolAddition(val) => f.debug_tuple("ToolAddition").field(&val).finish(),
+        ContentBlock::ToolRemoval(val) => f.debug_tuple("ToolRemoval").field(&val).finish(),
+        ContentBlock::ToolResult(val) => f.debug_tuple("ToolResult").field(&val).finish(),
+        ContentBlock::ToolUse(val) => f.debug_tuple("ToolUse").field(&val).finish(),
+        ContentBlock::Video(val) => f.debug_tuple("Video").field(&val).finish(),
+        ContentBlock::Unknown => f.debug_tuple("Unknown").finish(),
+    }
+}
+}
 }
 
 mod _content_block_delta {
@@ -18177,7 +18203,7 @@ mod _content_block_delta {
 
 /// <p>A block of content in a streaming response.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum ContentBlockDelta {
     /// <p>Incremental citation information that is streamed as part of the response generation process.</p>
     Citation(super::super::types::CitationsDelta),
@@ -18283,6 +18309,19 @@ pub fn is_tool_use(&self) -> bool {
 /// Returns true if the enum instance is the `Unknown` variant.
 pub fn is_unknown(&self) -> bool {
     matches!(self, Self::Unknown)
+}
+}
+impl ::std::fmt::Debug for ContentBlockDelta {
+fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+    match self {
+        ContentBlockDelta::Citation(val) => f.debug_tuple("Citation").field(&val).finish(),
+        ContentBlockDelta::Image(val) => f.debug_tuple("Image").field(&val).finish(),
+        ContentBlockDelta::ReasoningContent(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
+        ContentBlockDelta::Text(val) => f.debug_tuple("Text").field(&val).finish(),
+        ContentBlockDelta::ToolResult(val) => f.debug_tuple("ToolResult").field(&val).finish(),
+        ContentBlockDelta::ToolUse(val) => f.debug_tuple("ToolUse").field(&val).finish(),
+        ContentBlockDelta::Unknown => f.debug_tuple("Unknown").finish(),
+    }
 }
 }
 }
@@ -21865,7 +21904,7 @@ mod _guardrail_checks_content_block {
 
 /// <p>A content block within a message to evaluate.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum GuardrailChecksContentBlock {
     /// <p>The text content to evaluate.</p>
     Text(::std::string::String),
@@ -21897,6 +21936,14 @@ pub fn is_text(&self) -> bool {
 /// Returns true if the enum instance is the `Unknown` variant.
 pub fn is_unknown(&self) -> bool {
     matches!(self, Self::Unknown)
+}
+}
+impl ::std::fmt::Debug for GuardrailChecksContentBlock {
+fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+    match self {
+        GuardrailChecksContentBlock::Text(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
+        GuardrailChecksContentBlock::Unknown => f.debug_tuple("Unknown").finish(),
+    }
 }
 }
 }
@@ -23829,7 +23876,7 @@ mod _guardrail_content_block {
 
 /// <p>The content block to be evaluated by the guardrail.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum GuardrailContentBlock {
     /// <p>Image within guardrail content block to be evaluated by the guardrail.</p>
     Image(super::super::types::GuardrailImageBlock),
@@ -23875,6 +23922,15 @@ pub fn is_text(&self) -> bool {
 /// Returns true if the enum instance is the `Unknown` variant.
 pub fn is_unknown(&self) -> bool {
     matches!(self, Self::Unknown)
+}
+}
+impl ::std::fmt::Debug for GuardrailContentBlock {
+fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+    match self {
+        GuardrailContentBlock::Image(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
+        GuardrailContentBlock::Text(val) => f.debug_tuple("Text").field(&val).finish(),
+        GuardrailContentBlock::Unknown => f.debug_tuple("Unknown").finish(),
+    }
 }
 }
 }
@@ -25188,7 +25244,7 @@ mod _guardrail_converse_content_block {
 /// <p/>
 /// <p>A content block for selective guarding with the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a> API operations.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum GuardrailConverseContentBlock {
     /// <p>Image within converse content block to be evaluated by the guardrail.</p>
     Image(super::super::types::GuardrailConverseImageBlock),
@@ -25234,6 +25290,15 @@ pub fn is_text(&self) -> bool {
 /// Returns true if the enum instance is the `Unknown` variant.
 pub fn is_unknown(&self) -> bool {
     matches!(self, Self::Unknown)
+}
+}
+impl ::std::fmt::Debug for GuardrailConverseContentBlock {
+fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+    match self {
+        GuardrailConverseContentBlock::Image(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
+        GuardrailConverseContentBlock::Text(val) => f.debug_tuple("Text").field(&val).finish(),
+        GuardrailConverseContentBlock::Unknown => f.debug_tuple("Unknown").finish(),
+    }
 }
 }
 }
@@ -25556,7 +25621,7 @@ mod _guardrail_converse_image_source {
 
 /// <p>The image source (image bytes) of the guardrail converse image source.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum GuardrailConverseImageSource {
     /// <p>The raw image bytes for the image.</p>
     Bytes(::aws_smithy_types::Blob),
@@ -25588,6 +25653,11 @@ pub fn is_bytes(&self) -> bool {
 /// Returns true if the enum instance is the `Unknown` variant.
 pub fn is_unknown(&self) -> bool {
     matches!(self, Self::Unknown)
+}
+}
+impl ::std::fmt::Debug for GuardrailConverseImageSource {
+fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+    ::std::write!(f, "*** Sensitive Data Redacted ***")
 }
 }
 }
@@ -26088,7 +26158,7 @@ mod _guardrail_image_source {
 
 /// <p>The image source (image bytes) of the guardrail image source. Object used in independent api.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum GuardrailImageSource {
     /// <p>The bytes details of the guardrail image source. Object used in independent api.</p>
     Bytes(::aws_smithy_types::Blob),
@@ -26120,6 +26190,11 @@ pub fn is_bytes(&self) -> bool {
 /// Returns true if the enum instance is the `Unknown` variant.
 pub fn is_unknown(&self) -> bool {
     matches!(self, Self::Unknown)
+}
+}
+impl ::std::fmt::Debug for GuardrailImageSource {
+fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+    ::std::write!(f, "*** Sensitive Data Redacted ***")
 }
 }
 }
@@ -29244,7 +29319,7 @@ mod _image_source {
 
 /// <p>The source for an image.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum ImageSource {
     /// <p>The raw image bytes for the image. If you use an AWS SDK, you don't need to encode the image bytes in base64.</p>
     Bytes(::aws_smithy_types::Blob),
@@ -29290,6 +29365,11 @@ pub fn is_s3_location(&self) -> bool {
 /// Returns true if the enum instance is the `Unknown` variant.
 pub fn is_unknown(&self) -> bool {
     matches!(self, Self::Unknown)
+}
+}
+impl ::std::fmt::Debug for ImageSource {
+fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+    ::std::write!(f, "*** Sensitive Data Redacted ***")
 }
 }
 }
@@ -29482,7 +29562,7 @@ mod _invoke_model_with_bidirectional_stream_input {
 
 /// <p>Payload content, the speech chunk, for the bidirectional input of the invocation step.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum InvokeModelWithBidirectionalStreamInput {
     /// <p>The audio chunk that is used as input for the invocation step.</p>
     Chunk(super::super::types::BidirectionalInputPayloadPart),
@@ -29516,6 +29596,14 @@ pub fn is_unknown(&self) -> bool {
     matches!(self, Self::Unknown)
 }
 }
+impl ::std::fmt::Debug for InvokeModelWithBidirectionalStreamInput {
+fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+    match self {
+        InvokeModelWithBidirectionalStreamInput::Chunk(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
+        InvokeModelWithBidirectionalStreamInput::Unknown => f.debug_tuple("Unknown").finish(),
+    }
+}
+}
 }
 
 mod _invoke_model_with_bidirectional_stream_output {
@@ -29523,7 +29611,7 @@ mod _invoke_model_with_bidirectional_stream_output {
 
 /// <p>Output from the bidirectional stream that was used for model invocation.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum InvokeModelWithBidirectionalStreamOutput {
     /// <p>The speech chunk that was provided as output from the invocation step.</p>
     Chunk(super::super::types::BidirectionalOutputPayloadPart),
@@ -29555,6 +29643,14 @@ pub fn is_chunk(&self) -> bool {
 /// Returns true if the enum instance is the `Unknown` variant.
 pub fn is_unknown(&self) -> bool {
     matches!(self, Self::Unknown)
+}
+}
+impl ::std::fmt::Debug for InvokeModelWithBidirectionalStreamOutput {
+fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+    match self {
+        InvokeModelWithBidirectionalStreamOutput::Chunk(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
+        InvokeModelWithBidirectionalStreamOutput::Unknown => f.debug_tuple("Unknown").finish(),
+    }
 }
 }
 }
@@ -30055,7 +30151,7 @@ mod _output_format_structure {
 
 /// <p>The structure that the model's output must adhere to.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum OutputFormatStructure {
     /// <p>A JSON schema structure that the model's output must adhere to.</p>
     JsonSchema(super::super::types::JsonSchemaDefinition),
@@ -30087,6 +30183,11 @@ pub fn is_json_schema(&self) -> bool {
 /// Returns true if the enum instance is the `Unknown` variant.
 pub fn is_unknown(&self) -> bool {
     matches!(self, Self::Unknown)
+}
+}
+impl ::std::fmt::Debug for OutputFormatStructure {
+fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+    ::std::write!(f, "*** Sensitive Data Redacted ***")
 }
 }
 }
@@ -30511,7 +30612,7 @@ mod _reasoning_content_block {
 
 /// <p>Contains content regarding the reasoning that is carried out by the model with respect to the content in the content block. Reasoning refers to a Chain of Thought (CoT) that the model generates to enhance the accuracy of its final response.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum ReasoningContentBlock {
     /// <p>The reasoning that the model used to return the output.</p>
     ReasoningText(super::super::types::ReasoningTextBlock),
@@ -30559,6 +30660,11 @@ pub fn is_unknown(&self) -> bool {
     matches!(self, Self::Unknown)
 }
 }
+impl ::std::fmt::Debug for ReasoningContentBlock {
+fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+    ::std::write!(f, "*** Sensitive Data Redacted ***")
+}
+}
 }
 
 mod _reasoning_content_block_delta {
@@ -30566,7 +30672,7 @@ mod _reasoning_content_block_delta {
 
 /// <p>Contains content regarding the reasoning that is carried out by the model with respect to the content in the content block. Reasoning refers to a Chain of Thought (CoT) that the model generates to enhance the accuracy of its final response.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum ReasoningContentBlockDelta {
     /// <p>The content in the reasoning that was encrypted by the model provider for safety reasons. The encryption doesn't affect the quality of responses.</p>
     RedactedContent(::aws_smithy_types::Blob),
@@ -30627,6 +30733,11 @@ pub fn is_text(&self) -> bool {
 /// Returns true if the enum instance is the `Unknown` variant.
 pub fn is_unknown(&self) -> bool {
     matches!(self, Self::Unknown)
+}
+}
+impl ::std::fmt::Debug for ReasoningContentBlockDelta {
+fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+    ::std::write!(f, "*** Sensitive Data Redacted ***")
 }
 }
 }
@@ -30721,7 +30832,7 @@ mod _response_stream {
 
 /// <p>Definition of content in the response stream.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum ResponseStream {
     /// <p>Content included in the response.</p>
     Chunk(super::super::types::PayloadPart),
@@ -30753,6 +30864,14 @@ pub fn is_chunk(&self) -> bool {
 /// Returns true if the enum instance is the `Unknown` variant.
 pub fn is_unknown(&self) -> bool {
     matches!(self, Self::Unknown)
+}
+}
+impl ::std::fmt::Debug for ResponseStream {
+fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+    match self {
+        ResponseStream::Chunk(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
+        ResponseStream::Unknown => f.debug_tuple("Unknown").finish(),
+    }
 }
 }
 }

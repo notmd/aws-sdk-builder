@@ -2,7 +2,7 @@
 
 /// <p>Output from the bidirectional stream that was used for model invocation.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum InvokeModelWithBidirectionalStreamOutput {
     /// <p>The speech chunk that was provided as output from the invocation step.</p>
     Chunk(super::super::types::BidirectionalOutputPayloadPart),
@@ -34,5 +34,13 @@ impl InvokeModelWithBidirectionalStreamOutput {
     /// Returns true if the enum instance is the `Unknown` variant.
     pub fn is_unknown(&self) -> bool {
         matches!(self, Self::Unknown)
+    }
+}
+impl ::std::fmt::Debug for InvokeModelWithBidirectionalStreamOutput {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        match self {
+            InvokeModelWithBidirectionalStreamOutput::Chunk(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
+            InvokeModelWithBidirectionalStreamOutput::Unknown => f.debug_tuple("Unknown").finish(),
+        }
     }
 }

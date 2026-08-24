@@ -4,6 +4,26 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match Smithy sensitive-union debug generation
+- State: in progress
+- Changed: unions now derive `Debug` only when the union and all reachable member
+  values are non-sensitive. Model-sensitive unions use Smithy-RS's fully redacted
+  implementation; unions with sensitive members use per-variant redaction while
+  retaining normal debug output for safe variants. This follows the pinned Smithy-RS
+  `UnionGenerator` and `Shape.shouldRedact` at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`, with a focused regression test.
+- Evidence: the focused regression, `just conformance` generation and formatting,
+  `cargo test --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass. Conformance generated and
+  formatted all `13,166` snapshot files without generated-source parse errors.
+- Conformance: `12,863/13,168` exact, `302` mismatches, `2` missing, and `1` extra
+  (`97.44%`) -> `12,876/13,168` exact, `289` mismatches, `2` missing, and `1` extra
+  (`97.60%`). Bedrock Runtime improved from `487/49` to `500/36` mismatches.
+- Blocker: broader protocol, shape, documentation, and runtime parity gaps remain; no
+  blocker in this checkpoint.
+- Next action: continue with the next largest generic parity mismatch after committing
+  this checkpoint.
+
 ### Checkpoint: 2026-08-25 — Qualify empty JSON structure deserializers once
 - State: in progress
 - Changed: the shared JSON structure deserializer now uses the complete model-derived

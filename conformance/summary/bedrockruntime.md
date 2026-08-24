@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `487` matched · `49` mismatches · `0` missing · `0` extra · `90.86%` match (100.00% means fully matched)
+**Progress:** `536/536` files compared · `500` matched · `36` mismatches · `0` missing · `0` extra · `93.28%` match (100.00% means fully matched)
 
 ### `src/protocol_serde/shape_citation_location.rs`
 
@@ -2004,31 +2004,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/types/_audio_source.rs`
-
-```diff
---- reference/src/types/_audio_source.rs
-+++ generated/src/types/_audio_source.rs
-@@ -2,7 +2,7 @@
-
- /// <p>The source of audio data, which can be provided either as raw bytes or a reference to an S3 location.</p>
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub enum AudioSource {
-     /// <p>Audio data encoded in base64.</p>
-     Bytes(::aws_smithy_types::Blob),
-@@ -50,8 +50,3 @@
-         matches!(self, Self::Unknown)
-     }
- }
--impl ::std::fmt::Debug for AudioSource {
--    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
--        ::std::write!(f, "*** Sensitive Data Redacted ***")
--    }
--}
-```
-
 ### `src/types/_cache_ttl.rs`
 
 ```diff
@@ -2095,61 +2070,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/types/_content_block.rs`
-
-```diff
---- reference/src/types/_content_block.rs
-+++ generated/src/types/_content_block.rs
-@@ -2,7 +2,7 @@
-
- /// <p>A block of content for a message that you pass to, or receive from, a model with the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a> API operations.</p>
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub enum ContentBlock {
-     /// <p>An audio content block containing audio data in the conversation.</p>
-     Audio(super::super::types::AudioBlock),
-@@ -233,24 +233,3 @@
-         matches!(self, Self::Unknown)
-     }
- }
--impl ::std::fmt::Debug for ContentBlock {
--    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
--        match self {
--            ContentBlock::Audio(val) => f.debug_tuple("Audio").field(&val).finish(),
--            ContentBlock::CachePoint(val) => f.debug_tuple("CachePoint").field(&val).finish(),
--            ContentBlock::CitationsContent(val) => f.debug_tuple("CitationsContent").field(&val).finish(),
--            ContentBlock::Document(val) => f.debug_tuple("Document").field(&val).finish(),
--            ContentBlock::GuardContent(val) => f.debug_tuple("GuardContent").field(&val).finish(),
--            ContentBlock::Image(val) => f.debug_tuple("Image").field(&val).finish(),
--            ContentBlock::ReasoningContent(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
--            ContentBlock::SearchResult(val) => f.debug_tuple("SearchResult").field(&val).finish(),
--            ContentBlock::Text(val) => f.debug_tuple("Text").field(&val).finish(),
--            ContentBlock::ToolAddition(val) => f.debug_tuple("ToolAddition").field(&val).finish(),
--            ContentBlock::ToolRemoval(val) => f.debug_tuple("ToolRemoval").field(&val).finish(),
--            ContentBlock::ToolResult(val) => f.debug_tuple("ToolResult").field(&val).finish(),
--            ContentBlock::ToolUse(val) => f.debug_tuple("ToolUse").field(&val).finish(),
--            ContentBlock::Video(val) => f.debug_tuple("Video").field(&val).finish(),
--            ContentBlock::Unknown => f.debug_tuple("Unknown").finish(),
--        }
--    }
--}
-```
-
 ### `src/types/_content_block_delta.rs`
 
 ```diff
 --- reference/src/types/_content_block_delta.rs
 +++ generated/src/types/_content_block_delta.rs
-@@ -2,7 +2,7 @@
-
- /// <p>A block of content in a streaming response.</p>
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub enum ContentBlockDelta {
-     /// <p>Incremental citation information that is streamed as part of the response generation process.</p>
-     Citation(super::super::types::CitationsDelta),
 @@ -79,7 +79,7 @@
      pub fn is_text(&self) -> bool {
          self.as_text().is_ok()
@@ -2159,23 +2084,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// Returns `Err(&Self)` if it can't be converted.
      pub fn as_tool_result(&self) -> ::std::result::Result<&::std::vec::Vec<super::super::types::ToolResultBlockDelta>, &Self> {
          if let ContentBlockDelta::ToolResult(val) = &self {
-@@ -110,16 +110,3 @@
-         matches!(self, Self::Unknown)
-     }
- }
--impl ::std::fmt::Debug for ContentBlockDelta {
--    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
--        match self {
--            ContentBlockDelta::Citation(val) => f.debug_tuple("Citation").field(&val).finish(),
--            ContentBlockDelta::Image(val) => f.debug_tuple("Image").field(&val).finish(),
--            ContentBlockDelta::ReasoningContent(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
--            ContentBlockDelta::Text(val) => f.debug_tuple("Text").field(&val).finish(),
--            ContentBlockDelta::ToolResult(val) => f.debug_tuple("ToolResult").field(&val).finish(),
--            ContentBlockDelta::ToolUse(val) => f.debug_tuple("ToolUse").field(&val).finish(),
--            ContentBlockDelta::Unknown => f.debug_tuple("Unknown").finish(),
--        }
--    }
--}
 ```
 
 ### `src/types/_document_block.rs`
@@ -2212,34 +2120,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let DocumentSource::Content(val) = &self {
 ```
 
-### `src/types/_guardrail_checks_content_block.rs`
-
-```diff
---- reference/src/types/_guardrail_checks_content_block.rs
-+++ generated/src/types/_guardrail_checks_content_block.rs
-@@ -2,7 +2,7 @@
-
- /// <p>A content block within a message to evaluate.</p>
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub enum GuardrailChecksContentBlock {
-     /// <p>The text content to evaluate.</p>
-     Text(::std::string::String),
-@@ -36,11 +36,3 @@
-         matches!(self, Self::Unknown)
-     }
- }
--impl ::std::fmt::Debug for GuardrailChecksContentBlock {
--    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
--        match self {
--            GuardrailChecksContentBlock::Text(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
--            GuardrailChecksContentBlock::Unknown => f.debug_tuple("Unknown").finish(),
--        }
--    }
--}
-```
-
 ### `src/types/_guardrail_configuration.rs`
 
 ```diff
@@ -2260,115 +2140,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/types/_guardrail_content_block.rs`
-
-```diff
---- reference/src/types/_guardrail_content_block.rs
-+++ generated/src/types/_guardrail_content_block.rs
-@@ -2,7 +2,7 @@
-
- /// <p>The content block to be evaluated by the guardrail.</p>
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub enum GuardrailContentBlock {
-     /// <p>Image within guardrail content block to be evaluated by the guardrail.</p>
-     Image(super::super::types::GuardrailImageBlock),
-@@ -50,12 +50,3 @@
-         matches!(self, Self::Unknown)
-     }
- }
--impl ::std::fmt::Debug for GuardrailContentBlock {
--    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
--        match self {
--            GuardrailContentBlock::Image(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
--            GuardrailContentBlock::Text(val) => f.debug_tuple("Text").field(&val).finish(),
--            GuardrailContentBlock::Unknown => f.debug_tuple("Unknown").finish(),
--        }
--    }
--}
-```
-
 ### `src/types/_guardrail_converse_content_block.rs`
 
 ```diff
 --- reference/src/types/_guardrail_converse_content_block.rs
 +++ generated/src/types/_guardrail_converse_content_block.rs
-@@ -1,9 +1,9 @@
+@@ -1,6 +1,6 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 
 -/// <p></p>
 +/// <p/>
  /// <p>A content block for selective guarding with the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a> API operations.</p>
  #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub enum GuardrailConverseContentBlock {
-     /// <p>Image within converse content block to be evaluated by the guardrail.</p>
-     Image(super::super::types::GuardrailConverseImageBlock),
-@@ -51,12 +51,3 @@
-         matches!(self, Self::Unknown)
-     }
- }
--impl ::std::fmt::Debug for GuardrailConverseContentBlock {
--    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
--        match self {
--            GuardrailConverseContentBlock::Image(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
--            GuardrailConverseContentBlock::Text(val) => f.debug_tuple("Text").field(&val).finish(),
--            GuardrailConverseContentBlock::Unknown => f.debug_tuple("Unknown").finish(),
--        }
--    }
--}
-```
-
-### `src/types/_guardrail_converse_image_source.rs`
-
-```diff
---- reference/src/types/_guardrail_converse_image_source.rs
-+++ generated/src/types/_guardrail_converse_image_source.rs
-@@ -2,7 +2,7 @@
-
- /// <p>The image source (image bytes) of the guardrail converse image source.</p>
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub enum GuardrailConverseImageSource {
-     /// <p>The raw image bytes for the image.</p>
-     Bytes(::aws_smithy_types::Blob),
-@@ -36,8 +36,3 @@
-         matches!(self, Self::Unknown)
-     }
- }
--impl ::std::fmt::Debug for GuardrailConverseImageSource {
--    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
--        ::std::write!(f, "*** Sensitive Data Redacted ***")
--    }
--}
-```
-
-### `src/types/_guardrail_image_source.rs`
-
-```diff
---- reference/src/types/_guardrail_image_source.rs
-+++ generated/src/types/_guardrail_image_source.rs
-@@ -2,7 +2,7 @@
-
- /// <p>The image source (image bytes) of the guardrail image source. Object used in independent api.</p>
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub enum GuardrailImageSource {
-     /// <p>The bytes details of the guardrail image source. Object used in independent api.</p>
-     Bytes(::aws_smithy_types::Blob),
-@@ -36,8 +36,3 @@
-         matches!(self, Self::Unknown)
-     }
- }
--impl ::std::fmt::Debug for GuardrailImageSource {
--    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
--        ::std::write!(f, "*** Sensitive Data Redacted ***")
--    }
--}
+ #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 ```
 
 ### `src/types/_guardrail_ownership.rs`
@@ -2462,87 +2246,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/types/_image_source.rs`
-
-```diff
---- reference/src/types/_image_source.rs
-+++ generated/src/types/_image_source.rs
-@@ -2,7 +2,7 @@
-
- /// <p>The source for an image.</p>
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub enum ImageSource {
-     /// <p>The raw image bytes for the image. If you use an AWS SDK, you don't need to encode the image bytes in base64.</p>
-     Bytes(::aws_smithy_types::Blob),
-@@ -50,8 +50,3 @@
-         matches!(self, Self::Unknown)
-     }
- }
--impl ::std::fmt::Debug for ImageSource {
--    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
--        ::std::write!(f, "*** Sensitive Data Redacted ***")
--    }
--}
-```
-
-### `src/types/_invoke_model_with_bidirectional_stream_input.rs`
-
-```diff
---- reference/src/types/_invoke_model_with_bidirectional_stream_input.rs
-+++ generated/src/types/_invoke_model_with_bidirectional_stream_input.rs
-@@ -2,7 +2,7 @@
-
- /// <p>Payload content, the speech chunk, for the bidirectional input of the invocation step.</p>
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub enum InvokeModelWithBidirectionalStreamInput {
-     /// <p>The audio chunk that is used as input for the invocation step.</p>
-     Chunk(super::super::types::BidirectionalInputPayloadPart),
-@@ -36,11 +36,3 @@
-         matches!(self, Self::Unknown)
-     }
- }
--impl ::std::fmt::Debug for InvokeModelWithBidirectionalStreamInput {
--    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
--        match self {
--            InvokeModelWithBidirectionalStreamInput::Chunk(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
--            InvokeModelWithBidirectionalStreamInput::Unknown => f.debug_tuple("Unknown").finish(),
--        }
--    }
--}
-```
-
-### `src/types/_invoke_model_with_bidirectional_stream_output.rs`
-
-```diff
---- reference/src/types/_invoke_model_with_bidirectional_stream_output.rs
-+++ generated/src/types/_invoke_model_with_bidirectional_stream_output.rs
-@@ -2,7 +2,7 @@
-
- /// <p>Output from the bidirectional stream that was used for model invocation.</p>
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub enum InvokeModelWithBidirectionalStreamOutput {
-     /// <p>The speech chunk that was provided as output from the invocation step.</p>
-     Chunk(super::super::types::BidirectionalOutputPayloadPart),
-@@ -36,11 +36,3 @@
-         matches!(self, Self::Unknown)
-     }
- }
--impl ::std::fmt::Debug for InvokeModelWithBidirectionalStreamOutput {
--    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
--        match self {
--            InvokeModelWithBidirectionalStreamOutput::Chunk(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
--            InvokeModelWithBidirectionalStreamOutput::Unknown => f.debug_tuple("Unknown").finish(),
--        }
--    }
--}
-```
-
 ### `src/types/_output_format.rs`
 
 ```diff
@@ -2568,31 +2271,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/types/_output_format_structure.rs`
-
-```diff
---- reference/src/types/_output_format_structure.rs
-+++ generated/src/types/_output_format_structure.rs
-@@ -2,7 +2,7 @@
-
- /// <p>The structure that the model's output must adhere to.</p>
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub enum OutputFormatStructure {
-     /// <p>A JSON schema structure that the model's output must adhere to.</p>
-     JsonSchema(super::super::types::JsonSchemaDefinition),
-@@ -36,8 +36,3 @@
-         matches!(self, Self::Unknown)
-     }
- }
--impl ::std::fmt::Debug for OutputFormatStructure {
--    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
--        ::std::write!(f, "*** Sensitive Data Redacted ***")
--    }
--}
-```
-
 ### `src/types/_performance_configuration.rs`
 
 ```diff
@@ -2611,84 +2289,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
      }
  }
-```
-
-### `src/types/_reasoning_content_block.rs`
-
-```diff
---- reference/src/types/_reasoning_content_block.rs
-+++ generated/src/types/_reasoning_content_block.rs
-@@ -2,7 +2,7 @@
-
- /// <p>Contains content regarding the reasoning that is carried out by the model with respect to the content in the content block. Reasoning refers to a Chain of Thought (CoT) that the model generates to enhance the accuracy of its final response.</p>
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub enum ReasoningContentBlock {
-     /// <p>The reasoning that the model used to return the output.</p>
-     ReasoningText(super::super::types::ReasoningTextBlock),
-@@ -50,8 +50,3 @@
-         matches!(self, Self::Unknown)
-     }
- }
--impl ::std::fmt::Debug for ReasoningContentBlock {
--    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
--        ::std::write!(f, "*** Sensitive Data Redacted ***")
--    }
--}
-```
-
-### `src/types/_reasoning_content_block_delta.rs`
-
-```diff
---- reference/src/types/_reasoning_content_block_delta.rs
-+++ generated/src/types/_reasoning_content_block_delta.rs
-@@ -2,7 +2,7 @@
-
- /// <p>Contains content regarding the reasoning that is carried out by the model with respect to the content in the content block. Reasoning refers to a Chain of Thought (CoT) that the model generates to enhance the accuracy of its final response.</p>
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub enum ReasoningContentBlockDelta {
-     /// <p>The content in the reasoning that was encrypted by the model provider for safety reasons. The encryption doesn't affect the quality of responses.</p>
-     RedactedContent(::aws_smithy_types::Blob),
-@@ -65,8 +65,3 @@
-         matches!(self, Self::Unknown)
-     }
- }
--impl ::std::fmt::Debug for ReasoningContentBlockDelta {
--    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
--        ::std::write!(f, "*** Sensitive Data Redacted ***")
--    }
--}
-```
-
-### `src/types/_response_stream.rs`
-
-```diff
---- reference/src/types/_response_stream.rs
-+++ generated/src/types/_response_stream.rs
-@@ -2,7 +2,7 @@
-
- /// <p>Definition of content in the response stream.</p>
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub enum ResponseStream {
-     /// <p>Content included in the response.</p>
-     Chunk(super::super::types::PayloadPart),
-@@ -36,11 +36,3 @@
-         matches!(self, Self::Unknown)
-     }
- }
--impl ::std::fmt::Debug for ResponseStream {
--    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
--        match self {
--            ResponseStream::Chunk(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
--            ResponseStream::Unknown => f.debug_tuple("Unknown").finish(),
--        }
--    }
--}
 ```
 
 ### `src/types/builders.rs`

@@ -2,7 +2,7 @@
 
 /// <p>A block of content for a message that you pass to, or receive from, a model with the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a> API operations.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum ContentBlock {
     /// <p>An audio content block containing audio data in the conversation.</p>
     Audio(super::super::types::AudioBlock),
@@ -231,5 +231,26 @@ impl ContentBlock {
     /// Returns true if the enum instance is the `Unknown` variant.
     pub fn is_unknown(&self) -> bool {
         matches!(self, Self::Unknown)
+    }
+}
+impl ::std::fmt::Debug for ContentBlock {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        match self {
+            ContentBlock::Audio(val) => f.debug_tuple("Audio").field(&val).finish(),
+            ContentBlock::CachePoint(val) => f.debug_tuple("CachePoint").field(&val).finish(),
+            ContentBlock::CitationsContent(val) => f.debug_tuple("CitationsContent").field(&val).finish(),
+            ContentBlock::Document(val) => f.debug_tuple("Document").field(&val).finish(),
+            ContentBlock::GuardContent(val) => f.debug_tuple("GuardContent").field(&val).finish(),
+            ContentBlock::Image(val) => f.debug_tuple("Image").field(&val).finish(),
+            ContentBlock::ReasoningContent(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
+            ContentBlock::SearchResult(val) => f.debug_tuple("SearchResult").field(&val).finish(),
+            ContentBlock::Text(val) => f.debug_tuple("Text").field(&val).finish(),
+            ContentBlock::ToolAddition(val) => f.debug_tuple("ToolAddition").field(&val).finish(),
+            ContentBlock::ToolRemoval(val) => f.debug_tuple("ToolRemoval").field(&val).finish(),
+            ContentBlock::ToolResult(val) => f.debug_tuple("ToolResult").field(&val).finish(),
+            ContentBlock::ToolUse(val) => f.debug_tuple("ToolUse").field(&val).finish(),
+            ContentBlock::Video(val) => f.debug_tuple("Video").field(&val).finish(),
+            ContentBlock::Unknown => f.debug_tuple("Unknown").finish(),
+        }
     }
 }

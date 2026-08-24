@@ -2,7 +2,7 @@
 
 /// <p>The image source (image bytes) of the guardrail image source. Object used in independent api.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub enum GuardrailImageSource {
     /// <p>The bytes details of the guardrail image source. Object used in independent api.</p>
     Bytes(::aws_smithy_types::Blob),
@@ -34,5 +34,10 @@ impl GuardrailImageSource {
     /// Returns true if the enum instance is the `Unknown` variant.
     pub fn is_unknown(&self) -> bool {
         matches!(self, Self::Unknown)
+    }
+}
+impl ::std::fmt::Debug for GuardrailImageSource {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        ::std::write!(f, "*** Sensitive Data Redacted ***")
     }
 }
