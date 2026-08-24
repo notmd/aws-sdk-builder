@@ -1,5 +1,5 @@
+use crate::canonical::ORIGINAL_FILE;
 use crate::manifest::Exclusions;
-use aws_sdk_builder::ORIGINAL_FILE;
 use proc_macro2::LineColumn;
 use std::{
     collections::BTreeMap,

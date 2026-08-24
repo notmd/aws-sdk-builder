@@ -1,4 +1,4 @@
-pub mod canonical;
+mod artifact;
 mod codegen;
 mod config;
 mod endpoint_codegen;
@@ -8,7 +8,6 @@ mod names;
 mod output;
 pub mod registry;
 
-pub use canonical::{ORIGINAL_FILE, split};
 pub use config::{Builder, OperationNames};
 pub use error::BuildError;
 pub use registry::{ServiceMetadata, ServiceSource};

@@ -6,6 +6,7 @@ use std::{
     process::{Command, ExitCode},
 };
 
+mod canonical;
 mod manifest;
 mod normalize;
 mod updater;
@@ -266,10 +267,10 @@ fn project_original(
     generated_service: &Path,
     files: &std::collections::BTreeSet<String>,
 ) -> Result<(), String> {
-    let original_path = generated_service.join(aws_sdk_builder::ORIGINAL_FILE);
+    let original_path = generated_service.join(canonical::ORIGINAL_FILE);
     let original = fs::read_to_string(&original_path)
         .map_err(|error| format!("{}: {error}", original_path.display()))?;
-    let split = aws_sdk_builder::split(&original, files)?;
+    let split = canonical::split(&original, files)?;
     for (relative, source) in split {
         let source = normalize::prepare_canonical_projection(&source, Path::new(&relative))?;
         let destination = generated_service.join("normalized").join(&relative);
@@ -364,7 +365,7 @@ fn collect_rust_files(root: &Path, files: &mut Vec<PathBuf>) -> Result<(), Strin
             && path.extension().and_then(|extension| extension.to_str()) == Some("rs")
             && path
                 .file_name()
-                .is_some_and(|name| name != aws_sdk_builder::ORIGINAL_FILE)
+                .is_some_and(|name| name != canonical::ORIGINAL_FILE)
         {
             files.push(path);
         }

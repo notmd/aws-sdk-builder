@@ -9,7 +9,7 @@ use std::{
 };
 
 use crate::{
-    canonical,
+    artifact,
     config::ServiceSelection,
     error::BuildError,
     model::{ProtocolKind, SelectedModel},
@@ -365,12 +365,12 @@ pub(crate) fn generate(
 
             canonical_files.insert(relative_path, rendered_source);
         }
-        let original = canonical::compose(&canonical_files)?;
+        let original = artifact::compose(&canonical_files)?;
         fs::create_dir_all(&service_dir).map_err(|source| BuildError::OutputWrite {
             path: service_dir.clone(),
             source,
         })?;
-        let original_path = service_dir.join(canonical::ORIGINAL_FILE);
+        let original_path = service_dir.join(artifact::ORIGINAL_FILE);
         fs::write(&original_path, original).map_err(|source| BuildError::OutputWrite {
             path: original_path.clone(),
             source,

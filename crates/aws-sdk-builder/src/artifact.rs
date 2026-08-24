@@ -6,7 +6,7 @@ use std::{
 
 use crate::error::BuildError;
 
-pub const ORIGINAL_FILE: &str = "original.rs";
+pub(crate) const ORIGINAL_FILE: &str = "original.rs";
 const CANONICAL_MODULE: &str = "__aws_sdk_builder_generated";
 
 type Files = BTreeMap<String, String>;
@@ -24,47 +24,6 @@ pub(crate) fn compose(files: &Files) -> Result<String, BuildError> {
         message: format!("canonical original.rs does not parse: {error}"),
     })?;
     Ok(source)
-}
-
-/// Materialize the generated physical module tree from a canonical artifact.
-///
-/// The transform operates on parsed `syn` item spans. It never searches Rust
-/// source with regular expressions or balances braces itself; comments,
-/// strings, attributes, docs, and nested items therefore remain token data.
-pub fn split(source: &str, files: &BTreeSet<String>) -> Result<BTreeMap<String, String>, String> {
-    validate_split_plan(files)?;
-    syn::parse_file(source)
-        .map_err(|error| format!("canonical original.rs does not parse: {error}"))?;
-
-    let mut output = BTreeMap::new();
-    let body = unwrap_canonical_module(source)?;
-    project_module(&body, "src/lib.rs", files, &mut output)?;
-    if output.len() != files.len() {
-        return Err(format!(
-            "canonical projection materialized {} of {} planned files",
-            output.len(),
-            files.len()
-        ));
-    }
-    Ok(output)
-}
-
-fn unwrap_canonical_module(source: &str) -> Result<String, String> {
-    let file = syn::parse_file(source)
-        .map_err(|error| format!("canonical original.rs does not parse: {error}"))?;
-    let item = top_level_module(&file, CANONICAL_MODULE).ok_or_else(|| {
-        format!("canonical original.rs has no module declaration for {CANONICAL_MODULE}")
-    })?;
-    let Some((brace, _)) = &item.content else {
-        return Err(format!(
-            "canonical module `{CANONICAL_MODULE}` is not inline"
-        ));
-    };
-    let body_start = source_offset(source, brace.span.open().end(), ORIGINAL_FILE)?;
-    let body_end = source_offset(source, brace.span.close().start(), ORIGINAL_FILE)?;
-    Ok(normalize_source(strip_leading_newline(
-        &source[body_start..body_end],
-    )))
 }
 
 fn validate_file_plan(files: &Files) -> Result<(), BuildError> {
@@ -88,41 +47,6 @@ fn validate_split_plan(files: &BTreeSet<String>) -> Result<(), String> {
     }
     for relative in files {
         let _ = module_segments(relative)?;
-    }
-    Ok(())
-}
-
-fn project_module(
-    source: &str,
-    relative: &str,
-    files: &BTreeSet<String>,
-    output: &mut BTreeMap<String, String>,
-) -> Result<(), String> {
-    let mut body = normalize_source(source);
-    let children = child_files(relative, files);
-    let file = syn::parse_file(&body)
-        .map_err(|error| format!("cannot parse module {relative}: {error}"))?;
-    let mut child_projections = Vec::new();
-    for child in children {
-        let module = module_name(&child).map_err(|error| error.to_string())?;
-        let bounds = inline_module_bounds(&body, &file, &module, relative)?;
-        let child_source = normalize_source(strip_leading_newline(
-            &body[bounds.open_end..bounds.close_start],
-        ));
-        child_projections.push((child, bounds, child_source));
-    }
-    child_projections.sort_by_key(|(_, bounds, _)| std::cmp::Reverse(bounds.item_start));
-
-    for (child, bounds, child_source) in child_projections {
-        let declaration = format!("{};", body[bounds.item_start..bounds.open_start].trim_end());
-        body.replace_range(bounds.item_start..bounds.item_end, &declaration);
-        project_module(&child_source, &child, files, output)?;
-    }
-
-    syn::parse_file(&body)
-        .map_err(|error| format!("projected module {relative} does not parse: {error}"))?;
-    if output.insert(relative.to_owned(), body).is_some() {
-        return Err(format!("duplicate projected module path: {relative}"));
     }
     Ok(())
 }
@@ -189,40 +113,6 @@ fn child_files(relative: &str, files: &BTreeSet<String>) -> Vec<String> {
 struct ModuleBounds {
     item_start: usize,
     item_end: usize,
-    open_start: usize,
-    open_end: usize,
-    close_start: usize,
-}
-
-fn inline_module_bounds(
-    source: &str,
-    file: &syn::File,
-    module: &str,
-    relative: &str,
-) -> Result<ModuleBounds, String> {
-    let item = top_level_module(file, module)
-        .ok_or_else(|| format!("canonical original.rs has no module declaration for {module}"))?;
-    let Some((brace, _)) = &item.content else {
-        return Err(format!(
-            "canonical module `{module}` is not inline in {relative}"
-        ));
-    };
-    let open_span = brace.span.open();
-    let close_span = brace.span.close();
-    let ident_start = item.ident.span().start();
-    let item_start_span = item
-        .attrs
-        .first()
-        .filter(|attribute| attribute.pound_token.span.start() <= ident_start)
-        .map(|attribute| attribute.pound_token.span)
-        .unwrap_or_else(|| item.ident.span());
-    Ok(ModuleBounds {
-        item_start: source_offset(source, item_start_span.start(), relative)?,
-        item_end: source_offset(source, close_span.end(), relative)?,
-        open_start: source_offset(source, open_span.start(), relative)?,
-        open_end: source_offset(source, open_span.end(), relative)?,
-        close_start: source_offset(source, close_span.start(), relative)?,
-    })
 }
 
 fn external_module_bounds(
@@ -261,9 +151,6 @@ fn external_module_bounds(
     Ok(ModuleBounds {
         item_start,
         item_end,
-        open_start: item_end,
-        open_end: item_end,
-        close_start: item_end,
     })
 }
 
@@ -494,10 +381,6 @@ fn module_depth(relative: &str) -> usize {
         .max(1)
 }
 
-fn strip_leading_newline(source: &str) -> &str {
-    source.strip_prefix('\n').unwrap_or(source)
-}
-
 fn normalize_source(source: &str) -> String {
     format!("{}\n", source.trim_end_matches('\n'))
 }
@@ -551,7 +434,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn composes_and_splits_declared_files() {
+    fn composes_declared_files() {
         let files = Files::from([
             (
                 "src/lib.rs".to_owned(),
@@ -569,18 +452,7 @@ mod tests {
         let original = compose(&files).unwrap();
         assert!(original.contains("pub mod inner {"));
         assert!(original.contains("pub use super::outer::Value;"));
-
-        let plan = files.keys().cloned().collect();
-        let split = split(&original, &plan).unwrap();
-        assert_eq!(split["src/lib.rs"], files["src/lib.rs"]);
-        assert_eq!(
-            split["src/outer.rs"],
-            "/// Outer: café.\npub mod inner;\npub use super::outer::Value;\n\nmod private {\n    pub const X: u8 = 1;\n}\n"
-        );
-        assert_eq!(
-            split["src/outer/inner.rs"],
-            "pub use super::super::outer::Value;\n"
-        );
+        syn::parse_file(&original).unwrap();
     }
 
     #[test]
@@ -596,8 +468,7 @@ mod tests {
             ),
         ]);
         let original = compose(&files).unwrap();
-        let split = split(&original, &files.keys().cloned().collect()).unwrap();
-        assert_eq!(split["src/lib.rs"], files["src/lib.rs"]);
-        assert_eq!(split["src/outer.rs"], files["src/outer.rs"]);
+        assert!(original.contains("#[cfg(feature = \"x\")]\npub mod outer {"));
+        assert!(original.contains("#![allow(dead_code)]\npub struct Value;"));
     }
 }
