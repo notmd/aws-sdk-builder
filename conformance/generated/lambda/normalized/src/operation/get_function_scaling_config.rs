@@ -290,12 +290,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetFunctionS
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(
-            super::super::protocol_serde::shape_get_function_scaling_config::ser_get_function_scaling_config_input(&input)?,
-        );
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }

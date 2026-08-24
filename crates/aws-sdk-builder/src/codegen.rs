@@ -4526,7 +4526,8 @@ fn standalone_request_body(
     if matches!(
         protocol,
         ProtocolKind::AwsJson1_0 | ProtocolKind::AwsJson1_1 | ProtocolKind::RestJson1
-    ) {
+    ) && request_has_document_or_payload_binding(Some(input_shape))
+    {
         let content_type = match protocol {
             ProtocolKind::AwsJson1_0 => "application/x-amz-json-1.0",
             ProtocolKind::AwsJson1_1 => "application/x-amz-json-1.1",
@@ -15708,6 +15709,65 @@ mod tests {
         assert!(!is_xml_body_member(&response_code));
         assert!(!is_xml_body_member(&streaming_payload));
         assert!(is_xml_body_member(&document_body));
+    }
+
+    #[test]
+    fn json_request_without_document_bindings_has_no_body_or_content_type() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Delete"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Delete": {
+                        "type": "operation",
+                        "input": {"target": "example#Input"},
+                        "output": {"target": "smithy.api#Unit"},
+                        "traits": {
+                            "smithy.api#http": {
+                                "method": "DELETE",
+                                "uri": "/{name}",
+                                "code": 204
+                            }
+                        }
+                    },
+                    "example#Input": {
+                        "type": "structure",
+                        "members": {
+                            "name": {
+                                "target": "smithy.api#String",
+                                "traits": {
+                                    "smithy.api#httpLabel": {},
+                                    "smithy.api#required": {}
+                                }
+                            }
+                        },
+                        "traits": {"smithy.api#input": {}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let input = operation_shape(&selected, "Delete")
+            .and_then(|operation| operation.get("input"))
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id));
+
+        let (body, content_type) = standalone_request_body(&selected, "Delete", input);
+
+        assert_eq!(body, "::aws_smithy_types::body::SdkBody::from(\"\")");
+        assert_eq!(content_type, None);
     }
 
     #[test]

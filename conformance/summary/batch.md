@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## batch
-**Progress:** `762/762` files compared · `702` matched · `60` mismatches · `0` missing · `0` extra · `92.13%` match (100.00% means fully matched)
+**Progress:** `762/762` files compared · `703` matched · `59` mismatches · `0` missing · `0` extra · `92.26%` match (100.00% means fully matched)
 
 ### `src/client/cancel_job.rs`
 
@@ -129,28 +129,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn terminate_job(&self) -> super::super::operation::terminate_job::builders::TerminateJobFluentBuilder {
 ```
 
-### `src/operation/list_tags_for_resource.rs`
-
-```diff
---- reference/src/operation/list_tags_for_resource.rs
-+++ generated/src/operation/list_tags_for_resource.rs
-@@ -261,10 +261,12 @@
-                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from("");
--
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_tags_for_resource::ser_list_tags_for_resource_input(
-+            &input,
-+        )?);
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
 ### `src/operation/untag_resource.rs`
 
 ```diff
@@ -167,19 +145,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  ::std::result::Result::Ok(())
              }
              #[allow(clippy::unnecessary_wraps)]
-@@ -273,10 +271,10 @@
-                 ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from("");
--
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_resource::ser_untag_resource_input(&input)?);
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
 ```
 
 ### `src/protocol_serde/shape_create_compute_environment.rs`

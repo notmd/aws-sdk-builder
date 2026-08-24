@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cloudwatchlogs
-**Progress:** `1287/1287` files compared · `1236` matched · `49` mismatches · `2` missing · `0` extra · `96.04%` match (100.00% means fully matched)
+**Progress:** `1287/1287` files compared · `1235` matched · `50` mismatches · `2` missing · `0` extra · `95.96%` match (100.00% means fully matched)
 
 ### `src/config.rs`
 
@@ -556,6 +556,32 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          })
      }
  }
+```
+
+### `src/operation/get_storage_tier_policy.rs`
+
+```diff
+--- reference/src/operation/get_storage_tier_policy.rs
++++ generated/src/operation/get_storage_tier_policy.rs
+@@ -210,17 +210,9 @@
+                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
+             }
+             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
+-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
+-            builder = _header_serialization_settings.set_default_header(
+-                builder,
+-                ::http_1x::header::HeaderName::from_static("x-amz-target"),
+-                "Logs_20140328.GetStorageTierPolicy",
+-            );
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_storage_tier_policy::ser_get_storage_tier_policy_input(
+-            &input,
+-        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from("");
+
+         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
+     }
 ```
 
 ### `src/operation/list_syslog_configurations/_list_syslog_configurations_input.rs`

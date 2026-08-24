@@ -51897,15 +51897,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetComplianc
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
-            builder = _header_serialization_settings.set_default_header(
-                builder,
-                ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                "StarlingDoveService.GetComplianceSummaryByConfigRule",
-            );
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_compliance_summary_by_config_rule::ser_get_compliance_summary_by_config_rule_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }

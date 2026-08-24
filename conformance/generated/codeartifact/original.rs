@@ -5717,10 +5717,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AssociateExt
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_associate_external_connection::ser_associate_external_connection_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -10764,10 +10764,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteDomain
                 ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_domain::ser_delete_domain_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -11503,10 +11503,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteDomain
                 ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_domain_permissions_policy::ser_delete_domain_permissions_policy_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -12320,10 +12320,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeletePackag
                 ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_package::ser_delete_package_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -13362,10 +13362,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeletePackag
                 ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_package_group::ser_delete_package_group_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -15410,10 +15410,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteReposi
                 ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_repository::ser_delete_repository_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -16207,10 +16207,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteReposi
                 ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_repository_permissions_policy::ser_delete_repository_permissions_policy_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -17011,10 +17011,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribeDoma
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_describe_domain::ser_describe_domain_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -17787,10 +17787,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribePack
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_describe_package::ser_describe_package_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -18820,10 +18820,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribePack
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_describe_package_group::ser_describe_package_group_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -19644,10 +19644,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribePack
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_describe_package_version::ser_describe_package_version_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -20719,10 +20719,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribeRepo
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_describe_repository::ser_describe_repository_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -21512,10 +21512,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for Disassociate
                 ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_disassociate_external_connection::ser_disassociate_external_connection_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -23651,10 +23651,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetAssociate
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_associated_package_group::ser_get_associated_package_group_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -24649,10 +24649,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetAuthoriza
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_authorization_token::ser_get_authorization_token_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -25448,10 +25448,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDomainPer
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_domain_permissions_policy::ser_get_domain_permissions_policy_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -26281,10 +26281,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetPackageVe
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_package_version_asset::ser_get_package_version_asset_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -27516,10 +27516,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetPackageVe
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_package_version_readme::ser_get_package_version_readme_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -28726,10 +28726,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetRepositor
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_repository_endpoint::ser_get_repository_endpoint_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -29584,10 +29584,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetRepositor
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_repository_permissions_policy::ser_get_repository_permissions_policy_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -30381,10 +30381,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListAllowedR
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_allowed_repositories_for_group::ser_list_allowed_repositories_for_group_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -31463,10 +31463,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListAssociat
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_associated_packages::ser_list_associated_packages_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -33388,10 +33388,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPackageG
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_package_groups::ser_list_package_groups_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -34469,10 +34469,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPackageV
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_package_version_assets::ser_list_package_version_assets_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -35968,10 +35968,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPackageV
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_package_version_dependencies::ser_list_package_version_dependencies_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -37256,10 +37256,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPackageV
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_package_versions::ser_list_package_versions_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -38822,10 +38822,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPackages
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_packages::ser_list_packages_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -40068,10 +40068,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListReposito
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_repositories::ser_list_repositories_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -41033,10 +41033,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListReposito
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_repositories_in_domain::ser_list_repositories_in_domain_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -42098,10 +42098,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListSubPacka
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_sub_package_groups::ser_list_sub_package_groups_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -43093,10 +43093,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListTagsForR
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_tags_for_resource::ser_list_tags_for_resource_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from("");
+
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
