@@ -17267,8 +17267,8 @@ mod _cache_ttl {
 /// ```text
 /// # let cachettl = unimplemented!();
 /// match cachettl {
-///     CacheTtl::FiveMinutes => { /* ... */ },
 ///     CacheTtl::OneHour => { /* ... */ },
+///     CacheTtl::FiveMinutes => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
 /// }
@@ -17298,9 +17298,9 @@ mod _cache_ttl {
 )]
 pub enum CacheTtl {
     #[allow(missing_docs)] // documentation missing in model
-    FiveMinutes,
-    #[allow(missing_docs)] // documentation missing in model
     OneHour,
+    #[allow(missing_docs)] // documentation missing in model
+    FiveMinutes,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue),
@@ -17308,8 +17308,8 @@ pub enum CacheTtl {
 impl ::std::convert::From<&str> for CacheTtl {
     fn from(s: &str) -> Self {
         match s {
-            "5m" => CacheTtl::FiveMinutes,
             "1h" => CacheTtl::OneHour,
+            "5m" => CacheTtl::FiveMinutes,
             other => CacheTtl::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
@@ -17325,14 +17325,14 @@ impl CacheTtl {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
-            CacheTtl::FiveMinutes => "5m",
             CacheTtl::OneHour => "1h",
+            CacheTtl::FiveMinutes => "5m",
             CacheTtl::Unknown(value) => value.as_str(),
         }
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["5m", "1h"]
+        &["1h", "5m"]
     }
 }
 impl ::std::convert::AsRef<str> for CacheTtl {
@@ -17355,8 +17355,8 @@ impl CacheTtl {
 impl ::std::fmt::Display for CacheTtl {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
-            CacheTtl::FiveMinutes => write!(f, "5m"),
             CacheTtl::OneHour => write!(f, "1h"),
+            CacheTtl::FiveMinutes => write!(f, "5m"),
             CacheTtl::Unknown(value) => write!(f, "{value}"),
         }
     }

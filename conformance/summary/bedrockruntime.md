@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `500` matched · `36` mismatches · `0` missing · `0` extra · `93.28%` match (100.00% means fully matched)
+**Progress:** `536/536` files compared · `501` matched · `35` mismatches · `0` missing · `0` extra · `93.47%` match (100.00% means fully matched)
 
 ### `src/protocol_serde/shape_citation_location.rs`
 
@@ -2002,72 +2002,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      builder
  }
-```
-
-### `src/types/_cache_ttl.rs`
-
-```diff
---- reference/src/types/_cache_ttl.rs
-+++ generated/src/types/_cache_ttl.rs
-@@ -12,8 +12,8 @@
- /// ```text
- /// # let cachettl = unimplemented!();
- /// match cachettl {
-+///     CacheTtl::FiveMinutes => { /* ... */ },
- ///     CacheTtl::OneHour => { /* ... */ },
--///     CacheTtl::FiveMinutes => { /* ... */ },
- ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
- ///     _ => { /* ... */ },
- /// }
-@@ -43,9 +43,9 @@
- )]
- pub enum CacheTtl {
-     #[allow(missing_docs)] // documentation missing in model
--    OneHour,
--    #[allow(missing_docs)] // documentation missing in model
-     FiveMinutes,
-+    #[allow(missing_docs)] // documentation missing in model
-+    OneHour,
-     /// `Unknown` contains new variants that have been added since this code was generated.
-     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
-     Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue),
-@@ -53,8 +53,8 @@
- impl ::std::convert::From<&str> for CacheTtl {
-     fn from(s: &str) -> Self {
-         match s {
-+            "5m" => CacheTtl::FiveMinutes,
-             "1h" => CacheTtl::OneHour,
--            "5m" => CacheTtl::FiveMinutes,
-             other => CacheTtl::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
-         }
-     }
-@@ -70,14 +70,14 @@
-     /// Returns the `&str` value of the enum member.
-     pub fn as_str(&self) -> &str {
-         match self {
-+            CacheTtl::FiveMinutes => "5m",
-             CacheTtl::OneHour => "1h",
--            CacheTtl::FiveMinutes => "5m",
-             CacheTtl::Unknown(value) => value.as_str(),
-         }
-     }
-     /// Returns all the `&str` representations of the enum members.
-     pub const fn values() -> &'static [&'static str] {
--        &["1h", "5m"]
-+        &["5m", "1h"]
-     }
- }
- impl ::std::convert::AsRef<str> for CacheTtl {
-@@ -100,8 +100,8 @@
- impl ::std::fmt::Display for CacheTtl {
-     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-         match self {
--            CacheTtl::OneHour => write!(f, "1h"),
-             CacheTtl::FiveMinutes => write!(f, "5m"),
-+            CacheTtl::OneHour => write!(f, "1h"),
-             CacheTtl::Unknown(value) => write!(f, "{value}"),
-         }
-     }
 ```
 
 ### `src/types/_content_block_delta.rs`

@@ -4,6 +4,25 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Order modeled enums by wire values
+- State: in progress
+- Changed: enum rendering now orders documentation examples, variants, parsers,
+  accessors, and values by each member's model-provided `smithy.api#enumValue`, matching
+  Smithy-RS `EnumGenerator`'s wire-value ordering. It falls back to the member name
+  only when a model omits that trait, and includes a focused regression test.
+- Evidence: the focused regression, `just conformance` generation and formatting,
+  `cargo test --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass. Conformance generated and
+  formatted all `13,166` snapshot files without generated-source parse errors.
+- Conformance: `12,876/13,168` exact, `289` mismatches, `2` missing, and `1` extra
+  (`97.60%`) -> `12,878/13,168` exact, `287` mismatches, `2` missing, and `1` extra
+  (`97.62%`). Bedrock Runtime improved from `500/36` to `501/35`; Config from
+  `1,233/29` to `1,234/28`.
+- Blocker: broader protocol, shape, documentation, and runtime parity gaps remain; no
+  blocker in this checkpoint.
+- Next action: continue with the next largest generic parity mismatch after committing
+  this checkpoint.
+
 ### Checkpoint: 2026-08-25 — Match Smithy sensitive-union debug generation
 - State: in progress
 - Changed: unions now derive `Debug` only when the union and all reachable member

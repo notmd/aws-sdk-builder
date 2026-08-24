@@ -15171,7 +15171,7 @@ fn render_union_debug_impl(
 
 fn render_enum(output: &mut String, shape: &Value, name: &str) {
     let rust_name = rust_type_name(name);
-    let ordered_members = sorted_members(shape);
+    let ordered_members = enum_members(shape);
     let support_prefix = { "crate::" };
     let unknown_value_type =
         format!("{support_prefix}primitives::sealed_enum_unknown::UnknownVariantValue");
@@ -15204,7 +15204,7 @@ fn render_enum(output: &mut String, shape: &Value, name: &str) {
     }
     writeln!(output, "    /// # let {lower_name} = unimplemented!();").unwrap();
     writeln!(output, "    /// match {lower_name} {{").unwrap();
-    for member_name in ordered_members.keys() {
+    for (member_name, _) in &ordered_members {
         let variant = rust_type_name(member_name);
         writeln!(
             output,
@@ -16920,6 +16920,26 @@ fn sorted_members(shape: &Value) -> BTreeMap<String, &Value> {
     members(shape).into_iter().collect()
 }
 
+fn enum_members(shape: &Value) -> Vec<(String, &Value)> {
+    let mut members = members(shape);
+    members.sort_by(|(left_name, left), (right_name, right)| {
+        let left_value = left
+            .get("traits")
+            .and_then(Value::as_object)
+            .and_then(|traits| traits.get("smithy.api#enumValue"))
+            .and_then(Value::as_str)
+            .unwrap_or(left_name);
+        let right_value = right
+            .get("traits")
+            .and_then(Value::as_object)
+            .and_then(|traits| traits.get("smithy.api#enumValue"))
+            .and_then(Value::as_str)
+            .unwrap_or(right_name);
+        left_value.cmp(right_value)
+    });
+    members
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -16944,6 +16964,32 @@ mod tests {
             "AssumeRoleWithSAML"
         );
         assert_eq!(operation_error_type_name("CreateThing"), "CreateThing");
+    }
+
+    #[test]
+    fn enum_members_follow_wire_enum_values() {
+        let shape = serde_json::json!({
+            "type": "enum",
+            "members": {
+                "Second": {
+                    "target": "smithy.api#Unit",
+                    "traits": {"smithy.api#enumValue": "b"}
+                },
+                "First": {
+                    "target": "smithy.api#Unit",
+                    "traits": {"smithy.api#enumValue": "a"}
+                }
+            }
+        });
+        let mut rendered = String::new();
+        render_enum(&mut rendered, &shape, "Example");
+
+        assert!(rendered.find("First,").unwrap() < rendered.find("Second,").unwrap());
+        assert!(rendered.find("\"a\" =>").unwrap() < rendered.find("\"b\" =>").unwrap());
+        assert!(
+            rendered.find("Example::First => \"a\"").unwrap()
+                < rendered.find("Example::Second => \"b\"").unwrap()
+        );
     }
 
     #[test]
