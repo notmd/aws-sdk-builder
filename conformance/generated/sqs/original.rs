@@ -4525,6 +4525,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AddPermissio
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.AddPermission",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_add_permission::ser_add_permission_input(&input)?);
@@ -5360,6 +5361,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CancelMessag
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.CancelMessageMoveTask",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_cancel_message_move_task::ser_cancel_message_move_task_input(&input)?);
@@ -6057,6 +6059,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ChangeMessag
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.ChangeMessageVisibility",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_change_message_visibility::ser_change_message_visibility_input(&input)?);
@@ -6832,6 +6835,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ChangeMessag
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.ChangeMessageVisibilityBatch",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_change_message_visibility_batch::ser_change_message_visibility_batch_input(&input)?);
@@ -7647,6 +7651,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CreateQueueR
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.CreateQueue",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_queue::ser_create_queue_input(&input)?);
@@ -9428,6 +9433,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteMessag
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.DeleteMessage",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_message::ser_delete_message_input(&input)?);
@@ -10158,6 +10164,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteMessag
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.DeleteMessageBatch",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_message_batch::ser_delete_message_batch_input(&input)?);
@@ -10973,6 +10980,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteQueueR
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.DeleteQueue",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_queue::ser_delete_queue_input(&input)?);
@@ -11655,6 +11663,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetQueueAttr
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.GetQueueAttributes",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_queue_attributes::ser_get_queue_attributes_input(&input)?);
@@ -13193,6 +13202,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetQueueUrlR
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.GetQueueUrl",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_queue_url::ser_get_queue_url_input(&input)?);
@@ -13917,6 +13927,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListDeadLett
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.ListDeadLetterSourceQueues",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_dead_letter_source_queues::ser_list_dead_letter_source_queues_input(&input)?);
@@ -14858,6 +14869,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListMessageM
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.ListMessageMoveTasks",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_message_move_tasks::ser_list_message_move_tasks_input(&input)?);
@@ -15589,6 +15601,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListQueueTag
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.ListQueueTags",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_queue_tags::ser_list_queue_tags_input(&input)?);
@@ -16287,6 +16300,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListQueuesRe
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.ListQueues",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_queues::ser_list_queues_input(&input)?);
@@ -17217,6 +17231,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PurgeQueueRe
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.PurgeQueue",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_purge_queue::ser_purge_queue_input(&input)?);
@@ -17912,6 +17927,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ReceiveMessa
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.ReceiveMessage",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_receive_message::ser_receive_message_input(&input)?);
@@ -19838,6 +19854,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for RemovePermis
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.RemovePermission",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_remove_permission::ser_remove_permission_input(&input)?);
@@ -20569,6 +20586,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for SendMessageR
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.SendMessage",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_send_message::ser_send_message_input(&input)?);
@@ -22025,6 +22043,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for SendMessageB
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.SendMessageBatch",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_send_message_batch::ser_send_message_batch_input(&input)?);
@@ -22931,6 +22950,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for SetQueueAttr
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.SetQueueAttributes",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_set_queue_attributes::ser_set_queue_attributes_input(&input)?);
@@ -24428,6 +24448,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for StartMessage
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.StartMessageMoveTask",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_start_message_move_task::ser_start_message_move_task_input(&input)?);
@@ -25184,6 +25205,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for TagQueueRequ
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.TagQueue",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_queue::ser_tag_queue_input(&input)?);
@@ -25906,6 +25928,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UntagQueueRe
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.UntagQueue",
             );
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_queue::ser_untag_queue_input(&input)?);

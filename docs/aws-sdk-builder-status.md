@@ -4,6 +4,28 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Render protocol-decorator request headers
+- State: in progress
+- Changed: standalone operation request serialization now renders additional headers
+  supplied by the model-selected protocol decorator. In particular,
+  `aws.protocols#awsQueryCompatible` delegates its JSON wire format while adding the
+  Smithy-RS `x-amzn-query-mode: true` marker to every request. The same header plan is
+  emitted independently of whether an operation has a document body; JSON target
+  headers now follow that rule as well. A focused regression covers the compatible
+  protocol trait without a modeled input body.
+- Conformance: `just conformance` generated 15 services and 1,133 operations,
+  formatted 13,164 generated Rust files, and compared `13,168` files: `12,632`
+  matched, `531` mismatched, `4` missing, and `1` extra (`94.84%` average match).
+  This is `+21` exact files and `-21` mismatches from the `12,611/552` checkpoint;
+  SQS improved from `231/62` to `252/41`. Generation and snapshot parsing completed
+  without generated-source parse errors. The command exits 1 only because broader
+  parity gaps remain.
+- Verification: focused protocol-header regressions, `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`, formatting, and
+  `git diff --check` pass.
+- Next action: complete the verification gate, commit this checkpoint, then continue
+  with the remaining protocol and documentation parity gaps.
+
 ### Checkpoint: 2026-08-25 — Normalize event-stream errors and marshaller output
 - State: in progress
 - Changed: event-stream model normalization now promotes errors carried by streaming

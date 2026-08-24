@@ -153,16 +153,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_compliance_summary_by_config_rule.rs
 +++ generated/src/operation/get_compliance_summary_by_config_rule.rs
-@@ -214,17 +214,9 @@
+@@ -214,7 +214,6 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
 -            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "StarlingDoveService.GetComplianceSummaryByConfigRule",
--            );
+             builder = _header_serialization_settings.set_default_header(
+                 builder,
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+@@ -222,9 +221,7 @@
+             );
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(

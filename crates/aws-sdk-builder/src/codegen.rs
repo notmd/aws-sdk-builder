@@ -5611,21 +5611,35 @@ fn render_standalone_request_serializer(
     .unwrap();
     let (body_expression, content_type) =
         standalone_request_body(selected, operation_name, input_shape);
-    if let Some(ref content_type) = content_type {
-        let builder_marker = "            let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;\n            builder".to_owned();
-        let target_header = standalone_json_target_header(selected, operation_name);
-        let target_header = target_header
-            .map(|target| {
-                format!(
-                    "\n            builder = _header_serialization_settings.set_default_header(\n                builder,\n                ::http_1x::header::HeaderName::from_static(\"x-amz-target\"),\n                {target:?},\n            );"
-                )
-            })
-            .unwrap_or_default();
-        let builder_replacement = format!(
-            "            let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;\n            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, {content_type:?});{target_header}\n            builder"
-        );
-        *output = output.replace(&builder_marker, &builder_replacement);
-    }
+    let builder_marker = "            let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;\n            builder".to_owned();
+    let content_type_header = content_type
+        .as_deref()
+        .map(|content_type| {
+            format!(
+                "\n            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, {content_type:?});"
+            )
+        })
+        .unwrap_or_default();
+    let target_header = standalone_json_target_header(selected, operation_name);
+    let target_header = target_header
+        .map(|target| {
+            format!(
+                "\n            builder = _header_serialization_settings.set_default_header(\n                builder,\n                ::http_1x::header::HeaderName::from_static(\"x-amz-target\"),\n                {target:?},\n            );"
+            )
+        })
+        .unwrap_or_default();
+    let additional_headers = standalone_additional_request_headers(selected)
+        .into_iter()
+        .map(|(name, value)| {
+            format!(
+                "\n            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static({name:?}), {value:?});"
+            )
+        })
+        .collect::<String>();
+    let builder_replacement = format!(
+        "            let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;{content_type_header}{target_header}{additional_headers}\n            builder"
+    );
+    *output = output.replace(&builder_marker, &builder_replacement);
     let body_marker = "        let body = ::aws_smithy_types::body::SdkBody::from(\"\");\n\n";
     let mut body_replacement = format!("        let body = {body_expression};\n");
     let add_content_length = content_type.is_some()
@@ -5750,6 +5764,22 @@ fn standalone_json_target_header(selected: &SelectedModel, operation_name: &str)
         terminal(selected.model.service_shape_id.as_str()),
         operation_name
     ))
+}
+
+/// Additional request headers supplied by protocol decorators.
+///
+/// `awsQueryCompatible` delegates its wire format to the service's JSON
+/// protocol, but Smithy-RS still adds this compatibility marker to every
+/// request. Keep the rule attached to the model-advertised protocol rather
+/// than to a service or operation name.
+fn standalone_additional_request_headers(
+    selected: &SelectedModel,
+) -> Vec<(&'static str, &'static str)> {
+    if service_has_protocol(selected, ProtocolKind::AwsQueryCompatible) {
+        vec![("x-amzn-query-mode", "true")]
+    } else {
+        Vec::new()
+    }
 }
 
 fn render_standalone_endpoint_interceptor(
@@ -16750,6 +16780,48 @@ mod tests {
         assert!(rendered.contains(
             "query.push_kv(\"Epoch\", &::aws_smithy_http::query::fmt_timestamp(inner_4, ::aws_smithy_types::date_time::Format::EpochSeconds)?);"
         ));
+    }
+
+    #[test]
+    fn aws_query_compatible_adds_protocol_request_header() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {
+                            "aws.protocols#awsJson1_0": {},
+                            "aws.protocols#awsQueryCompatible": {}
+                        }
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "input": {"target": "example#GetInput"},
+                        "output": {"target": "smithy.api#Unit"},
+                        "traits": {"smithy.api#http": {"method": "POST", "uri": "/", "code": 200}}
+                    },
+                    "example#GetInput": {
+                        "type": "structure",
+                        "members": {},
+                        "traits": {"smithy.api#input": {}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let rendered = render_standalone_operation_file(&selected, "Get");
+
+        assert!(rendered.contains("HeaderName::from_static(\"x-amzn-query-mode\"), \"true\""));
     }
 
     #[test]

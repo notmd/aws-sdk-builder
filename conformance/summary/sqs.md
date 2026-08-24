@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sqs
-**Progress:** `294/294` files compared · `231` matched · `62` mismatches · `1` missing · `0` extra · `78.57%` match (100.00% means fully matched)
+**Progress:** `294/294` files compared · `252` matched · `41` mismatches · `1` missing · `0` extra · `85.71%` match (100.00% means fully matched)
 
 ### `src/aws_query_compatible_errors.rs`
 
@@ -194,38 +194,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn set_queue_attributes(&self) -> super::super::operation::set_queue_attributes::builders::SetQueueAttributesFluentBuilder {
 ```
 
-### `src/operation/add_permission.rs`
-
-```diff
---- reference/src/operation/add_permission.rs
-+++ generated/src/operation/add_permission.rs
-@@ -258,8 +258,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.AddPermission",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_add_permission::ser_add_permission_input(&input)?);
-```
-
-### `src/operation/cancel_message_move_task.rs`
-
-```diff
---- reference/src/operation/cancel_message_move_task.rs
-+++ generated/src/operation/cancel_message_move_task.rs
-@@ -256,8 +256,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.CancelMessageMoveTask",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
-```
-
 ### `src/operation/change_message_visibility/builders.rs`
 
 ```diff
@@ -242,69 +210,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  /// <p>Unlike with a queue, when you change the visibility timeout for a specific message the timeout value is applied immediately but isn't saved in memory for that message. If you don't delete a message after it is received, the visibility timeout for the message reverts to the original timeout value (not to the value you set using the <code>ChangeMessageVisibility</code> action) the next time the message is received.</p>
 ```
 
-### `src/operation/change_message_visibility.rs`
-
-```diff
---- reference/src/operation/change_message_visibility.rs
-+++ generated/src/operation/change_message_visibility.rs
-@@ -261,8 +261,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.ChangeMessageVisibility",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
-```
-
-### `src/operation/change_message_visibility_batch.rs`
-
-```diff
---- reference/src/operation/change_message_visibility_batch.rs
-+++ generated/src/operation/change_message_visibility_batch.rs
-@@ -256,8 +256,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.ChangeMessageVisibilityBatch",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
-```
-
-### `src/operation/create_queue.rs`
-
-```diff
---- reference/src/operation/create_queue.rs
-+++ generated/src/operation/create_queue.rs
-@@ -253,8 +253,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.CreateQueue",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_queue::ser_create_queue_input(&input)?);
-```
-
 ### `src/operation/delete_message.rs`
 
 ```diff
 --- reference/src/operation/delete_message.rs
 +++ generated/src/operation/delete_message.rs
-@@ -258,8 +258,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.DeleteMessage",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_message::ser_delete_message_input(&input)?);
-@@ -319,7 +317,6 @@
+@@ -319,7 +319,6 @@
      /// <p>The specified ID is invalid.</p>
      InvalidAddress(super::super::types::error::InvalidAddress),
      /// <p>The specified receipt handle isn't valid for the current version.</p>
@@ -312,150 +223,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      InvalidIdFormat(super::super::types::error::InvalidIdFormat),
      /// <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
      InvalidSecurity(super::super::types::error::InvalidSecurity),
-```
-
-### `src/operation/delete_message_batch.rs`
-
-```diff
---- reference/src/operation/delete_message_batch.rs
-+++ generated/src/operation/delete_message_batch.rs
-@@ -253,8 +253,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.DeleteMessageBatch",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body =
-```
-
-### `src/operation/delete_queue.rs`
-
-```diff
---- reference/src/operation/delete_queue.rs
-+++ generated/src/operation/delete_queue.rs
-@@ -253,8 +253,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.DeleteQueue",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_queue::ser_delete_queue_input(&input)?);
-```
-
-### `src/operation/get_queue_attributes.rs`
-
-```diff
---- reference/src/operation/get_queue_attributes.rs
-+++ generated/src/operation/get_queue_attributes.rs
-@@ -253,8 +253,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.GetQueueAttributes",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body =
-```
-
-### `src/operation/get_queue_url.rs`
-
-```diff
---- reference/src/operation/get_queue_url.rs
-+++ generated/src/operation/get_queue_url.rs
-@@ -258,8 +258,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.GetQueueUrl",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_queue_url::ser_get_queue_url_input(&input)?);
-```
-
-### `src/operation/list_dead_letter_source_queues.rs`
-
-```diff
---- reference/src/operation/list_dead_letter_source_queues.rs
-+++ generated/src/operation/list_dead_letter_source_queues.rs
-@@ -261,8 +261,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.ListDeadLetterSourceQueues",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
-```
-
-### `src/operation/list_message_move_tasks.rs`
-
-```diff
---- reference/src/operation/list_message_move_tasks.rs
-+++ generated/src/operation/list_message_move_tasks.rs
-@@ -256,8 +256,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.ListMessageMoveTasks",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_message_move_tasks::ser_list_message_move_tasks_input(
-```
-
-### `src/operation/list_queue_tags.rs`
-
-```diff
---- reference/src/operation/list_queue_tags.rs
-+++ generated/src/operation/list_queue_tags.rs
-@@ -253,8 +253,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.ListQueueTags",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_queue_tags::ser_list_queue_tags_input(&input)?);
-```
-
-### `src/operation/list_queues.rs`
-
-```diff
---- reference/src/operation/list_queues.rs
-+++ generated/src/operation/list_queues.rs
-@@ -256,8 +256,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.ListQueues",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_queues::ser_list_queues_input(&input)?);
-```
-
-### `src/operation/purge_queue.rs`
-
-```diff
---- reference/src/operation/purge_queue.rs
-+++ generated/src/operation/purge_queue.rs
-@@ -251,8 +251,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.PurgeQueue",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_purge_queue::ser_purge_queue_input(&input)?);
 ```
 
 ### `src/operation/receive_message/_receive_message_input.rs`
@@ -491,127 +258,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  ReceiveMessageEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-@@ -261,8 +258,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.ReceiveMessage",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_receive_message::ser_receive_message_input(&input)?);
-```
-
-### `src/operation/remove_permission.rs`
-
-```diff
---- reference/src/operation/remove_permission.rs
-+++ generated/src/operation/remove_permission.rs
-@@ -258,8 +258,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.RemovePermission",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_remove_permission::ser_remove_permission_input(&input)?);
-```
-
-### `src/operation/send_message.rs`
-
-```diff
---- reference/src/operation/send_message.rs
-+++ generated/src/operation/send_message.rs
-@@ -268,8 +268,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.SendMessage",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_send_message::ser_send_message_input(&input)?);
-```
-
-### `src/operation/send_message_batch.rs`
-
-```diff
---- reference/src/operation/send_message_batch.rs
-+++ generated/src/operation/send_message_batch.rs
-@@ -253,8 +253,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.SendMessageBatch",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_send_message_batch::ser_send_message_batch_input(&input)?);
-```
-
-### `src/operation/set_queue_attributes.rs`
-
-```diff
---- reference/src/operation/set_queue_attributes.rs
-+++ generated/src/operation/set_queue_attributes.rs
-@@ -253,8 +253,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.SetQueueAttributes",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body =
-```
-
-### `src/operation/start_message_move_task.rs`
-
-```diff
---- reference/src/operation/start_message_move_task.rs
-+++ generated/src/operation/start_message_move_task.rs
-@@ -261,8 +261,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.StartMessageMoveTask",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_start_message_move_task::ser_start_message_move_task_input(
-```
-
-### `src/operation/tag_queue.rs`
-
-```diff
---- reference/src/operation/tag_queue.rs
-+++ generated/src/operation/tag_queue.rs
-@@ -247,8 +247,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.TagQueue",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_queue::ser_tag_queue_input(&input)?);
-```
-
-### `src/operation/untag_queue.rs`
-
-```diff
---- reference/src/operation/untag_queue.rs
-+++ generated/src/operation/untag_queue.rs
-@@ -251,8 +251,6 @@
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-                 "AmazonSQS.UntagQueue",
-             );
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_queue::ser_untag_queue_input(&input)?);
 ```
 
 ### `src/protocol_serde/shape_add_permission.rs`

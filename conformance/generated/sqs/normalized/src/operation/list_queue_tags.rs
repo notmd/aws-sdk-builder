@@ -253,6 +253,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListQueueTag
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.ListQueueTags",
             );
+            builder =
+                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_queue_tags::ser_list_queue_tags_input(&input)?);

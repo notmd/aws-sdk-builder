@@ -349,16 +349,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_storage_tier_policy.rs
 +++ generated/src/operation/get_storage_tier_policy.rs
-@@ -210,17 +210,9 @@
+@@ -210,7 +210,6 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
 -            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "Logs_20140328.GetStorageTierPolicy",
--            );
+             builder = _header_serialization_settings.set_default_header(
+                 builder,
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+@@ -218,9 +217,7 @@
+             );
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_storage_tier_policy::ser_get_storage_tier_policy_input(

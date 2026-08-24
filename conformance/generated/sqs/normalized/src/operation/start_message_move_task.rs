@@ -261,6 +261,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for StartMessage
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
                 "AmazonSQS.StartMessageMoveTask",
             );
+            builder =
+                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_start_message_move_task::ser_start_message_move_task_input(
