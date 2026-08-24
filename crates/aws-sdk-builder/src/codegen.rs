@@ -10760,15 +10760,13 @@ fn render_json_map_deserializer(
         "pub(crate) fn de_{module}<'a, I>(\n    tokens: &mut ::std::iter::Peekable<I>,\n    _value: &'a [u8],\n    depth: u32,\n) -> ::std::result::Result<Option<{type_name}>, ::aws_smithy_json::deserialize::error::DeserializeError>\nwhere\n    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,\n{{"
     )
     .unwrap();
-    output.push_str("    if depth >= 128u32 {\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"maximum nesting depth exceeded\",\n        ));\n    }\n    match tokens.next().transpose()? {\n        Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),\n        Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {\n            let mut map = ::std::collections::HashMap::new();\n            loop {\n                match tokens.next().transpose()? {\n                    Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,\n                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {\n                        let key = key.to_unescaped().map(|u| u.into_owned())?;\n");
+    output.push_str("    if depth >= 128u32 {\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"maximum nesting depth exceeded\",\n        ));\n    }\n    match tokens.next().transpose()? {\n        Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),\n        Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {\n            let mut map = ::std::collections::HashMap::new();\n            loop {\n                match tokens.next().transpose()? {\n                    Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,\n                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {\n");
     let key_expression = json_deserialize_key_expression(selected, key_target, "key");
-    if key_expression != "key" {
-        writeln!(
-            output,
-            "                        let key = {key_expression};"
-        )
-        .unwrap();
-    }
+    writeln!(
+        output,
+        "                        let key = {key_expression};"
+    )
+    .unwrap();
     let value_expression =
         json_deserialize_expression(selected, value_target, "tokens", "_value", "depth + 1");
     if sparse {
@@ -10910,12 +10908,13 @@ fn json_deserialize_expression(
 }
 
 fn json_deserialize_key_expression(selected: &SelectedModel, target: &str, key: &str) -> String {
-    if protocol_shape_kind(selected, target) == "string"
-        || protocol_shape_kind(selected, target) == "enum"
-    {
-        "key".to_owned()
-    } else {
-        key.to_owned()
+    match protocol_shape_kind(selected, target) {
+        "string" => format!("{key}.to_unescaped().map(|u| u.into_owned())?"),
+        "enum" => format!(
+            "{key}.to_unescaped().map(|u| crate::types::{}::from(u.as_ref()))?",
+            rust_type_name(terminal(target))
+        ),
+        _ => key.to_owned(),
     }
 }
 
