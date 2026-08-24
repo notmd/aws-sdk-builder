@@ -43,7 +43,7 @@ where
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
                         )),
                         "json" => Some(super::super::types::ToolResultBlockDelta::Json(
-                            Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?)
+                            Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?)
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'json' cannot be null"))?,
                         )),
                         _ => {

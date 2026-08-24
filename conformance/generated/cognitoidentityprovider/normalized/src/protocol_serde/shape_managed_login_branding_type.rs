@@ -40,7 +40,7 @@ where
                                 builder.set_use_cognito_provided_values(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                         }
                         "Settings" => {
-                            builder = builder.set_settings(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
+                            builder = builder.set_settings(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
                         }
                         "Assets" => {
                             builder = builder.set_assets(super::super::protocol_serde::shape_asset_list_type::de_asset_list_type(

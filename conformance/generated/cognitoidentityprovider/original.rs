@@ -176502,7 +176502,7 @@ pub(crate) fn de_start_web_authn_registration(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "CredentialCreationOptions" => {
-                    builder = builder.set_credential_creation_options(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
+                    builder = builder.set_credential_creation_options(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -188436,7 +188436,7 @@ where
                     builder = builder.set_use_cognito_provided_values(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 },
                 "Settings" => {
-                    builder = builder.set_settings(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
+                    builder = builder.set_settings(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
                 },
                 "Assets" => {
                     builder = builder.set_assets(super::super::protocol_serde::shape_asset_list_type::de_asset_list_type(tokens, _value, depth + 1)?);

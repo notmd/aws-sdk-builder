@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `480` matched · `56` mismatches · `0` missing · `0` extra · `89.55%` match (100.00% means fully matched)
+**Progress:** `536/536` files compared · `485` matched · `51` mismatches · `0` missing · `0` extra · `90.49%` match (100.00% means fully matched)
 
 ### `src/protocol_serde/shape_citation_location.rs`
 
@@ -107,23 +107,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    }
 +    Ok(())
 +}
-```
-
-### `src/protocol_serde/shape_converse.rs`
-
-```diff
---- reference/src/protocol_serde/shape_converse.rs
-+++ generated/src/protocol_serde/shape_converse.rs
-@@ -200,7 +200,8 @@
-             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                 match key.to_unescaped()?.as_ref() {
-                     "additionalModelResponseFields" => {
--                        builder = builder.set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
-+                        builder = builder
-+                            .set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
-                     }
-                     "metrics" => {
-                         builder = builder.set_metrics(super::super::protocol_serde::shape_converse_metrics::de_converse_metrics(
 ```
 
 ### `src/protocol_serde/shape_document_char_location.rs`
@@ -793,32 +776,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 ```
 
-### `src/protocol_serde/shape_message_stop_event.rs`
-
-```diff
---- reference/src/protocol_serde/shape_message_stop_event.rs
-+++ generated/src/protocol_serde/shape_message_stop_event.rs
-@@ -15,7 +15,6 @@
-     }
-     result
- }
--
- pub(crate) fn de_message_stop_event<'a, I>(
-     tokens: &mut ::std::iter::Peekable<I>,
-     _value: &'a [u8],
-@@ -46,8 +45,8 @@
-                             );
-                         }
-                         "additionalModelResponseFields" => {
--                            builder =
--                                builder.set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
-+                            builder = builder
-+                                .set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
-                         }
-                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                     },
-```
-
 ### `src/protocol_serde/shape_model_stream_error_exception.rs`
 
 ```diff
@@ -1323,54 +1280,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 -    Ok(builder)
  }
-```
-
-### `src/protocol_serde/shape_tool_result_block_delta.rs`
-
-```diff
---- reference/src/protocol_serde/shape_tool_result_block_delta.rs
-+++ generated/src/protocol_serde/shape_tool_result_block_delta.rs
-@@ -43,7 +43,7 @@
-                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
-                         )),
-                         "json" => Some(super::super::types::ToolResultBlockDelta::Json(
--                            Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?)
-+                            Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?)
-                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'json' cannot be null"))?,
-                         )),
-                         _ => {
-```
-
-### `src/protocol_serde/shape_tool_result_content_block.rs`
-
-```diff
---- reference/src/protocol_serde/shape_tool_result_content_block.rs
-+++ generated/src/protocol_serde/shape_tool_result_content_block.rs
-@@ -81,7 +81,7 @@
-                     }
-                     variant = match key.as_ref() {
-                         "json" => Some(super::super::types::ToolResultContentBlock::Json(
--                            Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?)
-+                            Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?)
-                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'json' cannot be null"))?,
-                         )),
-                         "text" => Some(super::super::types::ToolResultContentBlock::Text(
-```
-
-### `src/protocol_serde/shape_tool_use_block.rs`
-
-```diff
---- reference/src/protocol_serde/shape_tool_use_block.rs
-+++ generated/src/protocol_serde/shape_tool_use_block.rs
-@@ -55,7 +55,7 @@
-                             );
-                         }
-                         "input" => {
--                            builder = builder.set_input(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
-+                            builder = builder.set_input(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
-                         }
-                         "type" => {
-                             builder = builder.set_type(
 ```
 
 ### `src/protocol_serde/shape_validation_exception.rs`

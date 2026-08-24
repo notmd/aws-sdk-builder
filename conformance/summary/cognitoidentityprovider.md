@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cognitoidentityprovider
-**Progress:** `1361/1361` files compared · `1324` matched · `37` mismatches · `0` missing · `0` extra · `97.28%` match (100.00% means fully matched)
+**Progress:** `1361/1361` files compared · `1326` matched · `35` mismatches · `0` missing · `0` extra · `97.43%` match (100.00% means fully matched)
 
 ### `src/client/add_custom_attributes.rs`
 
@@ -841,22 +841,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              "expected start object or null",
 ```
 
-### `src/protocol_serde/shape_managed_login_branding_type.rs`
-
-```diff
---- reference/src/protocol_serde/shape_managed_login_branding_type.rs
-+++ generated/src/protocol_serde/shape_managed_login_branding_type.rs
-@@ -40,7 +40,7 @@
-                                 builder.set_use_cognito_provided_values(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                         }
-                         "Settings" => {
--                            builder = builder.set_settings(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
-+                            builder = builder.set_settings(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
-                         }
-                         "Assets" => {
-                             builder = builder.set_assets(super::super::protocol_serde::shape_asset_list_type::de_asset_list_type(
-```
-
 ### `src/protocol_serde/shape_password_policy_type.rs`
 
 ```diff
@@ -1038,22 +1022,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          object.key("PreferredMfa").boolean(input.preferred_mfa);
      }
      Ok(())
-```
-
-### `src/protocol_serde/shape_start_web_authn_registration.rs`
-
-```diff
---- reference/src/protocol_serde/shape_start_web_authn_registration.rs
-+++ generated/src/protocol_serde/shape_start_web_authn_registration.rs
-@@ -242,7 +242,7 @@
-             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                 "CredentialCreationOptions" => {
--                    builder = builder.set_credential_creation_options(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
-+                    builder = builder.set_credential_creation_options(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
-                 }
-                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-             },
 ```
 
 ### `src/protocol_serde/shape_update_user_pool_client_input.rs`

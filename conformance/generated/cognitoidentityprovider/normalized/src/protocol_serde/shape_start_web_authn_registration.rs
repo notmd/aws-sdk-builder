@@ -242,7 +242,7 @@ pub(crate) fn de_start_web_authn_registration(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "CredentialCreationOptions" => {
-                    builder = builder.set_credential_creation_options(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
+                    builder = builder.set_credential_creation_options(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

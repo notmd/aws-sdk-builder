@@ -4,6 +4,26 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Preserve peekable JSON Document deserialization
+- State: in progress
+- Changed: JSON Document members now pass the peekable token iterator directly to
+  `expect_document`, matching Smithy-RS's `JsonParserGenerator.deserializeDocument`
+  instead of consuming the next token first. The shared renderer rule follows the
+  pinned Smithy-RS source at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`, and has a focused regression test.
+- Evidence: focused regression, `just conformance` generation and formatting,
+  `cargo test --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass. Conformance reported no
+  generated-source parse errors and exits 1 only because broader parity gaps remain.
+- Conformance: `12,813/13,168` exact, `350` mismatches, `4` missing, and `1` extra
+  (`97.13%`) -> `12,820/13,168` exact, `343` mismatches, `4` missing, and `1` extra
+  (`97.20%`). Bedrock Runtime improved from `480/56` to `485/51`; Cognito Identity
+  Provider from `1,324/37` to `1,326/35`.
+- Blocker: broader protocol, streaming, shape, and runtime parity gaps remain; no
+  blocker in this checkpoint.
+- Next action: continue with the next highest-impact generic protocol or shape parity
+  mismatch.
+
 ### Checkpoint: 2026-08-25 — Deserialize JSON map keys through modeled enums
 - State: in progress
 - Changed: JSON map deserializers now convert modeled enum keys through the generated

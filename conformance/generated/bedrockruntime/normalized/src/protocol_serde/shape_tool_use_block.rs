@@ -55,7 +55,7 @@ where
                             );
                         }
                         "input" => {
-                            builder = builder.set_input(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
+                            builder = builder.set_input(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
                         }
                         "type" => {
                             builder = builder.set_type(

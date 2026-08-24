@@ -200,8 +200,7 @@ pub(crate) fn de_converse(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
                 match key.to_unescaped()?.as_ref() {
                     "additionalModelResponseFields" => {
-                        builder = builder
-                            .set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
+                        builder = builder.set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
                     }
                     "metrics" => {
                         builder = builder.set_metrics(super::super::protocol_serde::shape_converse_metrics::de_converse_metrics(

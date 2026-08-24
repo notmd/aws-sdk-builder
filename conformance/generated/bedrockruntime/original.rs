@@ -37019,7 +37019,7 @@ pub(crate) fn de_converse(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "additionalModelResponseFields" => {
-                    builder = builder.set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
+                    builder = builder.set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
                 },
                 "metrics" => {
                     builder = builder.set_metrics(super::super::protocol_serde::shape_converse_metrics::de_converse_metrics(tokens, _value, depth + 1)?);
@@ -41004,7 +41004,7 @@ where
                             .transpose()?);
                 },
                 "additionalModelResponseFields" => {
-                    builder = builder.set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
+                    builder = builder.set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -45186,7 +45186,7 @@ where
                             .transpose()?);
                 },
                 "input" => {
-                    builder = builder.set_input(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
+                    builder = builder.set_input(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
                 },
                 "type" => {
                     builder = builder.set_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -47073,7 +47073,7 @@ where
                         "text" => Some(super::super::types::ToolResultBlockDelta::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
-                        "json" => Some(super::super::types::ToolResultBlockDelta::Json(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?).ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'json' cannot be null"))?)),
+                        "json" => Some(super::super::types::ToolResultBlockDelta::Json(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?).ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'json' cannot be null"))?)),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::ToolResultBlockDelta::Unknown)
@@ -47185,7 +47185,7 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "json" => Some(super::super::types::ToolResultContentBlock::Json(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?).ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'json' cannot be null"))?)),
+                        "json" => Some(super::super::types::ToolResultContentBlock::Json(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?).ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'json' cannot be null"))?)),
                         "text" => Some(super::super::types::ToolResultContentBlock::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),

@@ -45,8 +45,8 @@ where
                             );
                         }
                         "additionalModelResponseFields" => {
-                            builder = builder
-                                .set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
+                            builder =
+                                builder.set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?));
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

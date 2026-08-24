@@ -10900,9 +10900,9 @@ fn json_deserialize_expression(
             names::rust_module_name(terminal(target)),
             names::rust_module_name(terminal(target))
         ),
-        "document" => format!(
-            "Some(::aws_smithy_json::deserialize::token::expect_document({tokens}.next())?)"
-        ),
+        "document" => {
+            format!("Some(::aws_smithy_json::deserialize::token::expect_document({tokens})?)")
+        }
         _ => format!("::aws_smithy_json::deserialize::token::skip_value({tokens})?"),
     }
 }
@@ -16985,6 +16985,47 @@ mod tests {
 
         let output = render_json_protocol_operation_file(&selected, "Get");
         assert!(output.find("\"alpha\" =>").unwrap() < output.find("\"zeta\" =>").unwrap());
+    }
+
+    #[test]
+    fn json_document_deserializer_uses_the_peekable_iterator() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "output": {"target": "example#Output"}
+                    },
+                    "example#Output": {"type": "structure", "members": {}}
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+
+        assert_eq!(
+            json_deserialize_expression(
+                &selected,
+                "smithy.api#Document",
+                "tokens",
+                "_value",
+                "depth + 1"
+            ),
+            "Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?)"
+        );
     }
 
     #[test]
