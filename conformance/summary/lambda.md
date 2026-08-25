@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1077/1077` files compared · `1064` matched · `12` mismatches · `0` missing · `1` extra · `98.79%` match (100.00% means fully matched)
+**Progress:** `1076/1076` files compared · `1065` matched · `11` mismatches · `0` missing · `0` extra · `98.98%` match (100.00% means fully matched)
 
 ### `src/operation/invoke.rs`
 
@@ -580,22 +580,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 ```
 
-### `src/protocol_serde.rs`
-
-```diff
---- reference/src/protocol_serde.rs
-+++ generated/src/protocol_serde.rs
-@@ -609,6 +609,8 @@
-
- pub(crate) mod shape_image_config_error;
-
-+pub(crate) mod shape_invoke_response_stream_update;
-+
- pub(crate) mod shape_invoke_with_response_stream_complete_event;
-
- pub(crate) mod shape_kafka_schema_registry_config;
-```
-
 ### `src/serde_util.rs`
 
 ```diff
@@ -931,7 +915,3 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
  mod _callback_timeout_exception;
 ```
-
-### Unexpected generated files
-
-- `src/protocol_serde/shape_invoke_response_stream_update.rs`

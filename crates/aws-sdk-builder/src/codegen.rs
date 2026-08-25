@@ -9837,7 +9837,13 @@ fn json_protocol_mark_role(
     // collection and map values are serialized inline by their containing
     // serializer. Deserializers, however, need helpers for all compound
     // shapes so they can recursively build collection/map values.
-    if !is_error_shape(shape)
+    let event_payload_uses_json = event_payload_member(shape).is_none_or(|(_, member)| {
+        member_target(member).is_some_and(|target| {
+            matches!(protocol_shape_kind(selected, target), "structure" | "union")
+        })
+    });
+    if event_payload_uses_json
+        && !is_error_shape(shape)
         && !shape_is_streaming(shape)
         && ((matches!(role, ProtocolSerdeRole::Serialize) && matches!(kind, "structure" | "union"))
             || (matches!(role, ProtocolSerdeRole::Deserialize)
@@ -19155,6 +19161,56 @@ mod tests {
         );
         assert!(payload.contains(") -> std::result::Result<::std::vec::Vec<u8>"));
         assert!(!payload.contains(") -> ::std::result::Result<::std::vec::Vec<u8>"));
+    }
+
+    #[test]
+    fn json_event_payload_containers_with_primitive_payloads_need_no_shared_helper() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Invoke"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Invoke": {
+                        "type": "operation",
+                        "output": {"target": "example#Output"}
+                    },
+                    "example#Output": {
+                        "type": "structure",
+                        "members": {"events": {"target": "example#Events"}}
+                    },
+                    "example#Events": {
+                        "type": "union",
+                        "members": {"update": {"target": "example#Update"}},
+                        "traits": {"smithy.api#streaming": {}}
+                    },
+                    "example#Update": {
+                        "type": "structure",
+                        "members": {
+                            "payload": {
+                                "target": "smithy.api#Blob",
+                                "traits": {"smithy.api#eventPayload": {}}
+                            }
+                        }
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let roles = json_protocol_serde_roles(&selected);
+
+        assert!(!roles.contains_key("example#Update"));
     }
 
     #[test]

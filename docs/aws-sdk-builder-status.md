@@ -4,6 +4,25 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Omit primitive event-payload JSON helpers
+- State: in progress
+- Changed: JSON serde role discovery now omits event container structures whose
+  `smithy.api#eventPayload` target is a primitive or blob. Event-stream marshalling
+  handles those payloads directly; structured or union event payloads remain eligible
+  for JSON helpers. The rule is shape- and trait-driven, with no service-specific
+  branch.
+- Evidence: compared the pinned Smithy-RS event-stream payload handling and the
+  JSON protocol role path at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`. Added a focused event-payload model
+  regression. `just conformance` regenerated all 15 services and 1,133 operations
+  without generated-source parse errors.
+- Conformance: `13,074/13,168` exact, `91` mismatches, `2` missing, and `1` extra
+  (`99.18%`) -> `13,075/13,167` exact, `90` mismatches, `2` missing, and `0` extra
+  (`99.19%`). Lambda improved from `1,064/1,077` to `1,065/1,076`.
+- Blocker: `just conformance` still exits 1 because broader protocol serde, runtime,
+  documentation, shape, and export parity gaps remain.
+- Next action: continue with the remaining generic shared serde ordering cluster.
+
 ### Checkpoint: 2026-08-25 — Align protocol-specific JSON input dependency waves
 - State: in progress
 - Changed: the first whole-document JSON input helper is emitted before `or_empty_doc`
