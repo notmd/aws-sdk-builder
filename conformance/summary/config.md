@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## config
-**Progress:** `1262/1262` files compared · `1254` matched · `8` mismatches · `0` missing · `0` extra · `99.37%` match (100.00% means fully matched)
+**Progress:** `1262/1262` files compared · `1256` matched · `6` mismatches · `0` missing · `0` extra · `99.52%` match (100.00% means fully matched)
 
 ### `src/client/associate_resource_types.rs`
 
@@ -112,36 +112,4 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
  /// Crate version number.
  pub static PKG_VERSION: &str = env!("CARGO_PKG_VERSION");
-```
-
-### `src/protocol_serde/shape_evaluation.rs`
-
-```diff
---- reference/src/protocol_serde/shape_evaluation.rs
-+++ generated/src/protocol_serde/shape_evaluation.rs
-@@ -18,7 +18,7 @@
-     {
-         object
-             .key("OrderingTimestamp")
--            .date_time(&input.ordering_timestamp, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
-+            .date_time(input.ordering_timestamp, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
-     }
-     Ok(())
- }
-```
-
-### `src/protocol_serde/shape_external_evaluation.rs`
-
-```diff
---- reference/src/protocol_serde/shape_external_evaluation.rs
-+++ generated/src/protocol_serde/shape_external_evaluation.rs
-@@ -18,7 +18,7 @@
-     {
-         object
-             .key("OrderingTimestamp")
--            .date_time(&input.ordering_timestamp, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
-+            .date_time(input.ordering_timestamp, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
-     }
-     Ok(())
- }
 ```

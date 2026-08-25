@@ -10889,7 +10889,7 @@ fn render_json_serialize_value(
         .unwrap(),
         "timestamp" => writeln!(
             output,
-            "{prefix}{writer}.date_time({value_without_reference}, ::aws_smithy_types::date_time::Format::{})?;",
+            "{prefix}{writer}.date_time({value_ref}, ::aws_smithy_types::date_time::Format::{})?;",
             json_timestamp_format(selected, target)
         )
         .unwrap(),
@@ -18190,7 +18190,7 @@ mod tests {
     }
 
     #[test]
-    fn json_blob_serialization_borrows_input_fields() {
+    fn json_blob_and_timestamp_serialization_borrow_input_fields() {
         let metadata = ServiceMetadata {
             key: "example",
             filename: "model.json",
@@ -18234,6 +18234,26 @@ mod tests {
 
         assert!(rendered.contains("base64::encode(&input.body)"));
         assert!(!rendered.contains("base64::encode(input.body)"));
+
+        rendered.clear();
+        render_json_serialize_value(
+            &mut rendered,
+            &selected,
+            "timestamp",
+            "smithy.api#Timestamp",
+            "object",
+            "input.timestamp",
+            &mut state,
+            0,
+            &mut BTreeMap::new(),
+        );
+
+        assert!(rendered.contains(
+            ".date_time(&input.timestamp, ::aws_smithy_types::date_time::Format::EpochSeconds)?"
+        ));
+        assert!(!rendered.contains(
+            ".date_time(input.timestamp, ::aws_smithy_types::date_time::Format::EpochSeconds)?"
+        ));
     }
 
     #[test]

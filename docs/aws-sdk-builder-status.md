@@ -49,6 +49,27 @@ full audit trail.
 - Next action: isolate the remaining shared JSON deserializer/module-order mismatches
   after the streaming payload correction.
 
+### Checkpoint: 2026-08-25 — Match JSON timestamp serializer borrowing
+- State: in progress
+- Changed: shared JSON timestamp serialization now passes the modeled field by
+  reference, following Smithy-RS `JsonSerializerGenerator`'s `value.asRef()` path.
+  Optional local variables retain their existing ownership form; direct structure
+  fields now render `&input.field`. The rule applies across all JSON protocols.
+- Evidence: compared the pinned Smithy-RS `JsonSerializerGenerator.kt` and
+  `QuerySerializerGenerator.kt` at commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`. Extended the JSON scalar borrowing
+  regression to cover timestamps. `just conformance` regenerated and compiled all
+  15 services and 1,133 operations without generated-source parse errors. Workspace
+  tests (77), Clippy with `-D warnings`, formatting, and `git diff --check` pass.
+- Conformance: `13,081/13,167` exact, `84` mismatches, `2` missing, and `0` extra
+  (`99.25%`) -> `13,086/13,167` exact, `79` mismatches, `2` missing, and `0` extra
+  (`99.28%`). Config improved from 8 to 6 mismatches and SESv2 from 11 to 8.
+- Blocker: `just conformance` still exits 1 because remaining generic protocol,
+  serde, documentation, shape, runtime, export, and two missing-file parity gaps
+  remain.
+- Next action: align the remaining shared helper/module ordering, beginning with
+  error-correction and protocol serde dependency order.
+
 ### Checkpoint: 2026-08-25 — Omit primitive event-payload JSON helpers
 - State: in progress
 - Changed: JSON serde role discovery now omits event container structures whose

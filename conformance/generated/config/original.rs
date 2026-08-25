@@ -139872,7 +139872,7 @@ if let Some(var_1) = &input.annotation {
     object.key("Annotation").string(var_1.as_str());
 }
 {
-    object.key("OrderingTimestamp").date_time(input.ordering_timestamp, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
+    object.key("OrderingTimestamp").date_time(&input.ordering_timestamp, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
 }
     Ok(())
 }
@@ -140160,7 +140160,7 @@ if let Some(var_1) = &input.annotation {
     object.key("Annotation").string(var_1.as_str());
 }
 {
-    object.key("OrderingTimestamp").date_time(input.ordering_timestamp, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
+    object.key("OrderingTimestamp").date_time(&input.ordering_timestamp, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
 }
     Ok(())
 }

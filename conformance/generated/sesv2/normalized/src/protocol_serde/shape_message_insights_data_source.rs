@@ -6,12 +6,12 @@ pub fn ser_message_insights_data_source(
     {
         object
             .key("StartDate")
-            .date_time(input.start_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
+            .date_time(&input.start_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
     }
     {
         object
             .key("EndDate")
-            .date_time(input.end_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
+            .date_time(&input.end_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
     }
     if let Some(var_1) = &input.include {
         #[allow(unused_mut)]

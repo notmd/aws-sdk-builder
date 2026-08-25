@@ -129810,10 +129810,10 @@ if let Some(var_1) = &input.dimensions {
     object_2.finish();
 }
 {
-    object.key("StartDate").date_time(input.start_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
+    object.key("StartDate").date_time(&input.start_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
 }
 {
-    object.key("EndDate").date_time(input.end_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
+    object.key("EndDate").date_time(&input.end_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
 }
     Ok(())
 }
@@ -135811,10 +135811,10 @@ pub fn ser_message_insights_data_source(
     input: &super::super::types::MessageInsightsDataSource,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 {
-    object.key("StartDate").date_time(input.start_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
+    object.key("StartDate").date_time(&input.start_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
 }
 {
-    object.key("EndDate").date_time(input.end_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
+    object.key("EndDate").date_time(&input.end_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
 }
 if let Some(var_1) = &input.include {
     #[allow(unused_mut)]
@@ -136042,10 +136042,10 @@ pub fn ser_metrics_data_source(
     array_6.finish();
 }
 {
-    object.key("StartDate").date_time(input.start_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
+    object.key("StartDate").date_time(&input.start_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
 }
 {
-    object.key("EndDate").date_time(input.end_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
+    object.key("EndDate").date_time(&input.end_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
 }
     Ok(())
 }

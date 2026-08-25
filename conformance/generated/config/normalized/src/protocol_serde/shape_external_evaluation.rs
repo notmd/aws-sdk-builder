@@ -18,7 +18,7 @@ pub fn ser_external_evaluation(
     {
         object
             .key("OrderingTimestamp")
-            .date_time(input.ordering_timestamp, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
+            .date_time(&input.ordering_timestamp, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
     }
     Ok(())
 }
