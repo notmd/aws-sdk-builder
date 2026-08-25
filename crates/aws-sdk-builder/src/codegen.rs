@@ -4716,14 +4716,8 @@ fn operation_requires_aws_chunked(
     input_shape.is_some_and(|shape| {
         members(shape).into_iter().any(|(_, member)| {
             is_http_payload_or_event_stream_member(selected, member)
-                && member_target(member).is_some_and(|target| {
-                    is_streaming_target(target)
-                        || selected
-                            .model
-                            .shapes
-                            .get(target)
-                            .is_some_and(shape_is_streaming)
-                })
+                && member_target(member)
+                    .is_some_and(|target| is_streaming_shape_target(selected, target))
         })
     })
 }
@@ -5172,6 +5166,12 @@ fn standalone_request_body(
                     _ => Some("application/json"),
                 })
                 .map(str::to_owned);
+            if target_kind == "blob" && is_streaming_shape_target(selected, target) {
+                return (
+                    format!("{helper}(input.{field})?.into_inner()"),
+                    content_type,
+                );
+            }
             return (
                 format!("::aws_smithy_types::body::SdkBody::from({expression})"),
                 content_type,
@@ -5222,7 +5222,7 @@ fn standalone_request_body(
         let target_shape = selected.model.shapes.get(target);
         let helper =
             format!("crate::protocol_serde::shape_{module}_input::ser_{field}_http_payload");
-        if terminal(target) == "StreamingBlob" {
+        if is_streaming_shape_target(selected, target) {
             return (
                 format!("{helper}(input.{field})?.into_inner()"),
                 Some(
@@ -8302,7 +8302,7 @@ fn render_protocol_input_file(selected: &SelectedModel, operation_name: &str) ->
     let mut output = String::new();
     client_operation_header(&mut output);
 
-    if terminal(target) == "StreamingBlob" {
+    if is_streaming_shape_target(selected, target) {
         writeln!(
             output,
             "pub fn ser_{field}_http_payload(\n    payload: ::aws_smithy_types::byte_stream::ByteStream,\n) -> ::std::result::Result<::aws_smithy_types::byte_stream::ByteStream, ::aws_smithy_types::error::operation::BuildError> {{\n    Ok(payload)\n}}"
@@ -10206,6 +10206,14 @@ fn render_json_payload_serializer(
     http_payload: bool,
 ) {
     let target_kind = protocol_shape_kind(selected, target);
+    if target_kind == "blob" && is_streaming_shape_target(selected, target) {
+        writeln!(
+            output,
+            "pub fn ser_{field}_http_payload(\n    payload: ::aws_smithy_types::byte_stream::ByteStream,\n) -> ::std::result::Result<::aws_smithy_types::byte_stream::ByteStream, ::aws_smithy_types::error::operation::BuildError> {{\n    Ok(payload)\n}}"
+        )
+        .unwrap();
+        return;
+    }
     if target_kind == "string" || target_kind == "enum" {
         writeln!(
             output,
@@ -10302,7 +10310,7 @@ fn render_json_protocol_operation_output_file(
                 rust_type_name(terminal(target)),
             )
             .unwrap();
-        } else if terminal(target) == "StreamingBlob" {
+        } else if is_streaming_shape_target(selected, target) {
             writeln!(
                 output,
                 "pub fn de_{field}_payload(\n    body: &mut ::aws_smithy_types::body::SdkBody,\n) -> std::result::Result<::aws_smithy_types::byte_stream::ByteStream, {error_path}> {{\n    let body = std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());\n    Ok(::aws_smithy_types::byte_stream::ByteStream::new(body))\n}}"
@@ -14030,7 +14038,7 @@ fn render_protocol_output_payload_file(
         .unwrap();
         return Some(output);
     }
-    if terminal(target) == "StreamingBlob" {
+    if is_streaming_shape_target(selected, target) {
         writeln!(
             output,
             "pub fn de_{field}_payload(\n    body: &mut ::aws_smithy_types::body::SdkBody,\n) -> std::result::Result<::aws_smithy_types::byte_stream::ByteStream, {error}> {{\n    // replace the body with an empty body\n    let body = std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());\n    Ok(::aws_smithy_types::byte_stream::ByteStream::new(body))\n}}",
@@ -18572,6 +18580,66 @@ mod tests {
 
         assert_eq!(body, "::aws_smithy_types::body::SdkBody::from(\"\")");
         assert_eq!(content_type, None);
+    }
+
+    #[test]
+    fn streaming_blob_payloads_follow_shape_traits_not_synthetic_names() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Invoke"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Invoke": {
+                        "type": "operation",
+                        "input": {"target": "example#InvokeInput"},
+                        "output": {"target": "smithy.api#Unit"},
+                        "traits": {"smithy.api#http": {"method": "POST", "uri": "/invoke", "code": 200}}
+                    },
+                    "example#InvokeInput": {
+                        "type": "structure",
+                        "members": {
+                            "payload": {
+                                "target": "example#BlobStream",
+                                "traits": {"smithy.api#httpPayload": {}, "smithy.api#required": {}}
+                            }
+                        },
+                        "traits": {"smithy.api#input": {}}
+                    },
+                    "example#BlobStream": {
+                        "type": "blob",
+                        "traits": {"smithy.api#streaming": {}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let input = operation_shape(&selected, "Invoke")
+            .and_then(|operation| operation.get("input"))
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id));
+
+        let (body, content_type) = standalone_request_body(&selected, "Invoke", input);
+        assert_eq!(
+            body,
+            "crate::protocol_serde::shape_invoke_input::ser_payload_http_payload(input.payload)?.into_inner()"
+        );
+        assert_eq!(content_type, Some("application/octet-stream".to_owned()));
+
+        let input_file = render_json_protocol_operation_input_file(&selected, "Invoke");
+        assert!(input_file.contains("payload: ::aws_smithy_types::byte_stream::ByteStream"));
+        assert!(!input_file.contains("payload: ::std::option::Option<::aws_smithy_types::Blob>"));
     }
 
     #[test]

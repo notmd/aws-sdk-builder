@@ -26,6 +26,29 @@ full audit trail.
 - Next action: align the generic standalone HTTP-payload body expression used by
   byte-stream-like serializers, beginning with Lambda `InvokeAsync`.
 
+### Checkpoint: 2026-08-25 — Derive streaming blob payloads from shape traits
+- State: in progress
+- Changed: standalone request serializers and JSON/XML payload helpers now detect
+  streaming blobs from the target shape's `smithy.api#streaming` trait instead of
+  requiring the synthetic `StreamingBlob` name. Streaming payload helpers therefore
+  preserve `ByteStream` and `.into_inner()` ownership for modeled names such as
+  Lambda's `BlobStream`. The rule is shared and model-driven.
+- Evidence: compared Smithy-RS `RequestSerializerGenerator.kt`,
+  `HttpBoundProtocolPayloadGenerator.kt`, and `StreamingTraitSymbolProvider.kt` in
+  the pinned `/tmp/smithy-rs` checkout at commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`. Added a regression using a named blob
+  shape with `smithy.api#streaming`. `just conformance` regenerated and compiled all
+  15 services and 1,133 operations without generated-source parse errors. Workspace
+  tests (77), Clippy with `-D warnings`, formatting, and `git diff --check` pass.
+- Conformance: `13,076/13,167` exact, `89` mismatches, `2` missing, and `0` extra
+  (`99.20%`) -> `13,081/13,167` exact, `84` mismatches, `2` missing, and `0` extra
+  (`99.25%`). Lambda improved from 10 to 8 mismatches and CodeArtifact from 5 to 2.
+- Blocker: `just conformance` still exits 1 because remaining generic protocol,
+  serde, documentation, shape, runtime, export, and two missing-file parity gaps
+  remain.
+- Next action: isolate the remaining shared JSON deserializer/module-order mismatches
+  after the streaming payload correction.
+
 ### Checkpoint: 2026-08-25 — Omit primitive event-payload JSON helpers
 - State: in progress
 - Changed: JSON serde role discovery now omits event container structures whose
