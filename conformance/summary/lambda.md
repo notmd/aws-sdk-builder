@@ -770,24 +770,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn execution_correct_errors(mut builder: super::types::builders::ExecutionBuilder) -> super::types::builders::ExecutionBuilder {
      if builder.durable_execution_arn.is_none() {
          builder.durable_execution_arn = Some(Default::default())
-@@ -687,7 +687,7 @@
-     if builder.retry_details.is_none() {
-         builder.retry_details = {
-             let builder = super::types::builders::RetryDetailsBuilder::default();
--            Some(builder.build())
-+            builder.build().ok()
-         }
-     }
-     builder
-@@ -705,7 +705,7 @@
-     if builder.retry_details.is_none() {
-         builder.retry_details = {
-             let builder = super::types::builders::RetryDetailsBuilder::default();
--            Some(builder.build())
-+            builder.build().ok()
-         }
-     }
-     builder
 ```
 
 ### `src/types/_capacity_provider_logging_config.rs`

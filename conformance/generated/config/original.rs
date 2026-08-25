@@ -126052,11 +126052,10 @@ pub fn de_get_aggregate_discovered_resource_counts_http_response(
         output = super::super::protocol_serde::shape_get_aggregate_discovered_resource_counts::de_get_aggregate_discovered_resource_counts(_response_body, output)
             .map_err(super::super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        super::super::serde_util::get_aggregate_discovered_resource_counts_output_output_correct_errors(output)
-            .build()
-            .map_err(super::super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::unhandled)?
+        super::super::serde_util::get_aggregate_discovered_resource_counts_output_output_correct_errors(output).build()
     })
 }
+
 
 pub fn ser_get_aggregate_discovered_resource_counts_input(
     input: &super::super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsInput,

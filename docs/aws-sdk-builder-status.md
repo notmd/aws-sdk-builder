@@ -4,6 +4,28 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match nested error-correction builder fallibility
+- State: in progress
+- Changed: nested error-correction builders now use the same required-member and
+  default-aware fallibility rule as Smithy-RS `BuilderGenerator.hasFallibleBuilder`.
+  Defaulted required members do not make a nested builder fallible, while required
+  non-defaulted scalar members still do. Added a focused regression for a required
+  outer structure containing a defaulted nested structure.
+- Evidence: compared the pinned Smithy-RS `ErrorCorrection.kt` and
+  `BuilderGenerator.kt` at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`. `just conformance` regenerated all
+  15 services and 1,133 operations, formatted 13,166 generated Rust files, and
+  reported no generated-source parse errors. Workspace tests (69), Clippy with
+  `-D warnings`, formatting, and `git diff --check` pass.
+- Conformance: `13,053/13,168` exact, `112` mismatches, `2` missing, and `1` extra
+  (`98.96%`) -> `13,058/13,168` exact, `107` mismatches, `2` missing, and `1` extra
+  (`99.00%`). Cognito Identity Provider, Config, DynamoDB, SESv2, and SNS each
+  gained one exact file.
+- Blocker: `just conformance` still exits 1 because protocol module ordering,
+  serde helper ordering, documentation, shape, and export parity gaps remain.
+- Next action: isolate the shared `protocol_serde.rs` module-order rule against
+  Smithy-RS lazy module registration and fix one generic ordering phase.
+
 ### Checkpoint: 2026-08-25 — Render static endpoint prefixes directly
 - State: in progress
 - Changed: standalone endpoint-prefix generation now emits a direct

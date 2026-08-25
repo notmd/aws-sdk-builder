@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cognitoidentityprovider
-**Progress:** `1361/1361` files compared · `1351` matched · `10` mismatches · `0` missing · `0` extra · `99.27%` match (100.00% means fully matched)
+**Progress:** `1361/1361` files compared · `1352` matched · `9` mismatches · `0` missing · `0` extra · `99.34%` match (100.00% means fully matched)
 
 ### `src/client/admin_initiate_auth.rs`
 
@@ -88,24 +88,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub use client::Client;
 ```
 
-### `src/protocol_serde/shape_limit_type.rs`
-
-```diff
---- reference/src/protocol_serde/shape_limit_type.rs
-+++ generated/src/protocol_serde/shape_limit_type.rs
-@@ -51,7 +51,9 @@
-                     }
-                 }
-             }
--            Ok(Some(super::super::serde_util::limit_type_correct_errors(builder).build()))
-+            Ok(Some(super::super::serde_util::limit_type_correct_errors(builder).build().map_err(|err| {
-+                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
-+            })?))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
 ### `src/protocol_serde/shape_schema_attribute_type.rs`
 
 ```diff
@@ -159,24 +141,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/serde_util.rs
 +++ generated/src/serde_util.rs
-@@ -119,7 +119,7 @@
-     if builder.limit.is_none() {
-         builder.limit = {
-             let builder = super::types::builders::LimitTypeBuilder::default();
--            Some(super::serde_util::limit_type_correct_errors(builder).build())
-+            super::serde_util::limit_type_correct_errors(builder).build().ok()
-         }
-     }
-     builder
-@@ -257,7 +257,7 @@
-     if builder.limit.is_none() {
-         builder.limit = {
-             let builder = super::types::builders::LimitTypeBuilder::default();
--            Some(super::serde_util::limit_type_correct_errors(builder).build())
-+            super::serde_util::limit_type_correct_errors(builder).build().ok()
-         }
-     }
-     builder
 @@ -291,6 +291,18 @@
      builder
  }

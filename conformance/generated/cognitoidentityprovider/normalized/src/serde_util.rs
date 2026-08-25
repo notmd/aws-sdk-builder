@@ -119,7 +119,7 @@ pub(crate) fn get_provisioned_limit_output_output_correct_errors(
     if builder.limit.is_none() {
         builder.limit = {
             let builder = super::types::builders::LimitTypeBuilder::default();
-            super::serde_util::limit_type_correct_errors(builder).build().ok()
+            Some(super::serde_util::limit_type_correct_errors(builder).build())
         }
     }
     builder
@@ -257,7 +257,7 @@ pub(crate) fn update_provisioned_limit_output_output_correct_errors(
     if builder.limit.is_none() {
         builder.limit = {
             let builder = super::types::builders::LimitTypeBuilder::default();
-            super::serde_util::limit_type_correct_errors(builder).build().ok()
+            Some(super::serde_util::limit_type_correct_errors(builder).build())
         }
     }
     builder

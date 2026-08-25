@@ -1446,8 +1446,8 @@ fn serde_util_shape_needs_correction(selected: &SelectedModel, shape: &Value) ->
 
 fn serde_util_builder_is_fallible(selected: &SelectedModel, shape: &Value) -> bool {
     members(shape).iter().any(|(_, member)| {
-        member_target(member)
-            .is_some_and(|target| member_is_effectively_required(selected, member, target))
+        let target = member_target(member).unwrap_or("smithy.api#String");
+        builder_member_is_required(selected, member, target, &Context::Types {})
     })
 }
 
@@ -5196,8 +5196,10 @@ fn standalone_request_body(
             Some(content_type.to_owned()),
         );
     }
-    if matches!(protocol, ProtocolKind::AwsJson1_0 | ProtocolKind::AwsJson1_1)
-        && members(input_shape).is_empty()
+    if matches!(
+        protocol,
+        ProtocolKind::AwsJson1_0 | ProtocolKind::AwsJson1_1
+    ) && members(input_shape).is_empty()
     {
         return (
             format!(
@@ -9927,11 +9929,17 @@ fn render_json_protocol_operation_input_and_parser(
             .any(|(_, member)| is_json_document_operation_member(selected, member))
     });
     let input_is_empty_aws_json = selected.model.protocol().is_ok_and(|protocol| {
-        matches!(protocol, ProtocolKind::AwsJson1_0 | ProtocolKind::AwsJson1_1)
-            && input_shape.is_some_and(|shape| members(shape).is_empty())
+        matches!(
+            protocol,
+            ProtocolKind::AwsJson1_0 | ProtocolKind::AwsJson1_1
+        ) && input_shape.is_some_and(|shape| members(shape).is_empty())
     });
     if input_has_document_members || input_is_empty_aws_json {
-        let input_name = if input_is_empty_aws_json { "_input" } else { "input" };
+        let input_name = if input_is_empty_aws_json {
+            "_input"
+        } else {
+            "input"
+        };
         writeln!(
             output,
             "\npub fn ser_{module}_input(\n    {input_name}: &crate::operation::{module}::{operation_type}Input,\n) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {{"
@@ -18633,6 +18641,64 @@ mod tests {
 
         assert!(serde_util.contains("builder.choice = Some(crate::types::Choice::Unknown)"));
         assert!(serde_util.contains("builder.body = Some(::aws_smithy_types::Blob::new(\"\"))"));
+    }
+
+    #[test]
+    fn error_correction_treats_defaulted_nested_builders_as_infallible() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "output": {"target": "example#Outer"},
+                        "traits": {"smithy.api#http": {"method": "GET", "uri": "/", "code": 200}}
+                    },
+                    "example#Outer": {
+                        "type": "structure",
+                        "members": {
+                            "child": {
+                                "target": "example#Child",
+                                "traits": {"smithy.api#required": {}}
+                            }
+                        },
+                        "traits": {"smithy.api#output": {}}
+                    },
+                    "example#Child": {
+                        "type": "structure",
+                        "members": {
+                            "count": {
+                                "target": "smithy.api#Integer",
+                                "traits": {"smithy.api#required": {}, "smithy.api#default": 0}
+                            }
+                        }
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let serde_util = render_serde_util_file(&selected);
+
+        assert!(
+            serde_util.contains("Some(crate::serde_util::child_correct_errors(builder).build())")
+        );
+        assert!(
+            !serde_util
+                .contains("Some(crate::serde_util::child_correct_errors(builder).build().ok())")
+        );
     }
 
     #[test]

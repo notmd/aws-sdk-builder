@@ -119654,11 +119654,10 @@ pub fn de_get_deliverability_dashboard_options_http_response(
         output = super::super::protocol_serde::shape_get_deliverability_dashboard_options::de_get_deliverability_dashboard_options(_response_body, output)
             .map_err(super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        super::super::serde_util::get_deliverability_dashboard_options_output_output_correct_errors(output)
-            .build()
-            .map_err(super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsError::unhandled)?
+        super::super::serde_util::get_deliverability_dashboard_options_output_output_correct_errors(output).build()
     })
 }
+
 
 pub(crate) fn de_get_deliverability_dashboard_options(
     _value: &[u8],

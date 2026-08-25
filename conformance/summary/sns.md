@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sns
-**Progress:** `445/445` files compared · `434` matched · `11` mismatches · `0` missing · `0` extra · `97.53%` match (100.00% means fully matched)
+**Progress:** `445/445` files compared · `435` matched · `10` mismatches · `0` missing · `0` extra · `97.75%` match (100.00% means fully matched)
 
 ### `src/client/create_topic.rs`
 
@@ -191,33 +191,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p><code>DeliveryStatusIAMRole</code> – The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs. For each SMS message that you send, Amazon SNS writes a log that includes the message price, the success or failure status, the reason for failure (if the message failed), the message dwell time, and other information.</p>
      /// <p><code>DeliveryStatusSuccessSamplingRate</code> – The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value can be an integer from 0 - 100. For example, to write logs only for failed deliveries, set this value to <code>0</code>. To write logs for 10% of your successful deliveries, set it to <code>10</code>.</p>
      /// <p><code>DefaultSenderID</code> – A string, such as your business brand, that is displayed as the sender on the receiving device. Support for sender IDs varies by country. The sender ID can be 1 - 11 alphanumeric characters, and it must contain at least one letter.</p>
-```
-
-### `src/protocol_serde/shape_get_sms_sandbox_account_status.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_sms_sandbox_account_status.rs
-+++ generated/src/protocol_serde/shape_get_sms_sandbox_account_status.rs
-@@ -84,7 +84,9 @@
-         output = super::super::protocol_serde::shape_get_sms_sandbox_account_status::de_get_sms_sandbox_account_status(_response_body, output)
-             .map_err(super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?;
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        super::super::serde_util::get_sms_sandbox_account_status_output_output_correct_errors(output).build()
-+        super::super::serde_util::get_sms_sandbox_account_status_output_output_correct_errors(output)
-+            .build()
-+            .map_err(super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?
-     })
- }
-
-@@ -118,7 +120,7 @@
-         }
-         while let Some(mut tag) = result_tag.next_tag() {
-             match tag.start_el() {
--            s if s.matches("IsInSandbox") /* IsInSandbox com.amazonaws.sns.synthetic#GetSMSSandboxAccountStatusOutput$IsInSandbox */ =>  {
-+            s if s.matches("IsInSandbox") /* IsInSandbox com.amazonaws.sns.synthetic#GetSmsSandboxAccountStatusOutput$IsInSandbox */ =>  {
-                 let var_1 =
-                     Some(
-                          {
 ```
 
 ### `src/protocol_serde/shape_list_origination_numbers.rs`

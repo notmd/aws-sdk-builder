@@ -203097,7 +203097,7 @@ pub(crate) fn get_account_password_policy_output_output_correct_errors(
     if builder.password_policy.is_none() {
         builder.password_policy = {
             let builder = super::types::builders::PasswordPolicyBuilder::default();
-            builder.build().ok()
+            Some(builder.build())
         }
     }
     builder
@@ -203211,7 +203211,7 @@ pub(crate) fn get_role_template_version_output_output_correct_errors(
     if builder.role_template_version.is_none() {
         builder.role_template_version = {
             let builder = super::types::builders::RoleTemplateVersionBuilder::default();
-            builder.build().ok()
+            Some(builder.build())
         }
     }
     builder

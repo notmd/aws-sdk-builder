@@ -414,24 +414,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/serde_util.rs
 +++ generated/src/serde_util.rs
-@@ -98,7 +98,7 @@
-     if builder.password_policy.is_none() {
-         builder.password_policy = {
-             let builder = super::types::builders::PasswordPolicyBuilder::default();
--            Some(builder.build())
-+            builder.build().ok()
-         }
-     }
-     builder
-@@ -212,7 +212,7 @@
-     if builder.role_template_version.is_none() {
-         builder.role_template_version = {
-             let builder = super::types::builders::RoleTemplateVersionBuilder::default();
--            Some(builder.build())
-+            builder.build().ok()
-         }
-     }
-     builder
 @@ -642,6 +642,24 @@
      builder
  }

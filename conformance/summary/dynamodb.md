@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## dynamodb
-**Progress:** `882/882` files compared · `875` matched · `7` mismatches · `0` missing · `0` extra · `99.21%` match (100.00% means fully matched)
+**Progress:** `882/882` files compared · `876` matched · `6` mismatches · `0` missing · `0` extra · `99.32%` match (100.00% means fully matched)
 
 ### `src/config/endpoint.rs`
 
@@ -948,31 +948,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
      Ok(())
  }
-```
-
-### `src/serde_util.rs`
-
-```diff
---- reference/src/serde_util.rs
-+++ generated/src/serde_util.rs
-@@ -14,7 +14,7 @@
-     if builder.import_table_description.is_none() {
-         builder.import_table_description = {
-             let builder = super::types::builders::ImportTableDescriptionBuilder::default();
--            Some(builder.build())
-+            builder.build().ok()
-         }
-     }
-     builder
-@@ -26,7 +26,7 @@
-     if builder.import_table_description.is_none() {
-         builder.import_table_description = {
-             let builder = super::types::builders::ImportTableDescriptionBuilder::default();
--            Some(builder.build())
-+            builder.build().ok()
-         }
-     }
-     builder
 ```
 
 ### `src/types/_attribute_value.rs`
