@@ -16442,7 +16442,17 @@ fn normalize_documentation_tag(tag: &str, closing: bool, stack: &[String]) -> (S
     if name == "a" && closing && stack.last().is_some_and(|current| current == "code") {
         return ("</code>".to_owned(), "code".to_owned());
     }
-    (lowercase_documentation_tag(tag), name)
+    let normalized_tag = lowercase_documentation_tag(tag);
+    if !closing
+        && normalized_tag.trim_end().ends_with("/>")
+        && documentation_known_tag(&name)
+        && !documentation_void_tag(&name)
+    {
+        let opening = normalized_tag.trim_end();
+        let opening = &opening[..opening.len() - 2];
+        return (format!("{opening}></{name}>"), name);
+    }
+    (normalized_tag, name)
 }
 
 fn lowercase_documentation_tag(tag: &str) -> String {
@@ -16511,7 +16521,11 @@ fn documentation_known_tag(name: &str) -> bool {
     documentation_block_tag(name)
         || documentation_custom_tag(name)
         || documentation_is_inline(name)
-        || matches!(name, "br" | "hr" | "img" | "meta" | "link")
+        || documentation_void_tag(name)
+}
+
+fn documentation_void_tag(name: &str) -> bool {
+    matches!(name, "br" | "hr" | "img" | "meta" | "link")
 }
 
 fn documentation_block_tag(name: &str) -> bool {
@@ -16688,6 +16702,7 @@ fn normalize_client_documentation(value: &str) -> String {
         }
         match token {
             DocumentationToken::Tag(tag) => {
+                let self_closing = tag.trim_end().ends_with("/>");
                 let (tag, name) = normalize_documentation_tag(tag, tag.starts_with("</"), &stack);
                 if !name.is_empty() {
                     if tag.starts_with("</")
@@ -16713,9 +16728,7 @@ fn normalize_client_documentation(value: &str) -> String {
                         if stack.last().is_some_and(|current| current == &name) {
                             stack.pop();
                         }
-                    } else if !tag.ends_with("/>")
-                        && !matches!(name.as_str(), "br" | "hr" | "img" | "meta" | "link")
-                    {
+                    } else if !self_closing && !documentation_void_tag(&name) {
                         stack.push(name);
                     }
                 } else {
@@ -16744,7 +16757,7 @@ fn documentation_tag_name(tag: &str) -> Option<String> {
     let tag = tag
         .trim_start_matches('<')
         .trim_start_matches('/')
-        .split(|character: char| character.is_ascii_whitespace() || character == '>')
+        .split(|character: char| character.is_ascii_whitespace() || matches!(character, '/' | '>'))
         .next()?;
     (!tag.is_empty()).then(|| tag.to_ascii_lowercase())
 }
@@ -18118,6 +18131,16 @@ mod tests {
                 "<p>Contains a generic description of the error condition. Returned in the <Message> tag of the\n      error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful\n        <code>StatusCode</code> header or when the transformed object is provided in body.</p>"
             ),
             "<p>Contains a generic description of the error condition. Returned in the <message>\ntag of the error XML response for a corresponding\n<code>GetObject</code> call. Cannot be used with a successful\n<code>StatusCode</code> header or when the transformed object is provided in body.\n</message></p>"
+        );
+    }
+
+    #[test]
+    fn normalize_documentation_expands_non_void_self_closing_tags() {
+        assert_eq!(normalize_model_documentation("<p/>"), "<p></p>");
+        assert_eq!(normalize_client_documentation("<p/>"), "<p></p>");
+        assert_eq!(
+            normalize_model_documentation("<p class=\"empty\"/>"),
+            "<p class=\"empty\"></p>"
         );
     }
 

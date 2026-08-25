@@ -4,6 +4,27 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match Smithy HTML empty-element normalization
+- State: in progress
+- Changed: documentation normalization now expands self-closing known non-void HTML
+  and Smithy documentation tags, such as `<p/>`, to the Jsoup-equivalent
+  `<p></p>`. Unknown tags remain self-closing so embedded XML examples retain their
+  source form. The rule is shared by model and client documentation paths, with a
+  focused regression for tags with and without attributes.
+- Evidence: compared the pinned Smithy-RS `RustWriter.normalizeHtml` implementation
+  at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; `just conformance` regenerated 15
+  services and 1,133 operations, formatted 13,166 generated Rust files, and reported
+  no generated-source parse errors. Workspace tests (66), Clippy with `-D warnings`,
+  formatting, and `git diff --check` pass.
+- Conformance: `13,046/13,168` exact, `119` mismatches, `2` missing, and `1` extra
+  (`98.91%`) -> `13,047/13,168` exact, `118` mismatches, `2` missing, and `1` extra
+  (`98.93%`). Bedrock Runtime improved from `522/14` to `523/13`.
+- Blocker: `just conformance` still exits 1 because remaining protocol ordering,
+  serde helper ordering, shape, documentation, and export parity gaps remain.
+- Next action: continue with the remaining smallest generic protocol/shape mismatch
+  cluster after this checkpoint.
+
 ### Checkpoint: 2026-08-25 — Preserve raw reserved debug labels
 - State: in progress
 - Changed: sensitive structure and builder `Debug` implementations now pass the
