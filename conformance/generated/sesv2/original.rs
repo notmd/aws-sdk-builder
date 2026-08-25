@@ -2653,6 +2653,10 @@ impl Config {
     pub fn signing_name(&self) -> &'static str {
         "ses"
     }
+    /// Returns the SigV4a signing region set, if configured.
+    pub fn sigv4a_signing_region_set(&self) -> Option<&::aws_types::region::SigningRegionSet> {
+        self.config.load::<::aws_types::region::SigningRegionSet>()
+    }
     /// Returns the AWS region, if it was provided.
     pub fn region(&self) -> ::std::option::Option<&super::config::Region> {
         self.config.load::<super::config::Region>()
@@ -2711,6 +2715,7 @@ impl Builder {
         builder.set_endpoint_url(config_bag.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()));
         builder.set_use_dual_stack(config_bag.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0));
         builder.set_use_fips(config_bag.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0));
+        builder.set_sigv4a_signing_region_set(config_bag.load::<::aws_types::region::SigningRegionSet>().cloned());
         builder.set_region(config_bag.load::<super::config::Region>().cloned());
         builder
     }
@@ -3720,6 +3725,17 @@ impl Builder {
         self.config.store_or_unset(use_fips.map(::aws_types::endpoint_config::UseFips));
         self
     }
+    /// Sets the SigV4a signing region set.
+    pub fn sigv4a_signing_region_set(mut self, v: impl Into<::aws_types::region::SigningRegionSet>) -> Self {
+        self.set_sigv4a_signing_region_set(Some(v.into()));
+        self
+    }
+
+    /// Sets the SigV4a signing region set.
+    pub fn set_sigv4a_signing_region_set(&mut self, v: Option<::aws_types::region::SigningRegionSet>) -> &mut Self {
+        self.config.store_or_unset(v);
+        self
+    }
     /// Sets the AWS region to use when making requests.
     ///
     /// # Examples
@@ -3750,6 +3766,11 @@ impl Builder {
     /// Sets the credentials provider for this service
     pub fn set_credentials_provider(&mut self, credentials_provider: ::std::option::Option<super::config::SharedCredentialsProvider>) -> &mut Self {
         if let Some(credentials_provider) = credentials_provider {
+            #[cfg(feature = "sigv4a")]
+            {
+                self.runtime_components
+                    .set_identity_resolver(::aws_runtime::auth::sigv4a::SCHEME_ID, credentials_provider.clone());
+            }
             self.runtime_components
                 .set_identity_resolver(::aws_runtime::auth::sigv4::SCHEME_ID, credentials_provider);
         }
@@ -3948,6 +3969,12 @@ impl ServiceRuntimePlugin {
         runtime_components.push_auth_scheme(::aws_smithy_runtime_api::client::auth::SharedAuthScheme::new(
             ::aws_runtime::auth::sigv4::SigV4AuthScheme::new(),
         ));
+        #[cfg(feature = "sigv4a")]
+        {
+            runtime_components.push_auth_scheme(::aws_smithy_runtime_api::client::auth::SharedAuthScheme::new(
+                ::aws_runtime::auth::sigv4a::SigV4aAuthScheme::new(),
+            ));
+        }
         runtime_components.push_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
             super::config::endpoint::EndpointOverrideFeatureTrackerInterceptor,
         ));
@@ -4054,6 +4081,7 @@ impl From<&::aws_types::sdk_config::SdkConfig> for Builder {
         let mut builder = Builder::default();
         builder.set_credentials_provider(input.credentials_provider());
         builder = builder.region(input.region().cloned());
+        builder.set_sigv4a_signing_region_set(input.sigv4a_signing_region_set().cloned());
         builder.set_use_fips(input.use_fips());
         builder.set_use_dual_stack(input.use_dual_stack());
         if input.get_origin("endpoint_url").is_client_config() {
@@ -4994,7 +5022,7 @@ operation_overrides: ::std::collections::HashMap<&'static str, Vec<::aws_smithy_
 impl Default for DefaultAuthSchemeResolver {
 fn default() -> Self {
 Self {
-service_defaults: vec![::aws_smithy_runtime_api::client::auth::AuthSchemeOption::builder().scheme_id(::aws_runtime::auth::sigv4::SCHEME_ID).build().expect("required fields set")],
+service_defaults: vec![::aws_smithy_runtime_api::client::auth::AuthSchemeOption::builder().scheme_id(::aws_runtime::auth::sigv4::SCHEME_ID).build().expect("required fields set"), #[cfg(feature = "sigv4a")] { ::aws_smithy_runtime_api::client::auth::AuthSchemeOption::builder().scheme_id(::aws_runtime::auth::sigv4a::SCHEME_ID).build().expect("required fields set") }],
 operation_overrides: ::std::collections::HashMap::new(),
 }
 }
@@ -5015,6 +5043,10 @@ None => &self.service_defaults,
 };
 
 let _fut = ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture::ready(Ok(modeled_auth_options.clone()));
+
+        let _fut = ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture::new(async move {
+            super::super::endpoint_auth::resolve_endpoint_based_auth_scheme_options(modeled_auth_options, _cfg, _runtime_components).await
+        });
 
                  _fut
 }
@@ -138950,6 +138982,88 @@ impl aws_smithy_schema::header_omit_settings::HeaderOmitSettings for HeaderSeria
     fn should_omit_default_content_length(&self) -> bool {
         self.omit_default_content_length
     }
+}
+}
+
+pub(crate) mod endpoint_auth {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+use std::borrow::Cow;
+
+use aws_smithy_runtime_api::{
+    box_error::BoxError,
+    client::{
+        auth::{AuthSchemeId, AuthSchemeOption},
+        endpoint::{EndpointResolverParams, ResolveEndpoint},
+        runtime_components::RuntimeComponents,
+    },
+};
+use aws_smithy_types::config_bag::ConfigBag;
+
+pub(crate) async fn resolve_endpoint_based_auth_scheme_options<'a>(
+    modeled_auth_scheme_options: &'a [AuthSchemeOption],
+    cfg: &'a ConfigBag,
+    runtime_components: &'a RuntimeComponents,
+) -> Result<Vec<AuthSchemeOption>, BoxError> {
+    let endpoint_params = cfg.load::<EndpointResolverParams>().expect("endpoint resolver params must be set");
+
+    tracing::debug!(endpoint_params = ?endpoint_params, "resolving endpoint for auth scheme selection");
+
+    let endpoint = runtime_components.endpoint_resolver().resolve_endpoint(endpoint_params).await?;
+
+    let mut endpoint_auth_scheme_ids = Vec::new();
+
+    // Note that we're not constructing the `properties` for `endpoint_auth_schemes` here—only collecting
+    // auth scheme IDs but not properties. This is because, at this stage, we're only determining which auth schemes will be candidates.
+    // Any `authSchemes` list properties that influence the signing context will be extracted later
+    // in `AuthSchemeEndpointConfig`, and passed by the orchestrator to the signer's `sign_http_request` method.
+    let typed_schemes = endpoint.auth_schemes();
+    if !typed_schemes.is_empty() {
+        for scheme in typed_schemes {
+            endpoint_auth_scheme_ids.push(AuthSchemeId::from(Cow::Owned(scheme.name().to_owned())));
+        }
+    } else if let Some(aws_smithy_types::Document::Array(endpoint_auth_schemes)) = endpoint.properties().get("authSchemes") {
+        for endpoint_auth_scheme in endpoint_auth_schemes {
+            let scheme_id_str = endpoint_auth_scheme
+                .as_object()
+                .and_then(|object| object.get("name"))
+                .and_then(aws_smithy_types::Document::as_string);
+            if let Some(scheme_id_str) = scheme_id_str {
+                endpoint_auth_scheme_ids.push(AuthSchemeId::from(Cow::Owned(scheme_id_str.to_owned())));
+            }
+        }
+    }
+
+    Ok(merge_auth_scheme_options(modeled_auth_scheme_options, endpoint_auth_scheme_ids))
+}
+
+// Returns a list of merged auth scheme options from `modeled_auth_scheme_options` and `endpoint_auth_scheme_ids`,
+// copying properties from the modeled auth scheme options into the endpoint auth scheme options as they are built.
+//
+// Note: We only extract properties from the modeled auth schemes. Pulling properties from the endpoint auth schemes
+// would result in duplication; they would be added here and again in the `extract_operation_config` function during signing.
+fn merge_auth_scheme_options(modeled_auth_scheme_options: &[AuthSchemeOption], endpoint_auth_scheme_ids: Vec<AuthSchemeId>) -> Vec<AuthSchemeOption> {
+    let (common_auth_scheme_options, model_only_auth_scheme_options): (Vec<_>, Vec<_>) = modeled_auth_scheme_options
+        .iter()
+        .partition(|auth_scheme_option| endpoint_auth_scheme_ids.contains(auth_scheme_option.scheme_id()));
+
+    let mut endpoint_auth_scheme_options = endpoint_auth_scheme_ids
+        .into_iter()
+        .map(|id| {
+            let modelded = common_auth_scheme_options.iter().find(|opt| opt.scheme_id() == &id).cloned();
+            let mut builder = AuthSchemeOption::builder().scheme_id(id);
+            builder.set_properties(modelded.and_then(|m| m.properties()));
+            builder.build().unwrap()
+        })
+        .collect::<Vec<_>>();
+
+    endpoint_auth_scheme_options.extend(model_only_auth_scheme_options.into_iter().cloned());
+
+    endpoint_auth_scheme_options
 }
 }
 

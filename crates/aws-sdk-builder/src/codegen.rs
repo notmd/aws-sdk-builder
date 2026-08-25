@@ -141,6 +141,10 @@ pub(crate) fn generate(
                     "src/aws_chunked.rs".to_owned(),
                     include_str!("../assets/aws_chunked.rs").to_owned(),
                 ));
+            }
+            if model_has_aws_chunked_operations(&selected)
+                || service_uses_endpoint_based_auth(&selected)
+            {
                 service_files.push((
                     "src/endpoint_auth.rs".to_owned(),
                     include_str!("../assets/endpoint_auth.rs").to_owned(),
@@ -925,6 +929,7 @@ fn render_standalone_extra_modules(
     protocol: ProtocolKind,
 ) {
     let has_aws_chunked = model_has_aws_chunked_operations(selected);
+    let has_endpoint_based_auth = has_aws_chunked || service_uses_endpoint_based_auth(selected);
     let has_long_polling = model_has_long_polling_operations(selected);
     let has_query_compatible = service_has_protocol(selected, ProtocolKind::AwsQueryCompatible);
     let has_aws_query = service_has_protocol(selected, ProtocolKind::AwsQuery);
@@ -1007,7 +1012,7 @@ fn render_standalone_extra_modules(
         output.push_str("\nmod s3_request_id;\n");
     }
     output.push_str("\nmod sdk_feature_tracker;\n\nmod serialization_settings;\n");
-    if has_aws_chunked {
+    if has_endpoint_based_auth {
         output.push_str("\npub(crate) mod endpoint_auth;\n");
     }
     output.push_str("\nmod endpoint_lib;\n");
@@ -1060,6 +1065,16 @@ fn service_has_endpoint_rules(selected: &SelectedModel) -> bool {
             traits.get("smithy.rules#endpointBdd").is_some()
                 || traits.get("smithy.rules#endpointRuleSet").is_some()
         })
+}
+
+/// Smithy-RS applies endpoint-based auth resolution to this AWS SDK decorator
+/// allowlist. The SDK ID comes from the model's `aws.api#service` trait rather
+/// than from the generic protocol renderer.
+fn service_uses_endpoint_based_auth(selected: &SelectedModel) -> bool {
+    matches!(
+        service_sdk_id(selected).as_str(),
+        "CloudFront KeyValueStore" | "EventBridge" | "S3" | "SESv2"
+    )
 }
 
 fn service_has_rest_xml_unwrapped_errors(selected: &SelectedModel) -> bool {
@@ -2754,6 +2769,7 @@ fn service_has_client_context_param(selected: &SelectedModel, name: &str) -> boo
 
 fn service_uses_sigv4a(selected: &SelectedModel) -> bool {
     service_supports_s3_express(selected)
+        || service_uses_endpoint_based_auth(selected)
         || selected_service(selected).is_some_and(|service| {
             has_trait(service, "aws.auth#sigv4a")
                 || service
@@ -3145,7 +3161,7 @@ fn render_auth_file(selected: &SelectedModel) -> String {
     let service_options = auth_options_for_service(selected, service);
     let operation_overrides = auth_operation_overrides(selected);
     let resolve_allow = { "" };
-    let endpoint_auth = if service_supports_s3_express(selected) {
+    let endpoint_auth = if service_uses_endpoint_based_auth(selected) {
         "        let _fut = ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture::new(async move {\n            crate::endpoint_auth::resolve_endpoint_based_auth_scheme_options(modeled_auth_options, _cfg, _runtime_components).await\n        });\n\n"
     } else {
         ""
@@ -3313,7 +3329,7 @@ fn service_auth_scheme_ids(selected: &SelectedModel, service: &Value) -> Vec<Str
             }
         }
     }
-    if service_supports_s3_express(selected) && !ids.iter().any(|id| id == "aws.auth#sigv4a") {
+    if service_uses_sigv4a(selected) && !ids.iter().any(|id| id == "aws.auth#sigv4a") {
         ids.push("aws.auth#sigv4a".to_owned());
     }
     if service_supports_s3_express(selected) {
@@ -17982,6 +17998,49 @@ mod tests {
 
         let rendered = render_operation_file(&selected, "Poll");
         assert!(rendered.contains("crate::long_polling::LongPollingInterceptor"));
+    }
+
+    #[test]
+    fn endpoint_based_auth_allowlist_enables_sesv2_decorator_behavior() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {
+                            "aws.api#service": {"sdkId": "SESv2"},
+                            "aws.auth#sigv4": {"name": "ses"},
+                            "aws.protocols#restJson1": {}
+                        }
+                    },
+                    "example#Get": {"type": "operation"}
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+
+        assert!(service_uses_endpoint_based_auth(&selected));
+        assert!(service_uses_sigv4a(&selected));
+        assert!(auth_options_for_service(
+            &selected,
+            selected_service(&selected).unwrap()
+        )
+        .contains("sigv4a"));
+        assert!(render_auth_file(&selected).contains("crate::endpoint_auth::resolve_endpoint_based_auth_scheme_options"));
+
+        let mut modules = String::new();
+        render_standalone_extra_modules(&mut modules, &selected, ProtocolKind::RestJson1);
+        assert!(modules.contains("pub(crate) mod endpoint_auth;"));
     }
 
     #[test]

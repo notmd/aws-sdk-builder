@@ -147,6 +147,10 @@ impl Config {
     pub fn signing_name(&self) -> &'static str {
         "ses"
     }
+    /// Returns the SigV4a signing region set, if configured.
+    pub fn sigv4a_signing_region_set(&self) -> Option<&::aws_types::region::SigningRegionSet> {
+        self.config.load::<::aws_types::region::SigningRegionSet>()
+    }
     /// Returns the AWS region, if it was provided.
     pub fn region(&self) -> ::std::option::Option<&super::config::Region> {
         self.config.load::<super::config::Region>()
@@ -205,6 +209,7 @@ impl Builder {
         builder.set_endpoint_url(config_bag.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()));
         builder.set_use_dual_stack(config_bag.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0));
         builder.set_use_fips(config_bag.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0));
+        builder.set_sigv4a_signing_region_set(config_bag.load::<::aws_types::region::SigningRegionSet>().cloned());
         builder.set_region(config_bag.load::<super::config::Region>().cloned());
         builder
     }
@@ -1214,6 +1219,17 @@ impl Builder {
         self.config.store_or_unset(use_fips.map(::aws_types::endpoint_config::UseFips));
         self
     }
+    /// Sets the SigV4a signing region set.
+    pub fn sigv4a_signing_region_set(mut self, v: impl Into<::aws_types::region::SigningRegionSet>) -> Self {
+        self.set_sigv4a_signing_region_set(Some(v.into()));
+        self
+    }
+
+    /// Sets the SigV4a signing region set.
+    pub fn set_sigv4a_signing_region_set(&mut self, v: Option<::aws_types::region::SigningRegionSet>) -> &mut Self {
+        self.config.store_or_unset(v);
+        self
+    }
     /// Sets the AWS region to use when making requests.
     ///
     /// # Examples
@@ -1244,6 +1260,11 @@ impl Builder {
     /// Sets the credentials provider for this service
     pub fn set_credentials_provider(&mut self, credentials_provider: ::std::option::Option<super::config::SharedCredentialsProvider>) -> &mut Self {
         if let Some(credentials_provider) = credentials_provider {
+            #[cfg(feature = "sigv4a")]
+            {
+                self.runtime_components
+                    .set_identity_resolver(::aws_runtime::auth::sigv4a::SCHEME_ID, credentials_provider.clone());
+            }
             self.runtime_components
                 .set_identity_resolver(::aws_runtime::auth::sigv4::SCHEME_ID, credentials_provider);
         }
@@ -1442,6 +1463,12 @@ impl ServiceRuntimePlugin {
         runtime_components.push_auth_scheme(::aws_smithy_runtime_api::client::auth::SharedAuthScheme::new(
             ::aws_runtime::auth::sigv4::SigV4AuthScheme::new(),
         ));
+        #[cfg(feature = "sigv4a")]
+        {
+            runtime_components.push_auth_scheme(::aws_smithy_runtime_api::client::auth::SharedAuthScheme::new(
+                ::aws_runtime::auth::sigv4a::SigV4aAuthScheme::new(),
+            ));
+        }
         runtime_components.push_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
             super::config::endpoint::EndpointOverrideFeatureTrackerInterceptor,
         ));
@@ -1548,6 +1575,7 @@ impl From<&::aws_types::sdk_config::SdkConfig> for Builder {
         let mut builder = Builder::default();
         builder.set_credentials_provider(input.credentials_provider());
         builder = builder.region(input.region().cloned());
+        builder.set_sigv4a_signing_region_set(input.sigv4a_signing_region_set().cloned());
         builder.set_use_fips(input.use_fips());
         builder.set_use_dual_stack(input.use_dual_stack());
         if input.get_origin("endpoint_url").is_client_config() {

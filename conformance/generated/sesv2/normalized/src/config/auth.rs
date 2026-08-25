@@ -55,10 +55,19 @@ pub struct DefaultAuthSchemeResolver {
 impl Default for DefaultAuthSchemeResolver {
     fn default() -> Self {
         Self {
-            service_defaults: vec![::aws_smithy_runtime_api::client::auth::AuthSchemeOption::builder()
-                .scheme_id(::aws_runtime::auth::sigv4::SCHEME_ID)
-                .build()
-                .expect("required fields set")],
+            service_defaults: vec![
+                ::aws_smithy_runtime_api::client::auth::AuthSchemeOption::builder()
+                    .scheme_id(::aws_runtime::auth::sigv4::SCHEME_ID)
+                    .build()
+                    .expect("required fields set"),
+                #[cfg(feature = "sigv4a")]
+                {
+                    ::aws_smithy_runtime_api::client::auth::AuthSchemeOption::builder()
+                        .scheme_id(::aws_runtime::auth::sigv4a::SCHEME_ID)
+                        .build()
+                        .expect("required fields set")
+                },
+            ],
             operation_overrides: ::std::collections::HashMap::new(),
         }
     }
@@ -79,6 +88,10 @@ impl super::super::config::auth::ResolveAuthScheme for DefaultAuthSchemeResolver
         };
 
         let _fut = ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture::ready(Ok(modeled_auth_options.clone()));
+
+        let _fut = ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture::new(async move {
+            super::super::endpoint_auth::resolve_endpoint_based_auth_scheme_options(modeled_auth_options, _cfg, _runtime_components).await
+        });
 
         _fut
     }

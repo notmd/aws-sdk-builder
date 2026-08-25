@@ -199,6 +199,8 @@ mod sdk_feature_tracker;
 
 mod serialization_settings;
 
+pub(crate) mod endpoint_auth;
+
 mod endpoint_lib;
 
 mod lens;

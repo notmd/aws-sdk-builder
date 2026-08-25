@@ -3,126 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sesv2
-**Progress:** `1159/1159` files compared · `1150` matched · `8` mismatches · `1` missing · `0` extra · `99.22%` match (100.00% means fully matched)
-
-### `src/config/auth.rs`
-
-```diff
---- reference/src/config/auth.rs
-+++ generated/src/config/auth.rs
-@@ -55,19 +55,10 @@
- impl Default for DefaultAuthSchemeResolver {
-     fn default() -> Self {
-         Self {
--            service_defaults: vec![
--                ::aws_smithy_runtime_api::client::auth::AuthSchemeOption::builder()
--                    .scheme_id(::aws_runtime::auth::sigv4::SCHEME_ID)
--                    .build()
--                    .expect("required fields set"),
--                #[cfg(feature = "sigv4a")]
--                {
--                    ::aws_smithy_runtime_api::client::auth::AuthSchemeOption::builder()
--                        .scheme_id(::aws_runtime::auth::sigv4a::SCHEME_ID)
--                        .build()
--                        .expect("required fields set")
--                },
--            ],
-+            service_defaults: vec![::aws_smithy_runtime_api::client::auth::AuthSchemeOption::builder()
-+                .scheme_id(::aws_runtime::auth::sigv4::SCHEME_ID)
-+                .build()
-+                .expect("required fields set")],
-             operation_overrides: ::std::collections::HashMap::new(),
-         }
-     }
-@@ -89,10 +80,6 @@
-
-         let _fut = ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture::ready(Ok(modeled_auth_options.clone()));
-
--        let _fut = ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture::new(async move {
--            super::super::endpoint_auth::resolve_endpoint_based_auth_scheme_options(modeled_auth_options, _cfg, _runtime_components).await
--        });
--
-         _fut
-     }
- }
-```
-
-### `src/config.rs`
-
-```diff
---- reference/src/config.rs
-+++ generated/src/config.rs
-@@ -147,10 +147,6 @@
-     pub fn signing_name(&self) -> &'static str {
-         "ses"
-     }
--    /// Returns the SigV4a signing region set, if configured.
--    pub fn sigv4a_signing_region_set(&self) -> Option<&::aws_types::region::SigningRegionSet> {
--        self.config.load::<::aws_types::region::SigningRegionSet>()
--    }
-     /// Returns the AWS region, if it was provided.
-     pub fn region(&self) -> ::std::option::Option<&super::config::Region> {
-         self.config.load::<super::config::Region>()
-@@ -209,7 +205,6 @@
-         builder.set_endpoint_url(config_bag.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()));
-         builder.set_use_dual_stack(config_bag.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0));
-         builder.set_use_fips(config_bag.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0));
--        builder.set_sigv4a_signing_region_set(config_bag.load::<::aws_types::region::SigningRegionSet>().cloned());
-         builder.set_region(config_bag.load::<super::config::Region>().cloned());
-         builder
-     }
-@@ -1219,17 +1214,6 @@
-         self.config.store_or_unset(use_fips.map(::aws_types::endpoint_config::UseFips));
-         self
-     }
--    /// Sets the SigV4a signing region set.
--    pub fn sigv4a_signing_region_set(mut self, v: impl Into<::aws_types::region::SigningRegionSet>) -> Self {
--        self.set_sigv4a_signing_region_set(Some(v.into()));
--        self
--    }
--
--    /// Sets the SigV4a signing region set.
--    pub fn set_sigv4a_signing_region_set(&mut self, v: Option<::aws_types::region::SigningRegionSet>) -> &mut Self {
--        self.config.store_or_unset(v);
--        self
--    }
-     /// Sets the AWS region to use when making requests.
-     ///
-     /// # Examples
-@@ -1260,11 +1244,6 @@
-     /// Sets the credentials provider for this service
-     pub fn set_credentials_provider(&mut self, credentials_provider: ::std::option::Option<super::config::SharedCredentialsProvider>) -> &mut Self {
-         if let Some(credentials_provider) = credentials_provider {
--            #[cfg(feature = "sigv4a")]
--            {
--                self.runtime_components
--                    .set_identity_resolver(::aws_runtime::auth::sigv4a::SCHEME_ID, credentials_provider.clone());
--            }
-             self.runtime_components
-                 .set_identity_resolver(::aws_runtime::auth::sigv4::SCHEME_ID, credentials_provider);
-         }
-@@ -1463,12 +1442,6 @@
-         runtime_components.push_auth_scheme(::aws_smithy_runtime_api::client::auth::SharedAuthScheme::new(
-             ::aws_runtime::auth::sigv4::SigV4AuthScheme::new(),
-         ));
--        #[cfg(feature = "sigv4a")]
--        {
--            runtime_components.push_auth_scheme(::aws_smithy_runtime_api::client::auth::SharedAuthScheme::new(
--                ::aws_runtime::auth::sigv4a::SigV4aAuthScheme::new(),
--            ));
--        }
-         runtime_components.push_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-             super::config::endpoint::EndpointOverrideFeatureTrackerInterceptor,
-         ));
-@@ -1575,7 +1548,6 @@
-         let mut builder = Builder::default();
-         builder.set_credentials_provider(input.credentials_provider());
-         builder = builder.region(input.region().cloned());
--        builder.set_sigv4a_signing_region_set(input.sigv4a_signing_region_set().cloned());
-         builder.set_use_fips(input.use_fips());
-         builder.set_use_dual_stack(input.use_dual_stack());
-         if input.get_origin("endpoint_url").is_client_config() {
-```
+**Progress:** `1159/1159` files compared · `1154` matched · `5` mismatches · `0` missing · `0` extra · `99.57%` match (100.00% means fully matched)
 
 ### `src/endpoint_lib.rs`
 
@@ -143,22 +24,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod partition;
 +
 +pub(crate) mod host;
-```
-
-### `src/lib.rs`
-
-```diff
---- reference/src/lib.rs
-+++ generated/src/lib.rs
-@@ -199,8 +199,6 @@
-
- mod serialization_settings;
-
--pub(crate) mod endpoint_auth;
--
- mod endpoint_lib;
-
- mod lens;
 ```
 
 ### `src/operation/put_email_identity_dkim_signing_attributes/_put_email_identity_dkim_signing_attributes_output.rs`
@@ -444,7 +309,3 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    }
 +}
 ```
-
-### Missing reference files
-
-- `src/endpoint_auth.rs`
