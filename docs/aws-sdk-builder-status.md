@@ -3,6 +3,22 @@
 Updated 2026-08-25. Smithy-RS: `/tmp/smithy-rs` at
 `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
 
+## Checkpoint: 2026-08-25 — M6
+
+- State: in progress. Commit: `902b62480` — decode XML blobs as base64.
+- Changed: the shared XML primitive parser now emits Smithy-RS-compatible
+  `aws_smithy_types::base64::decode` handling for blob values, including the
+  modeled invalid-base64 `XmlDecodeError`; added a focused regression test.
+- Evidence: focused test, `cargo test --workspace`, clippy with `-D warnings`,
+  rustfmt check, and `git diff --check` all pass. `just conformance` regenerated
+  all 15 snapshots and formatted all 13,167 Rust files.
+- Conformance: `13,105 / 62 / 0 / 0` → `13,107 / 60 / 0 / 0`
+  (matched / mismatched / missing / extra; `99.47%` → `99.48%`). IAM is now
+  `1616/1626`, with the two XML blob mismatches removed.
+- Blocker: none for this semantic change; 60 parity diffs remain overall.
+- Next action: inspect the next executable semantic mismatch. Defer ordering-
+  only and documentation-only diffs.
+
 ## Checkpoint: 2026-08-25 — M5
 
 - State: in progress. Commit: `3e6854da7` — preserve nonzero modeled primitive
