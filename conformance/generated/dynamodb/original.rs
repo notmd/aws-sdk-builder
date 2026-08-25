@@ -92539,6 +92539,12 @@ pub fn de_describe_endpoints_http_response(
     })
 }
 
+pub fn ser_describe_endpoints_input(
+    _input: &super::super::operation::describe_endpoints::DescribeEndpointsInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    Ok(::aws_smithy_types::body::SdkBody::from("{}"))
+}
+
 pub(crate) fn de_describe_endpoints(
     _value: &[u8],
     mut builder: super::super::operation::describe_endpoints::builders::DescribeEndpointsOutputBuilder,
@@ -93257,6 +93263,12 @@ pub fn de_describe_limits_http_response(
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
+}
+
+pub fn ser_describe_limits_input(
+    _input: &super::super::operation::describe_limits::DescribeLimitsInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    Ok(::aws_smithy_types::body::SdkBody::from("{}"))
 }
 
 pub(crate) fn de_describe_limits(

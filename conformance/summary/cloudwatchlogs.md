@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cloudwatchlogs
-**Progress:** `1287/1287` files compared · `1280` matched · `7` mismatches · `0` missing · `0` extra · `99.46%` match (100.00% means fully matched)
+**Progress:** `1287/1287` files compared · `1281` matched · `6` mismatches · `0` missing · `0` extra · `99.53%` match (100.00% means fully matched)
 
 ### `src/operation/get_storage_tier_policy.rs`
 
@@ -61,26 +61,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  /// <p>CloudWatch Logs provides default field indexes for all log groups in the Standard log class. Default field indexes are automatically available for the following fields:</p>
  /// <ul>
  /// <li>
-```
-
-### `src/protocol_serde/shape_get_storage_tier_policy.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_storage_tier_policy.rs
-+++ generated/src/protocol_serde/shape_get_storage_tier_policy.rs
-@@ -119,12 +119,6 @@
-     })
- }
-
--pub fn ser_get_storage_tier_policy_input(
--    _input: &super::super::operation::get_storage_tier_policy::GetStorageTierPolicyInput,
--) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
--    Ok(::aws_smithy_types::body::SdkBody::from("{}"))
--}
--
- pub(crate) fn de_get_storage_tier_policy(
-     _value: &[u8],
-     mut builder: super::super::operation::get_storage_tier_policy::builders::GetStorageTierPolicyOutputBuilder,
 ```
 
 ### `src/protocol_serde.rs`

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## dynamodb
-**Progress:** `882/882` files compared · `873` matched · `9` mismatches · `0` missing · `0` extra · `98.98%` match (100.00% means fully matched)
+**Progress:** `882/882` files compared · `875` matched · `7` mismatches · `0` missing · `0` extra · `99.21%` match (100.00% means fully matched)
 
 ### `src/config/endpoint.rs`
 
@@ -900,46 +900,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-```
-
-### `src/protocol_serde/shape_describe_endpoints.rs`
-
-```diff
---- reference/src/protocol_serde/shape_describe_endpoints.rs
-+++ generated/src/protocol_serde/shape_describe_endpoints.rs
-@@ -33,12 +33,6 @@
-     })
- }
-
--pub fn ser_describe_endpoints_input(
--    _input: &super::super::operation::describe_endpoints::DescribeEndpointsInput,
--) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
--    Ok(::aws_smithy_types::body::SdkBody::from("{}"))
--}
--
- pub(crate) fn de_describe_endpoints(
-     _value: &[u8],
-     mut builder: super::super::operation::describe_endpoints::builders::DescribeEndpointsOutputBuilder,
-```
-
-### `src/protocol_serde/shape_describe_limits.rs`
-
-```diff
---- reference/src/protocol_serde/shape_describe_limits.rs
-+++ generated/src/protocol_serde/shape_describe_limits.rs
-@@ -67,12 +67,6 @@
-     })
- }
-
--pub fn ser_describe_limits_input(
--    _input: &super::super::operation::describe_limits::DescribeLimitsInput,
--) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
--    Ok(::aws_smithy_types::body::SdkBody::from("{}"))
--}
--
- pub(crate) fn de_describe_limits(
-     _value: &[u8],
-     mut builder: super::super::operation::describe_limits::builders::DescribeLimitsOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_put_resource_policy.rs`

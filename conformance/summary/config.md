@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## config
-**Progress:** `1262/1262` files compared · `1251` matched · `11` mismatches · `0` missing · `0` extra · `99.13%` match (100.00% means fully matched)
+**Progress:** `1262/1262` files compared · `1252` matched · `10` mismatches · `0` missing · `0` extra · `99.21%` match (100.00% means fully matched)
 
 ### `src/client/associate_resource_types.rs`
 
@@ -291,24 +291,4 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      })
  }
 
-```
-
-### `src/protocol_serde/shape_get_compliance_summary_by_config_rule.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_compliance_summary_by_config_rule.rs
-+++ generated/src/protocol_serde/shape_get_compliance_summary_by_config_rule.rs
-@@ -35,12 +35,6 @@
-     })
- }
-
--pub fn ser_get_compliance_summary_by_config_rule_input(
--    _input: &super::super::operation::get_compliance_summary_by_config_rule::GetComplianceSummaryByConfigRuleInput,
--) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
--    Ok(::aws_smithy_types::body::SdkBody::from("{}"))
--}
--
- pub(crate) fn de_get_compliance_summary_by_config_rule(
-     _value: &[u8],
-     mut builder: super::super::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleOutputBuilder,
 ```

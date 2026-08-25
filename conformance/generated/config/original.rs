@@ -126527,6 +126527,12 @@ pub fn de_get_compliance_summary_by_config_rule_http_response(
     })
 }
 
+pub fn ser_get_compliance_summary_by_config_rule_input(
+    _input: &super::super::operation::get_compliance_summary_by_config_rule::GetComplianceSummaryByConfigRuleInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    Ok(::aws_smithy_types::body::SdkBody::from("{}"))
+}
+
 pub(crate) fn de_get_compliance_summary_by_config_rule(
     _value: &[u8],
     mut builder: super::super::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleOutputBuilder,

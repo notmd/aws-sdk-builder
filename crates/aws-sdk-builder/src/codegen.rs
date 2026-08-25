@@ -5196,6 +5196,16 @@ fn standalone_request_body(
             Some(content_type.to_owned()),
         );
     }
+    if matches!(protocol, ProtocolKind::AwsJson1_0 | ProtocolKind::AwsJson1_1)
+        && members(input_shape).is_empty()
+    {
+        return (
+            format!(
+                "::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_{module}::ser_{module}_input(&input)?)"
+            ),
+            None,
+        );
+    }
     if let Some((name, member)) = members(input_shape)
         .into_iter()
         .find(|(_, member)| has_trait(member, "smithy.api#httpPayload"))
@@ -9916,18 +9926,27 @@ fn render_json_protocol_operation_input_and_parser(
             .into_iter()
             .any(|(_, member)| is_json_document_operation_member(selected, member))
     });
-    if input_has_document_members {
+    let input_is_empty_aws_json = selected.model.protocol().is_ok_and(|protocol| {
+        matches!(protocol, ProtocolKind::AwsJson1_0 | ProtocolKind::AwsJson1_1)
+            && input_shape.is_some_and(|shape| members(shape).is_empty())
+    });
+    if input_has_document_members || input_is_empty_aws_json {
+        let input_name = if input_is_empty_aws_json { "_input" } else { "input" };
         writeln!(
             output,
-            "\npub fn ser_{module}_input(\n    input: &crate::operation::{module}::{operation_type}Input,\n) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {{"
+            "\npub fn ser_{module}_input(\n    {input_name}: &crate::operation::{module}::{operation_type}Input,\n) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {{"
         )
         .unwrap();
-        output.push_str("    let mut out = String::new();\n    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);\n");
-        writeln!(
-            output,
-            "    crate::protocol_serde::shape_{module}_input::ser_{module}_input_input(&mut object, input)?;\n    object.finish();\n    Ok(::aws_smithy_types::body::SdkBody::from(out))\n}}\n"
-        )
-        .unwrap();
+        if input_is_empty_aws_json {
+            output.push_str("    Ok(::aws_smithy_types::body::SdkBody::from(\"{}\"))\n}\n");
+        } else {
+            output.push_str("    let mut out = String::new();\n    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);\n");
+            writeln!(
+                output,
+                "    crate::protocol_serde::shape_{module}_input::ser_{module}_input_input(&mut object, input)?;\n    object.finish();\n    Ok(::aws_smithy_types::body::SdkBody::from(out))\n}}\n"
+            )
+            .unwrap();
+        }
     }
     let output_shape = operation
         .get("output")
@@ -18264,6 +18283,57 @@ mod tests {
 
         assert_eq!(body, "::aws_smithy_types::body::SdkBody::from(\"\")");
         assert_eq!(content_type, None);
+    }
+
+    #[test]
+    fn aws_json_empty_input_serializes_an_empty_object() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#awsJson1_1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "input": {"target": "example#Input"},
+                        "output": {"target": "smithy.api#Unit"},
+                        "traits": {"smithy.api#http": {"method": "POST", "uri": "/", "code": 200}}
+                    },
+                    "example#Input": {
+                        "type": "structure",
+                        "members": {},
+                        "traits": {"smithy.api#input": {}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let input = operation_shape(&selected, "Get")
+            .and_then(|operation| operation.get("input"))
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id));
+
+        let (body, content_type) = standalone_request_body(&selected, "Get", input);
+        assert_eq!(
+            body,
+            "::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get::ser_get_input(&input)?)"
+        );
+        assert_eq!(content_type, None);
+
+        let operation_file = render_json_protocol_operation_file(&selected, "Get");
+        assert!(operation_file.contains("pub fn ser_get_input("));
+        assert!(operation_file.contains("SdkBody::from(\"{}\")"));
     }
 
     #[test]

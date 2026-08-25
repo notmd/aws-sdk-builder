@@ -136421,6 +136421,12 @@ pub fn de_get_storage_tier_policy_http_response(
     })
 }
 
+pub fn ser_get_storage_tier_policy_input(
+    _input: &super::super::operation::get_storage_tier_policy::GetStorageTierPolicyInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    Ok(::aws_smithy_types::body::SdkBody::from("{}"))
+}
+
 pub(crate) fn de_get_storage_tier_policy(
     _value: &[u8],
     mut builder: super::super::operation::get_storage_tier_policy::builders::GetStorageTierPolicyOutputBuilder,
