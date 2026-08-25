@@ -12895,6 +12895,9 @@ fn protocol_parse_primitive_data(selected: &SelectedModel, target: &str, data: &
         "string" => format!(
             "Result::<{ty}, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(\n    {data}\n    .into()\n)"
         ),
+        "blob" => format!(
+            "::aws_smithy_types::base64::decode(\n    {data}\n)\n.map_err(|err|::aws_smithy_xml::decode::XmlDecodeError::custom(format!(\"invalid base64: {{err:?}}\"))).map(::aws_smithy_types::Blob::new)"
+        ),
         "timestamp" => format!(
             "::aws_smithy_types::DateTime::from_str(\n    {data}\n    , ::aws_smithy_types::date_time::Format::{format}\n)\n.map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom(\"expected (timestamp: `{target}`)\"))",
             format = protocol_timestamp_format(selected, target)
@@ -18351,6 +18354,48 @@ mod tests {
         assert!(is_copy_type("smithy.api#Integer", None));
         assert!(is_copy_type("smithy.api#Boolean", None));
         assert!(!is_copy_type("smithy.api#String", None));
+    }
+
+    #[test]
+    fn xml_blob_deserialization_decodes_base64() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#restXml": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "output": {"target": "example#Output"}
+                    },
+                    "example#Output": {
+                        "type": "structure",
+                        "members": {
+                            "content": {"target": "smithy.api#Blob"}
+                        }
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+
+        let expression = protocol_parse_primitive(&selected, "smithy.api#Blob", "tag");
+
+        assert!(expression.contains("::aws_smithy_types::base64::decode("));
+        assert!(expression.contains("invalid base64: {err:?}"));
+        assert!(expression.contains("::aws_smithy_types::Blob::new"));
+        assert!(!expression.contains(".into()"));
     }
 
     #[test]

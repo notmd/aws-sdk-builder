@@ -27,10 +27,10 @@ pub fn de_virtual_mfa_device(
             s if s.matches("Base32StringSeed") /* Base32StringSeed com.amazonaws.iam#VirtualMFADevice$Base32StringSeed */ =>  {
                 let var_2 =
                     Some(
-                        Result::<::aws_smithy_types::Blob, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                        ::aws_smithy_types::base64::decode(
                             ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            .into()
                         )
+                        .map_err(|err|::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid base64: {err:?}"))).map(::aws_smithy_types::Blob::new)
                         ?
                     )
                 ;
@@ -40,10 +40,10 @@ pub fn de_virtual_mfa_device(
             s if s.matches("QRCodePNG") /* QRCodePNG com.amazonaws.iam#VirtualMFADevice$QRCodePNG */ =>  {
                 let var_3 =
                     Some(
-                        Result::<::aws_smithy_types::Blob, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                        ::aws_smithy_types::base64::decode(
                             ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            .into()
                         )
+                        .map_err(|err|::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid base64: {err:?}"))).map(::aws_smithy_types::Blob::new)
                         ?
                     )
                 ;

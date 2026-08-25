@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1626/1626` files compared · `1614` matched · `12` mismatches · `0` missing · `0` extra · `99.26%` match (100.00% means fully matched)
+**Progress:** `1626/1626` files compared · `1616` matched · `10` mismatches · `0` missing · `0` extra · `99.38%` match (100.00% means fully matched)
 
 ### `src/client/delete_service_linked_role.rs`
 
@@ -133,26 +133,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -/// Types for the `UploadSSHPublicKey` operation.
 -pub mod upload_ssh_public_key;
-```
-
-### `src/protocol_serde/shape_get_credential_report.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_credential_report.rs
-+++ generated/src/protocol_serde/shape_get_credential_report.rs
-@@ -143,10 +143,10 @@
-             s if s.matches("Content") /* Content com.amazonaws.iam.synthetic#GetCredentialReportOutput$Content */ =>  {
-                 let var_1 =
-                     Some(
--                        ::aws_smithy_types::base64::decode(
-+                        Result::<::aws_smithy_types::Blob, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                             ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-+                            .into()
-                         )
--                        .map_err(|err|::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid base64: {err:?}"))).map(::aws_smithy_types::Blob::new)
-                         ?
-                     )
-                 ;
 ```
 
 ### `src/protocol_serde/shape_inline_policy_identifier_type.rs`
@@ -331,39 +311,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      writer.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
-```
-
-### `src/protocol_serde/shape_virtual_mfa_device.rs`
-
-```diff
---- reference/src/protocol_serde/shape_virtual_mfa_device.rs
-+++ generated/src/protocol_serde/shape_virtual_mfa_device.rs
-@@ -27,10 +27,10 @@
-             s if s.matches("Base32StringSeed") /* Base32StringSeed com.amazonaws.iam#VirtualMFADevice$Base32StringSeed */ =>  {
-                 let var_2 =
-                     Some(
--                        ::aws_smithy_types::base64::decode(
-+                        Result::<::aws_smithy_types::Blob, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                             ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-+                            .into()
-                         )
--                        .map_err(|err|::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid base64: {err:?}"))).map(::aws_smithy_types::Blob::new)
-                         ?
-                     )
-                 ;
-@@ -40,10 +40,10 @@
-             s if s.matches("QRCodePNG") /* QRCodePNG com.amazonaws.iam#VirtualMFADevice$QRCodePNG */ =>  {
-                 let var_3 =
-                     Some(
--                        ::aws_smithy_types::base64::decode(
-+                        Result::<::aws_smithy_types::Blob, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                             ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-+                            .into()
-                         )
--                        .map_err(|err|::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid base64: {err:?}"))).map(::aws_smithy_types::Blob::new)
-                         ?
-                     )
-                 ;
 ```
 
 ### `src/protocol_serde.rs`

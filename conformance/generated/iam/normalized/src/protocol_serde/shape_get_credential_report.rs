@@ -143,10 +143,10 @@ pub fn de_get_credential_report(
             s if s.matches("Content") /* Content com.amazonaws.iam.synthetic#GetCredentialReportOutput$Content */ =>  {
                 let var_1 =
                     Some(
-                        Result::<::aws_smithy_types::Blob, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                        ::aws_smithy_types::base64::decode(
                             ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            .into()
                         )
+                        .map_err(|err|::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid base64: {err:?}"))).map(::aws_smithy_types::Blob::new)
                         ?
                     )
                 ;
