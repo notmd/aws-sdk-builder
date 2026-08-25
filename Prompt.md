@@ -9,12 +9,12 @@ counts here.
 
 ## Parity priorities
 
-Prioritize semantic code parity first: generated Rust types, public APIs, request and
-response bindings, serialization, deserialization, errors, and runtime behavior. Treat
-ordering-only differences as the lowest-priority parity work. Documentation-only diffs
-are also last priority and should not delay fixes to executable code semantics. Keep
-ordering and documentation mismatches visible in reports, but do not spend a parity
-iteration on them while a semantic code mismatch remains.
+Prioritize compile-valid, executable semantic parity first: generated Rust types, public
+APIs, request and response bindings, serialization, deserialization, errors, and runtime
+behavior. Ordering-only differences and documentation-only diffs are both last-priority
+work. Keep them visible in reports, but defer them whenever any semantic code mismatch
+remains; a formatting, ordering, or documentation match must never mask an executable
+behavior difference.
 
 ## Objective and scope
 
