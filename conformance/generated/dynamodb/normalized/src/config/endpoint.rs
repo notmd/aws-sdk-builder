@@ -167,12 +167,7 @@ impl DefaultResolver {
                         )) as ::aws_smithy_runtime_api::box_error::BoxError),
                         4 => {
                             let endpoint = params.endpoint.as_deref().unwrap_or_default();
-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
-                                        let mut out = String::new();
-                                        #[allow(clippy::needless_borrow)]
-                                        out.push_str(&endpoint.as_ref());
-                                        out
-                                    }).build())
+                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url(endpoint.to_owned()).build())
                         },
                         5 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
                             "Invalid Configuration: FIPS and local endpoint are not supported".to_string(),

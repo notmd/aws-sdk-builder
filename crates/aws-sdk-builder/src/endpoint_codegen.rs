@@ -1327,6 +1327,15 @@ fn render_owned_url(
         write!(output, "{template:?}.to_string()").unwrap();
         return;
     }
+    if placeholders.len() == 1
+        && placeholders[0].0 == 0
+        && let Some(end) = template.find('}')
+        && end + 1 == template.len()
+    {
+        let expression = parse_template_value(&template[1..end]);
+        render_owned_expression(output, &expression, params, contexts);
+        return;
+    }
     output.push_str("{\n                                        let mut out = String::new();\n");
     let mut cursor = 0;
     for (start, _) in placeholders {
@@ -1555,6 +1564,23 @@ fn render_nodes(output: &mut String, rules: &Value) {
         writeln!(output, "    crate::endpoint_lib::bdd_interpreter::BddNode {{\n        condition_index: {condition},\n        high_ref: {high},\n        low_ref: {low},\n    }},").unwrap();
     }
     output.push_str("];\n");
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn singleton_endpoint_url_template_owns_reference() {
+        let mut rendered = String::new();
+        render_owned_url(
+            &mut rendered,
+            &Value::String("{Endpoint}".to_owned()),
+            &[],
+            &[],
+        );
+        assert_eq!(rendered, "endpoint.to_owned()");
+    }
 }
 
 fn decode_base64(value: &str) -> Vec<u8> {

@@ -10,7 +10,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/config/endpoint.rs
 +++ generated/src/config/endpoint.rs
-@@ -153,422 +153,396 @@
+@@ -153,422 +153,391 @@
              match current_ref {
                  ref_val if ref_val >= 100_000_000 => {
                      return match (ref_val - 100_000_000) as usize {
@@ -47,7 +47,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                              let endpoint = params.endpoint.as_deref().unwrap_or_default();
 -                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url(endpoint.to_owned())
 -.build())
--                        },
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url(endpoint.to_owned()).build())
+                         },
 -5 => {
 -
 -                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("Invalid Configuration: FIPS and local endpoint are not supported"
@@ -56,28 +57,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -6 => {
 -
 -                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("Invalid Configuration: Dualstack and local endpoint are not supported"
--.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
--                        },
--7 => {
--
--                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url("http://localhost:8000"
--.to_string())
--.auth_scheme(::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity("sigv4"
--.to_string(), 2)
--.put("signingName", "dynamodb")
--.put("signingRegion", "us-east-1")
--)
--.build())
-+                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
-+                                        let mut out = String::new();
-+                                        #[allow(clippy::needless_borrow)]
-+                                        out.push_str(&endpoint.as_ref());
-+                                        out
-+                                    }).build())
-                         },
--8 => {
--
--                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("Invalid Configuration: AccountIdEndpointMode is required and FIPS is enabled, but FIPS account endpoints are not supported"
 -.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
 +                        5 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
 +                            "Invalid Configuration: FIPS and local endpoint are not supported".to_string(),
@@ -92,6 +71,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                                    .put("signingRegion", "us-east-1")
 +                            ).build())
                          },
+-7 => {
+-
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url("http://localhost:8000"
+-.to_string())
+-.auth_scheme(::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity("sigv4"
+-.to_string(), 2)
+-.put("signingName", "dynamodb")
+-.put("signingRegion", "us-east-1")
+-)
+-.build())
+-                        },
+-8 => {
+-
+-                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("Invalid Configuration: AccountIdEndpointMode is required and FIPS is enabled, but FIPS account endpoints are not supported"
+-.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
+-                        },
 -9 => {
 +                        8 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
 +                            "Invalid Configuration: AccountIdEndpointMode is required and FIPS is enabled, but FIPS account endpoints are not supported".to_string(),
@@ -241,6 +236,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -out.push_str(&partition_result.dns_suffix());
 -out })
 -.build())
+-                        },
+-16 => {
+-
+-                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("FIPS is enabled but this partition does not support FIPS"
+-.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
 +                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
 +                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
 +                                        let mut out = String::new();
@@ -253,11 +253,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                                        out
 +                                    }).build())
                          },
--16 => {
--
--                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("FIPS is enabled but this partition does not support FIPS"
--.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
--                        },
 -17 => {
 +                        16 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
 +                            "FIPS is enabled but this partition does not support FIPS".to_string(),
@@ -533,6 +528,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -out.push_str(&partition_result.dual_stack_dns_suffix());
 -out })
 -.build())
+-                        },
+-28 => {
+-
+-                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("DualStack is enabled but this partition does not support DualStack"
+-.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
 +                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
 +                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
 +                                        let mut out = String::new();
@@ -545,11 +545,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                                        out
 +                                    }).build())
                          },
--28 => {
--
--                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("DualStack is enabled but this partition does not support DualStack"
--.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
--                        },
 -29 => {
 +                        28 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
 +                            "DualStack is enabled but this partition does not support DualStack".to_string(),
@@ -747,6 +742,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -.property("metricValues", vec![::aws_smithy_types::Document::from("O"
 -.to_string()),])
 -.build())
+-                        },
+-35 => {
+-
+-                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("Invalid Configuration: Missing Region"
+-.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
 +                            let account_id = params.account_id.as_deref().unwrap_or_default();
 +                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
 +                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
@@ -763,11 +763,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                                        out
 +                                    }).property("metricValues", vec![::aws_smithy_types::Document::from("O".to_string())]).build())
                          },
--35 => {
--
--                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("Invalid Configuration: Missing Region"
--.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
--                        },
 -                                        _ => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("No endpoint rule matched")) as ::aws_smithy_runtime_api::box_error::BoxError),
 -                                    };
 +                        35 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
@@ -780,7 +775,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
                  1 | -1 => {
                      return ::std::result::Result::Err(
-@@ -626,10 +600,8 @@
+@@ -626,10 +595,8 @@
                              (&{
                                  let mut out = String::new();
                                  out.push_str("dynamodb.");
@@ -791,7 +786,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                                  out.push_str(&if let Some(inner) = partition_result {
                                      inner.dual_stack_dns_suffix()
                                  } else {
-@@ -658,10 +630,8 @@
+@@ -658,10 +625,8 @@
                              (&{
                                  let mut out = String::new();
                                  out.push_str("search-dynamodb.");
@@ -802,7 +797,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                                  out.push_str(&if let Some(inner) = partition_result {
                                      inner.dual_stack_dns_suffix()
                                  } else {
-@@ -704,7 +674,7 @@
+@@ -704,7 +669,7 @@
                          16 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let parsed_arn_ssa_2 = &context.parsed_arn_ssa_2;
                              let partition_resolver = &self.partition_resolver;
@@ -811,7 +806,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                                  (if let Some(inner) = parsed_arn_ssa_2 {
                                      inner.region()
                                  } else {
-@@ -711,7 +681,7 @@
+@@ -711,7 +676,7 @@
                                      return false;
                                  }
                                  .into()),
@@ -820,7 +815,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          })(&mut _diagnostic_collector),
                          17 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let parsed_arn_ssa_2 = &context.parsed_arn_ssa_2;
-@@ -754,10 +724,11 @@
+@@ -754,10 +719,11 @@
                              let partition_resolver = &self.partition_resolver;
                              {
                                  *first_arn = if let Some(inner) = resource_arn_list {
@@ -834,7 +829,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                                  first_arn.is_some()
                              }
                          })(&mut _diagnostic_collector),
-@@ -777,7 +748,7 @@
+@@ -777,7 +743,7 @@
                          23 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let parsed_arn_ssa_1 = &context.parsed_arn_ssa_1;
                              let partition_resolver = &self.partition_resolver;
@@ -843,7 +838,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                                  (if let Some(inner) = parsed_arn_ssa_1 {
                                      inner.region()
                                  } else {
-@@ -784,7 +755,7 @@
+@@ -784,7 +750,7 @@
                                      return false;
                                  }
                                  .into()),
