@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1626/1626` files compared · `1618` matched · `8` mismatches · `0` missing · `0` extra · `99.51%` match (100.00% means fully matched)
+**Progress:** `1626/1626` files compared · `1619` matched · `7` mismatches · `0` missing · `0` extra · `99.57%` match (100.00% means fully matched)
 
 ### `src/client/delete_service_linked_role.rs`
 
@@ -133,22 +133,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -/// Types for the `UploadSSHPublicKey` operation.
 -pub mod upload_ssh_public_key;
-```
-
-### `src/protocol_serde/shape_inline_policy_identifier_type.rs`
-
-```diff
---- reference/src/protocol_serde/shape_inline_policy_identifier_type.rs
-+++ generated/src/protocol_serde/shape_inline_policy_identifier_type.rs
-@@ -12,7 +12,7 @@
-     #[allow(unused_mut)]
-     let mut scope_2 = writer.prefix("AttachmentType");
-     {
--        scope_2.string(input.attachment_type.as_str());
-+        scope_2.string(&input.attachment_type.as_str());
-     }
-     #[allow(unused_mut)]
-     let mut scope_3 = writer.prefix("AttachmentName");
 ```
 
 ### `src/protocol_serde.rs`

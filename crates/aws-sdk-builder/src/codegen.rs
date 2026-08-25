@@ -8521,7 +8521,9 @@ fn query_primitive_value(
     match kind {
         "string" | "enum" => {
             if query_shape_is_enum(selected, target) {
-                format!("{expression}.as_str()")
+                let expression_without_reference =
+                    expression.strip_prefix('&').unwrap_or(expression);
+                format!("{expression_without_reference}.as_str()")
             } else {
                 reference
             }
@@ -18698,6 +18700,70 @@ mod tests {
         );
         assert!(input_output.contains(".prefix(\"member\")"));
         assert!(input_output.contains("ser_policy(scope_"));
+    }
+
+    #[test]
+    fn query_enum_serialization_dereferences_borrowed_members() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#awsQuery": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "input": {"target": "example#Input"}
+                    },
+                    "example#Input": {
+                        "type": "structure",
+                        "members": {
+                            "AttachmentType": {"target": "example#AttachmentType"}
+                        }
+                    },
+                    "example#AttachmentType": {
+                        "type": "enum",
+                        "members": {
+                            "USER": {
+                                "target": "smithy.api#Unit",
+                                "traits": {"smithy.api#enumValue": "user"}
+                            }
+                        }
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let input_id = operation_shape(&selected, "Get")
+            .and_then(|operation| operation.get("input"))
+            .and_then(target_value)
+            .unwrap();
+        let input = selected.model.shapes.get(input_id).unwrap();
+        let mut output = String::new();
+
+        render_query_protocol_structure_serializer(
+            &mut output,
+            &selected,
+            input_id,
+            input,
+            &mut ProtocolRenderState::default(),
+        );
+
+        assert!(
+            output.contains("scope_1.string(var_2.as_str());"),
+            "{output}"
+        );
+        assert!(!output.contains("&var_2.as_str()"), "{output}");
     }
 
     #[test]

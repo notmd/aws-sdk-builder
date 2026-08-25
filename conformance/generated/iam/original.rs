@@ -194105,7 +194105,7 @@ pub fn ser_inline_policy_identifier_type(
     #[allow(unused_mut)]
     let mut scope_2 = writer.prefix("AttachmentType");
     {
-        scope_2.string(&input.attachment_type.as_str());
+        scope_2.string(input.attachment_type.as_str());
     }
     #[allow(unused_mut)]
     let mut scope_3 = writer.prefix("AttachmentName");
