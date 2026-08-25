@@ -281,8 +281,6 @@ pub(crate) mod shape_verify_software_token;
 
 pub(crate) mod shape_verify_user_attribute;
 
-pub(crate) mod shape_add_custom_attributes_input;
-
 pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
     if data.is_empty() {
         b"{}"
@@ -292,6 +290,8 @@ pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
 }
 
 pub(crate) mod shape_access_denied_exception;
+
+pub(crate) mod shape_add_custom_attributes_input;
 
 pub(crate) mod shape_add_user_pool_client_secret_input;
 

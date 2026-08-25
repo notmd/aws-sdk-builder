@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cognitoidentityprovider
-**Progress:** `1361/1361` files compared · `1351` matched · `10` mismatches · `0` missing · `0` extra · `99.27%` match (100.00% means fully matched)
+**Progress:** `1361/1361` files compared · `1352` matched · `9` mismatches · `0` missing · `0` extra · `99.34%` match (100.00% means fully matched)
 
 ### `src/client/admin_initiate_auth.rs`
 
@@ -134,31 +134,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-```
-
-### `src/protocol_serde.rs`
-
-```diff
---- reference/src/protocol_serde.rs
-+++ generated/src/protocol_serde.rs
-@@ -281,6 +281,8 @@
-
- pub(crate) mod shape_verify_user_attribute;
-
-+pub(crate) mod shape_add_custom_attributes_input;
-+
- pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
-     if data.is_empty() {
-         b"{}"
-@@ -291,8 +293,6 @@
-
- pub(crate) mod shape_access_denied_exception;
-
--pub(crate) mod shape_add_custom_attributes_input;
--
- pub(crate) mod shape_add_user_pool_client_secret_input;
-
- pub(crate) mod shape_admin_add_user_to_group_input;
 ```
 
 ### `src/serde_util.rs`

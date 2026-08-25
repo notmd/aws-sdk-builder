@@ -9297,6 +9297,7 @@ fn render_json_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(S
         };
         let direct_payload = json_protocol_input_has_non_event_stream_payload(selected, input);
         let is_first_whole_document_input = index == 0
+            && json_protocol_first_input_wave_is_before_document_helper(selected)
             && json_protocol_input_is_whole_document(selected, input)
             && json_protocol_operation_has_empty_output(selected, operation_name);
         if direct_payload && json_protocol_input_needs_file(selected, input) {
@@ -9313,10 +9314,10 @@ fn render_json_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(S
             modules.push(initial_module);
         }
     }
-    if let Some(input_module) = first_whole_document_input {
-        if seen.insert(input_module.clone()) {
-            modules.push(input_module);
-        }
+    if let Some(input_module) = first_whole_document_input
+        && seen.insert(input_module.clone())
+    {
+        modules.push(input_module);
     }
     let operation_module_count = modules.len();
     for operation_name in &selected.operations {
@@ -9538,6 +9539,11 @@ fn json_protocol_input_is_whole_document(selected: &SelectedModel, shape: &Value
         && input_members.into_iter().all(|(_, member)| {
             is_json_document_member(member) && !is_event_stream_member(selected, member)
         })
+}
+
+fn json_protocol_first_input_wave_is_before_document_helper(selected: &SelectedModel) -> bool {
+    service_has_protocol(selected, ProtocolKind::RestJson1)
+        || service_has_protocol(selected, ProtocolKind::AwsQueryCompatible)
 }
 
 fn json_protocol_operation_has_empty_output(
@@ -18004,6 +18010,46 @@ mod tests {
         let input_module = module.find("pub(crate) mod shape_get_input;").unwrap();
         let document_helper_boundary = module.find("pub(crate) fn or_empty_doc").unwrap();
         assert!(input_module < document_helper_boundary);
+    }
+
+    #[test]
+    fn aws_json_document_input_modules_follow_document_helper() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#awsJson1_1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "input": {"target": "example#GetInput"},
+                        "output": {"target": "smithy.api#Unit"}
+                    },
+                    "example#GetInput": {
+                        "type": "structure",
+                        "members": {"value": {"target": "smithy.api#String"}},
+                        "traits": {"smithy.api#input": {}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let (module, _) = render_json_protocol_serde_files(&selected);
+
+        let input_module = module.find("pub(crate) mod shape_get_input;").unwrap();
+        let document_helper_boundary = module.find("pub(crate) fn or_empty_doc").unwrap();
+        assert!(document_helper_boundary < input_module);
     }
 
     #[test]

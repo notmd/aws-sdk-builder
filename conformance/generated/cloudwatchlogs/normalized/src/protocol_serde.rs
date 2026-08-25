@@ -259,8 +259,6 @@ pub(crate) mod shape_update_lookup_table;
 
 pub(crate) mod shape_update_scheduled_query;
 
-pub(crate) mod shape_associate_kms_key_input;
-
 pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
     if data.is_empty() {
         b"{}"
@@ -270,6 +268,8 @@ pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
 }
 
 pub(crate) mod shape_access_denied_exception;
+
+pub(crate) mod shape_associate_kms_key_input;
 
 pub(crate) mod shape_associate_source_to_s3_table_integration_input;
 

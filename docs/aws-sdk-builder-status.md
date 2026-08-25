@@ -4,6 +4,25 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Align protocol-specific JSON input dependency waves
+- State: in progress
+- Changed: the first whole-document JSON input helper is emitted before `or_empty_doc`
+  only for `restJson1` and AWS Query-compatible protocol compositions. AWS JSON 1.0
+  and 1.1 retain the Smithy-RS ordering that registers the shared document helper
+  first. The distinction is derived from protocol traits, with no service or
+  operation-name branch.
+- Evidence: compared Smithy-RS `JsonParserGenerator`, `ProtocolFunctions`,
+  `OperationGenerator`, and `RustCrate.injectInlineDependencies` at `/tmp/smithy-rs`,
+  commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`. Added focused regressions for
+  AWS Query-compatible and AWS JSON document inputs. `just conformance` regenerated
+  all 15 services and 1,133 operations and reported no generated-source parse errors.
+- Conformance: `13,073/13,168` exact, `92` mismatches, `2` missing, and `1` extra
+  (`99.17%`) -> `13,074/13,168` exact, `91` mismatches, `2` missing, and `1` extra
+  (`99.18%`).
+- Blocker: `just conformance` still exits 1 because broader protocol serde, runtime,
+  documentation, shape, and export parity gaps remain.
+- Next action: continue with the remaining generic protocol serde ordering cluster.
+
 ### Checkpoint: 2026-08-25 — Match Smithy union documentation links
 - State: in progress
 - Changed: union accessor documentation now uses the target Rust symbol name and
