@@ -4577,6 +4577,37 @@ fn error_shape_is_retryable(selected: &SelectedModel, shape_id: &str, shape: &Va
     has_trait(shape, "smithy.api#retryable") || is_sts_idp_communication_error(selected, shape_id)
 }
 
+fn modeled_error_retry_kind(
+    selected: &SelectedModel,
+    shape_id: &str,
+    shape: &Value,
+) -> &'static str {
+    if is_sts_idp_communication_error(selected, shape_id) {
+        return "ServerError";
+    }
+    if shape
+        .get("traits")
+        .and_then(Value::as_object)
+        .and_then(|traits| traits.get("smithy.api#retryable"))
+        .and_then(Value::as_object)
+        .and_then(|retryable| retryable.get("throttling"))
+        .and_then(Value::as_bool)
+        == Some(true)
+    {
+        return "ThrottlingError";
+    }
+    match shape
+        .get("traits")
+        .and_then(Value::as_object)
+        .and_then(|traits| traits.get("smithy.api#error"))
+        .and_then(Value::as_str)
+    {
+        Some("client") => "ClientError",
+        Some("server") => "ServerError",
+        _ => "ServerError",
+    }
+}
+
 fn operation_has_telemetry_members(selected: &SelectedModel, operation: &Value) -> bool {
     let Some(input_shape) = operation
         .get("input")
@@ -14657,7 +14688,8 @@ fn render_structure_accessors(
             writeln!(output, "{padding}impl {} {{", rust_type_name(name)).unwrap();
             writeln!(
                 output,
-                "{padding}    /// Returns `Some(ErrorKind)` if the error is retryable. Otherwise, returns `None`.\n{padding}    pub fn retryable_error_kind(&self) -> ::aws_smithy_types::retry::ErrorKind {{\n{padding}        ::aws_smithy_types::retry::ErrorKind::ServerError\n{padding}    }}"
+                "{padding}    /// Returns `Some(ErrorKind)` if the error is retryable. Otherwise, returns `None`.\n{padding}    pub fn retryable_error_kind(&self) -> ::aws_smithy_types::retry::ErrorKind {{\n{padding}        ::aws_smithy_types::retry::ErrorKind::{retry_kind}\n{padding}    }}",
+                retry_kind = modeled_error_retry_kind(selected, name, shape),
             )
             .unwrap();
         } else {
@@ -14665,7 +14697,8 @@ fn render_structure_accessors(
             if retryable_error {
                 writeln!(
                     output,
-                    "{padding}    /// Returns `Some(ErrorKind)` if the error is retryable. Otherwise, returns `None`.\n{padding}    pub fn retryable_error_kind(&self) -> ::aws_smithy_types::retry::ErrorKind {{\n{padding}        ::aws_smithy_types::retry::ErrorKind::ServerError\n{padding}    }}"
+                    "{padding}    /// Returns `Some(ErrorKind)` if the error is retryable. Otherwise, returns `None`.\n{padding}    pub fn retryable_error_kind(&self) -> ::aws_smithy_types::retry::ErrorKind {{\n{padding}        ::aws_smithy_types::retry::ErrorKind::{retry_kind}\n{padding}    }}",
+                    retry_kind = modeled_error_retry_kind(selected, name, shape),
                 )
                 .unwrap();
             }
@@ -19165,6 +19198,57 @@ mod tests {
             "com.amazonaws.sts#IDPCommunicationErrorException",
             error
         ));
+        assert_eq!(
+            modeled_error_retry_kind(
+                &selected,
+                "com.amazonaws.sts#IDPCommunicationErrorException",
+                error
+            ),
+            "ServerError"
+        );
+    }
+
+    #[test]
+    fn modeled_client_retryable_errors_use_client_error_kind() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Op"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Op": {
+                        "type": "operation",
+                        "output": {"target": "smithy.api#Unit"},
+                        "errors": [{"target": "example#Error"}]
+                    },
+                    "example#Error": {
+                        "type": "structure",
+                        "traits": {
+                            "smithy.api#error": "client",
+                            "smithy.api#retryable": {}
+                        }
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let error = selected.model.shapes.get("example#Error").unwrap();
+
+        assert_eq!(
+            modeled_error_retry_kind(&selected, "example#Error", error),
+            "ClientError"
+        );
     }
 
     #[test]

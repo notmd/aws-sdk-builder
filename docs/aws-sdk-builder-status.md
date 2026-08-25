@@ -4,6 +4,28 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match modeled retry error kinds
+- State: in progress
+- Changed: modeled retryable error accessors now derive `ClientError`,
+  `ServerError`, or `ThrottlingError` from the Smithy `@retryable` and `@error`
+  traits. The existing STS IDP communication decorator remains an explicit
+  model-derived server-error customization; no service or operation renderer branch
+  was added.
+- Evidence: compared the pinned Smithy-RS `ErrorImplGenerator.kt` at `/tmp/smithy-rs`,
+  commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; added focused client-error and
+  STS regressions. `just conformance` regenerated 15 services and 1,133 operations,
+  formatted all 13,166 generated Rust files, and reported no generated-source parse
+  errors. Workspace tests (64), Clippy with `-D warnings`, formatting, and
+  `git diff --check` pass.
+- Conformance: `13,042/13,168` exact, `123` mismatches, `2` missing, and `1` extra
+  (`98.87%`) -> `13,044/13,168` exact, `121` mismatches, `2` missing, and `1` extra
+  (`98.89%`). Bedrock Runtime improved from `520/16` to `521/15` and DynamoDB from
+  `872/10` to `873/9`.
+- Blocker: `just conformance` still exits 1 because remaining protocol ordering,
+  serde helper ordering, documentation, shape, and export parity gaps remain.
+- Next action: address the smallest remaining generic parity cluster after this
+  checkpoint, starting with reserved-field debug labels or shared JSON helper order.
+
 ### Checkpoint: 2026-08-25 — Omit streaming-only serde corrections
 - State: in progress
 - Changed: shared error-correction discovery now emits a correction helper only when

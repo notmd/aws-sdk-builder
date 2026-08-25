@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## dynamodb
-**Progress:** `882/882` files compared · `872` matched · `10` mismatches · `0` missing · `0` extra · `98.87%` match (100.00% means fully matched)
+**Progress:** `882/882` files compared · `873` matched · `9` mismatches · `0` missing · `0` extra · `98.98%` match (100.00% means fully matched)
 
 ### `src/config/endpoint.rs`
 
@@ -1065,20 +1065,4 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// Returns `Err(&Self)` if it can't be converted.
      pub fn as_ss(&self) -> ::std::result::Result<&::std::vec::Vec<::std::string::String>, &Self> {
          if let AttributeValue::Ss(val) = &self {
-```
-
-### `src/types/error/_replicated_write_conflict_exception.rs`
-
-```diff
---- reference/src/types/error/_replicated_write_conflict_exception.rs
-+++ generated/src/types/error/_replicated_write_conflict_exception.rs
-@@ -11,7 +11,7 @@
- impl ReplicatedWriteConflictException {
-     /// Returns `Some(ErrorKind)` if the error is retryable. Otherwise, returns `None`.
-     pub fn retryable_error_kind(&self) -> ::aws_smithy_types::retry::ErrorKind {
--        ::aws_smithy_types::retry::ErrorKind::ClientError
-+        ::aws_smithy_types::retry::ErrorKind::ServerError
-     }
-     /// Returns the error message.
-     pub fn message(&self) -> ::std::option::Option<&str> {
 ```

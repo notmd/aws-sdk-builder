@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `520` matched · `16` mismatches · `0` missing · `0` extra · `97.01%` match (100.00% means fully matched)
+**Progress:** `536/536` files compared · `521` matched · `15` mismatches · `0` missing · `0` extra · `97.20%` match (100.00% means fully matched)
 
 ### `src/protocol_serde/shape_citation_location.rs`
 
@@ -1117,22 +1117,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          formatter.field("structure", &"*** Sensitive Data Redacted ***");
          formatter.finish()
      }
-```
-
-### `src/types/error/_model_not_ready_exception.rs`
-
-```diff
---- reference/src/types/error/_model_not_ready_exception.rs
-+++ generated/src/types/error/_model_not_ready_exception.rs
-@@ -11,7 +11,7 @@
- impl ModelNotReadyException {
-     /// Returns `Some(ErrorKind)` if the error is retryable. Otherwise, returns `None`.
-     pub fn retryable_error_kind(&self) -> ::aws_smithy_types::retry::ErrorKind {
--        ::aws_smithy_types::retry::ErrorKind::ClientError
-+        ::aws_smithy_types::retry::ErrorKind::ServerError
-     }
-     /// Returns the error message.
-     pub fn message(&self) -> ::std::option::Option<&str> {
 ```
 
 ### `src/types/error/builders.rs`
