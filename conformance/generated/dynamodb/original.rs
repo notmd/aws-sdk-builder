@@ -102927,20 +102927,70 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "S" => Some(super::super::types::AttributeValue::S(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                        "S" => {
+                            Some(super::super::types::AttributeValue::S(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'S' cannot be null"))?)),
-                        "N" => Some(super::super::types::AttributeValue::N(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .transpose()?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'S' cannot be null"))?
+                            ))
+                        }
+                        "N" => {
+                            Some(super::super::types::AttributeValue::N(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'N' cannot be null"))?)),
-                        "B" => Some(super::super::types::AttributeValue::B(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'B' cannot be null"))?)),
-                        "SS" => Some(super::super::types::AttributeValue::Ss(super::super::protocol_serde::shape_string_set_attribute_value::de_string_set_attribute_value(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'SS' cannot be null"))?)),
-                        "NS" => Some(super::super::types::AttributeValue::Ns(super::super::protocol_serde::shape_number_set_attribute_value::de_number_set_attribute_value(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'NS' cannot be null"))?)),
-                        "BS" => Some(super::super::types::AttributeValue::Bs(super::super::protocol_serde::shape_binary_set_attribute_value::de_binary_set_attribute_value(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'BS' cannot be null"))?)),
-                        "M" => Some(super::super::types::AttributeValue::M(super::super::protocol_serde::shape_map_attribute_value::de_map_attribute_value(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'M' cannot be null"))?)),
-                        "L" => Some(super::super::types::AttributeValue::L(super::super::protocol_serde::shape_list_attribute_value::de_list_attribute_value(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'L' cannot be null"))?)),
-                        "NULL" => Some(super::super::types::AttributeValue::Null(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'NULL' cannot be null"))?)),
-                        "BOOL" => Some(super::super::types::AttributeValue::Bool(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'BOOL' cannot be null"))?)),
+                            .transpose()?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'N' cannot be null"))?
+                            ))
+                        }
+                        "B" => {
+                            Some(super::super::types::AttributeValue::B(
+                                ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'B' cannot be null"))?
+                            ))
+                        }
+                        "SS" => {
+                            Some(super::super::types::AttributeValue::Ss(
+                                super::super::protocol_serde::shape_string_set_attribute_value::de_string_set_attribute_value(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'SS' cannot be null"))?
+                            ))
+                        }
+                        "NS" => {
+                            Some(super::super::types::AttributeValue::Ns(
+                                super::super::protocol_serde::shape_number_set_attribute_value::de_number_set_attribute_value(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'NS' cannot be null"))?
+                            ))
+                        }
+                        "BS" => {
+                            Some(super::super::types::AttributeValue::Bs(
+                                super::super::protocol_serde::shape_binary_set_attribute_value::de_binary_set_attribute_value(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'BS' cannot be null"))?
+                            ))
+                        }
+                        "M" => {
+                            Some(super::super::types::AttributeValue::M(
+                                super::super::protocol_serde::shape_map_attribute_value::de_map_attribute_value(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'M' cannot be null"))?
+                            ))
+                        }
+                        "L" => {
+                            Some(super::super::types::AttributeValue::L(
+                                super::super::protocol_serde::shape_list_attribute_value::de_list_attribute_value(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'L' cannot be null"))?
+                            ))
+                        }
+                        "NULL" => {
+                            Some(super::super::types::AttributeValue::Null(
+                                ::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'NULL' cannot be null"))?
+                            ))
+                        }
+                        "BOOL" => {
+                            Some(super::super::types::AttributeValue::Bool(
+                                ::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'BOOL' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::AttributeValue::Unknown)

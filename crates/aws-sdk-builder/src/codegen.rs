@@ -11237,7 +11237,11 @@ fn render_json_union_deserializer(
         if protocol_shape_kind(selected, target) == "unit" {
             writeln!(output, "                        {name:?} => {{\n                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?;\n                            Some({type_name}::{variant_name})\n                        }}").unwrap();
         } else {
-            writeln!(output, "                        {name:?} => Some({type_name}::{variant_name}({expression}.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom(\"value for '{name}' cannot be null\"))?)),").unwrap();
+            writeln!(
+                output,
+                "                        {name:?} => {{\n                            Some({type_name}::{variant_name}(\n                                {expression}\n                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom(\"value for '{name}' cannot be null\"))?\n                            ))\n                        }}"
+            )
+            .unwrap();
         }
     }
     output.push_str("                        _ => {\n                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?;\n                            Some(");
@@ -18400,6 +18404,13 @@ mod tests {
         assert!(!rendered.contains(
             "if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) ="
         ));
+        assert!(rendered.contains(
+            "                        \"text\" => {\n                            Some(crate::types::Union::Text("
+        ));
+        assert!(
+            !rendered
+                .contains("                        \"text\" => Some(crate::types::Union::Text(")
+        );
     }
 
     #[test]

@@ -39986,7 +39986,12 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "s3OutputDataConfig" => Some(super::super::types::AsyncInvokeOutputDataConfig::S3OutputDataConfig(super::super::protocol_serde::shape_async_invoke_s3_output_data_config::de_async_invoke_s3_output_data_config(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 's3OutputDataConfig' cannot be null"))?)),
+                        "s3OutputDataConfig" => {
+                            Some(super::super::types::AsyncInvokeOutputDataConfig::S3OutputDataConfig(
+                                super::super::protocol_serde::shape_async_invoke_s3_output_data_config::de_async_invoke_s3_output_data_config(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 's3OutputDataConfig' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::AsyncInvokeOutputDataConfig::Unknown)
@@ -40180,7 +40185,12 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "message" => Some(super::super::types::ConverseOutput::Message(super::super::protocol_serde::shape_message::de_message(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'message' cannot be null"))?)),
+                        "message" => {
+                            Some(super::super::types::ConverseOutput::Message(
+                                super::super::protocol_serde::shape_message::de_message(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'message' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::ConverseOutput::Unknown)
@@ -41575,22 +41585,92 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "text" => Some(super::super::types::ContentBlock::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                        "text" => {
+                            Some(super::super::types::ContentBlock::Text(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
-                        "image" => Some(super::super::types::ContentBlock::Image(super::super::protocol_serde::shape_image_block::de_image_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'image' cannot be null"))?)),
-                        "document" => Some(super::super::types::ContentBlock::Document(super::super::protocol_serde::shape_document_block::de_document_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'document' cannot be null"))?)),
-                        "video" => Some(super::super::types::ContentBlock::Video(super::super::protocol_serde::shape_video_block::de_video_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'video' cannot be null"))?)),
-                        "audio" => Some(super::super::types::ContentBlock::Audio(super::super::protocol_serde::shape_audio_block::de_audio_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'audio' cannot be null"))?)),
-                        "toolUse" => Some(super::super::types::ContentBlock::ToolUse(super::super::protocol_serde::shape_tool_use_block::de_tool_use_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolUse' cannot be null"))?)),
-                        "toolResult" => Some(super::super::types::ContentBlock::ToolResult(super::super::protocol_serde::shape_tool_result_block::de_tool_result_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolResult' cannot be null"))?)),
-                        "guardContent" => Some(super::super::types::ContentBlock::GuardContent(super::super::protocol_serde::shape_guardrail_converse_content_block::de_guardrail_converse_content_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'guardContent' cannot be null"))?)),
-                        "cachePoint" => Some(super::super::types::ContentBlock::CachePoint(super::super::protocol_serde::shape_cache_point_block::de_cache_point_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'cachePoint' cannot be null"))?)),
-                        "reasoningContent" => Some(super::super::types::ContentBlock::ReasoningContent(super::super::protocol_serde::shape_reasoning_content_block::de_reasoning_content_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningContent' cannot be null"))?)),
-                        "citationsContent" => Some(super::super::types::ContentBlock::CitationsContent(super::super::protocol_serde::shape_citations_content_block::de_citations_content_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'citationsContent' cannot be null"))?)),
-                        "searchResult" => Some(super::super::types::ContentBlock::SearchResult(super::super::protocol_serde::shape_search_result_block::de_search_result_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'searchResult' cannot be null"))?)),
-                        "toolAddition" => Some(super::super::types::ContentBlock::ToolAddition(super::super::protocol_serde::shape_tool_addition_block::de_tool_addition_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolAddition' cannot be null"))?)),
-                        "toolRemoval" => Some(super::super::types::ContentBlock::ToolRemoval(super::super::protocol_serde::shape_tool_removal_block::de_tool_removal_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolRemoval' cannot be null"))?)),
+                            .transpose()?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?
+                            ))
+                        }
+                        "image" => {
+                            Some(super::super::types::ContentBlock::Image(
+                                super::super::protocol_serde::shape_image_block::de_image_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'image' cannot be null"))?
+                            ))
+                        }
+                        "document" => {
+                            Some(super::super::types::ContentBlock::Document(
+                                super::super::protocol_serde::shape_document_block::de_document_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'document' cannot be null"))?
+                            ))
+                        }
+                        "video" => {
+                            Some(super::super::types::ContentBlock::Video(
+                                super::super::protocol_serde::shape_video_block::de_video_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'video' cannot be null"))?
+                            ))
+                        }
+                        "audio" => {
+                            Some(super::super::types::ContentBlock::Audio(
+                                super::super::protocol_serde::shape_audio_block::de_audio_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'audio' cannot be null"))?
+                            ))
+                        }
+                        "toolUse" => {
+                            Some(super::super::types::ContentBlock::ToolUse(
+                                super::super::protocol_serde::shape_tool_use_block::de_tool_use_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolUse' cannot be null"))?
+                            ))
+                        }
+                        "toolResult" => {
+                            Some(super::super::types::ContentBlock::ToolResult(
+                                super::super::protocol_serde::shape_tool_result_block::de_tool_result_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolResult' cannot be null"))?
+                            ))
+                        }
+                        "guardContent" => {
+                            Some(super::super::types::ContentBlock::GuardContent(
+                                super::super::protocol_serde::shape_guardrail_converse_content_block::de_guardrail_converse_content_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'guardContent' cannot be null"))?
+                            ))
+                        }
+                        "cachePoint" => {
+                            Some(super::super::types::ContentBlock::CachePoint(
+                                super::super::protocol_serde::shape_cache_point_block::de_cache_point_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'cachePoint' cannot be null"))?
+                            ))
+                        }
+                        "reasoningContent" => {
+                            Some(super::super::types::ContentBlock::ReasoningContent(
+                                super::super::protocol_serde::shape_reasoning_content_block::de_reasoning_content_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningContent' cannot be null"))?
+                            ))
+                        }
+                        "citationsContent" => {
+                            Some(super::super::types::ContentBlock::CitationsContent(
+                                super::super::protocol_serde::shape_citations_content_block::de_citations_content_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'citationsContent' cannot be null"))?
+                            ))
+                        }
+                        "searchResult" => {
+                            Some(super::super::types::ContentBlock::SearchResult(
+                                super::super::protocol_serde::shape_search_result_block::de_search_result_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'searchResult' cannot be null"))?
+                            ))
+                        }
+                        "toolAddition" => {
+                            Some(super::super::types::ContentBlock::ToolAddition(
+                                super::super::protocol_serde::shape_tool_addition_block::de_tool_addition_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolAddition' cannot be null"))?
+                            ))
+                        }
+                        "toolRemoval" => {
+                            Some(super::super::types::ContentBlock::ToolRemoval(
+                                super::super::protocol_serde::shape_tool_removal_block::de_tool_removal_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolRemoval' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::ContentBlock::Unknown)
@@ -42426,8 +42506,18 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "text" => Some(super::super::types::GuardrailConverseContentBlock::Text(super::super::protocol_serde::shape_guardrail_converse_text_block::de_guardrail_converse_text_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
-                        "image" => Some(super::super::types::GuardrailConverseContentBlock::Image(super::super::protocol_serde::shape_guardrail_converse_image_block::de_guardrail_converse_image_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'image' cannot be null"))?)),
+                        "text" => {
+                            Some(super::super::types::GuardrailConverseContentBlock::Text(
+                                super::super::protocol_serde::shape_guardrail_converse_text_block::de_guardrail_converse_text_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?
+                            ))
+                        }
+                        "image" => {
+                            Some(super::super::types::GuardrailConverseContentBlock::Image(
+                                super::super::protocol_serde::shape_guardrail_converse_image_block::de_guardrail_converse_image_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'image' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::GuardrailConverseContentBlock::Unknown)
@@ -43373,14 +43463,44 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "text" => Some(super::super::types::ContentBlockDelta::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                        "text" => {
+                            Some(super::super::types::ContentBlockDelta::Text(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
-                        "toolUse" => Some(super::super::types::ContentBlockDelta::ToolUse(super::super::protocol_serde::shape_tool_use_block_delta::de_tool_use_block_delta(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolUse' cannot be null"))?)),
-                        "toolResult" => Some(super::super::types::ContentBlockDelta::ToolResult(super::super::protocol_serde::shape_tool_result_blocks_delta::de_tool_result_blocks_delta(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolResult' cannot be null"))?)),
-                        "reasoningContent" => Some(super::super::types::ContentBlockDelta::ReasoningContent(super::super::protocol_serde::shape_reasoning_content_block_delta::de_reasoning_content_block_delta(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningContent' cannot be null"))?)),
-                        "citation" => Some(super::super::types::ContentBlockDelta::Citation(super::super::protocol_serde::shape_citations_delta::de_citations_delta(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'citation' cannot be null"))?)),
-                        "image" => Some(super::super::types::ContentBlockDelta::Image(super::super::protocol_serde::shape_image_block_delta::de_image_block_delta(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'image' cannot be null"))?)),
+                            .transpose()?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?
+                            ))
+                        }
+                        "toolUse" => {
+                            Some(super::super::types::ContentBlockDelta::ToolUse(
+                                super::super::protocol_serde::shape_tool_use_block_delta::de_tool_use_block_delta(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolUse' cannot be null"))?
+                            ))
+                        }
+                        "toolResult" => {
+                            Some(super::super::types::ContentBlockDelta::ToolResult(
+                                super::super::protocol_serde::shape_tool_result_blocks_delta::de_tool_result_blocks_delta(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolResult' cannot be null"))?
+                            ))
+                        }
+                        "reasoningContent" => {
+                            Some(super::super::types::ContentBlockDelta::ReasoningContent(
+                                super::super::protocol_serde::shape_reasoning_content_block_delta::de_reasoning_content_block_delta(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningContent' cannot be null"))?
+                            ))
+                        }
+                        "citation" => {
+                            Some(super::super::types::ContentBlockDelta::Citation(
+                                super::super::protocol_serde::shape_citations_delta::de_citations_delta(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'citation' cannot be null"))?
+                            ))
+                        }
+                        "image" => {
+                            Some(super::super::types::ContentBlockDelta::Image(
+                                super::super::protocol_serde::shape_image_block_delta::de_image_block_delta(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'image' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::ContentBlockDelta::Unknown)
@@ -43448,9 +43568,24 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "toolUse" => Some(super::super::types::ContentBlockStart::ToolUse(super::super::protocol_serde::shape_tool_use_block_start::de_tool_use_block_start(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolUse' cannot be null"))?)),
-                        "toolResult" => Some(super::super::types::ContentBlockStart::ToolResult(super::super::protocol_serde::shape_tool_result_block_start::de_tool_result_block_start(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolResult' cannot be null"))?)),
-                        "image" => Some(super::super::types::ContentBlockStart::Image(super::super::protocol_serde::shape_image_block_start::de_image_block_start(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'image' cannot be null"))?)),
+                        "toolUse" => {
+                            Some(super::super::types::ContentBlockStart::ToolUse(
+                                super::super::protocol_serde::shape_tool_use_block_start::de_tool_use_block_start(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolUse' cannot be null"))?
+                            ))
+                        }
+                        "toolResult" => {
+                            Some(super::super::types::ContentBlockStart::ToolResult(
+                                super::super::protocol_serde::shape_tool_result_block_start::de_tool_result_block_start(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolResult' cannot be null"))?
+                            ))
+                        }
+                        "image" => {
+                            Some(super::super::types::ContentBlockStart::Image(
+                                super::super::protocol_serde::shape_image_block_start::de_image_block_start(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'image' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::ContentBlockStart::Unknown)
@@ -44680,8 +44815,18 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "reasoningText" => Some(super::super::types::ReasoningContentBlock::ReasoningText(super::super::protocol_serde::shape_reasoning_text_block::de_reasoning_text_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningText' cannot be null"))?)),
-                        "redactedContent" => Some(super::super::types::ReasoningContentBlock::RedactedContent(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'redactedContent' cannot be null"))?)),
+                        "reasoningText" => {
+                            Some(super::super::types::ReasoningContentBlock::ReasoningText(
+                                super::super::protocol_serde::shape_reasoning_text_block::de_reasoning_text_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningText' cannot be null"))?
+                            ))
+                        }
+                        "redactedContent" => {
+                            Some(super::super::types::ReasoningContentBlock::RedactedContent(
+                                ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'redactedContent' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::ReasoningContentBlock::Unknown)
@@ -45261,8 +45406,18 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "bytes" => Some(super::super::types::AudioSource::Bytes(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?)),
-                        "s3Location" => Some(super::super::types::AudioSource::S3Location(super::super::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 's3Location' cannot be null"))?)),
+                        "bytes" => {
+                            Some(super::super::types::AudioSource::Bytes(
+                                ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?
+                            ))
+                        }
+                        "s3Location" => {
+                            Some(super::super::types::AudioSource::S3Location(
+                                super::super::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 's3Location' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::AudioSource::Unknown)
@@ -45436,9 +45591,14 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "text" => Some(super::super::types::CitationGeneratedContent::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                        "text" => {
+                            Some(super::super::types::CitationGeneratedContent::Text(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
+                            .transpose()?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::CitationGeneratedContent::Unknown)
@@ -45657,12 +45817,32 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "bytes" => Some(super::super::types::DocumentSource::Bytes(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?)),
-                        "s3Location" => Some(super::super::types::DocumentSource::S3Location(super::super::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 's3Location' cannot be null"))?)),
-                        "text" => Some(super::super::types::DocumentSource::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                        "bytes" => {
+                            Some(super::super::types::DocumentSource::Bytes(
+                                ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?
+                            ))
+                        }
+                        "s3Location" => {
+                            Some(super::super::types::DocumentSource::S3Location(
+                                super::super::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 's3Location' cannot be null"))?
+                            ))
+                        }
+                        "text" => {
+                            Some(super::super::types::DocumentSource::Text(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
-                        "content" => Some(super::super::types::DocumentSource::Content(super::super::protocol_serde::shape_document_content_blocks::de_document_content_blocks(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'content' cannot be null"))?)),
+                            .transpose()?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?
+                            ))
+                        }
+                        "content" => {
+                            Some(super::super::types::DocumentSource::Content(
+                                super::super::protocol_serde::shape_document_content_blocks::de_document_content_blocks(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'content' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::DocumentSource::Unknown)
@@ -46112,7 +46292,12 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "bytes" => Some(super::super::types::GuardrailConverseImageSource::Bytes(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?)),
+                        "bytes" => {
+                            Some(super::super::types::GuardrailConverseImageSource::Bytes(
+                                ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::GuardrailConverseImageSource::Unknown)
@@ -46576,8 +46761,18 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "bytes" => Some(super::super::types::ImageSource::Bytes(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?)),
-                        "s3Location" => Some(super::super::types::ImageSource::S3Location(super::super::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 's3Location' cannot be null"))?)),
+                        "bytes" => {
+                            Some(super::super::types::ImageSource::Bytes(
+                                ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?
+                            ))
+                        }
+                        "s3Location" => {
+                            Some(super::super::types::ImageSource::S3Location(
+                                super::super::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 's3Location' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::ImageSource::Unknown)
@@ -46664,13 +46859,28 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "text" => Some(super::super::types::ReasoningContentBlockDelta::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                        "text" => {
+                            Some(super::super::types::ReasoningContentBlockDelta::Text(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
-                        "redactedContent" => Some(super::super::types::ReasoningContentBlockDelta::RedactedContent(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'redactedContent' cannot be null"))?)),
-                        "signature" => Some(super::super::types::ReasoningContentBlockDelta::Signature(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .transpose()?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?
+                            ))
+                        }
+                        "redactedContent" => {
+                            Some(super::super::types::ReasoningContentBlockDelta::RedactedContent(
+                                ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'redactedContent' cannot be null"))?
+                            ))
+                        }
+                        "signature" => {
+                            Some(super::super::types::ReasoningContentBlockDelta::Signature(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'signature' cannot be null"))?)),
+                            .transpose()?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'signature' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::ReasoningContentBlockDelta::Unknown)
@@ -47100,14 +47310,44 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "json" => Some(super::super::types::ToolResultContentBlock::Json(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?).ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'json' cannot be null"))?)),
-                        "text" => Some(super::super::types::ToolResultContentBlock::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                        "json" => {
+                            Some(super::super::types::ToolResultContentBlock::Json(
+                                Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?)
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'json' cannot be null"))?
+                            ))
+                        }
+                        "text" => {
+                            Some(super::super::types::ToolResultContentBlock::Text(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
-                        "image" => Some(super::super::types::ToolResultContentBlock::Image(super::super::protocol_serde::shape_image_block::de_image_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'image' cannot be null"))?)),
-                        "document" => Some(super::super::types::ToolResultContentBlock::Document(super::super::protocol_serde::shape_document_block::de_document_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'document' cannot be null"))?)),
-                        "video" => Some(super::super::types::ToolResultContentBlock::Video(super::super::protocol_serde::shape_video_block::de_video_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'video' cannot be null"))?)),
-                        "searchResult" => Some(super::super::types::ToolResultContentBlock::SearchResult(super::super::protocol_serde::shape_search_result_block::de_search_result_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'searchResult' cannot be null"))?)),
+                            .transpose()?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?
+                            ))
+                        }
+                        "image" => {
+                            Some(super::super::types::ToolResultContentBlock::Image(
+                                super::super::protocol_serde::shape_image_block::de_image_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'image' cannot be null"))?
+                            ))
+                        }
+                        "document" => {
+                            Some(super::super::types::ToolResultContentBlock::Document(
+                                super::super::protocol_serde::shape_document_block::de_document_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'document' cannot be null"))?
+                            ))
+                        }
+                        "video" => {
+                            Some(super::super::types::ToolResultContentBlock::Video(
+                                super::super::protocol_serde::shape_video_block::de_video_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'video' cannot be null"))?
+                            ))
+                        }
+                        "searchResult" => {
+                            Some(super::super::types::ToolResultContentBlock::SearchResult(
+                                super::super::protocol_serde::shape_search_result_block::de_search_result_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'searchResult' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::ToolResultContentBlock::Unknown)
@@ -47302,8 +47542,18 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "bytes" => Some(super::super::types::VideoSource::Bytes(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?)),
-                        "s3Location" => Some(super::super::types::VideoSource::S3Location(super::super::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 's3Location' cannot be null"))?)),
+                        "bytes" => {
+                            Some(super::super::types::VideoSource::Bytes(
+                                ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?
+                            ))
+                        }
+                        "s3Location" => {
+                            Some(super::super::types::VideoSource::S3Location(
+                                super::super::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 's3Location' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::VideoSource::Unknown)
@@ -47415,11 +47665,36 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "web" => Some(super::super::types::CitationLocation::Web(super::super::protocol_serde::shape_web_location::de_web_location(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'web' cannot be null"))?)),
-                        "documentChar" => Some(super::super::types::CitationLocation::DocumentChar(super::super::protocol_serde::shape_document_char_location::de_document_char_location(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentChar' cannot be null"))?)),
-                        "documentPage" => Some(super::super::types::CitationLocation::DocumentPage(super::super::protocol_serde::shape_document_page_location::de_document_page_location(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentPage' cannot be null"))?)),
-                        "documentChunk" => Some(super::super::types::CitationLocation::DocumentChunk(super::super::protocol_serde::shape_document_chunk_location::de_document_chunk_location(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentChunk' cannot be null"))?)),
-                        "searchResultLocation" => Some(super::super::types::CitationLocation::SearchResultLocation(super::super::protocol_serde::shape_search_result_location::de_search_result_location(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'searchResultLocation' cannot be null"))?)),
+                        "web" => {
+                            Some(super::super::types::CitationLocation::Web(
+                                super::super::protocol_serde::shape_web_location::de_web_location(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'web' cannot be null"))?
+                            ))
+                        }
+                        "documentChar" => {
+                            Some(super::super::types::CitationLocation::DocumentChar(
+                                super::super::protocol_serde::shape_document_char_location::de_document_char_location(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentChar' cannot be null"))?
+                            ))
+                        }
+                        "documentPage" => {
+                            Some(super::super::types::CitationLocation::DocumentPage(
+                                super::super::protocol_serde::shape_document_page_location::de_document_page_location(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentPage' cannot be null"))?
+                            ))
+                        }
+                        "documentChunk" => {
+                            Some(super::super::types::CitationLocation::DocumentChunk(
+                                super::super::protocol_serde::shape_document_chunk_location::de_document_chunk_location(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentChunk' cannot be null"))?
+                            ))
+                        }
+                        "searchResultLocation" => {
+                            Some(super::super::types::CitationLocation::SearchResultLocation(
+                                super::super::protocol_serde::shape_search_result_location::de_search_result_location(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'searchResultLocation' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::CitationLocation::Unknown)
@@ -47504,9 +47779,14 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "text" => Some(super::super::types::CitationSourceContent::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                        "text" => {
+                            Some(super::super::types::CitationSourceContent::Text(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
+                            .transpose()?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::CitationSourceContent::Unknown)
@@ -47637,9 +47917,14 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "text" => Some(super::super::types::DocumentContentBlock::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                        "text" => {
+                            Some(super::super::types::DocumentContentBlock::Text(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
+                            .transpose()?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::DocumentContentBlock::Unknown)
@@ -47707,13 +47992,48 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "valid" => Some(super::super::types::GuardrailAutomatedReasoningFinding::Valid(super::super::protocol_serde::shape_guardrail_automated_reasoning_valid_finding::de_guardrail_automated_reasoning_valid_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'valid' cannot be null"))?)),
-                        "invalid" => Some(super::super::types::GuardrailAutomatedReasoningFinding::Invalid(super::super::protocol_serde::shape_guardrail_automated_reasoning_invalid_finding::de_guardrail_automated_reasoning_invalid_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'invalid' cannot be null"))?)),
-                        "satisfiable" => Some(super::super::types::GuardrailAutomatedReasoningFinding::Satisfiable(super::super::protocol_serde::shape_guardrail_automated_reasoning_satisfiable_finding::de_guardrail_automated_reasoning_satisfiable_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'satisfiable' cannot be null"))?)),
-                        "impossible" => Some(super::super::types::GuardrailAutomatedReasoningFinding::Impossible(super::super::protocol_serde::shape_guardrail_automated_reasoning_impossible_finding::de_guardrail_automated_reasoning_impossible_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'impossible' cannot be null"))?)),
-                        "translationAmbiguous" => Some(super::super::types::GuardrailAutomatedReasoningFinding::TranslationAmbiguous(super::super::protocol_serde::shape_guardrail_automated_reasoning_translation_ambiguous_finding::de_guardrail_automated_reasoning_translation_ambiguous_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'translationAmbiguous' cannot be null"))?)),
-                        "tooComplex" => Some(super::super::types::GuardrailAutomatedReasoningFinding::TooComplex(super::super::protocol_serde::shape_guardrail_automated_reasoning_too_complex_finding::de_guardrail_automated_reasoning_too_complex_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'tooComplex' cannot be null"))?)),
-                        "noTranslations" => Some(super::super::types::GuardrailAutomatedReasoningFinding::NoTranslations(super::super::protocol_serde::shape_guardrail_automated_reasoning_no_translations_finding::de_guardrail_automated_reasoning_no_translations_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'noTranslations' cannot be null"))?)),
+                        "valid" => {
+                            Some(super::super::types::GuardrailAutomatedReasoningFinding::Valid(
+                                super::super::protocol_serde::shape_guardrail_automated_reasoning_valid_finding::de_guardrail_automated_reasoning_valid_finding(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'valid' cannot be null"))?
+                            ))
+                        }
+                        "invalid" => {
+                            Some(super::super::types::GuardrailAutomatedReasoningFinding::Invalid(
+                                super::super::protocol_serde::shape_guardrail_automated_reasoning_invalid_finding::de_guardrail_automated_reasoning_invalid_finding(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'invalid' cannot be null"))?
+                            ))
+                        }
+                        "satisfiable" => {
+                            Some(super::super::types::GuardrailAutomatedReasoningFinding::Satisfiable(
+                                super::super::protocol_serde::shape_guardrail_automated_reasoning_satisfiable_finding::de_guardrail_automated_reasoning_satisfiable_finding(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'satisfiable' cannot be null"))?
+                            ))
+                        }
+                        "impossible" => {
+                            Some(super::super::types::GuardrailAutomatedReasoningFinding::Impossible(
+                                super::super::protocol_serde::shape_guardrail_automated_reasoning_impossible_finding::de_guardrail_automated_reasoning_impossible_finding(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'impossible' cannot be null"))?
+                            ))
+                        }
+                        "translationAmbiguous" => {
+                            Some(super::super::types::GuardrailAutomatedReasoningFinding::TranslationAmbiguous(
+                                super::super::protocol_serde::shape_guardrail_automated_reasoning_translation_ambiguous_finding::de_guardrail_automated_reasoning_translation_ambiguous_finding(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'translationAmbiguous' cannot be null"))?
+                            ))
+                        }
+                        "tooComplex" => {
+                            Some(super::super::types::GuardrailAutomatedReasoningFinding::TooComplex(
+                                super::super::protocol_serde::shape_guardrail_automated_reasoning_too_complex_finding::de_guardrail_automated_reasoning_too_complex_finding(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'tooComplex' cannot be null"))?
+                            ))
+                        }
+                        "noTranslations" => {
+                            Some(super::super::types::GuardrailAutomatedReasoningFinding::NoTranslations(
+                                super::super::protocol_serde::shape_guardrail_automated_reasoning_no_translations_finding::de_guardrail_automated_reasoning_no_translations_finding(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'noTranslations' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::GuardrailAutomatedReasoningFinding::Unknown)
@@ -48272,10 +48592,20 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "text" => Some(super::super::types::ToolResultBlockDelta::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                        "text" => {
+                            Some(super::super::types::ToolResultBlockDelta::Text(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
-                        "json" => Some(super::super::types::ToolResultBlockDelta::Json(Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?).ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'json' cannot be null"))?)),
+                            .transpose()?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?
+                            ))
+                        }
+                        "json" => {
+                            Some(super::super::types::ToolResultBlockDelta::Json(
+                                Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?)
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'json' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::ToolResultBlockDelta::Unknown)

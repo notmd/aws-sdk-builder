@@ -36,13 +36,48 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "valid" => Some(super::super::types::GuardrailAutomatedReasoningFinding::Valid(super::super::protocol_serde::shape_guardrail_automated_reasoning_valid_finding::de_guardrail_automated_reasoning_valid_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'valid' cannot be null"))?)),
-                        "invalid" => Some(super::super::types::GuardrailAutomatedReasoningFinding::Invalid(super::super::protocol_serde::shape_guardrail_automated_reasoning_invalid_finding::de_guardrail_automated_reasoning_invalid_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'invalid' cannot be null"))?)),
-                        "satisfiable" => Some(super::super::types::GuardrailAutomatedReasoningFinding::Satisfiable(super::super::protocol_serde::shape_guardrail_automated_reasoning_satisfiable_finding::de_guardrail_automated_reasoning_satisfiable_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'satisfiable' cannot be null"))?)),
-                        "impossible" => Some(super::super::types::GuardrailAutomatedReasoningFinding::Impossible(super::super::protocol_serde::shape_guardrail_automated_reasoning_impossible_finding::de_guardrail_automated_reasoning_impossible_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'impossible' cannot be null"))?)),
-                        "translationAmbiguous" => Some(super::super::types::GuardrailAutomatedReasoningFinding::TranslationAmbiguous(super::super::protocol_serde::shape_guardrail_automated_reasoning_translation_ambiguous_finding::de_guardrail_automated_reasoning_translation_ambiguous_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'translationAmbiguous' cannot be null"))?)),
-                        "tooComplex" => Some(super::super::types::GuardrailAutomatedReasoningFinding::TooComplex(super::super::protocol_serde::shape_guardrail_automated_reasoning_too_complex_finding::de_guardrail_automated_reasoning_too_complex_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'tooComplex' cannot be null"))?)),
-                        "noTranslations" => Some(super::super::types::GuardrailAutomatedReasoningFinding::NoTranslations(super::super::protocol_serde::shape_guardrail_automated_reasoning_no_translations_finding::de_guardrail_automated_reasoning_no_translations_finding(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'noTranslations' cannot be null"))?)),
+                        "valid" => {
+                            Some(super::super::types::GuardrailAutomatedReasoningFinding::Valid(
+                                super::super::protocol_serde::shape_guardrail_automated_reasoning_valid_finding::de_guardrail_automated_reasoning_valid_finding(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'valid' cannot be null"))?
+                            ))
+                        }
+                        "invalid" => {
+                            Some(super::super::types::GuardrailAutomatedReasoningFinding::Invalid(
+                                super::super::protocol_serde::shape_guardrail_automated_reasoning_invalid_finding::de_guardrail_automated_reasoning_invalid_finding(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'invalid' cannot be null"))?
+                            ))
+                        }
+                        "satisfiable" => {
+                            Some(super::super::types::GuardrailAutomatedReasoningFinding::Satisfiable(
+                                super::super::protocol_serde::shape_guardrail_automated_reasoning_satisfiable_finding::de_guardrail_automated_reasoning_satisfiable_finding(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'satisfiable' cannot be null"))?
+                            ))
+                        }
+                        "impossible" => {
+                            Some(super::super::types::GuardrailAutomatedReasoningFinding::Impossible(
+                                super::super::protocol_serde::shape_guardrail_automated_reasoning_impossible_finding::de_guardrail_automated_reasoning_impossible_finding(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'impossible' cannot be null"))?
+                            ))
+                        }
+                        "translationAmbiguous" => {
+                            Some(super::super::types::GuardrailAutomatedReasoningFinding::TranslationAmbiguous(
+                                super::super::protocol_serde::shape_guardrail_automated_reasoning_translation_ambiguous_finding::de_guardrail_automated_reasoning_translation_ambiguous_finding(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'translationAmbiguous' cannot be null"))?
+                            ))
+                        }
+                        "tooComplex" => {
+                            Some(super::super::types::GuardrailAutomatedReasoningFinding::TooComplex(
+                                super::super::protocol_serde::shape_guardrail_automated_reasoning_too_complex_finding::de_guardrail_automated_reasoning_too_complex_finding(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'tooComplex' cannot be null"))?
+                            ))
+                        }
+                        "noTranslations" => {
+                            Some(super::super::types::GuardrailAutomatedReasoningFinding::NoTranslations(
+                                super::super::protocol_serde::shape_guardrail_automated_reasoning_no_translations_finding::de_guardrail_automated_reasoning_no_translations_finding(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'noTranslations' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::GuardrailAutomatedReasoningFinding::Unknown)

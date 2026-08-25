@@ -148067,7 +148067,12 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "openSearchIntegrationDetails" => Some(super::super::types::IntegrationDetails::OpenSearchIntegrationDetails(super::super::protocol_serde::shape_open_search_integration_details::de_open_search_integration_details(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'openSearchIntegrationDetails' cannot be null"))?)),
+                        "openSearchIntegrationDetails" => {
+                            Some(super::super::types::IntegrationDetails::OpenSearchIntegrationDetails(
+                                super::super::protocol_serde::shape_open_search_integration_details::de_open_search_integration_details(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'openSearchIntegrationDetails' cannot be null"))?
+                            ))
+                        }
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::IntegrationDetails::Unknown)
