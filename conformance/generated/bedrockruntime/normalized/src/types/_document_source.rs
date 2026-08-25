@@ -36,7 +36,7 @@ impl DocumentSource {
     pub fn is_bytes(&self) -> bool {
         self.as_bytes().is_ok()
     }
-    /// Tries to convert the enum instance into [`Content`](crate::types::DocumentSource::Content), extracting the inner [`Vec::<DocumentContentBlock>`](::std::vec::Vec<crate::types::DocumentContentBlock>).
+    /// Tries to convert the enum instance into [`Content`](crate::types::DocumentSource::Content), extracting the inner [`Vec`](::std::vec::Vec).
     /// Returns `Err(&Self)` if it can't be converted.
     pub fn as_content(&self) -> ::std::result::Result<&::std::vec::Vec<super::super::types::DocumentContentBlock>, &Self> {
         if let DocumentSource::Content(val) = &self {

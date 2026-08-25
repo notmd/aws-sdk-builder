@@ -15441,8 +15441,12 @@ fn render_union(
         let variant = rust_type_name(member_name);
         let function = names::rust_identifier(&names::snake_case(member_name));
         let target = member_target(member).unwrap_or("smithy.api#Unit");
-        let target_name = client_documentation_type(selected, target);
+        // Smithy-RS's `#D` formatter uses the target symbol's name for the
+        // link label, while the Rust type renderer supplies the full generic
+        // type only for the second part of the link.
+        let target_name = client_documentation_symbol_name(selected, target);
         let target_type = type_expr(selected, target, context.clone());
+        let target_link = rust_type_without_generic_arguments(&target_type);
         let boxed = member_is_boxed(member);
         if ordered_members.len() == 1 {
             output.push_str("    #[allow(irrefutable_let_patterns)]\n");
@@ -15457,7 +15461,7 @@ fn render_union(
             let value = if boxed { "val.as_ref()" } else { "val" };
             writeln!(
                 output,
-                "    /// Tries to convert the enum instance into [__BT__{variant}__BT__]({union_path}::{variant}), extracting the inner [__BT__{target_name}__BT__]({target_type}).\n    /// Returns __BT__Err(&Self)__BT__ if it can't be converted.\n    pub fn as_{function}(&self) -> ::std::result::Result<&{target_type}, &Self> {{\n        if let {rust_name}::{variant}(val) = &self {{\n            ::std::result::Result::Ok({value})\n        }} else {{\n            ::std::result::Result::Err(self)\n        }}\n    }}\n    /// Returns true if this is a [__BT__{variant}__BT__]({union_path}::{variant}).\n    pub fn is_{function}(&self) -> bool {{\n        self.as_{function}().is_ok()\n    }}"
+                "    /// Tries to convert the enum instance into [__BT__{variant}__BT__]({union_path}::{variant}), extracting the inner [__BT__{target_name}__BT__]({target_link}).\n    /// Returns __BT__Err(&Self)__BT__ if it can't be converted.\n    pub fn as_{function}(&self) -> ::std::result::Result<&{target_type}, &Self> {{\n        if let {rust_name}::{variant}(val) = &self {{\n            ::std::result::Result::Ok({value})\n        }} else {{\n            ::std::result::Result::Err(self)\n        }}\n    }}\n    /// Returns true if this is a [__BT__{variant}__BT__]({union_path}::{variant}).\n    pub fn is_{function}(&self) -> bool {{\n        self.as_{function}().is_ok()\n    }}"
             )
             .unwrap();
         }
@@ -16249,6 +16253,21 @@ fn client_documentation_type(selected: &SelectedModel, target: &str) -> String {
             }
         }
     }
+}
+
+fn client_documentation_symbol_name(selected: &SelectedModel, target: &str) -> String {
+    let rendered = client_documentation_type(selected, target);
+    rendered
+        .split_once('<')
+        .map(|(name, _)| name.trim_end_matches(':').to_owned())
+        .unwrap_or(rendered)
+}
+
+fn rust_type_without_generic_arguments(rendered: &str) -> String {
+    rendered
+        .split_once('<')
+        .map(|(name, _)| name.to_owned())
+        .unwrap_or_else(|| rendered.to_owned())
 }
 
 fn client_documentation_input_type(selected: &SelectedModel, target: &str) -> String {
@@ -19212,6 +19231,76 @@ mod tests {
                 "Payload::Visible(val) => f.debug_tuple(\"Visible\").field(&val).finish(),"
             )
         );
+    }
+
+    #[test]
+    fn union_accessor_docs_use_symbol_names_for_generic_targets() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "output": {"target": "example#GetOutput"}
+                    },
+                    "example#GetOutput": {
+                        "type": "structure",
+                        "members": {"payload": {"target": "example#Payload"}}
+                    },
+                    "example#Payload": {
+                        "type": "union",
+                        "members": {
+                            "values": {"target": "example#Values"},
+                            "entries": {"target": "example#Entries"}
+                        }
+                    },
+                    "example#Values": {
+                        "type": "list",
+                        "member": {"target": "smithy.api#String"}
+                    },
+                    "example#Entries": {
+                        "type": "map",
+                        "key": {"target": "smithy.api#String"},
+                        "value": {"target": "smithy.api#String"}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let mut rendered = String::new();
+        render_union(
+            &mut rendered,
+            &selected,
+            selected.model.shapes.get("example#Payload").unwrap(),
+            "Payload",
+            &Context::Types {},
+        );
+
+        assert!(
+            rendered.contains("extracting the inner [`HashMap`](::std::collections::HashMap).")
+        );
+        assert!(rendered.contains("extracting the inner [`Vec`](::std::vec::Vec)."));
+        assert!(
+            rendered.contains(
+                "::std::result::Result<&::std::collections::HashMap<::std::string::String,"
+            )
+        );
+        assert!(rendered.contains("::std::result::Result<&::std::vec::Vec<::std::string::String>"));
+        assert!(!rendered.contains("[`HashMap::<"));
+        assert!(!rendered.contains("[`Vec::<"));
     }
 
     #[test]

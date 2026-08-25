@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## dynamodb
-**Progress:** `882/882` files compared · `878` matched · `4` mismatches · `0` missing · `0` extra · `99.55%` match (100.00% means fully matched)
+**Progress:** `882/882` files compared · `879` matched · `3` mismatches · `0` missing · `0` extra · `99.66%` match (100.00% means fully matched)
 
 ### `src/config/endpoint.rs`
 
@@ -900,56 +900,4 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
      Ok(())
  }
-```
-
-### `src/types/_attribute_value.rs`
-
-```diff
---- reference/src/types/_attribute_value.rs
-+++ generated/src/types/_attribute_value.rs
-@@ -75,7 +75,7 @@
-     pub fn is_bool(&self) -> bool {
-         self.as_bool().is_ok()
-     }
--    /// Tries to convert the enum instance into [`Bs`](crate::types::AttributeValue::Bs), extracting the inner [`Vec`](::std::vec::Vec).
-+    /// Tries to convert the enum instance into [`Bs`](crate::types::AttributeValue::Bs), extracting the inner [`Vec::<Blob>`](::std::vec::Vec<::aws_smithy_types::Blob>).
-     /// Returns `Err(&Self)` if it can't be converted.
-     pub fn as_bs(&self) -> ::std::result::Result<&::std::vec::Vec<::aws_smithy_types::Blob>, &Self> {
-         if let AttributeValue::Bs(val) = &self {
-@@ -88,7 +88,7 @@
-     pub fn is_bs(&self) -> bool {
-         self.as_bs().is_ok()
-     }
--    /// Tries to convert the enum instance into [`L`](crate::types::AttributeValue::L), extracting the inner [`Vec`](::std::vec::Vec).
-+    /// Tries to convert the enum instance into [`L`](crate::types::AttributeValue::L), extracting the inner [`Vec::<AttributeValue>`](::std::vec::Vec<crate::types::AttributeValue>).
-     /// Returns `Err(&Self)` if it can't be converted.
-     pub fn as_l(&self) -> ::std::result::Result<&::std::vec::Vec<super::super::types::AttributeValue>, &Self> {
-         if let AttributeValue::L(val) = &self {
-@@ -101,7 +101,7 @@
-     pub fn is_l(&self) -> bool {
-         self.as_l().is_ok()
-     }
--    /// Tries to convert the enum instance into [`M`](crate::types::AttributeValue::M), extracting the inner [`HashMap`](::std::collections::HashMap).
-+    /// Tries to convert the enum instance into [`M`](crate::types::AttributeValue::M), extracting the inner [`HashMap::<String, AttributeValue>`](::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>).
-     /// Returns `Err(&Self)` if it can't be converted.
-     pub fn as_m(&self) -> ::std::result::Result<&::std::collections::HashMap<::std::string::String, super::super::types::AttributeValue>, &Self> {
-         if let AttributeValue::M(val) = &self {
-@@ -127,7 +127,7 @@
-     pub fn is_n(&self) -> bool {
-         self.as_n().is_ok()
-     }
--    /// Tries to convert the enum instance into [`Ns`](crate::types::AttributeValue::Ns), extracting the inner [`Vec`](::std::vec::Vec).
-+    /// Tries to convert the enum instance into [`Ns`](crate::types::AttributeValue::Ns), extracting the inner [`Vec::<String>`](::std::vec::Vec<::std::string::String>).
-     /// Returns `Err(&Self)` if it can't be converted.
-     pub fn as_ns(&self) -> ::std::result::Result<&::std::vec::Vec<::std::string::String>, &Self> {
-         if let AttributeValue::Ns(val) = &self {
-@@ -166,7 +166,7 @@
-     pub fn is_s(&self) -> bool {
-         self.as_s().is_ok()
-     }
--    /// Tries to convert the enum instance into [`Ss`](crate::types::AttributeValue::Ss), extracting the inner [`Vec`](::std::vec::Vec).
-+    /// Tries to convert the enum instance into [`Ss`](crate::types::AttributeValue::Ss), extracting the inner [`Vec::<String>`](::std::vec::Vec<::std::string::String>).
-     /// Returns `Err(&Self)` if it can't be converted.
-     pub fn as_ss(&self) -> ::std::result::Result<&::std::vec::Vec<::std::string::String>, &Self> {
-         if let AttributeValue::Ss(val) = &self {
 ```

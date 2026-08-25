@@ -4,6 +4,26 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match Smithy union documentation links
+- State: in progress
+- Changed: union accessor documentation now uses the target Rust symbol name and
+  qualified non-generic link destination (`Vec`, `HashMap`, and similar), while the
+  accessor return type retains its full generic arguments. This follows Smithy-RS
+  `UnionGenerator.renderAsVariant` and `RustDocLinker`; the rule is generic and
+  model-driven.
+- Evidence: compared the pinned Smithy-RS `UnionGenerator.kt`, `RustType.qualifiedName`,
+  and `RustDocLinker` at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`. Added a list/map union regression.
+  `just conformance` regenerated all 15 services and 1,133 operations, formatted
+  13,166 generated Rust files, and reported no generated-source parse errors.
+- Conformance: `13,069/13,168` exact, `96` mismatches, `2` missing, and `1` extra
+  (`99.11%`) -> `13,072/13,168` exact, `93` mismatches, `2` missing, and `1` extra
+  (`99.15%`). Bedrock Runtime improved from 529 to 531 exact files and DynamoDB from
+  878 to 879.
+- Blocker: `just conformance` still exits 1 because protocol ordering, serde/runtime,
+  documentation, shape, and export parity gaps remain.
+- Next action: isolate the next generic mismatch cluster from the refreshed reports.
+
 ### Checkpoint: 2026-08-25 — Interleave JSON payload input helpers
 - State: in progress
 - Changed: JSON protocol inputs with non-event-stream `@httpPayload` members now emit

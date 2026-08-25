@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `529` matched · `7` mismatches · `0` missing · `0` extra · `98.69%` match (100.00% means fully matched)
+**Progress:** `536/536` files compared · `531` matched · `5` mismatches · `0` missing · `0` extra · `99.07%` match (100.00% means fully matched)
 
 ### `src/protocol_serde/shape_guardrail_automated_reasoning_finding.rs`
 
@@ -490,38 +490,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn video_block_correct_errors(mut builder: super::types::builders::VideoBlockBuilder) -> super::types::builders::VideoBlockBuilder {
      if builder.format.is_none() {
          builder.format = "no value was set".parse::<super::types::VideoFormat>().ok()
-```
-
-### `src/types/_content_block_delta.rs`
-
-```diff
---- reference/src/types/_content_block_delta.rs
-+++ generated/src/types/_content_block_delta.rs
-@@ -79,7 +79,7 @@
-     pub fn is_text(&self) -> bool {
-         self.as_text().is_ok()
-     }
--    /// Tries to convert the enum instance into [`ToolResult`](crate::types::ContentBlockDelta::ToolResult), extracting the inner [`Vec`](::std::vec::Vec).
-+    /// Tries to convert the enum instance into [`ToolResult`](crate::types::ContentBlockDelta::ToolResult), extracting the inner [`Vec::<ToolResultBlockDelta>`](::std::vec::Vec<crate::types::ToolResultBlockDelta>).
-     /// Returns `Err(&Self)` if it can't be converted.
-     pub fn as_tool_result(&self) -> ::std::result::Result<&::std::vec::Vec<super::super::types::ToolResultBlockDelta>, &Self> {
-         if let ContentBlockDelta::ToolResult(val) = &self {
-```
-
-### `src/types/_document_source.rs`
-
-```diff
---- reference/src/types/_document_source.rs
-+++ generated/src/types/_document_source.rs
-@@ -36,7 +36,7 @@
-     pub fn is_bytes(&self) -> bool {
-         self.as_bytes().is_ok()
-     }
--    /// Tries to convert the enum instance into [`Content`](crate::types::DocumentSource::Content), extracting the inner [`Vec`](::std::vec::Vec).
-+    /// Tries to convert the enum instance into [`Content`](crate::types::DocumentSource::Content), extracting the inner [`Vec::<DocumentContentBlock>`](::std::vec::Vec<crate::types::DocumentContentBlock>).
-     /// Returns `Err(&Self)` if it can't be converted.
-     pub fn as_content(&self) -> ::std::result::Result<&::std::vec::Vec<super::super::types::DocumentContentBlock>, &Self> {
-         if let DocumentSource::Content(val) = &self {
 ```
 
 ### `src/types/error/builders.rs`

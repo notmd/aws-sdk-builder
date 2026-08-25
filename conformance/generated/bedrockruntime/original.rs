@@ -18280,7 +18280,7 @@ pub fn as_text(&self) -> ::std::result::Result<&::std::string::String, &Self> {
 pub fn is_text(&self) -> bool {
     self.as_text().is_ok()
 }
-/// Tries to convert the enum instance into [`ToolResult`](crate::types::ContentBlockDelta::ToolResult), extracting the inner [`Vec::<ToolResultBlockDelta>`](::std::vec::Vec<crate::types::ToolResultBlockDelta>).
+/// Tries to convert the enum instance into [`ToolResult`](crate::types::ContentBlockDelta::ToolResult), extracting the inner [`Vec`](::std::vec::Vec).
 /// Returns `Err(&Self)` if it can't be converted.
 pub fn as_tool_result(&self) -> ::std::result::Result<&::std::vec::Vec<super::super::types::ToolResultBlockDelta>, &Self> {
     if let ContentBlockDelta::ToolResult(val) = &self {
@@ -20049,7 +20049,7 @@ pub fn as_bytes(&self) -> ::std::result::Result<&::aws_smithy_types::Blob, &Self
 pub fn is_bytes(&self) -> bool {
     self.as_bytes().is_ok()
 }
-/// Tries to convert the enum instance into [`Content`](crate::types::DocumentSource::Content), extracting the inner [`Vec::<DocumentContentBlock>`](::std::vec::Vec<crate::types::DocumentContentBlock>).
+/// Tries to convert the enum instance into [`Content`](crate::types::DocumentSource::Content), extracting the inner [`Vec`](::std::vec::Vec).
 /// Returns `Err(&Self)` if it can't be converted.
 pub fn as_content(&self) -> ::std::result::Result<&::std::vec::Vec<super::super::types::DocumentContentBlock>, &Self> {
     if let DocumentSource::Content(val) = &self {
