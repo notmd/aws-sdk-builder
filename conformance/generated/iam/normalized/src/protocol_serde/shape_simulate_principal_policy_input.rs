@@ -39,75 +39,77 @@ pub fn ser_simulate_principal_policy_input_input_input(
         for item_15 in var_14 {
             #[allow(unused_mut)]
             let mut entry_17 = list_16.entry();
-            super::super::protocol_serde::shape_policy_identifier::ser_policy_identifier(entry_17, item_15)?;
+            #[allow(unused_mut)]
+            let mut scope_18 = entry_17.prefix("member");
+            super::super::protocol_serde::shape_policy_identifier::ser_policy_identifier(scope_18, item_15)?;
         }
         list_16.finish();
     }
     #[allow(unused_mut)]
-    let mut scope_18 = writer.prefix("ActionNames");
-    if let Some(var_19) = &input.action_names {
-        let mut list_21 = scope_18.start_list(false, None);
-        for item_20 in var_19 {
+    let mut scope_19 = writer.prefix("ActionNames");
+    if let Some(var_20) = &input.action_names {
+        let mut list_22 = scope_19.start_list(false, None);
+        for item_21 in var_20 {
             #[allow(unused_mut)]
-            let mut entry_22 = list_21.entry();
-            entry_22.string(item_20);
+            let mut entry_23 = list_22.entry();
+            entry_23.string(item_21);
         }
-        list_21.finish();
+        list_22.finish();
     }
     #[allow(unused_mut)]
-    let mut scope_23 = writer.prefix("ResourceArns");
-    if let Some(var_24) = &input.resource_arns {
-        let mut list_26 = scope_23.start_list(false, None);
-        for item_25 in var_24 {
+    let mut scope_24 = writer.prefix("ResourceArns");
+    if let Some(var_25) = &input.resource_arns {
+        let mut list_27 = scope_24.start_list(false, None);
+        for item_26 in var_25 {
             #[allow(unused_mut)]
-            let mut entry_27 = list_26.entry();
-            entry_27.string(item_25);
+            let mut entry_28 = list_27.entry();
+            entry_28.string(item_26);
         }
-        list_26.finish();
+        list_27.finish();
     }
     #[allow(unused_mut)]
-    let mut scope_28 = writer.prefix("ResourcePolicy");
-    if let Some(var_29) = &input.resource_policy {
-        scope_28.string(var_29);
+    let mut scope_29 = writer.prefix("ResourcePolicy");
+    if let Some(var_30) = &input.resource_policy {
+        scope_29.string(var_30);
     }
     #[allow(unused_mut)]
-    let mut scope_30 = writer.prefix("ResourceOwner");
-    if let Some(var_31) = &input.resource_owner {
-        scope_30.string(var_31);
+    let mut scope_31 = writer.prefix("ResourceOwner");
+    if let Some(var_32) = &input.resource_owner {
+        scope_31.string(var_32);
     }
     #[allow(unused_mut)]
-    let mut scope_32 = writer.prefix("CallerArn");
-    if let Some(var_33) = &input.caller_arn {
-        scope_32.string(var_33);
+    let mut scope_33 = writer.prefix("CallerArn");
+    if let Some(var_34) = &input.caller_arn {
+        scope_33.string(var_34);
     }
     #[allow(unused_mut)]
-    let mut scope_34 = writer.prefix("ContextEntries");
-    if let Some(var_35) = &input.context_entries {
-        let mut list_37 = scope_34.start_list(false, None);
-        for item_36 in var_35 {
+    let mut scope_35 = writer.prefix("ContextEntries");
+    if let Some(var_36) = &input.context_entries {
+        let mut list_38 = scope_35.start_list(false, None);
+        for item_37 in var_36 {
             #[allow(unused_mut)]
-            let mut entry_38 = list_37.entry();
-            super::super::protocol_serde::shape_context_entry::ser_context_entry(entry_38, item_36)?;
+            let mut entry_39 = list_38.entry();
+            super::super::protocol_serde::shape_context_entry::ser_context_entry(entry_39, item_37)?;
         }
-        list_37.finish();
+        list_38.finish();
     }
     #[allow(unused_mut)]
-    let mut scope_39 = writer.prefix("ResourceHandlingOption");
-    if let Some(var_40) = &input.resource_handling_option {
-        scope_39.string(var_40);
+    let mut scope_40 = writer.prefix("ResourceHandlingOption");
+    if let Some(var_41) = &input.resource_handling_option {
+        scope_40.string(var_41);
     }
     #[allow(unused_mut)]
-    let mut scope_41 = writer.prefix("MaxItems");
-    if let Some(var_42) = &input.max_items {
-        scope_41.number(
+    let mut scope_42 = writer.prefix("MaxItems");
+    if let Some(var_43) = &input.max_items {
+        scope_42.number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_42).into()),
+            ::aws_smithy_types::Number::NegInt((*var_43).into()),
         );
     }
     #[allow(unused_mut)]
-    let mut scope_43 = writer.prefix("Marker");
-    if let Some(var_44) = &input.marker {
-        scope_43.string(var_44);
+    let mut scope_44 = writer.prefix("Marker");
+    if let Some(var_45) = &input.marker {
+        scope_44.string(var_45);
     }
     writer.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))

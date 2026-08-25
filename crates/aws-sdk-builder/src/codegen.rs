@@ -8469,6 +8469,7 @@ fn render_query_protocol_input_file(selected: &SelectedModel, operation_name: &s
             &format!("input.{}", names::rust_identifier(&member_name)),
             false,
             true,
+            true,
             &mut state,
         );
     }
@@ -8569,18 +8570,24 @@ fn render_query_member(
     expression: &str,
     expression_is_ref: bool,
     optional: bool,
+    prefix_member: bool,
     state: &mut ProtocolRenderState,
 ) {
     let Some(target) = member_target(member) else {
         return;
     };
-    let scope = state.scope();
-    let wire_name = query_member_wire_name(member_name, member);
-    writeln!(
-        output,
-        "    #[allow(unused_mut)]\n    let mut {scope} = {writer}.prefix({wire_name:?});"
-    )
-    .unwrap();
+    let scope = if prefix_member {
+        let scope = state.scope();
+        let wire_name = query_member_wire_name(member_name, member);
+        writeln!(
+            output,
+            "    #[allow(unused_mut)]\n    let mut {scope} = {writer}.prefix({wire_name:?});"
+        )
+        .unwrap();
+        scope
+    } else {
+        writer.to_owned()
+    };
     if optional {
         let variable = state.temp();
         let optional_expression = if expression.starts_with('&') {
@@ -8597,7 +8604,7 @@ fn render_query_member(
             output, selected, member, target, &scope, &variable, true, state,
         );
         output.push_str("    }\n");
-    } else {
+    } else if prefix_member && protocol_shape_kind(selected, target) != "union" {
         output.push_str("    {\n");
         render_query_value(
             output,
@@ -8610,6 +8617,17 @@ fn render_query_member(
             state,
         );
         output.push_str("    }\n");
+    } else {
+        render_query_value(
+            output,
+            selected,
+            member,
+            target,
+            &scope,
+            expression,
+            expression_is_ref,
+            state,
+        );
     }
 }
 
@@ -8675,16 +8693,32 @@ fn render_query_value(
                 "        let mut {list} = {writer}.start_list({flat}, {member_override});\n        for {item} in {value} {{\n            #[allow(unused_mut)]\n            let mut {entry} = {list}.entry();"
             )
             .unwrap();
-            render_query_value(
-                output,
-                selected,
-                list_member,
-                member_target(list_member).unwrap_or_default(),
-                &entry,
-                &item,
-                true,
-                state,
-            );
+            let list_target = member_target(list_member).unwrap_or_default();
+            if protocol_shape_kind(selected, list_target) == "union" {
+                render_query_member(
+                    output,
+                    selected,
+                    "member",
+                    list_member,
+                    &entry,
+                    &item,
+                    true,
+                    false,
+                    true,
+                    state,
+                );
+            } else {
+                render_query_value(
+                    output,
+                    selected,
+                    list_member,
+                    list_target,
+                    &entry,
+                    &item,
+                    true,
+                    state,
+                );
+            }
             output.push_str(&format!("        }}\n        {list}.finish();\n"));
         }
         "map" => {
@@ -8713,16 +8747,32 @@ fn render_query_value(
             )
             .unwrap();
             output.push_str("            {\n");
-            render_query_value(
-                output,
-                selected,
-                value_member,
-                member_target(value_member).unwrap_or_default(),
-                &entry,
-                &value,
-                true,
-                state,
-            );
+            let value_target = member_target(value_member).unwrap_or_default();
+            if protocol_shape_kind(selected, value_target) == "union" {
+                render_query_member(
+                    output,
+                    selected,
+                    "value",
+                    value_member,
+                    &entry,
+                    &value,
+                    true,
+                    false,
+                    true,
+                    state,
+                );
+            } else {
+                render_query_value(
+                    output,
+                    selected,
+                    value_member,
+                    value_target,
+                    &entry,
+                    &value,
+                    true,
+                    state,
+                );
+            }
             output.push_str(&format!(
                 "            }}\n        }}\n        {map}.finish();\n"
             ));
@@ -8755,6 +8805,7 @@ fn render_query_protocol_structure_serializer(
             &format!("&input.{}", names::rust_identifier(&member_name)),
             true,
             protocol_member_is_optional(selected, member),
+            true,
             state,
         );
     }
@@ -8805,6 +8856,7 @@ fn render_query_protocol_union_serializer(
                 "writer",
                 binding,
                 true,
+                false,
                 false,
                 state,
             );
@@ -18396,6 +18448,80 @@ mod tests {
         assert!(expression.contains("invalid base64: {err:?}"));
         assert!(expression.contains("::aws_smithy_types::Blob::new"));
         assert!(!expression.contains(".into()"));
+    }
+
+    #[test]
+    fn query_union_serialization_scopes_variants_at_the_containing_member() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#awsQuery": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "input": {"target": "example#Input"}
+                    },
+                    "example#Input": {
+                        "type": "structure",
+                        "members": {
+                            "policies": {"target": "example#PolicyList"}
+                        }
+                    },
+                    "example#PolicyList": {
+                        "type": "list",
+                        "member": {"target": "example#Policy"}
+                    },
+                    "example#Policy": {
+                        "type": "union",
+                        "members": {
+                            "policyType": {"target": "smithy.api#String"},
+                            "policyArn": {"target": "smithy.api#String"}
+                        }
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+
+        let union = selected.model.shapes.get("example#Policy").unwrap();
+        let mut union_output = String::new();
+        render_query_protocol_union_serializer(
+            &mut union_output,
+            &selected,
+            "example#Policy",
+            union,
+            &mut ProtocolRenderState::default(),
+        );
+        assert!(union_output.contains("writer.string(inner);"));
+        assert!(!union_output.contains("writer.prefix(\"policyType\")"));
+
+        let input_id = operation_shape(&selected, "Get")
+            .and_then(|operation| operation.get("input"))
+            .and_then(target_value)
+            .unwrap();
+        let input = selected.model.shapes.get(input_id).unwrap();
+        let mut input_output = String::new();
+        render_query_protocol_structure_serializer(
+            &mut input_output,
+            &selected,
+            input_id,
+            input,
+            &mut ProtocolRenderState::default(),
+        );
+        assert!(input_output.contains(".prefix(\"member\")"));
+        assert!(input_output.contains("ser_policy(scope_"));
     }
 
     #[test]
