@@ -14,8 +14,8 @@ and the next parity work.
   `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - The generator is Rust-native, model-driven, and regenerated 15 services and
   1,133 operations in the latest run.
-- Latest conformance: `13,087/13,167` exact, `78` mismatches, `2` missing,
-  `0` extra (`99.29%`). `just conformance` remains non-zero until parity is
+- Latest conformance: `13,089/13,167` exact, `77` mismatches, `1` missing,
+  `0` extra (`99.34%`). `just conformance` remains non-zero until parity is
   complete.
 
 ## Checkpoint: 2026-08-25 — Match JSON union deserializer blocks
@@ -29,6 +29,21 @@ and the next parity work.
   13,165 generated Rust files, and found no generated-source parse errors.
 - Conformance improved from `13,086` to `13,087` exact files; Bedrock Runtime
   improved from 5 to 4 mismatches.
+
+## Checkpoint: 2026-08-25 — Restore Smithy long-polling customization
+
+- Added the Smithy-RS inline `LongPollingInterceptor` module when a selected
+  operation has the model-derived `aws.api#longPoll` trait or the modeled
+  `WaitTimeSeconds` polling member, and attach it before endpoint-parameter
+  interception as in `LongPollingOperationDecorator.kt`.
+- Compared the pinned Smithy-RS decorator and `/rust-runtime/inlineable/src/long_polling.rs`.
+  Added a focused model-driven renderer regression; no service-name or operation-name
+  renderer branch was added.
+- `just conformance` regenerated all 15 services and 1,133 operations, formatted
+  13,166 generated Rust files, and found no generated-source parse errors.
+- Conformance improved from `13,087/13,167` exact, `78` mismatches, and `2`
+  missing to `13,089/13,167` exact, `77` mismatches, and `1` missing (`99.34%`).
+  SQS now has no missing files and improved from 5 to 4 mismatches.
 
 ## Earlier verified checkpoints
 
@@ -55,7 +70,7 @@ and the next parity work.
 | Lambda | 8 | 0 |
 | SESv2 | 8 | 1 |
 | SNS | 10 | 0 |
-| SQS | 5 | 1 |
+| SQS | 4 | 0 |
 
 Batch, S3, and STS are exact. The remaining clusters are primarily shared
 `protocol_serde.rs` and `serde_util.rs` dependency ordering, error/type export

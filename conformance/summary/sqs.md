@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sqs
-**Progress:** `294/294` files compared · `288` matched · `5` mismatches · `1` missing · `0` extra · `97.96%` match (100.00% means fully matched)
+**Progress:** `294/294` files compared · `290` matched · `4` mismatches · `0` missing · `0` extra · `98.64%` match (100.00% means fully matched)
 
 ### `src/aws_query_compatible_errors.rs`
 
@@ -71,24 +71,3 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.attribute_names.as_deref().unwrap_or_default()
      }
 ```
-
-### `src/operation/receive_message.rs`
-
-```diff
---- reference/src/operation/receive_message.rs
-+++ generated/src/operation/receive_message.rs
-@@ -130,9 +130,6 @@
-                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-             ))
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                super::super::long_polling::LongPollingInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                 ReceiveMessageEndpointParamsInterceptor,
-             ))
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-```
-
-### Missing reference files
-
-- `src/long_polling.rs`

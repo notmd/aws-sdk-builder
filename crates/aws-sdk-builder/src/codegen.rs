@@ -124,6 +124,12 @@ pub(crate) fn generate(
                     render_event_stream_serde_file(&selected),
                 ));
             }
+            if model_has_long_polling_operations(&selected) {
+                service_files.push((
+                    "src/long_polling.rs".to_owned(),
+                    include_str!("../assets/long_polling.rs").to_owned(),
+                ));
+            }
             if model_contains_string(&selected, "AccountId") {
                 service_files.push((
                     "src/account_id_endpoint.rs".to_owned(),
@@ -1235,20 +1241,24 @@ fn model_has_long_polling_operations(selected: &SelectedModel) -> bool {
         let Some(operation) = operation_shape(selected, operation_name) else {
             return false;
         };
-        if has_trait(operation, "aws.api#longPoll") {
-            return true;
-        }
-        let Some(input) = operation
-            .get("input")
-            .and_then(target_value)
-            .and_then(|id| selected.model.shapes.get(id))
-        else {
-            return false;
-        };
-        members(input)
-            .into_iter()
-            .any(|(name, _)| name.eq_ignore_ascii_case("waitTimeSeconds"))
+        operation_is_long_polling(selected, operation)
     })
+}
+
+fn operation_is_long_polling(selected: &SelectedModel, operation: &Value) -> bool {
+    if has_trait(operation, "aws.api#longPoll") {
+        return true;
+    }
+    let Some(input) = operation
+        .get("input")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id))
+    else {
+        return false;
+    };
+    members(input)
+        .into_iter()
+        .any(|(name, _)| name.eq_ignore_ascii_case("waitTimeSeconds"))
 }
 
 fn model_contains_trait(selected: &SelectedModel, trait_id: &str) -> bool {
@@ -5413,7 +5423,13 @@ fn render_standalone_runtime_plugin(
         );
     }
 
+    let long_polling_interceptor = if operation_is_long_polling(selected, operation) {
+        ".with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(\n                crate::long_polling::LongPollingInterceptor,\n            ))\n"
+    } else {
+        ""
+    };
     let mut additional_interceptors = String::new();
+    additional_interceptors.push_str(long_polling_interceptor);
     if operation_has_s3_expires_output(selected, operation) {
         additional_interceptors.push_str(
             "            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(\n                crate::s3_expires_interceptor::S3ExpiresInterceptor,\n            ))\n",
@@ -5586,6 +5602,15 @@ fn render_standalone_runtime_plugin(
         aws_error_classifier = aws_error_classifier,
     )
     .unwrap();
+    if !long_polling_interceptor.is_empty() {
+        let endpoint_interceptor = format!(
+            ".with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent({operation_type}EndpointParamsInterceptor))\n"
+        );
+        *output = output.replace(
+            &format!("{endpoint_interceptor}{long_polling_interceptor}"),
+            &format!("{long_polling_interceptor}{endpoint_interceptor}"),
+        );
+    }
     if !stalled_stream_protection {
         *output = output.replace(
             ".with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))\n",
@@ -17911,6 +17936,52 @@ mod tests {
             output_modules.find("mod event_stream_serde;").unwrap()
                 < output_modules.find("mod serde_util;").unwrap()
         );
+    }
+
+    #[test]
+    fn long_polling_operations_emit_the_inline_interceptor() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Poll"],
+                        "traits": {"aws.protocols#awsQuery": {}}
+                    },
+                    "example#Poll": {
+                        "type": "operation",
+                        "input": {"target": "example#PollInput"},
+                        "output": {"target": "smithy.api#Unit"}
+                    },
+                    "example#PollInput": {
+                        "type": "structure",
+                        "members": {
+                            "waitTimeSeconds": {"target": "smithy.api#Integer"}
+                        },
+                        "traits": {"smithy.api#input": {}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let operation = operation_shape(&selected, "Poll").unwrap();
+
+        assert!(operation_is_long_polling(&selected, operation));
+        let mut modules = String::new();
+        render_standalone_extra_modules(&mut modules, &selected, ProtocolKind::AwsQuery);
+        assert!(modules.contains("pub(crate) mod long_polling;"));
+
+        let rendered = render_operation_file(&selected, "Poll");
+        assert!(rendered.contains("crate::long_polling::LongPollingInterceptor"));
     }
 
     #[test]
