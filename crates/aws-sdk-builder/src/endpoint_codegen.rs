@@ -1566,23 +1566,6 @@ fn render_nodes(output: &mut String, rules: &Value) {
     output.push_str("];\n");
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn singleton_endpoint_url_template_owns_reference() {
-        let mut rendered = String::new();
-        render_owned_url(
-            &mut rendered,
-            &Value::String("{Endpoint}".to_owned()),
-            &[],
-            &[],
-        );
-        assert_eq!(rendered, "endpoint.to_owned()");
-    }
-}
-
 fn decode_base64(value: &str) -> Vec<u8> {
     let mut output = Vec::new();
     let mut buffer = 0u32;
@@ -1867,5 +1850,22 @@ fn render_default_doc(value: &Value) -> String {
                 .join(", ")
         ),
         _ => value.to_string(),
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn singleton_endpoint_url_template_owns_reference() {
+        let mut rendered = String::new();
+        render_owned_url(
+            &mut rendered,
+            &Value::String("{Endpoint}".to_owned()),
+            &[],
+            &[],
+        );
+        assert_eq!(rendered, "endpoint.to_owned()");
     }
 }
