@@ -6584,6 +6584,9 @@ fn render_standalone_operation_error(
         } else {
             output.push_str("    #[allow(missing_docs)] // documentation missing in model\n");
         }
+        if let Some(shape) = selected.model.shapes.get(*error) {
+            render_deprecated_attribute(output, shape, 4);
+        }
         writeln!(
             output,
             "    {error_name}(crate::types::error::{error_name}),"
@@ -17886,6 +17889,50 @@ mod tests {
 
         assert!(value_should_redact(&selected, member, &mut BTreeSet::new()));
         assert!(!structure_has_sensitive_member(&selected, output));
+    }
+
+    #[test]
+    fn operation_error_variants_preserve_deprecated_trait() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "output": {"target": "smithy.api#Unit"},
+                        "errors": [{"target": "example#OldError"}]
+                    },
+                    "example#OldError": {
+                        "type": "structure",
+                        "traits": {
+                            "smithy.api#deprecated": {"message": "use NewError"},
+                            "smithy.api#error": "client"
+                        }
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let operation = operation_shape(&selected, "Get").unwrap();
+        let mut rendered = String::new();
+        render_standalone_operation_error(&mut rendered, &selected, "Get", operation);
+
+        assert!(rendered.contains(
+            "#[deprecated(note = \"use NewError\")]\n    OldError(crate::types::error::OldError),"
+        ));
     }
 
     #[test]

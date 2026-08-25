@@ -319,6 +319,7 @@ pub enum DeleteMessageError {
     /// <p>The specified ID is invalid.</p>
     InvalidAddress(super::super::types::error::InvalidAddress),
     /// <p>The specified receipt handle isn't valid for the current version.</p>
+    #[deprecated(note = "exception has been included in ReceiptHandleIsInvalid")]
     InvalidIdFormat(super::super::types::error::InvalidIdFormat),
     /// <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
     InvalidSecurity(super::super::types::error::InvalidSecurity),

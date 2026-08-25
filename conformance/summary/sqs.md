@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sqs
-**Progress:** `294/294` files compared · `290` matched · `4` mismatches · `0` missing · `0` extra · `98.64%` match (100.00% means fully matched)
+**Progress:** `294/294` files compared · `291` matched · `3` mismatches · `0` missing · `0` extra · `98.98%` match (100.00% means fully matched)
 
 ### `src/aws_query_compatible_errors.rs`
 
@@ -37,21 +37,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  /// <p>For FIFO queues, there can be a maximum of 120,000 in flight messages (received from a queue by a consumer, but not yet deleted from the queue). If you reach this limit, Amazon SQS returns no error messages.</p><important>
  /// <p>If you attempt to set the <code>VisibilityTimeout</code> to a value greater than the maximum time left, Amazon SQS returns an error. Amazon SQS doesn't automatically recalculate and increase the timeout to the maximum remaining time.</p>
  /// <p>Unlike with a queue, when you change the visibility timeout for a specific message the timeout value is applied immediately but isn't saved in memory for that message. If you don't delete a message after it is received, the visibility timeout for the message reverts to the original timeout value (not to the value you set using the <code>ChangeMessageVisibility</code> action) the next time the message is received.</p>
-```
-
-### `src/operation/delete_message.rs`
-
-```diff
---- reference/src/operation/delete_message.rs
-+++ generated/src/operation/delete_message.rs
-@@ -319,7 +319,6 @@
-     /// <p>The specified ID is invalid.</p>
-     InvalidAddress(super::super::types::error::InvalidAddress),
-     /// <p>The specified receipt handle isn't valid for the current version.</p>
--    #[deprecated(note = "exception has been included in ReceiptHandleIsInvalid")]
-     InvalidIdFormat(super::super::types::error::InvalidIdFormat),
-     /// <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
-     InvalidSecurity(super::super::types::error::InvalidSecurity),
 ```
 
 ### `src/operation/receive_message/_receive_message_input.rs`
