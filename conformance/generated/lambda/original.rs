@@ -109871,7 +109871,7 @@ impl ::std::fmt::Debug for OperationUpdate {
         formatter.field("id", &self.id);
         formatter.field("parent_id", &self.parent_id);
         formatter.field("name", &self.name);
-        formatter.field("type", &self.r#type);
+        formatter.field("r#type", &self.r#type);
         formatter.field("sub_type", &self.sub_type);
         formatter.field("action", &self.action);
         formatter.field("payload", &"*** Sensitive Data Redacted ***");
@@ -110059,7 +110059,7 @@ impl ::std::fmt::Debug for OperationUpdateBuilder {
         formatter.field("id", &self.id);
         formatter.field("parent_id", &self.parent_id);
         formatter.field("name", &self.name);
-        formatter.field("type", &self.r#type);
+        formatter.field("r#type", &self.r#type);
         formatter.field("sub_type", &self.sub_type);
         formatter.field("action", &self.action);
         formatter.field("payload", &"*** Sensitive Data Redacted ***");

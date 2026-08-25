@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1077/1077` files compared · `1063` matched · `13` mismatches · `0` missing · `1` extra · `98.70%` match (100.00% means fully matched)
+**Progress:** `1077/1077` files compared · `1064` matched · `12` mismatches · `0` missing · `1` extra · `98.79%` match (100.00% means fully matched)
 
 ### `src/operation/invoke.rs`
 
@@ -896,31 +896,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_log_group(&self) -> &::std::option::Option<::std::string::String> {
          &self.log_group
      }
-```
-
-### `src/types/_operation_update.rs`
-
-```diff
---- reference/src/types/_operation_update.rs
-+++ generated/src/types/_operation_update.rs
-@@ -92,7 +92,7 @@
-         formatter.field("id", &self.id);
-         formatter.field("parent_id", &self.parent_id);
-         formatter.field("name", &self.name);
--        formatter.field("r#type", &self.r#type);
-+        formatter.field("type", &self.r#type);
-         formatter.field("sub_type", &self.sub_type);
-         formatter.field("action", &self.action);
-         formatter.field("payload", &"*** Sensitive Data Redacted ***");
-@@ -360,7 +360,7 @@
-         formatter.field("id", &self.id);
-         formatter.field("parent_id", &self.parent_id);
-         formatter.field("name", &self.name);
--        formatter.field("r#type", &self.r#type);
-+        formatter.field("type", &self.r#type);
-         formatter.field("sub_type", &self.sub_type);
-         formatter.field("action", &self.action);
-         formatter.field("payload", &"*** Sensitive Data Redacted ***");
 ```
 
 ### `src/types/error/builders.rs`

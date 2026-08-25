@@ -30088,7 +30088,7 @@ impl OutputFormat {
 impl ::std::fmt::Debug for OutputFormat {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("OutputFormat");
-        formatter.field("type", &self.r#type);
+        formatter.field("r#type", &self.r#type);
         formatter.field("structure", &"*** Sensitive Data Redacted ***");
         formatter.finish()
     }
@@ -30141,7 +30141,7 @@ impl OutputFormatBuilder {
 impl ::std::fmt::Debug for OutputFormatBuilder {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("OutputFormatBuilder");
-        formatter.field("type", &self.r#type);
+        formatter.field("r#type", &self.r#type);
         formatter.field("structure", &"*** Sensitive Data Redacted ***");
         formatter.finish()
     }

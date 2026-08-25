@@ -14771,7 +14771,6 @@ fn render_sensitive_debug_impl(
     .unwrap();
     for (member_name, member) in members(shape) {
         let field = names::rust_identifier(&member_name);
-        let debug_field = field.strip_prefix("r#").unwrap_or(&field);
         let value =
             if shape_sensitive || value_should_redact(selected, member, &mut BTreeSet::new()) {
                 "&\"*** Sensitive Data Redacted ***\"".to_owned()
@@ -14780,7 +14779,7 @@ fn render_sensitive_debug_impl(
             };
         writeln!(
             output,
-            "{padding}        formatter.field({debug_field:?}, {value});"
+            "{padding}        formatter.field({field:?}, {value});"
         )
         .unwrap();
     }
@@ -15279,7 +15278,6 @@ fn render_sensitive_debug_impl_for_builder(
     .unwrap();
     for (member_name, member) in members(shape) {
         let field = names::rust_identifier(&member_name);
-        let debug_field = field.strip_prefix("r#").unwrap_or(&field);
         let value =
             if shape_sensitive || value_should_redact(selected, member, &mut BTreeSet::new()) {
                 "&\"*** Sensitive Data Redacted ***\"".to_owned()
@@ -15288,7 +15286,7 @@ fn render_sensitive_debug_impl_for_builder(
             };
         writeln!(
             output,
-            "{padding}        formatter.field({debug_field:?}, {value});"
+            "{padding}        formatter.field({field:?}, {value});"
         )
         .unwrap();
     }
@@ -17389,6 +17387,68 @@ mod tests {
             "[`r#type(impl Into<String>)`](crate::operation::get::builders::GetFluentBuilder::type)"
         ));
         assert!(!client.contains("[`type(impl Into<String>)]"));
+    }
+
+    #[test]
+    fn sensitive_debug_labels_keep_raw_reserved_identifiers() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Op"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Op": {
+                        "type": "operation",
+                        "output": {"target": "smithy.api#Unit"}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let shape = serde_json::json!({
+            "type": "structure",
+            "members": {"type": {"target": "smithy.api#String"}},
+            "traits": {"smithy.api#sensitive": {}}
+        });
+        let mut rendered = String::new();
+        render_sensitive_debug_impl(
+            &mut rendered,
+            &selected,
+            &shape,
+            "Sensitive",
+            &Context::Types {},
+            0,
+        );
+        assert!(
+            rendered.contains("formatter.field(\"r#type\", &\"*** Sensitive Data Redacted ***\");")
+        );
+
+        let mut builder = String::new();
+        render_sensitive_debug_impl_for_builder(
+            &mut builder,
+            &selected,
+            &shape,
+            "Sensitive",
+            &Context::Builder {
+                module: "example".to_owned(),
+                input: false,
+            },
+            0,
+        );
+        assert!(
+            builder.contains("formatter.field(\"r#type\", &\"*** Sensitive Data Redacted ***\");")
+        );
     }
 
     #[test]

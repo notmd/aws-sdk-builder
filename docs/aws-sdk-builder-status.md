@@ -4,6 +4,27 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Preserve raw reserved debug labels
+- State: in progress
+- Changed: sensitive structure and builder `Debug` implementations now pass the
+  generated Rust member identifier, including raw identifiers such as `r#type`, to
+  `formatter.field`. This follows Smithy-RS `StructureGenerator` and
+  `BuilderGenerator` and is generic across modeled shapes.
+- Evidence: compared the pinned Smithy-RS generators at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; added a focused sensitive reserved-field
+  regression. `just conformance` regenerated 15 services and 1,133 operations,
+  formatted all 13,166 generated Rust files, and reported no generated-source parse
+  errors. Workspace tests (65), Clippy with `-D warnings`, formatting, and
+  `git diff --check` pass.
+- Conformance: `13,044/13,168` exact, `121` mismatches, `2` missing, and `1` extra
+  (`98.89%`) -> `13,046/13,168` exact, `119` mismatches, `2` missing, and `1` extra
+  (`98.91%`). Bedrock Runtime improved from `521/15` to `522/14` and Lambda from
+  `1,063/13` to `1,064/12`.
+- Blocker: `just conformance` still exits 1 because remaining protocol ordering,
+  serde helper ordering, documentation, shape, and export parity gaps remain.
+- Next action: address the next smallest generic mismatch cluster after this
+  checkpoint, beginning with documentation normalization or error export ordering.
+
 ### Checkpoint: 2026-08-25 — Match modeled retry error kinds
 - State: in progress
 - Changed: modeled retryable error accessors now derive `ClientError`,

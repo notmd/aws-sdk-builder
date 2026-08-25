@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `521` matched · `15` mismatches · `0` missing · `0` extra · `97.20%` match (100.00% means fully matched)
+**Progress:** `536/536` files compared · `522` matched · `14` mismatches · `0` missing · `0` extra · `97.39%` match (100.00% means fully matched)
 
 ### `src/protocol_serde/shape_citation_location.rs`
 
@@ -1092,31 +1092,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  /// <p>A content block for selective guarding with the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a> API operations.</p>
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-```
-
-### `src/types/_output_format.rs`
-
-```diff
---- reference/src/types/_output_format.rs
-+++ generated/src/types/_output_format.rs
-@@ -22,7 +22,7 @@
- impl ::std::fmt::Debug for OutputFormat {
-     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-         let mut formatter = f.debug_struct("OutputFormat");
--        formatter.field("r#type", &self.r#type);
-+        formatter.field("type", &self.r#type);
-         formatter.field("structure", &"*** Sensitive Data Redacted ***");
-         formatter.finish()
-     }
-@@ -90,7 +90,7 @@
- impl ::std::fmt::Debug for OutputFormatBuilder {
-     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-         let mut formatter = f.debug_struct("OutputFormatBuilder");
--        formatter.field("r#type", &self.r#type);
-+        formatter.field("type", &self.r#type);
-         formatter.field("structure", &"*** Sensitive Data Redacted ***");
-         formatter.finish()
-     }
 ```
 
 ### `src/types/error/builders.rs`
