@@ -3,23 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cloudwatchlogs
-**Progress:** `1287/1287` files compared · `1278` matched · `9` mismatches · `0` missing · `0` extra · `99.30%` match (100.00% means fully matched)
-
-### `src/operation/get_log_object.rs`
-
-```diff
---- reference/src/operation/get_log_object.rs
-+++ generated/src/operation/get_log_object.rs
-@@ -299,7 +299,7 @@
-             .downcast_ref::<GetLogObjectInput>()
-             .ok_or("failed to downcast to GetLogObjectInput")?;
-
--        let endpoint_prefix = ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new("stream-").map_err(|err| {
-+        let endpoint_prefix = { ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new("stream-") }.map_err(|err| {
-             ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint prefix could not be built", err)
-         })?;
-         cfg.interceptor_state().store_put(endpoint_prefix);
-```
+**Progress:** `1287/1287` files compared · `1280` matched · `7` mismatches · `0` missing · `0` extra · `99.46%` match (100.00% means fully matched)
 
 ### `src/operation/get_storage_tier_policy.rs`
 
@@ -77,22 +61,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  /// <p>CloudWatch Logs provides default field indexes for all log groups in the Standard log class. Default field indexes are automatically available for the following fields:</p>
  /// <ul>
  /// <li>
-```
-
-### `src/operation/start_live_tail.rs`
-
-```diff
---- reference/src/operation/start_live_tail.rs
-+++ generated/src/operation/start_live_tail.rs
-@@ -299,7 +299,7 @@
-             .downcast_ref::<StartLiveTailInput>()
-             .ok_or("failed to downcast to StartLiveTailInput")?;
-
--        let endpoint_prefix = ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new("stream-").map_err(|err| {
-+        let endpoint_prefix = { ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new("stream-") }.map_err(|err| {
-             ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint prefix could not be built", err)
-         })?;
-         cfg.interceptor_state().store_put(endpoint_prefix);
 ```
 
 ### `src/protocol_serde/shape_get_storage_tier_policy.rs`

@@ -6233,19 +6233,6 @@ fn render_standalone_endpoint_prefix(
     }
 
     let mut output = String::new();
-    output.push_str("        let endpoint_prefix = {\n");
-    for (_, field) in &labels {
-        writeln!(
-            output,
-            "            let {field} = _input.{field}.as_deref().unwrap_or_default();"
-        )
-        .unwrap();
-        writeln!(
-            output,
-            "            if {field}.is_empty() {{\n                return Err(::aws_smithy_runtime_api::client::endpoint::error::InvalidEndpointError::failed_to_construct_uri(\"{field} was unset or empty but must be set as part of the endpoint prefix\").into());\n            }}"
-        )
-        .unwrap();
-    }
     let arguments = labels
         .iter()
         .map(|(label, field)| format!("{label} = {field}"))
@@ -6254,20 +6241,34 @@ fn render_standalone_endpoint_prefix(
     if arguments.is_empty() {
         writeln!(
             output,
-            "            ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new({host_prefix:?})"
+            "        let endpoint_prefix = ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new({host_prefix:?}).map_err(|err| {{\n            ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(\"endpoint prefix could not be built\", err)\n        }})?;"
         )
         .unwrap();
     } else {
+        output.push_str("        let endpoint_prefix = {\n");
+        for (_, field) in &labels {
+            writeln!(
+                output,
+                "            let {field} = _input.{field}.as_deref().unwrap_or_default();"
+            )
+            .unwrap();
+            writeln!(
+                output,
+                "            if {field}.is_empty() {{\n                return Err(::aws_smithy_runtime_api::client::endpoint::error::InvalidEndpointError::failed_to_construct_uri(\"{field} was unset or empty but must be set as part of the endpoint prefix\").into());\n            }}"
+            )
+            .unwrap();
+        }
         output.push_str("            #[allow(clippy::uninlined_format_args)]\n");
         writeln!(
             output,
             "            ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new(format!({host_prefix:?}, {arguments}))"
         )
         .unwrap();
+        output.push_str(
+            "        }.map_err(|err| ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(\"endpoint prefix could not be built\", err))?;\n",
+        );
     }
-    output.push_str(
-        "        }.map_err(|err| ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(\"endpoint prefix could not be built\", err))?;\n        cfg.interceptor_state().store_put(endpoint_prefix);\n\n",
-    );
+    output.push_str("        cfg.interceptor_state().store_put(endpoint_prefix);\n\n");
     Some(output)
 }
 
@@ -18383,6 +18384,22 @@ mod tests {
         assert!(rendered.contains(
             "query.push_kv(\"Epoch\", &::aws_smithy_http::query::fmt_timestamp(inner_4, ::aws_smithy_types::date_time::Format::EpochSeconds)?);"
         ));
+    }
+
+    #[test]
+    fn static_endpoint_prefix_does_not_use_a_block_wrapper() {
+        let operation = serde_json::json!({
+            "traits": {
+                "smithy.api#endpoint": {"hostPrefix": "stream-"}
+            }
+        });
+        let input = serde_json::json!({"type": "structure", "members": {}});
+        let rendered = render_standalone_endpoint_prefix(&operation, Some(&input)).unwrap();
+
+        assert!(rendered.contains(
+            "let endpoint_prefix = ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new(\"stream-\")"
+        ));
+        assert!(!rendered.contains("let endpoint_prefix = {"));
     }
 
     #[test]

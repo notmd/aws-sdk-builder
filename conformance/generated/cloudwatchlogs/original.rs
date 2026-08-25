@@ -60449,9 +60449,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetLogObjectE
             .downcast_ref::<GetLogObjectInput>()
             .ok_or("failed to downcast to GetLogObjectInput")?;
 
-        let endpoint_prefix = {
-            ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new("stream-")
-        }.map_err(|err| ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint prefix could not be built", err))?;
+        let endpoint_prefix = ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new("stream-").map_err(|err| {
+            ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint prefix could not be built", err)
+        })?;
         cfg.interceptor_state().store_put(endpoint_prefix);
 
         let params = super::super::config::endpoint::Params::builder()
@@ -94189,9 +94189,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for StartLiveTail
             .downcast_ref::<StartLiveTailInput>()
             .ok_or("failed to downcast to StartLiveTailInput")?;
 
-        let endpoint_prefix = {
-            ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new("stream-")
-        }.map_err(|err| ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint prefix could not be built", err))?;
+        let endpoint_prefix = ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new("stream-").map_err(|err| {
+            ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint prefix could not be built", err)
+        })?;
         cfg.interceptor_state().store_put(endpoint_prefix);
 
         let params = super::super::config::endpoint::Params::builder()

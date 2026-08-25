@@ -4,6 +4,27 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Render static endpoint prefixes directly
+- State: in progress
+- Changed: standalone endpoint-prefix generation now emits a direct
+  `EndpointPrefix::new(...).map_err(...)` expression when the model’s
+  `smithy.api#endpoint.hostPrefix` has no labels. Labeled prefixes retain the
+  existing block so their model-derived validation and interpolation remain
+  intact. Added a focused static-prefix regression.
+- Evidence: compared the pinned Smithy-RS endpoint-prefix request interceptor
+  generation at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; `just conformance` regenerated 15
+  services and 1,133 operations, formatted 13,166 generated Rust files, and
+  reported no generated-source parse errors. Workspace tests (67), Clippy with
+  `-D warnings`, formatting, and `git diff --check` pass.
+- Conformance: `13,047/13,168` exact, `118` mismatches, `2` missing, and `1` extra
+  (`98.93%`) -> `13,049/13,168` exact, `116` mismatches, `2` missing, and `1` extra
+  (`98.94%`). CloudWatch Logs improved from `1,278/9` to `1,280/7`.
+- Blocker: `just conformance` still exits 1 because remaining protocol ordering,
+  serde helper ordering, shape, documentation, and export parity gaps remain.
+- Next action: continue with the remaining smallest generic model/protocol parity
+  cluster after this checkpoint.
+
 ### Checkpoint: 2026-08-25 — Match Smithy HTML empty-element normalization
 - State: in progress
 - Changed: documentation normalization now expands self-closing known non-void HTML
