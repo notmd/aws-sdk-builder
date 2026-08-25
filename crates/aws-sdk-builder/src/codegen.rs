@@ -17318,7 +17318,8 @@ fn documentation_pseudo_parent(stack: &[String]) -> bool {
 fn documentation_description_list_context(stack: &[String]) -> bool {
     stack
         .iter()
-        .any(|name| matches!(name.as_str(), "dl" | "dt" | "dd"))
+        .last()
+        .is_some_and(|name| matches!(name.as_str(), "dl" | "dt" | "dd"))
 }
 
 fn documentation_description_list_gap(
