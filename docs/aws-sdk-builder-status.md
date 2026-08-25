@@ -4,6 +4,29 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Render empty AWS JSON request bodies
+- State: in progress
+- Changed: empty AWS JSON operation inputs now retain the normal generated JSON body
+  serializer and protocol-specific `Content-Type` header in standalone request
+  serializers. The rule is driven by the selected `awsJson1.0`/`awsJson1.1`
+  protocol and empty input shape, with no service or operation-name branches. Added
+  a focused regression covering the body, header, and serializer wiring.
+- Evidence: compared the pinned Smithy-RS JSON request serialization path and
+  `JsonSerializerGenerator` at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`. `cargo fmt --all`, workspace tests
+  (69), workspace Clippy with `-D warnings`, rustfmt check, and `git diff --check`
+  pass. `just conformance` regenerated all 15 services and 1,133 operations,
+  formatted 13,166 generated Rust files, and reported no generated-source parse
+  errors.
+- Conformance: `13,058/13,168` exact, `107` mismatches, `2` missing, and `1` extra
+  (`99.00%`) -> `13,062/13,168` exact, `103` mismatches, `2` missing, and `1` extra
+  (`99.03%`). CloudWatch Logs gained one exact operation file, Config gained one,
+  and DynamoDB gained two.
+- Blocker: `just conformance` still exits 1 because protocol helper ordering,
+  documentation, shape, and runtime/customization parity gaps remain.
+- Next action: isolate the next generic JSON protocol dependency-order mismatch,
+  starting with shared serializer/deserializer role ownership in Bedrock Runtime.
+
 ### Checkpoint: 2026-08-25 — Match nested error-correction builder fallibility
 - State: in progress
 - Changed: nested error-correction builders now use the same required-member and

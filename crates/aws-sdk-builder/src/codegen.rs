@@ -5201,11 +5201,16 @@ fn standalone_request_body(
         ProtocolKind::AwsJson1_0 | ProtocolKind::AwsJson1_1
     ) && members(input_shape).is_empty()
     {
+        let content_type = match protocol {
+            ProtocolKind::AwsJson1_0 => "application/x-amz-json-1.0",
+            ProtocolKind::AwsJson1_1 => "application/x-amz-json-1.1",
+            _ => unreachable!(),
+        };
         return (
             format!(
                 "::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_{module}::ser_{module}_input(&input)?)"
             ),
-            None,
+            Some(content_type.to_owned()),
         );
     }
     if let Some((name, member)) = members(input_shape)
@@ -18338,11 +18343,19 @@ mod tests {
             body,
             "::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get::ser_get_input(&input)?)"
         );
-        assert_eq!(content_type, None);
+        assert_eq!(content_type, Some("application/x-amz-json-1.1".to_owned()));
 
         let operation_file = render_json_protocol_operation_file(&selected, "Get");
         assert!(operation_file.contains("pub fn ser_get_input("));
         assert!(operation_file.contains("SdkBody::from(\"{}\")"));
+
+        let standalone = render_standalone_operation_file(&selected, "Get");
+        assert!(standalone.contains(
+            "set_default_header(builder, ::http_1x::header::CONTENT_TYPE, \"application/x-amz-json-1.1\")"
+        ));
+        assert!(standalone.contains(
+            "let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get::ser_get_input(&input)?);"
+        ));
     }
 
     #[test]

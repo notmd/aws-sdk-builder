@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## dynamodb
-**Progress:** `882/882` files compared · `876` matched · `6` mismatches · `0` missing · `0` extra · `99.32%` match (100.00% means fully matched)
+**Progress:** `882/882` files compared · `878` matched · `4` mismatches · `0` missing · `0` extra · `99.55%` match (100.00% means fully matched)
 
 ### `src/config/endpoint.rs`
 
@@ -852,54 +852,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          })(&mut _diagnostic_collector),
                          24 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let parsed_arn_ssa_1 = &context.parsed_arn_ssa_1;
-```
-
-### `src/operation/describe_endpoints.rs`
-
-```diff
---- reference/src/operation/describe_endpoints.rs
-+++ generated/src/operation/describe_endpoints.rs
-@@ -204,7 +204,6 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
-             builder = _header_serialization_settings.set_default_header(
-                 builder,
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-@@ -212,7 +211,7 @@
-             );
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_describe_endpoints::ser_describe_endpoints_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
-```
-
-### `src/operation/describe_limits.rs`
-
-```diff
---- reference/src/operation/describe_limits.rs
-+++ generated/src/operation/describe_limits.rs
-@@ -204,7 +204,6 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
-             builder = _header_serialization_settings.set_default_header(
-                 builder,
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-@@ -212,7 +211,7 @@
-             );
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_describe_limits::ser_describe_limits_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
 ```
 
 ### `src/protocol_serde/shape_put_resource_policy.rs`

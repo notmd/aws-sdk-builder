@@ -3,33 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cloudwatchlogs
-**Progress:** `1287/1287` files compared · `1281` matched · `6` mismatches · `0` missing · `0` extra · `99.53%` match (100.00% means fully matched)
-
-### `src/operation/get_storage_tier_policy.rs`
-
-```diff
---- reference/src/operation/get_storage_tier_policy.rs
-+++ generated/src/operation/get_storage_tier_policy.rs
-@@ -210,7 +210,6 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
-             builder = _header_serialization_settings.set_default_header(
-                 builder,
-                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
-@@ -218,9 +217,7 @@
-             );
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_storage_tier_policy::ser_get_storage_tier_policy_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
-```
+**Progress:** `1287/1287` files compared · `1282` matched · `5` mismatches · `0` missing · `0` extra · `99.61%` match (100.00% means fully matched)
 
 ### `src/operation/put_account_policy/builders.rs`
 
