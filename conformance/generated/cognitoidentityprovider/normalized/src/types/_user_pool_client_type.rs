@@ -131,7 +131,7 @@ pub struct UserPoolClientType {
     /// <p><code>AllowedOAuthFlows</code>: Support for authorization code, implicit, and client credentials OAuth 2.0 grants.</p></li>
     /// </ul>
     /// <p>To use authorization server features, configure one of these features in the Amazon Cognito console or set <code>AllowedOAuthFlowsUserPoolClient</code> to <code>true</code> in a <code>CreateUserPoolClient</code> or <code>UpdateUserPoolClient</code> API request. If you don't set a value for <code>AllowedOAuthFlowsUserPoolClient</code> in a request with the CLI or SDKs, it defaults to <code>false</code>. When <code>false</code>, only SDK-based API sign-in is permitted.</p>
-    pub allowed_o_auth_flows_user_pool_client: bool,
+    pub allowed_o_auth_flows_user_pool_client: ::std::option::Option<bool>,
     /// <p>The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.</p><note>
     /// <p>In Amazon Web Services Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in Amazon Web Services Region us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.</p>
     /// </note>
@@ -332,7 +332,7 @@ impl UserPoolClientType {
     /// <p><code>AllowedOAuthFlows</code>: Support for authorization code, implicit, and client credentials OAuth 2.0 grants.</p></li>
     /// </ul>
     /// <p>To use authorization server features, configure one of these features in the Amazon Cognito console or set <code>AllowedOAuthFlowsUserPoolClient</code> to <code>true</code> in a <code>CreateUserPoolClient</code> or <code>UpdateUserPoolClient</code> API request. If you don't set a value for <code>AllowedOAuthFlowsUserPoolClient</code> in a request with the CLI or SDKs, it defaults to <code>false</code>. When <code>false</code>, only SDK-based API sign-in is permitted.</p>
-    pub fn allowed_o_auth_flows_user_pool_client(&self) -> bool {
+    pub fn allowed_o_auth_flows_user_pool_client(&self) -> ::std::option::Option<bool> {
         self.allowed_o_auth_flows_user_pool_client
     }
     /// <p>The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.</p><note>
@@ -1152,7 +1152,7 @@ impl UserPoolClientTypeBuilder {
             default_redirect_uri: self.default_redirect_uri,
             allowed_o_auth_flows: self.allowed_o_auth_flows,
             allowed_o_auth_scopes: self.allowed_o_auth_scopes,
-            allowed_o_auth_flows_user_pool_client: self.allowed_o_auth_flows_user_pool_client.unwrap_or_default(),
+            allowed_o_auth_flows_user_pool_client: self.allowed_o_auth_flows_user_pool_client,
             analytics_configuration: self.analytics_configuration,
             prevent_user_existence_errors: self.prevent_user_existence_errors,
             enable_token_revocation: self.enable_token_revocation,

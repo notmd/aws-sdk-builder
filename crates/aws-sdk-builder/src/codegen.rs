@@ -14386,7 +14386,7 @@ fn operation_input(context: &Context) -> bool {
 
 fn member_is_effectively_required(selected: &SelectedModel, member: &Value, target: &str) -> bool {
     !has_trait(member, "smithy.api#clientOptional")
-        && (member_is_required(member) || has_trait(member, "smithy.api#default"))
+        && (member_is_required(member) || has_non_null_default(member))
         && !selected.model.shapes.get(target).is_some_and(|shape| {
             matches!(
                 shape.get("type").and_then(Value::as_str),
@@ -14419,6 +14419,14 @@ fn has_trait(value: &Value, trait_id: &str) -> bool {
         .get("traits")
         .and_then(Value::as_object)
         .is_some_and(|traits| traits.contains_key(trait_id))
+}
+
+fn has_non_null_default(value: &Value) -> bool {
+    value
+        .get("traits")
+        .and_then(Value::as_object)
+        .and_then(|traits| traits.get("smithy.api#default"))
+        .is_some_and(|default| !default.is_null())
 }
 
 fn value_should_redact(
@@ -14542,7 +14550,7 @@ fn builder_member_is_required(
     is_event_stream_target(selected, target)
         || (!operation_input(context)
             && member_is_required(member)
-            && !has_trait(member, "smithy.api#default")
+            && !has_non_null_default(member)
             && member_is_effectively_required(selected, member, target))
 }
 
@@ -15367,7 +15375,7 @@ fn render_type_builder(
         // constructing the public operation input. Smithy-RS's
         // `BuilderGenerator` applies a default only when the member symbol is
         // non-optional; operation-input symbols are optional by construction.
-        if has_trait(member, "smithy.api#default") && !operation_input(&context) {
+        if has_non_null_default(member) && !operation_input(&context) {
             if let Some(default) =
                 builder_member_default_expression(selected, member, target, &context)
             {
@@ -20308,6 +20316,59 @@ mod tests {
         assert_eq!(
             structure_member_type(&selected, member, target, &Context::Types {}),
             "::std::option::Option<crate::types::Choice>"
+        );
+    }
+
+    #[test]
+    fn null_defaults_remain_nullable() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Op"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Op": {
+                        "type": "operation",
+                        "input": {"target": "smithy.api#Unit"},
+                        "output": {"target": "example#Output"}
+                    },
+                    "example#Output": {
+                        "type": "structure",
+                        "members": {
+                            "flag": {
+                                "target": "smithy.api#Boolean",
+                                "traits": {"smithy.api#default": null}
+                            }
+                        }
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let output = selected
+            .model
+            .shapes
+            .get("example.synthetic#OpOutput")
+            .unwrap();
+        let (_, member) = members(output).into_iter().next().unwrap();
+        let target = member_target(member).unwrap();
+
+        assert!(!has_non_null_default(member));
+        assert!(!member_is_effectively_required(&selected, member, target));
+        assert_eq!(
+            structure_member_type(&selected, member, target, &Context::Types {}),
+            "::std::option::Option<bool>"
         );
     }
 }

@@ -142142,12 +142142,12 @@ pub struct SchemaAttributeType {
     /// <p>You should use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes">WriteAttributes</a> in the user pool client to control how attributes can be mutated for new use cases instead of using <code>DeveloperOnlyAttribute</code>.</p>
     /// </note>
     /// <p>Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users won't be able to modify this attribute using their access token. For example, <code>DeveloperOnlyAttribute</code> can be modified using AdminUpdateUserAttributes but can't be updated using UpdateUserAttributes.</p>
-    pub developer_only_attribute: bool,
+    pub developer_only_attribute: ::std::option::Option<bool>,
     /// <p>Specifies whether the value of the attribute can be changed.</p>
     /// <p>Any user pool attribute whose value you map from an IdP attribute must be mutable, with a parameter value of <code>true</code>. Amazon Cognito updates mapped attributes when users sign in to your application through an IdP. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying Identity Provider Attribute Mappings for Your User Pool</a>.</p>
-    pub mutable: bool,
+    pub mutable: ::std::option::Option<bool>,
     /// <p>Specifies whether a user pool attribute is required. If the attribute is required and the user doesn't provide a value, registration or sign-in will fail.</p>
-    pub required: bool,
+    pub required: ::std::option::Option<bool>,
     /// <p>Specifies the constraints for an attribute of the number type.</p>
     pub number_attribute_constraints: ::std::option::Option<super::super::types::NumberAttributeConstraintsType>,
     /// <p>Specifies the constraints for an attribute of the string type.</p>
@@ -142166,16 +142166,16 @@ impl SchemaAttributeType {
     /// <p>You should use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes">WriteAttributes</a> in the user pool client to control how attributes can be mutated for new use cases instead of using <code>DeveloperOnlyAttribute</code>.</p>
     /// </note>
     /// <p>Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users won't be able to modify this attribute using their access token. For example, <code>DeveloperOnlyAttribute</code> can be modified using AdminUpdateUserAttributes but can't be updated using UpdateUserAttributes.</p>
-    pub fn developer_only_attribute(&self) -> bool {
+    pub fn developer_only_attribute(&self) -> ::std::option::Option<bool> {
         self.developer_only_attribute
     }
     /// <p>Specifies whether the value of the attribute can be changed.</p>
     /// <p>Any user pool attribute whose value you map from an IdP attribute must be mutable, with a parameter value of <code>true</code>. Amazon Cognito updates mapped attributes when users sign in to your application through an IdP. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying Identity Provider Attribute Mappings for Your User Pool</a>.</p>
-    pub fn mutable(&self) -> bool {
+    pub fn mutable(&self) -> ::std::option::Option<bool> {
         self.mutable
     }
     /// <p>Specifies whether a user pool attribute is required. If the attribute is required and the user doesn't provide a value, registration or sign-in will fail.</p>
-    pub fn required(&self) -> bool {
+    pub fn required(&self) -> ::std::option::Option<bool> {
         self.required
     }
     /// <p>Specifies the constraints for an attribute of the number type.</p>
@@ -142287,9 +142287,9 @@ impl SchemaAttributeTypeBuilder {
         super::super::types::SchemaAttributeType {
             name: self.name,
             attribute_data_type: self.attribute_data_type,
-            developer_only_attribute: self.developer_only_attribute.unwrap_or_default(),
-            mutable: self.mutable.unwrap_or_default(),
-            required: self.required.unwrap_or_default(),
+            developer_only_attribute: self.developer_only_attribute,
+            mutable: self.mutable,
+            required: self.required,
             number_attribute_constraints: self.number_attribute_constraints,
             string_attribute_constraints: self.string_attribute_constraints,
         }
@@ -145048,7 +145048,7 @@ pub struct UserPoolClientType {
     /// <p><code>AllowedOAuthFlows</code>: Support for authorization code, implicit, and client credentials OAuth 2.0 grants.</p></li>
     /// </ul>
     /// <p>To use authorization server features, configure one of these features in the Amazon Cognito console or set <code>AllowedOAuthFlowsUserPoolClient</code> to <code>true</code> in a <code>CreateUserPoolClient</code> or <code>UpdateUserPoolClient</code> API request. If you don't set a value for <code>AllowedOAuthFlowsUserPoolClient</code> in a request with the CLI or SDKs, it defaults to <code>false</code>. When <code>false</code>, only SDK-based API sign-in is permitted.</p>
-    pub allowed_o_auth_flows_user_pool_client: bool,
+    pub allowed_o_auth_flows_user_pool_client: ::std::option::Option<bool>,
     /// <p>The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.</p><note>
     /// <p>In Amazon Web Services Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in Amazon Web Services Region us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.</p>
     /// </note>
@@ -145249,7 +145249,7 @@ impl UserPoolClientType {
     /// <p><code>AllowedOAuthFlows</code>: Support for authorization code, implicit, and client credentials OAuth 2.0 grants.</p></li>
     /// </ul>
     /// <p>To use authorization server features, configure one of these features in the Amazon Cognito console or set <code>AllowedOAuthFlowsUserPoolClient</code> to <code>true</code> in a <code>CreateUserPoolClient</code> or <code>UpdateUserPoolClient</code> API request. If you don't set a value for <code>AllowedOAuthFlowsUserPoolClient</code> in a request with the CLI or SDKs, it defaults to <code>false</code>. When <code>false</code>, only SDK-based API sign-in is permitted.</p>
-    pub fn allowed_o_auth_flows_user_pool_client(&self) -> bool {
+    pub fn allowed_o_auth_flows_user_pool_client(&self) -> ::std::option::Option<bool> {
         self.allowed_o_auth_flows_user_pool_client
     }
     /// <p>The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.</p><note>
@@ -145936,7 +145936,7 @@ impl UserPoolClientTypeBuilder {
             default_redirect_uri: self.default_redirect_uri,
             allowed_o_auth_flows: self.allowed_o_auth_flows,
             allowed_o_auth_scopes: self.allowed_o_auth_scopes,
-            allowed_o_auth_flows_user_pool_client: self.allowed_o_auth_flows_user_pool_client.unwrap_or_default(),
+            allowed_o_auth_flows_user_pool_client: self.allowed_o_auth_flows_user_pool_client,
             analytics_configuration: self.analytics_configuration,
             prevent_user_existence_errors: self.prevent_user_existence_errors,
             enable_token_revocation: self.enable_token_revocation,
@@ -189089,26 +189089,26 @@ if let Some(var_1) = &input.name {
 if let Some(var_2) = &input.attribute_data_type {
     object.key("AttributeDataType").string(var_2.as_str());
 }
-{
-    object.key("DeveloperOnlyAttribute").boolean(input.developer_only_attribute);
+if let Some(var_3) = &input.developer_only_attribute {
+    object.key("DeveloperOnlyAttribute").boolean(*var_3);
 }
-{
-    object.key("Mutable").boolean(input.mutable);
+if let Some(var_4) = &input.mutable {
+    object.key("Mutable").boolean(*var_4);
 }
-{
-    object.key("Required").boolean(input.required);
+if let Some(var_5) = &input.required {
+    object.key("Required").boolean(*var_5);
 }
-if let Some(var_3) = &input.number_attribute_constraints {
+if let Some(var_6) = &input.number_attribute_constraints {
     #[allow(unused_mut)]
-    let mut object_4 = object.key("NumberAttributeConstraints").start_object();
-    super::super::protocol_serde::shape_number_attribute_constraints_type::ser_number_attribute_constraints_type(&mut object_4, var_3)?;
-    object_4.finish();
+    let mut object_7 = object.key("NumberAttributeConstraints").start_object();
+    super::super::protocol_serde::shape_number_attribute_constraints_type::ser_number_attribute_constraints_type(&mut object_7, var_6)?;
+    object_7.finish();
 }
-if let Some(var_5) = &input.string_attribute_constraints {
+if let Some(var_8) = &input.string_attribute_constraints {
     #[allow(unused_mut)]
-    let mut object_6 = object.key("StringAttributeConstraints").start_object();
-    super::super::protocol_serde::shape_string_attribute_constraints_type::ser_string_attribute_constraints_type(&mut object_6, var_5)?;
-    object_6.finish();
+    let mut object_9 = object.key("StringAttributeConstraints").start_object();
+    super::super::protocol_serde::shape_string_attribute_constraints_type::ser_string_attribute_constraints_type(&mut object_9, var_8)?;
+    object_9.finish();
 }
     Ok(())
 }

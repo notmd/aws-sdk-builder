@@ -2,7 +2,7 @@
 
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
-**Summary:** `13167/13167 files compared` · `13093` matched · `74` mismatches · `0` missing · `0` extra · `0` read errors · `99.36%` average match
+**Summary:** `13167/13167 files compared` · `13096` matched · `71` mismatches · `0` missing · `0` extra · `0` read errors · `99.38%` average match
 
 | Service | Compared | Matched | Mismatches | Missing | Extra | Read errors | Match | Report |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
@@ -10,7 +10,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 | bedrockruntime | 536/536 | 532 | 4 | 0 | 0 | 0 | 99.25% | [report](summary/bedrockruntime.md) |
 | cloudwatchlogs | 1287/1287 | 1282 | 5 | 0 | 0 | 0 | 99.61% | [report](summary/cloudwatchlogs.md) |
 | codeartifact | 459/459 | 457 | 2 | 0 | 0 | 0 | 99.56% | [report](summary/codeartifact.md) |
-| cognitoidentityprovider | 1361/1361 | 1352 | 9 | 0 | 0 | 0 | 99.34% | [report](summary/cognitoidentityprovider.md) |
+| cognitoidentityprovider | 1361/1361 | 1355 | 6 | 0 | 0 | 0 | 99.56% | [report](summary/cognitoidentityprovider.md) |
 | config | 1262/1262 | 1256 | 6 | 0 | 0 | 0 | 99.52% | [report](summary/config.md) |
 | dynamodb | 882/882 | 879 | 3 | 0 | 0 | 0 | 99.66% | [report](summary/dynamodb.md) |
 | iam | 1626/1626 | 1614 | 12 | 0 | 0 | 0 | 99.26% | [report](summary/iam.md) |
@@ -21,4 +21,4 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 | sns | 445/445 | 435 | 10 | 0 | 0 | 0 | 97.75% | [report](summary/sns.md) |
 | sqs | 294/294 | 290 | 4 | 0 | 0 | 0 | 98.64% | [report](summary/sqs.md) |
 | sts | 146/146 | 146 | 0 | 0 | 0 | 0 | 100.00% | [report](summary/sts.md) |
-| **Average** | — | — | — | — | — | — | **99.36%** | — |
+| **Average** | — | — | — | — | — | — | **99.38%** | — |

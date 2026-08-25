@@ -9,26 +9,26 @@ pub fn ser_schema_attribute_type(
     if let Some(var_2) = &input.attribute_data_type {
         object.key("AttributeDataType").string(var_2.as_str());
     }
-    {
-        object.key("DeveloperOnlyAttribute").boolean(input.developer_only_attribute);
+    if let Some(var_3) = &input.developer_only_attribute {
+        object.key("DeveloperOnlyAttribute").boolean(*var_3);
     }
-    {
-        object.key("Mutable").boolean(input.mutable);
+    if let Some(var_4) = &input.mutable {
+        object.key("Mutable").boolean(*var_4);
     }
-    {
-        object.key("Required").boolean(input.required);
+    if let Some(var_5) = &input.required {
+        object.key("Required").boolean(*var_5);
     }
-    if let Some(var_3) = &input.number_attribute_constraints {
+    if let Some(var_6) = &input.number_attribute_constraints {
         #[allow(unused_mut)]
-        let mut object_4 = object.key("NumberAttributeConstraints").start_object();
-        super::super::protocol_serde::shape_number_attribute_constraints_type::ser_number_attribute_constraints_type(&mut object_4, var_3)?;
-        object_4.finish();
+        let mut object_7 = object.key("NumberAttributeConstraints").start_object();
+        super::super::protocol_serde::shape_number_attribute_constraints_type::ser_number_attribute_constraints_type(&mut object_7, var_6)?;
+        object_7.finish();
     }
-    if let Some(var_5) = &input.string_attribute_constraints {
+    if let Some(var_8) = &input.string_attribute_constraints {
         #[allow(unused_mut)]
-        let mut object_6 = object.key("StringAttributeConstraints").start_object();
-        super::super::protocol_serde::shape_string_attribute_constraints_type::ser_string_attribute_constraints_type(&mut object_6, var_5)?;
-        object_6.finish();
+        let mut object_9 = object.key("StringAttributeConstraints").start_object();
+        super::super::protocol_serde::shape_string_attribute_constraints_type::ser_string_attribute_constraints_type(&mut object_9, var_8)?;
+        object_9.finish();
     }
     Ok(())
 }
