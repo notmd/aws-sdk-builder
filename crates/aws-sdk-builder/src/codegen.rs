@@ -9433,6 +9433,7 @@ fn render_json_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(S
             let target = member_target(member).unwrap_or_default();
             has_trait(member, "smithy.api#httpPayload")
                 && protocol_shape_kind(selected, target) == "union"
+                && !is_event_stream_member(selected, member)
                 && !member_is_effectively_required(selected, member, target)
         });
         has_payload.then(|| format!("{}_input", names::rust_module_name(operation_name)))
@@ -18846,6 +18847,8 @@ mod tests {
         assert!(operation_input.contains("::aws_smithy_http::event_stream::EventStreamSender<"));
         assert!(!operation_input.contains("::aws_smithy_types::byte_stream::ByteStream"));
         assert!(operation_input.contains("events was not specified but it is required"));
+        let (protocol_serde, _) = render_json_protocol_serde_files(&selected);
+        assert!(!protocol_serde.contains("rest_json_unset_union_payload"));
         let client = render_client_operation_file(&selected, "Invoke");
         assert!(client.contains("events(EventStreamSender<InputEvents, InputEventsError>)"));
         assert!(!client.contains("events(EventReceiver<InputEvents, InputEventsError>)"));

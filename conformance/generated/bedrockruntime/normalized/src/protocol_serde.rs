@@ -75,10 +75,6 @@ pub(crate) mod shape_invoke_model_input;
 
 pub(crate) mod shape_invoke_model_output;
 
-pub fn rest_json_unset_union_payload() -> ::std::vec::Vec<u8> {
-    ::std::vec::Vec::new()
-}
-
 pub(crate) mod shape_invoke_model_with_bidirectional_stream_input;
 
 pub(crate) mod shape_invoke_model_with_bidirectional_stream_output;

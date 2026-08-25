@@ -508,7 +508,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_list_async_invokes;
 
  pub(crate) mod shape_start_async_invoke;
-@@ -75,12 +71,20 @@
+@@ -75,6 +71,8 @@
 
  pub(crate) mod shape_invoke_guardrail_checks_input;
 
@@ -516,11 +516,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
  pub(crate) mod shape_invoke_model_output;
 
-+pub fn rest_json_unset_union_payload() -> ::std::vec::Vec<u8> {
-+    ::std::vec::Vec::new()
-+}
-+
  pub(crate) mod shape_invoke_model_with_bidirectional_stream_input;
+@@ -81,6 +79,8 @@
 
  pub(crate) mod shape_invoke_model_with_bidirectional_stream_output;
 
@@ -529,7 +526,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_invoke_model_with_response_stream_output;
 
  pub(crate) mod shape_model_error_exception;
-@@ -115,10 +119,20 @@
+@@ -115,10 +115,20 @@
 
  pub(crate) mod shape_bidirectional_input_payload_part;
 
@@ -550,7 +547,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_converse_trace;
 
  pub(crate) mod shape_guardrail_assessment_list;
-@@ -147,8 +161,14 @@
+@@ -147,8 +157,14 @@
 
  pub(crate) mod shape_message;
 
@@ -565,7 +562,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_performance_configuration;
 
  pub(crate) mod shape_prompt_variable_values;
-@@ -167,8 +187,6 @@
+@@ -167,8 +183,6 @@
 
  pub(crate) mod shape_async_invoke_summary;
 
@@ -574,7 +571,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_cache_details_list;
 
  pub(crate) mod shape_cache_point_block;
-@@ -175,13 +193,13 @@
+@@ -175,13 +189,13 @@
 
  pub(crate) mod shape_content_block;
 
@@ -592,7 +589,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
  pub(crate) mod shape_converse_tokens_request;
 
-@@ -223,14 +241,8 @@
+@@ -223,14 +237,8 @@
 
  pub(crate) mod shape_invoke_model_tokens_request;
 
@@ -607,7 +604,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_prompt_router_trace;
 
  pub(crate) mod shape_tool;
-@@ -249,6 +261,8 @@
+@@ -249,6 +257,8 @@
 
  pub(crate) mod shape_citations_content_block;
 
@@ -616,7 +613,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_content_blocks;
 
  pub(crate) mod shape_document_block;
-@@ -291,6 +305,10 @@
+@@ -291,6 +301,10 @@
 
  pub(crate) mod shape_image_block;
 
@@ -627,7 +624,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_model_outputs;
 
  pub(crate) mod shape_output_format_structure;
-@@ -297,6 +315,8 @@
+@@ -297,6 +311,8 @@
 
  pub(crate) mod shape_reasoning_content_block;
 
@@ -636,7 +633,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_search_result_block;
 
  pub(crate) mod shape_specific_tool_choice;
-@@ -309,10 +329,18 @@
+@@ -309,10 +325,18 @@
 
  pub(crate) mod shape_tool_result_block;
 
@@ -655,26 +652,27 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_video_block;
 
  pub(crate) mod shape_audio_source;
-@@ -321,15 +349,11 @@
+@@ -321,16 +345,12 @@
 
  pub(crate) mod shape_citation_generated_content;
 
 -pub(crate) mod shape_citations_config;
--
--pub(crate) mod shape_content_block_delta;
 +pub(crate) mod shape_citation_location;
 
+-pub(crate) mod shape_content_block_delta;
+-
 -pub(crate) mod shape_content_block_start;
 +pub(crate) mod shape_citation_source_content_list_delta;
 
 -pub(crate) mod shape_converse_stream_metrics;
--
--pub(crate) mod shape_converse_stream_trace;
 +pub(crate) mod shape_citations_config;
 
+-pub(crate) mod shape_converse_stream_trace;
+-
  pub(crate) mod shape_document_source;
 
-@@ -373,18 +397,24 @@
+ pub(crate) mod shape_error_block;
+@@ -373,18 +393,24 @@
 
  pub(crate) mod shape_tool_reference;
 
@@ -685,16 +683,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_video_source;
 
 -pub(crate) mod shape_citation_location;
-+pub(crate) mod shape_citation_source_content;
-
--pub(crate) mod shape_citation_source_content;
-+pub(crate) mod shape_citation_source_content_delta;
-+
-+pub(crate) mod shape_document_char_location;
+-
+ pub(crate) mod shape_citation_source_content;
 
 -pub(crate) mod shape_citations_delta;
-+pub(crate) mod shape_document_chunk_location;
++pub(crate) mod shape_citation_source_content_delta;
 
++pub(crate) mod shape_document_char_location;
++
++pub(crate) mod shape_document_chunk_location;
++
  pub(crate) mod shape_document_content_block;
 
 +pub(crate) mod shape_document_page_location;
@@ -702,7 +700,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_guardrail_automated_reasoning_finding;
 
  pub(crate) mod shape_guardrail_content_filter;
-@@ -401,34 +431,16 @@
+@@ -401,34 +427,16 @@
 
  pub(crate) mod shape_guardrail_topic;
 
@@ -715,15 +713,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_s3_location;
 
 -pub(crate) mod shape_tool_result_block_start;
--
--pub(crate) mod shape_tool_result_blocks_delta;
 +pub(crate) mod shape_search_result_location;
 
+-pub(crate) mod shape_tool_result_blocks_delta;
+-
 -pub(crate) mod shape_tool_use_block_delta;
+-
+-pub(crate) mod shape_tool_use_block_start;
 +pub(crate) mod shape_web_location;
 
--pub(crate) mod shape_tool_use_block_start;
--
  pub(crate) mod shape_citation_generated_content_list;
 
 -pub(crate) mod shape_citation_source_content_list_delta;
@@ -739,7 +737,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_guardrail_automated_reasoning_impossible_finding;
 
  pub(crate) mod shape_guardrail_automated_reasoning_invalid_finding;
-@@ -445,16 +457,8 @@
+@@ -445,16 +453,8 @@
 
  pub(crate) mod shape_search_result_content_blocks;
 
