@@ -16,10 +16,10 @@ Updated 2026-08-25. Smithy-RS: `/tmp/smithy-rs` at
   focused regression test, `cargo test --workspace`, clippy with `-D warnings`,
   `cargo fmt --all -- --check`, and `git diff --check` pass. Conformance still
   exits 1 for the 53 remaining parity diffs.
-- Priority: continue with executable semantic mismatches. Defer ordering-only
-  and documentation-only diffs until semantic parity is complete.
-- Next action: align deterministic emission order, then resolve documentation
-  normalization differences.
+- Priority: code-semantic diffs remain active work. Defer ordering-only,
+  formatting-only, and documentation-only diffs until semantic parity is complete.
+- Next action: verify the current generated source still parses and compiles; leave
+  the remaining cosmetic parity diffs for a later checkpoint.
 
 ## Prior checkpoints
 

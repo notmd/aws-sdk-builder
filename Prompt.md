@@ -7,14 +7,14 @@ module-anchor and generator-header normalization. Keep current evidence and
 checkpoint history in `docs/aws-sdk-builder-status.md`; do not duplicate volatile
 counts here.
 
-## Parity priorities
+## Parity priorities: code semantics first
 
 Prioritize compile-valid, executable semantic parity first: generated Rust types, public
 APIs, request and response bindings, serialization, deserialization, errors, and runtime
-behavior. Ordering-only differences and documentation-only diffs are both last-priority
-work. Keep them visible in reports, but defer them whenever any semantic code mismatch
-remains; a formatting, ordering, or documentation match must never mask an executable
-behavior difference.
+behavior. Code-semantic diffs are the active work. Ordering-only, formatting-only, and
+documentation-only diffs are all last-priority work. Keep them visible in reports, but
+defer them whenever any semantic code mismatch remains; a cosmetic match must never
+mask an executable behavior difference.
 
 ## Objective and scope
 
