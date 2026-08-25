@@ -9575,13 +9575,12 @@ fn render_json_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(S
 }
 
 fn is_json_protocol_binding_member(selected: &SelectedModel, member: &Value) -> bool {
-    is_json_document_member(member)
-        || has_trait(member, "smithy.api#httpPayload")
-        || is_event_stream_member(selected, member)
+    is_json_protocol_document_member(selected, member)
+        || is_json_protocol_payload_member(selected, member)
 }
 
 fn is_json_document_operation_member(selected: &SelectedModel, member: &Value) -> bool {
-    is_json_document_member(member) && !is_event_stream_member(selected, member)
+    is_json_protocol_document_member(selected, member) && !is_event_stream_member(selected, member)
 }
 
 fn json_protocol_input_needs_file(selected: &SelectedModel, shape: &Value) -> bool {
@@ -9595,7 +9594,8 @@ fn json_protocol_input_has_non_event_stream_payload(
     shape: &Value,
 ) -> bool {
     members(shape).into_iter().any(|(_, member)| {
-        has_trait(member, "smithy.api#httpPayload") && !is_event_stream_member(selected, member)
+        is_json_protocol_payload_member(selected, member)
+            && !is_event_stream_member(selected, member)
     })
 }
 
@@ -9603,7 +9603,8 @@ fn json_protocol_input_is_whole_document(selected: &SelectedModel, shape: &Value
     let input_members = members(shape);
     !input_members.is_empty()
         && input_members.into_iter().all(|(_, member)| {
-            is_json_document_member(member) && !is_event_stream_member(selected, member)
+            is_json_protocol_document_member(selected, member)
+                && !is_event_stream_member(selected, member)
         })
 }
 
@@ -9657,9 +9658,7 @@ fn json_protocol_shape_order(
                 if is_json_protocol_binding_member(selected, member)
                     && let Some(target) = member_target(member)
                 {
-                    let output = if has_trait(member, "smithy.api#httpPayload")
-                        || is_event_stream_member(selected, member)
-                    {
+                    let output = if is_json_protocol_payload_member(selected, member) {
                         &mut deferred_output
                     } else {
                         &mut phase_one
@@ -9944,7 +9943,7 @@ fn render_json_protocol_operation_file(selected: &SelectedModel, operation_name:
     let output_payload = output_shape.and_then(|shape| {
         members(shape)
             .into_iter()
-            .find(|(_, member)| is_http_payload_or_event_stream_member(selected, member))
+            .find(|(_, member)| is_json_protocol_payload_member(selected, member))
     });
     let streaming_output = output_payload.as_ref().is_some_and(|(_, member)| {
         member_target(member).is_some_and(|target| {
@@ -9987,7 +9986,7 @@ fn render_json_protocol_operation_file(selected: &SelectedModel, operation_name:
     if let Some(shape) = output_shape {
         for (name, member) in sorted_members(shape) {
             let field = names::rust_identifier(&name);
-            if is_http_payload_or_event_stream_member(selected, member) {
+            if is_json_protocol_payload_member(selected, member) {
                 let helper = format!("crate::protocol_serde::shape_{module}_output");
                 if streaming_output {
                     writeln!(
@@ -10002,20 +10001,22 @@ fn render_json_protocol_operation_file(selected: &SelectedModel, operation_name:
                     )
                     .unwrap();
                 }
-            } else if let Some(header) = member
-                .get("traits")
-                .and_then(|traits| traits.get("smithy.api#httpHeader"))
-                .and_then(Value::as_str)
+            } else if !is_aws_json_protocol(selected)
+                && let Some(header) = member
+                    .get("traits")
+                    .and_then(|traits| traits.get("smithy.api#httpHeader"))
+                    .and_then(Value::as_str)
             {
                 writeln!(
                     output,
                     "        output = output.set_{field}(crate::protocol_serde::shape_{module}_output::de_{field}_header(_response_headers).map_err(|_| {error_path}::unhandled(\"Failed to parse {name} from header `{header}`\"))?);"
                 )
                 .unwrap();
-            } else if let Some(prefix) = member
-                .get("traits")
-                .and_then(|traits| traits.get("smithy.api#httpPrefixHeaders"))
-                .and_then(Value::as_str)
+            } else if !is_aws_json_protocol(selected)
+                && let Some(prefix) = member
+                    .get("traits")
+                    .and_then(|traits| traits.get("smithy.api#httpPrefixHeaders"))
+                    .and_then(Value::as_str)
             {
                 writeln!(
                     output,
@@ -10214,7 +10215,7 @@ fn render_json_protocol_operation_input_file_with_context(
     }
     if let Some((field, member)) = members(input_shape)
         .into_iter()
-        .find(|(_, member)| is_http_payload_or_event_stream_member(selected, member))
+        .find(|(_, member)| is_json_protocol_payload_member(selected, member))
     {
         let target = member_target(member).unwrap_or_default();
         let target_kind = protocol_shape_kind(selected, target);
@@ -10356,7 +10357,7 @@ fn render_json_protocol_operation_output_file(
     client_operation_header(&mut output);
     if let Some((field_name, member)) = members(output_shape)
         .into_iter()
-        .find(|(_, member)| is_http_payload_or_event_stream_member(selected, member))
+        .find(|(_, member)| is_json_protocol_payload_member(selected, member))
     {
         let field = names::rust_identifier(&field_name);
         let target = member_target(member).unwrap_or_default();
@@ -10405,30 +10406,32 @@ fn render_json_protocol_operation_output_file(
             .unwrap();
         }
     }
-    for (name, member) in members(output_shape) {
-        let Some(target) = member_target(member) else {
-            continue;
-        };
-        if let Some(prefix) = member
-            .get("traits")
-            .and_then(|traits| traits.get("smithy.api#httpPrefixHeaders"))
-            .and_then(Value::as_str)
-        {
-            render_protocol_response_prefix_header(
-                &mut output,
-                selected,
-                &module,
-                &name,
-                target,
-                prefix,
-            );
-            render_protocol_response_prefix_inner(&mut output, selected, &name, target);
-        } else if let Some(header) = member
-            .get("traits")
-            .and_then(|traits| traits.get("smithy.api#httpHeader"))
-            .and_then(Value::as_str)
-        {
-            render_protocol_response_header(&mut output, selected, &name, target, header, 1);
+    if !is_aws_json_protocol(selected) {
+        for (name, member) in members(output_shape) {
+            let Some(target) = member_target(member) else {
+                continue;
+            };
+            if let Some(prefix) = member
+                .get("traits")
+                .and_then(|traits| traits.get("smithy.api#httpPrefixHeaders"))
+                .and_then(Value::as_str)
+            {
+                render_protocol_response_prefix_header(
+                    &mut output,
+                    selected,
+                    &module,
+                    &name,
+                    target,
+                    prefix,
+                );
+                render_protocol_response_prefix_inner(&mut output, selected, &name, target);
+            } else if let Some(header) = member
+                .get("traits")
+                .and_then(|traits| traits.get("smithy.api#httpHeader"))
+                .and_then(Value::as_str)
+            {
+                render_protocol_response_header(&mut output, selected, &name, target, header, 1);
+            }
         }
     }
     output
@@ -12358,6 +12361,30 @@ fn is_xml_document_member(member: &Value) -> bool {
     })
 }
 
+fn is_aws_json_protocol(selected: &SelectedModel) -> bool {
+    selected.model.protocol().is_ok_and(|protocol| {
+        matches!(
+            protocol,
+            ProtocolKind::AwsJson1_0 | ProtocolKind::AwsJson1_1
+        )
+    })
+}
+
+fn is_json_protocol_payload_member(selected: &SelectedModel, member: &Value) -> bool {
+    if is_aws_json_protocol(selected) {
+        return member_target(member)
+            .is_some_and(|target| is_streaming_shape_target(selected, target));
+    }
+    is_http_payload_or_event_stream_member(selected, member)
+}
+
+fn is_json_protocol_document_member(selected: &SelectedModel, member: &Value) -> bool {
+    if is_aws_json_protocol(selected) {
+        return !is_json_protocol_payload_member(selected, member);
+    }
+    is_json_document_member(member)
+}
+
 fn is_json_document_member(member: &Value) -> bool {
     is_xml_document_member(member) && !has_trait(member, "smithy.api#httpPayload")
 }
@@ -13283,6 +13310,9 @@ fn render_protocol_error_header_assignments(
     module: &str,
     error_path: &str,
 ) {
+    if is_aws_json_protocol(selected) {
+        return;
+    }
     let Some(shape) = selected.model.shapes.get(error) else {
         return;
     };
@@ -13677,6 +13707,9 @@ fn render_protocol_request_headers(
     operation_name: &str,
     input_shape: Option<&Value>,
 ) {
+    if is_aws_json_protocol(selected) {
+        return;
+    }
     let has_headers = input_shape.is_some_and(|shape| {
         members(shape).iter().any(|(_, member)| {
             has_trait(member, "smithy.api#httpHeader")
@@ -18914,6 +18947,55 @@ mod tests {
         assert!(standalone.contains(
             "let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get::ser_get_input(&input)?);"
         ));
+    }
+
+    #[test]
+    fn aws_json_http_header_members_remain_document_fields() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Put"],
+                        "traits": {"aws.protocols#awsJson1_1": {}}
+                    },
+                    "example#Put": {
+                        "type": "operation",
+                        "input": {"target": "example#Input"},
+                        "output": {"target": "smithy.api#Unit"},
+                        "traits": {"smithy.api#http": {"method": "POST", "uri": "/", "code": 200}}
+                    },
+                    "example#Input": {
+                        "type": "structure",
+                        "members": {
+                            "flag": {
+                                "target": "smithy.api#Boolean",
+                                "traits": {"smithy.api#httpHeader": "X-Flag"}
+                            }
+                        },
+                        "traits": {"smithy.api#input": {}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+
+        let operation = render_json_protocol_operation_file(&selected, "Put");
+        let input = render_json_protocol_operation_input_file(&selected, "Put");
+
+        assert!(operation.contains("pub fn ser_put_input("));
+        assert!(!operation.contains("ser_put_headers"));
+        assert!(input.contains("object.key(\"flag\")"));
+        assert!(input.contains("boolean(*var_1)"));
     }
 
     #[test]

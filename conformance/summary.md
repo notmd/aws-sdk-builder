@@ -2,7 +2,7 @@
 
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
-**Summary:** `13167/13167 files compared` · `13102` matched · `65` mismatches · `0` missing · `0` extra · `0` read errors · `99.45%` average match
+**Summary:** `13167/13167 files compared` · `13104` matched · `63` mismatches · `0` missing · `0` extra · `0` read errors · `99.46%` average match
 
 | Service | Compared | Matched | Mismatches | Missing | Extra | Read errors | Match | Report |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
@@ -12,7 +12,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 | codeartifact | 459/459 | 457 | 2 | 0 | 0 | 0 | 99.56% | [report](summary/codeartifact.md) |
 | cognitoidentityprovider | 1361/1361 | 1355 | 6 | 0 | 0 | 0 | 99.56% | [report](summary/cognitoidentityprovider.md) |
 | config | 1262/1262 | 1258 | 4 | 0 | 0 | 0 | 99.68% | [report](summary/config.md) |
-| dynamodb | 882/882 | 879 | 3 | 0 | 0 | 0 | 99.66% | [report](summary/dynamodb.md) |
+| dynamodb | 882/882 | 881 | 1 | 0 | 0 | 0 | 99.89% | [report](summary/dynamodb.md) |
 | iam | 1626/1626 | 1614 | 12 | 0 | 0 | 0 | 99.26% | [report](summary/iam.md) |
 | kms | 591/591 | 585 | 6 | 0 | 0 | 0 | 98.98% | [report](summary/kms.md) |
 | lambda | 1076/1076 | 1068 | 8 | 0 | 0 | 0 | 99.26% | [report](summary/lambda.md) |
@@ -21,4 +21,4 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 | sns | 445/445 | 439 | 6 | 0 | 0 | 0 | 98.65% | [report](summary/sns.md) |
 | sqs | 294/294 | 290 | 4 | 0 | 0 | 0 | 98.64% | [report](summary/sqs.md) |
 | sts | 146/146 | 146 | 0 | 0 | 0 | 0 | 100.00% | [report](summary/sts.md) |
-| **Average** | — | — | — | — | — | — | **99.45%** | — |
+| **Average** | — | — | — | — | — | — | **99.46%** | — |
