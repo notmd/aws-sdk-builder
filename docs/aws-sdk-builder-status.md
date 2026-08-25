@@ -4,6 +4,30 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match DirectedWalker operation discovery order
+- State: in progress
+- Changed: selected model views now derive `operation_order` with a generic,
+  depth-first traversal of ordered service/resource/operation relationships. This
+  follows Smithy-RS `DirectedWalker` and the upstream Smithy `NeighborVisitor`,
+  preserving resource-contained operation order for type and builder facade
+  discovery without service or operation-name branches. Added a focused resource
+  traversal regression test.
+- Evidence: compared `/tmp/smithy-rs` `DirectedWalker.kt` at commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d` and `/tmp/smithy` `Walker.java` and
+  `NeighborVisitor.java` at commit `0f7323128b0606a1b94b1ac482c94d3800a22708`.
+  `just conformance` regenerated 15 services and 1,133 operations, formatted all
+  13,166 generated Rust files, and produced no generated-source parse errors.
+  Workspace tests (63), Clippy with `-D warnings`, formatting, and
+  `git diff --check` pass.
+- Conformance: `13,037/13,168` exact, `128` mismatches, `2` missing, and `1` extra
+  (`98.82%`) -> `13,041/13,168` exact, `124` mismatches, `2` missing, and `1` extra
+  (`98.86%`). Bedrock Runtime improved from `517/19` to `519/17` mismatched files;
+  Lambda improved from `1,061/15` to `1,063/13`.
+- Blocker: `just conformance` still exits 1 because broader Bedrock Runtime,
+  Lambda, SESv2, and shared protocol/shape parity gaps remain.
+- Next action: continue with the remaining generic JSON protocol dependency-order
+  mismatches, especially shared serializer/deserializer role ownership.
+
 ### Checkpoint: 2026-08-25 — Match streaming JSON correction and request headers
 - State: in progress
 - Changed: shared AWS error-correction generation now omits required event-stream and

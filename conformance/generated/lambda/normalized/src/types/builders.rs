@@ -7,10 +7,6 @@ pub use super::super::types::_destination_config::DestinationConfigBuilder;
 
 pub use super::super::types::_error_object::ErrorObjectBuilder;
 
-pub use super::super::types::_checkpoint_updated_execution_state::CheckpointUpdatedExecutionStateBuilder;
-
-pub use super::super::types::_alias_routing_configuration::AliasRoutingConfigurationBuilder;
-
 pub use super::super::types::_capacity_provider_vpc_config::CapacityProviderVpcConfigBuilder;
 
 pub use super::super::types::_capacity_provider_permissions_config::CapacityProviderPermissionsConfigBuilder;
@@ -30,6 +26,12 @@ pub use super::super::types::_allowed_publishers::AllowedPublishersBuilder;
 pub use super::super::types::_code_signing_policies::CodeSigningPoliciesBuilder;
 
 pub use super::super::types::_code_signing_config::CodeSigningConfigBuilder;
+
+pub use super::super::types::_trace_header::TraceHeaderBuilder;
+
+pub use super::super::types::_durable_config::DurableConfigBuilder;
+
+pub use super::super::types::_checkpoint_updated_execution_state::CheckpointUpdatedExecutionStateBuilder;
 
 pub use super::super::types::_filter_criteria::FilterCriteriaBuilder;
 
@@ -73,8 +75,6 @@ pub use super::super::types::_tenancy_config::TenancyConfigBuilder;
 
 pub use super::super::types::_capacity_provider_config::CapacityProviderConfigBuilder;
 
-pub use super::super::types::_durable_config::DurableConfigBuilder;
-
 pub use super::super::types::_vpc_config_response::VpcConfigResponseBuilder;
 
 pub use super::super::types::_environment_response::EnvironmentResponseBuilder;
@@ -89,8 +89,6 @@ pub use super::super::types::_runtime_version_config::RuntimeVersionConfigBuilde
 
 pub use super::super::types::_cors::CorsBuilder;
 
-pub use super::super::types::_trace_header::TraceHeaderBuilder;
-
 pub use super::super::types::_function_configuration::FunctionConfigurationBuilder;
 
 pub use super::super::types::_function_code_location::FunctionCodeLocationBuilder;
@@ -100,6 +98,8 @@ pub use super::super::types::_tags_error::TagsErrorBuilder;
 pub use super::super::types::_concurrency::ConcurrencyBuilder;
 
 pub use super::super::types::_function_scaling_config::FunctionScalingConfigBuilder;
+
+pub use super::super::types::_alias_routing_configuration::AliasRoutingConfigurationBuilder;
 
 pub use super::super::types::_layer_version_content_output::LayerVersionContentOutputBuilder;
 
@@ -111,9 +111,17 @@ pub use super::super::types::_on_failure::OnFailureBuilder;
 
 pub use super::super::types::_function_event_invoke_config::FunctionEventInvokeConfigBuilder;
 
+pub use super::super::types::_capacity_provider_logging_config::CapacityProviderLoggingConfigBuilder;
+
+pub use super::super::types::_function_versions_by_capacity_provider_list_item::FunctionVersionsByCapacityProviderListItemBuilder;
+
 pub use super::super::types::_operation_update::OperationUpdateBuilder;
 
-pub use super::super::types::_capacity_provider_logging_config::CapacityProviderLoggingConfigBuilder;
+pub use super::super::types::_event::EventBuilder;
+
+pub use super::super::types::_operation::OperationBuilder;
+
+pub use super::super::types::_event_source_mapping_configuration::EventSourceMappingConfigurationBuilder;
 
 pub use super::super::types::_source_access_configuration::SourceAccessConfigurationBuilder;
 
@@ -131,9 +139,7 @@ pub use super::super::types::_image_config_error::ImageConfigErrorBuilder;
 
 pub use super::super::types::_runtime_version_error::RuntimeVersionErrorBuilder;
 
-pub use super::super::types::_event::EventBuilder;
-
-pub use super::super::types::_operation::OperationBuilder;
+pub use super::super::types::_provisioned_concurrency_config_list_item::ProvisionedConcurrencyConfigListItemBuilder;
 
 pub use super::super::types::_resolved_s3_object::ResolvedS3ObjectBuilder;
 
@@ -143,21 +149,17 @@ pub use super::super::types::_invoke_response_stream_update::InvokeResponseStrea
 
 pub use super::super::types::_invoke_with_response_stream_complete_event::InvokeWithResponseStreamCompleteEventBuilder;
 
-pub use super::super::types::_alias_configuration::AliasConfigurationBuilder;
-
 pub use super::super::types::_execution::ExecutionBuilder;
-
-pub use super::super::types::_event_source_mapping_configuration::EventSourceMappingConfigurationBuilder;
 
 pub use super::super::types::_function_url_config::FunctionUrlConfigBuilder;
 
-pub use super::super::types::_function_versions_by_capacity_provider_list_item::FunctionVersionsByCapacityProviderListItemBuilder;
-
-pub use super::super::types::_layer_versions_list_item::LayerVersionsListItemBuilder;
+pub use super::super::types::_alias_configuration::AliasConfigurationBuilder;
 
 pub use super::super::types::_layers_list_item::LayersListItemBuilder;
 
-pub use super::super::types::_provisioned_concurrency_config_list_item::ProvisionedConcurrencyConfigListItemBuilder;
+pub use super::super::types::_layer_versions_list_item::LayerVersionsListItemBuilder;
+
+pub use super::super::types::_target_tracking_scaling_policy::TargetTrackingScalingPolicyBuilder;
 
 pub use super::super::types::_context_options::ContextOptionsBuilder;
 
@@ -168,10 +170,6 @@ pub use super::super::types::_wait_options::WaitOptionsBuilder;
 pub use super::super::types::_callback_options::CallbackOptionsBuilder;
 
 pub use super::super::types::_chained_invoke_options::ChainedInvokeOptionsBuilder;
-
-pub use super::super::types::_target_tracking_scaling_policy::TargetTrackingScalingPolicyBuilder;
-
-pub use super::super::types::_filter::FilterBuilder;
 
 pub use super::super::types::_execution_started_details::ExecutionStartedDetailsBuilder;
 
@@ -233,9 +231,7 @@ pub use super::super::types::_callback_details::CallbackDetailsBuilder;
 
 pub use super::super::types::_chained_invoke_details::ChainedInvokeDetailsBuilder;
 
-pub use super::super::types::_kafka_schema_registry_access_config::KafkaSchemaRegistryAccessConfigBuilder;
-
-pub use super::super::types::_kafka_schema_validation_config::KafkaSchemaValidationConfigBuilder;
+pub use super::super::types::_filter::FilterBuilder;
 
 pub use super::super::types::_event_input::EventInputBuilder;
 
@@ -244,3 +240,7 @@ pub use super::super::types::_event_result::EventResultBuilder;
 pub use super::super::types::_event_error::EventErrorBuilder;
 
 pub use super::super::types::_retry_details::RetryDetailsBuilder;
+
+pub use super::super::types::_kafka_schema_registry_access_config::KafkaSchemaRegistryAccessConfigBuilder;
+
+pub use super::super::types::_kafka_schema_validation_config::KafkaSchemaValidationConfigBuilder;

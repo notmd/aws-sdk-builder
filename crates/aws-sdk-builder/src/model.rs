@@ -143,26 +143,7 @@ impl Model {
         };
 
         let selected_set = selected_ids.iter().cloned().collect::<BTreeSet<_>>();
-        let mut operation_order = self
-            .root
-            .get("shapes")
-            .and_then(Value::as_object)
-            .and_then(|shapes| shapes.get(&self.service_shape_id))
-            .and_then(|service| service.get("operations"))
-            .and_then(Value::as_array)
-            .into_iter()
-            .flatten()
-            .filter_map(member_target)
-            .filter(|id| selected_set.contains(*id))
-            .map(terminal_name)
-            .map(ToOwned::to_owned)
-            .collect::<Vec<_>>();
-        for operation_id in &selected_ids {
-            let operation_name = terminal_name(operation_id);
-            if !operation_order.iter().any(|name| name == operation_name) {
-                operation_order.push(operation_name.to_owned());
-            }
-        }
+        let operation_order = self.ordered_operations(&selected_set);
 
         let mut queue = VecDeque::from_iter(
             std::iter::once(self.service_shape_id.clone()).chain(selected_ids.clone()),
@@ -320,6 +301,43 @@ impl Model {
             });
         }
         Ok(operations.into_iter().collect())
+    }
+
+    /// Return selected operations in Smithy-RS's `DirectedWalker` order.
+    ///
+    /// Smithy's walker is a depth-first traversal over the service relationship
+    /// graph. Resource-contained operations therefore precede later resources,
+    /// and their order is observable in generated facade and helper files. The
+    /// selection list remains canonical/sorted; this order is only used for
+    /// model-derived discovery.
+    fn ordered_operations(&self, selected: &BTreeSet<String>) -> Vec<String> {
+        let mut visited = BTreeSet::new();
+        let mut order = Vec::new();
+        self.walk_ordered_shapes(&self.service_shape_id, selected, &mut visited, &mut order);
+        order
+    }
+
+    fn walk_ordered_shapes(
+        &self,
+        shape_id: &str,
+        selected: &BTreeSet<String>,
+        visited: &mut BTreeSet<String>,
+        order: &mut Vec<String>,
+    ) {
+        if !visited.insert(shape_id.to_owned()) {
+            return;
+        }
+        if self.is_operation(shape_id) && selected.contains(shape_id) {
+            order.push(terminal_name(shape_id).to_owned());
+        }
+        let Some(shape) = self.shapes.get(shape_id) else {
+            return;
+        };
+        for target in ordered_shape_relationships(shape) {
+            if self.shapes.contains_key(target) {
+                self.walk_ordered_shapes(target, selected, visited, order);
+            }
+        }
     }
 }
 
@@ -1084,6 +1102,87 @@ fn member_target(value: &Value) -> Option<&str> {
         .or_else(|| value.get("target").and_then(Value::as_str))
 }
 
+/// Return directed shape relationships in the order used by Smithy's
+/// `NeighborVisitor`. This intentionally ignores trait references: the Smithy
+/// walker traverses shape relationships, not arbitrary trait values.
+fn ordered_shape_relationships(shape: &Value) -> Vec<&str> {
+    let Some(kind) = shape.get("type").and_then(Value::as_str) else {
+        return Vec::new();
+    };
+    let mut relationships = Vec::new();
+
+    if let Some(mixins) = shape.get("mixins") {
+        push_ordered_array(Some(mixins), &mut relationships);
+    }
+    match kind {
+        "service" => {
+            push_ordered_array(shape.get("operations"), &mut relationships);
+            push_ordered_array(shape.get("resources"), &mut relationships);
+            push_ordered_array(shape.get("errors"), &mut relationships);
+        }
+        "resource" => {
+            push_ordered_object_values(shape.get("identifiers"), &mut relationships);
+            push_ordered_object_values(shape.get("properties"), &mut relationships);
+            push_ordered_array(shape.get("resources"), &mut relationships);
+            for key in [
+                "list",
+                "create",
+                "put",
+                "read",
+                "update",
+                "delete",
+                "operations",
+                "collectionOperations",
+            ] {
+                push_ordered_array(shape.get(key), &mut relationships);
+                if let Some(value) = shape.get(key)
+                    && value.is_object()
+                {
+                    push_target_if_present(Some(value), &mut relationships);
+                }
+            }
+        }
+        "operation" => {
+            push_target_if_present(shape.get("input"), &mut relationships);
+            push_target_if_present(shape.get("output"), &mut relationships);
+            push_ordered_array(shape.get("errors"), &mut relationships);
+        }
+        "structure" | "union" => {
+            push_ordered_object_values(shape.get("members"), &mut relationships)
+        }
+        "list" | "set" => push_target_if_present(shape.get("member"), &mut relationships),
+        "map" => {
+            push_target_if_present(shape.get("key"), &mut relationships);
+            push_target_if_present(shape.get("value"), &mut relationships);
+        }
+        "enum" | "intEnum" => push_ordered_object_values(shape.get("members"), &mut relationships),
+        _ => {}
+    }
+    relationships
+}
+
+fn push_ordered_array<'a>(value: Option<&'a Value>, output: &mut Vec<&'a str>) {
+    if let Some(values) = value.and_then(Value::as_array) {
+        for value in values {
+            push_target_if_present(Some(value), output);
+        }
+    }
+}
+
+fn push_ordered_object_values<'a>(value: Option<&'a Value>, output: &mut Vec<&'a str>) {
+    if let Some(values) = value.and_then(Value::as_object) {
+        for value in values.values() {
+            push_target_if_present(Some(value), output);
+        }
+    }
+}
+
+fn push_target_if_present<'a>(value: Option<&'a Value>, output: &mut Vec<&'a str>) {
+    if let Some(value) = value.and_then(member_target) {
+        output.push(value);
+    }
+}
+
 fn collect_reference_values(
     value: &Value,
     shapes: &BTreeMap<String, Value>,
@@ -1133,6 +1232,49 @@ mod tests {
         assert_eq!(model.service_shape_id, "example#Service");
         let selected = model.select(&[], true).unwrap();
         assert_eq!(selected.operations, ["DeleteThing", "GetThing"]);
+    }
+
+    #[test]
+    fn operation_order_follows_resource_depth_first_traversal() {
+        let metadata = ServiceMetadata {
+            key: "fixture",
+            filename: "fixture.json",
+            module_name: "aws_sdk_fixture",
+            sdk_version: None,
+        };
+        let model = Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2026-01-01",
+                        "resources": [
+                            {"target": "example#FirstResource"},
+                            {"target": "example#SecondResource"}
+                        ]
+                    },
+                    "example#FirstResource": {
+                        "type": "resource",
+                        "operations": [
+                            {"target": "example#First"},
+                            {"target": "example#Second"}
+                        ]
+                    },
+                    "example#SecondResource": {
+                        "type": "resource",
+                        "operations": [{"target": "example#Third"}]
+                    },
+                    "example#First": {"type": "operation"},
+                    "example#Second": {"type": "operation"},
+                    "example#Third": {"type": "operation"}
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+
+        assert_eq!(selected.operation_order, ["First", "Second", "Third"]);
     }
 
     #[test]
