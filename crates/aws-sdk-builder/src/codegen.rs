@@ -3969,7 +3969,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for __ERROR_NAME__ {
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for __ERROR_NAME__ {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-__MODELED_META__            Self::Unhandled(_inner) => &_inner.meta,
+__MODELED_PROVIDE_META__            Self::Unhandled(_inner) => &_inner.meta,
         }
     }
 }
@@ -4017,6 +4017,19 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for __ERROR_
         .join("\n            ");
     if !modeled_meta.is_empty() {
         modeled_meta.push('\n');
+    }
+    let mut modeled_provide_meta = errors
+        .iter()
+        .map(|error| {
+            format!(
+                "            Self::{}(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),",
+                rust_type_name(terminal(error))
+            )
+        })
+        .collect::<Vec<_>>()
+        .join("\n            ");
+    if !modeled_provide_meta.is_empty() {
+        modeled_provide_meta.push('\n');
     }
     let mut modeled_source = errors
         .iter()
@@ -4086,6 +4099,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for __ERROR_
         .replace("__ERROR_NAME__", &error_name)
         .replace("__MODELED_VARIANTS__", &modeled_variants)
         .replace("__MODELED_META__", &modeled_meta)
+        .replace("__MODELED_PROVIDE_META__", &modeled_provide_meta)
         .replace("__MODELED_METHODS__", &modeled_methods)
         .replace("__MODELED_SOURCE__", &modeled_source)
         .replace("__MODELED_DISPLAY__", &modeled_display)
@@ -20555,6 +20569,14 @@ mod tests {
 
         let event_stream = render_event_stream_serde_file(&selected);
         assert!(event_stream.contains("failed to unmarshall Chunk: {err}"));
+
+        let error_types = render_error_types_file(&selected);
+        assert!(error_types.contains(
+            "Self::Failure(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),"
+        ));
+        assert!(error_types.contains(
+            "Self::Failure(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),"
+        ));
 
         let roles = json_protocol_serde_roles(&selected);
         assert!(!roles.contains_key("example#Failure"));

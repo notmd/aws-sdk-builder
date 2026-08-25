@@ -155,15 +155,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn is_internal_streaming_exception(&self) -> bool {
          matches!(self, Self::InternalStreamingException(_))
      }
-@@ -122,7 +122,7 @@
- impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetLogObjectResponseStreamError {
-     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
-         match self {
--            Self::InternalStreamingException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-+            Self::InternalStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-             Self::Unhandled(_inner) => &_inner.meta,
-         }
-     }
 @@ -143,7 +143,6 @@
          self.meta().request_id()
      }
@@ -185,17 +176,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    /// Returns `true` if the error kind is `SessionStreamingException::SessionStreamingException`.
      pub fn is_session_streaming_exception(&self) -> bool {
          matches!(self, Self::SessionStreamingException(_))
-     }
-@@ -234,8 +233,8 @@
- impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for StartLiveTailResponseStreamError {
-     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
-         match self {
--            Self::SessionTimeoutException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
--            Self::SessionStreamingException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-+            Self::SessionTimeoutException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-+            Self::SessionStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-             Self::Unhandled(_inner) => &_inner.meta,
-         }
      }
 @@ -256,7 +255,6 @@
          self.meta().request_id()
