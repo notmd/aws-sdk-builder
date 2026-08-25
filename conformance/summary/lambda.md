@@ -585,21 +585,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde.rs
 +++ generated/src/protocol_serde.rs
-@@ -113,12 +113,12 @@
-
- pub(crate) mod shape_invoke;
-
-+pub(crate) mod shape_invoke_input;
-+
- pub(crate) mod shape_invoke_async;
-
- pub(crate) mod shape_invoke_async_input;
-
--pub(crate) mod shape_invoke_input;
--
- pub(crate) mod shape_invoke_with_response_stream;
-
- pub(crate) mod shape_invoke_with_response_stream_input;
 @@ -609,6 +609,8 @@
 
  pub(crate) mod shape_image_config_error;

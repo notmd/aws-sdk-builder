@@ -9281,11 +9281,13 @@ fn render_json_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(S
     let mut files = Vec::new();
     let mut modules = Vec::new();
     let mut seen = BTreeSet::new();
+    let mut initial_modules = BTreeSet::new();
+    let mut first_whole_document_input = None;
     for operation_name in &selected.operations {
         let module = names::rust_module_name(operation_name);
-        if seen.insert(module.clone()) {
-            modules.push(module);
-        }
+        initial_modules.insert(module);
+    }
+    for (index, operation_name) in selected.operations.iter().enumerate() {
         let Some(input) = operation_shape(selected, operation_name)
             .and_then(|operation| operation.get("input"))
             .and_then(target_value)
@@ -9293,12 +9295,27 @@ fn render_json_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(S
         else {
             continue;
         };
-        if json_protocol_input_has_non_event_stream_payload(selected, input) {
+        let direct_payload = json_protocol_input_has_non_event_stream_payload(selected, input);
+        let is_first_whole_document_input = index == 0
+            && json_protocol_input_is_whole_document(selected, input)
+            && json_protocol_operation_has_empty_output(selected, operation_name);
+        if direct_payload && json_protocol_input_needs_file(selected, input) {
             let input_module = format!("{}_input", names::rust_module_name(operation_name));
-            if json_protocol_input_needs_file(selected, input) && seen.insert(input_module.clone())
-            {
-                modules.push(input_module);
-            }
+            initial_modules.insert(input_module);
+        }
+        if is_first_whole_document_input && json_protocol_input_needs_file(selected, input) {
+            first_whole_document_input =
+                Some(format!("{}_input", names::rust_module_name(operation_name)));
+        }
+    }
+    for initial_module in initial_modules {
+        if seen.insert(initial_module.clone()) {
+            modules.push(initial_module);
+        }
+    }
+    if let Some(input_module) = first_whole_document_input {
+        if seen.insert(input_module.clone()) {
+            modules.push(input_module);
         }
     }
     let operation_module_count = modules.len();
@@ -9513,6 +9530,31 @@ fn json_protocol_input_has_non_event_stream_payload(
     members(shape).into_iter().any(|(_, member)| {
         has_trait(member, "smithy.api#httpPayload") && !is_event_stream_member(selected, member)
     })
+}
+
+fn json_protocol_input_is_whole_document(selected: &SelectedModel, shape: &Value) -> bool {
+    let input_members = members(shape);
+    !input_members.is_empty()
+        && input_members.into_iter().all(|(_, member)| {
+            is_json_document_member(member) && !is_event_stream_member(selected, member)
+        })
+}
+
+fn json_protocol_operation_has_empty_output(
+    selected: &SelectedModel,
+    operation_name: &str,
+) -> bool {
+    let Some(operation) = operation_shape(selected, operation_name) else {
+        return false;
+    };
+    let Some(output_id) = operation.get("output").and_then(target_value) else {
+        return true;
+    };
+    selected
+        .model
+        .shapes
+        .get(output_id)
+        .is_none_or(|output| members(output).is_empty())
 }
 
 fn json_protocol_output_needs_file(selected: &SelectedModel, shape: &Value) -> bool {
@@ -17898,17 +17940,70 @@ mod tests {
             }"#,
         ))
         .unwrap();
-        let selected = model.select(&[], true).unwrap();
+        let selected = model
+            .select(&["Payload".to_owned(), "Document".to_owned()], false)
+            .unwrap();
         let (module, _) = render_json_protocol_serde_files(&selected);
 
+        let document_operation = module.find("pub(crate) mod shape_document;").unwrap();
         let payload_operation = module.find("pub(crate) mod shape_payload;").unwrap();
         let payload_input = module.find("pub(crate) mod shape_payload_input;").unwrap();
         let document_helper_boundary = module.find("pub(crate) fn or_empty_doc").unwrap();
         let document_input = module.find("pub(crate) mod shape_document_input;").unwrap();
 
+        assert!(document_operation < payload_operation);
         assert!(payload_operation < payload_input);
         assert!(payload_input < document_helper_boundary);
         assert!(document_helper_boundary < document_input);
+    }
+
+    #[test]
+    fn aws_query_compatible_document_input_modules_are_first_wave_dependencies() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {
+                            "aws.protocols#awsJson1_0": {},
+                            "aws.protocols#awsQueryCompatible": {}
+                        }
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "input": {"target": "example#GetInput"},
+                        "output": {"target": "smithy.api#Unit"},
+                        "errors": [{"target": "example#Oops"}]
+                    },
+                    "example#GetInput": {
+                        "type": "structure",
+                        "members": {"value": {"target": "smithy.api#String"}},
+                        "traits": {"smithy.api#input": {}}
+                    },
+                    "example#Oops": {
+                        "type": "structure",
+                        "members": {"message": {"target": "smithy.api#String"}},
+                        "traits": {"smithy.api#error": "client"}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let (module, _) = render_json_protocol_serde_files(&selected);
+
+        let input_module = module.find("pub(crate) mod shape_get_input;").unwrap();
+        let document_helper_boundary = module.find("pub(crate) fn or_empty_doc").unwrap();
+        assert!(input_module < document_helper_boundary);
     }
 
     #[test]

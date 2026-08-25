@@ -74,6 +74,8 @@ pub(crate) mod shape_tag_queue;
 
 pub(crate) mod shape_untag_queue;
 
+pub(crate) mod shape_add_permission_input;
+
 pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
     if data.is_empty() {
         b"{}"
@@ -81,8 +83,6 @@ pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
         data
     }
 }
-
-pub(crate) mod shape_add_permission_input;
 
 pub(crate) mod shape_batch_entry_ids_not_distinct;
 

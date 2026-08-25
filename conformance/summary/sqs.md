@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sqs
-**Progress:** `294/294` files compared · `287` matched · `6` mismatches · `1` missing · `0` extra · `97.62%` match (100.00% means fully matched)
+**Progress:** `294/294` files compared · `288` matched · `5` mismatches · `1` missing · `0` extra · `97.96%` match (100.00% means fully matched)
 
 ### `src/aws_query_compatible_errors.rs`
 
@@ -87,31 +87,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  ReceiveMessageEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-```
-
-### `src/protocol_serde.rs`
-
-```diff
---- reference/src/protocol_serde.rs
-+++ generated/src/protocol_serde.rs
-@@ -74,8 +74,6 @@
-
- pub(crate) mod shape_untag_queue;
-
--pub(crate) mod shape_add_permission_input;
--
- pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
-     if data.is_empty() {
-         b"{}"
-@@ -84,6 +82,8 @@
-     }
- }
-
-+pub(crate) mod shape_add_permission_input;
-+
- pub(crate) mod shape_batch_entry_ids_not_distinct;
-
- pub(crate) mod shape_batch_request_too_long;
 ```
 
 ### Missing reference files

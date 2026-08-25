@@ -113,6 +113,8 @@ pub(crate) mod shape_update_service_environment;
 
 pub(crate) mod shape_update_service_job;
 
+pub(crate) mod shape_cancel_job_input;
+
 pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
     if data.is_empty() {
         b"{}"
@@ -120,8 +122,6 @@ pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
         data
     }
 }
-
-pub(crate) mod shape_cancel_job_input;
 
 pub(crate) mod shape_client_exception;
 

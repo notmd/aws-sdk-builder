@@ -42,6 +42,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde.rs
 +++ generated/src/protocol_serde.rs
+@@ -259,6 +259,8 @@
+
+ pub(crate) mod shape_update_scheduled_query;
+
++pub(crate) mod shape_associate_kms_key_input;
++
+ pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
+     if data.is_empty() {
+         b"{}"
+@@ -269,8 +271,6 @@
+
+ pub(crate) mod shape_access_denied_exception;
+
+-pub(crate) mod shape_associate_kms_key_input;
+-
+ pub(crate) mod shape_associate_source_to_s3_table_integration_input;
+
+ pub(crate) mod shape_cancel_export_task_input;
 @@ -845,6 +845,12 @@
 
  pub(crate) mod shape_inherited_properties;

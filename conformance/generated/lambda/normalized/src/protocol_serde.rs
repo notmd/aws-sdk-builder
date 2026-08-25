@@ -113,11 +113,11 @@ pub(crate) mod shape_get_runtime_management_config;
 
 pub(crate) mod shape_invoke;
 
-pub(crate) mod shape_invoke_input;
-
 pub(crate) mod shape_invoke_async;
 
 pub(crate) mod shape_invoke_async_input;
+
+pub(crate) mod shape_invoke_input;
 
 pub(crate) mod shape_invoke_with_response_stream;
 
