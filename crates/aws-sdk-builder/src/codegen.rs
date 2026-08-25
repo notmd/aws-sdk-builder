@@ -4319,6 +4319,17 @@ fn error_message_member(shape: &Value) -> Option<(String, &Value)> {
         .find(|(name, _)| name.eq_ignore_ascii_case("message"))
 }
 
+fn error_message_is_optional(selected: &SelectedModel, shape: Option<&Value>) -> bool {
+    let Some(shape) = shape else {
+        return false;
+    };
+    let Some((_, member)) = error_message_member(shape) else {
+        return false;
+    };
+    let target = member_target(member).unwrap_or("smithy.api#String");
+    !member_is_effectively_required(selected, member, target)
+}
+
 fn is_error_context(context: &Context) -> bool {
     matches!(context, Context::Error { .. })
 }
@@ -10538,10 +10549,17 @@ fn render_json_protocol_error_arm(
         } else {
             writeln!(output, "                {correction}.build()").unwrap();
         }
-        output.push_str("            };\n            tmp\n        }),\n");
+        output.push_str("            };\n");
+        if error_message_is_optional(selected, selected.model.shapes.get(error)) {
+            output.push_str("            if tmp.message.is_none() {\n                tmp.message = _error_message;\n            }\n");
+        }
+        output.push_str("            tmp\n        }),\n");
     } else {
         output.push_str("                output.build()\n            };\n");
-        output.push_str("            if tmp.message.is_none() {\n                tmp.message = _error_message;\n            }\n            tmp\n        }),\n");
+        if error_message_is_optional(selected, selected.model.shapes.get(error)) {
+            output.push_str("            if tmp.message.is_none() {\n                tmp.message = _error_message;\n            }\n");
+        }
+        output.push_str("            tmp\n        }),\n");
     }
 }
 
@@ -13467,8 +13485,11 @@ fn render_protocol_error_arm(
     } else {
         output.push_str("                output.build()\n");
     }
-    output.push_str("            };");
-    output.push_str("            if tmp.message.is_none() {\n                tmp.message = _error_message;\n            }\n            tmp\n        }),\n");
+    output.push_str("            };\n");
+    if error_message_is_optional(selected, selected.model.shapes.get(error)) {
+        output.push_str("            if tmp.message.is_none() {\n                tmp.message = _error_message;\n            }\n");
+    }
+    output.push_str("            tmp\n        }),\n");
 }
 
 /// Resolve an error's wire code using the protocol trait, matching Smithy's
@@ -19151,6 +19172,48 @@ mod tests {
         assert!(error.contains("pub(crate) fn de_retry_after_seconds_header("));
         assert!(error.contains("    Ok(builder)\n}"));
         assert!(!error.contains("too_many_correct_errors(builder)"));
+    }
+
+    #[test]
+    fn xml_error_message_fallback_only_targets_optional_message_members() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#awsQuery": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "output": {"target": "smithy.api#Unit"},
+                        "errors": [{"target": "example#Error"}],
+                        "traits": {"smithy.api#http": {"method": "POST", "uri": "/", "code": 200}}
+                    },
+                    "example#Error": {
+                        "type": "structure",
+                        "members": {
+                            "message": {"target": "smithy.api#String"},
+                            "status": {"target": "smithy.api#String", "traits": {"smithy.api#required": {}}}
+                        },
+                        "traits": {"smithy.api#error": "client"}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let rendered = render_protocol_operation_file(&selected, "Get", ProtocolKind::AwsQuery);
+
+        assert!(rendered.contains("if tmp.message.is_none()"));
     }
 
     #[test]

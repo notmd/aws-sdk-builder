@@ -96,9 +96,6 @@ pub fn de_list_origination_numbers_http_error(
                     .build()
                     .map_err(super::super::operation::list_origination_numbers::ListOriginationNumbersError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::list_origination_numbers::ListOriginationNumbersError::generic(generic),

@@ -107,9 +107,6 @@ pub fn de_verify_sms_sandbox_phone_number_http_error(
                     .build()
                     .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::generic(generic),

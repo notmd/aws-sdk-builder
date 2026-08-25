@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sns
-**Progress:** `445/445` files compared · `435` matched · `10` mismatches · `0` missing · `0` extra · `97.75%` match (100.00% means fully matched)
+**Progress:** `445/445` files compared · `439` matched · `6` mismatches · `0` missing · `0` extra · `98.65%` match (100.00% means fully matched)
 
 ### `src/client/create_topic.rs`
 
@@ -191,82 +191,4 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p><code>DeliveryStatusIAMRole</code> – The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs. For each SMS message that you send, Amazon SNS writes a log that includes the message price, the success or failure status, the reason for failure (if the message failed), the message dwell time, and other information.</p>
      /// <p><code>DeliveryStatusSuccessSamplingRate</code> – The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value can be an integer from 0 - 100. For example, to write logs only for failed deliveries, set this value to <code>0</code>. To write logs for 10% of your successful deliveries, set it to <code>10</code>.</p>
      /// <p><code>DefaultSenderID</code> – A string, such as your business brand, that is displayed as the sender on the receiving device. Support for sender IDs varies by country. The sender ID can be 1 - 11 alphanumeric characters, and it must contain at least one letter.</p>
-```
-
-### `src/protocol_serde/shape_list_origination_numbers.rs`
-
-```diff
---- reference/src/protocol_serde/shape_list_origination_numbers.rs
-+++ generated/src/protocol_serde/shape_list_origination_numbers.rs
-@@ -96,6 +96,9 @@
-                     .build()
-                     .map_err(super::super::operation::list_origination_numbers::ListOriginationNumbersError::unhandled)?
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         _ => super::super::operation::list_origination_numbers::ListOriginationNumbersError::generic(generic),
-```
-
-### `src/protocol_serde/shape_publish.rs`
-
-```diff
---- reference/src/protocol_serde/shape_publish.rs
-+++ generated/src/protocol_serde/shape_publish.rs
-@@ -245,6 +245,9 @@
-                     .build()
-                     .map_err(super::super::operation::publish::PublishError::unhandled)?
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         _ => super::super::operation::publish::PublishError::generic(generic),
-```
-
-### `src/protocol_serde/shape_publish_batch.rs`
-
-```diff
---- reference/src/protocol_serde/shape_publish_batch.rs
-+++ generated/src/protocol_serde/shape_publish_batch.rs
-@@ -308,7 +308,8 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyEntriesInBatchRequestExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_too_many_entries_in_batch_request_exception::de_too_many_entries_in_batch_request_exception_xml_err(_response_body, output).map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_entries_in_batch_request_exception::de_too_many_entries_in_batch_request_exception_xml_err(_response_body, output)
-+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -330,6 +331,9 @@
-                     .build()
-                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         _ => super::super::operation::publish_batch::PublishBatchError::generic(generic),
-```
-
-### `src/protocol_serde/shape_verify_sms_sandbox_phone_number.rs`
-
-```diff
---- reference/src/protocol_serde/shape_verify_sms_sandbox_phone_number.rs
-+++ generated/src/protocol_serde/shape_verify_sms_sandbox_phone_number.rs
-@@ -107,6 +107,9 @@
-                     .build()
-                     .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::unhandled)?
-             };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         _ => super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::generic(generic),
 ```

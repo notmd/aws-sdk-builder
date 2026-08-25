@@ -46066,7 +46066,8 @@ pub fn de_add_permission_http_error(
                     .map_err(super::super::operation::add_permission::AddPermissionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46080,7 +46081,8 @@ pub fn de_add_permission_http_error(
                     .map_err(super::super::operation::add_permission::AddPermissionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46094,7 +46096,8 @@ pub fn de_add_permission_http_error(
                     .map_err(super::super::operation::add_permission::AddPermissionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46108,7 +46111,8 @@ pub fn de_add_permission_http_error(
                     .map_err(super::super::operation::add_permission::AddPermissionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46206,7 +46210,8 @@ pub fn de_check_if_phone_number_is_opted_out_http_error(
                     .map_err(super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46220,7 +46225,8 @@ pub fn de_check_if_phone_number_is_opted_out_http_error(
                     .map_err(super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46234,7 +46240,8 @@ pub fn de_check_if_phone_number_is_opted_out_http_error(
                     .map_err(super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46248,7 +46255,8 @@ pub fn de_check_if_phone_number_is_opted_out_http_error(
                     .map_err(super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46369,7 +46377,8 @@ pub fn de_confirm_subscription_http_error(
                     .map_err(super::super::operation::confirm_subscription::ConfirmSubscriptionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46383,7 +46392,8 @@ pub fn de_confirm_subscription_http_error(
                     .map_err(super::super::operation::confirm_subscription::ConfirmSubscriptionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46397,7 +46407,8 @@ pub fn de_confirm_subscription_http_error(
                     .map_err(super::super::operation::confirm_subscription::ConfirmSubscriptionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46411,7 +46422,8 @@ pub fn de_confirm_subscription_http_error(
                     .map_err(super::super::operation::confirm_subscription::ConfirmSubscriptionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46425,7 +46437,8 @@ pub fn de_confirm_subscription_http_error(
                     .map_err(super::super::operation::confirm_subscription::ConfirmSubscriptionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46439,7 +46452,8 @@ pub fn de_confirm_subscription_http_error(
                     .map_err(super::super::operation::confirm_subscription::ConfirmSubscriptionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46453,7 +46467,8 @@ pub fn de_confirm_subscription_http_error(
                     .map_err(super::super::operation::confirm_subscription::ConfirmSubscriptionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46582,7 +46597,8 @@ pub fn de_create_platform_application_http_error(
                     .map_err(super::super::operation::create_platform_application::CreatePlatformApplicationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46596,7 +46612,8 @@ pub fn de_create_platform_application_http_error(
                     .map_err(super::super::operation::create_platform_application::CreatePlatformApplicationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46610,7 +46627,8 @@ pub fn de_create_platform_application_http_error(
                     .map_err(super::super::operation::create_platform_application::CreatePlatformApplicationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46747,7 +46765,8 @@ pub fn de_create_platform_endpoint_http_error(
                     .map_err(super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46761,7 +46780,8 @@ pub fn de_create_platform_endpoint_http_error(
                     .map_err(super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46775,7 +46795,8 @@ pub fn de_create_platform_endpoint_http_error(
                     .map_err(super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46789,7 +46810,8 @@ pub fn de_create_platform_endpoint_http_error(
                     .map_err(super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46931,7 +46953,8 @@ pub fn de_create_sms_sandbox_phone_number_http_error(
                     .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46945,7 +46968,8 @@ pub fn de_create_sms_sandbox_phone_number_http_error(
                     .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46959,7 +46983,8 @@ pub fn de_create_sms_sandbox_phone_number_http_error(
                     .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46973,7 +46998,8 @@ pub fn de_create_sms_sandbox_phone_number_http_error(
                     .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -46987,7 +47013,8 @@ pub fn de_create_sms_sandbox_phone_number_http_error(
                     .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47001,7 +47028,8 @@ pub fn de_create_sms_sandbox_phone_number_http_error(
                     .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47077,7 +47105,8 @@ pub fn de_create_topic_http_error(
                     .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47091,7 +47120,8 @@ pub fn de_create_topic_http_error(
                     .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47105,7 +47135,8 @@ pub fn de_create_topic_http_error(
                     .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47119,7 +47150,8 @@ pub fn de_create_topic_http_error(
                     .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47133,7 +47165,8 @@ pub fn de_create_topic_http_error(
                     .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47147,7 +47180,8 @@ pub fn de_create_topic_http_error(
                     .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47161,7 +47195,8 @@ pub fn de_create_topic_http_error(
                     .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47175,7 +47210,8 @@ pub fn de_create_topic_http_error(
                     .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47189,7 +47225,8 @@ pub fn de_create_topic_http_error(
                     .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47337,7 +47374,8 @@ pub fn de_delete_endpoint_http_error(
                     .map_err(super::super::operation::delete_endpoint::DeleteEndpointError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47351,7 +47389,8 @@ pub fn de_delete_endpoint_http_error(
                     .map_err(super::super::operation::delete_endpoint::DeleteEndpointError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47365,7 +47404,8 @@ pub fn de_delete_endpoint_http_error(
                     .map_err(super::super::operation::delete_endpoint::DeleteEndpointError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47436,7 +47476,8 @@ pub fn de_delete_platform_application_http_error(
                     .map_err(super::super::operation::delete_platform_application::DeletePlatformApplicationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47450,7 +47491,8 @@ pub fn de_delete_platform_application_http_error(
                     .map_err(super::super::operation::delete_platform_application::DeletePlatformApplicationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47464,7 +47506,8 @@ pub fn de_delete_platform_application_http_error(
                     .map_err(super::super::operation::delete_platform_application::DeletePlatformApplicationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47535,7 +47578,8 @@ pub fn de_delete_sms_sandbox_phone_number_http_error(
                     .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47549,7 +47593,8 @@ pub fn de_delete_sms_sandbox_phone_number_http_error(
                     .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47563,7 +47608,8 @@ pub fn de_delete_sms_sandbox_phone_number_http_error(
                     .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47577,7 +47623,8 @@ pub fn de_delete_sms_sandbox_phone_number_http_error(
                     .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47591,7 +47638,8 @@ pub fn de_delete_sms_sandbox_phone_number_http_error(
                     .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47605,7 +47653,8 @@ pub fn de_delete_sms_sandbox_phone_number_http_error(
                     .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47676,7 +47725,8 @@ pub fn de_delete_topic_http_error(
                     .map_err(super::super::operation::delete_topic::DeleteTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47690,7 +47740,8 @@ pub fn de_delete_topic_http_error(
                     .map_err(super::super::operation::delete_topic::DeleteTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47704,7 +47755,8 @@ pub fn de_delete_topic_http_error(
                     .map_err(super::super::operation::delete_topic::DeleteTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47718,7 +47770,8 @@ pub fn de_delete_topic_http_error(
                     .map_err(super::super::operation::delete_topic::DeleteTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47732,7 +47785,8 @@ pub fn de_delete_topic_http_error(
                     .map_err(super::super::operation::delete_topic::DeleteTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47746,7 +47800,8 @@ pub fn de_delete_topic_http_error(
                     .map_err(super::super::operation::delete_topic::DeleteTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47760,7 +47815,8 @@ pub fn de_delete_topic_http_error(
                     .map_err(super::super::operation::delete_topic::DeleteTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47774,7 +47830,8 @@ pub fn de_delete_topic_http_error(
                     .map_err(super::super::operation::delete_topic::DeleteTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47845,7 +47902,8 @@ pub fn de_get_data_protection_policy_http_error(
                     .map_err(super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47859,7 +47917,8 @@ pub fn de_get_data_protection_policy_http_error(
                     .map_err(super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47873,7 +47932,8 @@ pub fn de_get_data_protection_policy_http_error(
                     .map_err(super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47887,7 +47947,8 @@ pub fn de_get_data_protection_policy_http_error(
                     .map_err(super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -47901,7 +47962,8 @@ pub fn de_get_data_protection_policy_http_error(
                     .map_err(super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48020,7 +48082,8 @@ pub fn de_get_endpoint_attributes_http_error(
                     .map_err(super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48034,7 +48097,8 @@ pub fn de_get_endpoint_attributes_http_error(
                     .map_err(super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48048,7 +48112,8 @@ pub fn de_get_endpoint_attributes_http_error(
                     .map_err(super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48062,7 +48127,8 @@ pub fn de_get_endpoint_attributes_http_error(
                     .map_err(super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48178,7 +48244,8 @@ pub fn de_get_platform_application_attributes_http_error(
                     .map_err(super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48192,7 +48259,8 @@ pub fn de_get_platform_application_attributes_http_error(
                     .map_err(super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48206,7 +48274,8 @@ pub fn de_get_platform_application_attributes_http_error(
                     .map_err(super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48220,7 +48289,8 @@ pub fn de_get_platform_application_attributes_http_error(
                     .map_err(super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48336,7 +48406,8 @@ pub fn de_get_sms_attributes_http_error(
                     .map_err(super::super::operation::get_sms_attributes::GetSMSAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48350,7 +48421,8 @@ pub fn de_get_sms_attributes_http_error(
                     .map_err(super::super::operation::get_sms_attributes::GetSMSAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48364,7 +48436,8 @@ pub fn de_get_sms_attributes_http_error(
                     .map_err(super::super::operation::get_sms_attributes::GetSMSAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48378,7 +48451,8 @@ pub fn de_get_sms_attributes_http_error(
                     .map_err(super::super::operation::get_sms_attributes::GetSMSAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48500,7 +48574,8 @@ pub fn de_get_sms_sandbox_account_status_http_error(
                     .map_err(super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48514,7 +48589,8 @@ pub fn de_get_sms_sandbox_account_status_http_error(
                     .map_err(super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48528,7 +48604,8 @@ pub fn de_get_sms_sandbox_account_status_http_error(
                     .map_err(super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48646,7 +48723,8 @@ pub fn de_get_subscription_attributes_http_error(
                     .map_err(super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48660,7 +48738,8 @@ pub fn de_get_subscription_attributes_http_error(
                     .map_err(super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48674,7 +48753,8 @@ pub fn de_get_subscription_attributes_http_error(
                     .map_err(super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48688,7 +48768,8 @@ pub fn de_get_subscription_attributes_http_error(
                     .map_err(super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48804,7 +48885,8 @@ pub fn de_get_topic_attributes_http_error(
                     .map_err(super::super::operation::get_topic_attributes::GetTopicAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48818,7 +48900,8 @@ pub fn de_get_topic_attributes_http_error(
                     .map_err(super::super::operation::get_topic_attributes::GetTopicAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48832,7 +48915,8 @@ pub fn de_get_topic_attributes_http_error(
                     .map_err(super::super::operation::get_topic_attributes::GetTopicAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48846,7 +48930,8 @@ pub fn de_get_topic_attributes_http_error(
                     .map_err(super::super::operation::get_topic_attributes::GetTopicAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48860,7 +48945,8 @@ pub fn de_get_topic_attributes_http_error(
                     .map_err(super::super::operation::get_topic_attributes::GetTopicAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48976,7 +49062,8 @@ pub fn de_list_endpoints_by_platform_application_http_error(
                     .map_err(super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -48990,7 +49077,8 @@ pub fn de_list_endpoints_by_platform_application_http_error(
                     .map_err(super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49004,7 +49092,8 @@ pub fn de_list_endpoints_by_platform_application_http_error(
                     .map_err(super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49018,7 +49107,8 @@ pub fn de_list_endpoints_by_platform_application_http_error(
                     .map_err(super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49152,7 +49242,8 @@ pub fn de_list_origination_numbers_http_error(
                     .map_err(super::super::operation::list_origination_numbers::ListOriginationNumbersError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49166,7 +49257,8 @@ pub fn de_list_origination_numbers_http_error(
                     .map_err(super::super::operation::list_origination_numbers::ListOriginationNumbersError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49180,7 +49272,8 @@ pub fn de_list_origination_numbers_http_error(
                     .map_err(super::super::operation::list_origination_numbers::ListOriginationNumbersError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49194,7 +49287,8 @@ pub fn de_list_origination_numbers_http_error(
                     .map_err(super::super::operation::list_origination_numbers::ListOriginationNumbersError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49208,9 +49302,7 @@ pub fn de_list_origination_numbers_http_error(
                     .map_err(super::super::operation::list_origination_numbers::ListOriginationNumbersError::unhandled)?;
                 let output = output.meta(generic);
                 super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::list_origination_numbers::ListOriginationNumbersError::unhandled)?
-            };            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
+            };
             tmp
         }),
         _ => super::super::operation::list_origination_numbers::ListOriginationNumbersError::generic(generic)
@@ -49343,7 +49435,8 @@ pub fn de_list_phone_numbers_opted_out_http_error(
                     .map_err(super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49357,7 +49450,8 @@ pub fn de_list_phone_numbers_opted_out_http_error(
                     .map_err(super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49371,7 +49465,8 @@ pub fn de_list_phone_numbers_opted_out_http_error(
                     .map_err(super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49385,7 +49480,8 @@ pub fn de_list_phone_numbers_opted_out_http_error(
                     .map_err(super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49514,7 +49610,8 @@ pub fn de_list_platform_applications_http_error(
                     .map_err(super::super::operation::list_platform_applications::ListPlatformApplicationsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49528,7 +49625,8 @@ pub fn de_list_platform_applications_http_error(
                     .map_err(super::super::operation::list_platform_applications::ListPlatformApplicationsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49542,7 +49640,8 @@ pub fn de_list_platform_applications_http_error(
                     .map_err(super::super::operation::list_platform_applications::ListPlatformApplicationsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49671,7 +49770,8 @@ pub fn de_list_sms_sandbox_phone_numbers_http_error(
                     .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49685,7 +49785,8 @@ pub fn de_list_sms_sandbox_phone_numbers_http_error(
                     .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49699,7 +49800,8 @@ pub fn de_list_sms_sandbox_phone_numbers_http_error(
                     .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49713,7 +49815,8 @@ pub fn de_list_sms_sandbox_phone_numbers_http_error(
                     .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49727,7 +49830,8 @@ pub fn de_list_sms_sandbox_phone_numbers_http_error(
                     .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49863,7 +49967,8 @@ pub fn de_list_subscriptions_http_error(
                     .map_err(super::super::operation::list_subscriptions::ListSubscriptionsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49877,7 +49982,8 @@ pub fn de_list_subscriptions_http_error(
                     .map_err(super::super::operation::list_subscriptions::ListSubscriptionsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49891,7 +49997,8 @@ pub fn de_list_subscriptions_http_error(
                     .map_err(super::super::operation::list_subscriptions::ListSubscriptionsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50002,7 +50109,8 @@ pub fn de_list_subscriptions_by_topic_http_error(
                     .map_err(super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50016,7 +50124,8 @@ pub fn de_list_subscriptions_by_topic_http_error(
                     .map_err(super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50030,7 +50139,8 @@ pub fn de_list_subscriptions_by_topic_http_error(
                     .map_err(super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50044,7 +50154,8 @@ pub fn de_list_subscriptions_by_topic_http_error(
                     .map_err(super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50196,7 +50307,8 @@ pub fn de_list_tags_for_resource_http_error(
                     .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50210,7 +50322,8 @@ pub fn de_list_tags_for_resource_http_error(
                     .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50224,7 +50337,8 @@ pub fn de_list_tags_for_resource_http_error(
                     .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50238,7 +50352,8 @@ pub fn de_list_tags_for_resource_http_error(
                     .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50252,7 +50367,8 @@ pub fn de_list_tags_for_resource_http_error(
                     .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50368,7 +50484,8 @@ pub fn de_list_topics_http_error(
                     .map_err(super::super::operation::list_topics::ListTopicsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50382,7 +50499,8 @@ pub fn de_list_topics_http_error(
                     .map_err(super::super::operation::list_topics::ListTopicsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50396,7 +50514,8 @@ pub fn de_list_topics_http_error(
                     .map_err(super::super::operation::list_topics::ListTopicsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50525,7 +50644,8 @@ pub fn de_opt_in_phone_number_http_error(
                     .map_err(super::super::operation::opt_in_phone_number::OptInPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50539,7 +50659,8 @@ pub fn de_opt_in_phone_number_http_error(
                     .map_err(super::super::operation::opt_in_phone_number::OptInPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50553,7 +50674,8 @@ pub fn de_opt_in_phone_number_http_error(
                     .map_err(super::super::operation::opt_in_phone_number::OptInPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50567,7 +50689,8 @@ pub fn de_opt_in_phone_number_http_error(
                     .map_err(super::super::operation::opt_in_phone_number::OptInPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50638,7 +50761,8 @@ pub fn de_publish_http_error(
                     .map_err(super::super::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50652,7 +50776,8 @@ pub fn de_publish_http_error(
                     .map_err(super::super::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50666,7 +50791,8 @@ pub fn de_publish_http_error(
                     .map_err(super::super::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50680,7 +50806,8 @@ pub fn de_publish_http_error(
                     .map_err(super::super::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50694,7 +50821,8 @@ pub fn de_publish_http_error(
                     .map_err(super::super::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50708,7 +50836,8 @@ pub fn de_publish_http_error(
                     .map_err(super::super::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50722,7 +50851,8 @@ pub fn de_publish_http_error(
                     .map_err(super::super::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50736,7 +50866,8 @@ pub fn de_publish_http_error(
                     .map_err(super::super::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50750,7 +50881,8 @@ pub fn de_publish_http_error(
                     .map_err(super::super::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50764,7 +50896,8 @@ pub fn de_publish_http_error(
                     .map_err(super::super::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50778,7 +50911,8 @@ pub fn de_publish_http_error(
                     .map_err(super::super::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50792,7 +50926,8 @@ pub fn de_publish_http_error(
                     .map_err(super::super::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50806,7 +50941,8 @@ pub fn de_publish_http_error(
                     .map_err(super::super::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50820,7 +50956,8 @@ pub fn de_publish_http_error(
                     .map_err(super::super::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50834,9 +50971,7 @@ pub fn de_publish_http_error(
                     .map_err(super::super::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
                 super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::publish::PublishError::unhandled)?
-            };            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
+            };
             tmp
         }),
         _ => super::super::operation::publish::PublishError::generic(generic)
@@ -50948,7 +51083,8 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50962,7 +51098,8 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50976,7 +51113,8 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -50990,7 +51128,8 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51004,7 +51143,8 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51018,7 +51158,8 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51032,7 +51173,8 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51046,7 +51188,8 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51060,7 +51203,8 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51074,7 +51218,8 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51088,7 +51233,8 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51102,7 +51248,8 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51116,7 +51263,8 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51130,7 +51278,8 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51144,7 +51293,8 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51158,7 +51308,8 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51172,7 +51323,8 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51186,7 +51338,8 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51200,7 +51353,8 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51214,9 +51368,7 @@ pub fn de_publish_batch_http_error(
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
                 let output = output.meta(generic);
                 super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?
-            };            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
+            };
             tmp
         }),
         _ => super::super::operation::publish_batch::PublishBatchError::generic(generic)
@@ -51417,7 +51569,8 @@ pub fn de_put_data_protection_policy_http_error(
                     .map_err(super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51431,7 +51584,8 @@ pub fn de_put_data_protection_policy_http_error(
                     .map_err(super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51445,7 +51599,8 @@ pub fn de_put_data_protection_policy_http_error(
                     .map_err(super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51459,7 +51614,8 @@ pub fn de_put_data_protection_policy_http_error(
                     .map_err(super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51473,7 +51629,8 @@ pub fn de_put_data_protection_policy_http_error(
                     .map_err(super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51549,7 +51706,8 @@ pub fn de_remove_permission_http_error(
                     .map_err(super::super::operation::remove_permission::RemovePermissionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51563,7 +51721,8 @@ pub fn de_remove_permission_http_error(
                     .map_err(super::super::operation::remove_permission::RemovePermissionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51577,7 +51736,8 @@ pub fn de_remove_permission_http_error(
                     .map_err(super::super::operation::remove_permission::RemovePermissionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51591,7 +51751,8 @@ pub fn de_remove_permission_http_error(
                     .map_err(super::super::operation::remove_permission::RemovePermissionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51667,7 +51828,8 @@ pub fn de_set_endpoint_attributes_http_error(
                     .map_err(super::super::operation::set_endpoint_attributes::SetEndpointAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51681,7 +51843,8 @@ pub fn de_set_endpoint_attributes_http_error(
                     .map_err(super::super::operation::set_endpoint_attributes::SetEndpointAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51695,7 +51858,8 @@ pub fn de_set_endpoint_attributes_http_error(
                     .map_err(super::super::operation::set_endpoint_attributes::SetEndpointAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51709,7 +51873,8 @@ pub fn de_set_endpoint_attributes_http_error(
                     .map_err(super::super::operation::set_endpoint_attributes::SetEndpointAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51793,7 +51958,8 @@ pub fn de_set_platform_application_attributes_http_error(
                     .map_err(super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51807,7 +51973,8 @@ pub fn de_set_platform_application_attributes_http_error(
                     .map_err(super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51821,7 +51988,8 @@ pub fn de_set_platform_application_attributes_http_error(
                     .map_err(super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51835,7 +52003,8 @@ pub fn de_set_platform_application_attributes_http_error(
                     .map_err(super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51919,7 +52088,8 @@ pub fn de_set_sms_attributes_http_error(
                     .map_err(super::super::operation::set_sms_attributes::SetSMSAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51933,7 +52103,8 @@ pub fn de_set_sms_attributes_http_error(
                     .map_err(super::super::operation::set_sms_attributes::SetSMSAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51947,7 +52118,8 @@ pub fn de_set_sms_attributes_http_error(
                     .map_err(super::super::operation::set_sms_attributes::SetSMSAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -51961,7 +52133,8 @@ pub fn de_set_sms_attributes_http_error(
                     .map_err(super::super::operation::set_sms_attributes::SetSMSAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52040,7 +52213,8 @@ pub fn de_set_subscription_attributes_http_error(
                     .map_err(super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52054,7 +52228,8 @@ pub fn de_set_subscription_attributes_http_error(
                     .map_err(super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52068,7 +52243,8 @@ pub fn de_set_subscription_attributes_http_error(
                     .map_err(super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52082,7 +52258,8 @@ pub fn de_set_subscription_attributes_http_error(
                     .map_err(super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52096,7 +52273,8 @@ pub fn de_set_subscription_attributes_http_error(
                     .map_err(super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52110,7 +52288,8 @@ pub fn de_set_subscription_attributes_http_error(
                     .map_err(super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52191,7 +52370,8 @@ pub fn de_set_topic_attributes_http_error(
                     .map_err(super::super::operation::set_topic_attributes::SetTopicAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52205,7 +52385,8 @@ pub fn de_set_topic_attributes_http_error(
                     .map_err(super::super::operation::set_topic_attributes::SetTopicAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52219,7 +52400,8 @@ pub fn de_set_topic_attributes_http_error(
                     .map_err(super::super::operation::set_topic_attributes::SetTopicAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52233,7 +52415,8 @@ pub fn de_set_topic_attributes_http_error(
                     .map_err(super::super::operation::set_topic_attributes::SetTopicAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52247,7 +52430,8 @@ pub fn de_set_topic_attributes_http_error(
                     .map_err(super::super::operation::set_topic_attributes::SetTopicAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52328,7 +52512,8 @@ pub fn de_subscribe_http_error(
                     .map_err(super::super::operation::subscribe::SubscribeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52342,7 +52527,8 @@ pub fn de_subscribe_http_error(
                     .map_err(super::super::operation::subscribe::SubscribeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52356,7 +52542,8 @@ pub fn de_subscribe_http_error(
                     .map_err(super::super::operation::subscribe::SubscribeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52370,7 +52557,8 @@ pub fn de_subscribe_http_error(
                     .map_err(super::super::operation::subscribe::SubscribeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52384,7 +52572,8 @@ pub fn de_subscribe_http_error(
                     .map_err(super::super::operation::subscribe::SubscribeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52398,7 +52587,8 @@ pub fn de_subscribe_http_error(
                     .map_err(super::super::operation::subscribe::SubscribeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52412,7 +52602,8 @@ pub fn de_subscribe_http_error(
                     .map_err(super::super::operation::subscribe::SubscribeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52426,7 +52617,8 @@ pub fn de_subscribe_http_error(
                     .map_err(super::super::operation::subscribe::SubscribeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52573,7 +52765,8 @@ pub fn de_tag_resource_http_error(
                     .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52587,7 +52780,8 @@ pub fn de_tag_resource_http_error(
                     .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52601,7 +52795,8 @@ pub fn de_tag_resource_http_error(
                     .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52615,7 +52810,8 @@ pub fn de_tag_resource_http_error(
                     .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52629,7 +52825,8 @@ pub fn de_tag_resource_http_error(
                     .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52643,7 +52840,8 @@ pub fn de_tag_resource_http_error(
                     .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52657,7 +52855,8 @@ pub fn de_tag_resource_http_error(
                     .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52739,7 +52938,8 @@ pub fn de_unsubscribe_http_error(
                     .map_err(super::super::operation::unsubscribe::UnsubscribeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52753,7 +52953,8 @@ pub fn de_unsubscribe_http_error(
                     .map_err(super::super::operation::unsubscribe::UnsubscribeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52767,7 +52968,8 @@ pub fn de_unsubscribe_http_error(
                     .map_err(super::super::operation::unsubscribe::UnsubscribeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52781,7 +52983,8 @@ pub fn de_unsubscribe_http_error(
                     .map_err(super::super::operation::unsubscribe::UnsubscribeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52795,7 +52998,8 @@ pub fn de_unsubscribe_http_error(
                     .map_err(super::super::operation::unsubscribe::UnsubscribeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52866,7 +53070,8 @@ pub fn de_untag_resource_http_error(
                     .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52880,7 +53085,8 @@ pub fn de_untag_resource_http_error(
                     .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52894,7 +53100,8 @@ pub fn de_untag_resource_http_error(
                     .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52908,7 +53115,8 @@ pub fn de_untag_resource_http_error(
                     .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52922,7 +53130,8 @@ pub fn de_untag_resource_http_error(
                     .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52936,7 +53145,8 @@ pub fn de_untag_resource_http_error(
                     .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -52950,7 +53160,8 @@ pub fn de_untag_resource_http_error(
                     .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -53032,7 +53243,8 @@ pub fn de_verify_sms_sandbox_phone_number_http_error(
                     .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -53046,7 +53258,8 @@ pub fn de_verify_sms_sandbox_phone_number_http_error(
                     .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -53060,7 +53273,8 @@ pub fn de_verify_sms_sandbox_phone_number_http_error(
                     .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -53074,7 +53288,8 @@ pub fn de_verify_sms_sandbox_phone_number_http_error(
                     .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -53088,7 +53303,8 @@ pub fn de_verify_sms_sandbox_phone_number_http_error(
                     .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -53102,9 +53318,7 @@ pub fn de_verify_sms_sandbox_phone_number_http_error(
                     .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::unhandled)?;
                 let output = output.meta(generic);
                 super::super::serde_util::verification_exception_correct_errors(output).build().map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::unhandled)?
-            };            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
+            };
             tmp
         }),
         _ => super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::generic(generic)

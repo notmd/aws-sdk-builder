@@ -15467,7 +15467,8 @@ pub fn de_assume_role_http_error(
                     .map_err(super::super::operation::assume_role::AssumeRoleError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -15481,7 +15482,8 @@ pub fn de_assume_role_http_error(
                     .map_err(super::super::operation::assume_role::AssumeRoleError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -15495,7 +15497,8 @@ pub fn de_assume_role_http_error(
                     .map_err(super::super::operation::assume_role::AssumeRoleError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -15509,7 +15512,8 @@ pub fn de_assume_role_http_error(
                     .map_err(super::super::operation::assume_role::AssumeRoleError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -15743,7 +15747,8 @@ pub fn de_assume_role_with_saml_http_error(
                     .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -15757,7 +15762,8 @@ pub fn de_assume_role_with_saml_http_error(
                     .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -15771,7 +15777,8 @@ pub fn de_assume_role_with_saml_http_error(
                     .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -15785,7 +15792,8 @@ pub fn de_assume_role_with_saml_http_error(
                     .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -15799,7 +15807,8 @@ pub fn de_assume_role_with_saml_http_error(
                     .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -15813,7 +15822,8 @@ pub fn de_assume_role_with_saml_http_error(
                     .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -16064,7 +16074,8 @@ pub fn de_assume_role_with_web_identity_http_error(
                     .map_err(super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -16078,7 +16089,8 @@ pub fn de_assume_role_with_web_identity_http_error(
                     .map_err(super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -16092,7 +16104,8 @@ pub fn de_assume_role_with_web_identity_http_error(
                     .map_err(super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -16106,7 +16119,8 @@ pub fn de_assume_role_with_web_identity_http_error(
                     .map_err(super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -16120,7 +16134,8 @@ pub fn de_assume_role_with_web_identity_http_error(
                     .map_err(super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -16134,7 +16149,8 @@ pub fn de_assume_role_with_web_identity_http_error(
                     .map_err(super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -16148,7 +16164,8 @@ pub fn de_assume_role_with_web_identity_http_error(
                     .map_err(super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -16378,7 +16395,8 @@ pub fn de_assume_root_http_error(
                     .map_err(super::super::operation::assume_root::AssumeRootError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -16392,7 +16410,8 @@ pub fn de_assume_root_http_error(
                     .map_err(super::super::operation::assume_root::AssumeRootError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -16532,7 +16551,8 @@ pub fn de_decode_authorization_message_http_error(
                     .map_err(super::super::operation::decode_authorization_message::DecodeAuthorizationMessageError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -16867,7 +16887,8 @@ pub fn de_get_delegated_access_token_http_error(
                     .map_err(super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -16881,7 +16902,8 @@ pub fn de_get_delegated_access_token_http_error(
                     .map_err(super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -16895,7 +16917,8 @@ pub fn de_get_delegated_access_token_http_error(
                     .map_err(super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -17039,7 +17062,8 @@ pub fn de_get_federation_token_http_error(
                     .map_err(super::super::operation::get_federation_token::GetFederationTokenError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -17053,7 +17077,8 @@ pub fn de_get_federation_token_http_error(
                     .map_err(super::super::operation::get_federation_token::GetFederationTokenError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -17067,7 +17092,8 @@ pub fn de_get_federation_token_http_error(
                     .map_err(super::super::operation::get_federation_token::GetFederationTokenError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -17241,7 +17267,8 @@ pub fn de_get_session_token_http_error(
                     .map_err(super::super::operation::get_session_token::GetSessionTokenError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -17368,7 +17395,8 @@ pub fn de_get_web_identity_token_http_error(
                     .map_err(super::super::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -17382,7 +17410,8 @@ pub fn de_get_web_identity_token_http_error(
                     .map_err(super::super::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -17396,7 +17425,8 @@ pub fn de_get_web_identity_token_http_error(
                     .map_err(super::super::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp

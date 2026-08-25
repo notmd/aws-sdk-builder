@@ -35,7 +35,8 @@ pub fn de_disable_organizations_root_credentials_management_http_error(
                     .map_err(super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -49,7 +50,8 @@ pub fn de_disable_organizations_root_credentials_management_http_error(
                     .map_err(super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -63,7 +65,8 @@ pub fn de_disable_organizations_root_credentials_management_http_error(
                     .map_err(super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -77,7 +80,8 @@ pub fn de_disable_organizations_root_credentials_management_http_error(
                     .map_err(super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp

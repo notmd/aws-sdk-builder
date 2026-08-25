@@ -29,7 +29,8 @@ pub fn de_disable_organizations_root_sessions_http_error(
                     .map_err(super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -43,7 +44,8 @@ pub fn de_disable_organizations_root_sessions_http_error(
                     .map_err(super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -57,7 +59,8 @@ pub fn de_disable_organizations_root_sessions_http_error(
                     .map_err(super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -71,7 +74,8 @@ pub fn de_disable_organizations_root_sessions_http_error(
                     .map_err(super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };            if tmp.message.is_none() {
+            };
+            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp

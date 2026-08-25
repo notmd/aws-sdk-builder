@@ -331,9 +331,6 @@ pub fn de_publish_batch_http_error(
                     .build()
                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::publish_batch::PublishBatchError::generic(generic),

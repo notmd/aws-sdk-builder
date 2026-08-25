@@ -245,9 +245,6 @@ pub fn de_publish_http_error(
                     .build()
                     .map_err(super::super::operation::publish::PublishError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::publish::PublishError::generic(generic),
