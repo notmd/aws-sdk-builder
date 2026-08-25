@@ -2,7 +2,7 @@
 
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
-**Summary:** `13167/13167 files compared` · `13075` matched · `90` mismatches · `2` missing · `0` extra · `0` read errors · `99.19%` average match
+**Summary:** `13167/13167 files compared` · `13076` matched · `89` mismatches · `2` missing · `0` extra · `0` read errors · `99.20%` average match
 
 | Service | Compared | Matched | Mismatches | Missing | Extra | Read errors | Match | Report |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
@@ -15,10 +15,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 | dynamodb | 882/882 | 879 | 3 | 0 | 0 | 0 | 99.66% | [report](summary/dynamodb.md) |
 | iam | 1626/1626 | 1614 | 12 | 0 | 0 | 0 | 99.26% | [report](summary/iam.md) |
 | kms | 591/591 | 585 | 6 | 0 | 0 | 0 | 98.98% | [report](summary/kms.md) |
-| lambda | 1076/1076 | 1065 | 11 | 0 | 0 | 0 | 98.98% | [report](summary/lambda.md) |
+| lambda | 1076/1076 | 1066 | 10 | 0 | 0 | 0 | 99.07% | [report](summary/lambda.md) |
 | s3 | 1281/1281 | 1281 | 0 | 0 | 0 | 0 | 100.00% | [report](summary/s3.md) |
 | sesv2 | 1159/1159 | 1147 | 11 | 1 | 0 | 0 | 98.96% | [report](summary/sesv2.md) |
 | sns | 445/445 | 435 | 10 | 0 | 0 | 0 | 97.75% | [report](summary/sns.md) |
 | sqs | 294/294 | 288 | 5 | 1 | 0 | 0 | 97.96% | [report](summary/sqs.md) |
 | sts | 146/146 | 146 | 0 | 0 | 0 | 0 | 100.00% | [report](summary/sts.md) |
-| **Average** | — | — | — | — | — | — | **99.19%** | — |
+| **Average** | — | — | — | — | — | — | **99.20%** | — |

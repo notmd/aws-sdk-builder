@@ -4,6 +4,28 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Apply AWS stalled-stream protection decorator set
+- State: in progress
+- Changed: the model-driven AWS customization now applies Smithy-RS's
+  `incompatibleWithStalledStreamProtectionTrait` to Lambda `Invoke`, Lambda
+  `InvokeAsync`, and S3 `CopyObject`. The generic runtime renderer continues to
+  consult only that derived trait; no operation-specific renderer branch was added.
+- Evidence: compared `AwsDisableStalledStreamProtection.kt`,
+  `DisableStalledStreamProtection.kt`, and the internal trait in the pinned
+  `/tmp/smithy-rs` checkout at commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`. Added a model-transform regression
+  covering all three operation IDs. `just conformance` regenerated and compiled all
+  15 services and 1,133 operations without generated-source parse errors. Workspace
+  tests (76), Clippy with `-D warnings`, formatting, and `git diff --check` pass.
+- Conformance: `13,075/13,167` exact, `90` mismatches, `2` missing, and `0` extra
+  (`99.19%`) -> `13,076/13,167` exact, `89` mismatches, `2` missing, and `0` extra
+  (`99.20%`). Lambda improved from 11 to 10 mismatches; `Invoke` is now exact.
+- Blocker: `just conformance` still exits 1 because remaining generic protocol,
+  serde, documentation, shape, runtime, export, and two missing-file parity gaps
+  remain.
+- Next action: align the generic standalone HTTP-payload body expression used by
+  byte-stream-like serializers, beginning with Lambda `InvokeAsync`.
+
 ### Checkpoint: 2026-08-25 — Omit primitive event-payload JSON helpers
 - State: in progress
 - Changed: JSON serde role discovery now omits event container structures whose

@@ -803,23 +803,26 @@ fn apply_model_customizations(shapes: &mut Map<String, Value>) {
             .insert("smithy.api#sensitive".to_owned(), Value::Object(Map::new()));
     }
 
-    // Smithy-RS's AWS decorator marks CopyObject as incompatible with stalled
-    // stream protection because its response can legitimately pause while the
-    // service performs the copy.
-    if let Some(shape) = shapes
-        .get_mut("com.amazonaws.s3#CopyObject")
-        .and_then(Value::as_object_mut)
-    {
-        shape
-            .entry("traits".to_owned())
-            .or_insert_with(|| Value::Object(Map::new()))
-            .as_object_mut()
-            .expect("operation traits must be an object")
-            .insert(
-                "software.amazon.smithy.rust.codegen.client.smithy.traits#incompatibleWithStalledStreamProtectionTrait"
-                    .to_owned(),
-                Value::Object(Map::new()),
-            );
+    // Smithy-RS's AWS decorator marks these operations as incompatible with
+    // stalled stream protection because their responses can legitimately pause
+    // while the service performs a long-running request.
+    for operation_id in [
+        "com.amazonaws.lambda#Invoke",
+        "com.amazonaws.lambda#InvokeAsync",
+        "com.amazonaws.s3#CopyObject",
+    ] {
+        if let Some(shape) = shapes.get_mut(operation_id).and_then(Value::as_object_mut) {
+            shape
+                .entry("traits".to_owned())
+                .or_insert_with(|| Value::Object(Map::new()))
+                .as_object_mut()
+                .expect("operation traits must be an object")
+                .insert(
+                    "software.amazon.smithy.rust.codegen.client.smithy.traits#incompatibleWithStalledStreamProtectionTrait"
+                        .to_owned(),
+                    Value::Object(Map::new()),
+                );
+        }
     }
 
     // The AWS Smithy-RS decorator marks this response so the paginator uses
@@ -1339,5 +1342,35 @@ mod tests {
         .unwrap_err()
         .to_string();
         assert!(multiple_services.contains("exactly one service shape; found 2"));
+    }
+
+    #[test]
+    fn aws_stalled_stream_customization_marks_all_incompatible_operations() {
+        let operation_ids = [
+            "com.amazonaws.lambda#Invoke",
+            "com.amazonaws.lambda#InvokeAsync",
+            "com.amazonaws.s3#CopyObject",
+        ];
+        let mut shapes = Map::new();
+        for operation_id in operation_ids {
+            shapes.insert(
+                operation_id.to_owned(),
+                serde_json::json!({"type": "operation"}),
+            );
+        }
+
+        apply_model_customizations(&mut shapes);
+
+        for operation_id in operation_ids {
+            assert!(shapes
+                .get(operation_id)
+                .and_then(|shape| shape.get("traits"))
+                .and_then(Value::as_object)
+                .is_some_and(|traits| {
+                    traits.contains_key(
+                        "software.amazon.smithy.rust.codegen.client.smithy.traits#incompatibleWithStalledStreamProtectionTrait",
+                    )
+                }));
+        }
     }
 }

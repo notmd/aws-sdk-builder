@@ -49785,7 +49785,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Invoke 
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("Invoke")
                             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(InvokeTelemetryInputCaptureInterceptor))
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(InvokeEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::invoke::InvokeError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::invoke::InvokeError>::new())
@@ -51404,7 +51403,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for InvokeA
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("InvokeAsync")
                             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(InvokeAsyncTelemetryInputCaptureInterceptor))
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(InvokeAsyncEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::invoke_async::InvokeAsyncError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::invoke_async::InvokeAsyncError>::new())

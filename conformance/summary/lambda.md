@@ -3,41 +3,14 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1076/1076` files compared · `1065` matched · `11` mismatches · `0` missing · `0` extra · `98.98%` match (100.00% means fully matched)
-
-### `src/operation/invoke.rs`
-
-```diff
---- reference/src/operation/invoke.rs
-+++ generated/src/operation/invoke.rs
-@@ -120,6 +120,9 @@
-                 InvokeTelemetryInputCaptureInterceptor,
-             ))
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                 InvokeEndpointParamsInterceptor,
-             ))
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-```
+**Progress:** `1076/1076` files compared · `1066` matched · `10` mismatches · `0` missing · `0` extra · `99.07%` match (100.00% means fully matched)
 
 ### `src/operation/invoke_async.rs`
 
 ```diff
 --- reference/src/operation/invoke_async.rs
 +++ generated/src/operation/invoke_async.rs
-@@ -127,6 +127,9 @@
-                 InvokeAsyncTelemetryInputCaptureInterceptor,
-             ))
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                 InvokeAsyncEndpointParamsInterceptor,
-             ))
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-@@ -259,7 +262,9 @@
+@@ -259,7 +259,9 @@
              builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/octet-stream");
              builder
          };
