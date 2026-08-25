@@ -14599,10 +14599,13 @@ fn structure_has_sensitive_member(selected: &SelectedModel, shape: &Value) -> bo
 }
 
 fn operation_output_is_sensitive(selected: &SelectedModel, shape: &Value) -> bool {
-    has_trait(shape, "smithy.api#sensitive")
-        || members(shape)
-            .iter()
-            .any(|(_, member)| value_has_sensitive_target(selected, member, &mut BTreeSet::new()))
+    // Smithy-RS's SensitiveIndex follows output member edges. A sensitive
+    // trait on the output container itself is not enough to mark the
+    // operation; this distinction matters for models such as CodeArtifact's
+    // GetAuthorizationToken output.
+    members(shape)
+        .iter()
+        .any(|(_, member)| value_has_sensitive_target(selected, member, &mut BTreeSet::new()))
 }
 
 fn value_has_sensitive_target(
@@ -17821,6 +17824,70 @@ mod tests {
         assert!(
             builder.contains("formatter.field(\"r#type\", &\"*** Sensitive Data Redacted ***\");")
         );
+    }
+
+    #[test]
+    fn sensitive_output_follows_output_members_not_output_shape_trait() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Direct", "example#Nested"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Direct": {
+                        "type": "operation",
+                        "output": {"target": "example#DirectOutput"}
+                    },
+                    "example#Nested": {
+                        "type": "operation",
+                        "output": {"target": "example#NestedOutput"}
+                    },
+                    "example#DirectOutput": {
+                        "type": "structure",
+                        "members": {},
+                        "traits": {"smithy.api#sensitive": {}}
+                    },
+                    "example#NestedOutput": {
+                        "type": "structure",
+                        "members": {
+                            "secret": {"target": "example#Secret"}
+                        }
+                    },
+                    "example#Secret": {
+                        "type": "string",
+                        "traits": {"smithy.api#sensitive": {}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let output_shape = |operation_name| {
+            operation_shape(&selected, operation_name)
+                .and_then(|operation| operation.get("output"))
+                .and_then(target_value)
+                .and_then(|target| selected.model.shapes.get(target))
+                .unwrap()
+        };
+
+        assert!(!operation_output_is_sensitive(
+            &selected,
+            output_shape("Direct")
+        ));
+        assert!(operation_output_is_sensitive(
+            &selected,
+            output_shape("Nested")
+        ));
     }
 
     #[test]

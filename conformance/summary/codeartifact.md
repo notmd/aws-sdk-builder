@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## codeartifact
-**Progress:** `459/459` files compared · `457` matched · `2` mismatches · `0` missing · `0` extra · `99.56%` match (100.00% means fully matched)
+**Progress:** `459/459` files compared · `458` matched · `1` mismatches · `0` missing · `0` extra · `99.78%` match (100.00% means fully matched)
 
 ### `src/lib.rs`
 
@@ -23,19 +23,4 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  //!     - A _name_ (for example, webpack is the name of a popular npm package)
  //!     - An optional namespace (for example, @types in @types/node)
  //!     - A set of versions (for example, 1.0.0, 1.0.1, 1.0.2, etc.)
-```
-
-### `src/operation/get_authorization_token.rs`
-
-```diff
---- reference/src/operation/get_authorization_token.rs
-+++ generated/src/operation/get_authorization_token.rs
-@@ -108,6 +108,7 @@
-                 .expect("required fields set"),
-         ));
-
-+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-             "GetAuthorizationToken",
-             "codeartifact",
 ```
