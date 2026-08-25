@@ -38060,6 +38060,100 @@ pub fn de_invoke_model_http_response(
             .map_err(super::super::operation::invoke_model::InvokeModelError::unhandled)?
     })
 }
+pub fn ser_invoke_model_headers(
+    input: &super::super::operation::invoke_model::InvokeModelInput,
+    mut builder: ::http_1x::request::Builder,
+) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+    if let ::std::option::Option::Some(inner_1) = &input.content_type {
+        let formatted_2 = inner_1.as_str();
+        let header_value = formatted_2;
+        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+            ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                "content_type",
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+            )
+        })?;
+        builder = builder.header("Content-Type", header_value);
+    }
+    if let ::std::option::Option::Some(inner_3) = &input.accept {
+        let formatted_4 = inner_3.as_str();
+        let header_value = formatted_4;
+        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+            ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                "accept",
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+            )
+        })?;
+        builder = builder.header("Accept", header_value);
+    }
+    if let ::std::option::Option::Some(inner_5) = &input.trace {
+        let formatted_6 = inner_5.as_str();
+        let header_value = formatted_6;
+        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+            ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                "trace",
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+            )
+        })?;
+        builder = builder.header("X-Amzn-Bedrock-Trace", header_value);
+    }
+    if let ::std::option::Option::Some(inner_7) = &input.guardrail_identifier {
+        let formatted_8 = inner_7.as_str();
+        let header_value = formatted_8;
+        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+            ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                "guardrail_identifier",
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+            )
+        })?;
+        builder = builder.header("X-Amzn-Bedrock-GuardrailIdentifier", header_value);
+    }
+    if let ::std::option::Option::Some(inner_9) = &input.guardrail_version {
+        let formatted_10 = inner_9.as_str();
+        let header_value = formatted_10;
+        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+            ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                "guardrail_version",
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+            )
+        })?;
+        builder = builder.header("X-Amzn-Bedrock-GuardrailVersion", header_value);
+    }
+    if let ::std::option::Option::Some(inner_11) = &input.performance_config_latency {
+        let formatted_12 = inner_11.as_str();
+        let header_value = formatted_12;
+        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+            ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                "performance_config_latency",
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+            )
+        })?;
+        builder = builder.header("X-Amzn-Bedrock-PerformanceConfig-Latency", header_value);
+    }
+    if let ::std::option::Option::Some(inner_13) = &input.service_tier {
+        let formatted_14 = inner_13.as_str();
+        let header_value = formatted_14;
+        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+            ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                "service_tier",
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+            )
+        })?;
+        builder = builder.header("X-Amzn-Bedrock-Service-Tier", header_value);
+    }
+    if let ::std::option::Option::Some(inner_15) = &input.request_metadata {
+        let formatted_16 = inner_15.as_str();
+        let header_value = formatted_16;
+        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+            ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                "request_metadata",
+                format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
+            )
+        })?;
+        builder = builder.header("X-Amzn-Bedrock-Request-Metadata", header_value);
+    }
+    Ok(builder)
+}
 }
 
 pub(crate) mod shape_invoke_model_with_bidirectional_stream {
@@ -38079,11 +38173,10 @@ pub fn de_invoke_model_with_bidirectional_stream_http_response(
         let mut output = super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder::default();
         output = output.set_body(Some(super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream_output::de_body_payload(_response_body)?));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        output
-            .build()
-            .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?
+        super::super::serde_util::invoke_model_with_bidirectional_stream_output_output_correct_errors(output).build()
     })
 }
+
 #[allow(clippy::unnecessary_wraps)]
 pub fn de_invoke_model_with_bidirectional_stream_http_error(
     _response_status: u16,
@@ -38281,7 +38374,7 @@ pub fn de_invoke_model_with_response_stream_http_response(
         output = output.set_performance_config_latency(super::super::protocol_serde::shape_invoke_model_with_response_stream_output::de_performance_config_latency_header(_response_headers).map_err(|_| super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled("Failed to parse performanceConfigLatency from header `X-Amzn-Bedrock-PerformanceConfig-Latency"))?);
         output = output.set_service_tier(super::super::protocol_serde::shape_invoke_model_with_response_stream_output::de_service_tier_header(_response_headers).map_err(|_| super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled("Failed to parse serviceTier from header `X-Amzn-Bedrock-Service-Tier"))?);
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        output
+        super::super::serde_util::invoke_model_with_response_stream_output_output_correct_errors(output)
             .build()
             .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?
     })
@@ -38460,6 +38553,101 @@ pub fn de_invoke_model_with_response_stream_http_error(
         }),
         _ => super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::generic(generic)
     })
+}
+
+pub fn ser_invoke_model_with_response_stream_headers(
+    input: &super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput,
+    mut builder: ::http_1x::request::Builder,
+) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+    if let ::std::option::Option::Some(inner_1) = &input.content_type {
+        let formatted_2 = inner_1.as_str();
+        let header_value = formatted_2;
+        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+            ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                "content_type",
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+            )
+        })?;
+        builder = builder.header("Content-Type", header_value);
+    }
+    if let ::std::option::Option::Some(inner_3) = &input.accept {
+        let formatted_4 = inner_3.as_str();
+        let header_value = formatted_4;
+        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+            ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                "accept",
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+            )
+        })?;
+        builder = builder.header("X-Amzn-Bedrock-Accept", header_value);
+    }
+    if let ::std::option::Option::Some(inner_5) = &input.trace {
+        let formatted_6 = inner_5.as_str();
+        let header_value = formatted_6;
+        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+            ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                "trace",
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+            )
+        })?;
+        builder = builder.header("X-Amzn-Bedrock-Trace", header_value);
+    }
+    if let ::std::option::Option::Some(inner_7) = &input.guardrail_identifier {
+        let formatted_8 = inner_7.as_str();
+        let header_value = formatted_8;
+        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+            ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                "guardrail_identifier",
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+            )
+        })?;
+        builder = builder.header("X-Amzn-Bedrock-GuardrailIdentifier", header_value);
+    }
+    if let ::std::option::Option::Some(inner_9) = &input.guardrail_version {
+        let formatted_10 = inner_9.as_str();
+        let header_value = formatted_10;
+        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+            ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                "guardrail_version",
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+            )
+        })?;
+        builder = builder.header("X-Amzn-Bedrock-GuardrailVersion", header_value);
+    }
+    if let ::std::option::Option::Some(inner_11) = &input.performance_config_latency {
+        let formatted_12 = inner_11.as_str();
+        let header_value = formatted_12;
+        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+            ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                "performance_config_latency",
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+            )
+        })?;
+        builder = builder.header("X-Amzn-Bedrock-PerformanceConfig-Latency", header_value);
+    }
+    if let ::std::option::Option::Some(inner_13) = &input.service_tier {
+        let formatted_14 = inner_13.as_str();
+        let header_value = formatted_14;
+        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+            ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                "service_tier",
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+            )
+        })?;
+        builder = builder.header("X-Amzn-Bedrock-Service-Tier", header_value);
+    }
+    if let ::std::option::Option::Some(inner_15) = &input.request_metadata {
+        let formatted_16 = inner_15.as_str();
+        let header_value = formatted_16;
+        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+            ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                "request_metadata",
+                format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
+            )
+        })?;
+        builder = builder.header("X-Amzn-Bedrock-Request-Metadata", header_value);
+    }
+    Ok(builder)
 }
 }
 
@@ -50940,18 +51128,12 @@ pub(crate) fn invoke_model_output_output_correct_errors(
 pub(crate) fn invoke_model_with_bidirectional_stream_output_output_correct_errors(
     mut builder: super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder,
 ) -> super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder {
-    if builder.body.is_none() {
-        builder.body = Some(super::types::InvokeModelWithBidirectionalStreamOutput::Unknown)
-    }
     builder
 }
 
 pub(crate) fn invoke_model_with_response_stream_output_output_correct_errors(
     mut builder: super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder,
 ) -> super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder {
-    if builder.body.is_none() {
-        builder.body = Some(super::types::ResponseStream::Unknown)
-    }
     if builder.content_type.is_none() {
         builder.content_type = Some(Default::default())
     }

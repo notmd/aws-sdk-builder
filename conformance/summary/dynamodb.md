@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## dynamodb
-**Progress:** `882/882` files compared · `873` matched · `9` mismatches · `0` missing · `0` extra · `98.98%` match (100.00% means fully matched)
+**Progress:** `882/882` files compared · `872` matched · `10` mismatches · `0` missing · `0` extra · `98.87%` match (100.00% means fully matched)
 
 ### `src/config/endpoint.rs`
 
@@ -940,6 +940,38 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_describe_limits(
      _value: &[u8],
      mut builder: super::super::operation::describe_limits::builders::DescribeLimitsOutputBuilder,
+```
+
+### `src/protocol_serde/shape_put_resource_policy.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_put_resource_policy.rs
++++ generated/src/protocol_serde/shape_put_resource_policy.rs
+@@ -128,6 +128,24 @@
+         output.build()
+     })
+ }
++pub fn ser_put_resource_policy_headers(
++    input: &super::super::operation::put_resource_policy::PutResourcePolicyInput,
++    mut builder: ::http_1x::request::Builder,
++) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
++    if let ::std::option::Option::Some(inner_1) = &input.confirm_remove_self_resource_access {
++        let mut encoder = ::aws_smithy_types::primitive::Encoder::from(*inner_1);
++        let formatted_2 = encoder.encode();
++        let header_value = formatted_2;
++        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
++            ::aws_smithy_types::error::operation::BuildError::invalid_field(
++                "confirm_remove_self_resource_access",
++                format!("`{}` cannot be used as a header value: {}", &header_value, err),
++            )
++        })?;
++        builder = builder.header("x-amz-confirm-remove-self-resource-access", header_value);
++    }
++    Ok(builder)
++}
+
+ pub fn ser_put_resource_policy_input(
+     input: &super::super::operation::put_resource_policy::PutResourcePolicyInput,
 ```
 
 ### `src/protocol_serde/shape_put_resource_policy_input.rs`

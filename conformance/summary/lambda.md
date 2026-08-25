@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1077/1077` files compared · `1059` matched · `17` mismatches · `0` missing · `1` extra · `98.33%` match (100.00% means fully matched)
+**Progress:** `1077/1077` files compared · `1061` matched · `15` mismatches · `0` missing · `1` extra · `98.51%` match (100.00% means fully matched)
 
 ### `src/operation/invoke.rs`
 
@@ -504,79 +504,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                              "expected object key or end object, found: {other:?}"
 ```
 
-### `src/protocol_serde/shape_invoke.rs`
-
-```diff
---- reference/src/protocol_serde/shape_invoke.rs
-+++ generated/src/protocol_serde/shape_invoke.rs
-@@ -743,65 +743,3 @@
-         output.build()
-     })
- }
--
--pub fn ser_invoke_headers(
--    input: &super::super::operation::invoke::InvokeInput,
--    mut builder: ::http_1x::request::Builder,
--) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
--    if let ::std::option::Option::Some(inner_1) = &input.invocation_type {
--        let formatted_2 = inner_1.as_str();
--        let header_value = formatted_2;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "invocation_type",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amz-Invocation-Type", header_value);
--    }
--    if let ::std::option::Option::Some(inner_3) = &input.log_type {
--        let formatted_4 = inner_3.as_str();
--        let header_value = formatted_4;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "log_type",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amz-Log-Type", header_value);
--    }
--    if let ::std::option::Option::Some(inner_5) = &input.client_context {
--        let formatted_6 = inner_5.as_str();
--        let header_value = formatted_6;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "client_context",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amz-Client-Context", header_value);
--    }
--    if let ::std::option::Option::Some(inner_7) = &input.durable_execution_name {
--        let formatted_8 = inner_7.as_str();
--        let header_value = formatted_8;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "durable_execution_name",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amz-Durable-Execution-Name", header_value);
--    }
--    if let ::std::option::Option::Some(inner_9) = &input.tenant_id {
--        let formatted_10 = inner_9.as_str();
--        let header_value = formatted_10;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "tenant_id",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amz-Tenant-Id", header_value);
--    }
--    Ok(builder)
--}
-```
-
 ### `src/protocol_serde/shape_invoke_async_input.rs`
 
 ```diff
@@ -650,76 +577,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    body: &[u8],
 -) -> std::result::Result<::std::option::Option<::aws_smithy_types::Blob>, super::super::operation::invoke::InvokeError> {
 -    (!body.is_empty()).then(|| Ok(::aws_smithy_types::Blob::new(body))).transpose()
--}
-```
-
-### `src/protocol_serde/shape_invoke_with_response_stream.rs`
-
-```diff
---- reference/src/protocol_serde/shape_invoke_with_response_stream.rs
-+++ generated/src/protocol_serde/shape_invoke_with_response_stream.rs
-@@ -41,7 +41,6 @@
-             .map_err(super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled)?
-     })
- }
--
- #[allow(clippy::unnecessary_wraps)]
- pub fn de_invoke_with_response_stream_http_error(
-     _response_status: u16,
-@@ -687,54 +686,3 @@
-         _ => super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::generic(generic),
-     })
- }
--
--pub fn ser_invoke_with_response_stream_headers(
--    input: &super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamInput,
--    mut builder: ::http_1x::request::Builder,
--) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
--    if let ::std::option::Option::Some(inner_1) = &input.log_type {
--        let formatted_2 = inner_1.as_str();
--        let header_value = formatted_2;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "log_type",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amz-Log-Type", header_value);
--    }
--    if let ::std::option::Option::Some(inner_3) = &input.client_context {
--        let formatted_4 = inner_3.as_str();
--        let header_value = formatted_4;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "client_context",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amz-Client-Context", header_value);
--    }
--    if let ::std::option::Option::Some(inner_5) = &input.tenant_id {
--        let formatted_6 = inner_5.as_str();
--        let header_value = formatted_6;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "tenant_id",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amz-Tenant-Id", header_value);
--    }
--    if let ::std::option::Option::Some(inner_7) = &input.invocation_type {
--        let formatted_8 = inner_7.as_str();
--        let header_value = formatted_8;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "invocation_type",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amz-Invocation-Type", header_value);
--    }
--    Ok(builder)
 -}
 ```
 

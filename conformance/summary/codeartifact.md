@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## codeartifact
-**Progress:** `459/459` files compared · `452` matched · `7` mismatches · `0` missing · `0` extra · `98.47%` match (100.00% means fully matched)
+**Progress:** `459/459` files compared · `453` matched · `6` mismatches · `0` missing · `0` extra · `98.69%` match (100.00% means fully matched)
 
 ### `src/lib.rs`
 
@@ -80,38 +80,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_asset_name_header(
      header_map: &::aws_smithy_runtime_api::http::Headers,
  ) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
-```
-
-### `src/protocol_serde/shape_publish_package_version.rs`
-
-```diff
---- reference/src/protocol_serde/shape_publish_package_version.rs
-+++ generated/src/protocol_serde/shape_publish_package_version.rs
-@@ -151,24 +151,6 @@
-     })
- }
-
--pub fn ser_publish_package_version_headers(
--    input: &super::super::operation::publish_package_version::PublishPackageVersionInput,
--    mut builder: ::http_1x::request::Builder,
--) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
--    if let ::std::option::Option::Some(inner_1) = &input.asset_sha256 {
--        let formatted_2 = inner_1.as_str();
--        let header_value = formatted_2;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "asset_sha256",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("x-amz-content-sha256", header_value);
--    }
--    Ok(builder)
--}
--
- pub(crate) fn de_publish_package_version(
-     _value: &[u8],
-     mut builder: super::super::operation::publish_package_version::builders::PublishPackageVersionOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_publish_package_version_input.rs`

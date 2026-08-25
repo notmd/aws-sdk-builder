@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `516` matched · `20` mismatches · `0` missing · `0` extra · `96.27%` match (100.00% means fully matched)
+**Progress:** `536/536` files compared · `517` matched · `19` mismatches · `0` missing · `0` extra · `96.46%` match (100.00% means fully matched)
 
 ### `src/protocol_serde/shape_citation_location.rs`
 
@@ -380,230 +380,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
 ```
 
-### `src/protocol_serde/shape_invoke_model.rs`
+### `src/protocol_serde/shape_invoke_model_with_bidirectional_stream.rs`
 
 ```diff
---- reference/src/protocol_serde/shape_invoke_model.rs
-+++ generated/src/protocol_serde/shape_invoke_model.rs
-@@ -207,98 +207,3 @@
-             .map_err(super::super::operation::invoke_model::InvokeModelError::unhandled)?
-     })
- }
--
--pub fn ser_invoke_model_headers(
--    input: &super::super::operation::invoke_model::InvokeModelInput,
--    mut builder: ::http_1x::request::Builder,
--) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
--    if let ::std::option::Option::Some(inner_1) = &input.content_type {
--        let formatted_2 = inner_1.as_str();
--        let header_value = formatted_2;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "content_type",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("Content-Type", header_value);
--    }
--    if let ::std::option::Option::Some(inner_3) = &input.accept {
--        let formatted_4 = inner_3.as_str();
--        let header_value = formatted_4;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "accept",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("Accept", header_value);
--    }
--    if let ::std::option::Option::Some(inner_5) = &input.trace {
--        let formatted_6 = inner_5.as_str();
--        let header_value = formatted_6;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "trace",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amzn-Bedrock-Trace", header_value);
--    }
--    if let ::std::option::Option::Some(inner_7) = &input.guardrail_identifier {
--        let formatted_8 = inner_7.as_str();
--        let header_value = formatted_8;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "guardrail_identifier",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amzn-Bedrock-GuardrailIdentifier", header_value);
--    }
--    if let ::std::option::Option::Some(inner_9) = &input.guardrail_version {
--        let formatted_10 = inner_9.as_str();
--        let header_value = formatted_10;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "guardrail_version",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amzn-Bedrock-GuardrailVersion", header_value);
--    }
--    if let ::std::option::Option::Some(inner_11) = &input.performance_config_latency {
--        let formatted_12 = inner_11.as_str();
--        let header_value = formatted_12;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "performance_config_latency",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amzn-Bedrock-PerformanceConfig-Latency", header_value);
--    }
--    if let ::std::option::Option::Some(inner_13) = &input.service_tier {
--        let formatted_14 = inner_13.as_str();
--        let header_value = formatted_14;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "service_tier",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amzn-Bedrock-Service-Tier", header_value);
--    }
--    if let ::std::option::Option::Some(inner_15) = &input.request_metadata {
--        let formatted_16 = inner_15.as_str();
--        let header_value = formatted_16;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "request_metadata",
--                format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
--            )
--        })?;
--        builder = builder.header("X-Amzn-Bedrock-Request-Metadata", header_value);
--    }
--    Ok(builder)
--}
-```
-
-### `src/protocol_serde/shape_invoke_model_with_response_stream.rs`
-
-```diff
---- reference/src/protocol_serde/shape_invoke_model_with_response_stream.rs
-+++ generated/src/protocol_serde/shape_invoke_model_with_response_stream.rs
-@@ -42,12 +42,11 @@
-             })?,
-         );
+--- reference/src/protocol_serde/shape_invoke_model_with_bidirectional_stream.rs
++++ generated/src/protocol_serde/shape_invoke_model_with_bidirectional_stream.rs
+@@ -20,9 +20,7 @@
+             super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream_output::de_body_payload(_response_body)?,
+         ));
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        super::super::serde_util::invoke_model_with_response_stream_output_output_correct_errors(output)
-+        output
-             .build()
-             .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?
+-        output
+-            .build()
+-            .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?
++        super::super::serde_util::invoke_model_with_bidirectional_stream_output_output_correct_errors(output).build()
      })
  }
--
- #[allow(clippy::unnecessary_wraps)]
- pub fn de_invoke_model_with_response_stream_http_error(
-     _response_status: u16,
-@@ -255,98 +254,3 @@
-         _ => super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::generic(generic),
-     })
- }
--
--pub fn ser_invoke_model_with_response_stream_headers(
--    input: &super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput,
--    mut builder: ::http_1x::request::Builder,
--) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
--    if let ::std::option::Option::Some(inner_1) = &input.content_type {
--        let formatted_2 = inner_1.as_str();
--        let header_value = formatted_2;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "content_type",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("Content-Type", header_value);
--    }
--    if let ::std::option::Option::Some(inner_3) = &input.accept {
--        let formatted_4 = inner_3.as_str();
--        let header_value = formatted_4;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "accept",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amzn-Bedrock-Accept", header_value);
--    }
--    if let ::std::option::Option::Some(inner_5) = &input.trace {
--        let formatted_6 = inner_5.as_str();
--        let header_value = formatted_6;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "trace",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amzn-Bedrock-Trace", header_value);
--    }
--    if let ::std::option::Option::Some(inner_7) = &input.guardrail_identifier {
--        let formatted_8 = inner_7.as_str();
--        let header_value = formatted_8;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "guardrail_identifier",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amzn-Bedrock-GuardrailIdentifier", header_value);
--    }
--    if let ::std::option::Option::Some(inner_9) = &input.guardrail_version {
--        let formatted_10 = inner_9.as_str();
--        let header_value = formatted_10;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "guardrail_version",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amzn-Bedrock-GuardrailVersion", header_value);
--    }
--    if let ::std::option::Option::Some(inner_11) = &input.performance_config_latency {
--        let formatted_12 = inner_11.as_str();
--        let header_value = formatted_12;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "performance_config_latency",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amzn-Bedrock-PerformanceConfig-Latency", header_value);
--    }
--    if let ::std::option::Option::Some(inner_13) = &input.service_tier {
--        let formatted_14 = inner_13.as_str();
--        let header_value = formatted_14;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "service_tier",
--                format!("`{}` cannot be used as a header value: {}", &header_value, err),
--            )
--        })?;
--        builder = builder.header("X-Amzn-Bedrock-Service-Tier", header_value);
--    }
--    if let ::std::option::Option::Some(inner_15) = &input.request_metadata {
--        let formatted_16 = inner_15.as_str();
--        let header_value = formatted_16;
--        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
--            ::aws_smithy_types::error::operation::BuildError::invalid_field(
--                "request_metadata",
--                format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
--            )
--        })?;
--        builder = builder.header("X-Amzn-Bedrock-Request-Metadata", header_value);
--    }
--    Ok(builder)
--}
+
 ```
 
 ### `src/protocol_serde/shape_search_result_location.rs`
@@ -989,29 +781,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/serde_util.rs
 +++ generated/src/serde_util.rs
-@@ -104,9 +104,21 @@
+@@ -104,6 +104,12 @@
      builder
  }
 
 +pub(crate) fn invoke_model_with_bidirectional_stream_output_output_correct_errors(
 +    mut builder: super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder,
 +) -> super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder {
-+    if builder.body.is_none() {
-+        builder.body = Some(super::types::InvokeModelWithBidirectionalStreamOutput::Unknown)
-+    }
 +    builder
 +}
 +
  pub(crate) fn invoke_model_with_response_stream_output_output_correct_errors(
      mut builder: super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder,
  ) -> super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder {
-+    if builder.body.is_none() {
-+        builder.body = Some(super::types::ResponseStream::Unknown)
-+    }
-     if builder.content_type.is_none() {
-         builder.content_type = Some(Default::default())
-     }
-@@ -202,6 +214,57 @@
+@@ -202,6 +208,57 @@
      builder
  }
 
@@ -1069,7 +852,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn guardrail_checks_content_filter_result_correct_errors(
      mut builder: super::types::builders::GuardrailChecksContentFilterResultBuilder,
  ) -> super::types::builders::GuardrailChecksContentFilterResultBuilder {
-@@ -266,64 +329,40 @@
+@@ -266,63 +323,39 @@
      builder
  }
 
@@ -1093,15 +876,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -) -> super::types::builders::ContentBlockDeltaEventBuilder {
 -    if builder.delta.is_none() {
 -        builder.delta = Some(super::types::ContentBlockDelta::Unknown)
--    }
--    if builder.content_block_index.is_none() {
--        builder.content_block_index = Some(Default::default())
 +pub(crate) fn message_stop_event_correct_errors(
 +    mut builder: super::types::builders::MessageStopEventBuilder,
 +) -> super::types::builders::MessageStopEventBuilder {
 +    if builder.stop_reason.is_none() {
 +        builder.stop_reason = "no value was set".parse::<super::types::StopReason>().ok()
      }
+-    if builder.content_block_index.is_none() {
+-        builder.content_block_index = Some(Default::default())
+-    }
      builder
  }
 
@@ -1110,19 +893,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -) -> super::types::builders::ContentBlockStartEventBuilder {
 -    if builder.start.is_none() {
 -        builder.start = Some(super::types::ContentBlockStart::Unknown)
--    }
--    if builder.content_block_index.is_none() {
--        builder.content_block_index = Some(Default::default())
 +pub(crate) fn cache_detail_correct_errors(mut builder: super::types::builders::CacheDetailBuilder) -> super::types::builders::CacheDetailBuilder {
 +    if builder.ttl.is_none() {
 +        builder.ttl = "no value was set".parse::<super::types::CacheTtl>().ok()
      }
--    builder
--}
--
--pub(crate) fn content_block_stop_event_correct_errors(
--    mut builder: super::types::builders::ContentBlockStopEventBuilder,
--) -> super::types::builders::ContentBlockStopEventBuilder {
 -    if builder.content_block_index.is_none() {
 -        builder.content_block_index = Some(Default::default())
 +    if builder.input_tokens.is_none() {
@@ -1131,6 +905,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      builder
  }
 
+-pub(crate) fn content_block_stop_event_correct_errors(
+-    mut builder: super::types::builders::ContentBlockStopEventBuilder,
+-) -> super::types::builders::ContentBlockStopEventBuilder {
+-    if builder.content_block_index.is_none() {
+-        builder.content_block_index = Some(Default::default())
+-    }
+-    builder
+-}
+-
 -pub(crate) fn converse_stream_metadata_event_correct_errors(
 -    mut builder: super::types::builders::ConverseStreamMetadataEventBuilder,
 -) -> super::types::builders::ConverseStreamMetadataEventBuilder {
@@ -1139,22 +922,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            let builder = super::types::builders::TokenUsageBuilder::default();
 -            super::serde_util::token_usage_correct_errors(builder).build().ok()
 -        }
+-    }
+-    if builder.metrics.is_none() {
+-        builder.metrics = {
+-            let builder = super::types::builders::ConverseStreamMetricsBuilder::default();
+-            super::serde_util::converse_stream_metrics_correct_errors(builder).build().ok()
+-        }
 +pub(crate) fn converse_stream_metrics_correct_errors(
 +    mut builder: super::types::builders::ConverseStreamMetricsBuilder,
 +) -> super::types::builders::ConverseStreamMetricsBuilder {
 +    if builder.latency_ms.is_none() {
 +        builder.latency_ms = Some(Default::default())
      }
--    if builder.metrics.is_none() {
--        builder.metrics = {
--            let builder = super::types::builders::ConverseStreamMetricsBuilder::default();
--            super::serde_util::converse_stream_metrics_correct_errors(builder).build().ok()
--        }
--    }
      builder
  }
-
-@@ -369,33 +408,6 @@
+@@ -369,33 +402,6 @@
      builder
  }
 
@@ -1188,7 +970,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn guardrail_checks_content_filter_result_entry_correct_errors(
      mut builder: super::types::builders::GuardrailChecksContentFilterResultEntryBuilder,
  ) -> super::types::builders::GuardrailChecksContentFilterResultEntryBuilder {
-@@ -446,6 +458,45 @@
+@@ -446,6 +452,45 @@
      builder
  }
 
@@ -1234,7 +1016,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn audio_block_correct_errors(mut builder: super::types::builders::AudioBlockBuilder) -> super::types::builders::AudioBlockBuilder {
      if builder.format.is_none() {
          builder.format = "no value was set".parse::<super::types::AudioFormat>().ok()
-@@ -586,15 +637,6 @@
+@@ -586,15 +631,6 @@
      builder
  }
 
@@ -1250,7 +1032,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn search_result_block_correct_errors(
      mut builder: super::types::builders::SearchResultBlockBuilder,
  ) -> super::types::builders::SearchResultBlockBuilder {
-@@ -646,15 +688,6 @@
+@@ -646,15 +682,6 @@
      builder
  }
 
@@ -1266,7 +1048,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn tool_use_block_correct_errors(mut builder: super::types::builders::ToolUseBlockBuilder) -> super::types::builders::ToolUseBlockBuilder {
      if builder.tool_use_id.is_none() {
          builder.tool_use_id = Some(Default::default())
-@@ -668,27 +701,6 @@
+@@ -668,27 +695,6 @@
      builder
  }
 

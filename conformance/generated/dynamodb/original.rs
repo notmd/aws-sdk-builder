@@ -96236,6 +96236,24 @@ pub fn de_put_resource_policy_http_response(
         output.build()
     })
 }
+pub fn ser_put_resource_policy_headers(
+    input: &super::super::operation::put_resource_policy::PutResourcePolicyInput,
+    mut builder: ::http_1x::request::Builder,
+) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+    if let ::std::option::Option::Some(inner_1) = &input.confirm_remove_self_resource_access {
+        let mut encoder = ::aws_smithy_types::primitive::Encoder::from(*inner_1);
+        let formatted_2 = encoder.encode();
+        let header_value = formatted_2;
+        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+            ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                "confirm_remove_self_resource_access",
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+            )
+        })?;
+        builder = builder.header("x-amz-confirm-remove-self-resource-access", header_value);
+    }
+    Ok(builder)
+}
 
 pub fn ser_put_resource_policy_input(
     input: &super::super::operation::put_resource_policy::PutResourcePolicyInput,

@@ -64905,6 +64905,23 @@ pub fn de_publish_package_version_http_response(
         output.build()
     })
 }
+pub fn ser_publish_package_version_headers(
+    input: &super::super::operation::publish_package_version::PublishPackageVersionInput,
+    mut builder: ::http_1x::request::Builder,
+) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+    if let ::std::option::Option::Some(inner_1) = &input.asset_sha256 {
+        let formatted_2 = inner_1.as_str();
+        let header_value = formatted_2;
+        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+            ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                "asset_sha256",
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+            )
+        })?;
+        builder = builder.header("x-amz-content-sha256", header_value);
+    }
+    Ok(builder)
+}
 
 pub(crate) fn de_publish_package_version(
     _value: &[u8],

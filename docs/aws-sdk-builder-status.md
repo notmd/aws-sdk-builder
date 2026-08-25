@@ -4,6 +4,31 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match streaming JSON correction and request headers
+- State: in progress
+- Changed: shared AWS error-correction generation now omits required event-stream and
+  streaming members, following Smithy-RS `ErrorCorrection.kt`, while retaining
+  correction for required non-streaming output members. JSON streaming response
+  parsers now apply that correction helper, and JSON operation modules emit the
+  model-derived request-header serializer used by the reference implementation.
+  The change is generic and contains no service or operation-name branch.
+- Evidence: compared the pinned Smithy-RS `ErrorCorrection.kt`,
+  `ResponseDeserializerGenerator.kt`, and request serialization path at
+  `/tmp/smithy-rs`, commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; added and
+  passed a focused streaming correction/request-header regression. `just conformance`
+  regenerated 15 services and 1,133 operations, formatted all 13,166 generated Rust
+  files, and produced no generated-source parse errors. Workspace tests (62), Clippy
+  with `-D warnings`, formatting, and `git diff --check` pass.
+- Conformance: `13,034/13,168` exact, `131` mismatches, `2` missing, and `1` extra
+  (`98.79%`) -> `13,037/13,168` exact, `128` mismatches, `2` missing, and `1` extra
+  (`98.82%`). Bedrock Runtime improved from `516/20` to `517/19` mismatched files;
+  Lambda improved from `1,059/17` to `1,061/15`.
+- Blocker: `just conformance` still exits 1 because broader Bedrock Runtime,
+  Lambda, SESv2, and shared protocol/shape parity gaps remain; this change removes
+  the reported generated-source parse/compile gap for the affected paths.
+- Next action: continue with the remaining generic JSON protocol ordering and shape
+  parity mismatches after this checkpoint.
+
 ### Checkpoint: 2026-08-25 — Match JSON blob serializer borrowing
 - State: in progress
 - Changed: shared JSON blob-member serialization now passes the model field reference

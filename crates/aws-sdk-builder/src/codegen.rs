@@ -1456,7 +1456,16 @@ fn render_serde_util_correction(
     )
     .unwrap();
     for (member_name, member) in members(shape) {
-        if !member_is_required(member) {
+        if !member_is_required(member)
+            || is_event_stream_member(selected, member)
+            || member_target(member).is_some_and(|target| {
+                selected
+                    .model
+                    .shapes
+                    .get(target)
+                    .is_some_and(shape_is_streaming)
+            })
+        {
             continue;
         }
         let Some(target) = member_target(member) else {
@@ -9703,6 +9712,10 @@ fn render_json_protocol_operation_file(selected: &SelectedModel, operation_name:
         .get("output")
         .and_then(target_value)
         .and_then(|id| selected.model.shapes.get(id));
+    let input_shape = operation
+        .get("input")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id));
     let output_payload = output_shape.and_then(|shape| {
         members(shape)
             .into_iter()
@@ -9803,9 +9816,7 @@ fn render_json_protocol_operation_file(selected: &SelectedModel, operation_name:
             member_target(member)
                 .is_some_and(|target| protocol_shape_kind(selected, target) == "union")
         });
-    if let Some(shape) =
-        output_shape.filter(|shape| serde_util_shape_needs_correction(shape) && !streaming_event)
-    {
+    if let Some(shape) = output_shape.filter(|shape| serde_util_shape_needs_correction(shape)) {
         let correction = format!(
             "crate::serde_util::{}_output_output_correct_errors(output)",
             module
@@ -9831,6 +9842,7 @@ fn render_json_protocol_operation_file(selected: &SelectedModel, operation_name:
     if streaming_output {
         render_json_protocol_http_error(&mut output, selected, operation_name, operation);
     }
+    render_protocol_request_headers(&mut output, selected, operation_name, input_shape);
     render_json_protocol_operation_input_and_parser(
         &mut output,
         selected,
@@ -18403,6 +18415,75 @@ mod tests {
 
         assert!(serde_util.contains("builder.choice = Some(crate::types::Choice::Unknown)"));
         assert!(serde_util.contains("builder.body = Some(::aws_smithy_types::Blob::new(\"\"))"));
+    }
+
+    #[test]
+    fn streaming_json_correction_skips_stream_members_and_renders_request_headers() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Invoke"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Invoke": {
+                        "type": "operation",
+                        "input": {"target": "example#Input"},
+                        "output": {"target": "example#Output"},
+                        "traits": {"smithy.api#http": {"method": "POST", "uri": "/", "code": 200}}
+                    },
+                    "example#Input": {
+                        "type": "structure",
+                        "members": {
+                            "contentType": {
+                                "target": "smithy.api#String",
+                                "traits": {"smithy.api#httpHeader": "Content-Type"}
+                            }
+                        }
+                    },
+                    "example#Output": {
+                        "type": "structure",
+                        "members": {
+                            "events": {
+                                "target": "example#Events",
+                                "traits": {"smithy.api#httpPayload": {}, "smithy.api#required": {}}
+                            },
+                            "contentType": {
+                                "target": "smithy.api#String",
+                                "traits": {"smithy.api#httpHeader": "Content-Type", "smithy.api#required": {}}
+                            }
+                        }
+                    },
+                    "example#Events": {
+                        "type": "union",
+                        "members": {"chunk": {"target": "smithy.api#String"}},
+                        "traits": {"smithy.api#streaming": {}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+
+        let serde_util = render_serde_util_file(&selected);
+        assert!(serde_util.contains("builder.content_type = Some(Default::default())"));
+        assert!(!serde_util.contains("builder.events ="));
+
+        let operation = render_json_protocol_operation_file(&selected, "Invoke");
+        assert!(
+            operation.contains("crate::serde_util::invoke_output_output_correct_errors(output)")
+        );
+        assert!(operation.contains("pub fn ser_invoke_headers("));
+        assert!(operation.contains("builder = builder.header(\"Content-Type\", header_value);"));
     }
 
     #[test]
