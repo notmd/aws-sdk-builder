@@ -63,10 +63,6 @@ pub use super::super::types::error::_unrecognized_public_key_encoding_exception:
 
 pub use super::super::types::error::_policy_evaluation_exception::PolicyEvaluationException;
 
-pub use super::super::types::error::_duplicate_ssh_public_key_exception::DuplicateSshPublicKeyException;
-
-pub use super::super::types::error::_invalid_public_key_exception::InvalidPublicKeyException;
-
 pub use super::super::types::error::_key_pair_mismatch_exception::KeyPairMismatchException;
 
 pub use super::super::types::error::_malformed_certificate_exception::MalformedCertificateException;
@@ -74,6 +70,10 @@ pub use super::super::types::error::_malformed_certificate_exception::MalformedC
 pub use super::super::types::error::_duplicate_certificate_exception::DuplicateCertificateException;
 
 pub use super::super::types::error::_invalid_certificate_exception::InvalidCertificateException;
+
+pub use super::super::types::error::_duplicate_ssh_public_key_exception::DuplicateSshPublicKeyException;
+
+pub use super::super::types::error::_invalid_public_key_exception::InvalidPublicKeyException;
 
 mod _account_not_management_or_delegated_administrator_exception;
 

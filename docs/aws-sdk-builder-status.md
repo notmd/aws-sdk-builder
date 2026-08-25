@@ -3,20 +3,17 @@
 Updated 2026-08-25. Smithy-RS: `/tmp/smithy-rs` at
 `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
 
-## Current checkpoint — M14
+## Current checkpoint — M15
 
-- State: semantic parity remains complete; the cosmetic documentation follow-up
-  is committed as `dbc1fa192`.
-- Changed: scope description-list whitespace to the active `dl`, `dt`, or `dd`
-  node. This fixes nested Cognito documentation without service-specific code or
-  runtime changes.
-- Conformance: `13,114 / 53 / 0 / 0` → `13,116 / 51 / 0 / 0` files
-  (matched / mismatched / missing / extra); average match is `99.56%`.
-- Verification: `just conformance` compiles the generator and all service
-  builders, then formats and compares all 13,167 snapshots. It exits 1 only for
-  the remaining cosmetic diffs.
-- Priority: code-semantic parity first. Ordering, formatting, and documentation
-  diffs are last priority and remain deferred.
+- Changed: order operation modules and error re-exports by Rust snake-case names;
+  escape bare ampersands in quoted documentation attributes. The changes are
+  generic and introduce no service-specific branches.
+- Conformance: `13,119 / 48 / 0 / 0` → `13,123 / 44 / 0 / 0` files
+  (matched / mismatched / missing / extra); average match is `99.64%`.
+- Verification: `just conformance`, `cargo test --workspace`, and strict
+  workspace clippy pass compilation/tests; the 44 remaining diffs are cosmetic.
+- Priority: code semantics first; ordering, formatting, and documentation diffs
+  remain last priority.
 
 ## Prior checkpoints
 

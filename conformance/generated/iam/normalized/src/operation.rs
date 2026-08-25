@@ -121,9 +121,6 @@ pub mod delete_role_policy;
 /// Types for the `DeleteSAMLProvider` operation.
 pub mod delete_saml_provider;
 
-/// Types for the `DeleteSSHPublicKey` operation.
-pub mod delete_ssh_public_key;
-
 /// Types for the `DeleteServerCertificate` operation.
 pub mod delete_server_certificate;
 
@@ -135,6 +132,9 @@ pub mod delete_service_specific_credential;
 
 /// Types for the `DeleteSigningCertificate` operation.
 pub mod delete_signing_certificate;
+
+/// Types for the `DeleteSSHPublicKey` operation.
+pub mod delete_ssh_public_key;
 
 /// Types for the `DeleteUser` operation.
 pub mod delete_user;
@@ -259,9 +259,6 @@ pub mod get_role_template_version;
 /// Types for the `GetSAMLProvider` operation.
 pub mod get_saml_provider;
 
-/// Types for the `GetSSHPublicKey` operation.
-pub mod get_ssh_public_key;
-
 /// Types for the `GetServerCertificate` operation.
 pub mod get_server_certificate;
 
@@ -273,6 +270,9 @@ pub mod get_service_last_accessed_details_with_entities;
 
 /// Types for the `GetServiceLinkedRoleDeletionStatus` operation.
 pub mod get_service_linked_role_deletion_status;
+
+/// Types for the `GetSSHPublicKey` operation.
+pub mod get_ssh_public_key;
 
 /// Types for the `GetUser` operation.
 pub mod get_user;
@@ -361,9 +361,6 @@ pub mod list_saml_provider_tags;
 /// Types for the `ListSAMLProviders` operation.
 pub mod list_saml_providers;
 
-/// Types for the `ListSSHPublicKeys` operation.
-pub mod list_ssh_public_keys;
-
 /// Types for the `ListServerCertificateTags` operation.
 pub mod list_server_certificate_tags;
 
@@ -375,6 +372,9 @@ pub mod list_service_specific_credentials;
 
 /// Types for the `ListSigningCertificates` operation.
 pub mod list_signing_certificates;
+
+/// Types for the `ListSSHPublicKeys` operation.
+pub mod list_ssh_public_keys;
 
 /// Types for the `ListUserPolicies` operation.
 pub mod list_user_policies;
@@ -517,9 +517,6 @@ pub mod update_role_description;
 /// Types for the `UpdateSAMLProvider` operation.
 pub mod update_saml_provider;
 
-/// Types for the `UpdateSSHPublicKey` operation.
-pub mod update_ssh_public_key;
-
 /// Types for the `UpdateServerCertificate` operation.
 pub mod update_server_certificate;
 
@@ -529,14 +526,17 @@ pub mod update_service_specific_credential;
 /// Types for the `UpdateSigningCertificate` operation.
 pub mod update_signing_certificate;
 
+/// Types for the `UpdateSSHPublicKey` operation.
+pub mod update_ssh_public_key;
+
 /// Types for the `UpdateUser` operation.
 pub mod update_user;
-
-/// Types for the `UploadSSHPublicKey` operation.
-pub mod upload_ssh_public_key;
 
 /// Types for the `UploadServerCertificate` operation.
 pub mod upload_server_certificate;
 
 /// Types for the `UploadSigningCertificate` operation.
 pub mod upload_signing_certificate;
+
+/// Types for the `UploadSSHPublicKey` operation.
+pub mod upload_ssh_public_key;

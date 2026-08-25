@@ -4245,7 +4245,9 @@ fn error_shape_ids(selected: &SelectedModel) -> Vec<String> {
         .unwrap_or_default();
     let mut seen = std::collections::BTreeSet::new();
     let mut error_ids = Vec::new();
-    for operation_name in &selected.operations {
+    let mut operation_names = selected.operations.clone();
+    operation_names.sort_by_key(|operation| names::snake_case(operation));
+    for operation_name in &operation_names {
         let operation_id = format!("{namespace}#{operation_name}");
         let Some(operation) = selected.model.shapes.get(&operation_id) else {
             continue;
@@ -4481,7 +4483,7 @@ fn render_standalone_operations_file(selected: &SelectedModel) -> String {
     }
 
     let mut operations = selected.operations.clone();
-    operations.sort();
+    operations.sort_by_key(|operation| names::snake_case(operation));
     for operation_name in operations {
         let module = names::snake_case(&operation_name);
         writeln!(
@@ -16840,7 +16842,7 @@ fn normalize_documentation_tag(tag: &str, closing: bool, stack: &[String]) -> (S
 fn lowercase_documentation_tag(tag: &str) -> String {
     let tag = compact_documentation_tag_whitespace(tag);
     let Some(name_start) = tag.find(|character: char| character.is_ascii_alphabetic()) else {
-        return tag;
+        return escape_documentation_attribute_entities(&tag);
     };
     let name_end = tag[name_start..]
         .find(|character: char| {
@@ -16848,18 +16850,55 @@ fn lowercase_documentation_tag(tag: &str) -> String {
         })
         .map_or(tag.len(), |offset| name_start + offset);
     let original = &tag[name_start..name_end];
-    if original
+    let normalized = if original
         .chars()
         .all(|character| !character.is_ascii_uppercase())
     {
-        return tag;
+        tag
+    } else {
+        format!(
+            "{}{}{}",
+            &tag[..name_start],
+            original.to_ascii_lowercase(),
+            &tag[name_end..]
+        )
+    };
+    escape_documentation_attribute_entities(&normalized)
+}
+
+fn escape_documentation_attribute_entities(tag: &str) -> String {
+    let mut output = String::with_capacity(tag.len());
+    let mut quote = None;
+    let characters = tag.char_indices().collect::<Vec<_>>();
+    for (index, (_, character)) in characters.iter().enumerate() {
+        match quote {
+            Some(delimiter) if *character == delimiter => {
+                quote = None;
+                output.push(*character);
+            }
+            Some(_) if *character == '&' => {
+                let entity_end = characters[index + 1..]
+                    .iter()
+                    .position(|(_, next)| *next == ';')
+                    .map(|relative| index + 1 + relative);
+                if entity_end.is_some_and(|end| {
+                    characters[index + 1..end]
+                        .iter()
+                        .all(|(_, next)| next.is_ascii_alphanumeric() || *next == '#')
+                }) {
+                    output.push(*character);
+                } else {
+                    output.push_str("&amp;");
+                }
+            }
+            _ if matches!(*character, '\'' | '"') => {
+                quote = Some(*character);
+                output.push(*character);
+            }
+            _ => output.push(*character),
+        }
     }
-    format!(
-        "{}{}{}",
-        &tag[..name_start],
-        original.to_ascii_lowercase(),
-        &tag[name_end..]
-    )
+    output
 }
 
 fn compact_documentation_tag_whitespace(tag: &str) -> String {
@@ -18157,6 +18196,42 @@ mod tests {
     }
 
     #[test]
+    fn operation_modules_follow_rust_module_name_order() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": [
+                            "example#DeleteSSHPublicKey",
+                            "example#DeleteServerCertificate"
+                        ],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#DeleteSSHPublicKey": {"type": "operation"},
+                    "example#DeleteServerCertificate": {"type": "operation"}
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let rendered = render_standalone_operations_file(&selected);
+
+        assert!(
+            rendered.find("pub mod delete_server_certificate;").unwrap()
+                < rendered.find("pub mod delete_ssh_public_key;").unwrap()
+        );
+    }
+
+    #[test]
     fn document_shapes_use_the_smithy_document_runtime_type() {
         assert_eq!(primitive_type("document"), "::aws_smithy_types::Document");
         assert_eq!(
@@ -19210,6 +19285,20 @@ mod tests {
                 "<p>Contains a generic description of the error condition. Returned in the <Message> tag of the\n      error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful\n        <code>StatusCode</code> header or when the transformed object is provided in body.</p>"
             ),
             "<p>Contains a generic description of the error condition. Returned in the <message>\ntag of the error XML response for a corresponding\n<code>GetObject</code> call. Cannot be used with a successful\n<code>StatusCode</code> header or when the transformed object is provided in body.\n</message></p>"
+        );
+    }
+
+    #[test]
+    fn normalize_documentation_escapes_bare_attribute_ampersands() {
+        assert_eq!(
+            normalize_model_documentation(
+                r#"<p>See <a href="https://example.com/?issueType=service-limit-increase&limitType=service-code">the service limits</a>.</p>"#
+            ),
+            r#"<p>See <a href="https://example.com/?issueType=service-limit-increase&amp;limitType=service-code">the service limits</a>.</p>"#
+        );
+        assert_eq!(
+            normalize_model_documentation(r#"<a href="https://example.com/?a=1&amp;b=2">link</a>"#),
+            r#"<a href="https://example.com/?a=1&amp;b=2">link</a>"#
         );
     }
 

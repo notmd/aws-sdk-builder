@@ -11,7 +11,8 @@ counts here.
 
 Prioritize compile-valid, executable semantic parity first: generated Rust types, public
 APIs, request and response bindings, serialization, deserialization, errors, and runtime
-behavior. Code-semantic diffs are the active work. Ordering-only, formatting-only, and
+behavior. Code-semantic diffs are the active work. Ordering-only diffs (including
+operation, re-export, and protocol-module order), formatting-only diffs, and
 documentation-only diffs are all last-priority work. Keep them visible in reports, but
 defer them whenever any semantic code mismatch remains; a cosmetic match must never
 mask an executable behavior difference.
