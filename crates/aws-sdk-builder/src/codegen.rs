@@ -9500,6 +9500,7 @@ fn json_protocol_shape_order(
     roles: &BTreeMap<String, ProtocolSerdeRoles>,
 ) -> Vec<(String, ProtocolSerdeRole)> {
     let mut phase_one = Vec::new();
+    let mut deferred_output = Vec::new();
     for operation_name in &selected.operations {
         let Some(operation) = operation_shape(selected, operation_name) else {
             continue;
@@ -9513,13 +9514,20 @@ fn json_protocol_shape_order(
                 if is_json_protocol_binding_member(selected, member)
                     && let Some(target) = member_target(member)
                 {
+                    let output = if has_trait(member, "smithy.api#httpPayload")
+                        || is_event_stream_member(selected, member)
+                    {
+                        &mut deferred_output
+                    } else {
+                        &mut phase_one
+                    };
                     json_protocol_first_role_dependencies(
                         selected,
                         target,
                         ProtocolSerdeRole::Deserialize,
                         roles,
                         &mut BTreeSet::new(),
-                        &mut phase_one,
+                        output,
                     );
                 }
             }
@@ -9565,11 +9573,16 @@ fn json_protocol_shape_order(
         }
     }
 
+    let deferred_output = deferred_output
+        .into_iter()
+        .filter(|(shape_id, role)| protocol_role_enabled(roles, shape_id, *role))
+        .collect::<Vec<_>>();
     let mut state_seen = BTreeSet::new();
     let mut current = phase_one;
     current.sort_by_key(|(shape_id, _)| names::rust_module_name(terminal(shape_id)));
     let mut ordered = Vec::new();
     while !current.is_empty() {
+        let first_level = ordered.is_empty();
         current.retain(|(shape_id, role)| state_seen.insert((shape_id.clone(), *role)));
         if current.is_empty() {
             break;
@@ -9579,6 +9592,9 @@ fn json_protocol_shape_order(
         let mut next = Vec::new();
         for (shape_id, role) in &current {
             json_protocol_role_dependencies(selected, shape_id, *role, roles, &mut next);
+        }
+        if first_level {
+            next.extend(deferred_output.iter().cloned());
         }
         current = next;
     }
@@ -19360,6 +19376,66 @@ mod tests {
             .find_map(|(shape_id, role)| (shape_id == "example#Shared").then_some(role));
 
         assert!(matches!(first_role, Some(ProtocolSerdeRole::Deserialize)));
+    }
+
+    #[test]
+    fn shared_json_shape_in_event_stream_payload_is_ordered_after_input_dependencies() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Invoke"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Invoke": {
+                        "type": "operation",
+                        "input": {"target": "example#Input"},
+                        "output": {"target": "example#Output"}
+                    },
+                    "example#Input": {
+                        "type": "structure",
+                        "members": {"shared": {"target": "example#Shared"}},
+                        "traits": {"smithy.api#input": {}}
+                    },
+                    "example#Output": {
+                        "type": "structure",
+                        "members": {
+                            "stream": {
+                                "target": "example#Events",
+                                "traits": {"smithy.api#httpPayload": {}}
+                            }
+                        },
+                        "traits": {"smithy.api#output": {}}
+                    },
+                    "example#Events": {
+                        "type": "union",
+                        "members": {"shared": {"target": "example#Shared"}},
+                        "traits": {"smithy.api#streaming": {}}
+                    },
+                    "example#Shared": {
+                        "type": "structure",
+                        "members": {"value": {"target": "smithy.api#String"}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let roles = json_protocol_serde_roles(&selected);
+        let first_role = json_protocol_shape_order(&selected, &roles)
+            .into_iter()
+            .find_map(|(shape_id, role)| (shape_id == "example#Shared").then_some(role));
+
+        assert!(matches!(first_role, Some(ProtocolSerdeRole::Serialize)));
     }
 
     #[test]

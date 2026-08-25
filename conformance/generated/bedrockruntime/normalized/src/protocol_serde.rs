@@ -115,19 +115,9 @@ pub(crate) mod shape_async_invoke_summaries;
 
 pub(crate) mod shape_bidirectional_input_payload_part;
 
-pub(crate) mod shape_bidirectional_output_payload_part;
-
-pub(crate) mod shape_content_block_delta_event;
-
-pub(crate) mod shape_content_block_start_event;
-
-pub(crate) mod shape_content_block_stop_event;
-
 pub(crate) mod shape_converse_metrics;
 
 pub(crate) mod shape_converse_output;
-
-pub(crate) mod shape_converse_stream_metadata_event;
 
 pub(crate) mod shape_converse_trace;
 
@@ -157,13 +147,7 @@ pub(crate) mod shape_inference_configuration;
 
 pub(crate) mod shape_message;
 
-pub(crate) mod shape_message_start_event;
-
-pub(crate) mod shape_message_stop_event;
-
 pub(crate) mod shape_output_config;
-
-pub(crate) mod shape_payload_part;
 
 pub(crate) mod shape_performance_configuration;
 
@@ -183,19 +167,21 @@ pub(crate) mod shape_async_invoke_s3_output_data_config;
 
 pub(crate) mod shape_async_invoke_summary;
 
+pub(crate) mod shape_bidirectional_output_payload_part;
+
 pub(crate) mod shape_cache_details_list;
 
 pub(crate) mod shape_cache_point_block;
 
 pub(crate) mod shape_content_block;
 
-pub(crate) mod shape_content_block_delta;
+pub(crate) mod shape_content_block_delta_event;
 
-pub(crate) mod shape_content_block_start;
+pub(crate) mod shape_content_block_start_event;
 
-pub(crate) mod shape_converse_stream_metrics;
+pub(crate) mod shape_content_block_stop_event;
 
-pub(crate) mod shape_converse_stream_trace;
+pub(crate) mod shape_converse_stream_metadata_event;
 
 pub(crate) mod shape_converse_tokens_request;
 
@@ -237,7 +223,13 @@ pub(crate) mod shape_guardrail_trace_assessment;
 
 pub(crate) mod shape_invoke_model_tokens_request;
 
+pub(crate) mod shape_message_start_event;
+
+pub(crate) mod shape_message_stop_event;
+
 pub(crate) mod shape_output_format;
+
+pub(crate) mod shape_payload_part;
 
 pub(crate) mod shape_prompt_router_trace;
 
@@ -257,9 +249,15 @@ pub(crate) mod shape_cache_detail;
 
 pub(crate) mod shape_citations_content_block;
 
-pub(crate) mod shape_citations_delta;
+pub(crate) mod shape_content_block_delta;
+
+pub(crate) mod shape_content_block_start;
 
 pub(crate) mod shape_content_blocks;
+
+pub(crate) mod shape_converse_stream_metrics;
+
+pub(crate) mod shape_converse_stream_trace;
 
 pub(crate) mod shape_document_block;
 
@@ -301,17 +299,11 @@ pub(crate) mod shape_guardrail_word_policy_assessment;
 
 pub(crate) mod shape_image_block;
 
-pub(crate) mod shape_image_block_delta;
-
-pub(crate) mod shape_image_block_start;
-
 pub(crate) mod shape_model_outputs;
 
 pub(crate) mod shape_output_format_structure;
 
 pub(crate) mod shape_reasoning_content_block;
-
-pub(crate) mod shape_reasoning_content_block_delta;
 
 pub(crate) mod shape_search_result_block;
 
@@ -325,17 +317,9 @@ pub(crate) mod shape_tool_removal_block;
 
 pub(crate) mod shape_tool_result_block;
 
-pub(crate) mod shape_tool_result_block_start;
-
-pub(crate) mod shape_tool_result_blocks_delta;
-
 pub(crate) mod shape_tool_specification;
 
 pub(crate) mod shape_tool_use_block;
-
-pub(crate) mod shape_tool_use_block_delta;
-
-pub(crate) mod shape_tool_use_block_start;
 
 pub(crate) mod shape_video_block;
 
@@ -345,11 +329,9 @@ pub(crate) mod shape_citation;
 
 pub(crate) mod shape_citation_generated_content;
 
-pub(crate) mod shape_citation_location;
-
-pub(crate) mod shape_citation_source_content_list_delta;
-
 pub(crate) mod shape_citations_config;
+
+pub(crate) mod shape_citations_delta;
 
 pub(crate) mod shape_document_source;
 
@@ -381,9 +363,15 @@ pub(crate) mod shape_guardrail_regex_filter_list;
 
 pub(crate) mod shape_guardrail_topic_list;
 
+pub(crate) mod shape_image_block_delta;
+
+pub(crate) mod shape_image_block_start;
+
 pub(crate) mod shape_image_source;
 
 pub(crate) mod shape_json_schema_definition;
+
+pub(crate) mod shape_reasoning_content_block_delta;
 
 pub(crate) mod shape_reasoning_text_block;
 
@@ -393,23 +381,25 @@ pub(crate) mod shape_tool_input_schema;
 
 pub(crate) mod shape_tool_reference;
 
-pub(crate) mod shape_tool_result_block_delta;
+pub(crate) mod shape_tool_result_block_start;
+
+pub(crate) mod shape_tool_result_blocks_delta;
 
 pub(crate) mod shape_tool_result_content_block;
 
+pub(crate) mod shape_tool_use_block_delta;
+
+pub(crate) mod shape_tool_use_block_start;
+
 pub(crate) mod shape_video_source;
+
+pub(crate) mod shape_citation_location;
 
 pub(crate) mod shape_citation_source_content;
 
-pub(crate) mod shape_citation_source_content_delta;
-
-pub(crate) mod shape_document_char_location;
-
-pub(crate) mod shape_document_chunk_location;
+pub(crate) mod shape_citation_source_content_list_delta;
 
 pub(crate) mod shape_document_content_block;
-
-pub(crate) mod shape_document_page_location;
 
 pub(crate) mod shape_guardrail_automated_reasoning_finding;
 
@@ -429,13 +419,19 @@ pub(crate) mod shape_guardrail_topic;
 
 pub(crate) mod shape_s3_location;
 
-pub(crate) mod shape_search_result_location;
-
-pub(crate) mod shape_web_location;
+pub(crate) mod shape_tool_result_block_delta;
 
 pub(crate) mod shape_citation_generated_content_list;
 
+pub(crate) mod shape_citation_source_content_delta;
+
 pub(crate) mod shape_citations;
+
+pub(crate) mod shape_document_char_location;
+
+pub(crate) mod shape_document_chunk_location;
+
+pub(crate) mod shape_document_page_location;
 
 pub(crate) mod shape_guardrail_automated_reasoning_impossible_finding;
 
@@ -453,7 +449,11 @@ pub(crate) mod shape_guardrail_automated_reasoning_valid_finding;
 
 pub(crate) mod shape_search_result_content_blocks;
 
+pub(crate) mod shape_search_result_location;
+
 pub(crate) mod shape_tool_result_content_blocks;
+
+pub(crate) mod shape_web_location;
 
 pub(crate) mod shape_document_content_blocks;
 

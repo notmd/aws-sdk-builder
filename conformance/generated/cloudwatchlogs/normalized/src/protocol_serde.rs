@@ -595,8 +595,6 @@ pub(crate) mod shape_export_tasks;
 
 pub(crate) mod shape_field_indexes;
 
-pub(crate) mod shape_fields_data;
-
 pub(crate) mod shape_filtered_log_events;
 
 pub(crate) mod shape_import_batch_list;
@@ -616,10 +614,6 @@ pub(crate) mod shape_input_log_event;
 pub(crate) mod shape_integration_details;
 
 pub(crate) mod shape_integration_summaries;
-
-pub(crate) mod shape_live_tail_session_start;
-
-pub(crate) mod shape_live_tail_session_update;
 
 pub(crate) mod shape_log_fields_list;
 
@@ -723,6 +717,8 @@ pub(crate) mod shape_export_task;
 
 pub(crate) mod shape_field_index;
 
+pub(crate) mod shape_fields_data;
+
 pub(crate) mod shape_filtered_log_event;
 
 pub(crate) mod shape_grok;
@@ -731,15 +727,13 @@ pub(crate) mod shape_import;
 
 pub(crate) mod shape_import_batch;
 
-pub(crate) mod shape_input_log_stream_names;
-
 pub(crate) mod shape_integration_summary;
 
 pub(crate) mod shape_list_to_map;
 
-pub(crate) mod shape_live_tail_session_metadata;
+pub(crate) mod shape_live_tail_session_start;
 
-pub(crate) mod shape_live_tail_session_results;
+pub(crate) mod shape_live_tail_session_update;
 
 pub(crate) mod shape_log_fields_list_item;
 
@@ -809,8 +803,6 @@ pub(crate) mod shape_searched_log_stream;
 
 pub(crate) mod shape_split_string;
 
-pub(crate) mod shape_start_live_tail_log_group_identifiers;
-
 pub(crate) mod shape_subscription_filter;
 
 pub(crate) mod shape_substitute_string;
@@ -853,7 +845,11 @@ pub(crate) mod shape_histogram;
 
 pub(crate) mod shape_inherited_properties;
 
-pub(crate) mod shape_live_tail_session_log_event;
+pub(crate) mod shape_input_log_stream_names;
+
+pub(crate) mod shape_live_tail_session_metadata;
+
+pub(crate) mod shape_live_tail_session_results;
 
 pub(crate) mod shape_log_field_type;
 
@@ -897,6 +893,8 @@ pub(crate) mod shape_scheduled_query_destination_list;
 
 pub(crate) mod shape_split_string_entry;
 
+pub(crate) mod shape_start_live_tail_log_group_identifiers;
+
 pub(crate) mod shape_substitute_string_entry;
 
 pub(crate) mod shape_table_fields;
@@ -914,6 +912,8 @@ pub(crate) mod shape_delete_with_keys;
 pub(crate) mod shape_delivery_source_configuration_schema;
 
 pub(crate) mod shape_grouping_identifier;
+
+pub(crate) mod shape_live_tail_session_log_event;
 
 pub(crate) mod shape_log_event;
 

@@ -4,6 +4,28 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Defer JSON payload dependencies after input helpers
+- State: in progress
+- Changed: shared JSON serde helpers reached through output `@httpPayload` and event
+  stream members now enter the lazy dependency order after the initial operation and
+  input-helper wave. Document output and modeled-error dependencies retain the normal
+  response-deserializer phase. The rule is protocol- and model-driven, with a focused
+  event-stream ordering regression; no service or operation-name branch was added.
+- Evidence: compared Smithy-RS `OperationGenerator.kt`, `ProtocolFunctions.kt`, and
+  `RustCrate` lazy inline-dependency finalization at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`. `just conformance` regenerated all
+  15 services and 1,133 operations, formatted 13,166 generated Rust files, and
+  reported no generated-source parse errors. Workspace tests (70), Clippy with
+  `-D warnings`, formatting, and `git diff --check` pass.
+- Conformance: `13,062/13,168` exact, `103` mismatches, `2` missing, and `1` extra
+  (`99.03%`) -> `13,068/13,168` exact, `97` mismatches, `2` missing, and `1` extra
+  (`99.10%`). Bedrock Runtime improved from 523 to 529 exact files; six citation
+  location serde mismatches were eliminated.
+- Blocker: `just conformance` still exits 1 because protocol-module ordering,
+  documentation, shape, and runtime/customization parity gaps remain.
+- Next action: align the interleaved operation/input dependency module order in
+  `protocol_serde.rs` with Smithy-RS lazy writer insertion.
+
 ### Checkpoint: 2026-08-25 — Render empty AWS JSON request bodies
 - State: in progress
 - Changed: empty AWS JSON operation inputs now retain the normal generated JSON body

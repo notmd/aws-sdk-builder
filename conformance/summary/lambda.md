@@ -662,26 +662,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_subnet_ip_address_limit_reached_exception;
 
  pub(crate) mod shape_tag_resource_input;
-@@ -505,6 +505,10 @@
-
- pub(crate) mod shape_instance_requirements;
-
-+pub(crate) mod shape_invoke_response_stream_update;
-+
-+pub(crate) mod shape_invoke_with_response_stream_complete_event;
-+
- pub(crate) mod shape_layer_version_content_input;
-
- pub(crate) mod shape_layer_version_content_output;
-@@ -609,8 +613,6 @@
+@@ -609,6 +609,8 @@
 
  pub(crate) mod shape_image_config_error;
 
--pub(crate) mod shape_invoke_with_response_stream_complete_event;
--
- pub(crate) mod shape_kafka_schema_registry_config;
++pub(crate) mod shape_invoke_response_stream_update;
++
+ pub(crate) mod shape_invoke_with_response_stream_complete_event;
 
- pub(crate) mod shape_lambda_managed_instances_capacity_provider_config;
+ pub(crate) mod shape_kafka_schema_registry_config;
 ```
 
 ### `src/serde_util.rs`

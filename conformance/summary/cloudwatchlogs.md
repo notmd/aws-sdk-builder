@@ -42,72 +42,29 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde.rs
 +++ generated/src/protocol_serde.rs
-@@ -595,6 +595,8 @@
-
- pub(crate) mod shape_field_indexes;
-
-+pub(crate) mod shape_fields_data;
-+
- pub(crate) mod shape_filtered_log_events;
-
- pub(crate) mod shape_import_batch_list;
-@@ -615,6 +617,10 @@
-
- pub(crate) mod shape_integration_summaries;
-
-+pub(crate) mod shape_live_tail_session_start;
-+
-+pub(crate) mod shape_live_tail_session_update;
-+
- pub(crate) mod shape_log_fields_list;
-
- pub(crate) mod shape_log_group_arn_list;
-@@ -717,8 +723,6 @@
-
- pub(crate) mod shape_field_index;
-
--pub(crate) mod shape_fields_data;
--
- pub(crate) mod shape_filtered_log_event;
-
- pub(crate) mod shape_grok;
-@@ -727,13 +731,15 @@
-
- pub(crate) mod shape_import_batch;
-
-+pub(crate) mod shape_input_log_stream_names;
-+
- pub(crate) mod shape_integration_summary;
-
- pub(crate) mod shape_list_to_map;
-
--pub(crate) mod shape_live_tail_session_start;
-+pub(crate) mod shape_live_tail_session_metadata;
-
--pub(crate) mod shape_live_tail_session_update;
-+pub(crate) mod shape_live_tail_session_results;
-
- pub(crate) mod shape_log_fields_list_item;
-
-@@ -803,6 +809,8 @@
-
- pub(crate) mod shape_split_string;
-
-+pub(crate) mod shape_start_live_tail_log_group_identifiers;
-+
- pub(crate) mod shape_subscription_filter;
-
- pub(crate) mod shape_substitute_string;
-@@ -845,6 +853,8 @@
+@@ -845,6 +845,12 @@
 
  pub(crate) mod shape_inherited_properties;
 
-+pub(crate) mod shape_live_tail_session_log_event;
++pub(crate) mod shape_input_log_stream_names;
++
++pub(crate) mod shape_live_tail_session_metadata;
++
++pub(crate) mod shape_live_tail_session_results;
 +
  pub(crate) mod shape_log_field_type;
 
  pub(crate) mod shape_log_group_names;
-@@ -905,12 +915,6 @@
+@@ -887,6 +893,8 @@
+
+ pub(crate) mod shape_split_string_entry;
+
++pub(crate) mod shape_start_live_tail_log_group_identifiers;
++
+ pub(crate) mod shape_substitute_string_entry;
+
+ pub(crate) mod shape_table_fields;
+@@ -905,11 +913,7 @@
 
  pub(crate) mod shape_grouping_identifier;
 
@@ -116,10 +73,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -pub(crate) mod shape_live_tail_session_metadata;
 -
 -pub(crate) mod shape_live_tail_session_results;
--
++pub(crate) mod shape_live_tail_session_log_event;
+
  pub(crate) mod shape_log_event;
 
- pub(crate) mod shape_lower_case_string_with_keys;
 @@ -931,8 +935,6 @@
 
  pub(crate) mod shape_split_string_entries;
