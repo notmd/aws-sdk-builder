@@ -4060,10 +4060,10 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for __ERROR_
     let modeled_methods = errors
         .iter()
         .map(|error| {
-            let error_name = rust_type_name(terminal(error));
-            let method = names::snake_case(&error_name);
+            let modeled_error_name = rust_type_name(terminal(error));
+            let method = names::snake_case(&modeled_error_name);
             format!(
-                "    /// Returns `true` if the error kind is `{error_name}::{error_name}`.\n    pub fn is_{method}(&self) -> bool {{\n        matches!(self, Self::{error_name}(_))\n    }}\n"
+                "    /// Returns `true` if the error kind is `{error_name}::{modeled_error_name}`.\n    pub fn is_{method}(&self) -> bool {{\n        matches!(self, Self::{modeled_error_name}(_))\n    }}\n"
             )
         })
         .collect::<String>();
@@ -4121,6 +4121,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for __ERROR_
         )
         .unwrap();
     }
+    output.push('\n');
 }
 
 fn service_crate_name(service_key: &str) -> String {
@@ -4245,9 +4246,7 @@ fn error_shape_ids(selected: &SelectedModel) -> Vec<String> {
         .unwrap_or_default();
     let mut seen = std::collections::BTreeSet::new();
     let mut error_ids = Vec::new();
-    let mut operation_names = selected.operations.clone();
-    operation_names.sort_by_key(|operation| names::snake_case(operation));
-    for operation_name in &operation_names {
+    for operation_name in &selected.operation_order {
         let operation_id = format!("{namespace}#{operation_name}");
         let Some(operation) = selected.model.shapes.get(&operation_id) else {
             continue;
@@ -9718,7 +9717,7 @@ fn json_protocol_shape_order(
 ) -> Vec<(String, ProtocolSerdeRole)> {
     let mut phase_one = Vec::new();
     let mut deferred_output = Vec::new();
-    for operation_name in &selected.operations {
+    for operation_name in &selected.operation_order {
         let Some(operation) = operation_shape(selected, operation_name) else {
             continue;
         };
@@ -9886,7 +9885,7 @@ fn json_protocol_role_dependencies(
 
 fn json_protocol_serde_roles(selected: &SelectedModel) -> BTreeMap<String, ProtocolSerdeRoles> {
     let mut roles = BTreeMap::new();
-    for operation_name in &selected.operations {
+    for operation_name in &selected.operation_order {
         let Some(operation) = operation_shape(selected, operation_name) else {
             continue;
         };
@@ -11593,7 +11592,7 @@ fn protocol_serde_shape_waves(
 ) -> Vec<Vec<(String, ProtocolSerdeRole)>> {
     let mut phase_one = Vec::new();
     let mut phase_two = Vec::new();
-    for operation_name in &selected.operations {
+    for operation_name in &selected.operation_order {
         let Some(operation) = operation_shape(selected, operation_name) else {
             continue;
         };
@@ -11910,7 +11909,7 @@ fn protocol_serde_roles(
 ) -> BTreeMap<String, ProtocolSerdeRoles> {
     let mut roles = BTreeMap::<String, ProtocolSerdeRoles>::new();
 
-    for operation_name in &selected.operations {
+    for operation_name in &selected.operation_order {
         let Some(operation) = operation_shape(selected, operation_name) else {
             continue;
         };
@@ -18232,6 +18231,56 @@ mod tests {
     }
 
     #[test]
+    fn error_discovery_follows_directed_operation_order() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Second", "example#First"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Second": {
+                        "type": "operation",
+                        "errors": [{"target": "example#SecondError"}]
+                    },
+                    "example#First": {
+                        "type": "operation",
+                        "errors": [{"target": "example#FirstError"}]
+                    },
+                    "example#SecondError": {
+                        "type": "structure",
+                        "traits": {"smithy.api#error": "client"}
+                    },
+                    "example#FirstError": {
+                        "type": "structure",
+                        "traits": {"smithy.api#error": "client"}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+
+        assert_eq!(selected.operation_order, ["Second", "First"]);
+        assert_eq!(
+            error_shape_ids(&selected)
+                .iter()
+                .map(|id| terminal(id))
+                .collect::<Vec<_>>(),
+            ["SecondError", "FirstError"]
+        );
+    }
+
+    #[test]
     fn document_shapes_use_the_smithy_document_runtime_type() {
         assert_eq!(primitive_type("document"), "::aws_smithy_types::Document");
         assert_eq!(
@@ -18374,6 +18423,14 @@ mod tests {
             output_modules.find("mod event_stream_serde;").unwrap()
                 < output_modules.find("mod serde_util;").unwrap()
         );
+
+        let mut event_error = String::new();
+        render_event_stream_error(&mut event_error, &output_selected, "example#Events");
+        assert!(
+            event_error.contains("Returns `true` if the error kind is `EventsError::Failure`.")
+        );
+        assert!(!event_error.contains("Returns `true` if the error kind is `Failure::Failure`."));
+        assert!(event_error.ends_with("}\n\n"));
     }
 
     #[test]

@@ -3,22 +3,26 @@
 Updated 2026-08-25. Smithy-RS: `/tmp/smithy-rs` at
 `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
 
-## Current checkpoint — M15
+## Current checkpoint — M16
 
-- Changed: order operation modules and error re-exports by Rust snake-case names;
-  escape bare ampersands in quoted documentation attributes. The changes are
-  generic and introduce no service-specific branches.
-- Conformance: `13,119 / 48 / 0 / 0` → `13,123 / 44 / 0 / 0` files
-  (matched / mismatched / missing / extra); average match is `99.64%`.
-- Verification: `just conformance`, `cargo test --workspace`, and strict
-  workspace clippy pass compilation/tests; the 44 remaining diffs are cosmetic.
+- Changed: follow Smithy directed operation discovery for modeled errors and
+  protocol shape roles, qualify event-stream error predicates with their
+  containing error type, and preserve generated definition spacing. The changes
+  are generic and introduce no service-specific branches.
+- Conformance: `13,123 / 44 / 0 / 0` → `13,127 / 40 / 0 / 0` files
+  (matched / mismatched / missing / extra); average match is `99.67%`.
+- Verification: `just conformance` generated and formatted all 13,167 snapshots;
+  the service builders compile. The remaining 40 diffs are currently ordering,
+  formatting, and documentation differences; exact parity remains required.
 - Priority: code semantics first; ordering, formatting, and documentation diffs
-  remain last priority.
+  remain last priority. The next pass should confirm there is no executable
+  semantic mismatch before addressing cosmetic ordering.
 
 ## Prior checkpoints
 
 | Checkpoint | Commit | Conformance change | Focus |
 | --- | --- | --- | --- |
+| M15 | `56153bd37` | `13,119/48` → `13,123/44` | Operation/error ordering and documentation escaping |
 | M13 | `7adc974d2` | `13,114/53` → `13,114/53` | Endpoint semantic parity checkpoint |
 | M12 | `45e4462aa` | `13,114/53` → `13,114/53` | Event-stream error metadata |
 | M11 | `3efb3e157` | `13,113/54` → `13,114/53` | AWS Query enum member serialization |

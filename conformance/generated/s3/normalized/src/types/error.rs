@@ -138,6 +138,7 @@ impl ::aws_types::request_id::RequestId for super::super::types::error::SelectOb
         self.meta().request_id()
     }
 }
+
 mod _access_denied;
 
 mod _annotation_limit_exceeded;

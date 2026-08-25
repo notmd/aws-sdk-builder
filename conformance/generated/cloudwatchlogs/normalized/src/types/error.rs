@@ -84,7 +84,7 @@ impl GetLogObjectResponseStreamError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `InternalStreamingException::InternalStreamingException`.
+    /// Returns `true` if the error kind is `GetLogObjectResponseStreamError::InternalStreamingException`.
     pub fn is_internal_streaming_exception(&self) -> bool {
         matches!(self, Self::InternalStreamingException(_))
     }
@@ -143,6 +143,7 @@ impl ::aws_types::request_id::RequestId for super::super::types::error::GetLogOb
         self.meta().request_id()
     }
 }
+
 /// Error type for the `StartLiveTailResponseStreamError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -189,11 +190,11 @@ impl StartLiveTailResponseStreamError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `SessionTimeoutException::SessionTimeoutException`.
+    /// Returns `true` if the error kind is `StartLiveTailResponseStreamError::SessionTimeoutException`.
     pub fn is_session_timeout_exception(&self) -> bool {
         matches!(self, Self::SessionTimeoutException(_))
     }
-    /// Returns `true` if the error kind is `SessionStreamingException::SessionStreamingException`.
+    /// Returns `true` if the error kind is `StartLiveTailResponseStreamError::SessionStreamingException`.
     pub fn is_session_streaming_exception(&self) -> bool {
         matches!(self, Self::SessionStreamingException(_))
     }
@@ -255,6 +256,7 @@ impl ::aws_types::request_id::RequestId for super::super::types::error::StartLiv
         self.meta().request_id()
     }
 }
+
 mod _access_denied_exception;
 
 mod _conflict_exception;

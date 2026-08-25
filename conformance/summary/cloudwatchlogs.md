@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cloudwatchlogs
-**Progress:** `1287/1287` files compared · `1282` matched · `5` mismatches · `0` missing · `0` extra · `99.61%` match (100.00% means fully matched)
+**Progress:** `1287/1287` files compared · `1283` matched · `4` mismatches · `0` missing · `0` extra · `99.69%` match (100.00% means fully matched)
 
 ### `src/operation/put_account_policy/builders.rs`
 
@@ -139,50 +139,4 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_from(&self) -> &::std::option::Option<::std::string::String> {
          &self.from
      }
-```
-
-### `src/types/error.rs`
-
-```diff
---- reference/src/types/error.rs
-+++ generated/src/types/error.rs
-@@ -84,7 +84,7 @@
-             Self::Unhandled(e) => &e.meta,
-         }
-     }
--    /// Returns `true` if the error kind is `GetLogObjectResponseStreamError::InternalStreamingException`.
-+    /// Returns `true` if the error kind is `InternalStreamingException::InternalStreamingException`.
-     pub fn is_internal_streaming_exception(&self) -> bool {
-         matches!(self, Self::InternalStreamingException(_))
-     }
-@@ -143,7 +143,6 @@
-         self.meta().request_id()
-     }
- }
--
- /// Error type for the `StartLiveTailResponseStreamError` operation.
- #[non_exhaustive]
- #[derive(::std::fmt::Debug)]
-@@ -190,11 +189,11 @@
-             Self::Unhandled(e) => &e.meta,
-         }
-     }
--    /// Returns `true` if the error kind is `StartLiveTailResponseStreamError::SessionTimeoutException`.
-+    /// Returns `true` if the error kind is `SessionTimeoutException::SessionTimeoutException`.
-     pub fn is_session_timeout_exception(&self) -> bool {
-         matches!(self, Self::SessionTimeoutException(_))
-     }
--    /// Returns `true` if the error kind is `StartLiveTailResponseStreamError::SessionStreamingException`.
-+    /// Returns `true` if the error kind is `SessionStreamingException::SessionStreamingException`.
-     pub fn is_session_streaming_exception(&self) -> bool {
-         matches!(self, Self::SessionStreamingException(_))
-     }
-@@ -256,7 +255,6 @@
-         self.meta().request_id()
-     }
- }
--
- mod _access_denied_exception;
-
- mod _conflict_exception;
 ```

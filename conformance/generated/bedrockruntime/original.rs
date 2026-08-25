@@ -34240,15 +34240,17 @@ pub use super::super::types::error::_access_denied_exception::AccessDeniedExcept
 
 pub use super::super::types::error::_internal_server_exception::InternalServerException;
 
+pub use super::super::types::error::_throttling_exception::ThrottlingException;
+
+pub use super::super::types::error::_validation_exception::ValidationException;
+
+pub use super::super::types::error::_conflict_exception::ConflictException;
+
 pub use super::super::types::error::_resource_not_found_exception::ResourceNotFoundException;
 
 pub use super::super::types::error::_service_quota_exceeded_exception::ServiceQuotaExceededException;
 
 pub use super::super::types::error::_service_unavailable_exception::ServiceUnavailableException;
-
-pub use super::super::types::error::_throttling_exception::ThrottlingException;
-
-pub use super::super::types::error::_validation_exception::ValidationException;
 
 pub use super::super::types::error::_model_error_exception::ModelErrorException;
 
@@ -34257,8 +34259,6 @@ pub use super::super::types::error::_model_not_ready_exception::ModelNotReadyExc
 pub use super::super::types::error::_model_timeout_exception::ModelTimeoutException;
 
 pub use super::super::types::error::_model_stream_error_exception::ModelStreamErrorException;
-
-pub use super::super::types::error::_conflict_exception::ConflictException;
 
 /// Error type for the `ConverseStreamOutputError` operation.
 #[non_exhaustive]
@@ -34315,23 +34315,23 @@ impl ConverseStreamOutputError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `InternalServerException::InternalServerException`.
+    /// Returns `true` if the error kind is `ConverseStreamOutputError::InternalServerException`.
     pub fn is_internal_server_exception(&self) -> bool {
         matches!(self, Self::InternalServerException(_))
     }
-    /// Returns `true` if the error kind is `ModelStreamErrorException::ModelStreamErrorException`.
+    /// Returns `true` if the error kind is `ConverseStreamOutputError::ModelStreamErrorException`.
     pub fn is_model_stream_error_exception(&self) -> bool {
         matches!(self, Self::ModelStreamErrorException(_))
     }
-    /// Returns `true` if the error kind is `ValidationException::ValidationException`.
+    /// Returns `true` if the error kind is `ConverseStreamOutputError::ValidationException`.
     pub fn is_validation_exception(&self) -> bool {
         matches!(self, Self::ValidationException(_))
     }
-    /// Returns `true` if the error kind is `ThrottlingException::ThrottlingException`.
+    /// Returns `true` if the error kind is `ConverseStreamOutputError::ThrottlingException`.
     pub fn is_throttling_exception(&self) -> bool {
         matches!(self, Self::ThrottlingException(_))
     }
-    /// Returns `true` if the error kind is `ServiceUnavailableException::ServiceUnavailableException`.
+    /// Returns `true` if the error kind is `ConverseStreamOutputError::ServiceUnavailableException`.
     pub fn is_service_unavailable_exception(&self) -> bool {
         matches!(self, Self::ServiceUnavailableException(_))
     }
@@ -34402,6 +34402,7 @@ impl ::aws_types::request_id::RequestId for super::super::types::error::Converse
         self.meta().request_id()
     }
 }
+
 /// Error type for the `InvokeModelWithBidirectionalStreamInputError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -34494,6 +34495,7 @@ impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeMo
         self.meta().request_id()
     }
 }
+
 /// Error type for the `InvokeModelWithBidirectionalStreamOutputError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -34552,27 +34554,27 @@ impl InvokeModelWithBidirectionalStreamOutputError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `InternalServerException::InternalServerException`.
+    /// Returns `true` if the error kind is `InvokeModelWithBidirectionalStreamOutputError::InternalServerException`.
     pub fn is_internal_server_exception(&self) -> bool {
         matches!(self, Self::InternalServerException(_))
     }
-    /// Returns `true` if the error kind is `ModelStreamErrorException::ModelStreamErrorException`.
+    /// Returns `true` if the error kind is `InvokeModelWithBidirectionalStreamOutputError::ModelStreamErrorException`.
     pub fn is_model_stream_error_exception(&self) -> bool {
         matches!(self, Self::ModelStreamErrorException(_))
     }
-    /// Returns `true` if the error kind is `ValidationException::ValidationException`.
+    /// Returns `true` if the error kind is `InvokeModelWithBidirectionalStreamOutputError::ValidationException`.
     pub fn is_validation_exception(&self) -> bool {
         matches!(self, Self::ValidationException(_))
     }
-    /// Returns `true` if the error kind is `ThrottlingException::ThrottlingException`.
+    /// Returns `true` if the error kind is `InvokeModelWithBidirectionalStreamOutputError::ThrottlingException`.
     pub fn is_throttling_exception(&self) -> bool {
         matches!(self, Self::ThrottlingException(_))
     }
-    /// Returns `true` if the error kind is `ModelTimeoutException::ModelTimeoutException`.
+    /// Returns `true` if the error kind is `InvokeModelWithBidirectionalStreamOutputError::ModelTimeoutException`.
     pub fn is_model_timeout_exception(&self) -> bool {
         matches!(self, Self::ModelTimeoutException(_))
     }
-    /// Returns `true` if the error kind is `ServiceUnavailableException::ServiceUnavailableException`.
+    /// Returns `true` if the error kind is `InvokeModelWithBidirectionalStreamOutputError::ServiceUnavailableException`.
     pub fn is_service_unavailable_exception(&self) -> bool {
         matches!(self, Self::ServiceUnavailableException(_))
     }
@@ -34646,6 +34648,7 @@ impl ::aws_types::request_id::RequestId for super::super::types::error::InvokeMo
         self.meta().request_id()
     }
 }
+
 /// Error type for the `ResponseStreamError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -34704,27 +34707,27 @@ impl ResponseStreamError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `InternalServerException::InternalServerException`.
+    /// Returns `true` if the error kind is `ResponseStreamError::InternalServerException`.
     pub fn is_internal_server_exception(&self) -> bool {
         matches!(self, Self::InternalServerException(_))
     }
-    /// Returns `true` if the error kind is `ModelStreamErrorException::ModelStreamErrorException`.
+    /// Returns `true` if the error kind is `ResponseStreamError::ModelStreamErrorException`.
     pub fn is_model_stream_error_exception(&self) -> bool {
         matches!(self, Self::ModelStreamErrorException(_))
     }
-    /// Returns `true` if the error kind is `ValidationException::ValidationException`.
+    /// Returns `true` if the error kind is `ResponseStreamError::ValidationException`.
     pub fn is_validation_exception(&self) -> bool {
         matches!(self, Self::ValidationException(_))
     }
-    /// Returns `true` if the error kind is `ThrottlingException::ThrottlingException`.
+    /// Returns `true` if the error kind is `ResponseStreamError::ThrottlingException`.
     pub fn is_throttling_exception(&self) -> bool {
         matches!(self, Self::ThrottlingException(_))
     }
-    /// Returns `true` if the error kind is `ModelTimeoutException::ModelTimeoutException`.
+    /// Returns `true` if the error kind is `ResponseStreamError::ModelTimeoutException`.
     pub fn is_model_timeout_exception(&self) -> bool {
         matches!(self, Self::ModelTimeoutException(_))
     }
-    /// Returns `true` if the error kind is `ServiceUnavailableException::ServiceUnavailableException`.
+    /// Returns `true` if the error kind is `ResponseStreamError::ServiceUnavailableException`.
     pub fn is_service_unavailable_exception(&self) -> bool {
         matches!(self, Self::ServiceUnavailableException(_))
     }
@@ -34798,6 +34801,7 @@ impl ::aws_types::request_id::RequestId for super::super::types::error::Response
         self.meta().request_id()
     }
 }
+
 mod _access_denied_exception {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 
@@ -35901,15 +35905,17 @@ pub use super::super::super::types::error::_access_denied_exception::AccessDenie
 
 pub use super::super::super::types::error::_internal_server_exception::InternalServerExceptionBuilder;
 
+pub use super::super::super::types::error::_throttling_exception::ThrottlingExceptionBuilder;
+
+pub use super::super::super::types::error::_validation_exception::ValidationExceptionBuilder;
+
+pub use super::super::super::types::error::_conflict_exception::ConflictExceptionBuilder;
+
 pub use super::super::super::types::error::_resource_not_found_exception::ResourceNotFoundExceptionBuilder;
 
 pub use super::super::super::types::error::_service_quota_exceeded_exception::ServiceQuotaExceededExceptionBuilder;
 
 pub use super::super::super::types::error::_service_unavailable_exception::ServiceUnavailableExceptionBuilder;
-
-pub use super::super::super::types::error::_throttling_exception::ThrottlingExceptionBuilder;
-
-pub use super::super::super::types::error::_validation_exception::ValidationExceptionBuilder;
 
 pub use super::super::super::types::error::_model_error_exception::ModelErrorExceptionBuilder;
 
@@ -35918,8 +35924,6 @@ pub use super::super::super::types::error::_model_not_ready_exception::ModelNotR
 pub use super::super::super::types::error::_model_timeout_exception::ModelTimeoutExceptionBuilder;
 
 pub use super::super::super::types::error::_model_stream_error_exception::ModelStreamErrorExceptionBuilder;
-
-pub use super::super::super::types::error::_conflict_exception::ConflictExceptionBuilder;
 }
 }
 }
