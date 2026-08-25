@@ -2,7 +2,7 @@
 
 /// <p>The response from the <code>ListPhoneNumbersOptedOut</code> action.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListPhoneNumbersOptedOutOutput {
     /// <p>A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.</p>
     pub phone_numbers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -22,15 +22,6 @@ impl ListPhoneNumbersOptedOutOutput {
         self.next_token.as_deref()
     }
 }
-impl ::std::fmt::Debug for ListPhoneNumbersOptedOutOutput {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("ListPhoneNumbersOptedOutOutput");
-        formatter.field("phone_numbers", &"*** Sensitive Data Redacted ***");
-        formatter.field("next_token", &self.next_token);
-        formatter.field("_request_id", &self._request_id);
-        formatter.finish()
-    }
-}
 impl ::aws_types::request_id::RequestId for ListPhoneNumbersOptedOutOutput {
     fn request_id(&self) -> Option<&str> {
         self._request_id.as_deref()
@@ -44,7 +35,7 @@ impl ListPhoneNumbersOptedOutOutput {
 }
 
 /// A builder for [`ListPhoneNumbersOptedOutOutput`](crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListPhoneNumbersOptedOutOutputBuilder {
     pub(crate) phone_numbers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -102,14 +93,5 @@ impl ListPhoneNumbersOptedOutOutputBuilder {
             next_token: self.next_token,
             _request_id: self._request_id,
         }
-    }
-}
-impl ::std::fmt::Debug for ListPhoneNumbersOptedOutOutputBuilder {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("ListPhoneNumbersOptedOutOutputBuilder");
-        formatter.field("phone_numbers", &"*** Sensitive Data Redacted ***");
-        formatter.field("next_token", &self.next_token);
-        formatter.field("_request_id", &self._request_id);
-        formatter.finish()
     }
 }

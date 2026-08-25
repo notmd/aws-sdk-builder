@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sns
-**Progress:** `445/445` files compared · `439` matched · `6` mismatches · `0` missing · `0` extra · `98.65%` match (100.00% means fully matched)
+**Progress:** `445/445` files compared · `440` matched · `5` mismatches · `0` missing · `0` extra · `98.88%` match (100.00% means fully matched)
 
 ### `src/client/create_topic.rs`
 
@@ -51,60 +51,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`attribute_value(impl Into<String>)`](crate::operation::set_topic_attributes::builders::SetTopicAttributesFluentBuilder::attribute_value) / [`set_attribute_value(Option<String>)`](crate::operation::set_topic_attributes::builders::SetTopicAttributesFluentBuilder::set_attribute_value):<br>required: **false**<br><p>The new value for the attribute.</p><br>
      /// - On success, responds with [`SetTopicAttributesOutput`](crate::operation::set_topic_attributes::SetTopicAttributesOutput)
      /// - On failure, responds with [`SdkError<SetTopicAttributesError>`](crate::operation::set_topic_attributes::SetTopicAttributesError)
-```
-
-### `src/operation/list_phone_numbers_opted_out/_list_phone_numbers_opted_out_output.rs`
-
-```diff
---- reference/src/operation/list_phone_numbers_opted_out/_list_phone_numbers_opted_out_output.rs
-+++ generated/src/operation/list_phone_numbers_opted_out/_list_phone_numbers_opted_out_output.rs
-@@ -2,7 +2,7 @@
-
- /// <p>The response from the <code>ListPhoneNumbersOptedOut</code> action.</p>
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
- pub struct ListPhoneNumbersOptedOutOutput {
-     /// <p>A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.</p>
-     pub phone_numbers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-@@ -22,6 +22,15 @@
-         self.next_token.as_deref()
-     }
- }
-+impl ::std::fmt::Debug for ListPhoneNumbersOptedOutOutput {
-+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-+        let mut formatter = f.debug_struct("ListPhoneNumbersOptedOutOutput");
-+        formatter.field("phone_numbers", &"*** Sensitive Data Redacted ***");
-+        formatter.field("next_token", &self.next_token);
-+        formatter.field("_request_id", &self._request_id);
-+        formatter.finish()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for ListPhoneNumbersOptedOutOutput {
-     fn request_id(&self) -> Option<&str> {
-         self._request_id.as_deref()
-@@ -35,7 +44,7 @@
- }
-
- /// A builder for [`ListPhoneNumbersOptedOutOutput`](crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutOutput).
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
- #[non_exhaustive]
- pub struct ListPhoneNumbersOptedOutOutputBuilder {
-     pub(crate) phone_numbers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-@@ -95,3 +104,12 @@
-         }
-     }
- }
-+impl ::std::fmt::Debug for ListPhoneNumbersOptedOutOutputBuilder {
-+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-+        let mut formatter = f.debug_struct("ListPhoneNumbersOptedOutOutputBuilder");
-+        formatter.field("phone_numbers", &"*** Sensitive Data Redacted ***");
-+        formatter.field("next_token", &self.next_token);
-+        formatter.field("_request_id", &self._request_id);
-+        formatter.finish()
-+    }
-+}
 ```
 
 ### `src/operation/set_sms_attributes/_set_sms_attributes_input.rs`

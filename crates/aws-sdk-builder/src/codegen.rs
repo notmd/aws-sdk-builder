@@ -14595,7 +14595,17 @@ fn structure_has_sensitive_member(selected: &SelectedModel, shape: &Value) -> bo
     has_trait(shape, "smithy.api#sensitive")
         || members(shape)
             .iter()
-            .any(|(_, member)| value_should_redact(selected, member, &mut BTreeSet::new()))
+            // Smithy-RS uses the direct member trait/target when deciding
+            // whether the container must replace its derived `Debug` impl.
+            // Descendants still redact correctly once a custom impl exists,
+            // but a sensitive value nested inside a list/map does not make
+            // this outer structure itself sensitive.
+            .any(|(_, member)| {
+                has_trait(member, "smithy.api#sensitive")
+                    || member_target(member)
+                        .and_then(|target| selected.model.shapes.get(target))
+                        .is_some_and(|target| has_trait(target, "smithy.api#sensitive"))
+            })
 }
 
 fn operation_output_is_sensitive(selected: &SelectedModel, shape: &Value) -> bool {
@@ -17824,6 +17834,58 @@ mod tests {
         assert!(
             builder.contains("formatter.field(\"r#type\", &\"*** Sensitive Data Redacted ***\");")
         );
+    }
+
+    #[test]
+    fn nested_sensitive_collections_do_not_force_structure_debug_impl() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "output": {"target": "example#Output"}
+                    },
+                    "example#Output": {
+                        "type": "structure",
+                        "members": {
+                            "phones": {"target": "example#PhoneList"}
+                        }
+                    },
+                    "example#PhoneList": {
+                        "type": "list",
+                        "member": {"target": "example#Phone"}
+                    },
+                    "example#Phone": {
+                        "type": "string",
+                        "traits": {"smithy.api#sensitive": {}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let output = selected
+            .model
+            .shapes
+            .get("example.synthetic#GetOutput")
+            .unwrap();
+        let member = members(output).into_iter().next().unwrap().1;
+
+        assert!(value_should_redact(&selected, member, &mut BTreeSet::new()));
+        assert!(!structure_has_sensitive_member(&selected, output));
     }
 
     #[test]
