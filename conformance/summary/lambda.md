@@ -585,83 +585,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde.rs
 +++ generated/src/protocol_serde.rs
-@@ -115,14 +115,8 @@
+@@ -113,12 +113,12 @@
 
+ pub(crate) mod shape_invoke;
+
++pub(crate) mod shape_invoke_input;
++
  pub(crate) mod shape_invoke_async;
 
--pub(crate) mod shape_invoke_async_input;
--
+ pub(crate) mod shape_invoke_async_input;
+
 -pub(crate) mod shape_invoke_input;
 -
  pub(crate) mod shape_invoke_with_response_stream;
 
--pub(crate) mod shape_invoke_with_response_stream_input;
--
- pub(crate) mod shape_list_aliases;
-
- pub(crate) mod shape_list_capacity_providers;
-@@ -179,22 +173,12 @@
-
- pub(crate) mod shape_send_durable_execution_callback_failure;
-
--pub fn rest_json_unset_struct_payload() -> ::std::vec::Vec<u8> {
--    b"{}"[..].into()
--}
--
--pub(crate) mod shape_send_durable_execution_callback_failure_input;
--
- pub(crate) mod shape_send_durable_execution_callback_heartbeat;
-
- pub(crate) mod shape_send_durable_execution_callback_success;
-
--pub(crate) mod shape_send_durable_execution_callback_success_input;
--
- pub(crate) mod shape_stop_durable_execution;
-
--pub(crate) mod shape_stop_durable_execution_input;
--
- pub(crate) mod shape_tag_resource;
-
- pub(crate) mod shape_untag_resource;
-@@ -295,8 +279,14 @@
-
- pub(crate) mod shape_invalid_zip_file_exception;
-
-+pub(crate) mod shape_invoke_async_input;
-+
-+pub(crate) mod shape_invoke_input;
-+
- pub(crate) mod shape_invoke_output;
-
-+pub(crate) mod shape_invoke_with_response_stream_input;
-+
- pub(crate) mod shape_invoke_with_response_stream_output;
-
- pub(crate) mod shape_kms_access_denied_exception;
-@@ -357,6 +347,14 @@
-
- pub(crate) mod shape_s3_files_mount_timeout_exception;
-
-+pub fn rest_json_unset_struct_payload() -> ::std::vec::Vec<u8> {
-+    b"{}"[..].into()
-+}
-+
-+pub(crate) mod shape_send_durable_execution_callback_failure_input;
-+
-+pub(crate) mod shape_send_durable_execution_callback_success_input;
-+
- pub(crate) mod shape_serialized_request_entity_too_large_exception;
-
- pub(crate) mod shape_service_exception;
-@@ -371,6 +369,8 @@
-
- pub(crate) mod shape_snap_start_timeout_exception;
-
-+pub(crate) mod shape_stop_durable_execution_input;
-+
- pub(crate) mod shape_subnet_ip_address_limit_reached_exception;
-
- pub(crate) mod shape_tag_resource_input;
+ pub(crate) mod shape_invoke_with_response_stream_input;
 @@ -609,6 +609,8 @@
 
  pub(crate) mod shape_image_config_error;

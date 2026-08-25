@@ -9286,6 +9286,20 @@ fn render_json_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(S
         if seen.insert(module.clone()) {
             modules.push(module);
         }
+        let Some(input) = operation_shape(selected, operation_name)
+            .and_then(|operation| operation.get("input"))
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id))
+        else {
+            continue;
+        };
+        if json_protocol_input_has_non_event_stream_payload(selected, input) {
+            let input_module = format!("{}_input", names::rust_module_name(operation_name));
+            if json_protocol_input_needs_file(selected, input) && seen.insert(input_module.clone())
+            {
+                modules.push(input_module);
+            }
+        }
     }
     let operation_module_count = modules.len();
     for operation_name in &selected.operations {
@@ -9484,6 +9498,15 @@ fn json_protocol_input_needs_file(selected: &SelectedModel, shape: &Value) -> bo
     members(shape)
         .into_iter()
         .any(|(_, member)| is_json_protocol_binding_member(selected, member))
+}
+
+fn json_protocol_input_has_non_event_stream_payload(
+    selected: &SelectedModel,
+    shape: &Value,
+) -> bool {
+    members(shape).into_iter().any(|(_, member)| {
+        has_trait(member, "smithy.api#httpPayload") && !is_event_stream_member(selected, member)
+    })
 }
 
 fn json_protocol_output_needs_file(selected: &SelectedModel, shape: &Value) -> bool {
@@ -17797,6 +17820,70 @@ mod tests {
             output_modules.find("mod event_stream_serde;").unwrap()
                 < output_modules.find("mod serde_util;").unwrap()
         );
+    }
+
+    #[test]
+    fn json_payload_input_modules_follow_their_operation_before_document_helpers() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Document", "example#Payload"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Document": {
+                        "type": "operation",
+                        "input": {"target": "example#DocumentInput"},
+                        "output": {"target": "smithy.api#Unit"}
+                    },
+                    "example#Payload": {
+                        "type": "operation",
+                        "input": {"target": "example#PayloadInput"},
+                        "output": {"target": "smithy.api#Unit"}
+                    },
+                    "example#DocumentInput": {
+                        "type": "structure",
+                        "members": {"value": {"target": "smithy.api#String"}},
+                        "traits": {"smithy.api#input": {}}
+                    },
+                    "example#PayloadInput": {
+                        "type": "structure",
+                        "members": {
+                            "body": {
+                                "target": "example#PayloadBody",
+                                "traits": {"smithy.api#httpPayload": {}}
+                            }
+                        },
+                        "traits": {"smithy.api#input": {}}
+                    },
+                    "example#PayloadBody": {
+                        "type": "structure",
+                        "members": {"value": {"target": "smithy.api#String"}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let (module, _) = render_json_protocol_serde_files(&selected);
+
+        let payload_operation = module.find("pub(crate) mod shape_payload;").unwrap();
+        let payload_input = module.find("pub(crate) mod shape_payload_input;").unwrap();
+        let document_helper_boundary = module.find("pub(crate) fn or_empty_doc").unwrap();
+        let document_input = module.find("pub(crate) mod shape_document_input;").unwrap();
+
+        assert!(payload_operation < payload_input);
+        assert!(payload_input < document_helper_boundary);
+        assert!(document_helper_boundary < document_input);
     }
 
     #[test]

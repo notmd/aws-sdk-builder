@@ -113,9 +113,15 @@ pub(crate) mod shape_get_runtime_management_config;
 
 pub(crate) mod shape_invoke;
 
+pub(crate) mod shape_invoke_input;
+
 pub(crate) mod shape_invoke_async;
 
+pub(crate) mod shape_invoke_async_input;
+
 pub(crate) mod shape_invoke_with_response_stream;
+
+pub(crate) mod shape_invoke_with_response_stream_input;
 
 pub(crate) mod shape_list_aliases;
 
@@ -173,11 +179,21 @@ pub(crate) mod shape_remove_permission;
 
 pub(crate) mod shape_send_durable_execution_callback_failure;
 
+pub fn rest_json_unset_struct_payload() -> ::std::vec::Vec<u8> {
+    b"{}"[..].into()
+}
+
+pub(crate) mod shape_send_durable_execution_callback_failure_input;
+
 pub(crate) mod shape_send_durable_execution_callback_heartbeat;
 
 pub(crate) mod shape_send_durable_execution_callback_success;
 
+pub(crate) mod shape_send_durable_execution_callback_success_input;
+
 pub(crate) mod shape_stop_durable_execution;
+
+pub(crate) mod shape_stop_durable_execution_input;
 
 pub(crate) mod shape_tag_resource;
 
@@ -279,13 +295,7 @@ pub(crate) mod shape_invalid_subnet_id_exception;
 
 pub(crate) mod shape_invalid_zip_file_exception;
 
-pub(crate) mod shape_invoke_async_input;
-
-pub(crate) mod shape_invoke_input;
-
 pub(crate) mod shape_invoke_output;
-
-pub(crate) mod shape_invoke_with_response_stream_input;
 
 pub(crate) mod shape_invoke_with_response_stream_output;
 
@@ -347,14 +357,6 @@ pub(crate) mod shape_s3_files_mount_failure_exception;
 
 pub(crate) mod shape_s3_files_mount_timeout_exception;
 
-pub fn rest_json_unset_struct_payload() -> ::std::vec::Vec<u8> {
-    b"{}"[..].into()
-}
-
-pub(crate) mod shape_send_durable_execution_callback_failure_input;
-
-pub(crate) mod shape_send_durable_execution_callback_success_input;
-
 pub(crate) mod shape_serialized_request_entity_too_large_exception;
 
 pub(crate) mod shape_service_exception;
@@ -368,8 +370,6 @@ pub(crate) mod shape_snap_start_not_ready_exception;
 pub(crate) mod shape_snap_start_regeneration_failure_exception;
 
 pub(crate) mod shape_snap_start_timeout_exception;
-
-pub(crate) mod shape_stop_durable_execution_input;
 
 pub(crate) mod shape_subnet_ip_address_limit_reached_exception;
 

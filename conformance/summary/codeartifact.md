@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## codeartifact
-**Progress:** `459/459` files compared · `453` matched · `6` mismatches · `0` missing · `0` extra · `98.69%` match (100.00% means fully matched)
+**Progress:** `459/459` files compared · `454` matched · `5` mismatches · `0` missing · `0` extra · `98.91%` match (100.00% means fully matched)
 
 ### `src/lib.rs`
 
@@ -101,29 +101,4 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    };
 +    Ok(::aws_smithy_types::Blob::from(payload).into_bytes())
  }
-```
-
-### `src/protocol_serde.rs`
-
-```diff
---- reference/src/protocol_serde.rs
-+++ generated/src/protocol_serde.rs
-@@ -101,8 +101,6 @@
-
- pub(crate) mod shape_publish_package_version;
-
--pub(crate) mod shape_publish_package_version_input;
--
- pub(crate) mod shape_put_domain_permissions_policy;
-
- pub(crate) mod shape_put_package_origin_configuration;
-@@ -151,6 +149,8 @@
-
- pub(crate) mod shape_list_domains_input;
-
-+pub(crate) mod shape_publish_package_version_input;
-+
- pub(crate) mod shape_put_domain_permissions_policy_input;
-
- pub(crate) mod shape_put_package_origin_configuration_input;
 ```

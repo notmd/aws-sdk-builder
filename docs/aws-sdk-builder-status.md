@@ -4,6 +4,27 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Interleave JSON payload input helpers
+- State: in progress
+- Changed: JSON protocol inputs with non-event-stream `@httpPayload` members now emit
+  their input helper module immediately after the owning operation module, before the
+  shared document helpers. The rule is model- and protocol-driven, with no service or
+  operation-name branch; event-stream payload inputs retain their lazy dependency
+  behavior.
+- Evidence: compared Smithy-RS lazy dependency registration and finalization in
+  `OperationGenerator.kt`, `ProtocolFunctions.kt`, and `RustCrate` at `/tmp/smithy-rs`,
+  commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`. Focused module-order regression,
+  workspace tests, Clippy with `-D warnings`, formatting, and `git diff --check` pass.
+  `just conformance` regenerated all 15 services and 1,133 operations and reported no
+  generated-source parse errors.
+- Conformance: `13,068/13,168` exact, `97` mismatches, `2` missing, and `1` extra
+  (`99.10%`) -> `13,069/13,168` exact, `96` mismatches, `2` missing, and `1` extra
+  (`99.11%`). CodeArtifact improved from 453 to 454 exact files.
+- Blocker: `just conformance` still exits 1 because protocol-module ordering,
+  documentation, shape, and runtime/customization parity gaps remain.
+- Next action: continue isolating the remaining generic `protocol_serde.rs` ordering
+  and Bedrock Runtime serde/runtime/type mismatches.
+
 ### Checkpoint: 2026-08-25 — Defer JSON payload dependencies after input helpers
 - State: in progress
 - Changed: shared JSON serde helpers reached through output `@httpPayload` and event

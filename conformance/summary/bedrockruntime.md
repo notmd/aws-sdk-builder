@@ -83,39 +83,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde.rs
 +++ generated/src/protocol_serde.rs
-@@ -37,14 +37,10 @@
-
- pub(crate) mod shape_invoke_model;
-
--pub(crate) mod shape_invoke_model_input;
--
- pub(crate) mod shape_invoke_model_with_bidirectional_stream;
-
- pub(crate) mod shape_invoke_model_with_response_stream;
-
--pub(crate) mod shape_invoke_model_with_response_stream_input;
--
- pub(crate) mod shape_list_async_invokes;
-
- pub(crate) mod shape_start_async_invoke;
-@@ -75,6 +71,8 @@
-
- pub(crate) mod shape_invoke_guardrail_checks_input;
-
-+pub(crate) mod shape_invoke_model_input;
-+
- pub(crate) mod shape_invoke_model_output;
-
- pub(crate) mod shape_invoke_model_with_bidirectional_stream_input;
-@@ -81,6 +79,8 @@
-
- pub(crate) mod shape_invoke_model_with_bidirectional_stream_output;
-
-+pub(crate) mod shape_invoke_model_with_response_stream_input;
-+
- pub(crate) mod shape_invoke_model_with_response_stream_output;
-
- pub(crate) mod shape_model_error_exception;
 @@ -249,8 +249,16 @@
 
  pub(crate) mod shape_citations_content_block;

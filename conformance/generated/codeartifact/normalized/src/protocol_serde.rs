@@ -101,6 +101,8 @@ pub(crate) mod shape_list_tags_for_resource;
 
 pub(crate) mod shape_publish_package_version;
 
+pub(crate) mod shape_publish_package_version_input;
+
 pub(crate) mod shape_put_domain_permissions_policy;
 
 pub(crate) mod shape_put_package_origin_configuration;
@@ -148,8 +150,6 @@ pub(crate) mod shape_get_package_version_asset_output;
 pub(crate) mod shape_internal_server_exception;
 
 pub(crate) mod shape_list_domains_input;
-
-pub(crate) mod shape_publish_package_version_input;
 
 pub(crate) mod shape_put_domain_permissions_policy_input;
 

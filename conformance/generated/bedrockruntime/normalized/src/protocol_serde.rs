@@ -37,9 +37,13 @@ pub(crate) mod shape_invoke_guardrail_checks;
 
 pub(crate) mod shape_invoke_model;
 
+pub(crate) mod shape_invoke_model_input;
+
 pub(crate) mod shape_invoke_model_with_bidirectional_stream;
 
 pub(crate) mod shape_invoke_model_with_response_stream;
+
+pub(crate) mod shape_invoke_model_with_response_stream_input;
 
 pub(crate) mod shape_list_async_invokes;
 
@@ -71,15 +75,11 @@ pub(crate) mod shape_internal_server_exception;
 
 pub(crate) mod shape_invoke_guardrail_checks_input;
 
-pub(crate) mod shape_invoke_model_input;
-
 pub(crate) mod shape_invoke_model_output;
 
 pub(crate) mod shape_invoke_model_with_bidirectional_stream_input;
 
 pub(crate) mod shape_invoke_model_with_bidirectional_stream_output;
-
-pub(crate) mod shape_invoke_model_with_response_stream_input;
 
 pub(crate) mod shape_invoke_model_with_response_stream_output;
 
