@@ -14628,18 +14628,32 @@ fn builder_member_default_expression(
     target: &str,
     context: &Context,
 ) -> Option<String> {
-    if protocol_shape_kind(selected, target) != "enum" {
-        return None;
-    }
-    let value = member
+    let default = member
         .get("traits")
         .and_then(Value::as_object)
-        .and_then(|traits| traits.get("smithy.api#default"))
-        .and_then(Value::as_str)?;
-    let enum_type = type_expr(selected, target, context.clone());
-    Some(format!(
-        "{value:?}.parse::<{enum_type}>().expect(\"static value validated to member\")"
-    ))
+        .and_then(|traits| traits.get("smithy.api#default"))?;
+    match protocol_shape_kind(selected, target) {
+        "enum" => {
+            let value = default.as_str()?;
+            let enum_type = type_expr(selected, target, context.clone());
+            Some(format!(
+                "{value:?}.parse::<{enum_type}>().expect(\"static value validated to member\")"
+            ))
+        }
+        "boolean" => default
+            .as_bool()
+            .filter(|value| *value)
+            .map(|_| "true".to_owned()),
+        "byte" | "short" | "integer" | "long" => default
+            .as_i64()
+            .filter(|value| *value != 0)
+            .map(|value| value.to_string()),
+        "float" | "double" => default
+            .as_f64()
+            .filter(|value| *value != 0.0)
+            .map(|_| default.to_string()),
+        _ => None,
+    }
 }
 
 fn builder_argument_type(selected: &SelectedModel, target: &str, value_type: &str) -> String {
@@ -18337,6 +18351,78 @@ mod tests {
         assert!(is_copy_type("smithy.api#Integer", None));
         assert!(is_copy_type("smithy.api#Boolean", None));
         assert!(!is_copy_type("smithy.api#String", None));
+    }
+
+    #[test]
+    fn builder_preserves_nonzero_primitive_defaults() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "input": {"target": "example#Input"},
+                        "output": {"target": "example#Output"}
+                    },
+                    "example#Input": {"type": "structure", "members": {}},
+                    "example#Output": {"type": "structure", "members": {}}
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let one = serde_json::json!({
+            "target": "smithy.api#Integer",
+            "traits": {"smithy.api#default": 1}
+        });
+        let zero = serde_json::json!({
+            "target": "smithy.api#Integer",
+            "traits": {"smithy.api#default": 0}
+        });
+        let enabled = serde_json::json!({
+            "target": "smithy.api#Boolean",
+            "traits": {"smithy.api#default": true}
+        });
+
+        assert_eq!(
+            builder_member_default_expression(
+                &selected,
+                &one,
+                "smithy.api#Integer",
+                &Context::Types {}
+            ),
+            Some("1".to_owned())
+        );
+        assert_eq!(
+            builder_member_default_expression(
+                &selected,
+                &zero,
+                "smithy.api#Integer",
+                &Context::Types {}
+            ),
+            None
+        );
+        assert_eq!(
+            builder_member_default_expression(
+                &selected,
+                &enabled,
+                "smithy.api#Boolean",
+                &Context::Types {}
+            ),
+            Some("true".to_owned())
+        );
     }
 
     #[test]

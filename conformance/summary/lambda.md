@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1076/1076` files compared · `1068` matched · `8` mismatches · `0` missing · `0` extra · `99.26%` match (100.00% means fully matched)
+**Progress:** `1076/1076` files compared · `1069` matched · `7` mismatches · `0` missing · `0` extra · `99.35%` match (100.00% means fully matched)
 
 ### `src/protocol_serde/shape_event_source_mapping_configuration.rs`
 
@@ -646,22 +646,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_log_group(&self) -> &::std::option::Option<::std::string::String> {
          &self.log_group
      }
-```
-
-### `src/types/_event.rs`
-
-```diff
---- reference/src/types/_event.rs
-+++ generated/src/types/_event.rs
-@@ -676,7 +676,7 @@
-         super::super::types::Event {
-             event_type: self.event_type,
-             sub_type: self.sub_type,
--            event_id: self.event_id.unwrap_or(1),
-+            event_id: self.event_id.unwrap_or_default(),
-             id: self.id,
-             name: self.name,
-             event_timestamp: self.event_timestamp,
 ```
 
 ### `src/types/_logging_config.rs`

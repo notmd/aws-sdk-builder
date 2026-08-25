@@ -676,7 +676,7 @@ impl EventBuilder {
         super::super::types::Event {
             event_type: self.event_type,
             sub_type: self.sub_type,
-            event_id: self.event_id.unwrap_or_default(),
+            event_id: self.event_id.unwrap_or(1),
             id: self.id,
             name: self.name,
             event_timestamp: self.event_timestamp,
