@@ -3,23 +3,24 @@
 Updated 2026-08-25. Smithy-RS: `/tmp/smithy-rs` at
 `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
 
-## Current checkpoint — M12
+## Current checkpoint — M13
 
-- State: in progress. Commit: `45e4462aa` — match event-stream error metadata
-  arms.
-- Changed: use Smithy-RS’s distinct `e` and `_inner` bindings in event-stream
-  error inherent and trait metadata implementations; added regression coverage.
+- State: semantic issue complete. Commit: `d6cda5198` — keep the endpoint
+  ownership regression test clippy-clean.
+- Changed: singleton endpoint URL templates now use Smithy-RS’s owned reference
+  expression (`endpoint.to_owned()`), preventing the generated source parse/build
+  failure; added regression coverage.
 - Conformance: `13,114 / 53 / 0 / 0` → `13,114 / 53 / 0 / 0` files
-  (matched / mismatched / missing / extra). The removed error-arm token diffs
-  were in files that still contain independent ordering/documentation diffs.
+  (matched / mismatched / missing / extra); the DynamoDB endpoint behavior now
+  matches and its remaining diff is formatting-only.
 - Verification: `just conformance` regenerated and formatted all 15 services;
   focused regression test, `cargo test --workspace`, clippy with `-D warnings`,
   `cargo fmt --all -- --check`, and `git diff --check` pass. Conformance still
-  exits 1 for the 53 remaining parity diffs.
+  exits 1 for the 53 remaining cosmetic parity diffs.
 - Priority: code-semantic diffs remain active work. Defer ordering-only,
   formatting-only, and documentation-only diffs until semantic parity is complete.
-- Next action: verify the current generated source still parses and compiles; leave
-  the remaining cosmetic parity diffs for a later checkpoint.
+- Next action: leave the remaining ordering, formatting, and documentation diffs
+  for a later checkpoint.
 
 ## Prior checkpoints
 
