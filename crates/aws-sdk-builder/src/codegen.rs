@@ -1294,7 +1294,7 @@ fn render_serde_util_file(selected: &SelectedModel) -> String {
         };
         if let Some(output_id) = operation.get("output").and_then(target_value)
             && let Some(shape) = selected.model.shapes.get(output_id)
-            && serde_util_shape_needs_correction(shape)
+            && serde_util_shape_needs_correction(selected, shape)
         {
             let module = names::rust_module_name(operation_name);
             let operation_type = rust_type_name(operation_name);
@@ -1320,7 +1320,7 @@ fn render_serde_util_file(selected: &SelectedModel) -> String {
                 let Some(shape) = selected.model.shapes.get(error_id) else {
                     continue;
                 };
-                if serde_util_shape_needs_correction(shape) {
+                if serde_util_shape_needs_correction(selected, shape) {
                     let name = rust_type_name(terminal(error_id));
                     let function_name = format!(
                         "{}_correct_errors",
@@ -1353,7 +1353,7 @@ fn render_serde_util_file(selected: &SelectedModel) -> String {
         let Some(shape) = selected.model.shapes.get(&shape_id) else {
             continue;
         };
-        if serde_util_shape_needs_correction(shape) {
+        if serde_util_shape_needs_correction(selected, shape) {
             let name = rust_type_name(terminal(&shape_id));
             let builder_path = if is_error_shape(shape) {
                 format!("crate::types::error::builders::{name}Builder")
@@ -1398,7 +1398,7 @@ fn serde_util_walk_correction_dependencies(
             .model
             .shapes
             .get(target)
-            .is_some_and(serde_util_shape_needs_correction)
+            .is_some_and(|shape| serde_util_shape_needs_correction(selected, shape))
         {
             continue;
         }
@@ -1421,7 +1421,7 @@ fn serde_util_protocol_correction_order(selected: &SelectedModel) -> Vec<String>
             let Some(shape) = selected.model.shapes.get(&shape_id) else {
                 continue;
             };
-            if serde_util_shape_needs_correction(shape) {
+            if serde_util_shape_needs_correction(selected, shape) {
                 order.push(shape_id);
             }
         }
@@ -1429,11 +1429,19 @@ fn serde_util_protocol_correction_order(selected: &SelectedModel) -> Vec<String>
     order
 }
 
-fn serde_util_shape_needs_correction(shape: &Value) -> bool {
+fn serde_util_shape_needs_correction(selected: &SelectedModel, shape: &Value) -> bool {
     shape.get("type").and_then(Value::as_str) == Some("structure")
-        && members(shape)
-            .iter()
-            .any(|(_, member)| member_is_required(member))
+        && members(shape).iter().any(|(_, member)| {
+            member_is_required(member)
+                && !is_event_stream_member(selected, member)
+                && !member_target(member).is_some_and(|target| {
+                    selected
+                        .model
+                        .shapes
+                        .get(target)
+                        .is_some_and(shape_is_streaming)
+                })
+        })
 }
 
 fn serde_util_builder_is_fallible(selected: &SelectedModel, shape: &Value) -> bool {
@@ -1488,7 +1496,9 @@ fn render_serde_util_correction(
                     format!("crate::types::builders::{nested_name}Builder")
                 };
                 let nested = selected.model.shapes.get(target);
-                let result = if nested.is_some_and(serde_util_shape_needs_correction) {
+                let result = if nested
+                    .is_some_and(|nested| serde_util_shape_needs_correction(selected, nested))
+                {
                     format!(
                         "crate::serde_util::{}_correct_errors(builder)",
                         names::rust_module_name(terminal(target))
@@ -9816,7 +9826,9 @@ fn render_json_protocol_operation_file(selected: &SelectedModel, operation_name:
             member_target(member)
                 .is_some_and(|target| protocol_shape_kind(selected, target) == "union")
         });
-    if let Some(shape) = output_shape.filter(|shape| serde_util_shape_needs_correction(shape)) {
+    if let Some(shape) =
+        output_shape.filter(|shape| serde_util_shape_needs_correction(selected, shape))
+    {
         let correction = format!(
             "crate::serde_util::{}_output_output_correct_errors(output)",
             module
@@ -10284,7 +10296,7 @@ fn render_json_protocol_error_arm(
     render_protocol_error_header_assignments(output, selected, error, &error_module, error_path);
     output.push_str("                let output = output.meta(generic);\n");
     if let Some(shape) = selected.model.shapes.get(error)
-        && serde_util_shape_needs_correction(shape)
+        && serde_util_shape_needs_correction(selected, shape)
     {
         let correction = format!(
             "crate::serde_util::{}_correct_errors(output)",
@@ -11186,7 +11198,10 @@ fn json_builder_result(
     builder: &str,
     source: &str,
 ) -> String {
-    if serde_util_shape_needs_correction(selected.model.shapes.get(shape_id).expect("shape")) {
+    if serde_util_shape_needs_correction(
+        selected,
+        selected.model.shapes.get(shape_id).expect("shape"),
+    ) {
         if serde_util_builder_is_fallible(
             selected,
             selected.model.shapes.get(shape_id).expect("shape"),
@@ -13203,7 +13218,7 @@ fn render_protocol_error_arm(
     render_protocol_error_header_assignments(output, selected, error, &error_module, error_path);
     output.push_str("                let output = output.meta(generic);\n");
     if let Some(shape) = selected.model.shapes.get(error)
-        && serde_util_shape_needs_correction(shape)
+        && serde_util_shape_needs_correction(selected, shape)
     {
         let correction = format!(
             "crate::serde_util::{}_correct_errors(output)",
@@ -13386,7 +13401,7 @@ fn render_protocol_http_response(
         )
         .unwrap();
     } else if let Some(shape) =
-        output_shape.filter(|shape| serde_util_shape_needs_correction(shape))
+        output_shape.filter(|shape| serde_util_shape_needs_correction(selected, shape))
     {
         let correction =
             format!("crate::serde_util::{module}_output_output_correct_errors(output)");
@@ -18432,7 +18447,7 @@ mod tests {
                     "example#Service": {
                         "type": "service",
                         "version": "2024-01-01",
-                        "operations": ["example#Invoke"],
+                        "operations": ["example#Invoke", "example#StreamOnly"],
                         "traits": {"aws.protocols#restJson1": {}}
                     },
                     "example#Invoke": {
@@ -18440,6 +18455,10 @@ mod tests {
                         "input": {"target": "example#Input"},
                         "output": {"target": "example#Output"},
                         "traits": {"smithy.api#http": {"method": "POST", "uri": "/", "code": 200}}
+                    },
+                    "example#StreamOnly": {
+                        "type": "operation",
+                        "output": {"target": "example#StreamOnlyOutput"}
                     },
                     "example#Input": {
                         "type": "structure",
@@ -18463,6 +18482,15 @@ mod tests {
                             }
                         }
                     },
+                    "example#StreamOnlyOutput": {
+                        "type": "structure",
+                        "members": {
+                            "events": {
+                                "target": "example#Events",
+                                "traits": {"smithy.api#httpPayload": {}, "smithy.api#required": {}}
+                            }
+                        }
+                    },
                     "example#Events": {
                         "type": "union",
                         "members": {"chunk": {"target": "smithy.api#String"}},
@@ -18477,6 +18505,7 @@ mod tests {
         let serde_util = render_serde_util_file(&selected);
         assert!(serde_util.contains("builder.content_type = Some(Default::default())"));
         assert!(!serde_util.contains("builder.events ="));
+        assert!(!serde_util.contains("stream_only_output_output_correct_errors"));
 
         let operation = render_json_protocol_operation_file(&selected, "Invoke");
         assert!(

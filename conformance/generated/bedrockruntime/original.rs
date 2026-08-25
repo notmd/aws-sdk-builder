@@ -38173,10 +38173,11 @@ pub fn de_invoke_model_with_bidirectional_stream_http_response(
         let mut output = super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder::default();
         output = output.set_body(Some(super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream_output::de_body_payload(_response_body)?));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        super::super::serde_util::invoke_model_with_bidirectional_stream_output_output_correct_errors(output).build()
+        output
+            .build()
+            .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?
     })
 }
-
 #[allow(clippy::unnecessary_wraps)]
 pub fn de_invoke_model_with_bidirectional_stream_http_error(
     _response_status: u16,
@@ -51122,12 +51123,6 @@ pub(crate) fn invoke_model_output_output_correct_errors(
     if builder.content_type.is_none() {
         builder.content_type = Some(Default::default())
     }
-    builder
-}
-
-pub(crate) fn invoke_model_with_bidirectional_stream_output_output_correct_errors(
-    mut builder: super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder,
-) -> super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder {
     builder
 }
 

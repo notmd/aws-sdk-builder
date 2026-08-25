@@ -20,10 +20,11 @@ pub fn de_invoke_model_with_bidirectional_stream_http_response(
             super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream_output::de_body_payload(_response_body)?,
         ));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        super::super::serde_util::invoke_model_with_bidirectional_stream_output_output_correct_errors(output).build()
+        output
+            .build()
+            .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?
     })
 }
-
 #[allow(clippy::unnecessary_wraps)]
 pub fn de_invoke_model_with_bidirectional_stream_http_error(
     _response_status: u16,

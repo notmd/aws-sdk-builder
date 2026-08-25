@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `519` matched · `17` mismatches · `0` missing · `0` extra · `96.83%` match (100.00% means fully matched)
+**Progress:** `536/536` files compared · `520` matched · `16` mismatches · `0` missing · `0` extra · `97.01%` match (100.00% means fully matched)
 
 ### `src/protocol_serde/shape_citation_location.rs`
 
@@ -378,24 +378,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
                  other => {
                      return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-```
-
-### `src/protocol_serde/shape_invoke_model_with_bidirectional_stream.rs`
-
-```diff
---- reference/src/protocol_serde/shape_invoke_model_with_bidirectional_stream.rs
-+++ generated/src/protocol_serde/shape_invoke_model_with_bidirectional_stream.rs
-@@ -20,9 +20,7 @@
-             super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream_output::de_body_payload(_response_body)?,
-         ));
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
--        output
--            .build()
--            .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?
-+        super::super::serde_util::invoke_model_with_bidirectional_stream_output_output_correct_errors(output).build()
-     })
- }
-
 ```
 
 ### `src/protocol_serde/shape_search_result_location.rs`
@@ -781,20 +763,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/serde_util.rs
 +++ generated/src/serde_util.rs
-@@ -104,6 +104,12 @@
-     builder
- }
-
-+pub(crate) fn invoke_model_with_bidirectional_stream_output_output_correct_errors(
-+    mut builder: super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder,
-+) -> super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder {
-+    builder
-+}
-+
- pub(crate) fn invoke_model_with_response_stream_output_output_correct_errors(
-     mut builder: super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder,
- ) -> super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder {
-@@ -202,6 +208,57 @@
+@@ -202,6 +202,57 @@
      builder
  }
 
@@ -852,7 +821,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn guardrail_checks_content_filter_result_correct_errors(
      mut builder: super::types::builders::GuardrailChecksContentFilterResultBuilder,
  ) -> super::types::builders::GuardrailChecksContentFilterResultBuilder {
-@@ -266,63 +323,39 @@
+@@ -266,63 +317,39 @@
      builder
  }
 
@@ -893,10 +862,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -) -> super::types::builders::ContentBlockStartEventBuilder {
 -    if builder.start.is_none() {
 -        builder.start = Some(super::types::ContentBlockStart::Unknown)
+-    }
+-    if builder.content_block_index.is_none() {
+-        builder.content_block_index = Some(Default::default())
 +pub(crate) fn cache_detail_correct_errors(mut builder: super::types::builders::CacheDetailBuilder) -> super::types::builders::CacheDetailBuilder {
 +    if builder.ttl.is_none() {
 +        builder.ttl = "no value was set".parse::<super::types::CacheTtl>().ok()
      }
+-    builder
+-}
+-
+-pub(crate) fn content_block_stop_event_correct_errors(
+-    mut builder: super::types::builders::ContentBlockStopEventBuilder,
+-) -> super::types::builders::ContentBlockStopEventBuilder {
 -    if builder.content_block_index.is_none() {
 -        builder.content_block_index = Some(Default::default())
 +    if builder.input_tokens.is_none() {
@@ -905,15 +883,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      builder
  }
 
--pub(crate) fn content_block_stop_event_correct_errors(
--    mut builder: super::types::builders::ContentBlockStopEventBuilder,
--) -> super::types::builders::ContentBlockStopEventBuilder {
--    if builder.content_block_index.is_none() {
--        builder.content_block_index = Some(Default::default())
--    }
--    builder
--}
--
 -pub(crate) fn converse_stream_metadata_event_correct_errors(
 -    mut builder: super::types::builders::ConverseStreamMetadataEventBuilder,
 -) -> super::types::builders::ConverseStreamMetadataEventBuilder {
@@ -936,7 +905,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      builder
  }
-@@ -369,33 +402,6 @@
+@@ -369,33 +396,6 @@
      builder
  }
 
@@ -970,7 +939,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn guardrail_checks_content_filter_result_entry_correct_errors(
      mut builder: super::types::builders::GuardrailChecksContentFilterResultEntryBuilder,
  ) -> super::types::builders::GuardrailChecksContentFilterResultEntryBuilder {
-@@ -446,6 +452,45 @@
+@@ -446,6 +446,45 @@
      builder
  }
 
@@ -1016,7 +985,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn audio_block_correct_errors(mut builder: super::types::builders::AudioBlockBuilder) -> super::types::builders::AudioBlockBuilder {
      if builder.format.is_none() {
          builder.format = "no value was set".parse::<super::types::AudioFormat>().ok()
-@@ -586,15 +631,6 @@
+@@ -586,15 +625,6 @@
      builder
  }
 
@@ -1032,7 +1001,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn search_result_block_correct_errors(
      mut builder: super::types::builders::SearchResultBlockBuilder,
  ) -> super::types::builders::SearchResultBlockBuilder {
-@@ -646,15 +682,6 @@
+@@ -646,15 +676,6 @@
      builder
  }
 
@@ -1048,7 +1017,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn tool_use_block_correct_errors(mut builder: super::types::builders::ToolUseBlockBuilder) -> super::types::builders::ToolUseBlockBuilder {
      if builder.tool_use_id.is_none() {
          builder.tool_use_id = Some(Default::default())
-@@ -668,27 +695,6 @@
+@@ -668,27 +689,6 @@
      builder
  }
 

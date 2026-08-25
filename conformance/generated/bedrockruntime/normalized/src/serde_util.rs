@@ -104,12 +104,6 @@ pub(crate) fn invoke_model_output_output_correct_errors(
     builder
 }
 
-pub(crate) fn invoke_model_with_bidirectional_stream_output_output_correct_errors(
-    mut builder: super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder,
-) -> super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder {
-    builder
-}
-
 pub(crate) fn invoke_model_with_response_stream_output_output_correct_errors(
     mut builder: super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder,
 ) -> super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder {

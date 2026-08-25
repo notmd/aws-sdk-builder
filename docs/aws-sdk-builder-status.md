@@ -4,6 +4,26 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Omit streaming-only serde corrections
+- State: in progress
+- Changed: shared error-correction discovery now emits a correction helper only when
+  a structure has at least one required non-streaming member. Required event-stream
+  and streaming members remain excluded from correction bodies, and structures made
+  up solely of those members no longer produce no-op helpers. The rule is generic
+  and model-driven.
+- Evidence: compared the pinned Smithy-RS `ErrorCorrection.kt` at `/tmp/smithy-rs`,
+  commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; extended the streaming correction
+  regression to cover a streaming-only output. Workspace tests (63) pass. `just
+  conformance` regenerated 15 services and 1,133 operations, formatted all 13,166
+  generated Rust files, and produced no generated-source parse errors.
+- Conformance: `13,041/13,168` exact, `124` mismatches, `2` missing, and `1` extra
+  (`98.86%`) -> `13,042/13,168` exact, `123` mismatches, `2` missing, and `1` extra
+  (`98.87%`). Bedrock Runtime improved from `519/17` to `520/16` mismatched files.
+- Blocker: `just conformance` still exits 1 because broader Bedrock Runtime,
+  Lambda, SESv2, and shared protocol/shape parity gaps remain.
+- Next action: continue with the remaining generic JSON protocol dependency-order
+  and shared shape parity mismatches.
+
 ### Checkpoint: 2026-08-25 — Match DirectedWalker operation discovery order
 - State: in progress
 - Changed: selected model views now derive `operation_order` with a generic,
