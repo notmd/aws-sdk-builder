@@ -766,8 +766,8 @@ impl Builder {
     ///
     /// # Default Behavior
     ///
-    /// When no retry partition is explicitly set, the SDK automatically creates a default retry partition named `config`
-    /// (or `config-<region>` if a region is configured).
+    /// When no retry partition is explicitly set, the SDK automatically creates a default retry partition named `configservice`
+    /// (or `configservice-<region>` if a region is configured).
     /// All Config Service clients without an explicit retry partition will share this default partition.
     ///
     /// # Notes
@@ -1620,7 +1620,7 @@ pub(crate) fn base_client_runtime_plugins(mut config: super::Config) -> ::aws_sm
         }
     }
 
-    let default_retry_partition = "config";
+    let default_retry_partition = "configservice";
     let default_retry_partition = match config.region() {
         Some(region) => ::std::borrow::Cow::from(format!("{default_retry_partition}-{region}")),
         None => ::std::borrow::Cow::from(default_retry_partition),

@@ -47,7 +47,10 @@ pub(crate) fn generate(
                 "src/error.rs".to_owned(),
                 render_error_file(model_has_enum(&selected)),
             ),
-            ("src/meta.rs".to_owned(), render_meta(entry.key)),
+            (
+                "src/meta.rs".to_owned(),
+                render_meta(&service_api_id(&selected)),
+            ),
             (
                 "src/observability_feature.rs".to_owned(),
                 render_observability_feature(),
@@ -2691,7 +2694,8 @@ fn render_standalone_config_file(selected: &SelectedModel) -> String {
         )
         .replace("__SERVICE_TITLE__", &service_sdk_id(selected))
         .replace("__SIGNING_NAME__", &service_signing_name(selected))
-        .replace("__SERVICE_KEY__", selected.model.entry.key);
+        .replace("__SERVICE_KEY__", selected.model.entry.key)
+        .replace("__SERVICE_RETRY_PARTITION__", &service_api_id(selected));
     output
 }
 
@@ -4584,6 +4588,16 @@ fn service_sdk_id(selected: &SelectedModel) -> String {
         .and_then(Value::as_str)
         .unwrap_or_else(|| terminal(selected.model.service_shape_id.as_str()))
         .to_owned()
+}
+
+/// Smithy-RS uses the normalized SDK ID for AWS API metadata and the default
+/// retry partition, while retaining the display-form SDK ID for telemetry.
+fn service_api_id(selected: &SelectedModel) -> String {
+    normalize_service_api_id(&service_sdk_id(selected))
+}
+
+fn normalize_service_api_id(sdk_id: &str) -> String {
+    sdk_id.to_lowercase().replace(' ', "")
 }
 
 /// Smithy-RS's STS decorator applies a small set of model-derived customizations
@@ -17568,6 +17582,15 @@ mod tests {
     fn reserved_self_type_names_follow_smithy_rust_renames() {
         assert_eq!(rust_type_name("SELF"), "SelfValue");
         assert_eq!(rust_type_name("SELF_VALUE"), "SelfValue_");
+    }
+
+    #[test]
+    fn aws_service_api_id_normalizes_sdk_id_for_metadata_and_retries() {
+        assert_eq!("configservice", normalize_service_api_id("Config Service"));
+        assert_eq!(
+            "bedrockruntime",
+            normalize_service_api_id("Bedrock Runtime")
+        );
     }
 
     #[test]
