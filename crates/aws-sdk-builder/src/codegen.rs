@@ -18031,12 +18031,14 @@ mod tests {
 
         assert!(service_uses_endpoint_based_auth(&selected));
         assert!(service_uses_sigv4a(&selected));
-        assert!(auth_options_for_service(
-            &selected,
-            selected_service(&selected).unwrap()
-        )
-        .contains("sigv4a"));
-        assert!(render_auth_file(&selected).contains("crate::endpoint_auth::resolve_endpoint_based_auth_scheme_options"));
+        assert!(
+            auth_options_for_service(&selected, selected_service(&selected).unwrap())
+                .contains("sigv4a")
+        );
+        assert!(
+            render_auth_file(&selected)
+                .contains("crate::endpoint_auth::resolve_endpoint_based_auth_scheme_options")
+        );
 
         let mut modules = String::new();
         render_standalone_extra_modules(&mut modules, &selected, ProtocolKind::RestJson1);

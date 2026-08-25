@@ -1,109 +1,32 @@
-# aws-sdk-builder status and audit
+# aws-sdk-builder status
 
-Updated 2026-08-25. `Prompt.md` is the specification. Detailed superseded
-checkpoints are preserved in git history; this file records the current evidence
-and the next parity work.
+Updated 2026-08-25. The generator is Rust-native and model-driven; the pinned
+Smithy-RS reference is `/tmp/smithy-rs` at
+`f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
 
-## Current state
+## Current checkpoint
 
-- Repository: `/Users/notmd/dev/gdsfactory/better_aws`
-- Previous committed baseline: `656752ace Borrow JSON timestamp fields`
-- Smithy-RS reference: `/tmp/smithy-rs`, commit
-  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`
-- AWS SDK reference snapshot: commit
-  `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
-- The generator is Rust-native, model-driven, and regenerated 15 services and
-  1,133 operations in the latest run.
-- Latest conformance: `13,089/13,167` exact, `77` mismatches, `1` missing,
-  `0` extra (`99.34%`). `just conformance` remains non-zero until parity is
-  complete.
+- Commit: `db41e7439` — SESv2 endpoint-based auth parity.
+- AWS SDK reference: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`.
+- Snapshot: 15 services, 1,133 operations, 13,167 files.
+- Conformance: 13,093 exact, 74 mismatches, 0 missing, 0 extra (99.36%).
+- SESv2: 1,154 exact, 5 mismatches, 0 missing (99.57%).
+- `just conformance` completes generation, rustfmt, and generated-source
+  parsing; it exits non-zero only because the remaining snapshot diffs exist.
 
-## Checkpoint: 2026-08-25 — Match JSON union deserializer blocks
+## Remaining mismatches
 
-- Changed the shared JSON union deserializer to emit non-unit variants using
-  Smithy-RS's block-shaped `Some(Union::Variant(...))` rendering. The rule is
-  generic and applies to every JSON protocol.
-- Compared the pinned Smithy-RS `JsonParserGenerator.kt`, especially
-  `deserializeUnion`, and added a renderer regression covering the block form.
-- `just conformance` regenerated all 15 services and 1,133 operations, formatted
-  13,165 generated Rust files, and found no generated-source parse errors.
-- Conformance improved from `13,086` to `13,087` exact files; Bedrock Runtime
-  improved from 5 to 4 mismatches.
+Bedrock Runtime (4), CloudWatch Logs (5), CodeArtifact (2), Cognito Identity
+Provider (9), Config (6), DynamoDB (3), IAM (12), KMS (6), Lambda (8), SESv2
+(5), SNS (10), and SQS (4). The main clusters are shared
+`protocol_serde.rs`/`serde_util.rs` ordering, documentation and export order,
+endpoint-library formatting, and AWS customization parity.
 
-## Checkpoint: 2026-08-25 — Restore Smithy long-polling customization
+## Verification
 
-- Added the Smithy-RS inline `LongPollingInterceptor` module when a selected
-  operation has the model-derived `aws.api#longPoll` trait or the modeled
-  `WaitTimeSeconds` polling member, and attach it before endpoint-parameter
-  interception as in `LongPollingOperationDecorator.kt`.
-- Compared the pinned Smithy-RS decorator and `/rust-runtime/inlineable/src/long_polling.rs`.
-  Added a focused model-driven renderer regression; no service-name or operation-name
-  renderer branch was added.
-- `just conformance` regenerated all 15 services and 1,133 operations, formatted
-  13,166 generated Rust files, and found no generated-source parse errors.
-- Conformance improved from `13,087/13,167` exact, `78` mismatches, and `2`
-  missing to `13,089/13,167` exact, `77` mismatches, and `1` missing (`99.34%`).
-  SQS now has no missing files and improved from 5 to 4 mismatches.
+Required checks are `just conformance`, `cargo test --workspace`,
+`cargo clippy --workspace --all-targets -- -D warnings`,
+`cargo fmt --all -- --check`, and `git diff --check`.
 
-## Earlier verified checkpoints
-
-- JSON timestamp serialization now borrows direct input fields, matching
-  Smithy-RS `value.asRef()` (`656752ace`).
-- Streaming blob payloads are derived from the target shape's streaming trait,
-  including named streaming blobs such as Lambda's `BlobStream`.
-- AWS stalled-stream protection is disabled through the model-derived internal
-  trait for the Smithy-RS decorator set (`Invoke`, `InvokeAsync`, and
-  `CopyObject`).
-
-## Remaining conformance gaps
-
-| Service | Mismatches | Missing |
-| --- | ---: | ---: |
-| Bedrock Runtime | 4 | 0 |
-| CloudWatch Logs | 5 | 0 |
-| CodeArtifact | 2 | 0 |
-| Cognito Identity Provider | 9 | 0 |
-| Config | 6 | 0 |
-| DynamoDB | 3 | 0 |
-| IAM | 12 | 0 |
-| KMS | 6 | 0 |
-| Lambda | 8 | 0 |
-| SESv2 | 8 | 1 |
-| SNS | 10 | 0 |
-| SQS | 4 | 0 |
-
-Batch, S3, and STS are exact. The remaining clusters are primarily shared
-`protocol_serde.rs` and `serde_util.rs` dependency ordering, error/type export
-ordering, documentation normalization, AWS customization, and the two missing
-runtime source files. Continue using generic model- and trait-driven rules; do
-not add service or operation-name renderer branches.
-
-## Required verification for each codegen change
-
-1. Regenerate all-operation snapshots and run `just conformance`; retain only
-   changes that reduce the mismatch/missing/extra gap.
-2. Run `cargo test --workspace`.
-3. Run `cargo clippy --workspace --all-targets -- -D warnings`.
-4. Run `cargo fmt --all -- --check` and `git diff --check`.
-5. Record a concise checkpoint here and commit it.
-
-## Next target
-
-Continue the generic Smithy-RS dependency/order loop, starting with the shared
-`protocol_serde.rs` ordering mismatches and the corresponding `serde_util.rs`
-correction discovery order. Keep the canonical per-service `original.rs` and
-its normalized projection generated by the same pipeline.
-
-## Passing gates
-
-- `cargo test --workspace`
-- `cargo clippy --workspace --all-targets -- -D warnings`
-- `cargo fmt --all -- --check`
-- `git diff --check`
-- all-operation snapshot generation and generated-source parsing
-
-## Not yet passing
-
-- Full pinned AWS SDK token/source conformance (`just conformance`).
-- Exact parity for all registered services and the two missing reference files.
-- A semantically complete generated consumer SDK.
+Next work should continue with the generic protocol serde dependency-ordering
+cluster, using the pinned Smithy-RS implementation as the reference.
