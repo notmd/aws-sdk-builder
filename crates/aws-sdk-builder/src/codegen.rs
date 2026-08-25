@@ -9427,9 +9427,15 @@ fn render_json_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(S
     module.push_str(
         "pub(crate) fn type_erase_result<O, E>(\n    result: ::std::result::Result<O, E>,\n) -> ::std::result::Result<\n    ::aws_smithy_runtime_api::client::interceptors::context::Output,\n    ::aws_smithy_runtime_api::client::orchestrator::OrchestratorError<::aws_smithy_runtime_api::client::interceptors::context::Error>,\n>\nwhere\n    O: ::std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,\n    E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,\n{\n    result\n        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))\n        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))\n        .map_err(::std::convert::Into::into)\n}\n\n",
     );
-    module.push_str(
-        "pub fn parse_http_error_metadata(\n    _response_status: u16,\n    response_headers: &::aws_smithy_runtime_api::http::Headers,\n    response_body: &[u8],\n) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {\n    crate::json_errors::parse_error_metadata(response_body, response_headers)\n}\n\n",
-    );
+    if service_has_protocol(selected, ProtocolKind::AwsQueryCompatible) {
+        module.push_str(
+            "pub fn parse_http_error_metadata(\n    _response_status: u16,\n    response_headers: &::aws_smithy_runtime_api::http::Headers,\n    response_body: &[u8],\n) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {\n    let mut builder = crate::json_errors::parse_error_metadata(response_body, response_headers)?;\n    if let Some((error_code, error_type)) =\n        crate::aws_query_compatible_errors::parse_aws_query_compatible_error(response_headers)\n    {\n        builder = builder.code(error_code);\n        builder = builder.custom(\"type\", error_type);\n    }\n    Ok(builder)\n}\n\n",
+        );
+    } else {
+        module.push_str(
+            "pub fn parse_http_error_metadata(\n    _response_status: u16,\n    response_headers: &::aws_smithy_runtime_api::http::Headers,\n    response_body: &[u8],\n) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {\n    crate::json_errors::parse_error_metadata(response_body, response_headers)\n}\n\n",
+        );
+    }
     let unset_struct_before = selected.operations.iter().find_map(|operation_name| {
         let shape = operation_shape(selected, operation_name)
             .and_then(|operation| operation.get("input"))
@@ -18667,6 +18673,11 @@ mod tests {
         assert!(rendered.contains("HeaderName::from_static(\"x-amzn-query-mode\"), \"true\""));
         let rendered_errors = render_json_protocol_operation_file(&selected, "Get");
         assert!(rendered_errors.contains("\"Example.Oops\" =>"));
+        let rendered_protocol = render_json_protocol_serde_files(&selected).0;
+        assert!(rendered_protocol.contains(
+            "crate::aws_query_compatible_errors::parse_aws_query_compatible_error(response_headers)"
+        ));
+        assert!(rendered_protocol.contains("builder = builder.custom(\"type\", error_type);"));
     }
 
     #[test]

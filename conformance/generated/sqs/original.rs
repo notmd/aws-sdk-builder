@@ -31246,7 +31246,14 @@ pub fn parse_http_error_metadata(
     response_headers: &::aws_smithy_runtime_api::http::Headers,
     response_body: &[u8],
 ) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    super::json_errors::parse_error_metadata(response_body, response_headers)
+    let mut builder = super::json_errors::parse_error_metadata(response_body, response_headers)?;
+    if let Some((error_code, error_type)) =
+        super::aws_query_compatible_errors::parse_aws_query_compatible_error(response_headers)
+    {
+        builder = builder.code(error_code);
+        builder = builder.custom("type", error_type);
+    }
+    Ok(builder)
 }
 
 pub(crate) mod shape_add_permission {

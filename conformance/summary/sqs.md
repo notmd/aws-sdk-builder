@@ -94,21 +94,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde.rs
 +++ generated/src/protocol_serde.rs
-@@ -20,12 +20,7 @@
-     response_headers: &::aws_smithy_runtime_api::http::Headers,
-     response_body: &[u8],
- ) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {
--    let mut builder = super::json_errors::parse_error_metadata(response_body, response_headers)?;
--    if let Some((error_code, error_type)) = super::aws_query_compatible_errors::parse_aws_query_compatible_error(response_headers) {
--        builder = builder.code(error_code);
--        builder = builder.custom("type", error_type);
--    }
--    Ok(builder)
-+    super::json_errors::parse_error_metadata(response_body, response_headers)
- }
-
- pub(crate) mod shape_add_permission;
-@@ -74,8 +69,6 @@
+@@ -74,8 +74,6 @@
 
  pub(crate) mod shape_untag_queue;
 
@@ -117,7 +103,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
      if data.is_empty() {
          b"{}"
-@@ -84,6 +77,8 @@
+@@ -84,6 +82,8 @@
      }
  }
 
