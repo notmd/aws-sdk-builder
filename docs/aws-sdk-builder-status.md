@@ -3,28 +3,29 @@
 Updated 2026-08-25. Smithy-RS: `/tmp/smithy-rs` at
 `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
 
-## Current checkpoint — M11
+## Current checkpoint — M12
 
-- State: in progress. Commit: `3efb3e157` — fix AWS Query enum member
-  serialization.
-- Changed: strip a leading borrow before calling `as_str()` for enum values in
-  the generic AWS Query serializer; added a focused regression test.
-- Conformance: `13,113 / 54 / 0 / 0` → `13,114 / 53 / 0 / 0` files
-  (matched / mismatched / missing / extra; `99.54%` → `99.55%`). IAM is
-  `1619/1626` matched; its remaining diffs are documentation and ordering.
+- State: in progress. Commit: `45e4462aa` — match event-stream error metadata
+  arms.
+- Changed: use Smithy-RS’s distinct `e` and `_inner` bindings in event-stream
+  error inherent and trait metadata implementations; added regression coverage.
+- Conformance: `13,114 / 53 / 0 / 0` → `13,114 / 53 / 0 / 0` files
+  (matched / mismatched / missing / extra). The removed error-arm token diffs
+  were in files that still contain independent ordering/documentation diffs.
 - Verification: `just conformance` regenerated and formatted all 15 services;
   focused regression test, `cargo test --workspace`, clippy with `-D warnings`,
   `cargo fmt --all -- --check`, and `git diff --check` pass. Conformance still
   exits 1 for the 53 remaining parity diffs.
 - Priority: continue with executable semantic mismatches. Defer ordering-only
   and documentation-only diffs until semantic parity is complete.
-- Next action: defer the remaining ordering/documentation diffs unless a new
-  executable mismatch is identified.
+- Next action: align deterministic emission order, then resolve documentation
+  normalization differences.
 
 ## Prior checkpoints
 
 | Checkpoint | Commit | Conformance change | Focus |
 | --- | --- | --- | --- |
+| M11 | `3efb3e157` | `13,113/54` → `13,114/53` | AWS Query enum member serialization |
 | M10 | `96daf3c91` | `13,112/55` → `13,113/54` | Deprecated operation errors |
 | M9 | `080ddade3` | `13,110/57` → `13,112/55` | Nested sensitive containers |
 | M8 | `5047237a7` | `13,109/58` → `13,110/57` | Sensitive output metadata |
