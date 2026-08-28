@@ -421,15 +421,17 @@ pub fn transform_tree(
                     &method_owners,
                     &mut edits,
                 )?;
-                collect_statement_edits(
-                    &source_file.relative,
-                    &source_file.source,
-                    item,
-                    operations,
-                    &waiter_owners,
-                    &symbol_owners,
-                    &mut statement_edits,
-                )?;
+                if matches!(item, Item::Fn(_)) {
+                    collect_statement_edits(
+                        &source_file.relative,
+                        &source_file.source,
+                        item,
+                        operations,
+                        &waiter_owners,
+                        &symbol_owners,
+                        &mut statement_edits,
+                    )?;
+                }
             }
         }
     }
