@@ -246,7 +246,7 @@ pub fn transform_tree(
     let symbol_owners = operation_symbols(&source_files, operations, &waiter_owners, &type_owners);
     let mut edits = BTreeMap::<String, BTreeMap<usize, BTreeSet<String>>>::new();
     for source_file in &source_files {
-        let child_of_gated_operation = is_operation_or_client_child_path(&source_file.relative);
+        let child_of_parent_gated_module = is_parent_gated_child_path(&source_file.relative);
         let mut direct_owners = path_owners(&source_file.relative, operations);
         if is_protocol_serde_path(&source_file.relative) {
             if let Some(module_owners) =
@@ -299,9 +299,9 @@ pub fn transform_tree(
                 }
             }
             if let Item::Impl(item_impl) = item {
+                let trait_method_owners = impl_method_owners(item_impl, &method_owners);
                 let header_owners =
                     impl_header_owners(item_impl, operations, &waiter_owners, &symbol_owners);
-                let method_impl_owners = impl_method_owners(item_impl, &method_owners);
                 if direct_owners.is_empty() && !header_owners.is_empty() {
                     if !has_matching_cfg(item_attrs(item), &header_owners) {
                         add_edit(
@@ -313,16 +313,19 @@ pub fn transform_tree(
                     }
                 } else if direct_owners.is_empty()
                     && item_impl.trait_.is_some()
-                    && !method_impl_owners.is_empty()
+                    && !trait_method_owners.is_empty()
+                    && item_impl
+                        .items
+                        .iter()
+                        .all(|item| matches!(item, syn::ImplItem::Fn(_)))
                 {
-                    if !has_matching_cfg(item_attrs(item), &method_impl_owners) {
-                        add_edit(
-                            &mut edits,
-                            &source_file.relative,
-                            item_start(item, &source_file.source)?,
-                            method_impl_owners,
-                        );
-                    }
+                    collect_impl_method_edits(
+                        &source_file.relative,
+                        &source_file.source,
+                        item_impl,
+                        &method_owners,
+                        &mut edits,
+                    )?;
                 } else if direct_owners.is_empty() && !owners.is_empty() {
                     if !has_matching_cfg(item_attrs(item), &owners) {
                         add_edit(
@@ -340,7 +343,7 @@ pub fn transform_tree(
                         &method_owners,
                         &mut edits,
                     )?;
-                } else if !child_of_gated_operation
+                } else if !child_of_parent_gated_module
                     && !owners.is_empty()
                     && !has_matching_cfg(item_attrs(item), &owners)
                 {
@@ -351,8 +354,9 @@ pub fn transform_tree(
                         owners,
                     );
                 }
-            } else if !child_of_gated_operation
+            } else if !child_of_parent_gated_module
                 && !owners.is_empty()
+                && !matches!(item, Item::Trait(_))
                 && !has_matching_cfg(item_attrs(item), &owners)
             {
                 add_edit(
@@ -362,7 +366,22 @@ pub fn transform_tree(
                     owners,
                 );
             }
-            if !child_of_gated_operation {
+            if let Item::Trait(item_trait) = item {
+                let trait_method_owners =
+                    trait_method_owners(item_trait, operations, &waiter_owners, &symbol_owners);
+                if !trait_method_owners.is_empty() {
+                    collect_trait_method_edits(
+                        &source_file.relative,
+                        &source_file.source,
+                        item_trait,
+                        operations,
+                        &waiter_owners,
+                        &symbol_owners,
+                        &mut edits,
+                    )?;
+                }
+            }
+            if !child_of_parent_gated_module {
                 collect_module_edits(
                     &source_file.relative,
                     &source_file.source,
@@ -978,6 +997,19 @@ fn is_operation_or_client_child_path(relative: &str) -> bool {
     matches!(components.next(), Some("operation" | "client")) && components.next().is_some()
 }
 
+fn is_parent_gated_child_path(relative: &str) -> bool {
+    if is_operation_or_client_child_path(relative) {
+        return true;
+    }
+    waiter_module_name(relative).is_some_and(|name| name != "matchers")
+}
+
+fn waiter_module_name(relative: &str) -> Option<&str> {
+    let path = relative.strip_prefix("src/waiters/")?;
+    let name = path.strip_suffix(".rs")?;
+    (!name.contains('/')).then_some(name)
+}
+
 fn collect_module_edits(
     relative: &str,
     source: &str,
@@ -1020,7 +1052,9 @@ fn collect_module_edits(
                 owners.extend(module_owners.iter().cloned());
             }
         }
-        if child_relative.starts_with("src/waiters/") {
+        if let Some(waiter) = waiter_module_name(&child_relative) {
+            owners.extend(waiter_owners.get(waiter).into_iter().flatten().cloned());
+        } else if child_relative.starts_with("src/waiters/") {
             let mut visitor = OperationPathVisitor {
                 operations,
                 waiter_owners,
@@ -1164,6 +1198,78 @@ fn collect_impl_method_edits(
                 owners,
             );
         }
+    }
+    Ok(())
+}
+
+fn trait_method_owners(
+    item_trait: &syn::ItemTrait,
+    operations: &[Operation],
+    waiter_owners: &BTreeMap<String, BTreeSet<String>>,
+    symbol_owners: &BTreeMap<String, BTreeSet<String>>,
+) -> BTreeSet<String> {
+    item_trait
+        .items
+        .iter()
+        .filter_map(|item| {
+            let syn::TraitItem::Fn(method) = item else {
+                return None;
+            };
+            let mut visitor = OperationPathVisitor {
+                operations,
+                waiter_owners,
+                symbol_owners,
+                owners: BTreeSet::new(),
+                method_calls: BTreeSet::new(),
+                references: BTreeSet::new(),
+            };
+            visitor.visit_trait_item_fn(method);
+            Some(visitor.owners)
+        })
+        .flatten()
+        .collect()
+}
+
+fn collect_trait_method_edits(
+    relative: &str,
+    source: &str,
+    item_trait: &syn::ItemTrait,
+    operations: &[Operation],
+    waiter_owners: &BTreeMap<String, BTreeSet<String>>,
+    symbol_owners: &BTreeMap<String, BTreeSet<String>>,
+    edits: &mut BTreeMap<String, BTreeMap<usize, BTreeSet<String>>>,
+) -> Result<(), TransformError> {
+    for item in &item_trait.items {
+        let syn::TraitItem::Fn(method) = item else {
+            continue;
+        };
+        let mut visitor = OperationPathVisitor {
+            operations,
+            waiter_owners,
+            symbol_owners,
+            owners: BTreeSet::new(),
+            method_calls: BTreeSet::new(),
+            references: BTreeSet::new(),
+        };
+        visitor.visit_trait_item_fn(method);
+        if visitor.owners.is_empty() || has_matching_cfg(&method.attrs, &visitor.owners) {
+            continue;
+        }
+        let first =
+            method
+                .to_token_stream()
+                .into_iter()
+                .next()
+                .ok_or_else(|| TransformError::Rust {
+                    path: PathBuf::from(relative),
+                    message: "empty Rust trait item".to_owned(),
+                })?;
+        add_edit(
+            edits,
+            relative,
+            source_offset(source, first.span().start())?,
+            visitor.owners,
+        );
     }
     Ok(())
 }
