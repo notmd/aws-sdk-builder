@@ -19,3 +19,13 @@
 - Operation coverage: unchanged; all 15 services remain mapped.
 - Remaining blocker: shared event-stream/protocol ownership and operation-specific type/error gating.
 - Next action: add the ownership rules and commit them separately.
+
+## 2026-08-28 — `702672a9a`
+
+- Objective: gate operation-specific types and errors while preserving shared modeled definitions.
+- Generic rule: collect type references from operation modules, intersect owners for items that combine operation-specific and shared types, and propagate owners through type declarations, re-exports, builders, and dependent protocol helpers.
+- Changed files: `crates/aws-sdk-modularizer/src/transform.rs`.
+- Commands: `cargo test -p aws-sdk-modularizer` passed; `cargo fmt --all` passed; conformance is pending for this commit.
+- Operation coverage: unchanged; all 15 services remain mapped.
+- Remaining blocker: confirm the feature matrix and identify any next ownership or generated-surface failures.
+- Next action: run `AWS_SDK_MODULARIZER_ARCHIVE=/tmp/aws-sdk-rust.tar.gz RUSTFLAGS='-Awarnings' just conformance`.
