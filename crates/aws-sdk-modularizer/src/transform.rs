@@ -271,7 +271,8 @@ pub fn transform_tree(
     let symbol_owners = operation_symbols(&source_files, operations, &waiter_owners, &type_owners);
     let mut edits = BTreeMap::<String, BTreeMap<usize, BTreeSet<String>>>::new();
     for source_file in &source_files {
-        let child_of_parent_gated_module = is_parent_gated_child_path(&source_file.relative);
+        let child_of_parent_gated_module =
+            is_parent_gated_child_path(&source_file.relative, operations);
         let mut direct_owners = path_owners(&source_file.relative, operations);
         if is_protocol_serde_path(&source_file.relative) {
             if let Some(module_owners) =
@@ -1247,14 +1248,22 @@ fn path_owners(relative: &str, operations: &[Operation]) -> BTreeSet<String> {
     owners
 }
 
-fn is_operation_or_client_child_path(relative: &str) -> bool {
+fn is_operation_or_client_child_path(relative: &str, operations: &[Operation]) -> bool {
     let path = relative.strip_prefix("src/").unwrap_or(relative);
     let mut components = path.split('/');
-    matches!(components.next(), Some("operation" | "client")) && components.next().is_some()
+    matches!(components.next(), Some("operation" | "client"))
+        && components
+            .next()
+            .and_then(|module| module.strip_suffix(".rs"))
+            .is_some_and(|module| {
+                operations
+                    .iter()
+                    .any(|operation| operation.module == module)
+            })
 }
 
-fn is_parent_gated_child_path(relative: &str) -> bool {
-    is_operation_or_client_child_path(relative)
+fn is_parent_gated_child_path(relative: &str, operations: &[Operation]) -> bool {
+    is_operation_or_client_child_path(relative, operations)
         || is_protocol_serde_child_path(relative)
         || waiter_module_name(relative).is_some_and(|name| name != "matchers")
 }
@@ -2093,6 +2102,23 @@ mod tests {
         )
         .unwrap();
         assert!(!child_source.contains("#[cfg"));
+    }
+
+    #[test]
+    fn only_operation_named_client_children_inherit_parent_cfg() {
+        let operations = operations();
+        assert!(is_parent_gated_child_path(
+            "src/client/get_thing.rs",
+            &operations
+        ));
+        assert!(!is_parent_gated_child_path(
+            "src/client/customize.rs",
+            &operations
+        ));
+        assert!(!is_parent_gated_child_path(
+            "src/client/customize/internal.rs",
+            &operations
+        ));
     }
 
     #[test]
