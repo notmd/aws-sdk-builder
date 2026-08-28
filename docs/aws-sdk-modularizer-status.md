@@ -39,3 +39,13 @@
 - Operation coverage: unchanged; all 15 services remain mapped.
 - Remaining blocker: rerun conformance with the narrowed rule and continue from the next compiler failure.
 - Next action: run the required conformance command.
+
+## 2026-08-28 — `df414241c`
+
+- Objective: keep shared `types` modules and runtime helpers unconditional while still gating operation-specific errors.
+- Generic rule: gate only synthetic operation error enums and impls in `types/error.rs`; use the operation type-reference map only for event-stream and protocol ownership inference.
+- Changed files: `crates/aws-sdk-modularizer/src/transform.rs`.
+- Commands: `cargo test -p aws-sdk-modularizer` passed; `cargo fmt --all` passed; conformance on `f3d90071b` failed because shared `types::error`/`types::builders` modules were gated through dependency propagation.
+- Operation coverage: unchanged; all 15 services remain mapped.
+- Remaining blocker: rerun conformance with shared type modules restored and validate operation-specific error gating.
+- Next action: run the required conformance command.
