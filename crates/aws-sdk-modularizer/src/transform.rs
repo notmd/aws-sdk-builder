@@ -74,6 +74,11 @@ struct SuperModuleReferenceVisitor {
     names: BTreeSet<String>,
 }
 
+#[derive(Default)]
+struct TypeReferenceVisitor {
+    references: BTreeSet<String>,
+}
+
 impl<'ast> Visit<'ast> for SuperModuleReferenceVisitor {
     fn visit_path(&mut self, path: &'ast syn::Path) {
         let mut segments = path.segments.iter();
@@ -83,6 +88,25 @@ impl<'ast> Visit<'ast> for SuperModuleReferenceVisitor {
         {
             if let Some(segment) = segments.next() {
                 self.names.insert(segment.ident.to_string());
+            }
+        }
+        visit::visit_path(self, path);
+    }
+}
+
+impl<'ast> Visit<'ast> for TypeReferenceVisitor {
+    fn visit_path(&mut self, path: &'ast syn::Path) {
+        let segments = path
+            .segments
+            .iter()
+            .map(|segment| segment.ident.to_string())
+            .collect::<Vec<_>>();
+        for index in 0..segments.len() {
+            if segments.get(index).map(String::as_str) != Some("types") {
+                continue;
+            }
+            for end in (index + 1)..=segments.len() {
+                self.references.insert(segments[index..end].join("::"));
             }
         }
         visit::visit_path(self, path);
@@ -217,7 +241,8 @@ pub fn transform_tree(
     }
 
     let waiter_owners = waiter_owners(&source_files, operations);
-    let symbol_owners = operation_symbols(&source_files, operations, &waiter_owners);
+    let type_owners = build_type_owners(&source_files, operations);
+    let symbol_owners = operation_symbols(&source_files, operations, &waiter_owners, &type_owners);
     let mut edits = BTreeMap::<String, BTreeMap<usize, BTreeSet<String>>>::new();
     for source_file in &source_files {
         let mut direct_owners = path_owners(&source_file.relative, operations);
@@ -247,10 +272,25 @@ pub fn transform_tree(
             item_visitor.visit_item(item);
             if direct_owners.is_empty() {
                 owners.extend(item_visitor.owners);
-                owners.extend(protocol_reference_owners(
-                    &item_visitor.references,
-                    &symbol_owners,
-                ));
+                if owners.is_empty() {
+                    owners.extend(item_type_owners(&source_file.relative, item, &type_owners));
+                }
+                if owners.is_empty() {
+                    owners.extend(item_symbol_owners(
+                        &source_file.relative,
+                        item,
+                        &symbol_owners,
+                    ));
+                }
+                if owners.is_empty() {
+                    owners.extend(type_reference_owners(item, &type_owners));
+                }
+                if owners.is_empty() {
+                    owners.extend(protocol_reference_owners(
+                        &item_visitor.references,
+                        &symbol_owners,
+                    ));
+                }
             }
             if let Item::Impl(item_impl) = item {
                 let header_owners =
@@ -275,6 +315,15 @@ pub fn transform_tree(
                             &source_file.relative,
                             item_start(item, &source_file.source)?,
                             method_impl_owners,
+                        );
+                    }
+                } else if direct_owners.is_empty() && !owners.is_empty() {
+                    if !has_matching_cfg(item_attrs(item), &owners) {
+                        add_edit(
+                            &mut edits,
+                            &source_file.relative,
+                            item_start(item, &source_file.source)?,
+                            owners,
                         );
                     }
                 } else if direct_owners.is_empty() {
@@ -456,13 +505,15 @@ fn operation_symbols(
     files: &[SourceFile],
     operations: &[Operation],
     waiter_owners: &BTreeMap<String, BTreeSet<String>>,
+    type_owners: &BTreeMap<String, BTreeSet<String>>,
 ) -> BTreeMap<String, BTreeSet<String>> {
     let mut symbols = BTreeMap::<String, BTreeSet<String>>::new();
     for file in files {
         let module_path = source_module_path(&file.relative);
         if module_path.contains("::") {
-            symbols.entry(module_path).or_default();
+            symbols.entry(module_path.clone()).or_default();
         }
+        seed_type_symbols(&mut symbols, &module_path, &file.syntax.items);
     }
     let mut super_module_references = SuperModuleReferenceVisitor::default();
     for file in files {
@@ -472,10 +523,8 @@ fn operation_symbols(
         let previous = symbols.clone();
         for file in files {
             let mut file_owners = path_owners(&file.relative, operations);
-            if is_protocol_serde_path(&file.relative) {
-                if let Some(module_owners) = previous.get(&source_module_path(&file.relative)) {
-                    file_owners.extend(module_owners.iter().cloned());
-                }
+            if let Some(module_owners) = previous.get(&source_module_path(&file.relative)) {
+                file_owners.extend(module_owners.iter().cloned());
             }
             if !file_owners.is_empty() {
                 add_symbol(
@@ -492,6 +541,7 @@ fn operation_symbols(
                 &previous,
                 &super_module_references.names,
                 &file_owners,
+                type_owners,
                 &mut symbols,
             );
         }
@@ -510,6 +560,7 @@ fn collect_operation_symbols(
     known_symbols: &BTreeMap<String, BTreeSet<String>>,
     super_module_references: &BTreeSet<String>,
     inherited_owners: &BTreeSet<String>,
+    type_owners: &BTreeMap<String, BTreeSet<String>>,
     symbols: &mut BTreeMap<String, BTreeSet<String>>,
 ) {
     for item in items {
@@ -523,15 +574,13 @@ fn collect_operation_symbols(
         };
         visitor.visit_item(item);
         let item_owners = if inherited_owners.is_empty() {
-            let mut owners = visitor.owners.clone();
-            owners.extend(protocol_reference_owners(
-                &visitor.references,
-                known_symbols,
-            ));
-            owners
+            inferred_item_owners(parent_path, item, &visitor, type_owners, known_symbols)
         } else {
             inherited_owners.clone()
         };
+        if parent_path.contains("::") && !item_owners.is_empty() {
+            add_symbol(symbols, parent_path, &item_owners);
+        }
         for reference in &visitor.references {
             if !is_operation_or_client_symbol(reference) {
                 add_symbol(symbols, reference, &item_owners);
@@ -565,12 +614,13 @@ fn collect_operation_symbols(
                     };
                     child_visitor.visit_item(child);
                     let child_owners = if module_owners.is_empty() {
-                        let mut owners = child_visitor.owners.clone();
-                        owners.extend(protocol_reference_owners(
-                            &child_visitor.references,
+                        inferred_item_owners(
+                            &module_path,
+                            child,
+                            &child_visitor,
+                            type_owners,
                             known_symbols,
-                        ));
-                        owners
+                        )
                     } else {
                         module_owners.clone()
                     };
@@ -600,11 +650,265 @@ fn collect_operation_symbols(
                     known_symbols,
                     super_module_references,
                     &module_owners,
+                    type_owners,
                     symbols,
                 );
             }
             _ => {}
         }
+    }
+}
+
+fn build_type_owners(
+    files: &[SourceFile],
+    operations: &[Operation],
+) -> BTreeMap<String, BTreeSet<String>> {
+    let mut owners = BTreeMap::<String, BTreeSet<String>>::new();
+    for file in files {
+        if !file.relative.starts_with("src/operation/") {
+            continue;
+        }
+        let file_owners = path_owners(&file.relative, operations);
+        if file_owners.is_empty() {
+            continue;
+        }
+        let mut visitor = TypeReferenceVisitor::default();
+        visitor.visit_file(&file.syntax);
+        for reference in visitor.references {
+            owners
+                .entry(reference)
+                .or_default()
+                .extend(file_owners.iter().cloned());
+        }
+    }
+    owners
+}
+
+fn inferred_item_owners(
+    parent_path: &str,
+    item: &Item,
+    visitor: &OperationPathVisitor<'_>,
+    type_owners: &BTreeMap<String, BTreeSet<String>>,
+    known_symbols: &BTreeMap<String, BTreeSet<String>>,
+) -> BTreeSet<String> {
+    if !visitor.owners.is_empty() {
+        return visitor.owners.clone();
+    }
+    let declared_owners = item_type_owners_for_parent(parent_path, item, type_owners);
+    if !declared_owners.is_empty() {
+        return declared_owners;
+    }
+    let symbol_owners = item_symbol_owners_for_parent(parent_path, item, known_symbols);
+    if !symbol_owners.is_empty() {
+        return symbol_owners;
+    }
+    let type_reference_owners = type_reference_owners(item, type_owners);
+    if !type_reference_owners.is_empty() {
+        return type_reference_owners;
+    }
+    protocol_reference_owners(&visitor.references, known_symbols)
+}
+
+fn type_reference_owners(
+    item: &Item,
+    type_owners: &BTreeMap<String, BTreeSet<String>>,
+) -> BTreeSet<String> {
+    let mut visitor = TypeReferenceVisitor::default();
+    visitor.visit_item(item);
+    intersect_owner_sets(
+        visitor
+            .references
+            .iter()
+            .filter_map(|reference| type_owners.get(reference)),
+    )
+}
+
+fn intersect_owner_sets<'a>(
+    owner_sets: impl IntoIterator<Item = &'a BTreeSet<String>>,
+) -> BTreeSet<String> {
+    let mut owner_sets = owner_sets.into_iter();
+    let Some(first) = owner_sets.next() else {
+        return BTreeSet::new();
+    };
+    let mut result = first.clone();
+    for owners in owner_sets {
+        result.retain(|owner| owners.contains(owner));
+    }
+    result
+}
+
+fn item_type_owners(
+    relative: &str,
+    item: &Item,
+    type_owners: &BTreeMap<String, BTreeSet<String>>,
+) -> BTreeSet<String> {
+    let Some(namespace) = type_namespace(relative) else {
+        return BTreeSet::new();
+    };
+    item_type_owners_in_namespace(namespace, item, type_owners)
+}
+
+fn item_type_owners_for_parent(
+    parent_path: &str,
+    item: &Item,
+    type_owners: &BTreeMap<String, BTreeSet<String>>,
+) -> BTreeSet<String> {
+    let Some(namespace) = type_namespace_from_module(parent_path) else {
+        return BTreeSet::new();
+    };
+    item_type_owners_in_namespace(namespace, item, type_owners)
+}
+
+fn item_symbol_owners(
+    relative: &str,
+    item: &Item,
+    symbol_owners: &BTreeMap<String, BTreeSet<String>>,
+) -> BTreeSet<String> {
+    let Some(namespace) = type_namespace(relative) else {
+        return BTreeSet::new();
+    };
+    item_symbol_owners_in_namespace(namespace, item, symbol_owners)
+}
+
+fn item_symbol_owners_for_parent(
+    parent_path: &str,
+    item: &Item,
+    symbol_owners: &BTreeMap<String, BTreeSet<String>>,
+) -> BTreeSet<String> {
+    let Some(namespace) = type_namespace_from_module(parent_path) else {
+        return BTreeSet::new();
+    };
+    item_symbol_owners_in_namespace(namespace, item, symbol_owners)
+}
+
+fn item_symbol_owners_in_namespace(
+    namespace: &str,
+    item: &Item,
+    symbol_owners: &BTreeMap<String, BTreeSet<String>>,
+) -> BTreeSet<String> {
+    item_type_names(item)
+        .into_iter()
+        .filter_map(|name| {
+            let key = format!("{namespace}::{name}");
+            symbol_owners.get(&key).or_else(|| {
+                name.strip_suffix("Builder")
+                    .map(|base| format!("{namespace}::{base}"))
+                    .and_then(|key| symbol_owners.get(&key))
+            })
+        })
+        .flatten()
+        .cloned()
+        .collect()
+}
+
+fn item_type_owners_in_namespace(
+    namespace: &str,
+    item: &Item,
+    type_owners: &BTreeMap<String, BTreeSet<String>>,
+) -> BTreeSet<String> {
+    item_type_names(item)
+        .into_iter()
+        .filter_map(|name| {
+            let key = format!("{namespace}::{name}");
+            type_owners.get(&key).or_else(|| {
+                name.strip_suffix("Builder")
+                    .map(|base| format!("{namespace}::{base}"))
+                    .and_then(|key| type_owners.get(&key))
+            })
+        })
+        .flatten()
+        .cloned()
+        .collect()
+}
+
+fn item_type_names(item: &Item) -> BTreeSet<String> {
+    let mut names = BTreeSet::new();
+    match item {
+        Item::Enum(item) => {
+            names.insert(item.ident.to_string());
+        }
+        Item::Struct(item) => {
+            names.insert(item.ident.to_string());
+        }
+        Item::Type(item) => {
+            names.insert(item.ident.to_string());
+        }
+        Item::Union(item) => {
+            names.insert(item.ident.to_string());
+        }
+        Item::Use(item) => collect_use_tree_names(&item.tree, &mut names),
+        Item::Impl(item) => {
+            if let syn::Type::Path(path) = item.self_ty.as_ref() {
+                if let Some(segment) = path.path.segments.last() {
+                    names.insert(segment.ident.to_string());
+                }
+            }
+        }
+        _ => {}
+    }
+    names
+}
+
+fn collect_use_tree_names(tree: &syn::UseTree, names: &mut BTreeSet<String>) {
+    match tree {
+        syn::UseTree::Name(name) => {
+            names.insert(name.ident.to_string());
+        }
+        syn::UseTree::Rename(rename) => {
+            names.insert(rename.rename.to_string());
+        }
+        syn::UseTree::Path(path) => collect_use_tree_names(&path.tree, names),
+        syn::UseTree::Group(group) => {
+            for tree in &group.items {
+                collect_use_tree_names(tree, names);
+            }
+        }
+        syn::UseTree::Glob(_) => {}
+    }
+}
+
+fn seed_type_symbols(
+    symbols: &mut BTreeMap<String, BTreeSet<String>>,
+    parent_path: &str,
+    items: &[Item],
+) {
+    let Some(namespace) = type_namespace_from_module(parent_path) else {
+        return;
+    };
+    for item in items {
+        for name in item_type_names(item) {
+            symbols.entry(format!("{namespace}::{name}")).or_default();
+            if parent_path.contains("::") {
+                symbols
+                    .entry(join_symbol_path(parent_path, &name))
+                    .or_default();
+            }
+        }
+    }
+}
+
+fn type_namespace(relative: &str) -> Option<&'static str> {
+    let path = relative.strip_prefix("src/").unwrap_or(relative);
+    if path == "types.rs" || path.starts_with("types/") {
+        if path == "types/error.rs" || path.starts_with("types/error/") {
+            Some("types::error")
+        } else {
+            Some("types")
+        }
+    } else {
+        None
+    }
+}
+
+fn type_namespace_from_module(module: &str) -> Option<&'static str> {
+    if module == "types" || module.starts_with("types::") {
+        if module == "types::error" || module.starts_with("types::error::") {
+            Some("types::error")
+        } else {
+            Some("types")
+        }
+    } else {
+        None
     }
 }
 
@@ -772,11 +1076,9 @@ fn collect_module_edits(
             || file.relative == format!("{child_relative}.rs")
             || file.relative == format!("{child_relative}/mod.rs")
     }) {
-        if is_protocol_serde_path(&child_path) || !owners.is_empty() {
-            let module_path = source_module_path(&file.relative);
-            if let Some(module_owners) = symbol_owners.get(&module_path) {
-                owners.extend(module_owners.iter().cloned());
-            }
+        let module_path = source_module_path(&file.relative);
+        if let Some(module_owners) = symbol_owners.get(&module_path) {
+            owners.extend(module_owners.iter().cloned());
         }
         if child_relative.starts_with("src/waiters/") {
             let mut visitor = OperationPathVisitor {
