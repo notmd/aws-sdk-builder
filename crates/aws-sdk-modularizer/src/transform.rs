@@ -317,7 +317,7 @@ pub fn transform_tree(
                     ));
                 }
                 if owners.is_empty() {
-                    owners.extend(symbol_reference_owners(
+                    owners.extend(protocol_reference_owners(
                         &item_visitor.references,
                         &symbol_owners,
                     ));
@@ -981,7 +981,17 @@ fn inferred_item_owners(
             return type_reference_owners;
         }
     }
-    symbol_reference_owners(&visitor.references, known_symbols)
+    let mut owners = protocol_reference_owners(&visitor.references, known_symbols);
+    let mut super_references = SuperModuleReferenceVisitor::default();
+    super_references.visit_item(item);
+    owners.extend(
+        super_references
+            .names
+            .iter()
+            .filter_map(|reference| known_symbols.get(reference))
+            .flat_map(|owners| owners.iter().cloned()),
+    );
+    owners
 }
 
 fn type_reference_owners(
@@ -1124,16 +1134,24 @@ fn is_operation_or_client_symbol(symbol: &str) -> bool {
     matches!(symbol.split("::").next(), Some("operation" | "client"))
 }
 
-fn symbol_reference_owners(
+fn protocol_reference_owners(
     references: &BTreeSet<String>,
     symbol_owners: &BTreeMap<String, BTreeSet<String>>,
 ) -> BTreeSet<String> {
     references
         .iter()
-        .filter(|reference| !is_operation_or_client_symbol(reference))
+        .filter(|reference| is_protocol_shape_symbol(reference))
         .filter_map(|reference| symbol_owners.get(reference))
         .flat_map(|owners| owners.iter().cloned())
         .collect()
+}
+
+fn is_protocol_shape_symbol(symbol: &str) -> bool {
+    let mut segments = symbol.split("::");
+    segments.next() == Some("protocol_serde")
+        && segments
+            .next()
+            .is_some_and(|segment| segment.starts_with("shape_"))
 }
 
 fn join_symbol_path(parent: &str, name: &str) -> String {
