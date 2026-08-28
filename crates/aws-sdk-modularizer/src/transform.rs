@@ -245,6 +245,7 @@ pub fn transform_tree(
     let symbol_owners = operation_symbols(&source_files, operations, &waiter_owners, &type_owners);
     let mut edits = BTreeMap::<String, BTreeMap<usize, BTreeSet<String>>>::new();
     for source_file in &source_files {
+        let child_of_gated_operation = is_operation_or_client_child_path(&source_file.relative);
         let mut direct_owners = path_owners(&source_file.relative, operations);
         if is_protocol_serde_path(&source_file.relative) {
             if let Some(module_owners) =
@@ -334,7 +335,10 @@ pub fn transform_tree(
                         &method_owners,
                         &mut edits,
                     )?;
-                } else if !owners.is_empty() && !has_matching_cfg(item_attrs(item), &owners) {
+                } else if !child_of_gated_operation
+                    && !owners.is_empty()
+                    && !has_matching_cfg(item_attrs(item), &owners)
+                {
                     add_edit(
                         &mut edits,
                         &source_file.relative,
@@ -342,7 +346,10 @@ pub fn transform_tree(
                         owners,
                     );
                 }
-            } else if !owners.is_empty() && !has_matching_cfg(item_attrs(item), &owners) {
+            } else if !child_of_gated_operation
+                && !owners.is_empty()
+                && !has_matching_cfg(item_attrs(item), &owners)
+            {
                 add_edit(
                     &mut edits,
                     &source_file.relative,
@@ -350,17 +357,19 @@ pub fn transform_tree(
                     owners,
                 );
             }
-            collect_module_edits(
-                &source_file.relative,
-                &source_file.source,
-                item,
-                &source_files,
-                operations,
-                &waiter_owners,
-                &symbol_owners,
-                &method_owners,
-                &mut edits,
-            )?;
+            if !child_of_gated_operation {
+                collect_module_edits(
+                    &source_file.relative,
+                    &source_file.source,
+                    item,
+                    &source_files,
+                    operations,
+                    &waiter_owners,
+                    &symbol_owners,
+                    &method_owners,
+                    &mut edits,
+                )?;
+            }
         }
     }
 
@@ -938,6 +947,12 @@ fn path_owners(relative: &str, operations: &[Operation]) -> BTreeSet<String> {
         }
     }
     owners
+}
+
+fn is_operation_or_client_child_path(relative: &str) -> bool {
+    let path = relative.strip_prefix("src/").unwrap_or(relative);
+    let mut components = path.split('/');
+    matches!(components.next(), Some("operation" | "client")) && components.next().is_some()
 }
 
 fn collect_module_edits(
