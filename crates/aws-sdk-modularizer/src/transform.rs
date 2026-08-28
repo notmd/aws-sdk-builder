@@ -8,6 +8,7 @@ use std::{
 };
 use syn::{
     Attribute, File, Item, Meta,
+    spanned::Spanned,
     visit::{self, Visit},
 };
 use thiserror::Error;
@@ -79,6 +80,11 @@ struct TypeReferenceVisitor {
     references: BTreeSet<String>,
 }
 
+#[derive(Default)]
+struct OperationModuleReferenceVisitor {
+    modules: BTreeSet<String>,
+}
+
 impl<'ast> Visit<'ast> for SuperModuleReferenceVisitor {
     fn visit_path(&mut self, path: &'ast syn::Path) {
         let mut segments = path.segments.iter();
@@ -107,6 +113,20 @@ impl<'ast> Visit<'ast> for TypeReferenceVisitor {
             }
             for end in (index + 1)..=segments.len() {
                 self.references.insert(segments[index..end].join("::"));
+            }
+        }
+        visit::visit_path(self, path);
+    }
+}
+
+impl<'ast> Visit<'ast> for OperationModuleReferenceVisitor {
+    fn visit_path(&mut self, path: &'ast syn::Path) {
+        let mut segments = path.segments.iter();
+        while let Some(segment) = segments.next() {
+            if segment.ident == "operation"
+                && let Some(module) = segments.next()
+            {
+                self.modules.insert(module.ident.to_string());
             }
         }
         visit::visit_path(self, path);
@@ -238,6 +258,11 @@ pub fn transform_tree(
     let mut coverage = mapping_coverage(&source_files, operations, crate_root)?;
     if !coverage.is_complete() {
         return Err(TransformError::IncompleteMapping { coverage });
+    }
+    let mut changed_files =
+        prune_unselected_operation_surface(crate_root, &source_files, operations)?;
+    if !changed_files.is_empty() {
+        source_files = collect_source_files(&source_root, crate_root)?;
     }
 
     let waiter_owners = waiter_owners(&source_files, operations);
@@ -397,7 +422,6 @@ pub fn transform_tree(
         }
     }
 
-    let mut changed_files = Vec::new();
     for source_file in &source_files {
         let Some(file_edits) = edits.get(&source_file.relative) else {
             continue;
@@ -507,6 +531,228 @@ fn collect_paths(root: &Path, paths: &mut Vec<PathBuf>) -> Result<(), std::io::E
             collect_paths(&path, paths)?;
         } else if path.extension().and_then(|extension| extension.to_str()) == Some("rs") {
             paths.push(path);
+        }
+    }
+    Ok(())
+}
+
+fn prune_unselected_operation_surface(
+    crate_root: &Path,
+    files: &[SourceFile],
+    operations: &[Operation],
+) -> Result<Vec<String>, TransformError> {
+    let selected = operations
+        .iter()
+        .map(|operation| operation.module.clone())
+        .collect::<BTreeSet<_>>();
+    let operation_modules = module_names(files, "src/operation.rs");
+    let unselected = operation_modules
+        .difference(&selected)
+        .map(|module| (*module).to_owned())
+        .collect::<BTreeSet<_>>();
+    if unselected.is_empty() {
+        return Ok(Vec::new());
+    }
+
+    let mut removals = BTreeMap::<String, Vec<(usize, usize)>>::new();
+    let mut removed_files = BTreeSet::new();
+    for file in files {
+        if operation_or_client_module(file.relative.as_str())
+            .is_some_and(|module| unselected.contains(module))
+        {
+            removed_files.insert(file.relative.clone());
+            continue;
+        }
+        let operation_references = operation_module_references(&file.syntax);
+        let unselected_references = operation_references
+            .intersection(&unselected)
+            .cloned()
+            .collect::<BTreeSet<_>>();
+        if unselected_references.is_empty() {
+            continue;
+        }
+
+        match file.relative.as_str() {
+            "src/client.rs" => {
+                collect_client_method_removals(
+                    &file.source,
+                    &file.syntax.items,
+                    &unselected,
+                    &mut removals,
+                )?;
+            }
+            "src/protocol_serde.rs" | "src/waiters.rs" => {
+                for item in &file.syntax.items {
+                    let Item::Mod(module) = item else {
+                        continue;
+                    };
+                    let Some(child_relative) =
+                        resolve_external_module(&file.relative, &module.ident.to_string(), files)
+                    else {
+                        continue;
+                    };
+                    let Some(child) = files.iter().find(|child| {
+                        child.relative == child_relative
+                            || child.relative == format!("{child_relative}.rs")
+                            || child.relative == format!("{child_relative}/mod.rs")
+                    }) else {
+                        continue;
+                    };
+                    let child_references = operation_module_references(&child.syntax);
+                    if child_references.is_disjoint(&selected) {
+                        removed_files.insert(child.relative.clone());
+                        add_removal(
+                            &mut removals,
+                            &file.relative,
+                            item_range(item, &file.source)?,
+                        );
+                    }
+                }
+            }
+            _ => {
+                for item in &file.syntax.items {
+                    if !operation_module_references(item).is_disjoint(&unselected) {
+                        add_removal(
+                            &mut removals,
+                            &file.relative,
+                            item_range(item, &file.source)?,
+                        );
+                    }
+                }
+            }
+        }
+    }
+
+    for relative in ["src/operation.rs", "src/client.rs"] {
+        let Some(file) = files.iter().find(|file| file.relative == relative) else {
+            continue;
+        };
+        for item in &file.syntax.items {
+            let Item::Mod(module) = item else {
+                continue;
+            };
+            if unselected.contains(module.ident.to_string().as_str()) {
+                add_removal(&mut removals, relative, item_range(item, &file.source)?);
+            }
+        }
+    }
+
+    let mut changed = removed_files.clone();
+    for file in files {
+        let Some(ranges) = removals.get(&file.relative) else {
+            continue;
+        };
+        if removed_files.contains(&file.relative) {
+            continue;
+        }
+        let updated = apply_removals(&file.source, ranges, &file.relative)?;
+        if updated != file.source {
+            fs::write(crate_root.join(&file.relative), updated).map_err(|source| {
+                TransformError::Io {
+                    path: crate_root.join(&file.relative),
+                    source,
+                }
+            })?;
+            changed.insert(file.relative.clone());
+        }
+    }
+    for relative in &removed_files {
+        fs::remove_file(crate_root.join(relative)).map_err(|source| TransformError::Io {
+            path: crate_root.join(relative),
+            source,
+        })?;
+    }
+    Ok(changed.into_iter().collect())
+}
+
+fn module_names(files: &[SourceFile], relative: &str) -> BTreeSet<String> {
+    files
+        .iter()
+        .find(|file| file.relative == relative)
+        .into_iter()
+        .flat_map(|file| file.syntax.items.iter())
+        .filter_map(|item| match item {
+            Item::Mod(item) => Some(item.ident.to_string()),
+            _ => None,
+        })
+        .collect()
+}
+
+fn operation_or_client_module(relative: &str) -> Option<&str> {
+    let path = relative.strip_prefix("src/")?;
+    let mut components = path.split('/');
+    if !matches!(components.next(), Some("operation" | "client")) {
+        return None;
+    }
+    let module = components.next()?;
+    Some(module.strip_suffix(".rs").unwrap_or(module))
+}
+
+fn operation_module_references<T: VisitOperationModules>(node: &T) -> BTreeSet<String> {
+    let mut visitor = OperationModuleReferenceVisitor::default();
+    node.visit_operation_modules(&mut visitor);
+    visitor.modules
+}
+
+trait VisitOperationModules {
+    fn visit_operation_modules(&self, visitor: &mut OperationModuleReferenceVisitor);
+}
+
+impl VisitOperationModules for File {
+    fn visit_operation_modules(&self, visitor: &mut OperationModuleReferenceVisitor) {
+        visitor.visit_file(self);
+    }
+}
+
+impl VisitOperationModules for Item {
+    fn visit_operation_modules(&self, visitor: &mut OperationModuleReferenceVisitor) {
+        visitor.visit_item(self);
+    }
+}
+
+impl VisitOperationModules for syn::TraitItemFn {
+    fn visit_operation_modules(&self, visitor: &mut OperationModuleReferenceVisitor) {
+        visitor.visit_trait_item_fn(self);
+    }
+}
+
+impl VisitOperationModules for syn::ImplItemFn {
+    fn visit_operation_modules(&self, visitor: &mut OperationModuleReferenceVisitor) {
+        visitor.visit_impl_item_fn(self);
+    }
+}
+
+fn collect_client_method_removals(
+    source: &str,
+    items: &[Item],
+    unselected: &BTreeSet<String>,
+    removals: &mut BTreeMap<String, Vec<(usize, usize)>>,
+) -> Result<(), TransformError> {
+    for item in items {
+        match item {
+            Item::Trait(item_trait) => {
+                for item in &item_trait.items {
+                    let syn::TraitItem::Fn(method) = item else {
+                        continue;
+                    };
+                    if operation_module_references(method).is_disjoint(unselected) {
+                        continue;
+                    }
+                    add_removal(removals, "src/client.rs", trait_item_range(method, source)?);
+                }
+            }
+            Item::Impl(item_impl) if item_impl.trait_.is_some() => {
+                for item in &item_impl.items {
+                    let syn::ImplItem::Fn(method) = item else {
+                        continue;
+                    };
+                    if operation_module_references(method).is_disjoint(unselected) {
+                        continue;
+                    }
+                    add_removal(removals, "src/client.rs", impl_item_range(method, source)?);
+                }
+            }
+            _ => {}
         }
     }
     Ok(())
@@ -1473,6 +1719,89 @@ fn add_edit(
         .entry(offset)
         .or_default()
         .extend(owners);
+}
+
+fn add_removal(
+    removals: &mut BTreeMap<String, Vec<(usize, usize)>>,
+    relative: &str,
+    range: (usize, usize),
+) {
+    removals.entry(relative.to_owned()).or_default().push(range);
+}
+
+fn item_range(item: &Item, source: &str) -> Result<(usize, usize), TransformError> {
+    token_range(item.to_token_stream(), item_attrs(item), source)
+}
+
+fn trait_item_range(
+    item: &syn::TraitItemFn,
+    source: &str,
+) -> Result<(usize, usize), TransformError> {
+    token_range(item.to_token_stream(), &item.attrs, source)
+}
+
+fn impl_item_range(item: &syn::ImplItemFn, source: &str) -> Result<(usize, usize), TransformError> {
+    token_range(item.to_token_stream(), &item.attrs, source)
+}
+
+fn token_range(
+    tokens: proc_macro2::TokenStream,
+    attributes: &[Attribute],
+    source: &str,
+) -> Result<(usize, usize), TransformError> {
+    let first = tokens
+        .clone()
+        .into_iter()
+        .next()
+        .ok_or_else(|| TransformError::Rust {
+            path: PathBuf::from("<source>"),
+            message: "empty Rust item".to_owned(),
+        })?;
+    let last = tokens
+        .into_iter()
+        .last()
+        .ok_or_else(|| TransformError::Rust {
+            path: PathBuf::from("<source>"),
+            message: "empty Rust item".to_owned(),
+        })?;
+    let start_span = attributes
+        .first()
+        .map(Spanned::span)
+        .unwrap_or_else(|| first.span());
+    let start = source_offset(source, start_span.start())?;
+    let mut end = source_offset(source, last.span().end())?;
+    if source.as_bytes().get(end) == Some(&b'\r') {
+        end += 1;
+    }
+    if source.as_bytes().get(end) == Some(&b'\n') {
+        end += 1;
+    }
+    Ok((start, end))
+}
+
+fn apply_removals(
+    source: &str,
+    ranges: &[(usize, usize)],
+    relative: &str,
+) -> Result<String, TransformError> {
+    let mut ranges = ranges.to_owned();
+    ranges.sort_unstable();
+    let mut output = source.to_owned();
+    let mut previous_start = usize::MAX;
+    for (start, end) in ranges.into_iter().rev() {
+        if start > end || end > output.len() {
+            return Err(TransformError::Invalid {
+                path: PathBuf::from(relative),
+                message: "Rust removal is outside source".to_owned(),
+            });
+        }
+        if end > previous_start {
+            continue;
+        }
+        output.replace_range(start..end, "");
+        previous_start = start;
+    }
+    Ok(output)
 }
 
 fn item_attrs(item: &Item) -> &[Attribute] {
