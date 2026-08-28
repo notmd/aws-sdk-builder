@@ -282,7 +282,7 @@ pub fn transform_tree(
                         &symbol_owners,
                     ));
                 }
-                if owners.is_empty() {
+                if owners.is_empty() && is_type_ownership_path(&source_file.relative) {
                     owners.extend(type_reference_owners(item, &type_owners));
                 }
                 if owners.is_empty() {
@@ -523,7 +523,12 @@ fn operation_symbols(
         let previous = symbols.clone();
         for file in files {
             let mut file_owners = path_owners(&file.relative, operations);
-            if let Some(module_owners) = previous.get(&source_module_path(&file.relative)) {
+            if (is_protocol_serde_path(&file.relative) || is_type_path(&file.relative))
+                && previous.get(&source_module_path(&file.relative)).is_some()
+            {
+                let module_owners = previous
+                    .get(&source_module_path(&file.relative))
+                    .expect("checked above");
                 file_owners.extend(module_owners.iter().cloned());
             }
             if !file_owners.is_empty() {
@@ -702,9 +707,11 @@ fn inferred_item_owners(
     if !symbol_owners.is_empty() {
         return symbol_owners;
     }
-    let type_reference_owners = type_reference_owners(item, type_owners);
-    if !type_reference_owners.is_empty() {
-        return type_reference_owners;
+    if is_type_ownership_module(parent_path) {
+        let type_reference_owners = type_reference_owners(item, type_owners);
+        if !type_reference_owners.is_empty() {
+            return type_reference_owners;
+        }
     }
     protocol_reference_owners(&visitor.references, known_symbols)
 }
@@ -912,6 +919,25 @@ fn type_namespace_from_module(module: &str) -> Option<&'static str> {
     }
 }
 
+fn is_type_path(relative: &str) -> bool {
+    let path = relative.strip_prefix("src/").unwrap_or(relative);
+    path == "types.rs" || path.starts_with("types/")
+}
+
+fn is_type_ownership_path(relative: &str) -> bool {
+    is_type_path(relative)
+        || relative.strip_prefix("src/") == Some("event_stream_serde.rs")
+        || is_protocol_serde_path(relative)
+}
+
+fn is_type_ownership_module(module: &str) -> bool {
+    module == "event_stream_serde"
+        || module == "protocol_serde"
+        || module.starts_with("protocol_serde::")
+        || module == "types"
+        || module.starts_with("types::")
+}
+
 fn add_symbol(
     symbols: &mut BTreeMap<String, BTreeSet<String>>,
     name: &str,
@@ -1076,9 +1102,11 @@ fn collect_module_edits(
             || file.relative == format!("{child_relative}.rs")
             || file.relative == format!("{child_relative}/mod.rs")
     }) {
-        let module_path = source_module_path(&file.relative);
-        if let Some(module_owners) = symbol_owners.get(&module_path) {
-            owners.extend(module_owners.iter().cloned());
+        if is_protocol_serde_path(&child_path) || is_type_path(&child_path) || !owners.is_empty() {
+            let module_path = source_module_path(&file.relative);
+            if let Some(module_owners) = symbol_owners.get(&module_path) {
+                owners.extend(module_owners.iter().cloned());
+            }
         }
         if child_relative.starts_with("src/waiters/") {
             let mut visitor = OperationPathVisitor {
