@@ -1,0 +1,892 @@
+# AWS SDK modularizer diff
+
+- repository: `https://github.com/awslabs/aws-sdk-rust`
+- revision: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
+- service: `sdk/config`
+- model: `models/config.json`
+- package: `aws-sdk-config-modular`
+- library: `aws_sdk_config_modular`
+- tests exclusion: `tests/**` is excluded from the comparison.
+
+## Operations
+
+- `op_associate_resource_types`: `AssociateResourceTypes`
+- `op_batch_get_aggregate_resource_config`: `BatchGetAggregateResourceConfig`
+- `op_batch_get_resource_config`: `BatchGetResourceConfig`
+- `op_delete_aggregation_authorization`: `DeleteAggregationAuthorization`
+- `op_delete_config_rule`: `DeleteConfigRule`
+- `op_delete_configuration_aggregator`: `DeleteConfigurationAggregator`
+- `op_delete_configuration_recorder`: `DeleteConfigurationRecorder`
+- `op_delete_conformance_pack`: `DeleteConformancePack`
+- `op_delete_connector`: `DeleteConnector`
+- `op_delete_delivery_channel`: `DeleteDeliveryChannel`
+- `op_delete_evaluation_results`: `DeleteEvaluationResults`
+- `op_delete_organization_config_rule`: `DeleteOrganizationConfigRule`
+- `op_delete_organization_conformance_pack`: `DeleteOrganizationConformancePack`
+- `op_delete_pending_aggregation_request`: `DeletePendingAggregationRequest`
+- `op_delete_remediation_configuration`: `DeleteRemediationConfiguration`
+- `op_delete_remediation_exceptions`: `DeleteRemediationExceptions`
+- `op_delete_resource_config`: `DeleteResourceConfig`
+- `op_delete_retention_configuration`: `DeleteRetentionConfiguration`
+- `op_delete_service_linked_configuration_recorder`: `DeleteServiceLinkedConfigurationRecorder`
+- `op_delete_stored_query`: `DeleteStoredQuery`
+- `op_deliver_config_snapshot`: `DeliverConfigSnapshot`
+- `op_describe_aggregate_compliance_by_config_rules`: `DescribeAggregateComplianceByConfigRules`
+- `op_describe_aggregate_compliance_by_conformance_packs`: `DescribeAggregateComplianceByConformancePacks`
+- `op_describe_aggregation_authorizations`: `DescribeAggregationAuthorizations`
+- `op_describe_compliance_by_config_rule`: `DescribeComplianceByConfigRule`
+- `op_describe_compliance_by_resource`: `DescribeComplianceByResource`
+- `op_describe_config_rule_evaluation_status`: `DescribeConfigRuleEvaluationStatus`
+- `op_describe_config_rules`: `DescribeConfigRules`
+- `op_describe_configuration_aggregators`: `DescribeConfigurationAggregators`
+- `op_describe_configuration_aggregator_sources_status`: `DescribeConfigurationAggregatorSourcesStatus`
+- `op_describe_configuration_recorders`: `DescribeConfigurationRecorders`
+- `op_describe_configuration_recorder_status`: `DescribeConfigurationRecorderStatus`
+- `op_describe_conformance_pack_compliance`: `DescribeConformancePackCompliance`
+- `op_describe_conformance_packs`: `DescribeConformancePacks`
+- `op_describe_conformance_pack_status`: `DescribeConformancePackStatus`
+- `op_describe_delivery_channels`: `DescribeDeliveryChannels`
+- `op_describe_delivery_channel_status`: `DescribeDeliveryChannelStatus`
+- `op_describe_organization_config_rules`: `DescribeOrganizationConfigRules`
+- `op_describe_organization_config_rule_statuses`: `DescribeOrganizationConfigRuleStatuses`
+- `op_describe_organization_conformance_packs`: `DescribeOrganizationConformancePacks`
+- `op_describe_organization_conformance_pack_statuses`: `DescribeOrganizationConformancePackStatuses`
+- `op_describe_pending_aggregation_requests`: `DescribePendingAggregationRequests`
+- `op_describe_remediation_configurations`: `DescribeRemediationConfigurations`
+- `op_describe_remediation_exceptions`: `DescribeRemediationExceptions`
+- `op_describe_remediation_execution_status`: `DescribeRemediationExecutionStatus`
+- `op_describe_retention_configurations`: `DescribeRetentionConfigurations`
+- `op_disassociate_resource_types`: `DisassociateResourceTypes`
+- `op_get_aggregate_compliance_details_by_config_rule`: `GetAggregateComplianceDetailsByConfigRule`
+- `op_get_aggregate_config_rule_compliance_summary`: `GetAggregateConfigRuleComplianceSummary`
+- `op_get_aggregate_conformance_pack_compliance_summary`: `GetAggregateConformancePackComplianceSummary`
+- `op_get_aggregate_discovered_resource_counts`: `GetAggregateDiscoveredResourceCounts`
+- `op_get_aggregate_resource_config`: `GetAggregateResourceConfig`
+- `op_get_compliance_details_by_config_rule`: `GetComplianceDetailsByConfigRule`
+- `op_get_compliance_details_by_resource`: `GetComplianceDetailsByResource`
+- `op_get_compliance_summary_by_config_rule`: `GetComplianceSummaryByConfigRule`
+- `op_get_compliance_summary_by_resource_type`: `GetComplianceSummaryByResourceType`
+- `op_get_conformance_pack_compliance_details`: `GetConformancePackComplianceDetails`
+- `op_get_conformance_pack_compliance_summary`: `GetConformancePackComplianceSummary`
+- `op_get_connector`: `GetConnector`
+- `op_get_custom_rule_policy`: `GetCustomRulePolicy`
+- `op_get_discovered_resource_counts`: `GetDiscoveredResourceCounts`
+- `op_get_organization_config_rule_detailed_status`: `GetOrganizationConfigRuleDetailedStatus`
+- `op_get_organization_conformance_pack_detailed_status`: `GetOrganizationConformancePackDetailedStatus`
+- `op_get_organization_custom_rule_policy`: `GetOrganizationCustomRulePolicy`
+- `op_get_resource_config_history`: `GetResourceConfigHistory`
+- `op_get_resource_evaluation_summary`: `GetResourceEvaluationSummary`
+- `op_get_stored_query`: `GetStoredQuery`
+- `op_list_aggregate_discovered_resources`: `ListAggregateDiscoveredResources`
+- `op_list_configuration_recorders`: `ListConfigurationRecorders`
+- `op_list_conformance_pack_compliance_scores`: `ListConformancePackComplianceScores`
+- `op_list_connectors`: `ListConnectors`
+- `op_list_discovered_resources`: `ListDiscoveredResources`
+- `op_list_resource_evaluations`: `ListResourceEvaluations`
+- `op_list_stored_queries`: `ListStoredQueries`
+- `op_list_tags_for_resource`: `ListTagsForResource`
+- `op_put_aggregation_authorization`: `PutAggregationAuthorization`
+- `op_put_config_rule`: `PutConfigRule`
+- `op_put_configuration_aggregator`: `PutConfigurationAggregator`
+- `op_put_configuration_recorder`: `PutConfigurationRecorder`
+- `op_put_conformance_pack`: `PutConformancePack`
+- `op_put_connector`: `PutConnector`
+- `op_put_delivery_channel`: `PutDeliveryChannel`
+- `op_put_evaluations`: `PutEvaluations`
+- `op_put_external_evaluation`: `PutExternalEvaluation`
+- `op_put_organization_config_rule`: `PutOrganizationConfigRule`
+- `op_put_organization_conformance_pack`: `PutOrganizationConformancePack`
+- `op_put_remediation_configurations`: `PutRemediationConfigurations`
+- `op_put_remediation_exceptions`: `PutRemediationExceptions`
+- `op_put_resource_config`: `PutResourceConfig`
+- `op_put_retention_configuration`: `PutRetentionConfiguration`
+- `op_put_service_linked_configuration_recorder`: `PutServiceLinkedConfigurationRecorder`
+- `op_put_stored_query`: `PutStoredQuery`
+- `op_put_third_party_service_linked_configuration_recorder`: `PutThirdPartyServiceLinkedConfigurationRecorder`
+- `op_select_aggregate_resource_config`: `SelectAggregateResourceConfig`
+- `op_select_resource_config`: `SelectResourceConfig`
+- `op_start_config_rules_evaluation`: `StartConfigRulesEvaluation`
+- `op_start_configuration_recorder`: `StartConfigurationRecorder`
+- `op_start_remediation_execution`: `StartRemediationExecution`
+- `op_start_resource_evaluation`: `StartResourceEvaluation`
+- `op_stop_configuration_recorder`: `StopConfigurationRecorder`
+- `op_tag_resource`: `TagResource`
+- `op_untag_resource`: `UntagResource`
+
+## Changed files
+
+- `Cargo.toml`
+- `src/client.rs`
+- `src/client/associate_resource_types.rs`
+- `src/client/batch_get_aggregate_resource_config.rs`
+- `src/client/batch_get_resource_config.rs`
+- `src/client/delete_aggregation_authorization.rs`
+- `src/client/delete_config_rule.rs`
+- `src/client/delete_configuration_aggregator.rs`
+- `src/client/delete_configuration_recorder.rs`
+- `src/client/delete_conformance_pack.rs`
+- `src/client/delete_connector.rs`
+- `src/client/delete_delivery_channel.rs`
+- `src/client/delete_evaluation_results.rs`
+- `src/client/delete_organization_config_rule.rs`
+- `src/client/delete_organization_conformance_pack.rs`
+- `src/client/delete_pending_aggregation_request.rs`
+- `src/client/delete_remediation_configuration.rs`
+- `src/client/delete_remediation_exceptions.rs`
+- `src/client/delete_resource_config.rs`
+- `src/client/delete_retention_configuration.rs`
+- `src/client/delete_service_linked_configuration_recorder.rs`
+- `src/client/delete_stored_query.rs`
+- `src/client/deliver_config_snapshot.rs`
+- `src/client/describe_aggregate_compliance_by_config_rules.rs`
+- `src/client/describe_aggregate_compliance_by_conformance_packs.rs`
+- `src/client/describe_aggregation_authorizations.rs`
+- `src/client/describe_compliance_by_config_rule.rs`
+- `src/client/describe_compliance_by_resource.rs`
+- `src/client/describe_config_rule_evaluation_status.rs`
+- `src/client/describe_config_rules.rs`
+- `src/client/describe_configuration_aggregator_sources_status.rs`
+- `src/client/describe_configuration_aggregators.rs`
+- `src/client/describe_configuration_recorder_status.rs`
+- `src/client/describe_configuration_recorders.rs`
+- `src/client/describe_conformance_pack_compliance.rs`
+- `src/client/describe_conformance_pack_status.rs`
+- `src/client/describe_conformance_packs.rs`
+- `src/client/describe_delivery_channel_status.rs`
+- `src/client/describe_delivery_channels.rs`
+- `src/client/describe_organization_config_rule_statuses.rs`
+- `src/client/describe_organization_config_rules.rs`
+- `src/client/describe_organization_conformance_pack_statuses.rs`
+- `src/client/describe_organization_conformance_packs.rs`
+- `src/client/describe_pending_aggregation_requests.rs`
+- `src/client/describe_remediation_configurations.rs`
+- `src/client/describe_remediation_exceptions.rs`
+- `src/client/describe_remediation_execution_status.rs`
+- `src/client/describe_retention_configurations.rs`
+- `src/client/disassociate_resource_types.rs`
+- `src/client/get_aggregate_compliance_details_by_config_rule.rs`
+- `src/client/get_aggregate_config_rule_compliance_summary.rs`
+- `src/client/get_aggregate_conformance_pack_compliance_summary.rs`
+- `src/client/get_aggregate_discovered_resource_counts.rs`
+- `src/client/get_aggregate_resource_config.rs`
+- `src/client/get_compliance_details_by_config_rule.rs`
+- `src/client/get_compliance_details_by_resource.rs`
+- `src/client/get_compliance_summary_by_config_rule.rs`
+- `src/client/get_compliance_summary_by_resource_type.rs`
+- `src/client/get_conformance_pack_compliance_details.rs`
+- `src/client/get_conformance_pack_compliance_summary.rs`
+- `src/client/get_connector.rs`
+- `src/client/get_custom_rule_policy.rs`
+- `src/client/get_discovered_resource_counts.rs`
+- `src/client/get_organization_config_rule_detailed_status.rs`
+- `src/client/get_organization_conformance_pack_detailed_status.rs`
+- `src/client/get_organization_custom_rule_policy.rs`
+- `src/client/get_resource_config_history.rs`
+- `src/client/get_resource_evaluation_summary.rs`
+- `src/client/get_stored_query.rs`
+- `src/client/list_aggregate_discovered_resources.rs`
+- `src/client/list_configuration_recorders.rs`
+- `src/client/list_conformance_pack_compliance_scores.rs`
+- `src/client/list_connectors.rs`
+- `src/client/list_discovered_resources.rs`
+- `src/client/list_resource_evaluations.rs`
+- `src/client/list_stored_queries.rs`
+- `src/client/list_tags_for_resource.rs`
+- `src/client/put_aggregation_authorization.rs`
+- `src/client/put_config_rule.rs`
+- `src/client/put_configuration_aggregator.rs`
+- `src/client/put_configuration_recorder.rs`
+- `src/client/put_conformance_pack.rs`
+- `src/client/put_connector.rs`
+- `src/client/put_delivery_channel.rs`
+- `src/client/put_evaluations.rs`
+- `src/client/put_external_evaluation.rs`
+- `src/client/put_organization_config_rule.rs`
+- `src/client/put_organization_conformance_pack.rs`
+- `src/client/put_remediation_configurations.rs`
+- `src/client/put_remediation_exceptions.rs`
+- `src/client/put_resource_config.rs`
+- `src/client/put_retention_configuration.rs`
+- `src/client/put_service_linked_configuration_recorder.rs`
+- `src/client/put_stored_query.rs`
+- `src/client/put_third_party_service_linked_configuration_recorder.rs`
+- `src/client/select_aggregate_resource_config.rs`
+- `src/client/select_resource_config.rs`
+- `src/client/start_config_rules_evaluation.rs`
+- `src/client/start_configuration_recorder.rs`
+- `src/client/start_remediation_execution.rs`
+- `src/client/start_resource_evaluation.rs`
+- `src/client/stop_configuration_recorder.rs`
+- `src/client/tag_resource.rs`
+- `src/client/untag_resource.rs`
+- `src/error_meta.rs`
+- `src/lens.rs`
+- `src/operation.rs`
+- `src/operation/associate_resource_types.rs`
+- `src/operation/associate_resource_types/_associate_resource_types_input.rs`
+- `src/operation/associate_resource_types/_associate_resource_types_output.rs`
+- `src/operation/associate_resource_types/builders.rs`
+- `src/operation/batch_get_aggregate_resource_config.rs`
+- `src/operation/batch_get_aggregate_resource_config/_batch_get_aggregate_resource_config_input.rs`
+- `src/operation/batch_get_aggregate_resource_config/_batch_get_aggregate_resource_config_output.rs`
+- `src/operation/batch_get_aggregate_resource_config/builders.rs`
+- `src/operation/batch_get_resource_config.rs`
+- `src/operation/batch_get_resource_config/_batch_get_resource_config_input.rs`
+- `src/operation/batch_get_resource_config/_batch_get_resource_config_output.rs`
+- `src/operation/batch_get_resource_config/builders.rs`
+- `src/operation/delete_aggregation_authorization.rs`
+- `src/operation/delete_aggregation_authorization/_delete_aggregation_authorization_input.rs`
+- `src/operation/delete_aggregation_authorization/_delete_aggregation_authorization_output.rs`
+- `src/operation/delete_aggregation_authorization/builders.rs`
+- `src/operation/delete_config_rule.rs`
+- `src/operation/delete_config_rule/_delete_config_rule_input.rs`
+- `src/operation/delete_config_rule/_delete_config_rule_output.rs`
+- `src/operation/delete_config_rule/builders.rs`
+- `src/operation/delete_configuration_aggregator.rs`
+- `src/operation/delete_configuration_aggregator/_delete_configuration_aggregator_input.rs`
+- `src/operation/delete_configuration_aggregator/_delete_configuration_aggregator_output.rs`
+- `src/operation/delete_configuration_aggregator/builders.rs`
+- `src/operation/delete_configuration_recorder.rs`
+- `src/operation/delete_configuration_recorder/_delete_configuration_recorder_input.rs`
+- `src/operation/delete_configuration_recorder/_delete_configuration_recorder_output.rs`
+- `src/operation/delete_configuration_recorder/builders.rs`
+- `src/operation/delete_conformance_pack.rs`
+- `src/operation/delete_conformance_pack/_delete_conformance_pack_input.rs`
+- `src/operation/delete_conformance_pack/_delete_conformance_pack_output.rs`
+- `src/operation/delete_conformance_pack/builders.rs`
+- `src/operation/delete_connector.rs`
+- `src/operation/delete_connector/_delete_connector_input.rs`
+- `src/operation/delete_connector/_delete_connector_output.rs`
+- `src/operation/delete_connector/builders.rs`
+- `src/operation/delete_delivery_channel.rs`
+- `src/operation/delete_delivery_channel/_delete_delivery_channel_input.rs`
+- `src/operation/delete_delivery_channel/_delete_delivery_channel_output.rs`
+- `src/operation/delete_delivery_channel/builders.rs`
+- `src/operation/delete_evaluation_results.rs`
+- `src/operation/delete_evaluation_results/_delete_evaluation_results_input.rs`
+- `src/operation/delete_evaluation_results/_delete_evaluation_results_output.rs`
+- `src/operation/delete_evaluation_results/builders.rs`
+- `src/operation/delete_organization_config_rule.rs`
+- `src/operation/delete_organization_config_rule/_delete_organization_config_rule_input.rs`
+- `src/operation/delete_organization_config_rule/_delete_organization_config_rule_output.rs`
+- `src/operation/delete_organization_config_rule/builders.rs`
+- `src/operation/delete_organization_conformance_pack.rs`
+- `src/operation/delete_organization_conformance_pack/_delete_organization_conformance_pack_input.rs`
+- `src/operation/delete_organization_conformance_pack/_delete_organization_conformance_pack_output.rs`
+- `src/operation/delete_organization_conformance_pack/builders.rs`
+- `src/operation/delete_pending_aggregation_request.rs`
+- `src/operation/delete_pending_aggregation_request/_delete_pending_aggregation_request_input.rs`
+- `src/operation/delete_pending_aggregation_request/_delete_pending_aggregation_request_output.rs`
+- `src/operation/delete_pending_aggregation_request/builders.rs`
+- `src/operation/delete_remediation_configuration.rs`
+- `src/operation/delete_remediation_configuration/_delete_remediation_configuration_input.rs`
+- `src/operation/delete_remediation_configuration/_delete_remediation_configuration_output.rs`
+- `src/operation/delete_remediation_configuration/builders.rs`
+- `src/operation/delete_remediation_exceptions.rs`
+- `src/operation/delete_remediation_exceptions/_delete_remediation_exceptions_input.rs`
+- `src/operation/delete_remediation_exceptions/_delete_remediation_exceptions_output.rs`
+- `src/operation/delete_remediation_exceptions/builders.rs`
+- `src/operation/delete_resource_config.rs`
+- `src/operation/delete_resource_config/_delete_resource_config_input.rs`
+- `src/operation/delete_resource_config/_delete_resource_config_output.rs`
+- `src/operation/delete_resource_config/builders.rs`
+- `src/operation/delete_retention_configuration.rs`
+- `src/operation/delete_retention_configuration/_delete_retention_configuration_input.rs`
+- `src/operation/delete_retention_configuration/_delete_retention_configuration_output.rs`
+- `src/operation/delete_retention_configuration/builders.rs`
+- `src/operation/delete_service_linked_configuration_recorder.rs`
+- `src/operation/delete_service_linked_configuration_recorder/_delete_service_linked_configuration_recorder_input.rs`
+- `src/operation/delete_service_linked_configuration_recorder/_delete_service_linked_configuration_recorder_output.rs`
+- `src/operation/delete_service_linked_configuration_recorder/builders.rs`
+- `src/operation/delete_stored_query.rs`
+- `src/operation/delete_stored_query/_delete_stored_query_input.rs`
+- `src/operation/delete_stored_query/_delete_stored_query_output.rs`
+- `src/operation/delete_stored_query/builders.rs`
+- `src/operation/deliver_config_snapshot.rs`
+- `src/operation/deliver_config_snapshot/_deliver_config_snapshot_input.rs`
+- `src/operation/deliver_config_snapshot/_deliver_config_snapshot_output.rs`
+- `src/operation/deliver_config_snapshot/builders.rs`
+- `src/operation/describe_aggregate_compliance_by_config_rules.rs`
+- `src/operation/describe_aggregate_compliance_by_config_rules/_describe_aggregate_compliance_by_config_rules_input.rs`
+- `src/operation/describe_aggregate_compliance_by_config_rules/_describe_aggregate_compliance_by_config_rules_output.rs`
+- `src/operation/describe_aggregate_compliance_by_config_rules/builders.rs`
+- `src/operation/describe_aggregate_compliance_by_config_rules/paginator.rs`
+- `src/operation/describe_aggregate_compliance_by_conformance_packs.rs`
+- `src/operation/describe_aggregate_compliance_by_conformance_packs/_describe_aggregate_compliance_by_conformance_packs_input.rs`
+- `src/operation/describe_aggregate_compliance_by_conformance_packs/_describe_aggregate_compliance_by_conformance_packs_output.rs`
+- `src/operation/describe_aggregate_compliance_by_conformance_packs/builders.rs`
+- `src/operation/describe_aggregate_compliance_by_conformance_packs/paginator.rs`
+- `src/operation/describe_aggregation_authorizations.rs`
+- `src/operation/describe_aggregation_authorizations/_describe_aggregation_authorizations_input.rs`
+- `src/operation/describe_aggregation_authorizations/_describe_aggregation_authorizations_output.rs`
+- `src/operation/describe_aggregation_authorizations/builders.rs`
+- `src/operation/describe_aggregation_authorizations/paginator.rs`
+- `src/operation/describe_compliance_by_config_rule.rs`
+- `src/operation/describe_compliance_by_config_rule/_describe_compliance_by_config_rule_input.rs`
+- `src/operation/describe_compliance_by_config_rule/_describe_compliance_by_config_rule_output.rs`
+- `src/operation/describe_compliance_by_config_rule/builders.rs`
+- `src/operation/describe_compliance_by_config_rule/paginator.rs`
+- `src/operation/describe_compliance_by_resource.rs`
+- `src/operation/describe_compliance_by_resource/_describe_compliance_by_resource_input.rs`
+- `src/operation/describe_compliance_by_resource/_describe_compliance_by_resource_output.rs`
+- `src/operation/describe_compliance_by_resource/builders.rs`
+- `src/operation/describe_compliance_by_resource/paginator.rs`
+- `src/operation/describe_config_rule_evaluation_status.rs`
+- `src/operation/describe_config_rule_evaluation_status/_describe_config_rule_evaluation_status_input.rs`
+- `src/operation/describe_config_rule_evaluation_status/_describe_config_rule_evaluation_status_output.rs`
+- `src/operation/describe_config_rule_evaluation_status/builders.rs`
+- `src/operation/describe_config_rule_evaluation_status/paginator.rs`
+- `src/operation/describe_config_rules.rs`
+- `src/operation/describe_config_rules/_describe_config_rules_input.rs`
+- `src/operation/describe_config_rules/_describe_config_rules_output.rs`
+- `src/operation/describe_config_rules/builders.rs`
+- `src/operation/describe_config_rules/paginator.rs`
+- `src/operation/describe_configuration_aggregator_sources_status.rs`
+- `src/operation/describe_configuration_aggregator_sources_status/_describe_configuration_aggregator_sources_status_input.rs`
+- `src/operation/describe_configuration_aggregator_sources_status/_describe_configuration_aggregator_sources_status_output.rs`
+- `src/operation/describe_configuration_aggregator_sources_status/builders.rs`
+- `src/operation/describe_configuration_aggregator_sources_status/paginator.rs`
+- `src/operation/describe_configuration_aggregators.rs`
+- `src/operation/describe_configuration_aggregators/_describe_configuration_aggregators_input.rs`
+- `src/operation/describe_configuration_aggregators/_describe_configuration_aggregators_output.rs`
+- `src/operation/describe_configuration_aggregators/builders.rs`
+- `src/operation/describe_configuration_aggregators/paginator.rs`
+- `src/operation/describe_configuration_recorder_status.rs`
+- `src/operation/describe_configuration_recorder_status/_describe_configuration_recorder_status_input.rs`
+- `src/operation/describe_configuration_recorder_status/_describe_configuration_recorder_status_output.rs`
+- `src/operation/describe_configuration_recorder_status/builders.rs`
+- `src/operation/describe_configuration_recorders.rs`
+- `src/operation/describe_configuration_recorders/_describe_configuration_recorders_input.rs`
+- `src/operation/describe_configuration_recorders/_describe_configuration_recorders_output.rs`
+- `src/operation/describe_configuration_recorders/builders.rs`
+- `src/operation/describe_conformance_pack_compliance.rs`
+- `src/operation/describe_conformance_pack_compliance/_describe_conformance_pack_compliance_input.rs`
+- `src/operation/describe_conformance_pack_compliance/_describe_conformance_pack_compliance_output.rs`
+- `src/operation/describe_conformance_pack_compliance/builders.rs`
+- `src/operation/describe_conformance_pack_compliance/paginator.rs`
+- `src/operation/describe_conformance_pack_status.rs`
+- `src/operation/describe_conformance_pack_status/_describe_conformance_pack_status_input.rs`
+- `src/operation/describe_conformance_pack_status/_describe_conformance_pack_status_output.rs`
+- `src/operation/describe_conformance_pack_status/builders.rs`
+- `src/operation/describe_conformance_pack_status/paginator.rs`
+- `src/operation/describe_conformance_packs.rs`
+- `src/operation/describe_conformance_packs/_describe_conformance_packs_input.rs`
+- `src/operation/describe_conformance_packs/_describe_conformance_packs_output.rs`
+- `src/operation/describe_conformance_packs/builders.rs`
+- `src/operation/describe_conformance_packs/paginator.rs`
+- `src/operation/describe_delivery_channel_status.rs`
+- `src/operation/describe_delivery_channel_status/_describe_delivery_channel_status_input.rs`
+- `src/operation/describe_delivery_channel_status/_describe_delivery_channel_status_output.rs`
+- `src/operation/describe_delivery_channel_status/builders.rs`
+- `src/operation/describe_delivery_channels.rs`
+- `src/operation/describe_delivery_channels/_describe_delivery_channels_input.rs`
+- `src/operation/describe_delivery_channels/_describe_delivery_channels_output.rs`
+- `src/operation/describe_delivery_channels/builders.rs`
+- `src/operation/describe_organization_config_rule_statuses.rs`
+- `src/operation/describe_organization_config_rule_statuses/_describe_organization_config_rule_statuses_input.rs`
+- `src/operation/describe_organization_config_rule_statuses/_describe_organization_config_rule_statuses_output.rs`
+- `src/operation/describe_organization_config_rule_statuses/builders.rs`
+- `src/operation/describe_organization_config_rule_statuses/paginator.rs`
+- `src/operation/describe_organization_config_rules.rs`
+- `src/operation/describe_organization_config_rules/_describe_organization_config_rules_input.rs`
+- `src/operation/describe_organization_config_rules/_describe_organization_config_rules_output.rs`
+- `src/operation/describe_organization_config_rules/builders.rs`
+- `src/operation/describe_organization_config_rules/paginator.rs`
+- `src/operation/describe_organization_conformance_pack_statuses.rs`
+- `src/operation/describe_organization_conformance_pack_statuses/_describe_organization_conformance_pack_statuses_input.rs`
+- `src/operation/describe_organization_conformance_pack_statuses/_describe_organization_conformance_pack_statuses_output.rs`
+- `src/operation/describe_organization_conformance_pack_statuses/builders.rs`
+- `src/operation/describe_organization_conformance_pack_statuses/paginator.rs`
+- `src/operation/describe_organization_conformance_packs.rs`
+- `src/operation/describe_organization_conformance_packs/_describe_organization_conformance_packs_input.rs`
+- `src/operation/describe_organization_conformance_packs/_describe_organization_conformance_packs_output.rs`
+- `src/operation/describe_organization_conformance_packs/builders.rs`
+- `src/operation/describe_organization_conformance_packs/paginator.rs`
+- `src/operation/describe_pending_aggregation_requests.rs`
+- `src/operation/describe_pending_aggregation_requests/_describe_pending_aggregation_requests_input.rs`
+- `src/operation/describe_pending_aggregation_requests/_describe_pending_aggregation_requests_output.rs`
+- `src/operation/describe_pending_aggregation_requests/builders.rs`
+- `src/operation/describe_pending_aggregation_requests/paginator.rs`
+- `src/operation/describe_remediation_configurations.rs`
+- `src/operation/describe_remediation_configurations/_describe_remediation_configurations_input.rs`
+- `src/operation/describe_remediation_configurations/_describe_remediation_configurations_output.rs`
+- `src/operation/describe_remediation_configurations/builders.rs`
+- `src/operation/describe_remediation_exceptions.rs`
+- `src/operation/describe_remediation_exceptions/_describe_remediation_exceptions_input.rs`
+- `src/operation/describe_remediation_exceptions/_describe_remediation_exceptions_output.rs`
+- `src/operation/describe_remediation_exceptions/builders.rs`
+- `src/operation/describe_remediation_exceptions/paginator.rs`
+- `src/operation/describe_remediation_execution_status.rs`
+- `src/operation/describe_remediation_execution_status/_describe_remediation_execution_status_input.rs`
+- `src/operation/describe_remediation_execution_status/_describe_remediation_execution_status_output.rs`
+- `src/operation/describe_remediation_execution_status/builders.rs`
+- `src/operation/describe_remediation_execution_status/paginator.rs`
+- `src/operation/describe_retention_configurations.rs`
+- `src/operation/describe_retention_configurations/_describe_retention_configurations_input.rs`
+- `src/operation/describe_retention_configurations/_describe_retention_configurations_output.rs`
+- `src/operation/describe_retention_configurations/builders.rs`
+- `src/operation/describe_retention_configurations/paginator.rs`
+- `src/operation/disassociate_resource_types.rs`
+- `src/operation/disassociate_resource_types/_disassociate_resource_types_input.rs`
+- `src/operation/disassociate_resource_types/_disassociate_resource_types_output.rs`
+- `src/operation/disassociate_resource_types/builders.rs`
+- `src/operation/get_aggregate_compliance_details_by_config_rule.rs`
+- `src/operation/get_aggregate_compliance_details_by_config_rule/_get_aggregate_compliance_details_by_config_rule_input.rs`
+- `src/operation/get_aggregate_compliance_details_by_config_rule/_get_aggregate_compliance_details_by_config_rule_output.rs`
+- `src/operation/get_aggregate_compliance_details_by_config_rule/builders.rs`
+- `src/operation/get_aggregate_compliance_details_by_config_rule/paginator.rs`
+- `src/operation/get_aggregate_config_rule_compliance_summary.rs`
+- `src/operation/get_aggregate_config_rule_compliance_summary/_get_aggregate_config_rule_compliance_summary_input.rs`
+- `src/operation/get_aggregate_config_rule_compliance_summary/_get_aggregate_config_rule_compliance_summary_output.rs`
+- `src/operation/get_aggregate_config_rule_compliance_summary/builders.rs`
+- `src/operation/get_aggregate_config_rule_compliance_summary/paginator.rs`
+- `src/operation/get_aggregate_conformance_pack_compliance_summary.rs`
+- `src/operation/get_aggregate_conformance_pack_compliance_summary/_get_aggregate_conformance_pack_compliance_summary_input.rs`
+- `src/operation/get_aggregate_conformance_pack_compliance_summary/_get_aggregate_conformance_pack_compliance_summary_output.rs`
+- `src/operation/get_aggregate_conformance_pack_compliance_summary/builders.rs`
+- `src/operation/get_aggregate_conformance_pack_compliance_summary/paginator.rs`
+- `src/operation/get_aggregate_discovered_resource_counts.rs`
+- `src/operation/get_aggregate_discovered_resource_counts/_get_aggregate_discovered_resource_counts_input.rs`
+- `src/operation/get_aggregate_discovered_resource_counts/_get_aggregate_discovered_resource_counts_output.rs`
+- `src/operation/get_aggregate_discovered_resource_counts/builders.rs`
+- `src/operation/get_aggregate_discovered_resource_counts/paginator.rs`
+- `src/operation/get_aggregate_resource_config.rs`
+- `src/operation/get_aggregate_resource_config/_get_aggregate_resource_config_input.rs`
+- `src/operation/get_aggregate_resource_config/_get_aggregate_resource_config_output.rs`
+- `src/operation/get_aggregate_resource_config/builders.rs`
+- `src/operation/get_compliance_details_by_config_rule.rs`
+- `src/operation/get_compliance_details_by_config_rule/_get_compliance_details_by_config_rule_input.rs`
+- `src/operation/get_compliance_details_by_config_rule/_get_compliance_details_by_config_rule_output.rs`
+- `src/operation/get_compliance_details_by_config_rule/builders.rs`
+- `src/operation/get_compliance_details_by_config_rule/paginator.rs`
+- `src/operation/get_compliance_details_by_resource.rs`
+- `src/operation/get_compliance_details_by_resource/_get_compliance_details_by_resource_input.rs`
+- `src/operation/get_compliance_details_by_resource/_get_compliance_details_by_resource_output.rs`
+- `src/operation/get_compliance_details_by_resource/builders.rs`
+- `src/operation/get_compliance_details_by_resource/paginator.rs`
+- `src/operation/get_compliance_summary_by_config_rule.rs`
+- `src/operation/get_compliance_summary_by_config_rule/_get_compliance_summary_by_config_rule_input.rs`
+- `src/operation/get_compliance_summary_by_config_rule/_get_compliance_summary_by_config_rule_output.rs`
+- `src/operation/get_compliance_summary_by_config_rule/builders.rs`
+- `src/operation/get_compliance_summary_by_resource_type.rs`
+- `src/operation/get_compliance_summary_by_resource_type/_get_compliance_summary_by_resource_type_input.rs`
+- `src/operation/get_compliance_summary_by_resource_type/_get_compliance_summary_by_resource_type_output.rs`
+- `src/operation/get_compliance_summary_by_resource_type/builders.rs`
+- `src/operation/get_conformance_pack_compliance_details.rs`
+- `src/operation/get_conformance_pack_compliance_details/_get_conformance_pack_compliance_details_input.rs`
+- `src/operation/get_conformance_pack_compliance_details/_get_conformance_pack_compliance_details_output.rs`
+- `src/operation/get_conformance_pack_compliance_details/builders.rs`
+- `src/operation/get_conformance_pack_compliance_details/paginator.rs`
+- `src/operation/get_conformance_pack_compliance_summary.rs`
+- `src/operation/get_conformance_pack_compliance_summary/_get_conformance_pack_compliance_summary_input.rs`
+- `src/operation/get_conformance_pack_compliance_summary/_get_conformance_pack_compliance_summary_output.rs`
+- `src/operation/get_conformance_pack_compliance_summary/builders.rs`
+- `src/operation/get_conformance_pack_compliance_summary/paginator.rs`
+- `src/operation/get_connector.rs`
+- `src/operation/get_connector/_get_connector_input.rs`
+- `src/operation/get_connector/_get_connector_output.rs`
+- `src/operation/get_connector/builders.rs`
+- `src/operation/get_custom_rule_policy.rs`
+- `src/operation/get_custom_rule_policy/_get_custom_rule_policy_input.rs`
+- `src/operation/get_custom_rule_policy/_get_custom_rule_policy_output.rs`
+- `src/operation/get_custom_rule_policy/builders.rs`
+- `src/operation/get_discovered_resource_counts.rs`
+- `src/operation/get_discovered_resource_counts/_get_discovered_resource_counts_input.rs`
+- `src/operation/get_discovered_resource_counts/_get_discovered_resource_counts_output.rs`
+- `src/operation/get_discovered_resource_counts/builders.rs`
+- `src/operation/get_discovered_resource_counts/paginator.rs`
+- `src/operation/get_organization_config_rule_detailed_status.rs`
+- `src/operation/get_organization_config_rule_detailed_status/_get_organization_config_rule_detailed_status_input.rs`
+- `src/operation/get_organization_config_rule_detailed_status/_get_organization_config_rule_detailed_status_output.rs`
+- `src/operation/get_organization_config_rule_detailed_status/builders.rs`
+- `src/operation/get_organization_config_rule_detailed_status/paginator.rs`
+- `src/operation/get_organization_conformance_pack_detailed_status.rs`
+- `src/operation/get_organization_conformance_pack_detailed_status/_get_organization_conformance_pack_detailed_status_input.rs`
+- `src/operation/get_organization_conformance_pack_detailed_status/_get_organization_conformance_pack_detailed_status_output.rs`
+- `src/operation/get_organization_conformance_pack_detailed_status/builders.rs`
+- `src/operation/get_organization_conformance_pack_detailed_status/paginator.rs`
+- `src/operation/get_organization_custom_rule_policy.rs`
+- `src/operation/get_organization_custom_rule_policy/_get_organization_custom_rule_policy_input.rs`
+- `src/operation/get_organization_custom_rule_policy/_get_organization_custom_rule_policy_output.rs`
+- `src/operation/get_organization_custom_rule_policy/builders.rs`
+- `src/operation/get_resource_config_history.rs`
+- `src/operation/get_resource_config_history/_get_resource_config_history_input.rs`
+- `src/operation/get_resource_config_history/_get_resource_config_history_output.rs`
+- `src/operation/get_resource_config_history/builders.rs`
+- `src/operation/get_resource_config_history/paginator.rs`
+- `src/operation/get_resource_evaluation_summary.rs`
+- `src/operation/get_resource_evaluation_summary/_get_resource_evaluation_summary_input.rs`
+- `src/operation/get_resource_evaluation_summary/_get_resource_evaluation_summary_output.rs`
+- `src/operation/get_resource_evaluation_summary/builders.rs`
+- `src/operation/get_stored_query.rs`
+- `src/operation/get_stored_query/_get_stored_query_input.rs`
+- `src/operation/get_stored_query/_get_stored_query_output.rs`
+- `src/operation/get_stored_query/builders.rs`
+- `src/operation/list_aggregate_discovered_resources.rs`
+- `src/operation/list_aggregate_discovered_resources/_list_aggregate_discovered_resources_input.rs`
+- `src/operation/list_aggregate_discovered_resources/_list_aggregate_discovered_resources_output.rs`
+- `src/operation/list_aggregate_discovered_resources/builders.rs`
+- `src/operation/list_aggregate_discovered_resources/paginator.rs`
+- `src/operation/list_configuration_recorders.rs`
+- `src/operation/list_configuration_recorders/_list_configuration_recorders_input.rs`
+- `src/operation/list_configuration_recorders/_list_configuration_recorders_output.rs`
+- `src/operation/list_configuration_recorders/builders.rs`
+- `src/operation/list_configuration_recorders/paginator.rs`
+- `src/operation/list_conformance_pack_compliance_scores.rs`
+- `src/operation/list_conformance_pack_compliance_scores/_list_conformance_pack_compliance_scores_input.rs`
+- `src/operation/list_conformance_pack_compliance_scores/_list_conformance_pack_compliance_scores_output.rs`
+- `src/operation/list_conformance_pack_compliance_scores/builders.rs`
+- `src/operation/list_conformance_pack_compliance_scores/paginator.rs`
+- `src/operation/list_connectors.rs`
+- `src/operation/list_connectors/_list_connectors_input.rs`
+- `src/operation/list_connectors/_list_connectors_output.rs`
+- `src/operation/list_connectors/builders.rs`
+- `src/operation/list_connectors/paginator.rs`
+- `src/operation/list_discovered_resources.rs`
+- `src/operation/list_discovered_resources/_list_discovered_resources_input.rs`
+- `src/operation/list_discovered_resources/_list_discovered_resources_output.rs`
+- `src/operation/list_discovered_resources/builders.rs`
+- `src/operation/list_discovered_resources/paginator.rs`
+- `src/operation/list_resource_evaluations.rs`
+- `src/operation/list_resource_evaluations/_list_resource_evaluations_input.rs`
+- `src/operation/list_resource_evaluations/_list_resource_evaluations_output.rs`
+- `src/operation/list_resource_evaluations/builders.rs`
+- `src/operation/list_resource_evaluations/paginator.rs`
+- `src/operation/list_stored_queries.rs`
+- `src/operation/list_stored_queries/_list_stored_queries_input.rs`
+- `src/operation/list_stored_queries/_list_stored_queries_output.rs`
+- `src/operation/list_stored_queries/builders.rs`
+- `src/operation/list_stored_queries/paginator.rs`
+- `src/operation/list_tags_for_resource.rs`
+- `src/operation/list_tags_for_resource/_list_tags_for_resource_input.rs`
+- `src/operation/list_tags_for_resource/_list_tags_for_resource_output.rs`
+- `src/operation/list_tags_for_resource/builders.rs`
+- `src/operation/list_tags_for_resource/paginator.rs`
+- `src/operation/put_aggregation_authorization.rs`
+- `src/operation/put_aggregation_authorization/_put_aggregation_authorization_input.rs`
+- `src/operation/put_aggregation_authorization/_put_aggregation_authorization_output.rs`
+- `src/operation/put_aggregation_authorization/builders.rs`
+- `src/operation/put_config_rule.rs`
+- `src/operation/put_config_rule/_put_config_rule_input.rs`
+- `src/operation/put_config_rule/_put_config_rule_output.rs`
+- `src/operation/put_config_rule/builders.rs`
+- `src/operation/put_configuration_aggregator.rs`
+- `src/operation/put_configuration_aggregator/_put_configuration_aggregator_input.rs`
+- `src/operation/put_configuration_aggregator/_put_configuration_aggregator_output.rs`
+- `src/operation/put_configuration_aggregator/builders.rs`
+- `src/operation/put_configuration_recorder.rs`
+- `src/operation/put_configuration_recorder/_put_configuration_recorder_input.rs`
+- `src/operation/put_configuration_recorder/_put_configuration_recorder_output.rs`
+- `src/operation/put_configuration_recorder/builders.rs`
+- `src/operation/put_conformance_pack.rs`
+- `src/operation/put_conformance_pack/_put_conformance_pack_input.rs`
+- `src/operation/put_conformance_pack/_put_conformance_pack_output.rs`
+- `src/operation/put_conformance_pack/builders.rs`
+- `src/operation/put_connector.rs`
+- `src/operation/put_connector/_put_connector_input.rs`
+- `src/operation/put_connector/_put_connector_output.rs`
+- `src/operation/put_connector/builders.rs`
+- `src/operation/put_delivery_channel.rs`
+- `src/operation/put_delivery_channel/_put_delivery_channel_input.rs`
+- `src/operation/put_delivery_channel/_put_delivery_channel_output.rs`
+- `src/operation/put_delivery_channel/builders.rs`
+- `src/operation/put_evaluations.rs`
+- `src/operation/put_evaluations/_put_evaluations_input.rs`
+- `src/operation/put_evaluations/_put_evaluations_output.rs`
+- `src/operation/put_evaluations/builders.rs`
+- `src/operation/put_external_evaluation.rs`
+- `src/operation/put_external_evaluation/_put_external_evaluation_input.rs`
+- `src/operation/put_external_evaluation/_put_external_evaluation_output.rs`
+- `src/operation/put_external_evaluation/builders.rs`
+- `src/operation/put_organization_config_rule.rs`
+- `src/operation/put_organization_config_rule/_put_organization_config_rule_input.rs`
+- `src/operation/put_organization_config_rule/_put_organization_config_rule_output.rs`
+- `src/operation/put_organization_config_rule/builders.rs`
+- `src/operation/put_organization_conformance_pack.rs`
+- `src/operation/put_organization_conformance_pack/_put_organization_conformance_pack_input.rs`
+- `src/operation/put_organization_conformance_pack/_put_organization_conformance_pack_output.rs`
+- `src/operation/put_organization_conformance_pack/builders.rs`
+- `src/operation/put_remediation_configurations.rs`
+- `src/operation/put_remediation_configurations/_put_remediation_configurations_input.rs`
+- `src/operation/put_remediation_configurations/_put_remediation_configurations_output.rs`
+- `src/operation/put_remediation_configurations/builders.rs`
+- `src/operation/put_remediation_exceptions.rs`
+- `src/operation/put_remediation_exceptions/_put_remediation_exceptions_input.rs`
+- `src/operation/put_remediation_exceptions/_put_remediation_exceptions_output.rs`
+- `src/operation/put_remediation_exceptions/builders.rs`
+- `src/operation/put_resource_config.rs`
+- `src/operation/put_resource_config/_put_resource_config_input.rs`
+- `src/operation/put_resource_config/_put_resource_config_output.rs`
+- `src/operation/put_resource_config/builders.rs`
+- `src/operation/put_retention_configuration.rs`
+- `src/operation/put_retention_configuration/_put_retention_configuration_input.rs`
+- `src/operation/put_retention_configuration/_put_retention_configuration_output.rs`
+- `src/operation/put_retention_configuration/builders.rs`
+- `src/operation/put_service_linked_configuration_recorder.rs`
+- `src/operation/put_service_linked_configuration_recorder/_put_service_linked_configuration_recorder_input.rs`
+- `src/operation/put_service_linked_configuration_recorder/_put_service_linked_configuration_recorder_output.rs`
+- `src/operation/put_service_linked_configuration_recorder/builders.rs`
+- `src/operation/put_stored_query.rs`
+- `src/operation/put_stored_query/_put_stored_query_input.rs`
+- `src/operation/put_stored_query/_put_stored_query_output.rs`
+- `src/operation/put_stored_query/builders.rs`
+- `src/operation/put_third_party_service_linked_configuration_recorder.rs`
+- `src/operation/put_third_party_service_linked_configuration_recorder/_put_third_party_service_linked_configuration_recorder_input.rs`
+- `src/operation/put_third_party_service_linked_configuration_recorder/_put_third_party_service_linked_configuration_recorder_output.rs`
+- `src/operation/put_third_party_service_linked_configuration_recorder/builders.rs`
+- `src/operation/select_aggregate_resource_config.rs`
+- `src/operation/select_aggregate_resource_config/_select_aggregate_resource_config_input.rs`
+- `src/operation/select_aggregate_resource_config/_select_aggregate_resource_config_output.rs`
+- `src/operation/select_aggregate_resource_config/builders.rs`
+- `src/operation/select_aggregate_resource_config/paginator.rs`
+- `src/operation/select_resource_config.rs`
+- `src/operation/select_resource_config/_select_resource_config_input.rs`
+- `src/operation/select_resource_config/_select_resource_config_output.rs`
+- `src/operation/select_resource_config/builders.rs`
+- `src/operation/select_resource_config/paginator.rs`
+- `src/operation/start_config_rules_evaluation.rs`
+- `src/operation/start_config_rules_evaluation/_start_config_rules_evaluation_input.rs`
+- `src/operation/start_config_rules_evaluation/_start_config_rules_evaluation_output.rs`
+- `src/operation/start_config_rules_evaluation/builders.rs`
+- `src/operation/start_configuration_recorder.rs`
+- `src/operation/start_configuration_recorder/_start_configuration_recorder_input.rs`
+- `src/operation/start_configuration_recorder/_start_configuration_recorder_output.rs`
+- `src/operation/start_configuration_recorder/builders.rs`
+- `src/operation/start_remediation_execution.rs`
+- `src/operation/start_remediation_execution/_start_remediation_execution_input.rs`
+- `src/operation/start_remediation_execution/_start_remediation_execution_output.rs`
+- `src/operation/start_remediation_execution/builders.rs`
+- `src/operation/start_resource_evaluation.rs`
+- `src/operation/start_resource_evaluation/_start_resource_evaluation_input.rs`
+- `src/operation/start_resource_evaluation/_start_resource_evaluation_output.rs`
+- `src/operation/start_resource_evaluation/builders.rs`
+- `src/operation/stop_configuration_recorder.rs`
+- `src/operation/stop_configuration_recorder/_stop_configuration_recorder_input.rs`
+- `src/operation/stop_configuration_recorder/_stop_configuration_recorder_output.rs`
+- `src/operation/stop_configuration_recorder/builders.rs`
+- `src/operation/tag_resource.rs`
+- `src/operation/tag_resource/_tag_resource_input.rs`
+- `src/operation/tag_resource/_tag_resource_output.rs`
+- `src/operation/tag_resource/builders.rs`
+- `src/operation/untag_resource.rs`
+- `src/operation/untag_resource/_untag_resource_input.rs`
+- `src/operation/untag_resource/_untag_resource_output.rs`
+- `src/operation/untag_resource/builders.rs`
+- `src/protocol_serde.rs`
+- `src/protocol_serde/shape_associate_resource_types.rs`
+- `src/protocol_serde/shape_associate_resource_types_input.rs`
+- `src/protocol_serde/shape_batch_get_aggregate_resource_config.rs`
+- `src/protocol_serde/shape_batch_get_aggregate_resource_config_input.rs`
+- `src/protocol_serde/shape_batch_get_resource_config.rs`
+- `src/protocol_serde/shape_batch_get_resource_config_input.rs`
+- `src/protocol_serde/shape_delete_aggregation_authorization.rs`
+- `src/protocol_serde/shape_delete_aggregation_authorization_input.rs`
+- `src/protocol_serde/shape_delete_config_rule.rs`
+- `src/protocol_serde/shape_delete_config_rule_input.rs`
+- `src/protocol_serde/shape_delete_configuration_aggregator.rs`
+- `src/protocol_serde/shape_delete_configuration_aggregator_input.rs`
+- `src/protocol_serde/shape_delete_configuration_recorder.rs`
+- `src/protocol_serde/shape_delete_configuration_recorder_input.rs`
+- `src/protocol_serde/shape_delete_conformance_pack.rs`
+- `src/protocol_serde/shape_delete_conformance_pack_input.rs`
+- `src/protocol_serde/shape_delete_connector.rs`
+- `src/protocol_serde/shape_delete_connector_input.rs`
+- `src/protocol_serde/shape_delete_delivery_channel.rs`
+- `src/protocol_serde/shape_delete_delivery_channel_input.rs`
+- `src/protocol_serde/shape_delete_evaluation_results.rs`
+- `src/protocol_serde/shape_delete_evaluation_results_input.rs`
+- `src/protocol_serde/shape_delete_organization_config_rule.rs`
+- `src/protocol_serde/shape_delete_organization_config_rule_input.rs`
+- `src/protocol_serde/shape_delete_organization_conformance_pack.rs`
+- `src/protocol_serde/shape_delete_organization_conformance_pack_input.rs`
+- `src/protocol_serde/shape_delete_pending_aggregation_request.rs`
+- `src/protocol_serde/shape_delete_pending_aggregation_request_input.rs`
+- `src/protocol_serde/shape_delete_remediation_configuration.rs`
+- `src/protocol_serde/shape_delete_remediation_configuration_input.rs`
+- `src/protocol_serde/shape_delete_remediation_exceptions.rs`
+- `src/protocol_serde/shape_delete_remediation_exceptions_input.rs`
+- `src/protocol_serde/shape_delete_resource_config.rs`
+- `src/protocol_serde/shape_delete_resource_config_input.rs`
+- `src/protocol_serde/shape_delete_retention_configuration.rs`
+- `src/protocol_serde/shape_delete_retention_configuration_input.rs`
+- `src/protocol_serde/shape_delete_service_linked_configuration_recorder.rs`
+- `src/protocol_serde/shape_delete_service_linked_configuration_recorder_input.rs`
+- `src/protocol_serde/shape_delete_stored_query.rs`
+- `src/protocol_serde/shape_delete_stored_query_input.rs`
+- `src/protocol_serde/shape_deliver_config_snapshot.rs`
+- `src/protocol_serde/shape_deliver_config_snapshot_input.rs`
+- `src/protocol_serde/shape_describe_aggregate_compliance_by_config_rules.rs`
+- `src/protocol_serde/shape_describe_aggregate_compliance_by_config_rules_input.rs`
+- `src/protocol_serde/shape_describe_aggregate_compliance_by_conformance_packs.rs`
+- `src/protocol_serde/shape_describe_aggregate_compliance_by_conformance_packs_input.rs`
+- `src/protocol_serde/shape_describe_aggregation_authorizations.rs`
+- `src/protocol_serde/shape_describe_aggregation_authorizations_input.rs`
+- `src/protocol_serde/shape_describe_compliance_by_config_rule.rs`
+- `src/protocol_serde/shape_describe_compliance_by_config_rule_input.rs`
+- `src/protocol_serde/shape_describe_compliance_by_resource.rs`
+- `src/protocol_serde/shape_describe_compliance_by_resource_input.rs`
+- `src/protocol_serde/shape_describe_config_rule_evaluation_status.rs`
+- `src/protocol_serde/shape_describe_config_rule_evaluation_status_input.rs`
+- `src/protocol_serde/shape_describe_config_rules.rs`
+- `src/protocol_serde/shape_describe_config_rules_filters.rs`
+- `src/protocol_serde/shape_describe_config_rules_input.rs`
+- `src/protocol_serde/shape_describe_configuration_aggregator_sources_status.rs`
+- `src/protocol_serde/shape_describe_configuration_aggregator_sources_status_input.rs`
+- `src/protocol_serde/shape_describe_configuration_aggregators.rs`
+- `src/protocol_serde/shape_describe_configuration_aggregators_input.rs`
+- `src/protocol_serde/shape_describe_configuration_recorder_status.rs`
+- `src/protocol_serde/shape_describe_configuration_recorder_status_input.rs`
+- `src/protocol_serde/shape_describe_configuration_recorders.rs`
+- `src/protocol_serde/shape_describe_configuration_recorders_input.rs`
+- `src/protocol_serde/shape_describe_conformance_pack_compliance.rs`
+- `src/protocol_serde/shape_describe_conformance_pack_compliance_input.rs`
+- `src/protocol_serde/shape_describe_conformance_pack_status.rs`
+- `src/protocol_serde/shape_describe_conformance_pack_status_input.rs`
+- `src/protocol_serde/shape_describe_conformance_packs.rs`
+- `src/protocol_serde/shape_describe_conformance_packs_input.rs`
+- `src/protocol_serde/shape_describe_delivery_channel_status.rs`
+- `src/protocol_serde/shape_describe_delivery_channel_status_input.rs`
+- `src/protocol_serde/shape_describe_delivery_channels.rs`
+- `src/protocol_serde/shape_describe_delivery_channels_input.rs`
+- `src/protocol_serde/shape_describe_organization_config_rule_statuses.rs`
+- `src/protocol_serde/shape_describe_organization_config_rule_statuses_input.rs`
+- `src/protocol_serde/shape_describe_organization_config_rules.rs`
+- `src/protocol_serde/shape_describe_organization_config_rules_input.rs`
+- `src/protocol_serde/shape_describe_organization_conformance_pack_statuses.rs`
+- `src/protocol_serde/shape_describe_organization_conformance_pack_statuses_input.rs`
+- `src/protocol_serde/shape_describe_organization_conformance_packs.rs`
+- `src/protocol_serde/shape_describe_organization_conformance_packs_input.rs`
+- `src/protocol_serde/shape_describe_pending_aggregation_requests.rs`
+- `src/protocol_serde/shape_describe_pending_aggregation_requests_input.rs`
+- `src/protocol_serde/shape_describe_remediation_configurations.rs`
+- `src/protocol_serde/shape_describe_remediation_configurations_input.rs`
+- `src/protocol_serde/shape_describe_remediation_exceptions.rs`
+- `src/protocol_serde/shape_describe_remediation_exceptions_input.rs`
+- `src/protocol_serde/shape_describe_remediation_execution_status.rs`
+- `src/protocol_serde/shape_describe_remediation_execution_status_input.rs`
+- `src/protocol_serde/shape_describe_retention_configurations.rs`
+- `src/protocol_serde/shape_describe_retention_configurations_input.rs`
+- `src/protocol_serde/shape_disassociate_resource_types.rs`
+- `src/protocol_serde/shape_disassociate_resource_types_input.rs`
+- `src/protocol_serde/shape_get_aggregate_compliance_details_by_config_rule.rs`
+- `src/protocol_serde/shape_get_aggregate_compliance_details_by_config_rule_input.rs`
+- `src/protocol_serde/shape_get_aggregate_config_rule_compliance_summary.rs`
+- `src/protocol_serde/shape_get_aggregate_config_rule_compliance_summary_input.rs`
+- `src/protocol_serde/shape_get_aggregate_conformance_pack_compliance_summary.rs`
+- `src/protocol_serde/shape_get_aggregate_conformance_pack_compliance_summary_input.rs`
+- `src/protocol_serde/shape_get_aggregate_discovered_resource_counts.rs`
+- `src/protocol_serde/shape_get_aggregate_discovered_resource_counts_input.rs`
+- `src/protocol_serde/shape_get_aggregate_resource_config.rs`
+- `src/protocol_serde/shape_get_aggregate_resource_config_input.rs`
+- `src/protocol_serde/shape_get_compliance_details_by_config_rule.rs`
+- `src/protocol_serde/shape_get_compliance_details_by_config_rule_input.rs`
+- `src/protocol_serde/shape_get_compliance_details_by_resource.rs`
+- `src/protocol_serde/shape_get_compliance_details_by_resource_input.rs`
+- `src/protocol_serde/shape_get_compliance_summary_by_config_rule.rs`
+- `src/protocol_serde/shape_get_compliance_summary_by_resource_type.rs`
+- `src/protocol_serde/shape_get_compliance_summary_by_resource_type_input.rs`
+- `src/protocol_serde/shape_get_conformance_pack_compliance_details.rs`
+- `src/protocol_serde/shape_get_conformance_pack_compliance_details_input.rs`
+- `src/protocol_serde/shape_get_conformance_pack_compliance_summary.rs`
+- `src/protocol_serde/shape_get_conformance_pack_compliance_summary_input.rs`
+- `src/protocol_serde/shape_get_connector.rs`
+- `src/protocol_serde/shape_get_connector_input.rs`
+- `src/protocol_serde/shape_get_custom_rule_policy.rs`
+- `src/protocol_serde/shape_get_custom_rule_policy_input.rs`
+- `src/protocol_serde/shape_get_discovered_resource_counts.rs`
+- `src/protocol_serde/shape_get_discovered_resource_counts_input.rs`
+- `src/protocol_serde/shape_get_organization_config_rule_detailed_status.rs`
+- `src/protocol_serde/shape_get_organization_config_rule_detailed_status_input.rs`
+- `src/protocol_serde/shape_get_organization_conformance_pack_detailed_status.rs`
+- `src/protocol_serde/shape_get_organization_conformance_pack_detailed_status_input.rs`
+- `src/protocol_serde/shape_get_organization_custom_rule_policy.rs`
+- `src/protocol_serde/shape_get_organization_custom_rule_policy_input.rs`
+- `src/protocol_serde/shape_get_resource_config_history.rs`
+- `src/protocol_serde/shape_get_resource_config_history_input.rs`
+- `src/protocol_serde/shape_get_resource_evaluation_summary.rs`
+- `src/protocol_serde/shape_get_resource_evaluation_summary_input.rs`
+- `src/protocol_serde/shape_get_stored_query.rs`
+- `src/protocol_serde/shape_get_stored_query_input.rs`
+- `src/protocol_serde/shape_list_aggregate_discovered_resources.rs`
+- `src/protocol_serde/shape_list_aggregate_discovered_resources_input.rs`
+- `src/protocol_serde/shape_list_configuration_recorders.rs`
+- `src/protocol_serde/shape_list_configuration_recorders_input.rs`
+- `src/protocol_serde/shape_list_conformance_pack_compliance_scores.rs`
+- `src/protocol_serde/shape_list_conformance_pack_compliance_scores_input.rs`
+- `src/protocol_serde/shape_list_connectors.rs`
+- `src/protocol_serde/shape_list_connectors_input.rs`
+- `src/protocol_serde/shape_list_discovered_resources.rs`
+- `src/protocol_serde/shape_list_discovered_resources_input.rs`
+- `src/protocol_serde/shape_list_resource_evaluations.rs`
+- `src/protocol_serde/shape_list_resource_evaluations_input.rs`
+- `src/protocol_serde/shape_list_stored_queries.rs`
+- `src/protocol_serde/shape_list_stored_queries_input.rs`
+- `src/protocol_serde/shape_list_tags_for_resource.rs`
+- `src/protocol_serde/shape_list_tags_for_resource_input.rs`
+- `src/protocol_serde/shape_put_aggregation_authorization.rs`
+- `src/protocol_serde/shape_put_aggregation_authorization_input.rs`
+- `src/protocol_serde/shape_put_config_rule.rs`
+- `src/protocol_serde/shape_put_config_rule_input.rs`
+- `src/protocol_serde/shape_put_configuration_aggregator.rs`
+- `src/protocol_serde/shape_put_configuration_aggregator_input.rs`
+- `src/protocol_serde/shape_put_configuration_recorder.rs`
+- `src/protocol_serde/shape_put_configuration_recorder_input.rs`
+- `src/protocol_serde/shape_put_conformance_pack.rs`
+- `src/protocol_serde/shape_put_conformance_pack_input.rs`
+- `src/protocol_serde/shape_put_connector.rs`
+- `src/protocol_serde/shape_put_connector_input.rs`
+- `src/protocol_serde/shape_put_delivery_channel.rs`
+- `src/protocol_serde/shape_put_delivery_channel_input.rs`
+- `src/protocol_serde/shape_put_evaluations.rs`
+- `src/protocol_serde/shape_put_evaluations_input.rs`
+- `src/protocol_serde/shape_put_external_evaluation.rs`
+- `src/protocol_serde/shape_put_external_evaluation_input.rs`
+- `src/protocol_serde/shape_put_organization_config_rule.rs`
+- `src/protocol_serde/shape_put_organization_config_rule_input.rs`
+- `src/protocol_serde/shape_put_organization_conformance_pack.rs`
+- `src/protocol_serde/shape_put_organization_conformance_pack_input.rs`
+- `src/protocol_serde/shape_put_remediation_configurations.rs`
+- `src/protocol_serde/shape_put_remediation_configurations_input.rs`
+- `src/protocol_serde/shape_put_remediation_exceptions.rs`
+- `src/protocol_serde/shape_put_remediation_exceptions_input.rs`
+- `src/protocol_serde/shape_put_resource_config.rs`
+- `src/protocol_serde/shape_put_resource_config_input.rs`
+- `src/protocol_serde/shape_put_retention_configuration.rs`
+- `src/protocol_serde/shape_put_retention_configuration_input.rs`
+- `src/protocol_serde/shape_put_service_linked_configuration_recorder.rs`
+- `src/protocol_serde/shape_put_service_linked_configuration_recorder_input.rs`
+- `src/protocol_serde/shape_put_stored_query.rs`
+- `src/protocol_serde/shape_put_stored_query_input.rs`
+- `src/protocol_serde/shape_put_third_party_service_linked_configuration_recorder.rs`
+- `src/protocol_serde/shape_put_third_party_service_linked_configuration_recorder_input.rs`
+- `src/protocol_serde/shape_select_aggregate_resource_config.rs`
+- `src/protocol_serde/shape_select_aggregate_resource_config_input.rs`
+- `src/protocol_serde/shape_select_resource_config.rs`
+- `src/protocol_serde/shape_select_resource_config_input.rs`
+- `src/protocol_serde/shape_start_config_rules_evaluation.rs`
+- `src/protocol_serde/shape_start_config_rules_evaluation_input.rs`
+- `src/protocol_serde/shape_start_configuration_recorder.rs`
+- `src/protocol_serde/shape_start_configuration_recorder_input.rs`
+- `src/protocol_serde/shape_start_remediation_execution.rs`
+- `src/protocol_serde/shape_start_remediation_execution_input.rs`
+- `src/protocol_serde/shape_start_resource_evaluation.rs`
+- `src/protocol_serde/shape_start_resource_evaluation_input.rs`
+- `src/protocol_serde/shape_stop_configuration_recorder.rs`
+- `src/protocol_serde/shape_stop_configuration_recorder_input.rs`
+- `src/protocol_serde/shape_tag_resource.rs`
+- `src/protocol_serde/shape_tag_resource_input.rs`
+- `src/protocol_serde/shape_untag_resource.rs`
+- `src/protocol_serde/shape_untag_resource_input.rs`
+- `src/serde_util.rs`
+
+## Customizations
+
+- Add one non-default Cargo feature and matching cfg gates for each model operation.
+- Rename the Cargo package/library from manifest data.
+- Remove upstream `tests/` from generated output.
+
+## Reproduction
+
+```text
+cargo run -p aws-sdk-modularizer -- --manifest services-manifest.json
+```

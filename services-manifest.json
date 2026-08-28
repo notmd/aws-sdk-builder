@@ -1,136 +1,155 @@
 {
-  "schema_version": 1,
-  "upstream": {
-    "repository": "https://github.com/awslabs/aws-sdk-rust",
-    "commit": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
-    "sdk_root": "sdk"
-  },
-  "roots": {
-    "reference": "conformance/reference",
-    "generated": "conformance/generated",
-    "patches": "conformance/patches",
-    "summary": "conformance/summary.md"
-  },
-  "comparison": {
-    "exclude": {
-      "files": [
-        "Cargo.toml",
-        "Cargo.lock",
-        "README.md",
-        "LICENSE",
-        "original.rs"
-      ],
-      "directories": [
-        "tests",
-        "benches"
-      ]
-    }
-  },
+  "schema_version": 2,
   "services": [
     {
       "key": "batch",
+      "repository": "https://github.com/awslabs/aws-sdk-rust",
+      "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/batch",
-      "model_path": "aws-models/batch.json",
-      "model_destination": "crates/aws-sdk-builder-batch/model.json",
-      "sdk_version": "1.124.0"
+      "model_path": "models/batch.json",
+      "output_dir": "crates/aws_sdk_batch_modular",
+      "package_name": "aws-sdk-batch-modular",
+      "library_name": "aws_sdk_batch_modular"
     },
     {
       "key": "bedrockruntime",
+      "repository": "https://github.com/awslabs/aws-sdk-rust",
+      "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/bedrockruntime",
-      "model_path": "aws-models/bedrock-runtime.json",
-      "model_destination": "crates/aws-sdk-builder-bedrockruntime/model.json",
-      "sdk_version": "1.141.0"
+      "model_path": "models/bedrockruntime.json",
+      "output_dir": "crates/aws_sdk_bedrockruntime_modular",
+      "package_name": "aws-sdk-bedrockruntime-modular",
+      "library_name": "aws_sdk_bedrockruntime_modular"
     },
     {
       "key": "cloudwatchlogs",
+      "repository": "https://github.com/awslabs/aws-sdk-rust",
+      "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/cloudwatchlogs",
-      "model_path": "aws-models/cloudwatch-logs.json",
-      "model_destination": "crates/aws-sdk-builder-cloudwatchlogs/model.json",
-      "sdk_version": "1.147.0"
+      "model_path": "models/cloudwatchlogs.json",
+      "output_dir": "crates/aws_sdk_cloudwatchlogs_modular",
+      "package_name": "aws-sdk-cloudwatchlogs-modular",
+      "library_name": "aws_sdk_cloudwatchlogs_modular"
     },
     {
       "key": "codeartifact",
+      "repository": "https://github.com/awslabs/aws-sdk-rust",
+      "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/codeartifact",
-      "model_path": "aws-models/codeartifact.json",
-      "model_destination": "crates/aws-sdk-builder-codeartifact/model.json",
-      "sdk_version": "1.110.0"
+      "model_path": "models/codeartifact.json",
+      "output_dir": "crates/aws_sdk_codeartifact_modular",
+      "package_name": "aws-sdk-codeartifact-modular",
+      "library_name": "aws_sdk_codeartifact_modular"
     },
     {
       "key": "cognitoidentityprovider",
+      "repository": "https://github.com/awslabs/aws-sdk-rust",
+      "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/cognitoidentityprovider",
-      "model_path": "aws-models/cognito-identity-provider.json",
-      "model_destination": "crates/aws-sdk-builder-cognitoidentityprovider/model.json",
-      "sdk_version": "1.129.0"
+      "model_path": "models/cognitoidentityprovider.json",
+      "output_dir": "crates/aws_sdk_cognitoidentityprovider_modular",
+      "package_name": "aws-sdk-cognitoidentityprovider-modular",
+      "library_name": "aws_sdk_cognitoidentityprovider_modular"
     },
     {
       "key": "config",
+      "repository": "https://github.com/awslabs/aws-sdk-rust",
+      "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/config",
-      "model_path": "aws-models/config-service.json",
-      "model_destination": "crates/aws-sdk-builder-config/model.json",
-      "sdk_version": "1.119.0"
+      "model_path": "models/config.json",
+      "output_dir": "crates/aws_sdk_config_modular",
+      "package_name": "aws-sdk-config-modular",
+      "library_name": "aws_sdk_config_modular"
     },
     {
       "key": "dynamodb",
+      "repository": "https://github.com/awslabs/aws-sdk-rust",
+      "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/dynamodb",
-      "model_path": "aws-models/dynamodb.json",
-      "model_destination": "crates/aws-sdk-builder-dynamodb/model.json",
-      "sdk_version": "1.122.0"
+      "model_path": "models/dynamodb.json",
+      "output_dir": "crates/aws_sdk_dynamodb_modular",
+      "package_name": "aws-sdk-dynamodb-modular",
+      "library_name": "aws_sdk_dynamodb_modular"
     },
     {
       "key": "iam",
+      "repository": "https://github.com/awslabs/aws-sdk-rust",
+      "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/iam",
-      "model_path": "aws-models/iam.json",
-      "model_destination": "crates/aws-sdk-builder-iam/model.json",
-      "sdk_version": "1.121.0"
+      "model_path": "models/iam.json",
+      "output_dir": "crates/aws_sdk_iam_modular",
+      "package_name": "aws-sdk-iam-modular",
+      "library_name": "aws_sdk_iam_modular"
     },
     {
       "key": "kms",
+      "repository": "https://github.com/awslabs/aws-sdk-rust",
+      "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/kms",
-      "model_path": "aws-models/kms.json",
-      "model_destination": "crates/aws-sdk-builder-kms/model.json",
-      "sdk_version": "1.116.0"
+      "model_path": "models/kms.json",
+      "output_dir": "crates/aws_sdk_kms_modular",
+      "package_name": "aws-sdk-kms-modular",
+      "library_name": "aws_sdk_kms_modular"
     },
     {
       "key": "lambda",
+      "repository": "https://github.com/awslabs/aws-sdk-rust",
+      "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/lambda",
-      "model_path": "aws-models/lambda.json",
-      "model_destination": "crates/aws-sdk-builder-lambda/model.json",
-      "sdk_version": "1.140.0"
+      "model_path": "models/lambda.json",
+      "output_dir": "crates/aws_sdk_lambda_modular",
+      "package_name": "aws-sdk-lambda-modular",
+      "library_name": "aws_sdk_lambda_modular"
     },
     {
       "key": "s3",
+      "repository": "https://github.com/awslabs/aws-sdk-rust",
+      "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/s3",
-      "model_path": "aws-models/s3.json",
-      "model_destination": "crates/aws-sdk-builder-s3/model.json",
-      "sdk_version": "1.143.0"
+      "model_path": "models/s3.json",
+      "output_dir": "crates/aws_sdk_s3_modular",
+      "package_name": "aws-sdk-s3-modular",
+      "library_name": "aws_sdk_s3_modular"
     },
     {
       "key": "sesv2",
+      "repository": "https://github.com/awslabs/aws-sdk-rust",
+      "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/sesv2",
-      "model_path": "aws-models/sesv2.json",
-      "model_destination": "crates/aws-sdk-builder-sesv2/model.json",
-      "sdk_version": "1.130.0"
+      "model_path": "models/sesv2.json",
+      "output_dir": "crates/aws_sdk_sesv2_modular",
+      "package_name": "aws-sdk-sesv2-modular",
+      "library_name": "aws_sdk_sesv2_modular"
     },
     {
       "key": "sns",
+      "repository": "https://github.com/awslabs/aws-sdk-rust",
+      "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/sns",
-      "model_path": "aws-models/sns.json",
-      "model_destination": "crates/aws-sdk-builder-sns/model.json",
-      "sdk_version": "1.109.0"
+      "model_path": "models/sns.json",
+      "output_dir": "crates/aws_sdk_sns_modular",
+      "package_name": "aws-sdk-sns-modular",
+      "library_name": "aws_sdk_sns_modular"
     },
     {
       "key": "sqs",
+      "repository": "https://github.com/awslabs/aws-sdk-rust",
+      "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/sqs",
-      "model_path": "aws-models/sqs.json",
-      "model_destination": "crates/aws-sdk-builder-sqs/model.json",
-      "sdk_version": "1.107.0"
+      "model_path": "models/sqs.json",
+      "output_dir": "crates/aws_sdk_sqs_modular",
+      "package_name": "aws-sdk-sqs-modular",
+      "library_name": "aws_sdk_sqs_modular"
     },
     {
       "key": "sts",
+      "repository": "https://github.com/awslabs/aws-sdk-rust",
+      "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/sts",
-      "model_path": "aws-models/sts.json",
-      "model_destination": "crates/aws-sdk-builder-sts/model.json",
-      "sdk_version": "1.112.0"
+      "model_path": "models/sts.json",
+      "output_dir": "crates/aws_sdk_sts_modular",
+      "package_name": "aws-sdk-sts-modular",
+      "library_name": "aws_sdk_sts_modular"
     }
   ]
 }

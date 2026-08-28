@@ -1,0 +1,999 @@
+# AWS SDK modularizer diff
+
+- repository: `https://github.com/awslabs/aws-sdk-rust`
+- revision: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
+- service: `sdk/cloudwatchlogs`
+- model: `models/cloudwatchlogs.json`
+- package: `aws-sdk-cloudwatchlogs-modular`
+- library: `aws_sdk_cloudwatchlogs_modular`
+- tests exclusion: `tests/**` is excluded from the comparison.
+
+## Operations
+
+- `op_associate_kms_key`: `AssociateKmsKey`
+- `op_associate_source_to_s3_table_integration`: `AssociateSourceToS3TableIntegration`
+- `op_cancel_export_task`: `CancelExportTask`
+- `op_cancel_import_task`: `CancelImportTask`
+- `op_create_delivery`: `CreateDelivery`
+- `op_create_export_task`: `CreateExportTask`
+- `op_create_import_task`: `CreateImportTask`
+- `op_create_log_anomaly_detector`: `CreateLogAnomalyDetector`
+- `op_create_log_group`: `CreateLogGroup`
+- `op_create_log_stream`: `CreateLogStream`
+- `op_create_lookup_table`: `CreateLookupTable`
+- `op_create_scheduled_query`: `CreateScheduledQuery`
+- `op_delete_account_policy`: `DeleteAccountPolicy`
+- `op_delete_data_protection_policy`: `DeleteDataProtectionPolicy`
+- `op_delete_delivery`: `DeleteDelivery`
+- `op_delete_delivery_destination`: `DeleteDeliveryDestination`
+- `op_delete_delivery_destination_policy`: `DeleteDeliveryDestinationPolicy`
+- `op_delete_delivery_source`: `DeleteDeliverySource`
+- `op_delete_destination`: `DeleteDestination`
+- `op_delete_index_policy`: `DeleteIndexPolicy`
+- `op_delete_integration`: `DeleteIntegration`
+- `op_delete_log_anomaly_detector`: `DeleteLogAnomalyDetector`
+- `op_delete_log_group`: `DeleteLogGroup`
+- `op_delete_log_stream`: `DeleteLogStream`
+- `op_delete_lookup_table`: `DeleteLookupTable`
+- `op_delete_metric_filter`: `DeleteMetricFilter`
+- `op_delete_query_definition`: `DeleteQueryDefinition`
+- `op_delete_resource_policy`: `DeleteResourcePolicy`
+- `op_delete_retention_policy`: `DeleteRetentionPolicy`
+- `op_delete_scheduled_query`: `DeleteScheduledQuery`
+- `op_delete_subscription_filter`: `DeleteSubscriptionFilter`
+- `op_delete_syslog_configuration`: `DeleteSyslogConfiguration`
+- `op_delete_transformer`: `DeleteTransformer`
+- `op_describe_account_policies`: `DescribeAccountPolicies`
+- `op_describe_configuration_templates`: `DescribeConfigurationTemplates`
+- `op_describe_deliveries`: `DescribeDeliveries`
+- `op_describe_delivery_destinations`: `DescribeDeliveryDestinations`
+- `op_describe_delivery_sources`: `DescribeDeliverySources`
+- `op_describe_destinations`: `DescribeDestinations`
+- `op_describe_export_tasks`: `DescribeExportTasks`
+- `op_describe_field_indexes`: `DescribeFieldIndexes`
+- `op_describe_import_task_batches`: `DescribeImportTaskBatches`
+- `op_describe_import_tasks`: `DescribeImportTasks`
+- `op_describe_index_policies`: `DescribeIndexPolicies`
+- `op_describe_log_groups`: `DescribeLogGroups`
+- `op_describe_log_streams`: `DescribeLogStreams`
+- `op_describe_lookup_tables`: `DescribeLookupTables`
+- `op_describe_metric_filters`: `DescribeMetricFilters`
+- `op_describe_queries`: `DescribeQueries`
+- `op_describe_query_definitions`: `DescribeQueryDefinitions`
+- `op_describe_resource_policies`: `DescribeResourcePolicies`
+- `op_describe_subscription_filters`: `DescribeSubscriptionFilters`
+- `op_disassociate_kms_key`: `DisassociateKmsKey`
+- `op_disassociate_source_from_s3_table_integration`: `DisassociateSourceFromS3TableIntegration`
+- `op_filter_log_events`: `FilterLogEvents`
+- `op_get_data_protection_policy`: `GetDataProtectionPolicy`
+- `op_get_delivery`: `GetDelivery`
+- `op_get_delivery_destination`: `GetDeliveryDestination`
+- `op_get_delivery_destination_policy`: `GetDeliveryDestinationPolicy`
+- `op_get_delivery_source`: `GetDeliverySource`
+- `op_get_integration`: `GetIntegration`
+- `op_get_log_anomaly_detector`: `GetLogAnomalyDetector`
+- `op_get_log_events`: `GetLogEvents`
+- `op_get_log_fields`: `GetLogFields`
+- `op_get_log_group_fields`: `GetLogGroupFields`
+- `op_get_log_object`: `GetLogObject`
+- `op_get_log_record`: `GetLogRecord`
+- `op_get_lookup_table`: `GetLookupTable`
+- `op_get_query_results`: `GetQueryResults`
+- `op_get_scheduled_query`: `GetScheduledQuery`
+- `op_get_scheduled_query_history`: `GetScheduledQueryHistory`
+- `op_get_storage_tier_policy`: `GetStorageTierPolicy`
+- `op_get_transformer`: `GetTransformer`
+- `op_list_aggregate_log_group_summaries`: `ListAggregateLogGroupSummaries`
+- `op_list_anomalies`: `ListAnomalies`
+- `op_list_integrations`: `ListIntegrations`
+- `op_list_log_anomaly_detectors`: `ListLogAnomalyDetectors`
+- `op_list_log_groups`: `ListLogGroups`
+- `op_list_log_groups_for_query`: `ListLogGroupsForQuery`
+- `op_list_scheduled_queries`: `ListScheduledQueries`
+- `op_list_sources_for_s3_table_integration`: `ListSourcesForS3TableIntegration`
+- `op_list_syslog_configurations`: `ListSyslogConfigurations`
+- `op_list_tags_for_resource`: `ListTagsForResource`
+- `op_list_tags_log_group`: `ListTagsLogGroup`
+- `op_put_account_policy`: `PutAccountPolicy`
+- `op_put_bearer_token_authentication`: `PutBearerTokenAuthentication`
+- `op_put_data_protection_policy`: `PutDataProtectionPolicy`
+- `op_put_delivery_destination`: `PutDeliveryDestination`
+- `op_put_delivery_destination_policy`: `PutDeliveryDestinationPolicy`
+- `op_put_delivery_source`: `PutDeliverySource`
+- `op_put_destination`: `PutDestination`
+- `op_put_destination_policy`: `PutDestinationPolicy`
+- `op_put_index_policy`: `PutIndexPolicy`
+- `op_put_integration`: `PutIntegration`
+- `op_put_log_events`: `PutLogEvents`
+- `op_put_log_group_deletion_protection`: `PutLogGroupDeletionProtection`
+- `op_put_metric_filter`: `PutMetricFilter`
+- `op_put_query_definition`: `PutQueryDefinition`
+- `op_put_resource_policy`: `PutResourcePolicy`
+- `op_put_retention_policy`: `PutRetentionPolicy`
+- `op_put_storage_tier_policy`: `PutStorageTierPolicy`
+- `op_put_subscription_filter`: `PutSubscriptionFilter`
+- `op_put_syslog_configuration`: `PutSyslogConfiguration`
+- `op_put_transformer`: `PutTransformer`
+- `op_start_live_tail`: `StartLiveTail`
+- `op_start_query`: `StartQuery`
+- `op_stop_query`: `StopQuery`
+- `op_tag_log_group`: `TagLogGroup`
+- `op_tag_resource`: `TagResource`
+- `op_test_metric_filter`: `TestMetricFilter`
+- `op_test_transformer`: `TestTransformer`
+- `op_untag_log_group`: `UntagLogGroup`
+- `op_untag_resource`: `UntagResource`
+- `op_update_anomaly`: `UpdateAnomaly`
+- `op_update_delivery_configuration`: `UpdateDeliveryConfiguration`
+- `op_update_log_anomaly_detector`: `UpdateLogAnomalyDetector`
+- `op_update_lookup_table`: `UpdateLookupTable`
+- `op_update_scheduled_query`: `UpdateScheduledQuery`
+
+## Changed files
+
+- `Cargo.toml`
+- `src/client.rs`
+- `src/client/associate_kms_key.rs`
+- `src/client/associate_source_to_s3_table_integration.rs`
+- `src/client/cancel_export_task.rs`
+- `src/client/cancel_import_task.rs`
+- `src/client/create_delivery.rs`
+- `src/client/create_export_task.rs`
+- `src/client/create_import_task.rs`
+- `src/client/create_log_anomaly_detector.rs`
+- `src/client/create_log_group.rs`
+- `src/client/create_log_stream.rs`
+- `src/client/create_lookup_table.rs`
+- `src/client/create_scheduled_query.rs`
+- `src/client/delete_account_policy.rs`
+- `src/client/delete_data_protection_policy.rs`
+- `src/client/delete_delivery.rs`
+- `src/client/delete_delivery_destination.rs`
+- `src/client/delete_delivery_destination_policy.rs`
+- `src/client/delete_delivery_source.rs`
+- `src/client/delete_destination.rs`
+- `src/client/delete_index_policy.rs`
+- `src/client/delete_integration.rs`
+- `src/client/delete_log_anomaly_detector.rs`
+- `src/client/delete_log_group.rs`
+- `src/client/delete_log_stream.rs`
+- `src/client/delete_lookup_table.rs`
+- `src/client/delete_metric_filter.rs`
+- `src/client/delete_query_definition.rs`
+- `src/client/delete_resource_policy.rs`
+- `src/client/delete_retention_policy.rs`
+- `src/client/delete_scheduled_query.rs`
+- `src/client/delete_subscription_filter.rs`
+- `src/client/delete_syslog_configuration.rs`
+- `src/client/delete_transformer.rs`
+- `src/client/describe_account_policies.rs`
+- `src/client/describe_configuration_templates.rs`
+- `src/client/describe_deliveries.rs`
+- `src/client/describe_delivery_destinations.rs`
+- `src/client/describe_delivery_sources.rs`
+- `src/client/describe_destinations.rs`
+- `src/client/describe_export_tasks.rs`
+- `src/client/describe_field_indexes.rs`
+- `src/client/describe_import_task_batches.rs`
+- `src/client/describe_import_tasks.rs`
+- `src/client/describe_index_policies.rs`
+- `src/client/describe_log_groups.rs`
+- `src/client/describe_log_streams.rs`
+- `src/client/describe_lookup_tables.rs`
+- `src/client/describe_metric_filters.rs`
+- `src/client/describe_queries.rs`
+- `src/client/describe_query_definitions.rs`
+- `src/client/describe_resource_policies.rs`
+- `src/client/describe_subscription_filters.rs`
+- `src/client/disassociate_kms_key.rs`
+- `src/client/disassociate_source_from_s3_table_integration.rs`
+- `src/client/filter_log_events.rs`
+- `src/client/get_data_protection_policy.rs`
+- `src/client/get_delivery.rs`
+- `src/client/get_delivery_destination.rs`
+- `src/client/get_delivery_destination_policy.rs`
+- `src/client/get_delivery_source.rs`
+- `src/client/get_integration.rs`
+- `src/client/get_log_anomaly_detector.rs`
+- `src/client/get_log_events.rs`
+- `src/client/get_log_fields.rs`
+- `src/client/get_log_group_fields.rs`
+- `src/client/get_log_object.rs`
+- `src/client/get_log_record.rs`
+- `src/client/get_lookup_table.rs`
+- `src/client/get_query_results.rs`
+- `src/client/get_scheduled_query.rs`
+- `src/client/get_scheduled_query_history.rs`
+- `src/client/get_storage_tier_policy.rs`
+- `src/client/get_transformer.rs`
+- `src/client/list_aggregate_log_group_summaries.rs`
+- `src/client/list_anomalies.rs`
+- `src/client/list_integrations.rs`
+- `src/client/list_log_anomaly_detectors.rs`
+- `src/client/list_log_groups.rs`
+- `src/client/list_log_groups_for_query.rs`
+- `src/client/list_scheduled_queries.rs`
+- `src/client/list_sources_for_s3_table_integration.rs`
+- `src/client/list_syslog_configurations.rs`
+- `src/client/list_tags_for_resource.rs`
+- `src/client/list_tags_log_group.rs`
+- `src/client/put_account_policy.rs`
+- `src/client/put_bearer_token_authentication.rs`
+- `src/client/put_data_protection_policy.rs`
+- `src/client/put_delivery_destination.rs`
+- `src/client/put_delivery_destination_policy.rs`
+- `src/client/put_delivery_source.rs`
+- `src/client/put_destination.rs`
+- `src/client/put_destination_policy.rs`
+- `src/client/put_index_policy.rs`
+- `src/client/put_integration.rs`
+- `src/client/put_log_events.rs`
+- `src/client/put_log_group_deletion_protection.rs`
+- `src/client/put_metric_filter.rs`
+- `src/client/put_query_definition.rs`
+- `src/client/put_resource_policy.rs`
+- `src/client/put_retention_policy.rs`
+- `src/client/put_storage_tier_policy.rs`
+- `src/client/put_subscription_filter.rs`
+- `src/client/put_syslog_configuration.rs`
+- `src/client/put_transformer.rs`
+- `src/client/start_live_tail.rs`
+- `src/client/start_query.rs`
+- `src/client/stop_query.rs`
+- `src/client/tag_log_group.rs`
+- `src/client/tag_resource.rs`
+- `src/client/test_metric_filter.rs`
+- `src/client/test_transformer.rs`
+- `src/client/untag_log_group.rs`
+- `src/client/untag_resource.rs`
+- `src/client/update_anomaly.rs`
+- `src/client/update_delivery_configuration.rs`
+- `src/client/update_log_anomaly_detector.rs`
+- `src/client/update_lookup_table.rs`
+- `src/client/update_scheduled_query.rs`
+- `src/error_meta.rs`
+- `src/event_stream_serde.rs`
+- `src/lens.rs`
+- `src/operation.rs`
+- `src/operation/associate_kms_key.rs`
+- `src/operation/associate_kms_key/_associate_kms_key_input.rs`
+- `src/operation/associate_kms_key/_associate_kms_key_output.rs`
+- `src/operation/associate_kms_key/builders.rs`
+- `src/operation/associate_source_to_s3_table_integration.rs`
+- `src/operation/associate_source_to_s3_table_integration/_associate_source_to_s3_table_integration_input.rs`
+- `src/operation/associate_source_to_s3_table_integration/_associate_source_to_s3_table_integration_output.rs`
+- `src/operation/associate_source_to_s3_table_integration/builders.rs`
+- `src/operation/cancel_export_task.rs`
+- `src/operation/cancel_export_task/_cancel_export_task_input.rs`
+- `src/operation/cancel_export_task/_cancel_export_task_output.rs`
+- `src/operation/cancel_export_task/builders.rs`
+- `src/operation/cancel_import_task.rs`
+- `src/operation/cancel_import_task/_cancel_import_task_input.rs`
+- `src/operation/cancel_import_task/_cancel_import_task_output.rs`
+- `src/operation/cancel_import_task/builders.rs`
+- `src/operation/create_delivery.rs`
+- `src/operation/create_delivery/_create_delivery_input.rs`
+- `src/operation/create_delivery/_create_delivery_output.rs`
+- `src/operation/create_delivery/builders.rs`
+- `src/operation/create_export_task.rs`
+- `src/operation/create_export_task/_create_export_task_input.rs`
+- `src/operation/create_export_task/_create_export_task_output.rs`
+- `src/operation/create_export_task/builders.rs`
+- `src/operation/create_import_task.rs`
+- `src/operation/create_import_task/_create_import_task_input.rs`
+- `src/operation/create_import_task/_create_import_task_output.rs`
+- `src/operation/create_import_task/builders.rs`
+- `src/operation/create_log_anomaly_detector.rs`
+- `src/operation/create_log_anomaly_detector/_create_log_anomaly_detector_input.rs`
+- `src/operation/create_log_anomaly_detector/_create_log_anomaly_detector_output.rs`
+- `src/operation/create_log_anomaly_detector/builders.rs`
+- `src/operation/create_log_group.rs`
+- `src/operation/create_log_group/_create_log_group_input.rs`
+- `src/operation/create_log_group/_create_log_group_output.rs`
+- `src/operation/create_log_group/builders.rs`
+- `src/operation/create_log_stream.rs`
+- `src/operation/create_log_stream/_create_log_stream_input.rs`
+- `src/operation/create_log_stream/_create_log_stream_output.rs`
+- `src/operation/create_log_stream/builders.rs`
+- `src/operation/create_lookup_table.rs`
+- `src/operation/create_lookup_table/_create_lookup_table_input.rs`
+- `src/operation/create_lookup_table/_create_lookup_table_output.rs`
+- `src/operation/create_lookup_table/builders.rs`
+- `src/operation/create_scheduled_query.rs`
+- `src/operation/create_scheduled_query/_create_scheduled_query_input.rs`
+- `src/operation/create_scheduled_query/_create_scheduled_query_output.rs`
+- `src/operation/create_scheduled_query/builders.rs`
+- `src/operation/delete_account_policy.rs`
+- `src/operation/delete_account_policy/_delete_account_policy_input.rs`
+- `src/operation/delete_account_policy/_delete_account_policy_output.rs`
+- `src/operation/delete_account_policy/builders.rs`
+- `src/operation/delete_data_protection_policy.rs`
+- `src/operation/delete_data_protection_policy/_delete_data_protection_policy_input.rs`
+- `src/operation/delete_data_protection_policy/_delete_data_protection_policy_output.rs`
+- `src/operation/delete_data_protection_policy/builders.rs`
+- `src/operation/delete_delivery.rs`
+- `src/operation/delete_delivery/_delete_delivery_input.rs`
+- `src/operation/delete_delivery/_delete_delivery_output.rs`
+- `src/operation/delete_delivery/builders.rs`
+- `src/operation/delete_delivery_destination.rs`
+- `src/operation/delete_delivery_destination/_delete_delivery_destination_input.rs`
+- `src/operation/delete_delivery_destination/_delete_delivery_destination_output.rs`
+- `src/operation/delete_delivery_destination/builders.rs`
+- `src/operation/delete_delivery_destination_policy.rs`
+- `src/operation/delete_delivery_destination_policy/_delete_delivery_destination_policy_input.rs`
+- `src/operation/delete_delivery_destination_policy/_delete_delivery_destination_policy_output.rs`
+- `src/operation/delete_delivery_destination_policy/builders.rs`
+- `src/operation/delete_delivery_source.rs`
+- `src/operation/delete_delivery_source/_delete_delivery_source_input.rs`
+- `src/operation/delete_delivery_source/_delete_delivery_source_output.rs`
+- `src/operation/delete_delivery_source/builders.rs`
+- `src/operation/delete_destination.rs`
+- `src/operation/delete_destination/_delete_destination_input.rs`
+- `src/operation/delete_destination/_delete_destination_output.rs`
+- `src/operation/delete_destination/builders.rs`
+- `src/operation/delete_index_policy.rs`
+- `src/operation/delete_index_policy/_delete_index_policy_input.rs`
+- `src/operation/delete_index_policy/_delete_index_policy_output.rs`
+- `src/operation/delete_index_policy/builders.rs`
+- `src/operation/delete_integration.rs`
+- `src/operation/delete_integration/_delete_integration_input.rs`
+- `src/operation/delete_integration/_delete_integration_output.rs`
+- `src/operation/delete_integration/builders.rs`
+- `src/operation/delete_log_anomaly_detector.rs`
+- `src/operation/delete_log_anomaly_detector/_delete_log_anomaly_detector_input.rs`
+- `src/operation/delete_log_anomaly_detector/_delete_log_anomaly_detector_output.rs`
+- `src/operation/delete_log_anomaly_detector/builders.rs`
+- `src/operation/delete_log_group.rs`
+- `src/operation/delete_log_group/_delete_log_group_input.rs`
+- `src/operation/delete_log_group/_delete_log_group_output.rs`
+- `src/operation/delete_log_group/builders.rs`
+- `src/operation/delete_log_stream.rs`
+- `src/operation/delete_log_stream/_delete_log_stream_input.rs`
+- `src/operation/delete_log_stream/_delete_log_stream_output.rs`
+- `src/operation/delete_log_stream/builders.rs`
+- `src/operation/delete_lookup_table.rs`
+- `src/operation/delete_lookup_table/_delete_lookup_table_input.rs`
+- `src/operation/delete_lookup_table/_delete_lookup_table_output.rs`
+- `src/operation/delete_lookup_table/builders.rs`
+- `src/operation/delete_metric_filter.rs`
+- `src/operation/delete_metric_filter/_delete_metric_filter_input.rs`
+- `src/operation/delete_metric_filter/_delete_metric_filter_output.rs`
+- `src/operation/delete_metric_filter/builders.rs`
+- `src/operation/delete_query_definition.rs`
+- `src/operation/delete_query_definition/_delete_query_definition_input.rs`
+- `src/operation/delete_query_definition/_delete_query_definition_output.rs`
+- `src/operation/delete_query_definition/builders.rs`
+- `src/operation/delete_resource_policy.rs`
+- `src/operation/delete_resource_policy/_delete_resource_policy_input.rs`
+- `src/operation/delete_resource_policy/_delete_resource_policy_output.rs`
+- `src/operation/delete_resource_policy/builders.rs`
+- `src/operation/delete_retention_policy.rs`
+- `src/operation/delete_retention_policy/_delete_retention_policy_input.rs`
+- `src/operation/delete_retention_policy/_delete_retention_policy_output.rs`
+- `src/operation/delete_retention_policy/builders.rs`
+- `src/operation/delete_scheduled_query.rs`
+- `src/operation/delete_scheduled_query/_delete_scheduled_query_input.rs`
+- `src/operation/delete_scheduled_query/_delete_scheduled_query_output.rs`
+- `src/operation/delete_scheduled_query/builders.rs`
+- `src/operation/delete_subscription_filter.rs`
+- `src/operation/delete_subscription_filter/_delete_subscription_filter_input.rs`
+- `src/operation/delete_subscription_filter/_delete_subscription_filter_output.rs`
+- `src/operation/delete_subscription_filter/builders.rs`
+- `src/operation/delete_syslog_configuration.rs`
+- `src/operation/delete_syslog_configuration/_delete_syslog_configuration_input.rs`
+- `src/operation/delete_syslog_configuration/_delete_syslog_configuration_output.rs`
+- `src/operation/delete_syslog_configuration/builders.rs`
+- `src/operation/delete_transformer.rs`
+- `src/operation/delete_transformer/_delete_transformer_input.rs`
+- `src/operation/delete_transformer/_delete_transformer_output.rs`
+- `src/operation/delete_transformer/builders.rs`
+- `src/operation/describe_account_policies.rs`
+- `src/operation/describe_account_policies/_describe_account_policies_input.rs`
+- `src/operation/describe_account_policies/_describe_account_policies_output.rs`
+- `src/operation/describe_account_policies/builders.rs`
+- `src/operation/describe_configuration_templates.rs`
+- `src/operation/describe_configuration_templates/_describe_configuration_templates_input.rs`
+- `src/operation/describe_configuration_templates/_describe_configuration_templates_output.rs`
+- `src/operation/describe_configuration_templates/builders.rs`
+- `src/operation/describe_configuration_templates/paginator.rs`
+- `src/operation/describe_deliveries.rs`
+- `src/operation/describe_deliveries/_describe_deliveries_input.rs`
+- `src/operation/describe_deliveries/_describe_deliveries_output.rs`
+- `src/operation/describe_deliveries/builders.rs`
+- `src/operation/describe_deliveries/paginator.rs`
+- `src/operation/describe_delivery_destinations.rs`
+- `src/operation/describe_delivery_destinations/_describe_delivery_destinations_input.rs`
+- `src/operation/describe_delivery_destinations/_describe_delivery_destinations_output.rs`
+- `src/operation/describe_delivery_destinations/builders.rs`
+- `src/operation/describe_delivery_destinations/paginator.rs`
+- `src/operation/describe_delivery_sources.rs`
+- `src/operation/describe_delivery_sources/_describe_delivery_sources_input.rs`
+- `src/operation/describe_delivery_sources/_describe_delivery_sources_output.rs`
+- `src/operation/describe_delivery_sources/builders.rs`
+- `src/operation/describe_delivery_sources/paginator.rs`
+- `src/operation/describe_destinations.rs`
+- `src/operation/describe_destinations/_describe_destinations_input.rs`
+- `src/operation/describe_destinations/_describe_destinations_output.rs`
+- `src/operation/describe_destinations/builders.rs`
+- `src/operation/describe_destinations/paginator.rs`
+- `src/operation/describe_export_tasks.rs`
+- `src/operation/describe_export_tasks/_describe_export_tasks_input.rs`
+- `src/operation/describe_export_tasks/_describe_export_tasks_output.rs`
+- `src/operation/describe_export_tasks/builders.rs`
+- `src/operation/describe_field_indexes.rs`
+- `src/operation/describe_field_indexes/_describe_field_indexes_input.rs`
+- `src/operation/describe_field_indexes/_describe_field_indexes_output.rs`
+- `src/operation/describe_field_indexes/builders.rs`
+- `src/operation/describe_import_task_batches.rs`
+- `src/operation/describe_import_task_batches/_describe_import_task_batches_input.rs`
+- `src/operation/describe_import_task_batches/_describe_import_task_batches_output.rs`
+- `src/operation/describe_import_task_batches/builders.rs`
+- `src/operation/describe_import_tasks.rs`
+- `src/operation/describe_import_tasks/_describe_import_tasks_input.rs`
+- `src/operation/describe_import_tasks/_describe_import_tasks_output.rs`
+- `src/operation/describe_import_tasks/builders.rs`
+- `src/operation/describe_index_policies.rs`
+- `src/operation/describe_index_policies/_describe_index_policies_input.rs`
+- `src/operation/describe_index_policies/_describe_index_policies_output.rs`
+- `src/operation/describe_index_policies/builders.rs`
+- `src/operation/describe_log_groups.rs`
+- `src/operation/describe_log_groups/_describe_log_groups_input.rs`
+- `src/operation/describe_log_groups/_describe_log_groups_output.rs`
+- `src/operation/describe_log_groups/builders.rs`
+- `src/operation/describe_log_groups/paginator.rs`
+- `src/operation/describe_log_streams.rs`
+- `src/operation/describe_log_streams/_describe_log_streams_input.rs`
+- `src/operation/describe_log_streams/_describe_log_streams_output.rs`
+- `src/operation/describe_log_streams/builders.rs`
+- `src/operation/describe_log_streams/paginator.rs`
+- `src/operation/describe_lookup_tables.rs`
+- `src/operation/describe_lookup_tables/_describe_lookup_tables_input.rs`
+- `src/operation/describe_lookup_tables/_describe_lookup_tables_output.rs`
+- `src/operation/describe_lookup_tables/builders.rs`
+- `src/operation/describe_metric_filters.rs`
+- `src/operation/describe_metric_filters/_describe_metric_filters_input.rs`
+- `src/operation/describe_metric_filters/_describe_metric_filters_output.rs`
+- `src/operation/describe_metric_filters/builders.rs`
+- `src/operation/describe_metric_filters/paginator.rs`
+- `src/operation/describe_queries.rs`
+- `src/operation/describe_queries/_describe_queries_input.rs`
+- `src/operation/describe_queries/_describe_queries_output.rs`
+- `src/operation/describe_queries/builders.rs`
+- `src/operation/describe_query_definitions.rs`
+- `src/operation/describe_query_definitions/_describe_query_definitions_input.rs`
+- `src/operation/describe_query_definitions/_describe_query_definitions_output.rs`
+- `src/operation/describe_query_definitions/builders.rs`
+- `src/operation/describe_resource_policies.rs`
+- `src/operation/describe_resource_policies/_describe_resource_policies_input.rs`
+- `src/operation/describe_resource_policies/_describe_resource_policies_output.rs`
+- `src/operation/describe_resource_policies/builders.rs`
+- `src/operation/describe_subscription_filters.rs`
+- `src/operation/describe_subscription_filters/_describe_subscription_filters_input.rs`
+- `src/operation/describe_subscription_filters/_describe_subscription_filters_output.rs`
+- `src/operation/describe_subscription_filters/builders.rs`
+- `src/operation/describe_subscription_filters/paginator.rs`
+- `src/operation/disassociate_kms_key.rs`
+- `src/operation/disassociate_kms_key/_disassociate_kms_key_input.rs`
+- `src/operation/disassociate_kms_key/_disassociate_kms_key_output.rs`
+- `src/operation/disassociate_kms_key/builders.rs`
+- `src/operation/disassociate_source_from_s3_table_integration.rs`
+- `src/operation/disassociate_source_from_s3_table_integration/_disassociate_source_from_s3_table_integration_input.rs`
+- `src/operation/disassociate_source_from_s3_table_integration/_disassociate_source_from_s3_table_integration_output.rs`
+- `src/operation/disassociate_source_from_s3_table_integration/builders.rs`
+- `src/operation/filter_log_events.rs`
+- `src/operation/filter_log_events/_filter_log_events_input.rs`
+- `src/operation/filter_log_events/_filter_log_events_output.rs`
+- `src/operation/filter_log_events/builders.rs`
+- `src/operation/filter_log_events/paginator.rs`
+- `src/operation/get_data_protection_policy.rs`
+- `src/operation/get_data_protection_policy/_get_data_protection_policy_input.rs`
+- `src/operation/get_data_protection_policy/_get_data_protection_policy_output.rs`
+- `src/operation/get_data_protection_policy/builders.rs`
+- `src/operation/get_delivery.rs`
+- `src/operation/get_delivery/_get_delivery_input.rs`
+- `src/operation/get_delivery/_get_delivery_output.rs`
+- `src/operation/get_delivery/builders.rs`
+- `src/operation/get_delivery_destination.rs`
+- `src/operation/get_delivery_destination/_get_delivery_destination_input.rs`
+- `src/operation/get_delivery_destination/_get_delivery_destination_output.rs`
+- `src/operation/get_delivery_destination/builders.rs`
+- `src/operation/get_delivery_destination_policy.rs`
+- `src/operation/get_delivery_destination_policy/_get_delivery_destination_policy_input.rs`
+- `src/operation/get_delivery_destination_policy/_get_delivery_destination_policy_output.rs`
+- `src/operation/get_delivery_destination_policy/builders.rs`
+- `src/operation/get_delivery_source.rs`
+- `src/operation/get_delivery_source/_get_delivery_source_input.rs`
+- `src/operation/get_delivery_source/_get_delivery_source_output.rs`
+- `src/operation/get_delivery_source/builders.rs`
+- `src/operation/get_integration.rs`
+- `src/operation/get_integration/_get_integration_input.rs`
+- `src/operation/get_integration/_get_integration_output.rs`
+- `src/operation/get_integration/builders.rs`
+- `src/operation/get_log_anomaly_detector.rs`
+- `src/operation/get_log_anomaly_detector/_get_log_anomaly_detector_input.rs`
+- `src/operation/get_log_anomaly_detector/_get_log_anomaly_detector_output.rs`
+- `src/operation/get_log_anomaly_detector/builders.rs`
+- `src/operation/get_log_events.rs`
+- `src/operation/get_log_events/_get_log_events_input.rs`
+- `src/operation/get_log_events/_get_log_events_output.rs`
+- `src/operation/get_log_events/builders.rs`
+- `src/operation/get_log_events/paginator.rs`
+- `src/operation/get_log_fields.rs`
+- `src/operation/get_log_fields/_get_log_fields_input.rs`
+- `src/operation/get_log_fields/_get_log_fields_output.rs`
+- `src/operation/get_log_fields/builders.rs`
+- `src/operation/get_log_group_fields.rs`
+- `src/operation/get_log_group_fields/_get_log_group_fields_input.rs`
+- `src/operation/get_log_group_fields/_get_log_group_fields_output.rs`
+- `src/operation/get_log_group_fields/builders.rs`
+- `src/operation/get_log_object.rs`
+- `src/operation/get_log_object/_get_log_object_input.rs`
+- `src/operation/get_log_object/_get_log_object_output.rs`
+- `src/operation/get_log_object/builders.rs`
+- `src/operation/get_log_record.rs`
+- `src/operation/get_log_record/_get_log_record_input.rs`
+- `src/operation/get_log_record/_get_log_record_output.rs`
+- `src/operation/get_log_record/builders.rs`
+- `src/operation/get_lookup_table.rs`
+- `src/operation/get_lookup_table/_get_lookup_table_input.rs`
+- `src/operation/get_lookup_table/_get_lookup_table_output.rs`
+- `src/operation/get_lookup_table/builders.rs`
+- `src/operation/get_query_results.rs`
+- `src/operation/get_query_results/_get_query_results_input.rs`
+- `src/operation/get_query_results/_get_query_results_output.rs`
+- `src/operation/get_query_results/builders.rs`
+- `src/operation/get_scheduled_query.rs`
+- `src/operation/get_scheduled_query/_get_scheduled_query_input.rs`
+- `src/operation/get_scheduled_query/_get_scheduled_query_output.rs`
+- `src/operation/get_scheduled_query/builders.rs`
+- `src/operation/get_scheduled_query_history.rs`
+- `src/operation/get_scheduled_query_history/_get_scheduled_query_history_input.rs`
+- `src/operation/get_scheduled_query_history/_get_scheduled_query_history_output.rs`
+- `src/operation/get_scheduled_query_history/builders.rs`
+- `src/operation/get_scheduled_query_history/paginator.rs`
+- `src/operation/get_storage_tier_policy.rs`
+- `src/operation/get_storage_tier_policy/_get_storage_tier_policy_input.rs`
+- `src/operation/get_storage_tier_policy/_get_storage_tier_policy_output.rs`
+- `src/operation/get_storage_tier_policy/builders.rs`
+- `src/operation/get_transformer.rs`
+- `src/operation/get_transformer/_get_transformer_input.rs`
+- `src/operation/get_transformer/_get_transformer_output.rs`
+- `src/operation/get_transformer/builders.rs`
+- `src/operation/list_aggregate_log_group_summaries.rs`
+- `src/operation/list_aggregate_log_group_summaries/_list_aggregate_log_group_summaries_input.rs`
+- `src/operation/list_aggregate_log_group_summaries/_list_aggregate_log_group_summaries_output.rs`
+- `src/operation/list_aggregate_log_group_summaries/builders.rs`
+- `src/operation/list_aggregate_log_group_summaries/paginator.rs`
+- `src/operation/list_anomalies.rs`
+- `src/operation/list_anomalies/_list_anomalies_input.rs`
+- `src/operation/list_anomalies/_list_anomalies_output.rs`
+- `src/operation/list_anomalies/builders.rs`
+- `src/operation/list_anomalies/paginator.rs`
+- `src/operation/list_integrations.rs`
+- `src/operation/list_integrations/_list_integrations_input.rs`
+- `src/operation/list_integrations/_list_integrations_output.rs`
+- `src/operation/list_integrations/builders.rs`
+- `src/operation/list_log_anomaly_detectors.rs`
+- `src/operation/list_log_anomaly_detectors/_list_log_anomaly_detectors_input.rs`
+- `src/operation/list_log_anomaly_detectors/_list_log_anomaly_detectors_output.rs`
+- `src/operation/list_log_anomaly_detectors/builders.rs`
+- `src/operation/list_log_anomaly_detectors/paginator.rs`
+- `src/operation/list_log_groups.rs`
+- `src/operation/list_log_groups/_list_log_groups_input.rs`
+- `src/operation/list_log_groups/_list_log_groups_output.rs`
+- `src/operation/list_log_groups/builders.rs`
+- `src/operation/list_log_groups_for_query.rs`
+- `src/operation/list_log_groups_for_query/_list_log_groups_for_query_input.rs`
+- `src/operation/list_log_groups_for_query/_list_log_groups_for_query_output.rs`
+- `src/operation/list_log_groups_for_query/builders.rs`
+- `src/operation/list_log_groups_for_query/paginator.rs`
+- `src/operation/list_scheduled_queries.rs`
+- `src/operation/list_scheduled_queries/_list_scheduled_queries_input.rs`
+- `src/operation/list_scheduled_queries/_list_scheduled_queries_output.rs`
+- `src/operation/list_scheduled_queries/builders.rs`
+- `src/operation/list_scheduled_queries/paginator.rs`
+- `src/operation/list_sources_for_s3_table_integration.rs`
+- `src/operation/list_sources_for_s3_table_integration/_list_sources_for_s3_table_integration_input.rs`
+- `src/operation/list_sources_for_s3_table_integration/_list_sources_for_s3_table_integration_output.rs`
+- `src/operation/list_sources_for_s3_table_integration/builders.rs`
+- `src/operation/list_sources_for_s3_table_integration/paginator.rs`
+- `src/operation/list_syslog_configurations.rs`
+- `src/operation/list_syslog_configurations/_list_syslog_configurations_input.rs`
+- `src/operation/list_syslog_configurations/_list_syslog_configurations_output.rs`
+- `src/operation/list_syslog_configurations/builders.rs`
+- `src/operation/list_tags_for_resource.rs`
+- `src/operation/list_tags_for_resource/_list_tags_for_resource_input.rs`
+- `src/operation/list_tags_for_resource/_list_tags_for_resource_output.rs`
+- `src/operation/list_tags_for_resource/builders.rs`
+- `src/operation/list_tags_log_group.rs`
+- `src/operation/list_tags_log_group/_list_tags_log_group_input.rs`
+- `src/operation/list_tags_log_group/_list_tags_log_group_output.rs`
+- `src/operation/list_tags_log_group/builders.rs`
+- `src/operation/put_account_policy.rs`
+- `src/operation/put_account_policy/_put_account_policy_input.rs`
+- `src/operation/put_account_policy/_put_account_policy_output.rs`
+- `src/operation/put_account_policy/builders.rs`
+- `src/operation/put_bearer_token_authentication.rs`
+- `src/operation/put_bearer_token_authentication/_put_bearer_token_authentication_input.rs`
+- `src/operation/put_bearer_token_authentication/_put_bearer_token_authentication_output.rs`
+- `src/operation/put_bearer_token_authentication/builders.rs`
+- `src/operation/put_data_protection_policy.rs`
+- `src/operation/put_data_protection_policy/_put_data_protection_policy_input.rs`
+- `src/operation/put_data_protection_policy/_put_data_protection_policy_output.rs`
+- `src/operation/put_data_protection_policy/builders.rs`
+- `src/operation/put_delivery_destination.rs`
+- `src/operation/put_delivery_destination/_put_delivery_destination_input.rs`
+- `src/operation/put_delivery_destination/_put_delivery_destination_output.rs`
+- `src/operation/put_delivery_destination/builders.rs`
+- `src/operation/put_delivery_destination_policy.rs`
+- `src/operation/put_delivery_destination_policy/_put_delivery_destination_policy_input.rs`
+- `src/operation/put_delivery_destination_policy/_put_delivery_destination_policy_output.rs`
+- `src/operation/put_delivery_destination_policy/builders.rs`
+- `src/operation/put_delivery_source.rs`
+- `src/operation/put_delivery_source/_put_delivery_source_input.rs`
+- `src/operation/put_delivery_source/_put_delivery_source_output.rs`
+- `src/operation/put_delivery_source/builders.rs`
+- `src/operation/put_destination.rs`
+- `src/operation/put_destination/_put_destination_input.rs`
+- `src/operation/put_destination/_put_destination_output.rs`
+- `src/operation/put_destination/builders.rs`
+- `src/operation/put_destination_policy.rs`
+- `src/operation/put_destination_policy/_put_destination_policy_input.rs`
+- `src/operation/put_destination_policy/_put_destination_policy_output.rs`
+- `src/operation/put_destination_policy/builders.rs`
+- `src/operation/put_index_policy.rs`
+- `src/operation/put_index_policy/_put_index_policy_input.rs`
+- `src/operation/put_index_policy/_put_index_policy_output.rs`
+- `src/operation/put_index_policy/builders.rs`
+- `src/operation/put_integration.rs`
+- `src/operation/put_integration/_put_integration_input.rs`
+- `src/operation/put_integration/_put_integration_output.rs`
+- `src/operation/put_integration/builders.rs`
+- `src/operation/put_log_events.rs`
+- `src/operation/put_log_events/_put_log_events_input.rs`
+- `src/operation/put_log_events/_put_log_events_output.rs`
+- `src/operation/put_log_events/builders.rs`
+- `src/operation/put_log_group_deletion_protection.rs`
+- `src/operation/put_log_group_deletion_protection/_put_log_group_deletion_protection_input.rs`
+- `src/operation/put_log_group_deletion_protection/_put_log_group_deletion_protection_output.rs`
+- `src/operation/put_log_group_deletion_protection/builders.rs`
+- `src/operation/put_metric_filter.rs`
+- `src/operation/put_metric_filter/_put_metric_filter_input.rs`
+- `src/operation/put_metric_filter/_put_metric_filter_output.rs`
+- `src/operation/put_metric_filter/builders.rs`
+- `src/operation/put_query_definition.rs`
+- `src/operation/put_query_definition/_put_query_definition_input.rs`
+- `src/operation/put_query_definition/_put_query_definition_output.rs`
+- `src/operation/put_query_definition/builders.rs`
+- `src/operation/put_resource_policy.rs`
+- `src/operation/put_resource_policy/_put_resource_policy_input.rs`
+- `src/operation/put_resource_policy/_put_resource_policy_output.rs`
+- `src/operation/put_resource_policy/builders.rs`
+- `src/operation/put_retention_policy.rs`
+- `src/operation/put_retention_policy/_put_retention_policy_input.rs`
+- `src/operation/put_retention_policy/_put_retention_policy_output.rs`
+- `src/operation/put_retention_policy/builders.rs`
+- `src/operation/put_storage_tier_policy.rs`
+- `src/operation/put_storage_tier_policy/_put_storage_tier_policy_input.rs`
+- `src/operation/put_storage_tier_policy/_put_storage_tier_policy_output.rs`
+- `src/operation/put_storage_tier_policy/builders.rs`
+- `src/operation/put_subscription_filter.rs`
+- `src/operation/put_subscription_filter/_put_subscription_filter_input.rs`
+- `src/operation/put_subscription_filter/_put_subscription_filter_output.rs`
+- `src/operation/put_subscription_filter/builders.rs`
+- `src/operation/put_syslog_configuration.rs`
+- `src/operation/put_syslog_configuration/_put_syslog_configuration_input.rs`
+- `src/operation/put_syslog_configuration/_put_syslog_configuration_output.rs`
+- `src/operation/put_syslog_configuration/builders.rs`
+- `src/operation/put_transformer.rs`
+- `src/operation/put_transformer/_put_transformer_input.rs`
+- `src/operation/put_transformer/_put_transformer_output.rs`
+- `src/operation/put_transformer/builders.rs`
+- `src/operation/start_live_tail.rs`
+- `src/operation/start_live_tail/_start_live_tail_input.rs`
+- `src/operation/start_live_tail/_start_live_tail_output.rs`
+- `src/operation/start_live_tail/builders.rs`
+- `src/operation/start_query.rs`
+- `src/operation/start_query/_start_query_input.rs`
+- `src/operation/start_query/_start_query_output.rs`
+- `src/operation/start_query/builders.rs`
+- `src/operation/stop_query.rs`
+- `src/operation/stop_query/_stop_query_input.rs`
+- `src/operation/stop_query/_stop_query_output.rs`
+- `src/operation/stop_query/builders.rs`
+- `src/operation/tag_log_group.rs`
+- `src/operation/tag_log_group/_tag_log_group_input.rs`
+- `src/operation/tag_log_group/_tag_log_group_output.rs`
+- `src/operation/tag_log_group/builders.rs`
+- `src/operation/tag_resource.rs`
+- `src/operation/tag_resource/_tag_resource_input.rs`
+- `src/operation/tag_resource/_tag_resource_output.rs`
+- `src/operation/tag_resource/builders.rs`
+- `src/operation/test_metric_filter.rs`
+- `src/operation/test_metric_filter/_test_metric_filter_input.rs`
+- `src/operation/test_metric_filter/_test_metric_filter_output.rs`
+- `src/operation/test_metric_filter/builders.rs`
+- `src/operation/test_transformer.rs`
+- `src/operation/test_transformer/_test_transformer_input.rs`
+- `src/operation/test_transformer/_test_transformer_output.rs`
+- `src/operation/test_transformer/builders.rs`
+- `src/operation/untag_log_group.rs`
+- `src/operation/untag_log_group/_untag_log_group_input.rs`
+- `src/operation/untag_log_group/_untag_log_group_output.rs`
+- `src/operation/untag_log_group/builders.rs`
+- `src/operation/untag_resource.rs`
+- `src/operation/untag_resource/_untag_resource_input.rs`
+- `src/operation/untag_resource/_untag_resource_output.rs`
+- `src/operation/untag_resource/builders.rs`
+- `src/operation/update_anomaly.rs`
+- `src/operation/update_anomaly/_update_anomaly_input.rs`
+- `src/operation/update_anomaly/_update_anomaly_output.rs`
+- `src/operation/update_anomaly/builders.rs`
+- `src/operation/update_delivery_configuration.rs`
+- `src/operation/update_delivery_configuration/_update_delivery_configuration_input.rs`
+- `src/operation/update_delivery_configuration/_update_delivery_configuration_output.rs`
+- `src/operation/update_delivery_configuration/builders.rs`
+- `src/operation/update_log_anomaly_detector.rs`
+- `src/operation/update_log_anomaly_detector/_update_log_anomaly_detector_input.rs`
+- `src/operation/update_log_anomaly_detector/_update_log_anomaly_detector_output.rs`
+- `src/operation/update_log_anomaly_detector/builders.rs`
+- `src/operation/update_lookup_table.rs`
+- `src/operation/update_lookup_table/_update_lookup_table_input.rs`
+- `src/operation/update_lookup_table/_update_lookup_table_output.rs`
+- `src/operation/update_lookup_table/builders.rs`
+- `src/operation/update_scheduled_query.rs`
+- `src/operation/update_scheduled_query/_update_scheduled_query_input.rs`
+- `src/operation/update_scheduled_query/_update_scheduled_query_output.rs`
+- `src/operation/update_scheduled_query/builders.rs`
+- `src/protocol_serde.rs`
+- `src/protocol_serde/shape_associate_kms_key.rs`
+- `src/protocol_serde/shape_associate_kms_key_input.rs`
+- `src/protocol_serde/shape_associate_source_to_s3_table_integration.rs`
+- `src/protocol_serde/shape_associate_source_to_s3_table_integration_input.rs`
+- `src/protocol_serde/shape_cancel_export_task.rs`
+- `src/protocol_serde/shape_cancel_export_task_input.rs`
+- `src/protocol_serde/shape_cancel_import_task.rs`
+- `src/protocol_serde/shape_cancel_import_task_input.rs`
+- `src/protocol_serde/shape_create_delivery.rs`
+- `src/protocol_serde/shape_create_delivery_input.rs`
+- `src/protocol_serde/shape_create_export_task.rs`
+- `src/protocol_serde/shape_create_export_task_input.rs`
+- `src/protocol_serde/shape_create_import_task.rs`
+- `src/protocol_serde/shape_create_import_task_input.rs`
+- `src/protocol_serde/shape_create_log_anomaly_detector.rs`
+- `src/protocol_serde/shape_create_log_anomaly_detector_input.rs`
+- `src/protocol_serde/shape_create_log_group.rs`
+- `src/protocol_serde/shape_create_log_group_input.rs`
+- `src/protocol_serde/shape_create_log_stream.rs`
+- `src/protocol_serde/shape_create_log_stream_input.rs`
+- `src/protocol_serde/shape_create_lookup_table.rs`
+- `src/protocol_serde/shape_create_lookup_table_input.rs`
+- `src/protocol_serde/shape_create_scheduled_query.rs`
+- `src/protocol_serde/shape_create_scheduled_query_input.rs`
+- `src/protocol_serde/shape_delete_account_policy.rs`
+- `src/protocol_serde/shape_delete_account_policy_input.rs`
+- `src/protocol_serde/shape_delete_data_protection_policy.rs`
+- `src/protocol_serde/shape_delete_data_protection_policy_input.rs`
+- `src/protocol_serde/shape_delete_delivery.rs`
+- `src/protocol_serde/shape_delete_delivery_destination.rs`
+- `src/protocol_serde/shape_delete_delivery_destination_input.rs`
+- `src/protocol_serde/shape_delete_delivery_destination_policy.rs`
+- `src/protocol_serde/shape_delete_delivery_destination_policy_input.rs`
+- `src/protocol_serde/shape_delete_delivery_input.rs`
+- `src/protocol_serde/shape_delete_delivery_source.rs`
+- `src/protocol_serde/shape_delete_delivery_source_input.rs`
+- `src/protocol_serde/shape_delete_destination.rs`
+- `src/protocol_serde/shape_delete_destination_input.rs`
+- `src/protocol_serde/shape_delete_index_policy.rs`
+- `src/protocol_serde/shape_delete_index_policy_input.rs`
+- `src/protocol_serde/shape_delete_integration.rs`
+- `src/protocol_serde/shape_delete_integration_input.rs`
+- `src/protocol_serde/shape_delete_log_anomaly_detector.rs`
+- `src/protocol_serde/shape_delete_log_anomaly_detector_input.rs`
+- `src/protocol_serde/shape_delete_log_group.rs`
+- `src/protocol_serde/shape_delete_log_group_input.rs`
+- `src/protocol_serde/shape_delete_log_stream.rs`
+- `src/protocol_serde/shape_delete_log_stream_input.rs`
+- `src/protocol_serde/shape_delete_lookup_table.rs`
+- `src/protocol_serde/shape_delete_lookup_table_input.rs`
+- `src/protocol_serde/shape_delete_metric_filter.rs`
+- `src/protocol_serde/shape_delete_metric_filter_input.rs`
+- `src/protocol_serde/shape_delete_query_definition.rs`
+- `src/protocol_serde/shape_delete_query_definition_input.rs`
+- `src/protocol_serde/shape_delete_resource_policy.rs`
+- `src/protocol_serde/shape_delete_resource_policy_input.rs`
+- `src/protocol_serde/shape_delete_retention_policy.rs`
+- `src/protocol_serde/shape_delete_retention_policy_input.rs`
+- `src/protocol_serde/shape_delete_scheduled_query.rs`
+- `src/protocol_serde/shape_delete_scheduled_query_input.rs`
+- `src/protocol_serde/shape_delete_subscription_filter.rs`
+- `src/protocol_serde/shape_delete_subscription_filter_input.rs`
+- `src/protocol_serde/shape_delete_syslog_configuration.rs`
+- `src/protocol_serde/shape_delete_syslog_configuration_input.rs`
+- `src/protocol_serde/shape_delete_transformer.rs`
+- `src/protocol_serde/shape_delete_transformer_input.rs`
+- `src/protocol_serde/shape_describe_account_policies.rs`
+- `src/protocol_serde/shape_describe_account_policies_input.rs`
+- `src/protocol_serde/shape_describe_configuration_templates.rs`
+- `src/protocol_serde/shape_describe_configuration_templates_input.rs`
+- `src/protocol_serde/shape_describe_deliveries.rs`
+- `src/protocol_serde/shape_describe_deliveries_input.rs`
+- `src/protocol_serde/shape_describe_delivery_destinations.rs`
+- `src/protocol_serde/shape_describe_delivery_destinations_input.rs`
+- `src/protocol_serde/shape_describe_delivery_sources.rs`
+- `src/protocol_serde/shape_describe_delivery_sources_input.rs`
+- `src/protocol_serde/shape_describe_destinations.rs`
+- `src/protocol_serde/shape_describe_destinations_input.rs`
+- `src/protocol_serde/shape_describe_export_tasks.rs`
+- `src/protocol_serde/shape_describe_export_tasks_input.rs`
+- `src/protocol_serde/shape_describe_field_indexes.rs`
+- `src/protocol_serde/shape_describe_field_indexes_input.rs`
+- `src/protocol_serde/shape_describe_import_task_batches.rs`
+- `src/protocol_serde/shape_describe_import_task_batches_input.rs`
+- `src/protocol_serde/shape_describe_import_tasks.rs`
+- `src/protocol_serde/shape_describe_import_tasks_input.rs`
+- `src/protocol_serde/shape_describe_index_policies.rs`
+- `src/protocol_serde/shape_describe_index_policies_input.rs`
+- `src/protocol_serde/shape_describe_log_groups.rs`
+- `src/protocol_serde/shape_describe_log_groups_input.rs`
+- `src/protocol_serde/shape_describe_log_streams.rs`
+- `src/protocol_serde/shape_describe_log_streams_input.rs`
+- `src/protocol_serde/shape_describe_lookup_tables.rs`
+- `src/protocol_serde/shape_describe_lookup_tables_input.rs`
+- `src/protocol_serde/shape_describe_metric_filters.rs`
+- `src/protocol_serde/shape_describe_metric_filters_input.rs`
+- `src/protocol_serde/shape_describe_queries.rs`
+- `src/protocol_serde/shape_describe_queries_input.rs`
+- `src/protocol_serde/shape_describe_query_definitions.rs`
+- `src/protocol_serde/shape_describe_query_definitions_input.rs`
+- `src/protocol_serde/shape_describe_resource_policies.rs`
+- `src/protocol_serde/shape_describe_resource_policies_input.rs`
+- `src/protocol_serde/shape_describe_subscription_filters.rs`
+- `src/protocol_serde/shape_describe_subscription_filters_input.rs`
+- `src/protocol_serde/shape_disassociate_kms_key.rs`
+- `src/protocol_serde/shape_disassociate_kms_key_input.rs`
+- `src/protocol_serde/shape_disassociate_source_from_s3_table_integration.rs`
+- `src/protocol_serde/shape_disassociate_source_from_s3_table_integration_input.rs`
+- `src/protocol_serde/shape_filter_log_events.rs`
+- `src/protocol_serde/shape_filter_log_events_input.rs`
+- `src/protocol_serde/shape_get_data_protection_policy.rs`
+- `src/protocol_serde/shape_get_data_protection_policy_input.rs`
+- `src/protocol_serde/shape_get_delivery.rs`
+- `src/protocol_serde/shape_get_delivery_destination.rs`
+- `src/protocol_serde/shape_get_delivery_destination_input.rs`
+- `src/protocol_serde/shape_get_delivery_destination_policy.rs`
+- `src/protocol_serde/shape_get_delivery_destination_policy_input.rs`
+- `src/protocol_serde/shape_get_delivery_input.rs`
+- `src/protocol_serde/shape_get_delivery_source.rs`
+- `src/protocol_serde/shape_get_delivery_source_input.rs`
+- `src/protocol_serde/shape_get_integration.rs`
+- `src/protocol_serde/shape_get_integration_input.rs`
+- `src/protocol_serde/shape_get_log_anomaly_detector.rs`
+- `src/protocol_serde/shape_get_log_anomaly_detector_input.rs`
+- `src/protocol_serde/shape_get_log_events.rs`
+- `src/protocol_serde/shape_get_log_events_input.rs`
+- `src/protocol_serde/shape_get_log_fields.rs`
+- `src/protocol_serde/shape_get_log_fields_input.rs`
+- `src/protocol_serde/shape_get_log_group_fields.rs`
+- `src/protocol_serde/shape_get_log_group_fields_input.rs`
+- `src/protocol_serde/shape_get_log_object.rs`
+- `src/protocol_serde/shape_get_log_object_input.rs`
+- `src/protocol_serde/shape_get_log_object_output.rs`
+- `src/protocol_serde/shape_get_log_record.rs`
+- `src/protocol_serde/shape_get_log_record_input.rs`
+- `src/protocol_serde/shape_get_lookup_table.rs`
+- `src/protocol_serde/shape_get_lookup_table_input.rs`
+- `src/protocol_serde/shape_get_query_results.rs`
+- `src/protocol_serde/shape_get_query_results_input.rs`
+- `src/protocol_serde/shape_get_scheduled_query.rs`
+- `src/protocol_serde/shape_get_scheduled_query_history.rs`
+- `src/protocol_serde/shape_get_scheduled_query_history_input.rs`
+- `src/protocol_serde/shape_get_scheduled_query_input.rs`
+- `src/protocol_serde/shape_get_storage_tier_policy.rs`
+- `src/protocol_serde/shape_get_transformer.rs`
+- `src/protocol_serde/shape_get_transformer_input.rs`
+- `src/protocol_serde/shape_list_aggregate_log_group_summaries.rs`
+- `src/protocol_serde/shape_list_aggregate_log_group_summaries_input.rs`
+- `src/protocol_serde/shape_list_anomalies.rs`
+- `src/protocol_serde/shape_list_anomalies_input.rs`
+- `src/protocol_serde/shape_list_integrations.rs`
+- `src/protocol_serde/shape_list_integrations_input.rs`
+- `src/protocol_serde/shape_list_log_anomaly_detectors.rs`
+- `src/protocol_serde/shape_list_log_anomaly_detectors_input.rs`
+- `src/protocol_serde/shape_list_log_groups.rs`
+- `src/protocol_serde/shape_list_log_groups_for_query.rs`
+- `src/protocol_serde/shape_list_log_groups_for_query_input.rs`
+- `src/protocol_serde/shape_list_log_groups_input.rs`
+- `src/protocol_serde/shape_list_scheduled_queries.rs`
+- `src/protocol_serde/shape_list_scheduled_queries_input.rs`
+- `src/protocol_serde/shape_list_sources_for_s3_table_integration.rs`
+- `src/protocol_serde/shape_list_sources_for_s3_table_integration_input.rs`
+- `src/protocol_serde/shape_list_syslog_configurations.rs`
+- `src/protocol_serde/shape_list_syslog_configurations_input.rs`
+- `src/protocol_serde/shape_list_tags_for_resource.rs`
+- `src/protocol_serde/shape_list_tags_for_resource_input.rs`
+- `src/protocol_serde/shape_list_tags_log_group.rs`
+- `src/protocol_serde/shape_list_tags_log_group_input.rs`
+- `src/protocol_serde/shape_live_tail_session_start.rs`
+- `src/protocol_serde/shape_put_account_policy.rs`
+- `src/protocol_serde/shape_put_account_policy_input.rs`
+- `src/protocol_serde/shape_put_bearer_token_authentication.rs`
+- `src/protocol_serde/shape_put_bearer_token_authentication_input.rs`
+- `src/protocol_serde/shape_put_data_protection_policy.rs`
+- `src/protocol_serde/shape_put_data_protection_policy_input.rs`
+- `src/protocol_serde/shape_put_delivery_destination.rs`
+- `src/protocol_serde/shape_put_delivery_destination_input.rs`
+- `src/protocol_serde/shape_put_delivery_destination_policy.rs`
+- `src/protocol_serde/shape_put_delivery_destination_policy_input.rs`
+- `src/protocol_serde/shape_put_delivery_source.rs`
+- `src/protocol_serde/shape_put_delivery_source_input.rs`
+- `src/protocol_serde/shape_put_destination.rs`
+- `src/protocol_serde/shape_put_destination_input.rs`
+- `src/protocol_serde/shape_put_destination_policy.rs`
+- `src/protocol_serde/shape_put_destination_policy_input.rs`
+- `src/protocol_serde/shape_put_index_policy.rs`
+- `src/protocol_serde/shape_put_index_policy_input.rs`
+- `src/protocol_serde/shape_put_integration.rs`
+- `src/protocol_serde/shape_put_integration_input.rs`
+- `src/protocol_serde/shape_put_log_events.rs`
+- `src/protocol_serde/shape_put_log_events_input.rs`
+- `src/protocol_serde/shape_put_log_group_deletion_protection.rs`
+- `src/protocol_serde/shape_put_log_group_deletion_protection_input.rs`
+- `src/protocol_serde/shape_put_metric_filter.rs`
+- `src/protocol_serde/shape_put_metric_filter_input.rs`
+- `src/protocol_serde/shape_put_query_definition.rs`
+- `src/protocol_serde/shape_put_query_definition_input.rs`
+- `src/protocol_serde/shape_put_resource_policy.rs`
+- `src/protocol_serde/shape_put_resource_policy_input.rs`
+- `src/protocol_serde/shape_put_retention_policy.rs`
+- `src/protocol_serde/shape_put_retention_policy_input.rs`
+- `src/protocol_serde/shape_put_storage_tier_policy.rs`
+- `src/protocol_serde/shape_put_storage_tier_policy_input.rs`
+- `src/protocol_serde/shape_put_subscription_filter.rs`
+- `src/protocol_serde/shape_put_subscription_filter_input.rs`
+- `src/protocol_serde/shape_put_syslog_configuration.rs`
+- `src/protocol_serde/shape_put_syslog_configuration_input.rs`
+- `src/protocol_serde/shape_put_transformer.rs`
+- `src/protocol_serde/shape_put_transformer_input.rs`
+- `src/protocol_serde/shape_start_live_tail.rs`
+- `src/protocol_serde/shape_start_live_tail_input.rs`
+- `src/protocol_serde/shape_start_live_tail_log_group_identifiers.rs`
+- `src/protocol_serde/shape_start_live_tail_output.rs`
+- `src/protocol_serde/shape_start_query.rs`
+- `src/protocol_serde/shape_start_query_input.rs`
+- `src/protocol_serde/shape_stop_query.rs`
+- `src/protocol_serde/shape_stop_query_input.rs`
+- `src/protocol_serde/shape_tag_log_group.rs`
+- `src/protocol_serde/shape_tag_log_group_input.rs`
+- `src/protocol_serde/shape_tag_resource.rs`
+- `src/protocol_serde/shape_tag_resource_input.rs`
+- `src/protocol_serde/shape_test_metric_filter.rs`
+- `src/protocol_serde/shape_test_metric_filter_input.rs`
+- `src/protocol_serde/shape_test_transformer.rs`
+- `src/protocol_serde/shape_test_transformer_input.rs`
+- `src/protocol_serde/shape_untag_log_group.rs`
+- `src/protocol_serde/shape_untag_log_group_input.rs`
+- `src/protocol_serde/shape_untag_resource.rs`
+- `src/protocol_serde/shape_untag_resource_input.rs`
+- `src/protocol_serde/shape_update_anomaly.rs`
+- `src/protocol_serde/shape_update_anomaly_input.rs`
+- `src/protocol_serde/shape_update_delivery_configuration.rs`
+- `src/protocol_serde/shape_update_delivery_configuration_input.rs`
+- `src/protocol_serde/shape_update_log_anomaly_detector.rs`
+- `src/protocol_serde/shape_update_log_anomaly_detector_input.rs`
+- `src/protocol_serde/shape_update_lookup_table.rs`
+- `src/protocol_serde/shape_update_lookup_table_input.rs`
+- `src/protocol_serde/shape_update_scheduled_query.rs`
+- `src/protocol_serde/shape_update_scheduled_query_input.rs`
+
+## Customizations
+
+- Add one non-default Cargo feature and matching cfg gates for each model operation.
+- Rename the Cargo package/library from manifest data.
+- Remove upstream `tests/` from generated output.
+
+## Reproduction
+
+```text
+cargo run -p aws-sdk-modularizer -- --manifest services-manifest.json
+```

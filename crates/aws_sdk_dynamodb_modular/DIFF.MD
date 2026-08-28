@@ -1,0 +1,518 @@
+# AWS SDK modularizer diff
+
+- repository: `https://github.com/awslabs/aws-sdk-rust`
+- revision: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
+- service: `sdk/dynamodb`
+- model: `models/dynamodb.json`
+- package: `aws-sdk-dynamodb-modular`
+- library: `aws_sdk_dynamodb_modular`
+- tests exclusion: `tests/**` is excluded from the comparison.
+
+## Operations
+
+- `op_batch_execute_statement`: `BatchExecuteStatement`
+- `op_batch_get_item`: `BatchGetItem`
+- `op_batch_write_item`: `BatchWriteItem`
+- `op_create_backup`: `CreateBackup`
+- `op_create_global_table`: `CreateGlobalTable`
+- `op_create_table`: `CreateTable`
+- `op_delete_backup`: `DeleteBackup`
+- `op_delete_item`: `DeleteItem`
+- `op_delete_resource_policy`: `DeleteResourcePolicy`
+- `op_delete_table`: `DeleteTable`
+- `op_describe_backup`: `DescribeBackup`
+- `op_describe_continuous_backups`: `DescribeContinuousBackups`
+- `op_describe_contributor_insights`: `DescribeContributorInsights`
+- `op_describe_endpoints`: `DescribeEndpoints`
+- `op_describe_export`: `DescribeExport`
+- `op_describe_global_table`: `DescribeGlobalTable`
+- `op_describe_global_table_settings`: `DescribeGlobalTableSettings`
+- `op_describe_import`: `DescribeImport`
+- `op_describe_kinesis_streaming_destination`: `DescribeKinesisStreamingDestination`
+- `op_describe_limits`: `DescribeLimits`
+- `op_describe_table`: `DescribeTable`
+- `op_describe_table_replica_auto_scaling`: `DescribeTableReplicaAutoScaling`
+- `op_describe_time_to_live`: `DescribeTimeToLive`
+- `op_disable_kinesis_streaming_destination`: `DisableKinesisStreamingDestination`
+- `op_enable_kinesis_streaming_destination`: `EnableKinesisStreamingDestination`
+- `op_execute_statement`: `ExecuteStatement`
+- `op_execute_transaction`: `ExecuteTransaction`
+- `op_export_table_to_point_in_time`: `ExportTableToPointInTime`
+- `op_get_item`: `GetItem`
+- `op_get_resource_policy`: `GetResourcePolicy`
+- `op_import_table`: `ImportTable`
+- `op_list_backups`: `ListBackups`
+- `op_list_contributor_insights`: `ListContributorInsights`
+- `op_list_exports`: `ListExports`
+- `op_list_global_tables`: `ListGlobalTables`
+- `op_list_imports`: `ListImports`
+- `op_list_tables`: `ListTables`
+- `op_list_tags_of_resource`: `ListTagsOfResource`
+- `op_put_item`: `PutItem`
+- `op_put_resource_policy`: `PutResourcePolicy`
+- `op_query`: `Query`
+- `op_restore_table_from_backup`: `RestoreTableFromBackup`
+- `op_restore_table_to_point_in_time`: `RestoreTableToPointInTime`
+- `op_scan`: `Scan`
+- `op_search_vectors`: `SearchVectors`
+- `op_tag_resource`: `TagResource`
+- `op_transact_get_items`: `TransactGetItems`
+- `op_transact_write_items`: `TransactWriteItems`
+- `op_untag_resource`: `UntagResource`
+- `op_update_continuous_backups`: `UpdateContinuousBackups`
+- `op_update_contributor_insights`: `UpdateContributorInsights`
+- `op_update_global_table`: `UpdateGlobalTable`
+- `op_update_global_table_settings`: `UpdateGlobalTableSettings`
+- `op_update_item`: `UpdateItem`
+- `op_update_kinesis_streaming_destination`: `UpdateKinesisStreamingDestination`
+- `op_update_table`: `UpdateTable`
+- `op_update_table_replica_auto_scaling`: `UpdateTableReplicaAutoScaling`
+- `op_update_time_to_live`: `UpdateTimeToLive`
+
+## Changed files
+
+- `Cargo.toml`
+- `src/client.rs`
+- `src/client/batch_execute_statement.rs`
+- `src/client/batch_get_item.rs`
+- `src/client/batch_write_item.rs`
+- `src/client/create_backup.rs`
+- `src/client/create_global_table.rs`
+- `src/client/create_table.rs`
+- `src/client/delete_backup.rs`
+- `src/client/delete_item.rs`
+- `src/client/delete_resource_policy.rs`
+- `src/client/delete_table.rs`
+- `src/client/describe_backup.rs`
+- `src/client/describe_continuous_backups.rs`
+- `src/client/describe_contributor_insights.rs`
+- `src/client/describe_endpoints.rs`
+- `src/client/describe_export.rs`
+- `src/client/describe_global_table.rs`
+- `src/client/describe_global_table_settings.rs`
+- `src/client/describe_import.rs`
+- `src/client/describe_kinesis_streaming_destination.rs`
+- `src/client/describe_limits.rs`
+- `src/client/describe_table.rs`
+- `src/client/describe_table_replica_auto_scaling.rs`
+- `src/client/describe_time_to_live.rs`
+- `src/client/disable_kinesis_streaming_destination.rs`
+- `src/client/enable_kinesis_streaming_destination.rs`
+- `src/client/execute_statement.rs`
+- `src/client/execute_transaction.rs`
+- `src/client/export_table_to_point_in_time.rs`
+- `src/client/get_item.rs`
+- `src/client/get_resource_policy.rs`
+- `src/client/import_table.rs`
+- `src/client/list_backups.rs`
+- `src/client/list_contributor_insights.rs`
+- `src/client/list_exports.rs`
+- `src/client/list_global_tables.rs`
+- `src/client/list_imports.rs`
+- `src/client/list_tables.rs`
+- `src/client/list_tags_of_resource.rs`
+- `src/client/put_item.rs`
+- `src/client/put_resource_policy.rs`
+- `src/client/query.rs`
+- `src/client/restore_table_from_backup.rs`
+- `src/client/restore_table_to_point_in_time.rs`
+- `src/client/scan.rs`
+- `src/client/search_vectors.rs`
+- `src/client/tag_resource.rs`
+- `src/client/transact_get_items.rs`
+- `src/client/transact_write_items.rs`
+- `src/client/untag_resource.rs`
+- `src/client/update_continuous_backups.rs`
+- `src/client/update_contributor_insights.rs`
+- `src/client/update_global_table.rs`
+- `src/client/update_global_table_settings.rs`
+- `src/client/update_item.rs`
+- `src/client/update_kinesis_streaming_destination.rs`
+- `src/client/update_table.rs`
+- `src/client/update_table_replica_auto_scaling.rs`
+- `src/client/update_time_to_live.rs`
+- `src/error_meta.rs`
+- `src/lens.rs`
+- `src/operation.rs`
+- `src/operation/batch_execute_statement.rs`
+- `src/operation/batch_execute_statement/_batch_execute_statement_input.rs`
+- `src/operation/batch_execute_statement/_batch_execute_statement_output.rs`
+- `src/operation/batch_execute_statement/builders.rs`
+- `src/operation/batch_get_item.rs`
+- `src/operation/batch_get_item/_batch_get_item_input.rs`
+- `src/operation/batch_get_item/_batch_get_item_output.rs`
+- `src/operation/batch_get_item/builders.rs`
+- `src/operation/batch_write_item.rs`
+- `src/operation/batch_write_item/_batch_write_item_input.rs`
+- `src/operation/batch_write_item/_batch_write_item_output.rs`
+- `src/operation/batch_write_item/builders.rs`
+- `src/operation/create_backup.rs`
+- `src/operation/create_backup/_create_backup_input.rs`
+- `src/operation/create_backup/_create_backup_output.rs`
+- `src/operation/create_backup/builders.rs`
+- `src/operation/create_global_table.rs`
+- `src/operation/create_global_table/_create_global_table_input.rs`
+- `src/operation/create_global_table/_create_global_table_output.rs`
+- `src/operation/create_global_table/builders.rs`
+- `src/operation/create_table.rs`
+- `src/operation/create_table/_create_table_input.rs`
+- `src/operation/create_table/_create_table_output.rs`
+- `src/operation/create_table/builders.rs`
+- `src/operation/delete_backup.rs`
+- `src/operation/delete_backup/_delete_backup_input.rs`
+- `src/operation/delete_backup/_delete_backup_output.rs`
+- `src/operation/delete_backup/builders.rs`
+- `src/operation/delete_item.rs`
+- `src/operation/delete_item/_delete_item_input.rs`
+- `src/operation/delete_item/_delete_item_output.rs`
+- `src/operation/delete_item/builders.rs`
+- `src/operation/delete_resource_policy.rs`
+- `src/operation/delete_resource_policy/_delete_resource_policy_input.rs`
+- `src/operation/delete_resource_policy/_delete_resource_policy_output.rs`
+- `src/operation/delete_resource_policy/builders.rs`
+- `src/operation/delete_table.rs`
+- `src/operation/delete_table/_delete_table_input.rs`
+- `src/operation/delete_table/_delete_table_output.rs`
+- `src/operation/delete_table/builders.rs`
+- `src/operation/describe_backup.rs`
+- `src/operation/describe_backup/_describe_backup_input.rs`
+- `src/operation/describe_backup/_describe_backup_output.rs`
+- `src/operation/describe_backup/builders.rs`
+- `src/operation/describe_continuous_backups.rs`
+- `src/operation/describe_continuous_backups/_describe_continuous_backups_input.rs`
+- `src/operation/describe_continuous_backups/_describe_continuous_backups_output.rs`
+- `src/operation/describe_continuous_backups/builders.rs`
+- `src/operation/describe_contributor_insights.rs`
+- `src/operation/describe_contributor_insights/_describe_contributor_insights_input.rs`
+- `src/operation/describe_contributor_insights/_describe_contributor_insights_output.rs`
+- `src/operation/describe_contributor_insights/builders.rs`
+- `src/operation/describe_endpoints.rs`
+- `src/operation/describe_endpoints/_describe_endpoints_input.rs`
+- `src/operation/describe_endpoints/_describe_endpoints_output.rs`
+- `src/operation/describe_endpoints/builders.rs`
+- `src/operation/describe_export.rs`
+- `src/operation/describe_export/_describe_export_input.rs`
+- `src/operation/describe_export/_describe_export_output.rs`
+- `src/operation/describe_export/builders.rs`
+- `src/operation/describe_global_table.rs`
+- `src/operation/describe_global_table/_describe_global_table_input.rs`
+- `src/operation/describe_global_table/_describe_global_table_output.rs`
+- `src/operation/describe_global_table/builders.rs`
+- `src/operation/describe_global_table_settings.rs`
+- `src/operation/describe_global_table_settings/_describe_global_table_settings_input.rs`
+- `src/operation/describe_global_table_settings/_describe_global_table_settings_output.rs`
+- `src/operation/describe_global_table_settings/builders.rs`
+- `src/operation/describe_import.rs`
+- `src/operation/describe_import/_describe_import_input.rs`
+- `src/operation/describe_import/_describe_import_output.rs`
+- `src/operation/describe_import/builders.rs`
+- `src/operation/describe_kinesis_streaming_destination.rs`
+- `src/operation/describe_kinesis_streaming_destination/_describe_kinesis_streaming_destination_input.rs`
+- `src/operation/describe_kinesis_streaming_destination/_describe_kinesis_streaming_destination_output.rs`
+- `src/operation/describe_kinesis_streaming_destination/builders.rs`
+- `src/operation/describe_limits.rs`
+- `src/operation/describe_limits/_describe_limits_input.rs`
+- `src/operation/describe_limits/_describe_limits_output.rs`
+- `src/operation/describe_limits/builders.rs`
+- `src/operation/describe_table.rs`
+- `src/operation/describe_table/_describe_table_input.rs`
+- `src/operation/describe_table/_describe_table_output.rs`
+- `src/operation/describe_table/builders.rs`
+- `src/operation/describe_table_replica_auto_scaling.rs`
+- `src/operation/describe_table_replica_auto_scaling/_describe_table_replica_auto_scaling_input.rs`
+- `src/operation/describe_table_replica_auto_scaling/_describe_table_replica_auto_scaling_output.rs`
+- `src/operation/describe_table_replica_auto_scaling/builders.rs`
+- `src/operation/describe_time_to_live.rs`
+- `src/operation/describe_time_to_live/_describe_time_to_live_input.rs`
+- `src/operation/describe_time_to_live/_describe_time_to_live_output.rs`
+- `src/operation/describe_time_to_live/builders.rs`
+- `src/operation/disable_kinesis_streaming_destination.rs`
+- `src/operation/disable_kinesis_streaming_destination/_disable_kinesis_streaming_destination_input.rs`
+- `src/operation/disable_kinesis_streaming_destination/_disable_kinesis_streaming_destination_output.rs`
+- `src/operation/disable_kinesis_streaming_destination/builders.rs`
+- `src/operation/enable_kinesis_streaming_destination.rs`
+- `src/operation/enable_kinesis_streaming_destination/_enable_kinesis_streaming_destination_input.rs`
+- `src/operation/enable_kinesis_streaming_destination/_enable_kinesis_streaming_destination_output.rs`
+- `src/operation/enable_kinesis_streaming_destination/builders.rs`
+- `src/operation/execute_statement.rs`
+- `src/operation/execute_statement/_execute_statement_input.rs`
+- `src/operation/execute_statement/_execute_statement_output.rs`
+- `src/operation/execute_statement/builders.rs`
+- `src/operation/execute_transaction.rs`
+- `src/operation/execute_transaction/_execute_transaction_input.rs`
+- `src/operation/execute_transaction/_execute_transaction_output.rs`
+- `src/operation/execute_transaction/builders.rs`
+- `src/operation/export_table_to_point_in_time.rs`
+- `src/operation/export_table_to_point_in_time/_export_table_to_point_in_time_input.rs`
+- `src/operation/export_table_to_point_in_time/_export_table_to_point_in_time_output.rs`
+- `src/operation/export_table_to_point_in_time/builders.rs`
+- `src/operation/get_item.rs`
+- `src/operation/get_item/_get_item_input.rs`
+- `src/operation/get_item/_get_item_output.rs`
+- `src/operation/get_item/builders.rs`
+- `src/operation/get_resource_policy.rs`
+- `src/operation/get_resource_policy/_get_resource_policy_input.rs`
+- `src/operation/get_resource_policy/_get_resource_policy_output.rs`
+- `src/operation/get_resource_policy/builders.rs`
+- `src/operation/import_table.rs`
+- `src/operation/import_table/_import_table_input.rs`
+- `src/operation/import_table/_import_table_output.rs`
+- `src/operation/import_table/builders.rs`
+- `src/operation/list_backups.rs`
+- `src/operation/list_backups/_list_backups_input.rs`
+- `src/operation/list_backups/_list_backups_output.rs`
+- `src/operation/list_backups/builders.rs`
+- `src/operation/list_contributor_insights.rs`
+- `src/operation/list_contributor_insights/_list_contributor_insights_input.rs`
+- `src/operation/list_contributor_insights/_list_contributor_insights_output.rs`
+- `src/operation/list_contributor_insights/builders.rs`
+- `src/operation/list_contributor_insights/paginator.rs`
+- `src/operation/list_exports.rs`
+- `src/operation/list_exports/_list_exports_input.rs`
+- `src/operation/list_exports/_list_exports_output.rs`
+- `src/operation/list_exports/builders.rs`
+- `src/operation/list_exports/paginator.rs`
+- `src/operation/list_global_tables.rs`
+- `src/operation/list_global_tables/_list_global_tables_input.rs`
+- `src/operation/list_global_tables/_list_global_tables_output.rs`
+- `src/operation/list_global_tables/builders.rs`
+- `src/operation/list_imports.rs`
+- `src/operation/list_imports/_list_imports_input.rs`
+- `src/operation/list_imports/_list_imports_output.rs`
+- `src/operation/list_imports/builders.rs`
+- `src/operation/list_imports/paginator.rs`
+- `src/operation/list_tables.rs`
+- `src/operation/list_tables/_list_tables_input.rs`
+- `src/operation/list_tables/_list_tables_output.rs`
+- `src/operation/list_tables/builders.rs`
+- `src/operation/list_tables/paginator.rs`
+- `src/operation/list_tags_of_resource.rs`
+- `src/operation/list_tags_of_resource/_list_tags_of_resource_input.rs`
+- `src/operation/list_tags_of_resource/_list_tags_of_resource_output.rs`
+- `src/operation/list_tags_of_resource/builders.rs`
+- `src/operation/put_item.rs`
+- `src/operation/put_item/_put_item_input.rs`
+- `src/operation/put_item/_put_item_output.rs`
+- `src/operation/put_item/builders.rs`
+- `src/operation/put_resource_policy.rs`
+- `src/operation/put_resource_policy/_put_resource_policy_input.rs`
+- `src/operation/put_resource_policy/_put_resource_policy_output.rs`
+- `src/operation/put_resource_policy/builders.rs`
+- `src/operation/query.rs`
+- `src/operation/query/_query_input.rs`
+- `src/operation/query/_query_output.rs`
+- `src/operation/query/builders.rs`
+- `src/operation/query/paginator.rs`
+- `src/operation/restore_table_from_backup.rs`
+- `src/operation/restore_table_from_backup/_restore_table_from_backup_input.rs`
+- `src/operation/restore_table_from_backup/_restore_table_from_backup_output.rs`
+- `src/operation/restore_table_from_backup/builders.rs`
+- `src/operation/restore_table_to_point_in_time.rs`
+- `src/operation/restore_table_to_point_in_time/_restore_table_to_point_in_time_input.rs`
+- `src/operation/restore_table_to_point_in_time/_restore_table_to_point_in_time_output.rs`
+- `src/operation/restore_table_to_point_in_time/builders.rs`
+- `src/operation/scan.rs`
+- `src/operation/scan/_scan_input.rs`
+- `src/operation/scan/_scan_output.rs`
+- `src/operation/scan/builders.rs`
+- `src/operation/scan/paginator.rs`
+- `src/operation/search_vectors.rs`
+- `src/operation/search_vectors/_search_vectors_input.rs`
+- `src/operation/search_vectors/_search_vectors_output.rs`
+- `src/operation/search_vectors/builders.rs`
+- `src/operation/tag_resource.rs`
+- `src/operation/tag_resource/_tag_resource_input.rs`
+- `src/operation/tag_resource/_tag_resource_output.rs`
+- `src/operation/tag_resource/builders.rs`
+- `src/operation/transact_get_items.rs`
+- `src/operation/transact_get_items/_transact_get_items_input.rs`
+- `src/operation/transact_get_items/_transact_get_items_output.rs`
+- `src/operation/transact_get_items/builders.rs`
+- `src/operation/transact_write_items.rs`
+- `src/operation/transact_write_items/_transact_write_items_input.rs`
+- `src/operation/transact_write_items/_transact_write_items_output.rs`
+- `src/operation/transact_write_items/builders.rs`
+- `src/operation/untag_resource.rs`
+- `src/operation/untag_resource/_untag_resource_input.rs`
+- `src/operation/untag_resource/_untag_resource_output.rs`
+- `src/operation/untag_resource/builders.rs`
+- `src/operation/update_continuous_backups.rs`
+- `src/operation/update_continuous_backups/_update_continuous_backups_input.rs`
+- `src/operation/update_continuous_backups/_update_continuous_backups_output.rs`
+- `src/operation/update_continuous_backups/builders.rs`
+- `src/operation/update_contributor_insights.rs`
+- `src/operation/update_contributor_insights/_update_contributor_insights_input.rs`
+- `src/operation/update_contributor_insights/_update_contributor_insights_output.rs`
+- `src/operation/update_contributor_insights/builders.rs`
+- `src/operation/update_global_table.rs`
+- `src/operation/update_global_table/_update_global_table_input.rs`
+- `src/operation/update_global_table/_update_global_table_output.rs`
+- `src/operation/update_global_table/builders.rs`
+- `src/operation/update_global_table_settings.rs`
+- `src/operation/update_global_table_settings/_update_global_table_settings_input.rs`
+- `src/operation/update_global_table_settings/_update_global_table_settings_output.rs`
+- `src/operation/update_global_table_settings/builders.rs`
+- `src/operation/update_item.rs`
+- `src/operation/update_item/_update_item_input.rs`
+- `src/operation/update_item/_update_item_output.rs`
+- `src/operation/update_item/builders.rs`
+- `src/operation/update_kinesis_streaming_destination.rs`
+- `src/operation/update_kinesis_streaming_destination/_update_kinesis_streaming_destination_input.rs`
+- `src/operation/update_kinesis_streaming_destination/_update_kinesis_streaming_destination_output.rs`
+- `src/operation/update_kinesis_streaming_destination/builders.rs`
+- `src/operation/update_table.rs`
+- `src/operation/update_table/_update_table_input.rs`
+- `src/operation/update_table/_update_table_output.rs`
+- `src/operation/update_table/builders.rs`
+- `src/operation/update_table_replica_auto_scaling.rs`
+- `src/operation/update_table_replica_auto_scaling/_update_table_replica_auto_scaling_input.rs`
+- `src/operation/update_table_replica_auto_scaling/_update_table_replica_auto_scaling_output.rs`
+- `src/operation/update_table_replica_auto_scaling/builders.rs`
+- `src/operation/update_time_to_live.rs`
+- `src/operation/update_time_to_live/_update_time_to_live_input.rs`
+- `src/operation/update_time_to_live/_update_time_to_live_output.rs`
+- `src/operation/update_time_to_live/builders.rs`
+- `src/protocol_serde.rs`
+- `src/protocol_serde/shape_batch_execute_statement.rs`
+- `src/protocol_serde/shape_batch_execute_statement_input.rs`
+- `src/protocol_serde/shape_batch_get_item.rs`
+- `src/protocol_serde/shape_batch_get_item_input.rs`
+- `src/protocol_serde/shape_batch_write_item.rs`
+- `src/protocol_serde/shape_batch_write_item_input.rs`
+- `src/protocol_serde/shape_batch_write_item_request_map.rs`
+- `src/protocol_serde/shape_create_backup.rs`
+- `src/protocol_serde/shape_create_backup_input.rs`
+- `src/protocol_serde/shape_create_global_table.rs`
+- `src/protocol_serde/shape_create_global_table_input.rs`
+- `src/protocol_serde/shape_create_global_table_witness_group_member_action.rs`
+- `src/protocol_serde/shape_create_table.rs`
+- `src/protocol_serde/shape_create_table_input.rs`
+- `src/protocol_serde/shape_delete_backup.rs`
+- `src/protocol_serde/shape_delete_backup_input.rs`
+- `src/protocol_serde/shape_delete_item.rs`
+- `src/protocol_serde/shape_delete_item_input.rs`
+- `src/protocol_serde/shape_delete_resource_policy.rs`
+- `src/protocol_serde/shape_delete_resource_policy_input.rs`
+- `src/protocol_serde/shape_delete_table.rs`
+- `src/protocol_serde/shape_delete_table_input.rs`
+- `src/protocol_serde/shape_describe_backup.rs`
+- `src/protocol_serde/shape_describe_backup_input.rs`
+- `src/protocol_serde/shape_describe_continuous_backups.rs`
+- `src/protocol_serde/shape_describe_continuous_backups_input.rs`
+- `src/protocol_serde/shape_describe_contributor_insights.rs`
+- `src/protocol_serde/shape_describe_contributor_insights_input.rs`
+- `src/protocol_serde/shape_describe_endpoints.rs`
+- `src/protocol_serde/shape_describe_export.rs`
+- `src/protocol_serde/shape_describe_export_input.rs`
+- `src/protocol_serde/shape_describe_global_table.rs`
+- `src/protocol_serde/shape_describe_global_table_input.rs`
+- `src/protocol_serde/shape_describe_global_table_settings.rs`
+- `src/protocol_serde/shape_describe_global_table_settings_input.rs`
+- `src/protocol_serde/shape_describe_import.rs`
+- `src/protocol_serde/shape_describe_import_input.rs`
+- `src/protocol_serde/shape_describe_kinesis_streaming_destination.rs`
+- `src/protocol_serde/shape_describe_kinesis_streaming_destination_input.rs`
+- `src/protocol_serde/shape_describe_limits.rs`
+- `src/protocol_serde/shape_describe_table.rs`
+- `src/protocol_serde/shape_describe_table_input.rs`
+- `src/protocol_serde/shape_describe_table_replica_auto_scaling.rs`
+- `src/protocol_serde/shape_describe_table_replica_auto_scaling_input.rs`
+- `src/protocol_serde/shape_describe_time_to_live.rs`
+- `src/protocol_serde/shape_describe_time_to_live_input.rs`
+- `src/protocol_serde/shape_disable_kinesis_streaming_destination.rs`
+- `src/protocol_serde/shape_disable_kinesis_streaming_destination_input.rs`
+- `src/protocol_serde/shape_enable_kinesis_streaming_destination.rs`
+- `src/protocol_serde/shape_enable_kinesis_streaming_destination_input.rs`
+- `src/protocol_serde/shape_execute_statement.rs`
+- `src/protocol_serde/shape_execute_statement_input.rs`
+- `src/protocol_serde/shape_execute_transaction.rs`
+- `src/protocol_serde/shape_execute_transaction_input.rs`
+- `src/protocol_serde/shape_export_table_to_point_in_time.rs`
+- `src/protocol_serde/shape_export_table_to_point_in_time_input.rs`
+- `src/protocol_serde/shape_get_item.rs`
+- `src/protocol_serde/shape_get_item_input.rs`
+- `src/protocol_serde/shape_get_resource_policy.rs`
+- `src/protocol_serde/shape_get_resource_policy_input.rs`
+- `src/protocol_serde/shape_global_table_witness_group_update.rs`
+- `src/protocol_serde/shape_import_table.rs`
+- `src/protocol_serde/shape_import_table_description.rs`
+- `src/protocol_serde/shape_import_table_input.rs`
+- `src/protocol_serde/shape_list_backups.rs`
+- `src/protocol_serde/shape_list_backups_input.rs`
+- `src/protocol_serde/shape_list_contributor_insights.rs`
+- `src/protocol_serde/shape_list_contributor_insights_input.rs`
+- `src/protocol_serde/shape_list_exports.rs`
+- `src/protocol_serde/shape_list_exports_input.rs`
+- `src/protocol_serde/shape_list_global_tables.rs`
+- `src/protocol_serde/shape_list_global_tables_input.rs`
+- `src/protocol_serde/shape_list_imports.rs`
+- `src/protocol_serde/shape_list_imports_input.rs`
+- `src/protocol_serde/shape_list_tables.rs`
+- `src/protocol_serde/shape_list_tables_input.rs`
+- `src/protocol_serde/shape_list_tags_of_resource.rs`
+- `src/protocol_serde/shape_list_tags_of_resource_input.rs`
+- `src/protocol_serde/shape_put_item.rs`
+- `src/protocol_serde/shape_put_item_input.rs`
+- `src/protocol_serde/shape_put_item_input_attribute_map.rs`
+- `src/protocol_serde/shape_put_request.rs`
+- `src/protocol_serde/shape_put_resource_policy.rs`
+- `src/protocol_serde/shape_put_resource_policy_input.rs`
+- `src/protocol_serde/shape_query.rs`
+- `src/protocol_serde/shape_query_input.rs`
+- `src/protocol_serde/shape_restore_table_from_backup.rs`
+- `src/protocol_serde/shape_restore_table_from_backup_input.rs`
+- `src/protocol_serde/shape_restore_table_to_point_in_time.rs`
+- `src/protocol_serde/shape_restore_table_to_point_in_time_input.rs`
+- `src/protocol_serde/shape_scan.rs`
+- `src/protocol_serde/shape_scan_input.rs`
+- `src/protocol_serde/shape_search_vectors.rs`
+- `src/protocol_serde/shape_search_vectors_input.rs`
+- `src/protocol_serde/shape_tag_resource.rs`
+- `src/protocol_serde/shape_tag_resource_input.rs`
+- `src/protocol_serde/shape_transact_get_items.rs`
+- `src/protocol_serde/shape_transact_get_items_input.rs`
+- `src/protocol_serde/shape_transact_write_items.rs`
+- `src/protocol_serde/shape_transact_write_items_input.rs`
+- `src/protocol_serde/shape_untag_resource.rs`
+- `src/protocol_serde/shape_untag_resource_input.rs`
+- `src/protocol_serde/shape_update_continuous_backups.rs`
+- `src/protocol_serde/shape_update_continuous_backups_input.rs`
+- `src/protocol_serde/shape_update_contributor_insights.rs`
+- `src/protocol_serde/shape_update_contributor_insights_input.rs`
+- `src/protocol_serde/shape_update_global_table.rs`
+- `src/protocol_serde/shape_update_global_table_input.rs`
+- `src/protocol_serde/shape_update_global_table_settings.rs`
+- `src/protocol_serde/shape_update_global_table_settings_input.rs`
+- `src/protocol_serde/shape_update_item.rs`
+- `src/protocol_serde/shape_update_item_input.rs`
+- `src/protocol_serde/shape_update_kinesis_streaming_destination.rs`
+- `src/protocol_serde/shape_update_kinesis_streaming_destination_input.rs`
+- `src/protocol_serde/shape_update_table.rs`
+- `src/protocol_serde/shape_update_table_input.rs`
+- `src/protocol_serde/shape_update_table_replica_auto_scaling.rs`
+- `src/protocol_serde/shape_update_table_replica_auto_scaling_input.rs`
+- `src/protocol_serde/shape_update_time_to_live.rs`
+- `src/protocol_serde/shape_update_time_to_live_input.rs`
+- `src/protocol_serde/shape_write_request.rs`
+- `src/protocol_serde/shape_write_requests.rs`
+- `src/serde_util.rs`
+- `src/waiters.rs`
+- `src/waiters/contributor_insights_enabled.rs`
+- `src/waiters/export_completed.rs`
+- `src/waiters/import_completed.rs`
+- `src/waiters/kinesis_streaming_destination_active.rs`
+- `src/waiters/matchers.rs`
+- `src/waiters/table_exists.rs`
+- `src/waiters/table_not_exists.rs`
+
+## Customizations
+
+- Add one non-default Cargo feature and matching cfg gates for each model operation.
+- Rename the Cargo package/library from manifest data.
+- Remove upstream `tests/` from generated output.
+
+## Reproduction
+
+```text
+cargo run -p aws-sdk-modularizer -- --manifest services-manifest.json
+```

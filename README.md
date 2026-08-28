@@ -1,78 +1,89 @@
-# aws-sdk-builder
+# better-aws
 
-`aws-sdk-builder` is the core Rust-only generator. Service models are shipped in
-small, build-time provider crates for the fifteen supported services:
-Batch, Bedrock Runtime, CloudWatch Logs, CodeArtifact, Cognito Identity Provider,
-Config, DynamoDB, IAM, KMS, Lambda, S3, SES v2, SNS, SQS, and STS.
+Rust tooling that transforms pinned AWS SDK service crates into modular crates
+with one opt-in Cargo feature per operation. The full requirements are in
+[`Prompt.md`](Prompt.md).
 
-For example, a consumer selects operations in `build.rs` through the service
-crate and includes that service inside a wrapper module:
+The codemod is driven by `services-manifest.json` and each service's Smithy
+`model.json`. It downloads the pinned AWS SDK source into a temporary directory,
+uses `syn` to modify the Rust module graph, updates `Cargo.toml`, and writes
+outputs such as:
 
-    [dependencies]
-    aws-sdk-builder-s3 = "0.1"
-
-    [build-dependencies]
-    aws-sdk-builder-s3 = "0.1"
-
-    // build.rs
-    fn main() -> Result<(), Box<dyn std::error::Error>> {
-        aws_sdk_builder_s3::compile(["CreateBucket", "PutObject"])?;
-        Ok(())
-    }
-
-    // src/lib.rs
-    mod aws_s3_sdk {
-        aws_sdk_builder_s3::include_sdk!();
-    }
-
-Each service crate packages exactly one `model.json`. An empty operation array
-selects all operations, and repeated calls for the same service merge their
-selections deterministically. Generated service modules are installed
-atomically below Cargo's `OUT_DIR`.
-
-The wrapper exposes paths such as
-`aws_s3_sdk::operation::abort_multipart_upload::AbortMultipartUpload`.
-Generated output is installed atomically, so a failed build cannot replace a
-previous result.
-
-Generated clients use the AWS runtime contract supplied by the downstream
-consumer; `aws-sdk-builder` and the service provider crates remain codegen-only.
-
-Pinned upstream repository, commit, selected services, model paths, roots, and
-comparison exclusions live in [`services-manifest.json`](services-manifest.json).
-Refresh reference source and every provider `model.json` with:
-
-    just conformance-sync
-
-Run conformance with:
-
-    just conformance
-
-The summary is `conformance/summary.md`; detailed per-service reports are stored under
-`conformance/summary/`. Reference and generated source trees are checked in under
-`conformance/`; Cargo metadata, README files, LICENSE files, tests, and benches are
-excluded from both comparison inputs.
-
-For a local S3 emulator smoke test, start Floci yourself and run
-scripts/check-s3-floci.sh. The launcher never starts or stops the emulator
-and refuses non-loopback endpoints unless ALLOW_NONLOCAL_FLOCI=1 is set.
-
-### Prompt
-
+```text
+crates/aws_sdk_s3_modular/
+├── Cargo.toml
+├── src/
+├── DIFF.MD
+└── DIFF.diff
 ```
-/goal
-  Continue the Rust-native AWS SDK codegen parity project in this repository.
 
-  Read Prompt.md and docs/aws-sdk-builder-status.md first. Continue from the current
-  repository state. Keep codegen generic and driven by packaged Smithy JSON models.
-  Use the pinned AWS SDK Rust and smithy-rs implementations as references. Refactor current codegen to follow smithy codegen design patterns. See `docs/smithy-codegen-design.md` and `docs/smithy-rs-reverse-engineering.md`.
+For an operation named `HeadBucket`, the generated crate declares
+`op_head_bucket` and gates the public module as:
 
-  After every codegen change:
-  1. Regenerate all-operation snapshots.
-  2. Run conformance and verify the diff shrinks.
-  3. Run tests, clippy, formatting, and git diff --check.
-  4. Record a checkpoint in docs/aws-sdk-builder-status.md and commit the change.
+```rust
+#[cfg(feature = "op_head_bucket")]
+pub mod head_bucket;
+```
 
-  Do not stop at compilation or partial S3 support. Completion requires exact parity
-  with conformance/reference and a passing conformance command.
+Operation features are never added to Cargo's default feature list. Generated
+service crates omit their upstream `tests/` directories, and those paths are
+excluded from both diff artifacts.
+
+## Commands
+
+Run the complete manifest-driven validation loop with:
+
+```text
+just conformance
+cargo check --workspace
+cargo test --workspace
+cargo fmt --all -- --check
+git diff --check
+```
+
+The conformance command reports operation coverage and validates feature gates,
+test exclusion, generated crate compilation, and reproducible diffs.
+
+## Prompt for the next change loop
+
+Copy and send this prompt when starting the next implementation change:
+
+```text
+/goal Read Prompt.md, README.md, services-manifest.json,
+docs/aws-sdk-modularizer-status.md, the current git status, and the local
+/tmp/smithy-rs checkout before changing anything.
+
+Continue the AWS SDK per-operation modularizer from the current repository state.
+Choose the smallest concrete missing behavior or failing coverage case. Keep the
+implementation generic and driven by the manifest and Smithy model JSON. Use
+syn for Rust AST/module changes and a structural TOML parser for Cargo.toml.
+Do not revive the old builder, snapshot, projection, or compatibility pipeline.
+Clean up obsolete code, dependencies, workspace members, fixtures, examples,
+and documentation after proving they are no longer referenced; do not leave
+dead compatibility shims behind.
+Do not hardcode service or operation names unless the model lacks the required
+information and the matching Smithy-RS special handling is documented and
+tested.
+
+For each service, preserve the manifest-defined package/library/output names,
+add one non-default op_<snake_case_operation> feature per model operation, and
+gate the complete public operation surface. Strip the generated service crate's
+tests/ directory and exclude tests/** from DIFF.MD and DIFF.diff.
+
+After the change, run all of these and fix failures rather than stopping early:
+
+  just conformance
+  cargo check --workspace
+  cargo test --workspace
+  cargo fmt --all -- --check
+  git diff --check
+
+Confirm that operation coverage increases or, for a documentation-only change,
+explicitly record that coverage is unchanged. Confirm cargo check --workspace
+passes, no generated service crate contains tests/, and neither diff artifact
+contains tests/ hunks. After every commit, append a checkpoint to
+docs/aws-sdk-modularizer-status.md with the commit hash/date, objective, changed
+files and generic rule, command results, coverage delta, blocker, and one next
+action. Summarize the changed generic rule, verification results, coverage
+delta, cleanup performed, and any remaining blocker.
 ```

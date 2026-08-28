@@ -1,0 +1,404 @@
+# AWS SDK modularizer diff
+
+- repository: `https://github.com/awslabs/aws-sdk-rust`
+- revision: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
+- service: `sdk/batch`
+- model: `models/batch.json`
+- package: `aws-sdk-batch-modular`
+- library: `aws_sdk_batch_modular`
+- tests exclusion: `tests/**` is excluded from the comparison.
+
+## Operations
+
+- `op_cancel_job`: `CancelJob`
+- `op_create_compute_environment`: `CreateComputeEnvironment`
+- `op_create_consumable_resource`: `CreateConsumableResource`
+- `op_create_job_queue`: `CreateJobQueue`
+- `op_create_quota_share`: `CreateQuotaShare`
+- `op_create_scheduling_policy`: `CreateSchedulingPolicy`
+- `op_create_service_environment`: `CreateServiceEnvironment`
+- `op_delete_compute_environment`: `DeleteComputeEnvironment`
+- `op_delete_consumable_resource`: `DeleteConsumableResource`
+- `op_delete_job_queue`: `DeleteJobQueue`
+- `op_delete_quota_share`: `DeleteQuotaShare`
+- `op_delete_scheduling_policy`: `DeleteSchedulingPolicy`
+- `op_delete_service_environment`: `DeleteServiceEnvironment`
+- `op_deregister_job_definition`: `DeregisterJobDefinition`
+- `op_describe_compute_environments`: `DescribeComputeEnvironments`
+- `op_describe_consumable_resource`: `DescribeConsumableResource`
+- `op_describe_job_definitions`: `DescribeJobDefinitions`
+- `op_describe_job_queues`: `DescribeJobQueues`
+- `op_describe_jobs`: `DescribeJobs`
+- `op_describe_quota_share`: `DescribeQuotaShare`
+- `op_describe_scheduling_policies`: `DescribeSchedulingPolicies`
+- `op_describe_service_environments`: `DescribeServiceEnvironments`
+- `op_describe_service_job`: `DescribeServiceJob`
+- `op_get_job_queue_snapshot`: `GetJobQueueSnapshot`
+- `op_list_consumable_resources`: `ListConsumableResources`
+- `op_list_jobs`: `ListJobs`
+- `op_list_jobs_by_consumable_resource`: `ListJobsByConsumableResource`
+- `op_list_quota_shares`: `ListQuotaShares`
+- `op_list_scheduling_policies`: `ListSchedulingPolicies`
+- `op_list_service_jobs`: `ListServiceJobs`
+- `op_list_tags_for_resource`: `ListTagsForResource`
+- `op_register_job_definition`: `RegisterJobDefinition`
+- `op_submit_job`: `SubmitJob`
+- `op_submit_service_job`: `SubmitServiceJob`
+- `op_tag_resource`: `TagResource`
+- `op_terminate_job`: `TerminateJob`
+- `op_terminate_service_job`: `TerminateServiceJob`
+- `op_untag_resource`: `UntagResource`
+- `op_update_compute_environment`: `UpdateComputeEnvironment`
+- `op_update_consumable_resource`: `UpdateConsumableResource`
+- `op_update_job_queue`: `UpdateJobQueue`
+- `op_update_quota_share`: `UpdateQuotaShare`
+- `op_update_scheduling_policy`: `UpdateSchedulingPolicy`
+- `op_update_service_environment`: `UpdateServiceEnvironment`
+- `op_update_service_job`: `UpdateServiceJob`
+
+## Changed files
+
+- `Cargo.toml`
+- `src/client.rs`
+- `src/client/cancel_job.rs`
+- `src/client/create_compute_environment.rs`
+- `src/client/create_consumable_resource.rs`
+- `src/client/create_job_queue.rs`
+- `src/client/create_quota_share.rs`
+- `src/client/create_scheduling_policy.rs`
+- `src/client/create_service_environment.rs`
+- `src/client/delete_compute_environment.rs`
+- `src/client/delete_consumable_resource.rs`
+- `src/client/delete_job_queue.rs`
+- `src/client/delete_quota_share.rs`
+- `src/client/delete_scheduling_policy.rs`
+- `src/client/delete_service_environment.rs`
+- `src/client/deregister_job_definition.rs`
+- `src/client/describe_compute_environments.rs`
+- `src/client/describe_consumable_resource.rs`
+- `src/client/describe_job_definitions.rs`
+- `src/client/describe_job_queues.rs`
+- `src/client/describe_jobs.rs`
+- `src/client/describe_quota_share.rs`
+- `src/client/describe_scheduling_policies.rs`
+- `src/client/describe_service_environments.rs`
+- `src/client/describe_service_job.rs`
+- `src/client/get_job_queue_snapshot.rs`
+- `src/client/list_consumable_resources.rs`
+- `src/client/list_jobs.rs`
+- `src/client/list_jobs_by_consumable_resource.rs`
+- `src/client/list_quota_shares.rs`
+- `src/client/list_scheduling_policies.rs`
+- `src/client/list_service_jobs.rs`
+- `src/client/list_tags_for_resource.rs`
+- `src/client/register_job_definition.rs`
+- `src/client/submit_job.rs`
+- `src/client/submit_service_job.rs`
+- `src/client/tag_resource.rs`
+- `src/client/terminate_job.rs`
+- `src/client/terminate_service_job.rs`
+- `src/client/untag_resource.rs`
+- `src/client/update_compute_environment.rs`
+- `src/client/update_consumable_resource.rs`
+- `src/client/update_job_queue.rs`
+- `src/client/update_quota_share.rs`
+- `src/client/update_scheduling_policy.rs`
+- `src/client/update_service_environment.rs`
+- `src/client/update_service_job.rs`
+- `src/error_meta.rs`
+- `src/lens.rs`
+- `src/operation.rs`
+- `src/operation/cancel_job.rs`
+- `src/operation/cancel_job/_cancel_job_input.rs`
+- `src/operation/cancel_job/_cancel_job_output.rs`
+- `src/operation/cancel_job/builders.rs`
+- `src/operation/create_compute_environment.rs`
+- `src/operation/create_compute_environment/_create_compute_environment_input.rs`
+- `src/operation/create_compute_environment/_create_compute_environment_output.rs`
+- `src/operation/create_compute_environment/builders.rs`
+- `src/operation/create_consumable_resource.rs`
+- `src/operation/create_consumable_resource/_create_consumable_resource_input.rs`
+- `src/operation/create_consumable_resource/_create_consumable_resource_output.rs`
+- `src/operation/create_consumable_resource/builders.rs`
+- `src/operation/create_job_queue.rs`
+- `src/operation/create_job_queue/_create_job_queue_input.rs`
+- `src/operation/create_job_queue/_create_job_queue_output.rs`
+- `src/operation/create_job_queue/builders.rs`
+- `src/operation/create_quota_share.rs`
+- `src/operation/create_quota_share/_create_quota_share_input.rs`
+- `src/operation/create_quota_share/_create_quota_share_output.rs`
+- `src/operation/create_quota_share/builders.rs`
+- `src/operation/create_scheduling_policy.rs`
+- `src/operation/create_scheduling_policy/_create_scheduling_policy_input.rs`
+- `src/operation/create_scheduling_policy/_create_scheduling_policy_output.rs`
+- `src/operation/create_scheduling_policy/builders.rs`
+- `src/operation/create_service_environment.rs`
+- `src/operation/create_service_environment/_create_service_environment_input.rs`
+- `src/operation/create_service_environment/_create_service_environment_output.rs`
+- `src/operation/create_service_environment/builders.rs`
+- `src/operation/delete_compute_environment.rs`
+- `src/operation/delete_compute_environment/_delete_compute_environment_input.rs`
+- `src/operation/delete_compute_environment/_delete_compute_environment_output.rs`
+- `src/operation/delete_compute_environment/builders.rs`
+- `src/operation/delete_consumable_resource.rs`
+- `src/operation/delete_consumable_resource/_delete_consumable_resource_input.rs`
+- `src/operation/delete_consumable_resource/_delete_consumable_resource_output.rs`
+- `src/operation/delete_consumable_resource/builders.rs`
+- `src/operation/delete_job_queue.rs`
+- `src/operation/delete_job_queue/_delete_job_queue_input.rs`
+- `src/operation/delete_job_queue/_delete_job_queue_output.rs`
+- `src/operation/delete_job_queue/builders.rs`
+- `src/operation/delete_quota_share.rs`
+- `src/operation/delete_quota_share/_delete_quota_share_input.rs`
+- `src/operation/delete_quota_share/_delete_quota_share_output.rs`
+- `src/operation/delete_quota_share/builders.rs`
+- `src/operation/delete_scheduling_policy.rs`
+- `src/operation/delete_scheduling_policy/_delete_scheduling_policy_input.rs`
+- `src/operation/delete_scheduling_policy/_delete_scheduling_policy_output.rs`
+- `src/operation/delete_scheduling_policy/builders.rs`
+- `src/operation/delete_service_environment.rs`
+- `src/operation/delete_service_environment/_delete_service_environment_input.rs`
+- `src/operation/delete_service_environment/_delete_service_environment_output.rs`
+- `src/operation/delete_service_environment/builders.rs`
+- `src/operation/deregister_job_definition.rs`
+- `src/operation/deregister_job_definition/_deregister_job_definition_input.rs`
+- `src/operation/deregister_job_definition/_deregister_job_definition_output.rs`
+- `src/operation/deregister_job_definition/builders.rs`
+- `src/operation/describe_compute_environments.rs`
+- `src/operation/describe_compute_environments/_describe_compute_environments_input.rs`
+- `src/operation/describe_compute_environments/_describe_compute_environments_output.rs`
+- `src/operation/describe_compute_environments/builders.rs`
+- `src/operation/describe_compute_environments/paginator.rs`
+- `src/operation/describe_consumable_resource.rs`
+- `src/operation/describe_consumable_resource/_describe_consumable_resource_input.rs`
+- `src/operation/describe_consumable_resource/_describe_consumable_resource_output.rs`
+- `src/operation/describe_consumable_resource/builders.rs`
+- `src/operation/describe_job_definitions.rs`
+- `src/operation/describe_job_definitions/_describe_job_definitions_input.rs`
+- `src/operation/describe_job_definitions/_describe_job_definitions_output.rs`
+- `src/operation/describe_job_definitions/builders.rs`
+- `src/operation/describe_job_definitions/paginator.rs`
+- `src/operation/describe_job_queues.rs`
+- `src/operation/describe_job_queues/_describe_job_queues_input.rs`
+- `src/operation/describe_job_queues/_describe_job_queues_output.rs`
+- `src/operation/describe_job_queues/builders.rs`
+- `src/operation/describe_job_queues/paginator.rs`
+- `src/operation/describe_jobs.rs`
+- `src/operation/describe_jobs/_describe_jobs_input.rs`
+- `src/operation/describe_jobs/_describe_jobs_output.rs`
+- `src/operation/describe_jobs/builders.rs`
+- `src/operation/describe_quota_share.rs`
+- `src/operation/describe_quota_share/_describe_quota_share_input.rs`
+- `src/operation/describe_quota_share/_describe_quota_share_output.rs`
+- `src/operation/describe_quota_share/builders.rs`
+- `src/operation/describe_scheduling_policies.rs`
+- `src/operation/describe_scheduling_policies/_describe_scheduling_policies_input.rs`
+- `src/operation/describe_scheduling_policies/_describe_scheduling_policies_output.rs`
+- `src/operation/describe_scheduling_policies/builders.rs`
+- `src/operation/describe_service_environments.rs`
+- `src/operation/describe_service_environments/_describe_service_environments_input.rs`
+- `src/operation/describe_service_environments/_describe_service_environments_output.rs`
+- `src/operation/describe_service_environments/builders.rs`
+- `src/operation/describe_service_environments/paginator.rs`
+- `src/operation/describe_service_job.rs`
+- `src/operation/describe_service_job/_describe_service_job_input.rs`
+- `src/operation/describe_service_job/_describe_service_job_output.rs`
+- `src/operation/describe_service_job/builders.rs`
+- `src/operation/get_job_queue_snapshot.rs`
+- `src/operation/get_job_queue_snapshot/_get_job_queue_snapshot_input.rs`
+- `src/operation/get_job_queue_snapshot/_get_job_queue_snapshot_output.rs`
+- `src/operation/get_job_queue_snapshot/builders.rs`
+- `src/operation/list_consumable_resources.rs`
+- `src/operation/list_consumable_resources/_list_consumable_resources_input.rs`
+- `src/operation/list_consumable_resources/_list_consumable_resources_output.rs`
+- `src/operation/list_consumable_resources/builders.rs`
+- `src/operation/list_consumable_resources/paginator.rs`
+- `src/operation/list_jobs.rs`
+- `src/operation/list_jobs/_list_jobs_input.rs`
+- `src/operation/list_jobs/_list_jobs_output.rs`
+- `src/operation/list_jobs/builders.rs`
+- `src/operation/list_jobs/paginator.rs`
+- `src/operation/list_jobs_by_consumable_resource.rs`
+- `src/operation/list_jobs_by_consumable_resource/_list_jobs_by_consumable_resource_input.rs`
+- `src/operation/list_jobs_by_consumable_resource/_list_jobs_by_consumable_resource_output.rs`
+- `src/operation/list_jobs_by_consumable_resource/builders.rs`
+- `src/operation/list_jobs_by_consumable_resource/paginator.rs`
+- `src/operation/list_quota_shares.rs`
+- `src/operation/list_quota_shares/_list_quota_shares_input.rs`
+- `src/operation/list_quota_shares/_list_quota_shares_output.rs`
+- `src/operation/list_quota_shares/builders.rs`
+- `src/operation/list_quota_shares/paginator.rs`
+- `src/operation/list_scheduling_policies.rs`
+- `src/operation/list_scheduling_policies/_list_scheduling_policies_input.rs`
+- `src/operation/list_scheduling_policies/_list_scheduling_policies_output.rs`
+- `src/operation/list_scheduling_policies/builders.rs`
+- `src/operation/list_scheduling_policies/paginator.rs`
+- `src/operation/list_service_jobs.rs`
+- `src/operation/list_service_jobs/_list_service_jobs_input.rs`
+- `src/operation/list_service_jobs/_list_service_jobs_output.rs`
+- `src/operation/list_service_jobs/builders.rs`
+- `src/operation/list_service_jobs/paginator.rs`
+- `src/operation/list_tags_for_resource.rs`
+- `src/operation/list_tags_for_resource/_list_tags_for_resource_input.rs`
+- `src/operation/list_tags_for_resource/_list_tags_for_resource_output.rs`
+- `src/operation/list_tags_for_resource/builders.rs`
+- `src/operation/register_job_definition.rs`
+- `src/operation/register_job_definition/_register_job_definition_input.rs`
+- `src/operation/register_job_definition/_register_job_definition_output.rs`
+- `src/operation/register_job_definition/builders.rs`
+- `src/operation/submit_job.rs`
+- `src/operation/submit_job/_submit_job_input.rs`
+- `src/operation/submit_job/_submit_job_output.rs`
+- `src/operation/submit_job/builders.rs`
+- `src/operation/submit_service_job.rs`
+- `src/operation/submit_service_job/_submit_service_job_input.rs`
+- `src/operation/submit_service_job/_submit_service_job_output.rs`
+- `src/operation/submit_service_job/builders.rs`
+- `src/operation/tag_resource.rs`
+- `src/operation/tag_resource/_tag_resource_input.rs`
+- `src/operation/tag_resource/_tag_resource_output.rs`
+- `src/operation/tag_resource/builders.rs`
+- `src/operation/terminate_job.rs`
+- `src/operation/terminate_job/_terminate_job_input.rs`
+- `src/operation/terminate_job/_terminate_job_output.rs`
+- `src/operation/terminate_job/builders.rs`
+- `src/operation/terminate_service_job.rs`
+- `src/operation/terminate_service_job/_terminate_service_job_input.rs`
+- `src/operation/terminate_service_job/_terminate_service_job_output.rs`
+- `src/operation/terminate_service_job/builders.rs`
+- `src/operation/untag_resource.rs`
+- `src/operation/untag_resource/_untag_resource_input.rs`
+- `src/operation/untag_resource/_untag_resource_output.rs`
+- `src/operation/untag_resource/builders.rs`
+- `src/operation/update_compute_environment.rs`
+- `src/operation/update_compute_environment/_update_compute_environment_input.rs`
+- `src/operation/update_compute_environment/_update_compute_environment_output.rs`
+- `src/operation/update_compute_environment/builders.rs`
+- `src/operation/update_consumable_resource.rs`
+- `src/operation/update_consumable_resource/_update_consumable_resource_input.rs`
+- `src/operation/update_consumable_resource/_update_consumable_resource_output.rs`
+- `src/operation/update_consumable_resource/builders.rs`
+- `src/operation/update_job_queue.rs`
+- `src/operation/update_job_queue/_update_job_queue_input.rs`
+- `src/operation/update_job_queue/_update_job_queue_output.rs`
+- `src/operation/update_job_queue/builders.rs`
+- `src/operation/update_quota_share.rs`
+- `src/operation/update_quota_share/_update_quota_share_input.rs`
+- `src/operation/update_quota_share/_update_quota_share_output.rs`
+- `src/operation/update_quota_share/builders.rs`
+- `src/operation/update_scheduling_policy.rs`
+- `src/operation/update_scheduling_policy/_update_scheduling_policy_input.rs`
+- `src/operation/update_scheduling_policy/_update_scheduling_policy_output.rs`
+- `src/operation/update_scheduling_policy/builders.rs`
+- `src/operation/update_service_environment.rs`
+- `src/operation/update_service_environment/_update_service_environment_input.rs`
+- `src/operation/update_service_environment/_update_service_environment_output.rs`
+- `src/operation/update_service_environment/builders.rs`
+- `src/operation/update_service_job.rs`
+- `src/operation/update_service_job/_update_service_job_input.rs`
+- `src/operation/update_service_job/_update_service_job_output.rs`
+- `src/operation/update_service_job/builders.rs`
+- `src/protocol_serde.rs`
+- `src/protocol_serde/shape_cancel_job.rs`
+- `src/protocol_serde/shape_cancel_job_input.rs`
+- `src/protocol_serde/shape_create_compute_environment.rs`
+- `src/protocol_serde/shape_create_compute_environment_input.rs`
+- `src/protocol_serde/shape_create_consumable_resource.rs`
+- `src/protocol_serde/shape_create_consumable_resource_input.rs`
+- `src/protocol_serde/shape_create_job_queue.rs`
+- `src/protocol_serde/shape_create_job_queue_input.rs`
+- `src/protocol_serde/shape_create_quota_share.rs`
+- `src/protocol_serde/shape_create_quota_share_input.rs`
+- `src/protocol_serde/shape_create_scheduling_policy.rs`
+- `src/protocol_serde/shape_create_scheduling_policy_input.rs`
+- `src/protocol_serde/shape_create_service_environment.rs`
+- `src/protocol_serde/shape_create_service_environment_input.rs`
+- `src/protocol_serde/shape_delete_compute_environment.rs`
+- `src/protocol_serde/shape_delete_compute_environment_input.rs`
+- `src/protocol_serde/shape_delete_consumable_resource.rs`
+- `src/protocol_serde/shape_delete_consumable_resource_input.rs`
+- `src/protocol_serde/shape_delete_job_queue.rs`
+- `src/protocol_serde/shape_delete_job_queue_input.rs`
+- `src/protocol_serde/shape_delete_quota_share.rs`
+- `src/protocol_serde/shape_delete_quota_share_input.rs`
+- `src/protocol_serde/shape_delete_scheduling_policy.rs`
+- `src/protocol_serde/shape_delete_scheduling_policy_input.rs`
+- `src/protocol_serde/shape_delete_service_environment.rs`
+- `src/protocol_serde/shape_delete_service_environment_input.rs`
+- `src/protocol_serde/shape_deregister_job_definition.rs`
+- `src/protocol_serde/shape_deregister_job_definition_input.rs`
+- `src/protocol_serde/shape_describe_compute_environments.rs`
+- `src/protocol_serde/shape_describe_compute_environments_input.rs`
+- `src/protocol_serde/shape_describe_consumable_resource.rs`
+- `src/protocol_serde/shape_describe_consumable_resource_input.rs`
+- `src/protocol_serde/shape_describe_job_definitions.rs`
+- `src/protocol_serde/shape_describe_job_definitions_input.rs`
+- `src/protocol_serde/shape_describe_job_queues.rs`
+- `src/protocol_serde/shape_describe_job_queues_input.rs`
+- `src/protocol_serde/shape_describe_jobs.rs`
+- `src/protocol_serde/shape_describe_jobs_input.rs`
+- `src/protocol_serde/shape_describe_quota_share.rs`
+- `src/protocol_serde/shape_describe_quota_share_input.rs`
+- `src/protocol_serde/shape_describe_scheduling_policies.rs`
+- `src/protocol_serde/shape_describe_scheduling_policies_input.rs`
+- `src/protocol_serde/shape_describe_service_environments.rs`
+- `src/protocol_serde/shape_describe_service_environments_input.rs`
+- `src/protocol_serde/shape_describe_service_job.rs`
+- `src/protocol_serde/shape_describe_service_job_input.rs`
+- `src/protocol_serde/shape_get_job_queue_snapshot.rs`
+- `src/protocol_serde/shape_get_job_queue_snapshot_input.rs`
+- `src/protocol_serde/shape_list_consumable_resources.rs`
+- `src/protocol_serde/shape_list_consumable_resources_input.rs`
+- `src/protocol_serde/shape_list_jobs.rs`
+- `src/protocol_serde/shape_list_jobs_by_consumable_resource.rs`
+- `src/protocol_serde/shape_list_jobs_by_consumable_resource_input.rs`
+- `src/protocol_serde/shape_list_jobs_by_consumable_resource_summary.rs`
+- `src/protocol_serde/shape_list_jobs_by_consumable_resource_summary_list.rs`
+- `src/protocol_serde/shape_list_jobs_input.rs`
+- `src/protocol_serde/shape_list_quota_shares.rs`
+- `src/protocol_serde/shape_list_quota_shares_input.rs`
+- `src/protocol_serde/shape_list_scheduling_policies.rs`
+- `src/protocol_serde/shape_list_scheduling_policies_input.rs`
+- `src/protocol_serde/shape_list_service_jobs.rs`
+- `src/protocol_serde/shape_list_service_jobs_input.rs`
+- `src/protocol_serde/shape_list_tags_for_resource.rs`
+- `src/protocol_serde/shape_register_job_definition.rs`
+- `src/protocol_serde/shape_register_job_definition_input.rs`
+- `src/protocol_serde/shape_submit_job.rs`
+- `src/protocol_serde/shape_submit_job_input.rs`
+- `src/protocol_serde/shape_submit_service_job.rs`
+- `src/protocol_serde/shape_submit_service_job_input.rs`
+- `src/protocol_serde/shape_tag_resource.rs`
+- `src/protocol_serde/shape_tag_resource_input.rs`
+- `src/protocol_serde/shape_terminate_job.rs`
+- `src/protocol_serde/shape_terminate_job_input.rs`
+- `src/protocol_serde/shape_terminate_service_job.rs`
+- `src/protocol_serde/shape_terminate_service_job_input.rs`
+- `src/protocol_serde/shape_untag_resource.rs`
+- `src/protocol_serde/shape_update_compute_environment.rs`
+- `src/protocol_serde/shape_update_compute_environment_input.rs`
+- `src/protocol_serde/shape_update_consumable_resource.rs`
+- `src/protocol_serde/shape_update_consumable_resource_input.rs`
+- `src/protocol_serde/shape_update_job_queue.rs`
+- `src/protocol_serde/shape_update_job_queue_input.rs`
+- `src/protocol_serde/shape_update_quota_share.rs`
+- `src/protocol_serde/shape_update_quota_share_input.rs`
+- `src/protocol_serde/shape_update_scheduling_policy.rs`
+- `src/protocol_serde/shape_update_scheduling_policy_input.rs`
+- `src/protocol_serde/shape_update_service_environment.rs`
+- `src/protocol_serde/shape_update_service_environment_input.rs`
+- `src/protocol_serde/shape_update_service_job.rs`
+- `src/protocol_serde/shape_update_service_job_input.rs`
+- `src/serde_util.rs`
+
+## Customizations
+
+- Add one non-default Cargo feature and matching cfg gates for each model operation.
+- Rename the Cargo package/library from manifest data.
+- Remove upstream `tests/` from generated output.
+
+## Reproduction
+
+```text
+cargo run -p aws-sdk-modularizer -- --manifest services-manifest.json
+```

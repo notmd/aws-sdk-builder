@@ -1,0 +1,473 @@
+# AWS SDK modularizer diff
+
+- repository: `https://github.com/awslabs/aws-sdk-rust`
+- revision: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
+- service: `sdk/kms`
+- model: `models/kms.json`
+- package: `aws-sdk-kms-modular`
+- library: `aws_sdk_kms_modular`
+- tests exclusion: `tests/**` is excluded from the comparison.
+
+## Operations
+
+- `op_cancel_key_deletion`: `CancelKeyDeletion`
+- `op_connect_custom_key_store`: `ConnectCustomKeyStore`
+- `op_create_alias`: `CreateAlias`
+- `op_create_custom_key_store`: `CreateCustomKeyStore`
+- `op_create_grant`: `CreateGrant`
+- `op_create_key`: `CreateKey`
+- `op_decrypt`: `Decrypt`
+- `op_delete_alias`: `DeleteAlias`
+- `op_delete_custom_key_store`: `DeleteCustomKeyStore`
+- `op_delete_imported_key_material`: `DeleteImportedKeyMaterial`
+- `op_derive_shared_secret`: `DeriveSharedSecret`
+- `op_describe_custom_key_stores`: `DescribeCustomKeyStores`
+- `op_describe_key`: `DescribeKey`
+- `op_disable_key`: `DisableKey`
+- `op_disable_key_rotation`: `DisableKeyRotation`
+- `op_disconnect_custom_key_store`: `DisconnectCustomKeyStore`
+- `op_enable_key`: `EnableKey`
+- `op_enable_key_rotation`: `EnableKeyRotation`
+- `op_encrypt`: `Encrypt`
+- `op_generate_data_key`: `GenerateDataKey`
+- `op_generate_data_key_pair`: `GenerateDataKeyPair`
+- `op_generate_data_key_pair_without_plaintext`: `GenerateDataKeyPairWithoutPlaintext`
+- `op_generate_data_key_without_plaintext`: `GenerateDataKeyWithoutPlaintext`
+- `op_generate_mac`: `GenerateMac`
+- `op_generate_random`: `GenerateRandom`
+- `op_get_key_last_usage`: `GetKeyLastUsage`
+- `op_get_key_policy`: `GetKeyPolicy`
+- `op_get_key_rotation_status`: `GetKeyRotationStatus`
+- `op_get_parameters_for_import`: `GetParametersForImport`
+- `op_get_public_key`: `GetPublicKey`
+- `op_import_key_material`: `ImportKeyMaterial`
+- `op_list_aliases`: `ListAliases`
+- `op_list_grants`: `ListGrants`
+- `op_list_key_policies`: `ListKeyPolicies`
+- `op_list_key_rotations`: `ListKeyRotations`
+- `op_list_keys`: `ListKeys`
+- `op_list_resource_tags`: `ListResourceTags`
+- `op_list_retirable_grants`: `ListRetirableGrants`
+- `op_put_key_policy`: `PutKeyPolicy`
+- `op_re_encrypt`: `ReEncrypt`
+- `op_replicate_key`: `ReplicateKey`
+- `op_retire_grant`: `RetireGrant`
+- `op_revoke_grant`: `RevokeGrant`
+- `op_rotate_key_on_demand`: `RotateKeyOnDemand`
+- `op_schedule_key_deletion`: `ScheduleKeyDeletion`
+- `op_sign`: `Sign`
+- `op_tag_resource`: `TagResource`
+- `op_untag_resource`: `UntagResource`
+- `op_update_alias`: `UpdateAlias`
+- `op_update_custom_key_store`: `UpdateCustomKeyStore`
+- `op_update_key_description`: `UpdateKeyDescription`
+- `op_update_primary_region`: `UpdatePrimaryRegion`
+- `op_verify`: `Verify`
+- `op_verify_mac`: `VerifyMac`
+
+## Changed files
+
+- `Cargo.toml`
+- `src/client.rs`
+- `src/client/cancel_key_deletion.rs`
+- `src/client/connect_custom_key_store.rs`
+- `src/client/create_alias.rs`
+- `src/client/create_custom_key_store.rs`
+- `src/client/create_grant.rs`
+- `src/client/create_key.rs`
+- `src/client/decrypt.rs`
+- `src/client/delete_alias.rs`
+- `src/client/delete_custom_key_store.rs`
+- `src/client/delete_imported_key_material.rs`
+- `src/client/derive_shared_secret.rs`
+- `src/client/describe_custom_key_stores.rs`
+- `src/client/describe_key.rs`
+- `src/client/disable_key.rs`
+- `src/client/disable_key_rotation.rs`
+- `src/client/disconnect_custom_key_store.rs`
+- `src/client/enable_key.rs`
+- `src/client/enable_key_rotation.rs`
+- `src/client/encrypt.rs`
+- `src/client/generate_data_key.rs`
+- `src/client/generate_data_key_pair.rs`
+- `src/client/generate_data_key_pair_without_plaintext.rs`
+- `src/client/generate_data_key_without_plaintext.rs`
+- `src/client/generate_mac.rs`
+- `src/client/generate_random.rs`
+- `src/client/get_key_last_usage.rs`
+- `src/client/get_key_policy.rs`
+- `src/client/get_key_rotation_status.rs`
+- `src/client/get_parameters_for_import.rs`
+- `src/client/get_public_key.rs`
+- `src/client/import_key_material.rs`
+- `src/client/list_aliases.rs`
+- `src/client/list_grants.rs`
+- `src/client/list_key_policies.rs`
+- `src/client/list_key_rotations.rs`
+- `src/client/list_keys.rs`
+- `src/client/list_resource_tags.rs`
+- `src/client/list_retirable_grants.rs`
+- `src/client/put_key_policy.rs`
+- `src/client/re_encrypt.rs`
+- `src/client/replicate_key.rs`
+- `src/client/retire_grant.rs`
+- `src/client/revoke_grant.rs`
+- `src/client/rotate_key_on_demand.rs`
+- `src/client/schedule_key_deletion.rs`
+- `src/client/sign.rs`
+- `src/client/tag_resource.rs`
+- `src/client/untag_resource.rs`
+- `src/client/update_alias.rs`
+- `src/client/update_custom_key_store.rs`
+- `src/client/update_key_description.rs`
+- `src/client/update_primary_region.rs`
+- `src/client/verify.rs`
+- `src/client/verify_mac.rs`
+- `src/error_meta.rs`
+- `src/lens.rs`
+- `src/operation.rs`
+- `src/operation/cancel_key_deletion.rs`
+- `src/operation/cancel_key_deletion/_cancel_key_deletion_input.rs`
+- `src/operation/cancel_key_deletion/_cancel_key_deletion_output.rs`
+- `src/operation/cancel_key_deletion/builders.rs`
+- `src/operation/connect_custom_key_store.rs`
+- `src/operation/connect_custom_key_store/_connect_custom_key_store_input.rs`
+- `src/operation/connect_custom_key_store/_connect_custom_key_store_output.rs`
+- `src/operation/connect_custom_key_store/builders.rs`
+- `src/operation/create_alias.rs`
+- `src/operation/create_alias/_create_alias_input.rs`
+- `src/operation/create_alias/_create_alias_output.rs`
+- `src/operation/create_alias/builders.rs`
+- `src/operation/create_custom_key_store.rs`
+- `src/operation/create_custom_key_store/_create_custom_key_store_input.rs`
+- `src/operation/create_custom_key_store/_create_custom_key_store_output.rs`
+- `src/operation/create_custom_key_store/builders.rs`
+- `src/operation/create_grant.rs`
+- `src/operation/create_grant/_create_grant_input.rs`
+- `src/operation/create_grant/_create_grant_output.rs`
+- `src/operation/create_grant/builders.rs`
+- `src/operation/create_key.rs`
+- `src/operation/create_key/_create_key_input.rs`
+- `src/operation/create_key/_create_key_output.rs`
+- `src/operation/create_key/builders.rs`
+- `src/operation/decrypt.rs`
+- `src/operation/decrypt/_decrypt_input.rs`
+- `src/operation/decrypt/_decrypt_output.rs`
+- `src/operation/decrypt/builders.rs`
+- `src/operation/delete_alias.rs`
+- `src/operation/delete_alias/_delete_alias_input.rs`
+- `src/operation/delete_alias/_delete_alias_output.rs`
+- `src/operation/delete_alias/builders.rs`
+- `src/operation/delete_custom_key_store.rs`
+- `src/operation/delete_custom_key_store/_delete_custom_key_store_input.rs`
+- `src/operation/delete_custom_key_store/_delete_custom_key_store_output.rs`
+- `src/operation/delete_custom_key_store/builders.rs`
+- `src/operation/delete_imported_key_material.rs`
+- `src/operation/delete_imported_key_material/_delete_imported_key_material_input.rs`
+- `src/operation/delete_imported_key_material/_delete_imported_key_material_output.rs`
+- `src/operation/delete_imported_key_material/builders.rs`
+- `src/operation/derive_shared_secret.rs`
+- `src/operation/derive_shared_secret/_derive_shared_secret_input.rs`
+- `src/operation/derive_shared_secret/_derive_shared_secret_output.rs`
+- `src/operation/derive_shared_secret/builders.rs`
+- `src/operation/describe_custom_key_stores.rs`
+- `src/operation/describe_custom_key_stores/_describe_custom_key_stores_input.rs`
+- `src/operation/describe_custom_key_stores/_describe_custom_key_stores_output.rs`
+- `src/operation/describe_custom_key_stores/builders.rs`
+- `src/operation/describe_custom_key_stores/paginator.rs`
+- `src/operation/describe_key.rs`
+- `src/operation/describe_key/_describe_key_input.rs`
+- `src/operation/describe_key/_describe_key_output.rs`
+- `src/operation/describe_key/builders.rs`
+- `src/operation/disable_key.rs`
+- `src/operation/disable_key/_disable_key_input.rs`
+- `src/operation/disable_key/_disable_key_output.rs`
+- `src/operation/disable_key/builders.rs`
+- `src/operation/disable_key_rotation.rs`
+- `src/operation/disable_key_rotation/_disable_key_rotation_input.rs`
+- `src/operation/disable_key_rotation/_disable_key_rotation_output.rs`
+- `src/operation/disable_key_rotation/builders.rs`
+- `src/operation/disconnect_custom_key_store.rs`
+- `src/operation/disconnect_custom_key_store/_disconnect_custom_key_store_input.rs`
+- `src/operation/disconnect_custom_key_store/_disconnect_custom_key_store_output.rs`
+- `src/operation/disconnect_custom_key_store/builders.rs`
+- `src/operation/enable_key.rs`
+- `src/operation/enable_key/_enable_key_input.rs`
+- `src/operation/enable_key/_enable_key_output.rs`
+- `src/operation/enable_key/builders.rs`
+- `src/operation/enable_key_rotation.rs`
+- `src/operation/enable_key_rotation/_enable_key_rotation_input.rs`
+- `src/operation/enable_key_rotation/_enable_key_rotation_output.rs`
+- `src/operation/enable_key_rotation/builders.rs`
+- `src/operation/encrypt.rs`
+- `src/operation/encrypt/_encrypt_input.rs`
+- `src/operation/encrypt/_encrypt_output.rs`
+- `src/operation/encrypt/builders.rs`
+- `src/operation/generate_data_key.rs`
+- `src/operation/generate_data_key/_generate_data_key_input.rs`
+- `src/operation/generate_data_key/_generate_data_key_output.rs`
+- `src/operation/generate_data_key/builders.rs`
+- `src/operation/generate_data_key_pair.rs`
+- `src/operation/generate_data_key_pair/_generate_data_key_pair_input.rs`
+- `src/operation/generate_data_key_pair/_generate_data_key_pair_output.rs`
+- `src/operation/generate_data_key_pair/builders.rs`
+- `src/operation/generate_data_key_pair_without_plaintext.rs`
+- `src/operation/generate_data_key_pair_without_plaintext/_generate_data_key_pair_without_plaintext_input.rs`
+- `src/operation/generate_data_key_pair_without_plaintext/_generate_data_key_pair_without_plaintext_output.rs`
+- `src/operation/generate_data_key_pair_without_plaintext/builders.rs`
+- `src/operation/generate_data_key_without_plaintext.rs`
+- `src/operation/generate_data_key_without_plaintext/_generate_data_key_without_plaintext_input.rs`
+- `src/operation/generate_data_key_without_plaintext/_generate_data_key_without_plaintext_output.rs`
+- `src/operation/generate_data_key_without_plaintext/builders.rs`
+- `src/operation/generate_mac.rs`
+- `src/operation/generate_mac/_generate_mac_input.rs`
+- `src/operation/generate_mac/_generate_mac_output.rs`
+- `src/operation/generate_mac/builders.rs`
+- `src/operation/generate_random.rs`
+- `src/operation/generate_random/_generate_random_input.rs`
+- `src/operation/generate_random/_generate_random_output.rs`
+- `src/operation/generate_random/builders.rs`
+- `src/operation/get_key_last_usage.rs`
+- `src/operation/get_key_last_usage/_get_key_last_usage_input.rs`
+- `src/operation/get_key_last_usage/_get_key_last_usage_output.rs`
+- `src/operation/get_key_last_usage/builders.rs`
+- `src/operation/get_key_policy.rs`
+- `src/operation/get_key_policy/_get_key_policy_input.rs`
+- `src/operation/get_key_policy/_get_key_policy_output.rs`
+- `src/operation/get_key_policy/builders.rs`
+- `src/operation/get_key_rotation_status.rs`
+- `src/operation/get_key_rotation_status/_get_key_rotation_status_input.rs`
+- `src/operation/get_key_rotation_status/_get_key_rotation_status_output.rs`
+- `src/operation/get_key_rotation_status/builders.rs`
+- `src/operation/get_parameters_for_import.rs`
+- `src/operation/get_parameters_for_import/_get_parameters_for_import_input.rs`
+- `src/operation/get_parameters_for_import/_get_parameters_for_import_output.rs`
+- `src/operation/get_parameters_for_import/builders.rs`
+- `src/operation/get_public_key.rs`
+- `src/operation/get_public_key/_get_public_key_input.rs`
+- `src/operation/get_public_key/_get_public_key_output.rs`
+- `src/operation/get_public_key/builders.rs`
+- `src/operation/import_key_material.rs`
+- `src/operation/import_key_material/_import_key_material_input.rs`
+- `src/operation/import_key_material/_import_key_material_output.rs`
+- `src/operation/import_key_material/builders.rs`
+- `src/operation/list_aliases.rs`
+- `src/operation/list_aliases/_list_aliases_input.rs`
+- `src/operation/list_aliases/_list_aliases_output.rs`
+- `src/operation/list_aliases/builders.rs`
+- `src/operation/list_aliases/paginator.rs`
+- `src/operation/list_grants.rs`
+- `src/operation/list_grants/_list_grants_input.rs`
+- `src/operation/list_grants/_list_grants_output.rs`
+- `src/operation/list_grants/builders.rs`
+- `src/operation/list_grants/paginator.rs`
+- `src/operation/list_key_policies.rs`
+- `src/operation/list_key_policies/_list_key_policies_input.rs`
+- `src/operation/list_key_policies/_list_key_policies_output.rs`
+- `src/operation/list_key_policies/builders.rs`
+- `src/operation/list_key_policies/paginator.rs`
+- `src/operation/list_key_rotations.rs`
+- `src/operation/list_key_rotations/_list_key_rotations_input.rs`
+- `src/operation/list_key_rotations/_list_key_rotations_output.rs`
+- `src/operation/list_key_rotations/builders.rs`
+- `src/operation/list_key_rotations/paginator.rs`
+- `src/operation/list_keys.rs`
+- `src/operation/list_keys/_list_keys_input.rs`
+- `src/operation/list_keys/_list_keys_output.rs`
+- `src/operation/list_keys/builders.rs`
+- `src/operation/list_keys/paginator.rs`
+- `src/operation/list_resource_tags.rs`
+- `src/operation/list_resource_tags/_list_resource_tags_input.rs`
+- `src/operation/list_resource_tags/_list_resource_tags_output.rs`
+- `src/operation/list_resource_tags/builders.rs`
+- `src/operation/list_resource_tags/paginator.rs`
+- `src/operation/list_retirable_grants.rs`
+- `src/operation/list_retirable_grants/_list_retirable_grants_input.rs`
+- `src/operation/list_retirable_grants/_list_retirable_grants_output.rs`
+- `src/operation/list_retirable_grants/builders.rs`
+- `src/operation/list_retirable_grants/paginator.rs`
+- `src/operation/put_key_policy.rs`
+- `src/operation/put_key_policy/_put_key_policy_input.rs`
+- `src/operation/put_key_policy/_put_key_policy_output.rs`
+- `src/operation/put_key_policy/builders.rs`
+- `src/operation/re_encrypt.rs`
+- `src/operation/re_encrypt/_re_encrypt_input.rs`
+- `src/operation/re_encrypt/_re_encrypt_output.rs`
+- `src/operation/re_encrypt/builders.rs`
+- `src/operation/replicate_key.rs`
+- `src/operation/replicate_key/_replicate_key_input.rs`
+- `src/operation/replicate_key/_replicate_key_output.rs`
+- `src/operation/replicate_key/builders.rs`
+- `src/operation/retire_grant.rs`
+- `src/operation/retire_grant/_retire_grant_input.rs`
+- `src/operation/retire_grant/_retire_grant_output.rs`
+- `src/operation/retire_grant/builders.rs`
+- `src/operation/revoke_grant.rs`
+- `src/operation/revoke_grant/_revoke_grant_input.rs`
+- `src/operation/revoke_grant/_revoke_grant_output.rs`
+- `src/operation/revoke_grant/builders.rs`
+- `src/operation/rotate_key_on_demand.rs`
+- `src/operation/rotate_key_on_demand/_rotate_key_on_demand_input.rs`
+- `src/operation/rotate_key_on_demand/_rotate_key_on_demand_output.rs`
+- `src/operation/rotate_key_on_demand/builders.rs`
+- `src/operation/schedule_key_deletion.rs`
+- `src/operation/schedule_key_deletion/_schedule_key_deletion_input.rs`
+- `src/operation/schedule_key_deletion/_schedule_key_deletion_output.rs`
+- `src/operation/schedule_key_deletion/builders.rs`
+- `src/operation/sign.rs`
+- `src/operation/sign/_sign_input.rs`
+- `src/operation/sign/_sign_output.rs`
+- `src/operation/sign/builders.rs`
+- `src/operation/tag_resource.rs`
+- `src/operation/tag_resource/_tag_resource_input.rs`
+- `src/operation/tag_resource/_tag_resource_output.rs`
+- `src/operation/tag_resource/builders.rs`
+- `src/operation/untag_resource.rs`
+- `src/operation/untag_resource/_untag_resource_input.rs`
+- `src/operation/untag_resource/_untag_resource_output.rs`
+- `src/operation/untag_resource/builders.rs`
+- `src/operation/update_alias.rs`
+- `src/operation/update_alias/_update_alias_input.rs`
+- `src/operation/update_alias/_update_alias_output.rs`
+- `src/operation/update_alias/builders.rs`
+- `src/operation/update_custom_key_store.rs`
+- `src/operation/update_custom_key_store/_update_custom_key_store_input.rs`
+- `src/operation/update_custom_key_store/_update_custom_key_store_output.rs`
+- `src/operation/update_custom_key_store/builders.rs`
+- `src/operation/update_key_description.rs`
+- `src/operation/update_key_description/_update_key_description_input.rs`
+- `src/operation/update_key_description/_update_key_description_output.rs`
+- `src/operation/update_key_description/builders.rs`
+- `src/operation/update_primary_region.rs`
+- `src/operation/update_primary_region/_update_primary_region_input.rs`
+- `src/operation/update_primary_region/_update_primary_region_output.rs`
+- `src/operation/update_primary_region/builders.rs`
+- `src/operation/verify.rs`
+- `src/operation/verify/_verify_input.rs`
+- `src/operation/verify/_verify_output.rs`
+- `src/operation/verify/builders.rs`
+- `src/operation/verify_mac.rs`
+- `src/operation/verify_mac/_verify_mac_input.rs`
+- `src/operation/verify_mac/_verify_mac_output.rs`
+- `src/operation/verify_mac/builders.rs`
+- `src/protocol_serde.rs`
+- `src/protocol_serde/shape_cancel_key_deletion.rs`
+- `src/protocol_serde/shape_cancel_key_deletion_input.rs`
+- `src/protocol_serde/shape_connect_custom_key_store.rs`
+- `src/protocol_serde/shape_connect_custom_key_store_input.rs`
+- `src/protocol_serde/shape_create_alias.rs`
+- `src/protocol_serde/shape_create_alias_input.rs`
+- `src/protocol_serde/shape_create_custom_key_store.rs`
+- `src/protocol_serde/shape_create_custom_key_store_input.rs`
+- `src/protocol_serde/shape_create_grant.rs`
+- `src/protocol_serde/shape_create_grant_input.rs`
+- `src/protocol_serde/shape_create_key.rs`
+- `src/protocol_serde/shape_create_key_input.rs`
+- `src/protocol_serde/shape_decrypt.rs`
+- `src/protocol_serde/shape_decrypt_input.rs`
+- `src/protocol_serde/shape_delete_alias.rs`
+- `src/protocol_serde/shape_delete_alias_input.rs`
+- `src/protocol_serde/shape_delete_custom_key_store.rs`
+- `src/protocol_serde/shape_delete_custom_key_store_input.rs`
+- `src/protocol_serde/shape_delete_imported_key_material.rs`
+- `src/protocol_serde/shape_delete_imported_key_material_input.rs`
+- `src/protocol_serde/shape_derive_shared_secret.rs`
+- `src/protocol_serde/shape_derive_shared_secret_input.rs`
+- `src/protocol_serde/shape_describe_custom_key_stores.rs`
+- `src/protocol_serde/shape_describe_custom_key_stores_input.rs`
+- `src/protocol_serde/shape_describe_key.rs`
+- `src/protocol_serde/shape_describe_key_input.rs`
+- `src/protocol_serde/shape_disable_key.rs`
+- `src/protocol_serde/shape_disable_key_input.rs`
+- `src/protocol_serde/shape_disable_key_rotation.rs`
+- `src/protocol_serde/shape_disable_key_rotation_input.rs`
+- `src/protocol_serde/shape_disconnect_custom_key_store.rs`
+- `src/protocol_serde/shape_disconnect_custom_key_store_input.rs`
+- `src/protocol_serde/shape_enable_key.rs`
+- `src/protocol_serde/shape_enable_key_input.rs`
+- `src/protocol_serde/shape_enable_key_rotation.rs`
+- `src/protocol_serde/shape_enable_key_rotation_input.rs`
+- `src/protocol_serde/shape_encrypt.rs`
+- `src/protocol_serde/shape_encrypt_input.rs`
+- `src/protocol_serde/shape_generate_data_key.rs`
+- `src/protocol_serde/shape_generate_data_key_input.rs`
+- `src/protocol_serde/shape_generate_data_key_pair.rs`
+- `src/protocol_serde/shape_generate_data_key_pair_input.rs`
+- `src/protocol_serde/shape_generate_data_key_pair_without_plaintext.rs`
+- `src/protocol_serde/shape_generate_data_key_pair_without_plaintext_input.rs`
+- `src/protocol_serde/shape_generate_data_key_without_plaintext.rs`
+- `src/protocol_serde/shape_generate_data_key_without_plaintext_input.rs`
+- `src/protocol_serde/shape_generate_mac.rs`
+- `src/protocol_serde/shape_generate_mac_input.rs`
+- `src/protocol_serde/shape_generate_random.rs`
+- `src/protocol_serde/shape_generate_random_input.rs`
+- `src/protocol_serde/shape_get_key_last_usage.rs`
+- `src/protocol_serde/shape_get_key_last_usage_input.rs`
+- `src/protocol_serde/shape_get_key_policy.rs`
+- `src/protocol_serde/shape_get_key_policy_input.rs`
+- `src/protocol_serde/shape_get_key_rotation_status.rs`
+- `src/protocol_serde/shape_get_key_rotation_status_input.rs`
+- `src/protocol_serde/shape_get_parameters_for_import.rs`
+- `src/protocol_serde/shape_get_parameters_for_import_input.rs`
+- `src/protocol_serde/shape_get_public_key.rs`
+- `src/protocol_serde/shape_get_public_key_input.rs`
+- `src/protocol_serde/shape_import_key_material.rs`
+- `src/protocol_serde/shape_import_key_material_input.rs`
+- `src/protocol_serde/shape_list_aliases.rs`
+- `src/protocol_serde/shape_list_aliases_input.rs`
+- `src/protocol_serde/shape_list_grants.rs`
+- `src/protocol_serde/shape_list_grants_input.rs`
+- `src/protocol_serde/shape_list_key_policies.rs`
+- `src/protocol_serde/shape_list_key_policies_input.rs`
+- `src/protocol_serde/shape_list_key_rotations.rs`
+- `src/protocol_serde/shape_list_key_rotations_input.rs`
+- `src/protocol_serde/shape_list_keys.rs`
+- `src/protocol_serde/shape_list_keys_input.rs`
+- `src/protocol_serde/shape_list_resource_tags.rs`
+- `src/protocol_serde/shape_list_resource_tags_input.rs`
+- `src/protocol_serde/shape_list_retirable_grants.rs`
+- `src/protocol_serde/shape_list_retirable_grants_input.rs`
+- `src/protocol_serde/shape_put_key_policy.rs`
+- `src/protocol_serde/shape_put_key_policy_input.rs`
+- `src/protocol_serde/shape_re_encrypt.rs`
+- `src/protocol_serde/shape_re_encrypt_input.rs`
+- `src/protocol_serde/shape_replicate_key.rs`
+- `src/protocol_serde/shape_replicate_key_input.rs`
+- `src/protocol_serde/shape_retire_grant.rs`
+- `src/protocol_serde/shape_retire_grant_input.rs`
+- `src/protocol_serde/shape_revoke_grant.rs`
+- `src/protocol_serde/shape_revoke_grant_input.rs`
+- `src/protocol_serde/shape_rotate_key_on_demand.rs`
+- `src/protocol_serde/shape_rotate_key_on_demand_input.rs`
+- `src/protocol_serde/shape_schedule_key_deletion.rs`
+- `src/protocol_serde/shape_schedule_key_deletion_input.rs`
+- `src/protocol_serde/shape_sign.rs`
+- `src/protocol_serde/shape_sign_input.rs`
+- `src/protocol_serde/shape_tag_resource.rs`
+- `src/protocol_serde/shape_tag_resource_input.rs`
+- `src/protocol_serde/shape_untag_resource.rs`
+- `src/protocol_serde/shape_untag_resource_input.rs`
+- `src/protocol_serde/shape_update_alias.rs`
+- `src/protocol_serde/shape_update_alias_input.rs`
+- `src/protocol_serde/shape_update_custom_key_store.rs`
+- `src/protocol_serde/shape_update_custom_key_store_input.rs`
+- `src/protocol_serde/shape_update_key_description.rs`
+- `src/protocol_serde/shape_update_key_description_input.rs`
+- `src/protocol_serde/shape_update_primary_region.rs`
+- `src/protocol_serde/shape_update_primary_region_input.rs`
+- `src/protocol_serde/shape_verify.rs`
+- `src/protocol_serde/shape_verify_input.rs`
+- `src/protocol_serde/shape_verify_mac.rs`
+- `src/protocol_serde/shape_verify_mac_input.rs`
+
+## Customizations
+
+- Add one non-default Cargo feature and matching cfg gates for each model operation.
+- Rename the Cargo package/library from manifest data.
+- Remove upstream `tests/` from generated output.
+
+## Reproduction
+
+```text
+cargo run -p aws-sdk-modularizer -- --manifest services-manifest.json
+```

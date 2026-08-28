@@ -1,0 +1,398 @@
+# AWS SDK modularizer diff
+
+- repository: `https://github.com/awslabs/aws-sdk-rust`
+- revision: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
+- service: `sdk/codeartifact`
+- model: `models/codeartifact.json`
+- package: `aws-sdk-codeartifact-modular`
+- library: `aws_sdk_codeartifact_modular`
+- tests exclusion: `tests/**` is excluded from the comparison.
+
+## Operations
+
+- `op_associate_external_connection`: `AssociateExternalConnection`
+- `op_copy_package_versions`: `CopyPackageVersions`
+- `op_create_domain`: `CreateDomain`
+- `op_create_package_group`: `CreatePackageGroup`
+- `op_create_repository`: `CreateRepository`
+- `op_delete_domain`: `DeleteDomain`
+- `op_delete_domain_permissions_policy`: `DeleteDomainPermissionsPolicy`
+- `op_delete_package`: `DeletePackage`
+- `op_delete_package_group`: `DeletePackageGroup`
+- `op_delete_package_versions`: `DeletePackageVersions`
+- `op_delete_repository`: `DeleteRepository`
+- `op_delete_repository_permissions_policy`: `DeleteRepositoryPermissionsPolicy`
+- `op_describe_domain`: `DescribeDomain`
+- `op_describe_package`: `DescribePackage`
+- `op_describe_package_group`: `DescribePackageGroup`
+- `op_describe_package_version`: `DescribePackageVersion`
+- `op_describe_repository`: `DescribeRepository`
+- `op_disassociate_external_connection`: `DisassociateExternalConnection`
+- `op_dispose_package_versions`: `DisposePackageVersions`
+- `op_get_associated_package_group`: `GetAssociatedPackageGroup`
+- `op_get_authorization_token`: `GetAuthorizationToken`
+- `op_get_domain_permissions_policy`: `GetDomainPermissionsPolicy`
+- `op_get_package_version_asset`: `GetPackageVersionAsset`
+- `op_get_package_version_readme`: `GetPackageVersionReadme`
+- `op_get_repository_endpoint`: `GetRepositoryEndpoint`
+- `op_get_repository_permissions_policy`: `GetRepositoryPermissionsPolicy`
+- `op_list_allowed_repositories_for_group`: `ListAllowedRepositoriesForGroup`
+- `op_list_associated_packages`: `ListAssociatedPackages`
+- `op_list_domains`: `ListDomains`
+- `op_list_package_groups`: `ListPackageGroups`
+- `op_list_packages`: `ListPackages`
+- `op_list_package_version_assets`: `ListPackageVersionAssets`
+- `op_list_package_version_dependencies`: `ListPackageVersionDependencies`
+- `op_list_package_versions`: `ListPackageVersions`
+- `op_list_repositories`: `ListRepositories`
+- `op_list_repositories_in_domain`: `ListRepositoriesInDomain`
+- `op_list_sub_package_groups`: `ListSubPackageGroups`
+- `op_list_tags_for_resource`: `ListTagsForResource`
+- `op_publish_package_version`: `PublishPackageVersion`
+- `op_put_domain_permissions_policy`: `PutDomainPermissionsPolicy`
+- `op_put_package_origin_configuration`: `PutPackageOriginConfiguration`
+- `op_put_repository_permissions_policy`: `PutRepositoryPermissionsPolicy`
+- `op_tag_resource`: `TagResource`
+- `op_untag_resource`: `UntagResource`
+- `op_update_package_group`: `UpdatePackageGroup`
+- `op_update_package_group_origin_configuration`: `UpdatePackageGroupOriginConfiguration`
+- `op_update_package_versions_status`: `UpdatePackageVersionsStatus`
+- `op_update_repository`: `UpdateRepository`
+
+## Changed files
+
+- `Cargo.toml`
+- `src/client.rs`
+- `src/client/associate_external_connection.rs`
+- `src/client/copy_package_versions.rs`
+- `src/client/create_domain.rs`
+- `src/client/create_package_group.rs`
+- `src/client/create_repository.rs`
+- `src/client/delete_domain.rs`
+- `src/client/delete_domain_permissions_policy.rs`
+- `src/client/delete_package.rs`
+- `src/client/delete_package_group.rs`
+- `src/client/delete_package_versions.rs`
+- `src/client/delete_repository.rs`
+- `src/client/delete_repository_permissions_policy.rs`
+- `src/client/describe_domain.rs`
+- `src/client/describe_package.rs`
+- `src/client/describe_package_group.rs`
+- `src/client/describe_package_version.rs`
+- `src/client/describe_repository.rs`
+- `src/client/disassociate_external_connection.rs`
+- `src/client/dispose_package_versions.rs`
+- `src/client/get_associated_package_group.rs`
+- `src/client/get_authorization_token.rs`
+- `src/client/get_domain_permissions_policy.rs`
+- `src/client/get_package_version_asset.rs`
+- `src/client/get_package_version_readme.rs`
+- `src/client/get_repository_endpoint.rs`
+- `src/client/get_repository_permissions_policy.rs`
+- `src/client/list_allowed_repositories_for_group.rs`
+- `src/client/list_associated_packages.rs`
+- `src/client/list_domains.rs`
+- `src/client/list_package_groups.rs`
+- `src/client/list_package_version_assets.rs`
+- `src/client/list_package_version_dependencies.rs`
+- `src/client/list_package_versions.rs`
+- `src/client/list_packages.rs`
+- `src/client/list_repositories.rs`
+- `src/client/list_repositories_in_domain.rs`
+- `src/client/list_sub_package_groups.rs`
+- `src/client/list_tags_for_resource.rs`
+- `src/client/publish_package_version.rs`
+- `src/client/put_domain_permissions_policy.rs`
+- `src/client/put_package_origin_configuration.rs`
+- `src/client/put_repository_permissions_policy.rs`
+- `src/client/tag_resource.rs`
+- `src/client/untag_resource.rs`
+- `src/client/update_package_group.rs`
+- `src/client/update_package_group_origin_configuration.rs`
+- `src/client/update_package_versions_status.rs`
+- `src/client/update_repository.rs`
+- `src/error_meta.rs`
+- `src/lens.rs`
+- `src/operation.rs`
+- `src/operation/associate_external_connection.rs`
+- `src/operation/associate_external_connection/_associate_external_connection_input.rs`
+- `src/operation/associate_external_connection/_associate_external_connection_output.rs`
+- `src/operation/associate_external_connection/builders.rs`
+- `src/operation/copy_package_versions.rs`
+- `src/operation/copy_package_versions/_copy_package_versions_input.rs`
+- `src/operation/copy_package_versions/_copy_package_versions_output.rs`
+- `src/operation/copy_package_versions/builders.rs`
+- `src/operation/create_domain.rs`
+- `src/operation/create_domain/_create_domain_input.rs`
+- `src/operation/create_domain/_create_domain_output.rs`
+- `src/operation/create_domain/builders.rs`
+- `src/operation/create_package_group.rs`
+- `src/operation/create_package_group/_create_package_group_input.rs`
+- `src/operation/create_package_group/_create_package_group_output.rs`
+- `src/operation/create_package_group/builders.rs`
+- `src/operation/create_repository.rs`
+- `src/operation/create_repository/_create_repository_input.rs`
+- `src/operation/create_repository/_create_repository_output.rs`
+- `src/operation/create_repository/builders.rs`
+- `src/operation/delete_domain.rs`
+- `src/operation/delete_domain/_delete_domain_input.rs`
+- `src/operation/delete_domain/_delete_domain_output.rs`
+- `src/operation/delete_domain/builders.rs`
+- `src/operation/delete_domain_permissions_policy.rs`
+- `src/operation/delete_domain_permissions_policy/_delete_domain_permissions_policy_input.rs`
+- `src/operation/delete_domain_permissions_policy/_delete_domain_permissions_policy_output.rs`
+- `src/operation/delete_domain_permissions_policy/builders.rs`
+- `src/operation/delete_package.rs`
+- `src/operation/delete_package/_delete_package_input.rs`
+- `src/operation/delete_package/_delete_package_output.rs`
+- `src/operation/delete_package/builders.rs`
+- `src/operation/delete_package_group.rs`
+- `src/operation/delete_package_group/_delete_package_group_input.rs`
+- `src/operation/delete_package_group/_delete_package_group_output.rs`
+- `src/operation/delete_package_group/builders.rs`
+- `src/operation/delete_package_versions.rs`
+- `src/operation/delete_package_versions/_delete_package_versions_input.rs`
+- `src/operation/delete_package_versions/_delete_package_versions_output.rs`
+- `src/operation/delete_package_versions/builders.rs`
+- `src/operation/delete_repository.rs`
+- `src/operation/delete_repository/_delete_repository_input.rs`
+- `src/operation/delete_repository/_delete_repository_output.rs`
+- `src/operation/delete_repository/builders.rs`
+- `src/operation/delete_repository_permissions_policy.rs`
+- `src/operation/delete_repository_permissions_policy/_delete_repository_permissions_policy_input.rs`
+- `src/operation/delete_repository_permissions_policy/_delete_repository_permissions_policy_output.rs`
+- `src/operation/delete_repository_permissions_policy/builders.rs`
+- `src/operation/describe_domain.rs`
+- `src/operation/describe_domain/_describe_domain_input.rs`
+- `src/operation/describe_domain/_describe_domain_output.rs`
+- `src/operation/describe_domain/builders.rs`
+- `src/operation/describe_package.rs`
+- `src/operation/describe_package/_describe_package_input.rs`
+- `src/operation/describe_package/_describe_package_output.rs`
+- `src/operation/describe_package/builders.rs`
+- `src/operation/describe_package_group.rs`
+- `src/operation/describe_package_group/_describe_package_group_input.rs`
+- `src/operation/describe_package_group/_describe_package_group_output.rs`
+- `src/operation/describe_package_group/builders.rs`
+- `src/operation/describe_package_version.rs`
+- `src/operation/describe_package_version/_describe_package_version_input.rs`
+- `src/operation/describe_package_version/_describe_package_version_output.rs`
+- `src/operation/describe_package_version/builders.rs`
+- `src/operation/describe_repository.rs`
+- `src/operation/describe_repository/_describe_repository_input.rs`
+- `src/operation/describe_repository/_describe_repository_output.rs`
+- `src/operation/describe_repository/builders.rs`
+- `src/operation/disassociate_external_connection.rs`
+- `src/operation/disassociate_external_connection/_disassociate_external_connection_input.rs`
+- `src/operation/disassociate_external_connection/_disassociate_external_connection_output.rs`
+- `src/operation/disassociate_external_connection/builders.rs`
+- `src/operation/dispose_package_versions.rs`
+- `src/operation/dispose_package_versions/_dispose_package_versions_input.rs`
+- `src/operation/dispose_package_versions/_dispose_package_versions_output.rs`
+- `src/operation/dispose_package_versions/builders.rs`
+- `src/operation/get_associated_package_group.rs`
+- `src/operation/get_associated_package_group/_get_associated_package_group_input.rs`
+- `src/operation/get_associated_package_group/_get_associated_package_group_output.rs`
+- `src/operation/get_associated_package_group/builders.rs`
+- `src/operation/get_authorization_token.rs`
+- `src/operation/get_authorization_token/_get_authorization_token_input.rs`
+- `src/operation/get_authorization_token/_get_authorization_token_output.rs`
+- `src/operation/get_authorization_token/builders.rs`
+- `src/operation/get_domain_permissions_policy.rs`
+- `src/operation/get_domain_permissions_policy/_get_domain_permissions_policy_input.rs`
+- `src/operation/get_domain_permissions_policy/_get_domain_permissions_policy_output.rs`
+- `src/operation/get_domain_permissions_policy/builders.rs`
+- `src/operation/get_package_version_asset.rs`
+- `src/operation/get_package_version_asset/_get_package_version_asset_input.rs`
+- `src/operation/get_package_version_asset/_get_package_version_asset_output.rs`
+- `src/operation/get_package_version_asset/builders.rs`
+- `src/operation/get_package_version_readme.rs`
+- `src/operation/get_package_version_readme/_get_package_version_readme_input.rs`
+- `src/operation/get_package_version_readme/_get_package_version_readme_output.rs`
+- `src/operation/get_package_version_readme/builders.rs`
+- `src/operation/get_repository_endpoint.rs`
+- `src/operation/get_repository_endpoint/_get_repository_endpoint_input.rs`
+- `src/operation/get_repository_endpoint/_get_repository_endpoint_output.rs`
+- `src/operation/get_repository_endpoint/builders.rs`
+- `src/operation/get_repository_permissions_policy.rs`
+- `src/operation/get_repository_permissions_policy/_get_repository_permissions_policy_input.rs`
+- `src/operation/get_repository_permissions_policy/_get_repository_permissions_policy_output.rs`
+- `src/operation/get_repository_permissions_policy/builders.rs`
+- `src/operation/list_allowed_repositories_for_group.rs`
+- `src/operation/list_allowed_repositories_for_group/_list_allowed_repositories_for_group_input.rs`
+- `src/operation/list_allowed_repositories_for_group/_list_allowed_repositories_for_group_output.rs`
+- `src/operation/list_allowed_repositories_for_group/builders.rs`
+- `src/operation/list_allowed_repositories_for_group/paginator.rs`
+- `src/operation/list_associated_packages.rs`
+- `src/operation/list_associated_packages/_list_associated_packages_input.rs`
+- `src/operation/list_associated_packages/_list_associated_packages_output.rs`
+- `src/operation/list_associated_packages/builders.rs`
+- `src/operation/list_associated_packages/paginator.rs`
+- `src/operation/list_domains.rs`
+- `src/operation/list_domains/_list_domains_input.rs`
+- `src/operation/list_domains/_list_domains_output.rs`
+- `src/operation/list_domains/builders.rs`
+- `src/operation/list_domains/paginator.rs`
+- `src/operation/list_package_groups.rs`
+- `src/operation/list_package_groups/_list_package_groups_input.rs`
+- `src/operation/list_package_groups/_list_package_groups_output.rs`
+- `src/operation/list_package_groups/builders.rs`
+- `src/operation/list_package_groups/paginator.rs`
+- `src/operation/list_package_version_assets.rs`
+- `src/operation/list_package_version_assets/_list_package_version_assets_input.rs`
+- `src/operation/list_package_version_assets/_list_package_version_assets_output.rs`
+- `src/operation/list_package_version_assets/builders.rs`
+- `src/operation/list_package_version_assets/paginator.rs`
+- `src/operation/list_package_version_dependencies.rs`
+- `src/operation/list_package_version_dependencies/_list_package_version_dependencies_input.rs`
+- `src/operation/list_package_version_dependencies/_list_package_version_dependencies_output.rs`
+- `src/operation/list_package_version_dependencies/builders.rs`
+- `src/operation/list_package_versions.rs`
+- `src/operation/list_package_versions/_list_package_versions_input.rs`
+- `src/operation/list_package_versions/_list_package_versions_output.rs`
+- `src/operation/list_package_versions/builders.rs`
+- `src/operation/list_package_versions/paginator.rs`
+- `src/operation/list_packages.rs`
+- `src/operation/list_packages/_list_packages_input.rs`
+- `src/operation/list_packages/_list_packages_output.rs`
+- `src/operation/list_packages/builders.rs`
+- `src/operation/list_packages/paginator.rs`
+- `src/operation/list_repositories.rs`
+- `src/operation/list_repositories/_list_repositories_input.rs`
+- `src/operation/list_repositories/_list_repositories_output.rs`
+- `src/operation/list_repositories/builders.rs`
+- `src/operation/list_repositories/paginator.rs`
+- `src/operation/list_repositories_in_domain.rs`
+- `src/operation/list_repositories_in_domain/_list_repositories_in_domain_input.rs`
+- `src/operation/list_repositories_in_domain/_list_repositories_in_domain_output.rs`
+- `src/operation/list_repositories_in_domain/builders.rs`
+- `src/operation/list_repositories_in_domain/paginator.rs`
+- `src/operation/list_sub_package_groups.rs`
+- `src/operation/list_sub_package_groups/_list_sub_package_groups_input.rs`
+- `src/operation/list_sub_package_groups/_list_sub_package_groups_output.rs`
+- `src/operation/list_sub_package_groups/builders.rs`
+- `src/operation/list_sub_package_groups/paginator.rs`
+- `src/operation/list_tags_for_resource.rs`
+- `src/operation/list_tags_for_resource/_list_tags_for_resource_input.rs`
+- `src/operation/list_tags_for_resource/_list_tags_for_resource_output.rs`
+- `src/operation/list_tags_for_resource/builders.rs`
+- `src/operation/publish_package_version.rs`
+- `src/operation/publish_package_version/_publish_package_version_input.rs`
+- `src/operation/publish_package_version/_publish_package_version_output.rs`
+- `src/operation/publish_package_version/builders.rs`
+- `src/operation/put_domain_permissions_policy.rs`
+- `src/operation/put_domain_permissions_policy/_put_domain_permissions_policy_input.rs`
+- `src/operation/put_domain_permissions_policy/_put_domain_permissions_policy_output.rs`
+- `src/operation/put_domain_permissions_policy/builders.rs`
+- `src/operation/put_package_origin_configuration.rs`
+- `src/operation/put_package_origin_configuration/_put_package_origin_configuration_input.rs`
+- `src/operation/put_package_origin_configuration/_put_package_origin_configuration_output.rs`
+- `src/operation/put_package_origin_configuration/builders.rs`
+- `src/operation/put_repository_permissions_policy.rs`
+- `src/operation/put_repository_permissions_policy/_put_repository_permissions_policy_input.rs`
+- `src/operation/put_repository_permissions_policy/_put_repository_permissions_policy_output.rs`
+- `src/operation/put_repository_permissions_policy/builders.rs`
+- `src/operation/tag_resource.rs`
+- `src/operation/tag_resource/_tag_resource_input.rs`
+- `src/operation/tag_resource/_tag_resource_output.rs`
+- `src/operation/tag_resource/builders.rs`
+- `src/operation/untag_resource.rs`
+- `src/operation/untag_resource/_untag_resource_input.rs`
+- `src/operation/untag_resource/_untag_resource_output.rs`
+- `src/operation/untag_resource/builders.rs`
+- `src/operation/update_package_group.rs`
+- `src/operation/update_package_group/_update_package_group_input.rs`
+- `src/operation/update_package_group/_update_package_group_output.rs`
+- `src/operation/update_package_group/builders.rs`
+- `src/operation/update_package_group_origin_configuration.rs`
+- `src/operation/update_package_group_origin_configuration/_update_package_group_origin_configuration_input.rs`
+- `src/operation/update_package_group_origin_configuration/_update_package_group_origin_configuration_output.rs`
+- `src/operation/update_package_group_origin_configuration/builders.rs`
+- `src/operation/update_package_versions_status.rs`
+- `src/operation/update_package_versions_status/_update_package_versions_status_input.rs`
+- `src/operation/update_package_versions_status/_update_package_versions_status_output.rs`
+- `src/operation/update_package_versions_status/builders.rs`
+- `src/operation/update_repository.rs`
+- `src/operation/update_repository/_update_repository_input.rs`
+- `src/operation/update_repository/_update_repository_output.rs`
+- `src/operation/update_repository/builders.rs`
+- `src/protocol_serde.rs`
+- `src/protocol_serde/shape_associate_external_connection.rs`
+- `src/protocol_serde/shape_copy_package_versions.rs`
+- `src/protocol_serde/shape_copy_package_versions_input.rs`
+- `src/protocol_serde/shape_create_domain.rs`
+- `src/protocol_serde/shape_create_domain_input.rs`
+- `src/protocol_serde/shape_create_package_group.rs`
+- `src/protocol_serde/shape_create_package_group_input.rs`
+- `src/protocol_serde/shape_create_repository.rs`
+- `src/protocol_serde/shape_create_repository_input.rs`
+- `src/protocol_serde/shape_delete_domain.rs`
+- `src/protocol_serde/shape_delete_domain_permissions_policy.rs`
+- `src/protocol_serde/shape_delete_package.rs`
+- `src/protocol_serde/shape_delete_package_group.rs`
+- `src/protocol_serde/shape_delete_package_versions.rs`
+- `src/protocol_serde/shape_delete_package_versions_input.rs`
+- `src/protocol_serde/shape_delete_repository.rs`
+- `src/protocol_serde/shape_delete_repository_permissions_policy.rs`
+- `src/protocol_serde/shape_describe_domain.rs`
+- `src/protocol_serde/shape_describe_package.rs`
+- `src/protocol_serde/shape_describe_package_group.rs`
+- `src/protocol_serde/shape_describe_package_version.rs`
+- `src/protocol_serde/shape_describe_repository.rs`
+- `src/protocol_serde/shape_disassociate_external_connection.rs`
+- `src/protocol_serde/shape_dispose_package_versions.rs`
+- `src/protocol_serde/shape_dispose_package_versions_input.rs`
+- `src/protocol_serde/shape_get_associated_package_group.rs`
+- `src/protocol_serde/shape_get_authorization_token.rs`
+- `src/protocol_serde/shape_get_domain_permissions_policy.rs`
+- `src/protocol_serde/shape_get_package_version_asset.rs`
+- `src/protocol_serde/shape_get_package_version_asset_output.rs`
+- `src/protocol_serde/shape_get_package_version_readme.rs`
+- `src/protocol_serde/shape_get_repository_endpoint.rs`
+- `src/protocol_serde/shape_get_repository_permissions_policy.rs`
+- `src/protocol_serde/shape_list_allowed_repositories_for_group.rs`
+- `src/protocol_serde/shape_list_associated_packages.rs`
+- `src/protocol_serde/shape_list_domains.rs`
+- `src/protocol_serde/shape_list_domains_input.rs`
+- `src/protocol_serde/shape_list_package_groups.rs`
+- `src/protocol_serde/shape_list_package_version_assets.rs`
+- `src/protocol_serde/shape_list_package_version_dependencies.rs`
+- `src/protocol_serde/shape_list_package_versions.rs`
+- `src/protocol_serde/shape_list_packages.rs`
+- `src/protocol_serde/shape_list_repositories.rs`
+- `src/protocol_serde/shape_list_repositories_in_domain.rs`
+- `src/protocol_serde/shape_list_sub_package_groups.rs`
+- `src/protocol_serde/shape_list_tags_for_resource.rs`
+- `src/protocol_serde/shape_publish_package_version.rs`
+- `src/protocol_serde/shape_publish_package_version_input.rs`
+- `src/protocol_serde/shape_put_domain_permissions_policy.rs`
+- `src/protocol_serde/shape_put_domain_permissions_policy_input.rs`
+- `src/protocol_serde/shape_put_package_origin_configuration.rs`
+- `src/protocol_serde/shape_put_package_origin_configuration_input.rs`
+- `src/protocol_serde/shape_put_repository_permissions_policy.rs`
+- `src/protocol_serde/shape_put_repository_permissions_policy_input.rs`
+- `src/protocol_serde/shape_tag_resource.rs`
+- `src/protocol_serde/shape_tag_resource_input.rs`
+- `src/protocol_serde/shape_untag_resource.rs`
+- `src/protocol_serde/shape_untag_resource_input.rs`
+- `src/protocol_serde/shape_update_package_group.rs`
+- `src/protocol_serde/shape_update_package_group_input.rs`
+- `src/protocol_serde/shape_update_package_group_origin_configuration.rs`
+- `src/protocol_serde/shape_update_package_group_origin_configuration_input.rs`
+- `src/protocol_serde/shape_update_package_versions_status.rs`
+- `src/protocol_serde/shape_update_package_versions_status_input.rs`
+- `src/protocol_serde/shape_update_repository.rs`
+- `src/protocol_serde/shape_update_repository_input.rs`
+- `src/serde_util.rs`
+
+## Customizations
+
+- Add one non-default Cargo feature and matching cfg gates for each model operation.
+- Rename the Cargo package/library from manifest data.
+- Remove upstream `tests/` from generated output.
+
+## Reproduction
+
+```text
+cargo run -p aws-sdk-modularizer -- --manifest services-manifest.json
+```

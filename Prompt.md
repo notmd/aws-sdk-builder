@@ -1,431 +1,319 @@
-# Rust-native AWS SDK codegen parity
+# AWS SDK per-operation modularizer
 
-`Prompt.md` is the source of truth for the Rust-only AWS SDK generator. The
-implementation is complete only when every supported service matches the pinned AWS
-SDK Rust source in `conformance/reference`, apart from the explicitly documented
-module-anchor and generator-header normalization. Keep current evidence and
-checkpoint history in `docs/aws-sdk-builder-status.md`; do not duplicate volatile
-counts here.
+`Prompt.md` is the source of truth for the Rust codemod in this repository.
+Discard the existing AWS SDK builder, generated-artifact, normalized-projection,
+and snapshot-conformance infrastructure. Build the new system described here
+instead of incrementally migrating the old implementation or preserving a
+compatibility mode.
 
-## Parity priorities: code semantics first
+## Objective
 
-Prioritize compile-valid, executable semantic parity first: generated Rust types, public
-APIs, request and response bindings, serialization, deserialization, errors, and runtime
-behavior. Code-semantic diffs are the active work. Ordering-only diffs (including
-operation, re-export, and protocol-module order), formatting-only diffs, and
-documentation-only diffs are all last-priority work. Keep them visible in reports, but
-defer them whenever any semantic code mismatch remains; a cosmetic match must never
-mask an executable behavior difference.
+Create a Rust codemod that reads `services-manifest.json`, downloads the pinned
+official AWS SDK Rust source for every manifest entry, reads that service's
+Smithy `model.json`, and modifies the downloaded crate into a modular AWS SDK
+crate with one Cargo feature per operation.
 
-## Objective and scope
+The official AWS SDK source is the transformation baseline. This is an AST
+codemod, not a new Rust SDK renderer. The codemod must use `syn` to parse and
+modify Rust source and a structural TOML library to modify `Cargo.toml`.
+Never use regular expressions, line matching, ad-hoc string replacement, or a
+hardcoded operation list to transform Rust code.
 
-Build a generic `aws-sdk-builder` build dependency that lets a consumer select a
-service and operations, then include the generated API as Rust modules. Generation
-must be driven by packaged Smithy JSON models and reusable Smithy/AWS rules. Do not
-invoke Smithy CLI, Java, Kotlin, Gradle, Maven, a shell, or a network generator.
+## Reset boundary
 
-The initial supported services are `dynamodb`, `iam`, `kms`, `lambda`, `s3`, `sns`,
-`sqs`, and `sts`. Every registered service must have exactly one packaged model and
-must be tested against its complete pinned reference tree.
+Remove the current builder and conformance pipeline, including its renderer,
+provider crates, canonical `original.rs` artifacts, normalized projections,
+reference patches, and old snapshot reports. Do not add a consumer/conformance
+mode flag or a compatibility adapter for that architecture.
 
-The reference implementations are the pinned AWS SDK Rust repository and the pinned
-Smithy-RS checkout. Always inspect the Smithy-RS reference at:
+Keep only useful manifest, model, and upstream provenance data, rewriting them
+as needed for the new workflow. Existing generated source is not an input or a
+source of truth.
 
-```text
-/tmp/smithy-rs
-commit: f1b64a9c0dd001d4bac4277fec4041da59c1f48d
-```
+After the reset, clean up every obsolete implementation artifact. Use
+`cargo metadata`, repository searches, and the workspace dependency graph to
+prove whether old code is still referenced before removing it. Delete unused
+builder/conformance modules, provider crates, stale manifests, snapshot trees,
+reference patches, dead fixtures, obsolete examples, unused dependencies, and
+documentation that describes the discarded architecture. Do not leave dead
+code, abandoned compatibility shims, or unused Cargo workspace members behind.
+Preserve only files required by the new codemod, its tests, the manifest/model
+inputs, and current documentation.
 
-The pinned AWS SDK snapshot is:
+Maintain `docs/aws-sdk-modularizer-status.md` as the durable checkpoint log for
+long-running work. Read it before starting or resuming a change. Immediately
+after every commit, append a checkpoint containing the commit hash and date,
+objective, changed generic rule and files, commands run with pass/fail results,
+operation coverage before and after, remaining blocker, and one concrete next
+action. A status update must not be skipped because the commit was small; if it
+cannot be included in the commit just created, leave it in the worktree and
+carry it into the next commit.
 
-```text
-awslabs/aws-sdk-rust
-commit: 3c6d526c9d4775f41a8ef1ed2ef574d1b14481db
-```
-
-## Required migration: one artifact per service
-
-Consumer and conformance must use the same generator and implementation. Remove
-`consumer_namespace`, `consumer_crate`, and `relative_snapshot_paths` from the
-rendering pipeline. Do not replace them with another consumer/conformance mode flag.
-
-### Architecture decision and migration scope
-
-This project deliberately uses one canonical, per-service `original.rs` for both
-consumers and conformance. Conformance obtains its split files by transforming that
-artifact; it must never invoke a second renderer or compare a consumer-specific
-output. This decision is permanent unless this document is intentionally changed.
-
-The current migration is an architecture refactor, not a new parity sprint. Before
-editing, record the current `conformance/summary.md` as the baseline. The current
-baseline is approximately 4,904 matched of 6,396 files, with 724 mismatches, 713
-missing, and 55 extra files. The migration is successful only when coverage is
-baseline-equivalent: exact matches do not decrease and mismatch/missing/extra counts
-do not increase. Do not mix unrelated protocol or service parity work into this
-migration. `just conformance` may continue to exit 1 because the baseline itself is
-not fully conformant.
-
-Generate one canonical large Rust file for each service:
+The new Rust CLI should live in a dedicated workspace package named
+`aws-sdk-modularizer`. Its normal invocation is:
 
 ```text
-OUT_DIR/generated/<service>/original.rs
+cargo run -p aws-sdk-modularizer -- --manifest services-manifest.json
 ```
 
-The service provider's `include_sdk!()` macro must include exactly its own
-`original.rs`. Conformance must preserve the same artifact at:
+## Manifest-driven inputs
+
+`services-manifest.json` must explicitly describe all inputs and outputs. Each
+service entry must provide:
+
+- the pinned upstream repository and immutable commit or revision;
+- the path to the service crate in the downloaded SDK;
+- the local Smithy JSON model path;
+- the output directory;
+- the Cargo package name and Rust library crate name.
+
+Do not infer service support, output paths, package names, or operation lists in
+Rust code. A model operation is discovered from the service shape's operation
+targets. Validate that every selected service has exactly one service shape and
+that every operation target can be mapped to the downloaded source.
+
+Download and extract the pinned SDK into a temporary directory on each run.
+Do not commit the upstream SDK or a download cache. Validate the requested
+repository/revision and fail before writing output when the source or model is
+missing, malformed, ambiguous, or inconsistent with the manifest.
+
+## Smithy model and Smithy-RS reference
+
+The JSON model is authoritative for operation identity, operation order, model
+traits, and any relationship needed to decide which generated items belong to
+an operation. Rust identifiers and feature names must follow the naming rules
+used by Smithy-RS. For example:
 
 ```text
-conformance/generated/<service>/original.rs
+HeadBucket -> head_bucket -> op_head_bucket
 ```
 
-`original.rs` is the only generated implementation and the source of truth. It must
-be valid when included at the consumer crate root or inside any caller-owned wrapper.
-All generated references must be resolved from the Rust module tree; they may not
-hard-code the consumer crate name, wrapper name, or renderer mode.
+Before implementing or extending the codemod, inspect the local
+`/tmp/smithy-rs` checkout. In particular, use the Smithy-RS `RustCrate`,
+`RustModule`, `CodegenDelegator`, `CargoTomlGenerator`, operation generators,
+and AWS decorators as the reference for module ownership, crate manifests,
+operation-specific customization, and special cases.
 
-### Consumer contract
+Do not hardcode service names or operation names. A special case is allowed
+only when the model JSON does not contain the required information and Smithy-RS
+has corresponding special handling for that service or model trait. Isolate
+such logic in a typed, documented customization with a focused fixture and a
+reference to the Smithy-RS behavior. Literal operation names may not be used as
+general transformation rules.
 
-The intended API is:
+## Operation feature flags
+
+For every operation discovered from the model, add a Cargo feature named
+`op_<snake_case_operation_name>`. New operation features must not be enabled by
+default. Preserve unrelated upstream default features and never add an
+`op_*` feature to Cargo's `default` feature list.
+
+The public operation module declaration must have this form:
 
 ```rust
-// build.rs
-fn main() -> Result<(), Box<dyn std::error::Error>> {
-    aws_sdk_builder_s3::compile(["PutObject", "GetObject"])?;
-    Ok(())
-}
-
-// src/lib.rs
-mod s3_import {
-    aws_sdk_builder_s3::include_sdk!();
-}
+#[cfg(feature = "op_head_bucket")]
+pub mod head_bucket;
 ```
 
-An empty operation iterator selects every operation. Repeated selections merge
-deterministically; duplicates are removed, and selecting all cannot later be narrowed.
-Unknown services or operations fail before replacing existing output. The provider
-gets `OUT_DIR` and the Cargo package name from the build environment; callers do not
-provide model paths, output paths, crate names, shape IDs, or generator commands.
+The transform must gate the complete public operation surface consistently:
 
-The provider owns the macro, while the consumer owns the wrapper module. There is no
-generated aggregate `aws_sdk.rs` facade. The generated module tree must preserve the
-official service API, including clients, config, operations, builders, shapes,
-errors, protocol modules, and service configuration.
+- the operation module declaration;
+- the corresponding fluent client method and operation-specific impl items;
+- operation builders and operation-only helpers;
+- public re-exports and type aliases that exist only for that operation;
+- operation-specific tests or examples that exist in retained input files.
 
-## Canonical artifact and normalized projection
+Shared runtime code, configuration, and shapes used by multiple operations must
+remain available. Do not gate shared items merely because one operation refers
+to them. Conversely, an operation-specific public item must not remain exposed
+when its `op_*` feature is disabled.
 
-Because the pinned reference is split across files, conformance derives a comparison
-projection from each canonical artifact:
+Use a module-aware `syn` AST transform. Resolve the Rust module graph, locate
+external and inline modules, preserve existing attributes and visibility, and
+add `cfg` attributes to the actual declarations and items derived from the
+model. Reject duplicate mappings, unsupported syntax, invalid Rust, and
+ambiguous operation ownership rather than guessing.
+
+## Generated crate layout
+
+For every service, copy the official service crate into the manifest-defined
+output directory, then apply the AST and manifest transforms. For example:
 
 ```text
-conformance/generated/<service>/original.rs
-conformance/generated/<service>/normalized/src/lib.rs
-conformance/generated/<service>/normalized/src/config.rs
-conformance/generated/<service>/normalized/src/types.rs
-conformance/generated/<service>/normalized/src/types/<shape>.rs
-conformance/generated/<service>/normalized/src/operation/<operation>.rs
-...
+crates/aws_sdk_s3_modular/
+├── Cargo.toml
+├── src/
+├── DIFF.MD
+└── DIFF.diff
 ```
 
-The projection must be produced by a module-aware `syn` transform or a shared
-module-tree writer. Never split source with regular expressions or ad-hoc string
-rewrites. Recursively materialize every inline module at its Rust module path and
-retain the parent `mod`/`pub mod` declaration.
+Modify `Cargo.toml` structurally, keeping the filename unchanged. Update its
+package and library names from the manifest and add all model-derived
+operation features. Preserve upstream dependencies and metadata unless a
+manifest-defined rename requires a corresponding update.
 
-The transform must preserve:
+Strip the downloaded service crate's entire `tests/` directory from generated
+output. Do not parse, transform, compile, or report those tests. The upstream
+and transformed trees must both exclude `tests/**` before comparison, so test
+file removal never appears in `DIFF.MD` or `DIFF.diff`. Codemod unit and
+integration tests remain separate from generated service-crate output.
 
-- item order, visibility, attributes, documentation, and inner attributes;
-- relative `super::` paths, macro scope, and nested module hierarchy;
-- `include!`, `include_bytes!`, `file!`, `module_path!`, and macro behavior, or reject
-  the projection when preservation cannot be proven.
+Stage each service in a temporary directory and install it atomically only
+after parsing, transformation, validation, and diff generation succeed. A
+failure must not leave a partially generated crate.
 
-Reject invalid Rust, duplicate module paths, unsupported inline constructs, and any
-projection that is not deterministic. Check that the original and normalized forms
-compile with the same public module paths, item names, signatures, visibility,
-attributes, and token structure. The projection is a comparison view, never a second
-codegen mode and never a way to hide semantic differences.
+## Diff artifacts
 
-The required flow is:
+Generate the artifacts by comparing the transformed crate with the downloaded
+official service crate after applying the explicit `tests/**` exclusion:
+
+### `DIFF.MD`
+
+Write a deterministic human-readable report containing:
+
+- upstream repository and revision;
+- service and model paths;
+- output package and library names;
+- every generated operation feature and its model operation;
+- changed source and manifest files;
+- special customizations and their justification;
+- an explicit statement that `tests/**` was excluded;
+- the exact command needed to reproduce or apply the change.
+
+### `DIFF.diff`
+
+Write a deterministic unified patch suitable for `git apply`. Paths must be
+relative to the generated crate and the patch must contain only included source
+and manifest files. It must contain no `tests/**` hunks, including test-file
+deletions. Do not include either diff artifact inside its own patch.
+
+The diff must be reproducible from the same manifest, model, upstream revision,
+and codemod version. Preserve unmodified upstream files byte-for-byte whenever
+possible.
+
+## Verification and conformance
+
+Conformance validates the codemod transformation and the generated Cargo
+feature configurations. It is not an exact source-parity comparison with the
+upstream crate: `#[cfg]` attributes, operation features, manifest renames, and
+the removal of `tests/**` are intentional differences. The upstream crate is
+the transformation baseline and source for the per-service diff artifacts,
+but a non-empty `DIFF.MD` or `DIFF.diff` is not itself a conformance failure.
+
+Do not read checked-in reference trees, normalized projections, reference
+patches, canonical `original.rs` files, or snapshot reports during conformance.
+Stage the upstream and transformed crates in temporary directories and return
+success only when the transformation invariants, feature matrix, diff
+artifacts, and coverage report all pass. A conformance failure must leave
+existing generated outputs unchanged.
+
+The `aws-sdk-modularizer` CLI must support both the normal transformation and
+the verification entry points:
 
 ```text
-generate one original.rs per service
-        ├── include original.rs in the consumer fixture
-        └── split original.rs into normalized/src/**
-                    └── rustfmt normalized files, then compare with reference/<service>
+cargo run -p aws-sdk-modularizer -- --manifest services-manifest.json
+cargo run -p aws-sdk-modularizer -- conformance --manifest services-manifest.json
 ```
 
-## Generic codegen rules
+`just conformance` must invoke the second command for every service in the
+manifest. It must not invoke a service registry, provider crate, second
+renderer, or snapshot comparator.
 
-Use one model-driven pipeline for every service and operation. Do not add branches
-such as `service == "s3"` or `operation == "ListObjectsV2"` to make a fixture pass.
-Service-specific behavior must come from Smithy traits, protocol metadata, model
-data, or a typed declarative AWS customization whose input is model-traceable.
+Add focused tests for:
 
-The reusable stages are:
+- manifest parsing and revision validation;
+- model service and operation discovery;
+- Smithy-compatible Rust and feature naming;
+- module-graph traversal and `syn` AST rewriting;
+- exact `#[cfg(feature = "op_...")] pub mod ...;` output;
+- client method, builder, and re-export gating;
+- Cargo package/library renaming, default preservation, and feature defaults;
+- duplicate, missing, malformed, and unsupported-operation failures;
+- test-directory removal and exclusion from both diff formats;
+- deterministic output, atomic installation, and reproducible patches;
+- isolated Cargo checks for empty, singleton, and multiple-operation feature
+  selections.
 
-```text
-packaged model
-  -> Smithy AST and shape index
-  -> selection and transitive closure
-  -> Rust names and module paths
-  -> generic client, shape, protocol, endpoint, auth, retry, and runtime generation
-  -> AWS decorators/customizations
-  -> valid canonical Rust source
-  -> conformance projection, formatting, comparison, and atomic installation
-```
+For each generated service crate, conformance must validate all of the
+following:
 
-The generated API must cover the reference behavior for clients/configuration,
-operation builders, modeled and unhandled errors, structures/lists/maps/unions/enums,
-timestamps/blobs/documents/sensitive values, all landed protocols, serialization and
-deserialization, endpoint rules, auth/signing, retries, checksums, streaming,
-pagination, presigning, event streams, documentation, and stable visibility.
+- The model operation set and the generated `op_*` feature set are equal,
+  with exactly one feature for each operation and no unknown operation
+  features.
+- Every operation module, operation-specific client method, builder/helper,
+  re-export, type alias, and retained operation-specific test or example has
+  the correct operation gate. Shared items remain available whenever required
+  by any enabled operation.
+- A normal `cargo check` with the upstream default features compiles with zero
+  operation features enabled. This is the zero-operation case; it must not be
+  confused with `--no-default-features`, which is a separate optional matrix
+  if the generated crate explicitly promises that configuration.
+- `cargo check --features op_<operation>` succeeds once for every model
+  operation. “One operation feature” means every individual operation is
+  checked, not one representative operation.
+- Deterministic multiple-operation selections succeed, including the full
+  operation set and model-derived groups of operations that share shapes,
+  helpers, protocol machinery, or customizations. The exact selections must
+  be recorded in the coverage report; do not choose them by hardcoded service
+  or operation names.
+- Every Cargo invocation for a feature selection is isolated so feature
+  unification from another package or test cannot hide a missing gate.
+- Public API probes confirm that enabled operations are usable and disabled
+  operations are not publicly reachable; source inspection alone is not
+  sufficient to prove the latter.
+- No generated crate contains `tests/**`, and neither diff artifact contains
+  `tests/**` paths or hunks.
+- Each diff artifact is deterministic, lists the actual changed files, and
+  reconstructs the transformed tree when applied to the excluded upstream
+  baseline.
 
-Prefer structured Rust writers or validated `proc_macro2`/`syn` output over fragile
-string concatenation. The generator emits valid, deterministic Rust with stable
-ordering and a generator header, but does not run `rustfmt` or implement pretty-
-printing. Formatting belongs to conformance.
+The operation coverage report must define mutually exclusive categories:
 
-### Smithy-RS reverse-engineering guide
+- `total`: operations discovered from the selected service shape;
+- `transformed`: operations with exactly one source mapping, feature, and
+  verified public-surface gate;
+- `missing`: operations for which a required mapping, feature, or gate is
+  absent;
+- `ambiguous`: operations with multiple possible mappings or owners.
 
-[`docs/smithy-codegen-design.md`](docs/smithy-codegen-design.md) is the checked-in
-reverse-engineering guide and must be read before extending the generator. It maps
-the pinned Smithy-RS Kotlin implementation to the Rust abstractions needed here. Use
-the local `/tmp/smithy-rs` checkout at the pinned commit for targeted source and test
-inspection; do not invoke its JVM build or copy generated service output by hand.
-The checkout is a full local source reference, not a generated-output cache. If it is
-missing, create it once without using GitHub API enumeration:
+For every service, require
+`total = transformed + missing + ambiguous`, and require zero `missing` and
+zero `ambiguous` operations for conformance success. Coverage must never
+decrease. Report the coverage delta after each run, but do not require an
+increase for a bug fix, refactor, or documentation-only change that does not
+add handling for a previously missing operation.
 
-```text
-git clone https://github.com/smithy-lang/smithy-rs /tmp/smithy-rs
-git -C /tmp/smithy-rs checkout --detach f1b64a9c0dd001d4bac4277fec4041da59c1f48d
-```
-
-If the directory already exists, preserve it and verify its remote and commit rather
-than deleting or recloning it.
-
-The upstream Smithy language repository is a second, distinct local reference at
-`/tmp/smithy`. Use it for Smithy specification, model, trait, protocol, transform,
-and validation behavior; use `/tmp/smithy-rs` for the Rust codegen implementation.
-If it is missing, create it once and record/verify the checkout commit:
-
-```text
-git clone https://github.com/smithy-lang/smithy /tmp/smithy
-git -C /tmp/smithy rev-parse HEAD
-```
-
-The currently available `/tmp/smithy` checkout is at
-`0f7323128b0606a1b94b1ac482c94d3800a22708`. Preserve an existing checkout rather than
-deleting or recloning it.
-
-Trace behavior through these reference boundaries:
-
-| Concern | Smithy-RS source map | Rust responsibility |
-| --- | --- | --- |
-| Context and model transforms | `CodegenContext`, `OperationNormalizer` | Indexed model, ordered transforms |
-| Reachability and naming | `DirectedWalker`, `RustSymbolProvider`, `ModuleProvider` | Shape closure, symbols, module paths |
-| Files and dependencies | `RustCrate`, `RustWriter`, `RustModule`, `CodegenDelegator` | Canonical writers, imports, re-exports |
-| Shapes and operations | `SchemaGenerator`, `StructureGenerator`, `BuilderGenerator`, `OperationGenerator` | Generic Rust item and operation plans |
-| Protocol/client pipeline | `ProtocolLoader`, `HttpBindingResolver`, `ClientCodegenVisitor` | Protocol bindings, runtime, serializers |
-| Services and customization | `ServiceGenerator`, `ClientCodegenDecorator`, `AwsCodegenDecorator` | Ordered generic/AWS hooks |
-| Service extension example | `aws/.../customize/s3/S3Decorator.kt` | Conditional model-driven decorator |
-
-When diagnosing a mismatch, classify it as model/index, transform, closure,
-symbol/module, shape, protocol, runtime, decorator, dependency, documentation,
-formatting, or installation. Then inspect the corresponding reference abstraction and
-tests, implement the reusable Rust rule, add a focused test, regenerate all services,
-and record the result. Do not patch a literal operation name or add a generic renderer
-branch merely because one snapshot differs. Service IDs are allowed only in isolated,
-model-justified conditional decorators. Preserve the separation:
-
-```text
-Smithy model -> normalized IR -> closure -> symbols/modules -> generic generators
-             -> ordered AWS decorators -> canonical original.rs -> normalized projection
-```
-
-The guide is architectural memory for future agents; do not remove it during prompt
-compaction. Update it when the Rust port establishes a new reusable mapping.
-
-### Packaged models and output installation
-
-Each provider owns its model asset, for example:
-
-```text
-crates/aws-sdk-builder-s3/model.json
-crates/aws-sdk-builder-s3/src/lib.rs
-```
-
-The core registry stores service metadata and snapshot provenance. Model parsing must
-support the pinned Smithy JSON AST, shared/prelude shapes, traits, protocols,
-endpoints, auth, streaming, event streams, and service traits.
-
-`compile()` must read Cargo environment metadata, stage output in a temporary directory
-on the same filesystem, validate generated Rust, then atomically replace only the
-generator-owned `generated/<service>/original.rs` paths. Failed generation must leave
-previous output byte-for-byte intact. Do not emit aggregate facades or public
-selection metadata in `OUT_DIR`; conformance-only normalized files stay under
-`conformance/generated`.
-
-## Conformance
-
-For every supported service, generate all operations by calling the provider with an
-empty operation iterator, and also test selected-operation builds. Assert that every
-modeled operation appears in all-operation output and that unselected operations do
-not appear in selected output.
-
-The harness must:
-
-1. preserve `conformance/generated/<service>/original.rs`;
-2. derive and validate `normalized/src/**` from that exact file;
-3. format only normalized Rust files with the pinned equivalent of Smithy-RS:
-
-   ```text
-   rustfmt --edition 2021 --config max_width=150,skip_children=true <file>
-   ```
-
-4. compare the normalized tree file-by-file with the pinned reference tree;
-5. save deterministic reports to `conformance/summary.md` and
-   `conformance/summary/<service>.md`.
-
-The comparator may apply only these explicit reference-side normalizations:
-
-- the standalone reference crate/module anchor needed for the consumer-owned module;
-- checked-in source patches for the documented global-import adjustment;
-- generator-header identity, if checked separately.
-
-Do not normalize away whitespace after formatting, imports, docs, ordering, files,
-visibility, or behavior. Missing, extra, invalid, binary, and parse-error cases must
-remain explicit. Use `diffy::create_patch` for changed UTF-8 files; do not shell out
-to `diff` or `git diff`. Reports must be deterministic and include per-service and
-global totals for compared, matched, mismatched, missing, extra, and error counts.
-The command exits non-zero while differences remain, but must still write the report.
-
-The short command is:
+After every implementation change, run:
 
 ```text
 just conformance
-```
-
-It must regenerate the all-operation snapshots, preserve the originals, derive the
-normalized trees, format them, compare them, and leave the report available. For every
-codegen-affecting checkpoint, record before/after exact-match and mismatch/missing/
-extra counts in the status log. During the canonical-artifact migration, coverage must
-remain baseline-equivalent; improvement is optional and unrelated parity work is out
-of scope. A documentation-only change may leave coverage unchanged and should say so
-explicitly.
-
-## Verification and completion
-
-After every codegen-affecting change run:
-
-```text
-cargo fmt --all
-just conformance
+cargo check --workspace
 cargo test --workspace
-cargo clippy --workspace --all-targets -- -D warnings
+cargo fmt --all -- --check
 git diff --check
 ```
 
-For documentation-only edits, at minimum run `git diff --check` and the mandatory
-`just conformance`; do not claim that documentation increased coverage. Keep focused
-tests for model loading, naming, selection/closure, module splitting, deterministic
-output, atomic installation, public API, and clean consumer compilation. Also test
-that no external generator process is spawned and failed generation preserves old
-output.
+All commands above must pass. Record the operation coverage delta after each
+run. A documentation-only change, bug fix, or refactor may leave coverage
+unchanged, but must still run `just conformance` and report that fact
+accurately.
 
-Migration completion requires consumer and conformance to use the same per-service
-`original.rs`, normalized output to be proven equivalent to each original artifact,
-consumer and all-operation builds to pass with Rust/Cargo only, and the conformance
-report to remain baseline-equivalent. The command may exit 1 while those existing
-parity gaps remain. Full project completion is separate and still requires
-`just conformance` to exit 0 with every reference file matched.
+Before declaring a reset or cleanup complete, run `cargo metadata` and targeted
+repository searches to verify that removed code, dependencies, workspace
+members, examples, fixtures, and documentation have no remaining consumers.
+Every commit in the implementation history must have a corresponding status
+checkpoint as described above.
 
-## Durable checkpoints
+## Non-negotiable constraints
 
-At the start or resume of a checkpoint, read this file, the status log, `git status`,
-and the latest conformance summary. Preserve unrelated user changes. After each
-meaningful checkpoint update `docs/aws-sdk-builder-status.md` with:
-
-```markdown
-### Checkpoint: YYYY-MM-DD — Mx
-- State: in progress / blocked / complete
-- Changed: files and reusable rule
-- Evidence: commands and pass/fail results
-- Conformance: before -> after matched/mismatched/missing/extra
-- Blocker: exact issue, or `none`
-- Next action: one smallest concrete step
-```
-
-If work is interrupted or context is compacted, leave this checkpoint and resume from
-the repository state, generated snapshots, reports, and next action. Never claim
-completion merely because code compiles or a session ends. Never put credentials or
-private data in repository prompts, reports, or commit messages.
-
-## Milestones
-
-- [x] M1 — Split the shared builder from the eight service providers.
-- [x] M2 — Package exactly one model in each provider.
-- [ ] M3 — Complete generic Smithy model, naming, shape, and module generation.
-- [ ] M4 — Complete AWS protocols, endpoints, auth, retries, streaming, and decorators.
-- [ ] M5 — Finish the consumer contract and canonical per-service `original.rs` path.
-- [ ] M6 — Derive normalized trees from originals without regressing the current
-  conformance baseline; exact parity remains a later project goal.
-- [ ] M6a — Run the local S3 emulator smoke test as separate runtime evidence.
-- [ ] M7 — Expand beyond the current P0 services only after full parity gates pass.
-- [ ] M8 — Remove obsolete CLI documentation/code and complete the audit.
-
-The S3 local smoke test is secondary to source conformance. When enabled, it should
-exercise basic create/put/head/get/list/delete operations against a loopback Floci
-endpoint and never use real credentials or a non-local endpoint accidentally.
-
-## Copy-paste migration prompt
-
-```text
-/goal
-Migrate this Rust AWS SDK codegen project to one canonical generated artifact per service.
-
-Read Prompt.md, docs/smithy-codegen-design.md, docs/aws-sdk-builder-status.md, git
-status, the latest conformance summary, and the pinned Smithy-RS reference in
-/tmp/smithy-rs first. Preserve unrelated user changes. Use the Smithy-RS source map
-to reverse-engineer behavior before implementing a rule.
-
-Generate exactly:
-  OUT_DIR/generated/<service>/original.rs
-
-The provider's include_sdk!() must include that service's original.rs. Consumer and
-conformance must use this same implementation. Remove consumer_namespace,
-consumer_crate, and relative_snapshot_paths from the renderer; do not add another
-mode flag. Resolve all generated paths from the Rust module tree so the file compiles
-at crate root and below any caller-owned wrapper.
-
-For each service, preserve:
-  conformance/generated/<service>/original.rs
-
-Then derive normalized/src/** by recursively splitting inline modules with syn or a
-shared module-tree writer. Preserve module paths, visibility, attributes, docs, item
-order, macro scope, and relative paths; reject invalid or ambiguous transforms. Format
-only normalized files with rustfmt --edition 2021 --config max_width=150,skip_children=true,
-then compare them file-by-file with conformance/reference/<service> using only the
-checked-in reference-side patches and documented module/header normalization.
-
-Add tests for consumer inclusion, no renderer-mode branching, deterministic splitting,
-original/normalized public-API equivalence, selected/all-operation behavior, and
-atomic failure preservation. After each codegen checkpoint run cargo fmt --all,
-just conformance, cargo test --workspace, cargo clippy --workspace --all-targets
--- -D warnings, and git diff --check. Record exact before/after conformance counts and
-the next action in docs/aws-sdk-builder-status.md. Preserve the baseline: exact
-matches must not decrease and mismatch/missing/extra counts must not increase.
-Do not pursue unrelated parity improvements in this migration.
-
-Completion means the consumer and conformance use the same original.rs per service,
-the normalized projection is equivalent, the current conformance baseline is
-preserved, the consumer build passes, and the status log contains reproducible
-evidence. `just conformance` may remain non-zero because existing parity gaps are
-outside this migration.
-```
-
-## References
-
-- [Pinned AWS SDK Rust source](https://github.com/awslabs/aws-sdk-rust/tree/3c6d526c9d4775f41a8ef1ed2ef574d1b14481db)
-- [Pinned Smithy-RS AWS codegen](https://github.com/smithy-lang/smithy-rs/tree/f1b64a9c0dd001d4bac4277fec4041da59c1f48d/aws/codegen-aws-sdk)
-- [Smithy/codegen design notes](docs/smithy-codegen-design.md)
-- [Status and audit log](docs/aws-sdk-builder-status.md)
-- [`diffy` API](https://docs.rs/diffy/latest/diffy/)
+- Rust and Cargo only for the codemod; do not invoke Smithy CLI, Java, Kotlin,
+  Gradle, Maven, or an external code generator.
+- The JSON model drives operation behavior; source inspection only locates the
+  model-derived declarations to transform.
+- No operation feature is enabled by default.
+- No generated service `tests/` directory is retained or included in diffs.
+- No hardcoded operation/service transformation branches except documented,
+  model-insufficient Smithy-RS special handling.
+- Never claim completion from compilation alone; completion requires full
+  manifest coverage, passing `cargo check --workspace`, and reproducible
+  per-crate diff artifacts.

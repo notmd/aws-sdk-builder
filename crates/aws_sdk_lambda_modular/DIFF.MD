@@ -1,0 +1,688 @@
+# AWS SDK modularizer diff
+
+- repository: `https://github.com/awslabs/aws-sdk-rust`
+- revision: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
+- service: `sdk/lambda`
+- model: `models/lambda.json`
+- package: `aws-sdk-lambda-modular`
+- library: `aws_sdk_lambda_modular`
+- tests exclusion: `tests/**` is excluded from the comparison.
+
+## Operations
+
+- `op_delete_function`: `DeleteFunction`
+- `op_delete_function_event_invoke_config`: `DeleteFunctionEventInvokeConfig`
+- `op_delete_resource_policy`: `DeleteResourcePolicy`
+- `op_get_account_settings`: `GetAccountSettings`
+- `op_get_function_event_invoke_config`: `GetFunctionEventInvokeConfig`
+- `op_get_resource_policy`: `GetResourcePolicy`
+- `op_list_function_event_invoke_configs`: `ListFunctionEventInvokeConfigs`
+- `op_list_tags`: `ListTags`
+- `op_put_function_event_invoke_config`: `PutFunctionEventInvokeConfig`
+- `op_put_resource_policy`: `PutResourcePolicy`
+- `op_send_durable_execution_callback_failure`: `SendDurableExecutionCallbackFailure`
+- `op_send_durable_execution_callback_heartbeat`: `SendDurableExecutionCallbackHeartbeat`
+- `op_send_durable_execution_callback_success`: `SendDurableExecutionCallbackSuccess`
+- `op_tag_resource`: `TagResource`
+- `op_untag_resource`: `UntagResource`
+- `op_update_function_event_invoke_config`: `UpdateFunctionEventInvokeConfig`
+- `op_create_capacity_provider`: `CreateCapacityProvider`
+- `op_get_capacity_provider`: `GetCapacityProvider`
+- `op_update_capacity_provider`: `UpdateCapacityProvider`
+- `op_delete_capacity_provider`: `DeleteCapacityProvider`
+- `op_list_capacity_providers`: `ListCapacityProviders`
+- `op_list_function_versions_by_capacity_provider`: `ListFunctionVersionsByCapacityProvider`
+- `op_list_code_signing_configs`: `ListCodeSigningConfigs`
+- `op_delete_code_signing_config`: `DeleteCodeSigningConfig`
+- `op_get_code_signing_config`: `GetCodeSigningConfig`
+- `op_list_functions_by_code_signing_config`: `ListFunctionsByCodeSigningConfig`
+- `op_update_code_signing_config`: `UpdateCodeSigningConfig`
+- `op_get_durable_execution`: `GetDurableExecution`
+- `op_checkpoint_durable_execution`: `CheckpointDurableExecution`
+- `op_get_durable_execution_history`: `GetDurableExecutionHistory`
+- `op_get_durable_execution_state`: `GetDurableExecutionState`
+- `op_stop_durable_execution`: `StopDurableExecution`
+- `op_get_event_source_mapping`: `GetEventSourceMapping`
+- `op_update_event_source_mapping`: `UpdateEventSourceMapping`
+- `op_delete_event_source_mapping`: `DeleteEventSourceMapping`
+- `op_list_event_source_mappings`: `ListEventSourceMappings`
+- `op_create_function`: `CreateFunction`
+- `op_list_functions`: `ListFunctions`
+- `op_delete_function_concurrency`: `DeleteFunctionConcurrency`
+- `op_get_function_concurrency`: `GetFunctionConcurrency`
+- `op_list_provisioned_concurrency_configs`: `ListProvisionedConcurrencyConfigs`
+- `op_put_function_concurrency`: `PutFunctionConcurrency`
+- `op_update_function_code`: `UpdateFunctionCode`
+- `op_update_function_configuration`: `UpdateFunctionConfiguration`
+- `op_create_function_url_config`: `CreateFunctionUrlConfig`
+- `op_delete_function_code_signing_config`: `DeleteFunctionCodeSigningConfig`
+- `op_delete_function_url_config`: `DeleteFunctionUrlConfig`
+- `op_get_function`: `GetFunction`
+- `op_get_function_code_signing_config`: `GetFunctionCodeSigningConfig`
+- `op_get_function_configuration`: `GetFunctionConfiguration`
+- `op_get_function_recursion_config`: `GetFunctionRecursionConfig`
+- `op_get_function_scaling_config`: `GetFunctionScalingConfig`
+- `op_get_function_url_config`: `GetFunctionUrlConfig`
+- `op_get_policy`: `GetPolicy`
+- `op_get_runtime_management_config`: `GetRuntimeManagementConfig`
+- `op_invoke`: `Invoke`
+- `op_invoke_async`: `InvokeAsync`
+- `op_invoke_with_response_stream`: `InvokeWithResponseStream`
+- `op_list_durable_executions_by_function`: `ListDurableExecutionsByFunction`
+- `op_list_function_url_configs`: `ListFunctionUrlConfigs`
+- `op_put_function_code_signing_config`: `PutFunctionCodeSigningConfig`
+- `op_put_function_recursion_config`: `PutFunctionRecursionConfig`
+- `op_put_function_scaling_config`: `PutFunctionScalingConfig`
+- `op_put_runtime_management_config`: `PutRuntimeManagementConfig`
+- `op_update_function_url_config`: `UpdateFunctionUrlConfig`
+- `op_create_alias`: `CreateAlias`
+- `op_get_alias`: `GetAlias`
+- `op_update_alias`: `UpdateAlias`
+- `op_delete_alias`: `DeleteAlias`
+- `op_list_aliases`: `ListAliases`
+- `op_list_versions_by_function`: `ListVersionsByFunction`
+- `op_list_layers`: `ListLayers`
+- `op_list_layer_versions`: `ListLayerVersions`
+- `op_add_layer_version_permission`: `AddLayerVersionPermission`
+- `op_delete_layer_version`: `DeleteLayerVersion`
+- `op_get_layer_version`: `GetLayerVersion`
+- `op_get_layer_version_by_arn`: `GetLayerVersionByArn`
+- `op_get_layer_version_policy`: `GetLayerVersionPolicy`
+- `op_publish_layer_version`: `PublishLayerVersion`
+- `op_remove_layer_version_permission`: `RemoveLayerVersionPermission`
+- `op_add_permission`: `AddPermission`
+- `op_remove_permission`: `RemovePermission`
+- `op_put_provisioned_concurrency_config`: `PutProvisionedConcurrencyConfig`
+- `op_get_provisioned_concurrency_config`: `GetProvisionedConcurrencyConfig`
+- `op_delete_provisioned_concurrency_config`: `DeleteProvisionedConcurrencyConfig`
+
+## Changed files
+
+- `Cargo.toml`
+- `src/client.rs`
+- `src/client/add_layer_version_permission.rs`
+- `src/client/add_permission.rs`
+- `src/client/checkpoint_durable_execution.rs`
+- `src/client/create_alias.rs`
+- `src/client/create_capacity_provider.rs`
+- `src/client/create_function.rs`
+- `src/client/create_function_url_config.rs`
+- `src/client/delete_alias.rs`
+- `src/client/delete_capacity_provider.rs`
+- `src/client/delete_code_signing_config.rs`
+- `src/client/delete_event_source_mapping.rs`
+- `src/client/delete_function.rs`
+- `src/client/delete_function_code_signing_config.rs`
+- `src/client/delete_function_concurrency.rs`
+- `src/client/delete_function_event_invoke_config.rs`
+- `src/client/delete_function_url_config.rs`
+- `src/client/delete_layer_version.rs`
+- `src/client/delete_provisioned_concurrency_config.rs`
+- `src/client/delete_resource_policy.rs`
+- `src/client/get_account_settings.rs`
+- `src/client/get_alias.rs`
+- `src/client/get_capacity_provider.rs`
+- `src/client/get_code_signing_config.rs`
+- `src/client/get_durable_execution.rs`
+- `src/client/get_durable_execution_history.rs`
+- `src/client/get_durable_execution_state.rs`
+- `src/client/get_event_source_mapping.rs`
+- `src/client/get_function.rs`
+- `src/client/get_function_code_signing_config.rs`
+- `src/client/get_function_concurrency.rs`
+- `src/client/get_function_configuration.rs`
+- `src/client/get_function_event_invoke_config.rs`
+- `src/client/get_function_recursion_config.rs`
+- `src/client/get_function_scaling_config.rs`
+- `src/client/get_function_url_config.rs`
+- `src/client/get_layer_version.rs`
+- `src/client/get_layer_version_by_arn.rs`
+- `src/client/get_layer_version_policy.rs`
+- `src/client/get_policy.rs`
+- `src/client/get_provisioned_concurrency_config.rs`
+- `src/client/get_resource_policy.rs`
+- `src/client/get_runtime_management_config.rs`
+- `src/client/invoke.rs`
+- `src/client/invoke_async.rs`
+- `src/client/invoke_with_response_stream.rs`
+- `src/client/list_aliases.rs`
+- `src/client/list_capacity_providers.rs`
+- `src/client/list_code_signing_configs.rs`
+- `src/client/list_durable_executions_by_function.rs`
+- `src/client/list_event_source_mappings.rs`
+- `src/client/list_function_event_invoke_configs.rs`
+- `src/client/list_function_url_configs.rs`
+- `src/client/list_function_versions_by_capacity_provider.rs`
+- `src/client/list_functions.rs`
+- `src/client/list_functions_by_code_signing_config.rs`
+- `src/client/list_layer_versions.rs`
+- `src/client/list_layers.rs`
+- `src/client/list_provisioned_concurrency_configs.rs`
+- `src/client/list_tags.rs`
+- `src/client/list_versions_by_function.rs`
+- `src/client/publish_layer_version.rs`
+- `src/client/put_function_code_signing_config.rs`
+- `src/client/put_function_concurrency.rs`
+- `src/client/put_function_event_invoke_config.rs`
+- `src/client/put_function_recursion_config.rs`
+- `src/client/put_function_scaling_config.rs`
+- `src/client/put_provisioned_concurrency_config.rs`
+- `src/client/put_resource_policy.rs`
+- `src/client/put_runtime_management_config.rs`
+- `src/client/remove_layer_version_permission.rs`
+- `src/client/remove_permission.rs`
+- `src/client/send_durable_execution_callback_failure.rs`
+- `src/client/send_durable_execution_callback_heartbeat.rs`
+- `src/client/send_durable_execution_callback_success.rs`
+- `src/client/stop_durable_execution.rs`
+- `src/client/tag_resource.rs`
+- `src/client/untag_resource.rs`
+- `src/client/update_alias.rs`
+- `src/client/update_capacity_provider.rs`
+- `src/client/update_code_signing_config.rs`
+- `src/client/update_event_source_mapping.rs`
+- `src/client/update_function_code.rs`
+- `src/client/update_function_configuration.rs`
+- `src/client/update_function_event_invoke_config.rs`
+- `src/client/update_function_url_config.rs`
+- `src/error_meta.rs`
+- `src/event_stream_serde.rs`
+- `src/lens.rs`
+- `src/operation.rs`
+- `src/operation/add_layer_version_permission.rs`
+- `src/operation/add_layer_version_permission/_add_layer_version_permission_input.rs`
+- `src/operation/add_layer_version_permission/_add_layer_version_permission_output.rs`
+- `src/operation/add_layer_version_permission/builders.rs`
+- `src/operation/add_permission.rs`
+- `src/operation/add_permission/_add_permission_input.rs`
+- `src/operation/add_permission/_add_permission_output.rs`
+- `src/operation/add_permission/builders.rs`
+- `src/operation/checkpoint_durable_execution.rs`
+- `src/operation/checkpoint_durable_execution/_checkpoint_durable_execution_input.rs`
+- `src/operation/checkpoint_durable_execution/_checkpoint_durable_execution_output.rs`
+- `src/operation/checkpoint_durable_execution/builders.rs`
+- `src/operation/create_alias.rs`
+- `src/operation/create_alias/_create_alias_input.rs`
+- `src/operation/create_alias/_create_alias_output.rs`
+- `src/operation/create_alias/builders.rs`
+- `src/operation/create_capacity_provider.rs`
+- `src/operation/create_capacity_provider/_create_capacity_provider_input.rs`
+- `src/operation/create_capacity_provider/_create_capacity_provider_output.rs`
+- `src/operation/create_capacity_provider/builders.rs`
+- `src/operation/create_function.rs`
+- `src/operation/create_function/_create_function_input.rs`
+- `src/operation/create_function/_create_function_output.rs`
+- `src/operation/create_function/builders.rs`
+- `src/operation/create_function_url_config.rs`
+- `src/operation/create_function_url_config/_create_function_url_config_input.rs`
+- `src/operation/create_function_url_config/_create_function_url_config_output.rs`
+- `src/operation/create_function_url_config/builders.rs`
+- `src/operation/delete_alias.rs`
+- `src/operation/delete_alias/_delete_alias_input.rs`
+- `src/operation/delete_alias/_delete_alias_output.rs`
+- `src/operation/delete_alias/builders.rs`
+- `src/operation/delete_capacity_provider.rs`
+- `src/operation/delete_capacity_provider/_delete_capacity_provider_input.rs`
+- `src/operation/delete_capacity_provider/_delete_capacity_provider_output.rs`
+- `src/operation/delete_capacity_provider/builders.rs`
+- `src/operation/delete_code_signing_config.rs`
+- `src/operation/delete_code_signing_config/_delete_code_signing_config_input.rs`
+- `src/operation/delete_code_signing_config/_delete_code_signing_config_output.rs`
+- `src/operation/delete_code_signing_config/builders.rs`
+- `src/operation/delete_event_source_mapping.rs`
+- `src/operation/delete_event_source_mapping/_delete_event_source_mapping_input.rs`
+- `src/operation/delete_event_source_mapping/_delete_event_source_mapping_output.rs`
+- `src/operation/delete_event_source_mapping/builders.rs`
+- `src/operation/delete_function.rs`
+- `src/operation/delete_function/_delete_function_input.rs`
+- `src/operation/delete_function/_delete_function_output.rs`
+- `src/operation/delete_function/builders.rs`
+- `src/operation/delete_function_code_signing_config.rs`
+- `src/operation/delete_function_code_signing_config/_delete_function_code_signing_config_input.rs`
+- `src/operation/delete_function_code_signing_config/_delete_function_code_signing_config_output.rs`
+- `src/operation/delete_function_code_signing_config/builders.rs`
+- `src/operation/delete_function_concurrency.rs`
+- `src/operation/delete_function_concurrency/_delete_function_concurrency_input.rs`
+- `src/operation/delete_function_concurrency/_delete_function_concurrency_output.rs`
+- `src/operation/delete_function_concurrency/builders.rs`
+- `src/operation/delete_function_event_invoke_config.rs`
+- `src/operation/delete_function_event_invoke_config/_delete_function_event_invoke_config_input.rs`
+- `src/operation/delete_function_event_invoke_config/_delete_function_event_invoke_config_output.rs`
+- `src/operation/delete_function_event_invoke_config/builders.rs`
+- `src/operation/delete_function_url_config.rs`
+- `src/operation/delete_function_url_config/_delete_function_url_config_input.rs`
+- `src/operation/delete_function_url_config/_delete_function_url_config_output.rs`
+- `src/operation/delete_function_url_config/builders.rs`
+- `src/operation/delete_layer_version.rs`
+- `src/operation/delete_layer_version/_delete_layer_version_input.rs`
+- `src/operation/delete_layer_version/_delete_layer_version_output.rs`
+- `src/operation/delete_layer_version/builders.rs`
+- `src/operation/delete_provisioned_concurrency_config.rs`
+- `src/operation/delete_provisioned_concurrency_config/_delete_provisioned_concurrency_config_input.rs`
+- `src/operation/delete_provisioned_concurrency_config/_delete_provisioned_concurrency_config_output.rs`
+- `src/operation/delete_provisioned_concurrency_config/builders.rs`
+- `src/operation/delete_resource_policy.rs`
+- `src/operation/delete_resource_policy/_delete_resource_policy_input.rs`
+- `src/operation/delete_resource_policy/_delete_resource_policy_output.rs`
+- `src/operation/delete_resource_policy/builders.rs`
+- `src/operation/get_account_settings.rs`
+- `src/operation/get_account_settings/_get_account_settings_input.rs`
+- `src/operation/get_account_settings/_get_account_settings_output.rs`
+- `src/operation/get_account_settings/builders.rs`
+- `src/operation/get_alias.rs`
+- `src/operation/get_alias/_get_alias_input.rs`
+- `src/operation/get_alias/_get_alias_output.rs`
+- `src/operation/get_alias/builders.rs`
+- `src/operation/get_capacity_provider.rs`
+- `src/operation/get_capacity_provider/_get_capacity_provider_input.rs`
+- `src/operation/get_capacity_provider/_get_capacity_provider_output.rs`
+- `src/operation/get_capacity_provider/builders.rs`
+- `src/operation/get_code_signing_config.rs`
+- `src/operation/get_code_signing_config/_get_code_signing_config_input.rs`
+- `src/operation/get_code_signing_config/_get_code_signing_config_output.rs`
+- `src/operation/get_code_signing_config/builders.rs`
+- `src/operation/get_durable_execution.rs`
+- `src/operation/get_durable_execution/_get_durable_execution_input.rs`
+- `src/operation/get_durable_execution/_get_durable_execution_output.rs`
+- `src/operation/get_durable_execution/builders.rs`
+- `src/operation/get_durable_execution_history.rs`
+- `src/operation/get_durable_execution_history/_get_durable_execution_history_input.rs`
+- `src/operation/get_durable_execution_history/_get_durable_execution_history_output.rs`
+- `src/operation/get_durable_execution_history/builders.rs`
+- `src/operation/get_durable_execution_history/paginator.rs`
+- `src/operation/get_durable_execution_state.rs`
+- `src/operation/get_durable_execution_state/_get_durable_execution_state_input.rs`
+- `src/operation/get_durable_execution_state/_get_durable_execution_state_output.rs`
+- `src/operation/get_durable_execution_state/builders.rs`
+- `src/operation/get_durable_execution_state/paginator.rs`
+- `src/operation/get_event_source_mapping.rs`
+- `src/operation/get_event_source_mapping/_get_event_source_mapping_input.rs`
+- `src/operation/get_event_source_mapping/_get_event_source_mapping_output.rs`
+- `src/operation/get_event_source_mapping/builders.rs`
+- `src/operation/get_function.rs`
+- `src/operation/get_function/_get_function_input.rs`
+- `src/operation/get_function/_get_function_output.rs`
+- `src/operation/get_function/builders.rs`
+- `src/operation/get_function_code_signing_config.rs`
+- `src/operation/get_function_code_signing_config/_get_function_code_signing_config_input.rs`
+- `src/operation/get_function_code_signing_config/_get_function_code_signing_config_output.rs`
+- `src/operation/get_function_code_signing_config/builders.rs`
+- `src/operation/get_function_concurrency.rs`
+- `src/operation/get_function_concurrency/_get_function_concurrency_input.rs`
+- `src/operation/get_function_concurrency/_get_function_concurrency_output.rs`
+- `src/operation/get_function_concurrency/builders.rs`
+- `src/operation/get_function_configuration.rs`
+- `src/operation/get_function_configuration/_get_function_configuration_input.rs`
+- `src/operation/get_function_configuration/_get_function_configuration_output.rs`
+- `src/operation/get_function_configuration/builders.rs`
+- `src/operation/get_function_event_invoke_config.rs`
+- `src/operation/get_function_event_invoke_config/_get_function_event_invoke_config_input.rs`
+- `src/operation/get_function_event_invoke_config/_get_function_event_invoke_config_output.rs`
+- `src/operation/get_function_event_invoke_config/builders.rs`
+- `src/operation/get_function_recursion_config.rs`
+- `src/operation/get_function_recursion_config/_get_function_recursion_config_input.rs`
+- `src/operation/get_function_recursion_config/_get_function_recursion_config_output.rs`
+- `src/operation/get_function_recursion_config/builders.rs`
+- `src/operation/get_function_scaling_config.rs`
+- `src/operation/get_function_scaling_config/_get_function_scaling_config_input.rs`
+- `src/operation/get_function_scaling_config/_get_function_scaling_config_output.rs`
+- `src/operation/get_function_scaling_config/builders.rs`
+- `src/operation/get_function_url_config.rs`
+- `src/operation/get_function_url_config/_get_function_url_config_input.rs`
+- `src/operation/get_function_url_config/_get_function_url_config_output.rs`
+- `src/operation/get_function_url_config/builders.rs`
+- `src/operation/get_layer_version.rs`
+- `src/operation/get_layer_version/_get_layer_version_input.rs`
+- `src/operation/get_layer_version/_get_layer_version_output.rs`
+- `src/operation/get_layer_version/builders.rs`
+- `src/operation/get_layer_version_by_arn.rs`
+- `src/operation/get_layer_version_by_arn/_get_layer_version_by_arn_input.rs`
+- `src/operation/get_layer_version_by_arn/_get_layer_version_by_arn_output.rs`
+- `src/operation/get_layer_version_by_arn/builders.rs`
+- `src/operation/get_layer_version_policy.rs`
+- `src/operation/get_layer_version_policy/_get_layer_version_policy_input.rs`
+- `src/operation/get_layer_version_policy/_get_layer_version_policy_output.rs`
+- `src/operation/get_layer_version_policy/builders.rs`
+- `src/operation/get_policy.rs`
+- `src/operation/get_policy/_get_policy_input.rs`
+- `src/operation/get_policy/_get_policy_output.rs`
+- `src/operation/get_policy/builders.rs`
+- `src/operation/get_provisioned_concurrency_config.rs`
+- `src/operation/get_provisioned_concurrency_config/_get_provisioned_concurrency_config_input.rs`
+- `src/operation/get_provisioned_concurrency_config/_get_provisioned_concurrency_config_output.rs`
+- `src/operation/get_provisioned_concurrency_config/builders.rs`
+- `src/operation/get_resource_policy.rs`
+- `src/operation/get_resource_policy/_get_resource_policy_input.rs`
+- `src/operation/get_resource_policy/_get_resource_policy_output.rs`
+- `src/operation/get_resource_policy/builders.rs`
+- `src/operation/get_runtime_management_config.rs`
+- `src/operation/get_runtime_management_config/_get_runtime_management_config_input.rs`
+- `src/operation/get_runtime_management_config/_get_runtime_management_config_output.rs`
+- `src/operation/get_runtime_management_config/builders.rs`
+- `src/operation/invoke.rs`
+- `src/operation/invoke/_invoke_input.rs`
+- `src/operation/invoke/_invoke_output.rs`
+- `src/operation/invoke/builders.rs`
+- `src/operation/invoke_async.rs`
+- `src/operation/invoke_async/_invoke_async_input.rs`
+- `src/operation/invoke_async/_invoke_async_output.rs`
+- `src/operation/invoke_async/builders.rs`
+- `src/operation/invoke_with_response_stream.rs`
+- `src/operation/invoke_with_response_stream/_invoke_with_response_stream_input.rs`
+- `src/operation/invoke_with_response_stream/_invoke_with_response_stream_output.rs`
+- `src/operation/invoke_with_response_stream/builders.rs`
+- `src/operation/list_aliases.rs`
+- `src/operation/list_aliases/_list_aliases_input.rs`
+- `src/operation/list_aliases/_list_aliases_output.rs`
+- `src/operation/list_aliases/builders.rs`
+- `src/operation/list_aliases/paginator.rs`
+- `src/operation/list_capacity_providers.rs`
+- `src/operation/list_capacity_providers/_list_capacity_providers_input.rs`
+- `src/operation/list_capacity_providers/_list_capacity_providers_output.rs`
+- `src/operation/list_capacity_providers/builders.rs`
+- `src/operation/list_capacity_providers/paginator.rs`
+- `src/operation/list_code_signing_configs.rs`
+- `src/operation/list_code_signing_configs/_list_code_signing_configs_input.rs`
+- `src/operation/list_code_signing_configs/_list_code_signing_configs_output.rs`
+- `src/operation/list_code_signing_configs/builders.rs`
+- `src/operation/list_code_signing_configs/paginator.rs`
+- `src/operation/list_durable_executions_by_function.rs`
+- `src/operation/list_durable_executions_by_function/_list_durable_executions_by_function_input.rs`
+- `src/operation/list_durable_executions_by_function/_list_durable_executions_by_function_output.rs`
+- `src/operation/list_durable_executions_by_function/builders.rs`
+- `src/operation/list_durable_executions_by_function/paginator.rs`
+- `src/operation/list_event_source_mappings.rs`
+- `src/operation/list_event_source_mappings/_list_event_source_mappings_input.rs`
+- `src/operation/list_event_source_mappings/_list_event_source_mappings_output.rs`
+- `src/operation/list_event_source_mappings/builders.rs`
+- `src/operation/list_event_source_mappings/paginator.rs`
+- `src/operation/list_function_event_invoke_configs.rs`
+- `src/operation/list_function_event_invoke_configs/_list_function_event_invoke_configs_input.rs`
+- `src/operation/list_function_event_invoke_configs/_list_function_event_invoke_configs_output.rs`
+- `src/operation/list_function_event_invoke_configs/builders.rs`
+- `src/operation/list_function_event_invoke_configs/paginator.rs`
+- `src/operation/list_function_url_configs.rs`
+- `src/operation/list_function_url_configs/_list_function_url_configs_input.rs`
+- `src/operation/list_function_url_configs/_list_function_url_configs_output.rs`
+- `src/operation/list_function_url_configs/builders.rs`
+- `src/operation/list_function_url_configs/paginator.rs`
+- `src/operation/list_function_versions_by_capacity_provider.rs`
+- `src/operation/list_function_versions_by_capacity_provider/_list_function_versions_by_capacity_provider_input.rs`
+- `src/operation/list_function_versions_by_capacity_provider/_list_function_versions_by_capacity_provider_output.rs`
+- `src/operation/list_function_versions_by_capacity_provider/builders.rs`
+- `src/operation/list_function_versions_by_capacity_provider/paginator.rs`
+- `src/operation/list_functions.rs`
+- `src/operation/list_functions/_list_functions_input.rs`
+- `src/operation/list_functions/_list_functions_output.rs`
+- `src/operation/list_functions/builders.rs`
+- `src/operation/list_functions/paginator.rs`
+- `src/operation/list_functions_by_code_signing_config.rs`
+- `src/operation/list_functions_by_code_signing_config/_list_functions_by_code_signing_config_input.rs`
+- `src/operation/list_functions_by_code_signing_config/_list_functions_by_code_signing_config_output.rs`
+- `src/operation/list_functions_by_code_signing_config/builders.rs`
+- `src/operation/list_functions_by_code_signing_config/paginator.rs`
+- `src/operation/list_layer_versions.rs`
+- `src/operation/list_layer_versions/_list_layer_versions_input.rs`
+- `src/operation/list_layer_versions/_list_layer_versions_output.rs`
+- `src/operation/list_layer_versions/builders.rs`
+- `src/operation/list_layer_versions/paginator.rs`
+- `src/operation/list_layers.rs`
+- `src/operation/list_layers/_list_layers_input.rs`
+- `src/operation/list_layers/_list_layers_output.rs`
+- `src/operation/list_layers/builders.rs`
+- `src/operation/list_layers/paginator.rs`
+- `src/operation/list_provisioned_concurrency_configs.rs`
+- `src/operation/list_provisioned_concurrency_configs/_list_provisioned_concurrency_configs_input.rs`
+- `src/operation/list_provisioned_concurrency_configs/_list_provisioned_concurrency_configs_output.rs`
+- `src/operation/list_provisioned_concurrency_configs/builders.rs`
+- `src/operation/list_provisioned_concurrency_configs/paginator.rs`
+- `src/operation/list_tags.rs`
+- `src/operation/list_tags/_list_tags_input.rs`
+- `src/operation/list_tags/_list_tags_output.rs`
+- `src/operation/list_tags/builders.rs`
+- `src/operation/list_versions_by_function.rs`
+- `src/operation/list_versions_by_function/_list_versions_by_function_input.rs`
+- `src/operation/list_versions_by_function/_list_versions_by_function_output.rs`
+- `src/operation/list_versions_by_function/builders.rs`
+- `src/operation/list_versions_by_function/paginator.rs`
+- `src/operation/publish_layer_version.rs`
+- `src/operation/publish_layer_version/_publish_layer_version_input.rs`
+- `src/operation/publish_layer_version/_publish_layer_version_output.rs`
+- `src/operation/publish_layer_version/builders.rs`
+- `src/operation/put_function_code_signing_config.rs`
+- `src/operation/put_function_code_signing_config/_put_function_code_signing_config_input.rs`
+- `src/operation/put_function_code_signing_config/_put_function_code_signing_config_output.rs`
+- `src/operation/put_function_code_signing_config/builders.rs`
+- `src/operation/put_function_concurrency.rs`
+- `src/operation/put_function_concurrency/_put_function_concurrency_input.rs`
+- `src/operation/put_function_concurrency/_put_function_concurrency_output.rs`
+- `src/operation/put_function_concurrency/builders.rs`
+- `src/operation/put_function_event_invoke_config.rs`
+- `src/operation/put_function_event_invoke_config/_put_function_event_invoke_config_input.rs`
+- `src/operation/put_function_event_invoke_config/_put_function_event_invoke_config_output.rs`
+- `src/operation/put_function_event_invoke_config/builders.rs`
+- `src/operation/put_function_recursion_config.rs`
+- `src/operation/put_function_recursion_config/_put_function_recursion_config_input.rs`
+- `src/operation/put_function_recursion_config/_put_function_recursion_config_output.rs`
+- `src/operation/put_function_recursion_config/builders.rs`
+- `src/operation/put_function_scaling_config.rs`
+- `src/operation/put_function_scaling_config/_put_function_scaling_config_input.rs`
+- `src/operation/put_function_scaling_config/_put_function_scaling_config_output.rs`
+- `src/operation/put_function_scaling_config/builders.rs`
+- `src/operation/put_provisioned_concurrency_config.rs`
+- `src/operation/put_provisioned_concurrency_config/_put_provisioned_concurrency_config_input.rs`
+- `src/operation/put_provisioned_concurrency_config/_put_provisioned_concurrency_config_output.rs`
+- `src/operation/put_provisioned_concurrency_config/builders.rs`
+- `src/operation/put_resource_policy.rs`
+- `src/operation/put_resource_policy/_put_resource_policy_input.rs`
+- `src/operation/put_resource_policy/_put_resource_policy_output.rs`
+- `src/operation/put_resource_policy/builders.rs`
+- `src/operation/put_runtime_management_config.rs`
+- `src/operation/put_runtime_management_config/_put_runtime_management_config_input.rs`
+- `src/operation/put_runtime_management_config/_put_runtime_management_config_output.rs`
+- `src/operation/put_runtime_management_config/builders.rs`
+- `src/operation/remove_layer_version_permission.rs`
+- `src/operation/remove_layer_version_permission/_remove_layer_version_permission_input.rs`
+- `src/operation/remove_layer_version_permission/_remove_layer_version_permission_output.rs`
+- `src/operation/remove_layer_version_permission/builders.rs`
+- `src/operation/remove_permission.rs`
+- `src/operation/remove_permission/_remove_permission_input.rs`
+- `src/operation/remove_permission/_remove_permission_output.rs`
+- `src/operation/remove_permission/builders.rs`
+- `src/operation/send_durable_execution_callback_failure.rs`
+- `src/operation/send_durable_execution_callback_failure/_send_durable_execution_callback_failure_input.rs`
+- `src/operation/send_durable_execution_callback_failure/_send_durable_execution_callback_failure_output.rs`
+- `src/operation/send_durable_execution_callback_failure/builders.rs`
+- `src/operation/send_durable_execution_callback_heartbeat.rs`
+- `src/operation/send_durable_execution_callback_heartbeat/_send_durable_execution_callback_heartbeat_input.rs`
+- `src/operation/send_durable_execution_callback_heartbeat/_send_durable_execution_callback_heartbeat_output.rs`
+- `src/operation/send_durable_execution_callback_heartbeat/builders.rs`
+- `src/operation/send_durable_execution_callback_success.rs`
+- `src/operation/send_durable_execution_callback_success/_send_durable_execution_callback_success_input.rs`
+- `src/operation/send_durable_execution_callback_success/_send_durable_execution_callback_success_output.rs`
+- `src/operation/send_durable_execution_callback_success/builders.rs`
+- `src/operation/stop_durable_execution.rs`
+- `src/operation/stop_durable_execution/_stop_durable_execution_input.rs`
+- `src/operation/stop_durable_execution/_stop_durable_execution_output.rs`
+- `src/operation/stop_durable_execution/builders.rs`
+- `src/operation/tag_resource.rs`
+- `src/operation/tag_resource/_tag_resource_input.rs`
+- `src/operation/tag_resource/_tag_resource_output.rs`
+- `src/operation/tag_resource/builders.rs`
+- `src/operation/untag_resource.rs`
+- `src/operation/untag_resource/_untag_resource_input.rs`
+- `src/operation/untag_resource/_untag_resource_output.rs`
+- `src/operation/untag_resource/builders.rs`
+- `src/operation/update_alias.rs`
+- `src/operation/update_alias/_update_alias_input.rs`
+- `src/operation/update_alias/_update_alias_output.rs`
+- `src/operation/update_alias/builders.rs`
+- `src/operation/update_capacity_provider.rs`
+- `src/operation/update_capacity_provider/_update_capacity_provider_input.rs`
+- `src/operation/update_capacity_provider/_update_capacity_provider_output.rs`
+- `src/operation/update_capacity_provider/builders.rs`
+- `src/operation/update_code_signing_config.rs`
+- `src/operation/update_code_signing_config/_update_code_signing_config_input.rs`
+- `src/operation/update_code_signing_config/_update_code_signing_config_output.rs`
+- `src/operation/update_code_signing_config/builders.rs`
+- `src/operation/update_event_source_mapping.rs`
+- `src/operation/update_event_source_mapping/_update_event_source_mapping_input.rs`
+- `src/operation/update_event_source_mapping/_update_event_source_mapping_output.rs`
+- `src/operation/update_event_source_mapping/builders.rs`
+- `src/operation/update_function_code.rs`
+- `src/operation/update_function_code/_update_function_code_input.rs`
+- `src/operation/update_function_code/_update_function_code_output.rs`
+- `src/operation/update_function_code/builders.rs`
+- `src/operation/update_function_configuration.rs`
+- `src/operation/update_function_configuration/_update_function_configuration_input.rs`
+- `src/operation/update_function_configuration/_update_function_configuration_output.rs`
+- `src/operation/update_function_configuration/builders.rs`
+- `src/operation/update_function_event_invoke_config.rs`
+- `src/operation/update_function_event_invoke_config/_update_function_event_invoke_config_input.rs`
+- `src/operation/update_function_event_invoke_config/_update_function_event_invoke_config_output.rs`
+- `src/operation/update_function_event_invoke_config/builders.rs`
+- `src/operation/update_function_url_config.rs`
+- `src/operation/update_function_url_config/_update_function_url_config_input.rs`
+- `src/operation/update_function_url_config/_update_function_url_config_output.rs`
+- `src/operation/update_function_url_config/builders.rs`
+- `src/protocol_serde.rs`
+- `src/protocol_serde/shape_add_layer_version_permission.rs`
+- `src/protocol_serde/shape_add_layer_version_permission_input.rs`
+- `src/protocol_serde/shape_add_permission.rs`
+- `src/protocol_serde/shape_add_permission_input.rs`
+- `src/protocol_serde/shape_checkpoint_durable_execution.rs`
+- `src/protocol_serde/shape_checkpoint_durable_execution_input.rs`
+- `src/protocol_serde/shape_create_alias.rs`
+- `src/protocol_serde/shape_create_alias_input.rs`
+- `src/protocol_serde/shape_create_capacity_provider.rs`
+- `src/protocol_serde/shape_create_capacity_provider_input.rs`
+- `src/protocol_serde/shape_create_function.rs`
+- `src/protocol_serde/shape_create_function_input.rs`
+- `src/protocol_serde/shape_create_function_url_config.rs`
+- `src/protocol_serde/shape_create_function_url_config_input.rs`
+- `src/protocol_serde/shape_delete_alias.rs`
+- `src/protocol_serde/shape_delete_capacity_provider.rs`
+- `src/protocol_serde/shape_delete_code_signing_config.rs`
+- `src/protocol_serde/shape_delete_event_source_mapping.rs`
+- `src/protocol_serde/shape_delete_function.rs`
+- `src/protocol_serde/shape_delete_function_code_signing_config.rs`
+- `src/protocol_serde/shape_delete_function_concurrency.rs`
+- `src/protocol_serde/shape_delete_function_event_invoke_config.rs`
+- `src/protocol_serde/shape_delete_function_url_config.rs`
+- `src/protocol_serde/shape_delete_layer_version.rs`
+- `src/protocol_serde/shape_delete_provisioned_concurrency_config.rs`
+- `src/protocol_serde/shape_delete_resource_policy.rs`
+- `src/protocol_serde/shape_get_account_settings.rs`
+- `src/protocol_serde/shape_get_alias.rs`
+- `src/protocol_serde/shape_get_capacity_provider.rs`
+- `src/protocol_serde/shape_get_code_signing_config.rs`
+- `src/protocol_serde/shape_get_durable_execution.rs`
+- `src/protocol_serde/shape_get_durable_execution_history.rs`
+- `src/protocol_serde/shape_get_durable_execution_state.rs`
+- `src/protocol_serde/shape_get_event_source_mapping.rs`
+- `src/protocol_serde/shape_get_function.rs`
+- `src/protocol_serde/shape_get_function_code_signing_config.rs`
+- `src/protocol_serde/shape_get_function_concurrency.rs`
+- `src/protocol_serde/shape_get_function_configuration.rs`
+- `src/protocol_serde/shape_get_function_event_invoke_config.rs`
+- `src/protocol_serde/shape_get_function_recursion_config.rs`
+- `src/protocol_serde/shape_get_function_scaling_config.rs`
+- `src/protocol_serde/shape_get_function_url_config.rs`
+- `src/protocol_serde/shape_get_layer_version.rs`
+- `src/protocol_serde/shape_get_layer_version_by_arn.rs`
+- `src/protocol_serde/shape_get_layer_version_policy.rs`
+- `src/protocol_serde/shape_get_policy.rs`
+- `src/protocol_serde/shape_get_provisioned_concurrency_config.rs`
+- `src/protocol_serde/shape_get_resource_policy.rs`
+- `src/protocol_serde/shape_get_runtime_management_config.rs`
+- `src/protocol_serde/shape_invoke.rs`
+- `src/protocol_serde/shape_invoke_async.rs`
+- `src/protocol_serde/shape_invoke_async_input.rs`
+- `src/protocol_serde/shape_invoke_input.rs`
+- `src/protocol_serde/shape_invoke_output.rs`
+- `src/protocol_serde/shape_invoke_with_response_stream.rs`
+- `src/protocol_serde/shape_invoke_with_response_stream_complete_event.rs`
+- `src/protocol_serde/shape_invoke_with_response_stream_input.rs`
+- `src/protocol_serde/shape_invoke_with_response_stream_output.rs`
+- `src/protocol_serde/shape_list_aliases.rs`
+- `src/protocol_serde/shape_list_capacity_providers.rs`
+- `src/protocol_serde/shape_list_code_signing_configs.rs`
+- `src/protocol_serde/shape_list_durable_executions_by_function.rs`
+- `src/protocol_serde/shape_list_event_source_mappings.rs`
+- `src/protocol_serde/shape_list_function_event_invoke_configs.rs`
+- `src/protocol_serde/shape_list_function_url_configs.rs`
+- `src/protocol_serde/shape_list_function_versions_by_capacity_provider.rs`
+- `src/protocol_serde/shape_list_functions.rs`
+- `src/protocol_serde/shape_list_functions_by_code_signing_config.rs`
+- `src/protocol_serde/shape_list_layer_versions.rs`
+- `src/protocol_serde/shape_list_layers.rs`
+- `src/protocol_serde/shape_list_provisioned_concurrency_configs.rs`
+- `src/protocol_serde/shape_list_tags.rs`
+- `src/protocol_serde/shape_list_versions_by_function.rs`
+- `src/protocol_serde/shape_publish_layer_version.rs`
+- `src/protocol_serde/shape_publish_layer_version_input.rs`
+- `src/protocol_serde/shape_put_function_code_signing_config.rs`
+- `src/protocol_serde/shape_put_function_code_signing_config_input.rs`
+- `src/protocol_serde/shape_put_function_concurrency.rs`
+- `src/protocol_serde/shape_put_function_concurrency_input.rs`
+- `src/protocol_serde/shape_put_function_event_invoke_config.rs`
+- `src/protocol_serde/shape_put_function_event_invoke_config_input.rs`
+- `src/protocol_serde/shape_put_function_recursion_config.rs`
+- `src/protocol_serde/shape_put_function_recursion_config_input.rs`
+- `src/protocol_serde/shape_put_function_scaling_config.rs`
+- `src/protocol_serde/shape_put_function_scaling_config_input.rs`
+- `src/protocol_serde/shape_put_provisioned_concurrency_config.rs`
+- `src/protocol_serde/shape_put_provisioned_concurrency_config_input.rs`
+- `src/protocol_serde/shape_put_resource_policy.rs`
+- `src/protocol_serde/shape_put_resource_policy_input.rs`
+- `src/protocol_serde/shape_put_runtime_management_config.rs`
+- `src/protocol_serde/shape_put_runtime_management_config_input.rs`
+- `src/protocol_serde/shape_remove_layer_version_permission.rs`
+- `src/protocol_serde/shape_remove_permission.rs`
+- `src/protocol_serde/shape_send_durable_execution_callback_failure.rs`
+- `src/protocol_serde/shape_send_durable_execution_callback_failure_input.rs`
+- `src/protocol_serde/shape_send_durable_execution_callback_heartbeat.rs`
+- `src/protocol_serde/shape_send_durable_execution_callback_success.rs`
+- `src/protocol_serde/shape_send_durable_execution_callback_success_input.rs`
+- `src/protocol_serde/shape_stop_durable_execution.rs`
+- `src/protocol_serde/shape_stop_durable_execution_input.rs`
+- `src/protocol_serde/shape_tag_resource.rs`
+- `src/protocol_serde/shape_tag_resource_input.rs`
+- `src/protocol_serde/shape_untag_resource.rs`
+- `src/protocol_serde/shape_update_alias.rs`
+- `src/protocol_serde/shape_update_alias_input.rs`
+- `src/protocol_serde/shape_update_capacity_provider.rs`
+- `src/protocol_serde/shape_update_capacity_provider_input.rs`
+- `src/protocol_serde/shape_update_code_signing_config.rs`
+- `src/protocol_serde/shape_update_code_signing_config_input.rs`
+- `src/protocol_serde/shape_update_event_source_mapping.rs`
+- `src/protocol_serde/shape_update_event_source_mapping_input.rs`
+- `src/protocol_serde/shape_update_function_code.rs`
+- `src/protocol_serde/shape_update_function_code_input.rs`
+- `src/protocol_serde/shape_update_function_configuration.rs`
+- `src/protocol_serde/shape_update_function_configuration_input.rs`
+- `src/protocol_serde/shape_update_function_event_invoke_config.rs`
+- `src/protocol_serde/shape_update_function_event_invoke_config_input.rs`
+- `src/protocol_serde/shape_update_function_url_config.rs`
+- `src/protocol_serde/shape_update_function_url_config_input.rs`
+- `src/serde_util.rs`
+- `src/waiters.rs`
+- `src/waiters/function_active.rs`
+- `src/waiters/function_active_v2.rs`
+- `src/waiters/function_exists.rs`
+- `src/waiters/function_updated.rs`
+- `src/waiters/function_updated_v2.rs`
+- `src/waiters/matchers.rs`
+- `src/waiters/published_version_active.rs`
+
+## Customizations
+
+- Add one non-default Cargo feature and matching cfg gates for each model operation.
+- Rename the Cargo package/library from manifest data.
+- Remove upstream `tests/` from generated output.
+
+## Reproduction
+
+```text
+cargo run -p aws-sdk-modularizer -- --manifest services-manifest.json
+```

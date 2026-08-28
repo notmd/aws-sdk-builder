@@ -1,0 +1,120 @@
+# AWS SDK modularizer diff
+
+- repository: `https://github.com/awslabs/aws-sdk-rust`
+- revision: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
+- service: `sdk/sts`
+- model: `models/sts.json`
+- package: `aws-sdk-sts-modular`
+- library: `aws_sdk_sts_modular`
+- tests exclusion: `tests/**` is excluded from the comparison.
+
+## Operations
+
+- `op_assume_role`: `AssumeRole`
+- `op_assume_role_with_saml`: `AssumeRoleWithSAML`
+- `op_assume_role_with_web_identity`: `AssumeRoleWithWebIdentity`
+- `op_assume_root`: `AssumeRoot`
+- `op_decode_authorization_message`: `DecodeAuthorizationMessage`
+- `op_get_access_key_info`: `GetAccessKeyInfo`
+- `op_get_caller_identity`: `GetCallerIdentity`
+- `op_get_delegated_access_token`: `GetDelegatedAccessToken`
+- `op_get_federation_token`: `GetFederationToken`
+- `op_get_session_token`: `GetSessionToken`
+- `op_get_web_identity_token`: `GetWebIdentityToken`
+
+## Changed files
+
+- `Cargo.toml`
+- `src/client.rs`
+- `src/client/assume_role.rs`
+- `src/client/assume_role_with_saml.rs`
+- `src/client/assume_role_with_web_identity.rs`
+- `src/client/assume_root.rs`
+- `src/client/decode_authorization_message.rs`
+- `src/client/get_access_key_info.rs`
+- `src/client/get_caller_identity.rs`
+- `src/client/get_delegated_access_token.rs`
+- `src/client/get_federation_token.rs`
+- `src/client/get_session_token.rs`
+- `src/client/get_web_identity_token.rs`
+- `src/error_meta.rs`
+- `src/operation.rs`
+- `src/operation/assume_role.rs`
+- `src/operation/assume_role/_assume_role_input.rs`
+- `src/operation/assume_role/_assume_role_output.rs`
+- `src/operation/assume_role/builders.rs`
+- `src/operation/assume_role_with_saml.rs`
+- `src/operation/assume_role_with_saml/_assume_role_with_saml_input.rs`
+- `src/operation/assume_role_with_saml/_assume_role_with_saml_output.rs`
+- `src/operation/assume_role_with_saml/builders.rs`
+- `src/operation/assume_role_with_web_identity.rs`
+- `src/operation/assume_role_with_web_identity/_assume_role_with_web_identity_input.rs`
+- `src/operation/assume_role_with_web_identity/_assume_role_with_web_identity_output.rs`
+- `src/operation/assume_role_with_web_identity/builders.rs`
+- `src/operation/assume_root.rs`
+- `src/operation/assume_root/_assume_root_input.rs`
+- `src/operation/assume_root/_assume_root_output.rs`
+- `src/operation/assume_root/builders.rs`
+- `src/operation/decode_authorization_message.rs`
+- `src/operation/decode_authorization_message/_decode_authorization_message_input.rs`
+- `src/operation/decode_authorization_message/_decode_authorization_message_output.rs`
+- `src/operation/decode_authorization_message/builders.rs`
+- `src/operation/get_access_key_info.rs`
+- `src/operation/get_access_key_info/_get_access_key_info_input.rs`
+- `src/operation/get_access_key_info/_get_access_key_info_output.rs`
+- `src/operation/get_access_key_info/builders.rs`
+- `src/operation/get_caller_identity.rs`
+- `src/operation/get_caller_identity/_get_caller_identity_input.rs`
+- `src/operation/get_caller_identity/_get_caller_identity_output.rs`
+- `src/operation/get_caller_identity/builders.rs`
+- `src/operation/get_delegated_access_token.rs`
+- `src/operation/get_delegated_access_token/_get_delegated_access_token_input.rs`
+- `src/operation/get_delegated_access_token/_get_delegated_access_token_output.rs`
+- `src/operation/get_delegated_access_token/builders.rs`
+- `src/operation/get_federation_token.rs`
+- `src/operation/get_federation_token/_get_federation_token_input.rs`
+- `src/operation/get_federation_token/_get_federation_token_output.rs`
+- `src/operation/get_federation_token/builders.rs`
+- `src/operation/get_session_token.rs`
+- `src/operation/get_session_token/_get_session_token_input.rs`
+- `src/operation/get_session_token/_get_session_token_output.rs`
+- `src/operation/get_session_token/builders.rs`
+- `src/operation/get_web_identity_token.rs`
+- `src/operation/get_web_identity_token/_get_web_identity_token_input.rs`
+- `src/operation/get_web_identity_token/_get_web_identity_token_output.rs`
+- `src/operation/get_web_identity_token/builders.rs`
+- `src/protocol_serde.rs`
+- `src/protocol_serde/shape_assume_role.rs`
+- `src/protocol_serde/shape_assume_role_input.rs`
+- `src/protocol_serde/shape_assume_role_with_saml.rs`
+- `src/protocol_serde/shape_assume_role_with_saml_input.rs`
+- `src/protocol_serde/shape_assume_role_with_web_identity.rs`
+- `src/protocol_serde/shape_assume_role_with_web_identity_input.rs`
+- `src/protocol_serde/shape_assume_root.rs`
+- `src/protocol_serde/shape_assume_root_input.rs`
+- `src/protocol_serde/shape_decode_authorization_message.rs`
+- `src/protocol_serde/shape_decode_authorization_message_input.rs`
+- `src/protocol_serde/shape_get_access_key_info.rs`
+- `src/protocol_serde/shape_get_access_key_info_input.rs`
+- `src/protocol_serde/shape_get_caller_identity.rs`
+- `src/protocol_serde/shape_get_caller_identity_input.rs`
+- `src/protocol_serde/shape_get_delegated_access_token.rs`
+- `src/protocol_serde/shape_get_delegated_access_token_input.rs`
+- `src/protocol_serde/shape_get_federation_token.rs`
+- `src/protocol_serde/shape_get_federation_token_input.rs`
+- `src/protocol_serde/shape_get_session_token.rs`
+- `src/protocol_serde/shape_get_session_token_input.rs`
+- `src/protocol_serde/shape_get_web_identity_token.rs`
+- `src/protocol_serde/shape_get_web_identity_token_input.rs`
+
+## Customizations
+
+- Add one non-default Cargo feature and matching cfg gates for each model operation.
+- Rename the Cargo package/library from manifest data.
+- Remove upstream `tests/` from generated output.
+
+## Reproduction
+
+```text
+cargo run -p aws-sdk-modularizer -- --manifest services-manifest.json
+```

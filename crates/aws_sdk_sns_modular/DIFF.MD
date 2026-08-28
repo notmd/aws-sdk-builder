@@ -1,0 +1,381 @@
+# AWS SDK modularizer diff
+
+- repository: `https://github.com/awslabs/aws-sdk-rust`
+- revision: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
+- service: `sdk/sns`
+- model: `models/sns.json`
+- package: `aws-sdk-sns-modular`
+- library: `aws_sdk_sns_modular`
+- tests exclusion: `tests/**` is excluded from the comparison.
+
+## Operations
+
+- `op_add_permission`: `AddPermission`
+- `op_check_if_phone_number_is_opted_out`: `CheckIfPhoneNumberIsOptedOut`
+- `op_confirm_subscription`: `ConfirmSubscription`
+- `op_create_platform_application`: `CreatePlatformApplication`
+- `op_create_platform_endpoint`: `CreatePlatformEndpoint`
+- `op_create_sms_sandbox_phone_number`: `CreateSMSSandboxPhoneNumber`
+- `op_create_topic`: `CreateTopic`
+- `op_delete_endpoint`: `DeleteEndpoint`
+- `op_delete_platform_application`: `DeletePlatformApplication`
+- `op_delete_sms_sandbox_phone_number`: `DeleteSMSSandboxPhoneNumber`
+- `op_delete_topic`: `DeleteTopic`
+- `op_get_data_protection_policy`: `GetDataProtectionPolicy`
+- `op_get_endpoint_attributes`: `GetEndpointAttributes`
+- `op_get_platform_application_attributes`: `GetPlatformApplicationAttributes`
+- `op_get_sms_attributes`: `GetSMSAttributes`
+- `op_get_sms_sandbox_account_status`: `GetSMSSandboxAccountStatus`
+- `op_get_subscription_attributes`: `GetSubscriptionAttributes`
+- `op_get_topic_attributes`: `GetTopicAttributes`
+- `op_list_endpoints_by_platform_application`: `ListEndpointsByPlatformApplication`
+- `op_list_origination_numbers`: `ListOriginationNumbers`
+- `op_list_phone_numbers_opted_out`: `ListPhoneNumbersOptedOut`
+- `op_list_platform_applications`: `ListPlatformApplications`
+- `op_list_sms_sandbox_phone_numbers`: `ListSMSSandboxPhoneNumbers`
+- `op_list_subscriptions`: `ListSubscriptions`
+- `op_list_subscriptions_by_topic`: `ListSubscriptionsByTopic`
+- `op_list_tags_for_resource`: `ListTagsForResource`
+- `op_list_topics`: `ListTopics`
+- `op_opt_in_phone_number`: `OptInPhoneNumber`
+- `op_publish`: `Publish`
+- `op_publish_batch`: `PublishBatch`
+- `op_put_data_protection_policy`: `PutDataProtectionPolicy`
+- `op_remove_permission`: `RemovePermission`
+- `op_set_endpoint_attributes`: `SetEndpointAttributes`
+- `op_set_platform_application_attributes`: `SetPlatformApplicationAttributes`
+- `op_set_sms_attributes`: `SetSMSAttributes`
+- `op_set_subscription_attributes`: `SetSubscriptionAttributes`
+- `op_set_topic_attributes`: `SetTopicAttributes`
+- `op_subscribe`: `Subscribe`
+- `op_tag_resource`: `TagResource`
+- `op_unsubscribe`: `Unsubscribe`
+- `op_untag_resource`: `UntagResource`
+- `op_verify_sms_sandbox_phone_number`: `VerifySMSSandboxPhoneNumber`
+
+## Changed files
+
+- `Cargo.toml`
+- `src/client.rs`
+- `src/client/add_permission.rs`
+- `src/client/check_if_phone_number_is_opted_out.rs`
+- `src/client/confirm_subscription.rs`
+- `src/client/create_platform_application.rs`
+- `src/client/create_platform_endpoint.rs`
+- `src/client/create_sms_sandbox_phone_number.rs`
+- `src/client/create_topic.rs`
+- `src/client/delete_endpoint.rs`
+- `src/client/delete_platform_application.rs`
+- `src/client/delete_sms_sandbox_phone_number.rs`
+- `src/client/delete_topic.rs`
+- `src/client/get_data_protection_policy.rs`
+- `src/client/get_endpoint_attributes.rs`
+- `src/client/get_platform_application_attributes.rs`
+- `src/client/get_sms_attributes.rs`
+- `src/client/get_sms_sandbox_account_status.rs`
+- `src/client/get_subscription_attributes.rs`
+- `src/client/get_topic_attributes.rs`
+- `src/client/list_endpoints_by_platform_application.rs`
+- `src/client/list_origination_numbers.rs`
+- `src/client/list_phone_numbers_opted_out.rs`
+- `src/client/list_platform_applications.rs`
+- `src/client/list_sms_sandbox_phone_numbers.rs`
+- `src/client/list_subscriptions.rs`
+- `src/client/list_subscriptions_by_topic.rs`
+- `src/client/list_tags_for_resource.rs`
+- `src/client/list_topics.rs`
+- `src/client/opt_in_phone_number.rs`
+- `src/client/publish.rs`
+- `src/client/publish_batch.rs`
+- `src/client/put_data_protection_policy.rs`
+- `src/client/remove_permission.rs`
+- `src/client/set_endpoint_attributes.rs`
+- `src/client/set_platform_application_attributes.rs`
+- `src/client/set_sms_attributes.rs`
+- `src/client/set_subscription_attributes.rs`
+- `src/client/set_topic_attributes.rs`
+- `src/client/subscribe.rs`
+- `src/client/tag_resource.rs`
+- `src/client/unsubscribe.rs`
+- `src/client/untag_resource.rs`
+- `src/client/verify_sms_sandbox_phone_number.rs`
+- `src/error_meta.rs`
+- `src/lens.rs`
+- `src/operation.rs`
+- `src/operation/add_permission.rs`
+- `src/operation/add_permission/_add_permission_input.rs`
+- `src/operation/add_permission/_add_permission_output.rs`
+- `src/operation/add_permission/builders.rs`
+- `src/operation/check_if_phone_number_is_opted_out.rs`
+- `src/operation/check_if_phone_number_is_opted_out/_check_if_phone_number_is_opted_out_input.rs`
+- `src/operation/check_if_phone_number_is_opted_out/_check_if_phone_number_is_opted_out_output.rs`
+- `src/operation/check_if_phone_number_is_opted_out/builders.rs`
+- `src/operation/confirm_subscription.rs`
+- `src/operation/confirm_subscription/_confirm_subscription_input.rs`
+- `src/operation/confirm_subscription/_confirm_subscription_output.rs`
+- `src/operation/confirm_subscription/builders.rs`
+- `src/operation/create_platform_application.rs`
+- `src/operation/create_platform_application/_create_platform_application_input.rs`
+- `src/operation/create_platform_application/_create_platform_application_output.rs`
+- `src/operation/create_platform_application/builders.rs`
+- `src/operation/create_platform_endpoint.rs`
+- `src/operation/create_platform_endpoint/_create_platform_endpoint_input.rs`
+- `src/operation/create_platform_endpoint/_create_platform_endpoint_output.rs`
+- `src/operation/create_platform_endpoint/builders.rs`
+- `src/operation/create_sms_sandbox_phone_number.rs`
+- `src/operation/create_sms_sandbox_phone_number/_create_sms_sandbox_phone_number_input.rs`
+- `src/operation/create_sms_sandbox_phone_number/_create_sms_sandbox_phone_number_output.rs`
+- `src/operation/create_sms_sandbox_phone_number/builders.rs`
+- `src/operation/create_topic.rs`
+- `src/operation/create_topic/_create_topic_input.rs`
+- `src/operation/create_topic/_create_topic_output.rs`
+- `src/operation/create_topic/builders.rs`
+- `src/operation/delete_endpoint.rs`
+- `src/operation/delete_endpoint/_delete_endpoint_input.rs`
+- `src/operation/delete_endpoint/_delete_endpoint_output.rs`
+- `src/operation/delete_endpoint/builders.rs`
+- `src/operation/delete_platform_application.rs`
+- `src/operation/delete_platform_application/_delete_platform_application_input.rs`
+- `src/operation/delete_platform_application/_delete_platform_application_output.rs`
+- `src/operation/delete_platform_application/builders.rs`
+- `src/operation/delete_sms_sandbox_phone_number.rs`
+- `src/operation/delete_sms_sandbox_phone_number/_delete_sms_sandbox_phone_number_input.rs`
+- `src/operation/delete_sms_sandbox_phone_number/_delete_sms_sandbox_phone_number_output.rs`
+- `src/operation/delete_sms_sandbox_phone_number/builders.rs`
+- `src/operation/delete_topic.rs`
+- `src/operation/delete_topic/_delete_topic_input.rs`
+- `src/operation/delete_topic/_delete_topic_output.rs`
+- `src/operation/delete_topic/builders.rs`
+- `src/operation/get_data_protection_policy.rs`
+- `src/operation/get_data_protection_policy/_get_data_protection_policy_input.rs`
+- `src/operation/get_data_protection_policy/_get_data_protection_policy_output.rs`
+- `src/operation/get_data_protection_policy/builders.rs`
+- `src/operation/get_endpoint_attributes.rs`
+- `src/operation/get_endpoint_attributes/_get_endpoint_attributes_input.rs`
+- `src/operation/get_endpoint_attributes/_get_endpoint_attributes_output.rs`
+- `src/operation/get_endpoint_attributes/builders.rs`
+- `src/operation/get_platform_application_attributes.rs`
+- `src/operation/get_platform_application_attributes/_get_platform_application_attributes_input.rs`
+- `src/operation/get_platform_application_attributes/_get_platform_application_attributes_output.rs`
+- `src/operation/get_platform_application_attributes/builders.rs`
+- `src/operation/get_sms_attributes.rs`
+- `src/operation/get_sms_attributes/_get_sms_attributes_input.rs`
+- `src/operation/get_sms_attributes/_get_sms_attributes_output.rs`
+- `src/operation/get_sms_attributes/builders.rs`
+- `src/operation/get_sms_sandbox_account_status.rs`
+- `src/operation/get_sms_sandbox_account_status/_get_sms_sandbox_account_status_input.rs`
+- `src/operation/get_sms_sandbox_account_status/_get_sms_sandbox_account_status_output.rs`
+- `src/operation/get_sms_sandbox_account_status/builders.rs`
+- `src/operation/get_subscription_attributes.rs`
+- `src/operation/get_subscription_attributes/_get_subscription_attributes_input.rs`
+- `src/operation/get_subscription_attributes/_get_subscription_attributes_output.rs`
+- `src/operation/get_subscription_attributes/builders.rs`
+- `src/operation/get_topic_attributes.rs`
+- `src/operation/get_topic_attributes/_get_topic_attributes_input.rs`
+- `src/operation/get_topic_attributes/_get_topic_attributes_output.rs`
+- `src/operation/get_topic_attributes/builders.rs`
+- `src/operation/list_endpoints_by_platform_application.rs`
+- `src/operation/list_endpoints_by_platform_application/_list_endpoints_by_platform_application_input.rs`
+- `src/operation/list_endpoints_by_platform_application/_list_endpoints_by_platform_application_output.rs`
+- `src/operation/list_endpoints_by_platform_application/builders.rs`
+- `src/operation/list_endpoints_by_platform_application/paginator.rs`
+- `src/operation/list_origination_numbers.rs`
+- `src/operation/list_origination_numbers/_list_origination_numbers_input.rs`
+- `src/operation/list_origination_numbers/_list_origination_numbers_output.rs`
+- `src/operation/list_origination_numbers/builders.rs`
+- `src/operation/list_origination_numbers/paginator.rs`
+- `src/operation/list_phone_numbers_opted_out.rs`
+- `src/operation/list_phone_numbers_opted_out/_list_phone_numbers_opted_out_input.rs`
+- `src/operation/list_phone_numbers_opted_out/_list_phone_numbers_opted_out_output.rs`
+- `src/operation/list_phone_numbers_opted_out/builders.rs`
+- `src/operation/list_phone_numbers_opted_out/paginator.rs`
+- `src/operation/list_platform_applications.rs`
+- `src/operation/list_platform_applications/_list_platform_applications_input.rs`
+- `src/operation/list_platform_applications/_list_platform_applications_output.rs`
+- `src/operation/list_platform_applications/builders.rs`
+- `src/operation/list_platform_applications/paginator.rs`
+- `src/operation/list_sms_sandbox_phone_numbers.rs`
+- `src/operation/list_sms_sandbox_phone_numbers/_list_sms_sandbox_phone_numbers_input.rs`
+- `src/operation/list_sms_sandbox_phone_numbers/_list_sms_sandbox_phone_numbers_output.rs`
+- `src/operation/list_sms_sandbox_phone_numbers/builders.rs`
+- `src/operation/list_sms_sandbox_phone_numbers/paginator.rs`
+- `src/operation/list_subscriptions.rs`
+- `src/operation/list_subscriptions/_list_subscriptions_input.rs`
+- `src/operation/list_subscriptions/_list_subscriptions_output.rs`
+- `src/operation/list_subscriptions/builders.rs`
+- `src/operation/list_subscriptions/paginator.rs`
+- `src/operation/list_subscriptions_by_topic.rs`
+- `src/operation/list_subscriptions_by_topic/_list_subscriptions_by_topic_input.rs`
+- `src/operation/list_subscriptions_by_topic/_list_subscriptions_by_topic_output.rs`
+- `src/operation/list_subscriptions_by_topic/builders.rs`
+- `src/operation/list_subscriptions_by_topic/paginator.rs`
+- `src/operation/list_tags_for_resource.rs`
+- `src/operation/list_tags_for_resource/_list_tags_for_resource_input.rs`
+- `src/operation/list_tags_for_resource/_list_tags_for_resource_output.rs`
+- `src/operation/list_tags_for_resource/builders.rs`
+- `src/operation/list_topics.rs`
+- `src/operation/list_topics/_list_topics_input.rs`
+- `src/operation/list_topics/_list_topics_output.rs`
+- `src/operation/list_topics/builders.rs`
+- `src/operation/list_topics/paginator.rs`
+- `src/operation/opt_in_phone_number.rs`
+- `src/operation/opt_in_phone_number/_opt_in_phone_number_input.rs`
+- `src/operation/opt_in_phone_number/_opt_in_phone_number_output.rs`
+- `src/operation/opt_in_phone_number/builders.rs`
+- `src/operation/publish.rs`
+- `src/operation/publish/_publish_input.rs`
+- `src/operation/publish/_publish_output.rs`
+- `src/operation/publish/builders.rs`
+- `src/operation/publish_batch.rs`
+- `src/operation/publish_batch/_publish_batch_input.rs`
+- `src/operation/publish_batch/_publish_batch_output.rs`
+- `src/operation/publish_batch/builders.rs`
+- `src/operation/put_data_protection_policy.rs`
+- `src/operation/put_data_protection_policy/_put_data_protection_policy_input.rs`
+- `src/operation/put_data_protection_policy/_put_data_protection_policy_output.rs`
+- `src/operation/put_data_protection_policy/builders.rs`
+- `src/operation/remove_permission.rs`
+- `src/operation/remove_permission/_remove_permission_input.rs`
+- `src/operation/remove_permission/_remove_permission_output.rs`
+- `src/operation/remove_permission/builders.rs`
+- `src/operation/set_endpoint_attributes.rs`
+- `src/operation/set_endpoint_attributes/_set_endpoint_attributes_input.rs`
+- `src/operation/set_endpoint_attributes/_set_endpoint_attributes_output.rs`
+- `src/operation/set_endpoint_attributes/builders.rs`
+- `src/operation/set_platform_application_attributes.rs`
+- `src/operation/set_platform_application_attributes/_set_platform_application_attributes_input.rs`
+- `src/operation/set_platform_application_attributes/_set_platform_application_attributes_output.rs`
+- `src/operation/set_platform_application_attributes/builders.rs`
+- `src/operation/set_sms_attributes.rs`
+- `src/operation/set_sms_attributes/_set_sms_attributes_input.rs`
+- `src/operation/set_sms_attributes/_set_sms_attributes_output.rs`
+- `src/operation/set_sms_attributes/builders.rs`
+- `src/operation/set_subscription_attributes.rs`
+- `src/operation/set_subscription_attributes/_set_subscription_attributes_input.rs`
+- `src/operation/set_subscription_attributes/_set_subscription_attributes_output.rs`
+- `src/operation/set_subscription_attributes/builders.rs`
+- `src/operation/set_topic_attributes.rs`
+- `src/operation/set_topic_attributes/_set_topic_attributes_input.rs`
+- `src/operation/set_topic_attributes/_set_topic_attributes_output.rs`
+- `src/operation/set_topic_attributes/builders.rs`
+- `src/operation/subscribe.rs`
+- `src/operation/subscribe/_subscribe_input.rs`
+- `src/operation/subscribe/_subscribe_output.rs`
+- `src/operation/subscribe/builders.rs`
+- `src/operation/tag_resource.rs`
+- `src/operation/tag_resource/_tag_resource_input.rs`
+- `src/operation/tag_resource/_tag_resource_output.rs`
+- `src/operation/tag_resource/builders.rs`
+- `src/operation/unsubscribe.rs`
+- `src/operation/unsubscribe/_unsubscribe_input.rs`
+- `src/operation/unsubscribe/_unsubscribe_output.rs`
+- `src/operation/unsubscribe/builders.rs`
+- `src/operation/untag_resource.rs`
+- `src/operation/untag_resource/_untag_resource_input.rs`
+- `src/operation/untag_resource/_untag_resource_output.rs`
+- `src/operation/untag_resource/builders.rs`
+- `src/operation/verify_sms_sandbox_phone_number.rs`
+- `src/operation/verify_sms_sandbox_phone_number/_verify_sms_sandbox_phone_number_input.rs`
+- `src/operation/verify_sms_sandbox_phone_number/_verify_sms_sandbox_phone_number_output.rs`
+- `src/operation/verify_sms_sandbox_phone_number/builders.rs`
+- `src/protocol_serde.rs`
+- `src/protocol_serde/shape_add_permission.rs`
+- `src/protocol_serde/shape_add_permission_input.rs`
+- `src/protocol_serde/shape_check_if_phone_number_is_opted_out.rs`
+- `src/protocol_serde/shape_check_if_phone_number_is_opted_out_input.rs`
+- `src/protocol_serde/shape_confirm_subscription.rs`
+- `src/protocol_serde/shape_confirm_subscription_input.rs`
+- `src/protocol_serde/shape_create_platform_application.rs`
+- `src/protocol_serde/shape_create_platform_application_input.rs`
+- `src/protocol_serde/shape_create_platform_endpoint.rs`
+- `src/protocol_serde/shape_create_platform_endpoint_input.rs`
+- `src/protocol_serde/shape_create_sms_sandbox_phone_number.rs`
+- `src/protocol_serde/shape_create_sms_sandbox_phone_number_input.rs`
+- `src/protocol_serde/shape_create_topic.rs`
+- `src/protocol_serde/shape_create_topic_input.rs`
+- `src/protocol_serde/shape_delete_endpoint.rs`
+- `src/protocol_serde/shape_delete_endpoint_input.rs`
+- `src/protocol_serde/shape_delete_platform_application.rs`
+- `src/protocol_serde/shape_delete_platform_application_input.rs`
+- `src/protocol_serde/shape_delete_sms_sandbox_phone_number.rs`
+- `src/protocol_serde/shape_delete_sms_sandbox_phone_number_input.rs`
+- `src/protocol_serde/shape_delete_topic.rs`
+- `src/protocol_serde/shape_delete_topic_input.rs`
+- `src/protocol_serde/shape_get_data_protection_policy.rs`
+- `src/protocol_serde/shape_get_data_protection_policy_input.rs`
+- `src/protocol_serde/shape_get_endpoint_attributes.rs`
+- `src/protocol_serde/shape_get_endpoint_attributes_input.rs`
+- `src/protocol_serde/shape_get_platform_application_attributes.rs`
+- `src/protocol_serde/shape_get_platform_application_attributes_input.rs`
+- `src/protocol_serde/shape_get_sms_attributes.rs`
+- `src/protocol_serde/shape_get_sms_attributes_input.rs`
+- `src/protocol_serde/shape_get_sms_sandbox_account_status.rs`
+- `src/protocol_serde/shape_get_sms_sandbox_account_status_input.rs`
+- `src/protocol_serde/shape_get_subscription_attributes.rs`
+- `src/protocol_serde/shape_get_subscription_attributes_input.rs`
+- `src/protocol_serde/shape_get_topic_attributes.rs`
+- `src/protocol_serde/shape_get_topic_attributes_input.rs`
+- `src/protocol_serde/shape_list_endpoints_by_platform_application.rs`
+- `src/protocol_serde/shape_list_endpoints_by_platform_application_input.rs`
+- `src/protocol_serde/shape_list_origination_numbers.rs`
+- `src/protocol_serde/shape_list_origination_numbers_input.rs`
+- `src/protocol_serde/shape_list_phone_numbers_opted_out.rs`
+- `src/protocol_serde/shape_list_phone_numbers_opted_out_input.rs`
+- `src/protocol_serde/shape_list_platform_applications.rs`
+- `src/protocol_serde/shape_list_platform_applications_input.rs`
+- `src/protocol_serde/shape_list_sms_sandbox_phone_numbers.rs`
+- `src/protocol_serde/shape_list_sms_sandbox_phone_numbers_input.rs`
+- `src/protocol_serde/shape_list_subscriptions.rs`
+- `src/protocol_serde/shape_list_subscriptions_by_topic.rs`
+- `src/protocol_serde/shape_list_subscriptions_by_topic_input.rs`
+- `src/protocol_serde/shape_list_subscriptions_input.rs`
+- `src/protocol_serde/shape_list_tags_for_resource.rs`
+- `src/protocol_serde/shape_list_tags_for_resource_input.rs`
+- `src/protocol_serde/shape_list_topics.rs`
+- `src/protocol_serde/shape_list_topics_input.rs`
+- `src/protocol_serde/shape_opt_in_phone_number.rs`
+- `src/protocol_serde/shape_opt_in_phone_number_input.rs`
+- `src/protocol_serde/shape_publish.rs`
+- `src/protocol_serde/shape_publish_batch.rs`
+- `src/protocol_serde/shape_publish_batch_input.rs`
+- `src/protocol_serde/shape_publish_batch_request_entry.rs`
+- `src/protocol_serde/shape_publish_batch_result_entry.rs`
+- `src/protocol_serde/shape_publish_batch_result_entry_list.rs`
+- `src/protocol_serde/shape_publish_input.rs`
+- `src/protocol_serde/shape_put_data_protection_policy.rs`
+- `src/protocol_serde/shape_put_data_protection_policy_input.rs`
+- `src/protocol_serde/shape_remove_permission.rs`
+- `src/protocol_serde/shape_remove_permission_input.rs`
+- `src/protocol_serde/shape_set_endpoint_attributes.rs`
+- `src/protocol_serde/shape_set_endpoint_attributes_input.rs`
+- `src/protocol_serde/shape_set_platform_application_attributes.rs`
+- `src/protocol_serde/shape_set_platform_application_attributes_input.rs`
+- `src/protocol_serde/shape_set_sms_attributes.rs`
+- `src/protocol_serde/shape_set_sms_attributes_input.rs`
+- `src/protocol_serde/shape_set_subscription_attributes.rs`
+- `src/protocol_serde/shape_set_subscription_attributes_input.rs`
+- `src/protocol_serde/shape_set_topic_attributes.rs`
+- `src/protocol_serde/shape_set_topic_attributes_input.rs`
+- `src/protocol_serde/shape_subscribe.rs`
+- `src/protocol_serde/shape_subscribe_input.rs`
+- `src/protocol_serde/shape_tag_resource.rs`
+- `src/protocol_serde/shape_tag_resource_input.rs`
+- `src/protocol_serde/shape_unsubscribe.rs`
+- `src/protocol_serde/shape_unsubscribe_input.rs`
+- `src/protocol_serde/shape_untag_resource.rs`
+- `src/protocol_serde/shape_untag_resource_input.rs`
+- `src/protocol_serde/shape_verify_sms_sandbox_phone_number.rs`
+- `src/protocol_serde/shape_verify_sms_sandbox_phone_number_input.rs`
+- `src/serde_util.rs`
+
+## Customizations
+
+- Add one non-default Cargo feature and matching cfg gates for each model operation.
+- Rename the Cargo package/library from manifest data.
+- Remove upstream `tests/` from generated output.
+
+## Reproduction
+
+```text
+cargo run -p aws-sdk-modularizer -- --manifest services-manifest.json
+```

@@ -1,0 +1,904 @@
+# AWS SDK modularizer diff
+
+- repository: `https://github.com/awslabs/aws-sdk-rust`
+- revision: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
+- service: `sdk/sesv2`
+- model: `models/sesv2.json`
+- package: `aws-sdk-sesv2-modular`
+- library: `aws_sdk_sesv2_modular`
+- tests exclusion: `tests/**` is excluded from the comparison.
+
+## Operations
+
+- `op_batch_get_metric_data`: `BatchGetMetricData`
+- `op_cancel_export_job`: `CancelExportJob`
+- `op_create_configuration_set`: `CreateConfigurationSet`
+- `op_create_configuration_set_event_destination`: `CreateConfigurationSetEventDestination`
+- `op_create_contact`: `CreateContact`
+- `op_create_contact_list`: `CreateContactList`
+- `op_create_custom_verification_email_template`: `CreateCustomVerificationEmailTemplate`
+- `op_create_dedicated_ip_pool`: `CreateDedicatedIpPool`
+- `op_create_deliverability_test_report`: `CreateDeliverabilityTestReport`
+- `op_create_email_identity`: `CreateEmailIdentity`
+- `op_create_email_identity_policy`: `CreateEmailIdentityPolicy`
+- `op_create_email_template`: `CreateEmailTemplate`
+- `op_create_export_job`: `CreateExportJob`
+- `op_create_import_job`: `CreateImportJob`
+- `op_create_multi_region_endpoint`: `CreateMultiRegionEndpoint`
+- `op_create_tenant`: `CreateTenant`
+- `op_create_tenant_resource_association`: `CreateTenantResourceAssociation`
+- `op_delete_configuration_set`: `DeleteConfigurationSet`
+- `op_delete_configuration_set_event_destination`: `DeleteConfigurationSetEventDestination`
+- `op_delete_contact`: `DeleteContact`
+- `op_delete_contact_list`: `DeleteContactList`
+- `op_delete_custom_verification_email_template`: `DeleteCustomVerificationEmailTemplate`
+- `op_delete_dedicated_ip_pool`: `DeleteDedicatedIpPool`
+- `op_delete_email_identity`: `DeleteEmailIdentity`
+- `op_delete_email_identity_policy`: `DeleteEmailIdentityPolicy`
+- `op_delete_email_template`: `DeleteEmailTemplate`
+- `op_delete_multi_region_endpoint`: `DeleteMultiRegionEndpoint`
+- `op_delete_suppressed_destination`: `DeleteSuppressedDestination`
+- `op_delete_tenant`: `DeleteTenant`
+- `op_delete_tenant_resource_association`: `DeleteTenantResourceAssociation`
+- `op_get_account`: `GetAccount`
+- `op_get_blacklist_reports`: `GetBlacklistReports`
+- `op_get_configuration_set`: `GetConfigurationSet`
+- `op_get_configuration_set_event_destinations`: `GetConfigurationSetEventDestinations`
+- `op_get_contact`: `GetContact`
+- `op_get_contact_list`: `GetContactList`
+- `op_get_custom_verification_email_template`: `GetCustomVerificationEmailTemplate`
+- `op_get_dedicated_ip`: `GetDedicatedIp`
+- `op_get_dedicated_ip_pool`: `GetDedicatedIpPool`
+- `op_get_dedicated_ips`: `GetDedicatedIps`
+- `op_get_deliverability_dashboard_options`: `GetDeliverabilityDashboardOptions`
+- `op_get_deliverability_test_report`: `GetDeliverabilityTestReport`
+- `op_get_domain_deliverability_campaign`: `GetDomainDeliverabilityCampaign`
+- `op_get_domain_statistics_report`: `GetDomainStatisticsReport`
+- `op_get_email_address_insights`: `GetEmailAddressInsights`
+- `op_get_email_identity`: `GetEmailIdentity`
+- `op_get_email_identity_policies`: `GetEmailIdentityPolicies`
+- `op_get_email_template`: `GetEmailTemplate`
+- `op_get_export_job`: `GetExportJob`
+- `op_get_import_job`: `GetImportJob`
+- `op_get_message_insights`: `GetMessageInsights`
+- `op_get_multi_region_endpoint`: `GetMultiRegionEndpoint`
+- `op_get_reputation_entity`: `GetReputationEntity`
+- `op_get_suppressed_destination`: `GetSuppressedDestination`
+- `op_get_tenant`: `GetTenant`
+- `op_list_configuration_sets`: `ListConfigurationSets`
+- `op_list_contact_lists`: `ListContactLists`
+- `op_list_contacts`: `ListContacts`
+- `op_list_custom_verification_email_templates`: `ListCustomVerificationEmailTemplates`
+- `op_list_dedicated_ip_pools`: `ListDedicatedIpPools`
+- `op_list_deliverability_test_reports`: `ListDeliverabilityTestReports`
+- `op_list_domain_deliverability_campaigns`: `ListDomainDeliverabilityCampaigns`
+- `op_list_email_identities`: `ListEmailIdentities`
+- `op_list_email_templates`: `ListEmailTemplates`
+- `op_list_export_jobs`: `ListExportJobs`
+- `op_list_import_jobs`: `ListImportJobs`
+- `op_list_multi_region_endpoints`: `ListMultiRegionEndpoints`
+- `op_list_recommendations`: `ListRecommendations`
+- `op_list_reputation_entities`: `ListReputationEntities`
+- `op_list_resource_tenants`: `ListResourceTenants`
+- `op_list_suppressed_destinations`: `ListSuppressedDestinations`
+- `op_list_tags_for_resource`: `ListTagsForResource`
+- `op_list_tenant_resources`: `ListTenantResources`
+- `op_list_tenants`: `ListTenants`
+- `op_put_account_dedicated_ip_warmup_attributes`: `PutAccountDedicatedIpWarmupAttributes`
+- `op_put_account_details`: `PutAccountDetails`
+- `op_put_account_pricing_attributes`: `PutAccountPricingAttributes`
+- `op_put_account_sending_attributes`: `PutAccountSendingAttributes`
+- `op_put_account_suppression_attributes`: `PutAccountSuppressionAttributes`
+- `op_put_account_vdm_attributes`: `PutAccountVdmAttributes`
+- `op_put_configuration_set_archiving_options`: `PutConfigurationSetArchivingOptions`
+- `op_put_configuration_set_delivery_options`: `PutConfigurationSetDeliveryOptions`
+- `op_put_configuration_set_reputation_options`: `PutConfigurationSetReputationOptions`
+- `op_put_configuration_set_sending_options`: `PutConfigurationSetSendingOptions`
+- `op_put_configuration_set_suppression_options`: `PutConfigurationSetSuppressionOptions`
+- `op_put_configuration_set_tracking_options`: `PutConfigurationSetTrackingOptions`
+- `op_put_configuration_set_vdm_options`: `PutConfigurationSetVdmOptions`
+- `op_put_dedicated_ip_in_pool`: `PutDedicatedIpInPool`
+- `op_put_dedicated_ip_pool_scaling_attributes`: `PutDedicatedIpPoolScalingAttributes`
+- `op_put_dedicated_ip_warmup_attributes`: `PutDedicatedIpWarmupAttributes`
+- `op_put_deliverability_dashboard_option`: `PutDeliverabilityDashboardOption`
+- `op_put_email_identity_configuration_set_attributes`: `PutEmailIdentityConfigurationSetAttributes`
+- `op_put_email_identity_dkim_attributes`: `PutEmailIdentityDkimAttributes`
+- `op_put_email_identity_dkim_signing_attributes`: `PutEmailIdentityDkimSigningAttributes`
+- `op_put_email_identity_feedback_attributes`: `PutEmailIdentityFeedbackAttributes`
+- `op_put_email_identity_mail_from_attributes`: `PutEmailIdentityMailFromAttributes`
+- `op_put_suppressed_destination`: `PutSuppressedDestination`
+- `op_put_tenant_suppression_attributes`: `PutTenantSuppressionAttributes`
+- `op_send_bulk_email`: `SendBulkEmail`
+- `op_send_custom_verification_email`: `SendCustomVerificationEmail`
+- `op_send_email`: `SendEmail`
+- `op_tag_resource`: `TagResource`
+- `op_test_render_email_template`: `TestRenderEmailTemplate`
+- `op_untag_resource`: `UntagResource`
+- `op_update_configuration_set_event_destination`: `UpdateConfigurationSetEventDestination`
+- `op_update_contact`: `UpdateContact`
+- `op_update_contact_list`: `UpdateContactList`
+- `op_update_custom_verification_email_template`: `UpdateCustomVerificationEmailTemplate`
+- `op_update_email_identity_policy`: `UpdateEmailIdentityPolicy`
+- `op_update_email_template`: `UpdateEmailTemplate`
+- `op_update_reputation_entity_customer_managed_status`: `UpdateReputationEntityCustomerManagedStatus`
+- `op_update_reputation_entity_policy`: `UpdateReputationEntityPolicy`
+
+## Changed files
+
+- `Cargo.toml`
+- `src/client.rs`
+- `src/client/batch_get_metric_data.rs`
+- `src/client/cancel_export_job.rs`
+- `src/client/create_configuration_set.rs`
+- `src/client/create_configuration_set_event_destination.rs`
+- `src/client/create_contact.rs`
+- `src/client/create_contact_list.rs`
+- `src/client/create_custom_verification_email_template.rs`
+- `src/client/create_dedicated_ip_pool.rs`
+- `src/client/create_deliverability_test_report.rs`
+- `src/client/create_email_identity.rs`
+- `src/client/create_email_identity_policy.rs`
+- `src/client/create_email_template.rs`
+- `src/client/create_export_job.rs`
+- `src/client/create_import_job.rs`
+- `src/client/create_multi_region_endpoint.rs`
+- `src/client/create_tenant.rs`
+- `src/client/create_tenant_resource_association.rs`
+- `src/client/delete_configuration_set.rs`
+- `src/client/delete_configuration_set_event_destination.rs`
+- `src/client/delete_contact.rs`
+- `src/client/delete_contact_list.rs`
+- `src/client/delete_custom_verification_email_template.rs`
+- `src/client/delete_dedicated_ip_pool.rs`
+- `src/client/delete_email_identity.rs`
+- `src/client/delete_email_identity_policy.rs`
+- `src/client/delete_email_template.rs`
+- `src/client/delete_multi_region_endpoint.rs`
+- `src/client/delete_suppressed_destination.rs`
+- `src/client/delete_tenant.rs`
+- `src/client/delete_tenant_resource_association.rs`
+- `src/client/get_account.rs`
+- `src/client/get_blacklist_reports.rs`
+- `src/client/get_configuration_set.rs`
+- `src/client/get_configuration_set_event_destinations.rs`
+- `src/client/get_contact.rs`
+- `src/client/get_contact_list.rs`
+- `src/client/get_custom_verification_email_template.rs`
+- `src/client/get_dedicated_ip.rs`
+- `src/client/get_dedicated_ip_pool.rs`
+- `src/client/get_dedicated_ips.rs`
+- `src/client/get_deliverability_dashboard_options.rs`
+- `src/client/get_deliverability_test_report.rs`
+- `src/client/get_domain_deliverability_campaign.rs`
+- `src/client/get_domain_statistics_report.rs`
+- `src/client/get_email_address_insights.rs`
+- `src/client/get_email_identity.rs`
+- `src/client/get_email_identity_policies.rs`
+- `src/client/get_email_template.rs`
+- `src/client/get_export_job.rs`
+- `src/client/get_import_job.rs`
+- `src/client/get_message_insights.rs`
+- `src/client/get_multi_region_endpoint.rs`
+- `src/client/get_reputation_entity.rs`
+- `src/client/get_suppressed_destination.rs`
+- `src/client/get_tenant.rs`
+- `src/client/list_configuration_sets.rs`
+- `src/client/list_contact_lists.rs`
+- `src/client/list_contacts.rs`
+- `src/client/list_custom_verification_email_templates.rs`
+- `src/client/list_dedicated_ip_pools.rs`
+- `src/client/list_deliverability_test_reports.rs`
+- `src/client/list_domain_deliverability_campaigns.rs`
+- `src/client/list_email_identities.rs`
+- `src/client/list_email_templates.rs`
+- `src/client/list_export_jobs.rs`
+- `src/client/list_import_jobs.rs`
+- `src/client/list_multi_region_endpoints.rs`
+- `src/client/list_recommendations.rs`
+- `src/client/list_reputation_entities.rs`
+- `src/client/list_resource_tenants.rs`
+- `src/client/list_suppressed_destinations.rs`
+- `src/client/list_tags_for_resource.rs`
+- `src/client/list_tenant_resources.rs`
+- `src/client/list_tenants.rs`
+- `src/client/put_account_dedicated_ip_warmup_attributes.rs`
+- `src/client/put_account_details.rs`
+- `src/client/put_account_pricing_attributes.rs`
+- `src/client/put_account_sending_attributes.rs`
+- `src/client/put_account_suppression_attributes.rs`
+- `src/client/put_account_vdm_attributes.rs`
+- `src/client/put_configuration_set_archiving_options.rs`
+- `src/client/put_configuration_set_delivery_options.rs`
+- `src/client/put_configuration_set_reputation_options.rs`
+- `src/client/put_configuration_set_sending_options.rs`
+- `src/client/put_configuration_set_suppression_options.rs`
+- `src/client/put_configuration_set_tracking_options.rs`
+- `src/client/put_configuration_set_vdm_options.rs`
+- `src/client/put_dedicated_ip_in_pool.rs`
+- `src/client/put_dedicated_ip_pool_scaling_attributes.rs`
+- `src/client/put_dedicated_ip_warmup_attributes.rs`
+- `src/client/put_deliverability_dashboard_option.rs`
+- `src/client/put_email_identity_configuration_set_attributes.rs`
+- `src/client/put_email_identity_dkim_attributes.rs`
+- `src/client/put_email_identity_dkim_signing_attributes.rs`
+- `src/client/put_email_identity_feedback_attributes.rs`
+- `src/client/put_email_identity_mail_from_attributes.rs`
+- `src/client/put_suppressed_destination.rs`
+- `src/client/put_tenant_suppression_attributes.rs`
+- `src/client/send_bulk_email.rs`
+- `src/client/send_custom_verification_email.rs`
+- `src/client/send_email.rs`
+- `src/client/tag_resource.rs`
+- `src/client/test_render_email_template.rs`
+- `src/client/untag_resource.rs`
+- `src/client/update_configuration_set_event_destination.rs`
+- `src/client/update_contact.rs`
+- `src/client/update_contact_list.rs`
+- `src/client/update_custom_verification_email_template.rs`
+- `src/client/update_email_identity_policy.rs`
+- `src/client/update_email_template.rs`
+- `src/client/update_reputation_entity_customer_managed_status.rs`
+- `src/client/update_reputation_entity_policy.rs`
+- `src/error_meta.rs`
+- `src/lens.rs`
+- `src/operation.rs`
+- `src/operation/batch_get_metric_data.rs`
+- `src/operation/batch_get_metric_data/_batch_get_metric_data_input.rs`
+- `src/operation/batch_get_metric_data/_batch_get_metric_data_output.rs`
+- `src/operation/batch_get_metric_data/builders.rs`
+- `src/operation/cancel_export_job.rs`
+- `src/operation/cancel_export_job/_cancel_export_job_input.rs`
+- `src/operation/cancel_export_job/_cancel_export_job_output.rs`
+- `src/operation/cancel_export_job/builders.rs`
+- `src/operation/create_configuration_set.rs`
+- `src/operation/create_configuration_set/_create_configuration_set_input.rs`
+- `src/operation/create_configuration_set/_create_configuration_set_output.rs`
+- `src/operation/create_configuration_set/builders.rs`
+- `src/operation/create_configuration_set_event_destination.rs`
+- `src/operation/create_configuration_set_event_destination/_create_configuration_set_event_destination_input.rs`
+- `src/operation/create_configuration_set_event_destination/_create_configuration_set_event_destination_output.rs`
+- `src/operation/create_configuration_set_event_destination/builders.rs`
+- `src/operation/create_contact.rs`
+- `src/operation/create_contact/_create_contact_input.rs`
+- `src/operation/create_contact/_create_contact_output.rs`
+- `src/operation/create_contact/builders.rs`
+- `src/operation/create_contact_list.rs`
+- `src/operation/create_contact_list/_create_contact_list_input.rs`
+- `src/operation/create_contact_list/_create_contact_list_output.rs`
+- `src/operation/create_contact_list/builders.rs`
+- `src/operation/create_custom_verification_email_template.rs`
+- `src/operation/create_custom_verification_email_template/_create_custom_verification_email_template_input.rs`
+- `src/operation/create_custom_verification_email_template/_create_custom_verification_email_template_output.rs`
+- `src/operation/create_custom_verification_email_template/builders.rs`
+- `src/operation/create_dedicated_ip_pool.rs`
+- `src/operation/create_dedicated_ip_pool/_create_dedicated_ip_pool_input.rs`
+- `src/operation/create_dedicated_ip_pool/_create_dedicated_ip_pool_output.rs`
+- `src/operation/create_dedicated_ip_pool/builders.rs`
+- `src/operation/create_deliverability_test_report.rs`
+- `src/operation/create_deliverability_test_report/_create_deliverability_test_report_input.rs`
+- `src/operation/create_deliverability_test_report/_create_deliverability_test_report_output.rs`
+- `src/operation/create_deliverability_test_report/builders.rs`
+- `src/operation/create_email_identity.rs`
+- `src/operation/create_email_identity/_create_email_identity_input.rs`
+- `src/operation/create_email_identity/_create_email_identity_output.rs`
+- `src/operation/create_email_identity/builders.rs`
+- `src/operation/create_email_identity_policy.rs`
+- `src/operation/create_email_identity_policy/_create_email_identity_policy_input.rs`
+- `src/operation/create_email_identity_policy/_create_email_identity_policy_output.rs`
+- `src/operation/create_email_identity_policy/builders.rs`
+- `src/operation/create_email_template.rs`
+- `src/operation/create_email_template/_create_email_template_input.rs`
+- `src/operation/create_email_template/_create_email_template_output.rs`
+- `src/operation/create_email_template/builders.rs`
+- `src/operation/create_export_job.rs`
+- `src/operation/create_export_job/_create_export_job_input.rs`
+- `src/operation/create_export_job/_create_export_job_output.rs`
+- `src/operation/create_export_job/builders.rs`
+- `src/operation/create_import_job.rs`
+- `src/operation/create_import_job/_create_import_job_input.rs`
+- `src/operation/create_import_job/_create_import_job_output.rs`
+- `src/operation/create_import_job/builders.rs`
+- `src/operation/create_multi_region_endpoint.rs`
+- `src/operation/create_multi_region_endpoint/_create_multi_region_endpoint_input.rs`
+- `src/operation/create_multi_region_endpoint/_create_multi_region_endpoint_output.rs`
+- `src/operation/create_multi_region_endpoint/builders.rs`
+- `src/operation/create_tenant.rs`
+- `src/operation/create_tenant/_create_tenant_input.rs`
+- `src/operation/create_tenant/_create_tenant_output.rs`
+- `src/operation/create_tenant/builders.rs`
+- `src/operation/create_tenant_resource_association.rs`
+- `src/operation/create_tenant_resource_association/_create_tenant_resource_association_input.rs`
+- `src/operation/create_tenant_resource_association/_create_tenant_resource_association_output.rs`
+- `src/operation/create_tenant_resource_association/builders.rs`
+- `src/operation/delete_configuration_set.rs`
+- `src/operation/delete_configuration_set/_delete_configuration_set_input.rs`
+- `src/operation/delete_configuration_set/_delete_configuration_set_output.rs`
+- `src/operation/delete_configuration_set/builders.rs`
+- `src/operation/delete_configuration_set_event_destination.rs`
+- `src/operation/delete_configuration_set_event_destination/_delete_configuration_set_event_destination_input.rs`
+- `src/operation/delete_configuration_set_event_destination/_delete_configuration_set_event_destination_output.rs`
+- `src/operation/delete_configuration_set_event_destination/builders.rs`
+- `src/operation/delete_contact.rs`
+- `src/operation/delete_contact/_delete_contact_input.rs`
+- `src/operation/delete_contact/_delete_contact_output.rs`
+- `src/operation/delete_contact/builders.rs`
+- `src/operation/delete_contact_list.rs`
+- `src/operation/delete_contact_list/_delete_contact_list_input.rs`
+- `src/operation/delete_contact_list/_delete_contact_list_output.rs`
+- `src/operation/delete_contact_list/builders.rs`
+- `src/operation/delete_custom_verification_email_template.rs`
+- `src/operation/delete_custom_verification_email_template/_delete_custom_verification_email_template_input.rs`
+- `src/operation/delete_custom_verification_email_template/_delete_custom_verification_email_template_output.rs`
+- `src/operation/delete_custom_verification_email_template/builders.rs`
+- `src/operation/delete_dedicated_ip_pool.rs`
+- `src/operation/delete_dedicated_ip_pool/_delete_dedicated_ip_pool_input.rs`
+- `src/operation/delete_dedicated_ip_pool/_delete_dedicated_ip_pool_output.rs`
+- `src/operation/delete_dedicated_ip_pool/builders.rs`
+- `src/operation/delete_email_identity.rs`
+- `src/operation/delete_email_identity/_delete_email_identity_input.rs`
+- `src/operation/delete_email_identity/_delete_email_identity_output.rs`
+- `src/operation/delete_email_identity/builders.rs`
+- `src/operation/delete_email_identity_policy.rs`
+- `src/operation/delete_email_identity_policy/_delete_email_identity_policy_input.rs`
+- `src/operation/delete_email_identity_policy/_delete_email_identity_policy_output.rs`
+- `src/operation/delete_email_identity_policy/builders.rs`
+- `src/operation/delete_email_template.rs`
+- `src/operation/delete_email_template/_delete_email_template_input.rs`
+- `src/operation/delete_email_template/_delete_email_template_output.rs`
+- `src/operation/delete_email_template/builders.rs`
+- `src/operation/delete_multi_region_endpoint.rs`
+- `src/operation/delete_multi_region_endpoint/_delete_multi_region_endpoint_input.rs`
+- `src/operation/delete_multi_region_endpoint/_delete_multi_region_endpoint_output.rs`
+- `src/operation/delete_multi_region_endpoint/builders.rs`
+- `src/operation/delete_suppressed_destination.rs`
+- `src/operation/delete_suppressed_destination/_delete_suppressed_destination_input.rs`
+- `src/operation/delete_suppressed_destination/_delete_suppressed_destination_output.rs`
+- `src/operation/delete_suppressed_destination/builders.rs`
+- `src/operation/delete_tenant.rs`
+- `src/operation/delete_tenant/_delete_tenant_input.rs`
+- `src/operation/delete_tenant/_delete_tenant_output.rs`
+- `src/operation/delete_tenant/builders.rs`
+- `src/operation/delete_tenant_resource_association.rs`
+- `src/operation/delete_tenant_resource_association/_delete_tenant_resource_association_input.rs`
+- `src/operation/delete_tenant_resource_association/_delete_tenant_resource_association_output.rs`
+- `src/operation/delete_tenant_resource_association/builders.rs`
+- `src/operation/get_account.rs`
+- `src/operation/get_account/_get_account_input.rs`
+- `src/operation/get_account/_get_account_output.rs`
+- `src/operation/get_account/builders.rs`
+- `src/operation/get_blacklist_reports.rs`
+- `src/operation/get_blacklist_reports/_get_blacklist_reports_input.rs`
+- `src/operation/get_blacklist_reports/_get_blacklist_reports_output.rs`
+- `src/operation/get_blacklist_reports/builders.rs`
+- `src/operation/get_configuration_set.rs`
+- `src/operation/get_configuration_set/_get_configuration_set_input.rs`
+- `src/operation/get_configuration_set/_get_configuration_set_output.rs`
+- `src/operation/get_configuration_set/builders.rs`
+- `src/operation/get_configuration_set_event_destinations.rs`
+- `src/operation/get_configuration_set_event_destinations/_get_configuration_set_event_destinations_input.rs`
+- `src/operation/get_configuration_set_event_destinations/_get_configuration_set_event_destinations_output.rs`
+- `src/operation/get_configuration_set_event_destinations/builders.rs`
+- `src/operation/get_contact.rs`
+- `src/operation/get_contact/_get_contact_input.rs`
+- `src/operation/get_contact/_get_contact_output.rs`
+- `src/operation/get_contact/builders.rs`
+- `src/operation/get_contact_list.rs`
+- `src/operation/get_contact_list/_get_contact_list_input.rs`
+- `src/operation/get_contact_list/_get_contact_list_output.rs`
+- `src/operation/get_contact_list/builders.rs`
+- `src/operation/get_custom_verification_email_template.rs`
+- `src/operation/get_custom_verification_email_template/_get_custom_verification_email_template_input.rs`
+- `src/operation/get_custom_verification_email_template/_get_custom_verification_email_template_output.rs`
+- `src/operation/get_custom_verification_email_template/builders.rs`
+- `src/operation/get_dedicated_ip.rs`
+- `src/operation/get_dedicated_ip/_get_dedicated_ip_input.rs`
+- `src/operation/get_dedicated_ip/_get_dedicated_ip_output.rs`
+- `src/operation/get_dedicated_ip/builders.rs`
+- `src/operation/get_dedicated_ip_pool.rs`
+- `src/operation/get_dedicated_ip_pool/_get_dedicated_ip_pool_input.rs`
+- `src/operation/get_dedicated_ip_pool/_get_dedicated_ip_pool_output.rs`
+- `src/operation/get_dedicated_ip_pool/builders.rs`
+- `src/operation/get_dedicated_ips.rs`
+- `src/operation/get_dedicated_ips/_get_dedicated_ips_input.rs`
+- `src/operation/get_dedicated_ips/_get_dedicated_ips_output.rs`
+- `src/operation/get_dedicated_ips/builders.rs`
+- `src/operation/get_dedicated_ips/paginator.rs`
+- `src/operation/get_deliverability_dashboard_options.rs`
+- `src/operation/get_deliverability_dashboard_options/_get_deliverability_dashboard_options_input.rs`
+- `src/operation/get_deliverability_dashboard_options/_get_deliverability_dashboard_options_output.rs`
+- `src/operation/get_deliverability_dashboard_options/builders.rs`
+- `src/operation/get_deliverability_test_report.rs`
+- `src/operation/get_deliverability_test_report/_get_deliverability_test_report_input.rs`
+- `src/operation/get_deliverability_test_report/_get_deliverability_test_report_output.rs`
+- `src/operation/get_deliverability_test_report/builders.rs`
+- `src/operation/get_domain_deliverability_campaign.rs`
+- `src/operation/get_domain_deliverability_campaign/_get_domain_deliverability_campaign_input.rs`
+- `src/operation/get_domain_deliverability_campaign/_get_domain_deliverability_campaign_output.rs`
+- `src/operation/get_domain_deliverability_campaign/builders.rs`
+- `src/operation/get_domain_statistics_report.rs`
+- `src/operation/get_domain_statistics_report/_get_domain_statistics_report_input.rs`
+- `src/operation/get_domain_statistics_report/_get_domain_statistics_report_output.rs`
+- `src/operation/get_domain_statistics_report/builders.rs`
+- `src/operation/get_email_address_insights.rs`
+- `src/operation/get_email_address_insights/_get_email_address_insights_input.rs`
+- `src/operation/get_email_address_insights/_get_email_address_insights_output.rs`
+- `src/operation/get_email_address_insights/builders.rs`
+- `src/operation/get_email_identity.rs`
+- `src/operation/get_email_identity/_get_email_identity_input.rs`
+- `src/operation/get_email_identity/_get_email_identity_output.rs`
+- `src/operation/get_email_identity/builders.rs`
+- `src/operation/get_email_identity_policies.rs`
+- `src/operation/get_email_identity_policies/_get_email_identity_policies_input.rs`
+- `src/operation/get_email_identity_policies/_get_email_identity_policies_output.rs`
+- `src/operation/get_email_identity_policies/builders.rs`
+- `src/operation/get_email_template.rs`
+- `src/operation/get_email_template/_get_email_template_input.rs`
+- `src/operation/get_email_template/_get_email_template_output.rs`
+- `src/operation/get_email_template/builders.rs`
+- `src/operation/get_export_job.rs`
+- `src/operation/get_export_job/_get_export_job_input.rs`
+- `src/operation/get_export_job/_get_export_job_output.rs`
+- `src/operation/get_export_job/builders.rs`
+- `src/operation/get_import_job.rs`
+- `src/operation/get_import_job/_get_import_job_input.rs`
+- `src/operation/get_import_job/_get_import_job_output.rs`
+- `src/operation/get_import_job/builders.rs`
+- `src/operation/get_message_insights.rs`
+- `src/operation/get_message_insights/_get_message_insights_input.rs`
+- `src/operation/get_message_insights/_get_message_insights_output.rs`
+- `src/operation/get_message_insights/builders.rs`
+- `src/operation/get_multi_region_endpoint.rs`
+- `src/operation/get_multi_region_endpoint/_get_multi_region_endpoint_input.rs`
+- `src/operation/get_multi_region_endpoint/_get_multi_region_endpoint_output.rs`
+- `src/operation/get_multi_region_endpoint/builders.rs`
+- `src/operation/get_reputation_entity.rs`
+- `src/operation/get_reputation_entity/_get_reputation_entity_input.rs`
+- `src/operation/get_reputation_entity/_get_reputation_entity_output.rs`
+- `src/operation/get_reputation_entity/builders.rs`
+- `src/operation/get_suppressed_destination.rs`
+- `src/operation/get_suppressed_destination/_get_suppressed_destination_input.rs`
+- `src/operation/get_suppressed_destination/_get_suppressed_destination_output.rs`
+- `src/operation/get_suppressed_destination/builders.rs`
+- `src/operation/get_tenant.rs`
+- `src/operation/get_tenant/_get_tenant_input.rs`
+- `src/operation/get_tenant/_get_tenant_output.rs`
+- `src/operation/get_tenant/builders.rs`
+- `src/operation/list_configuration_sets.rs`
+- `src/operation/list_configuration_sets/_list_configuration_sets_input.rs`
+- `src/operation/list_configuration_sets/_list_configuration_sets_output.rs`
+- `src/operation/list_configuration_sets/builders.rs`
+- `src/operation/list_configuration_sets/paginator.rs`
+- `src/operation/list_contact_lists.rs`
+- `src/operation/list_contact_lists/_list_contact_lists_input.rs`
+- `src/operation/list_contact_lists/_list_contact_lists_output.rs`
+- `src/operation/list_contact_lists/builders.rs`
+- `src/operation/list_contact_lists/paginator.rs`
+- `src/operation/list_contacts.rs`
+- `src/operation/list_contacts/_list_contacts_input.rs`
+- `src/operation/list_contacts/_list_contacts_output.rs`
+- `src/operation/list_contacts/builders.rs`
+- `src/operation/list_contacts/paginator.rs`
+- `src/operation/list_custom_verification_email_templates.rs`
+- `src/operation/list_custom_verification_email_templates/_list_custom_verification_email_templates_input.rs`
+- `src/operation/list_custom_verification_email_templates/_list_custom_verification_email_templates_output.rs`
+- `src/operation/list_custom_verification_email_templates/builders.rs`
+- `src/operation/list_custom_verification_email_templates/paginator.rs`
+- `src/operation/list_dedicated_ip_pools.rs`
+- `src/operation/list_dedicated_ip_pools/_list_dedicated_ip_pools_input.rs`
+- `src/operation/list_dedicated_ip_pools/_list_dedicated_ip_pools_output.rs`
+- `src/operation/list_dedicated_ip_pools/builders.rs`
+- `src/operation/list_dedicated_ip_pools/paginator.rs`
+- `src/operation/list_deliverability_test_reports.rs`
+- `src/operation/list_deliverability_test_reports/_list_deliverability_test_reports_input.rs`
+- `src/operation/list_deliverability_test_reports/_list_deliverability_test_reports_output.rs`
+- `src/operation/list_deliverability_test_reports/builders.rs`
+- `src/operation/list_deliverability_test_reports/paginator.rs`
+- `src/operation/list_domain_deliverability_campaigns.rs`
+- `src/operation/list_domain_deliverability_campaigns/_list_domain_deliverability_campaigns_input.rs`
+- `src/operation/list_domain_deliverability_campaigns/_list_domain_deliverability_campaigns_output.rs`
+- `src/operation/list_domain_deliverability_campaigns/builders.rs`
+- `src/operation/list_domain_deliverability_campaigns/paginator.rs`
+- `src/operation/list_email_identities.rs`
+- `src/operation/list_email_identities/_list_email_identities_input.rs`
+- `src/operation/list_email_identities/_list_email_identities_output.rs`
+- `src/operation/list_email_identities/builders.rs`
+- `src/operation/list_email_identities/paginator.rs`
+- `src/operation/list_email_templates.rs`
+- `src/operation/list_email_templates/_list_email_templates_input.rs`
+- `src/operation/list_email_templates/_list_email_templates_output.rs`
+- `src/operation/list_email_templates/builders.rs`
+- `src/operation/list_email_templates/paginator.rs`
+- `src/operation/list_export_jobs.rs`
+- `src/operation/list_export_jobs/_list_export_jobs_input.rs`
+- `src/operation/list_export_jobs/_list_export_jobs_output.rs`
+- `src/operation/list_export_jobs/builders.rs`
+- `src/operation/list_export_jobs/paginator.rs`
+- `src/operation/list_import_jobs.rs`
+- `src/operation/list_import_jobs/_list_import_jobs_input.rs`
+- `src/operation/list_import_jobs/_list_import_jobs_output.rs`
+- `src/operation/list_import_jobs/builders.rs`
+- `src/operation/list_import_jobs/paginator.rs`
+- `src/operation/list_multi_region_endpoints.rs`
+- `src/operation/list_multi_region_endpoints/_list_multi_region_endpoints_input.rs`
+- `src/operation/list_multi_region_endpoints/_list_multi_region_endpoints_output.rs`
+- `src/operation/list_multi_region_endpoints/builders.rs`
+- `src/operation/list_multi_region_endpoints/paginator.rs`
+- `src/operation/list_recommendations.rs`
+- `src/operation/list_recommendations/_list_recommendations_input.rs`
+- `src/operation/list_recommendations/_list_recommendations_output.rs`
+- `src/operation/list_recommendations/builders.rs`
+- `src/operation/list_recommendations/paginator.rs`
+- `src/operation/list_reputation_entities.rs`
+- `src/operation/list_reputation_entities/_list_reputation_entities_input.rs`
+- `src/operation/list_reputation_entities/_list_reputation_entities_output.rs`
+- `src/operation/list_reputation_entities/builders.rs`
+- `src/operation/list_reputation_entities/paginator.rs`
+- `src/operation/list_resource_tenants.rs`
+- `src/operation/list_resource_tenants/_list_resource_tenants_input.rs`
+- `src/operation/list_resource_tenants/_list_resource_tenants_output.rs`
+- `src/operation/list_resource_tenants/builders.rs`
+- `src/operation/list_resource_tenants/paginator.rs`
+- `src/operation/list_suppressed_destinations.rs`
+- `src/operation/list_suppressed_destinations/_list_suppressed_destinations_input.rs`
+- `src/operation/list_suppressed_destinations/_list_suppressed_destinations_output.rs`
+- `src/operation/list_suppressed_destinations/builders.rs`
+- `src/operation/list_suppressed_destinations/paginator.rs`
+- `src/operation/list_tags_for_resource.rs`
+- `src/operation/list_tags_for_resource/_list_tags_for_resource_input.rs`
+- `src/operation/list_tags_for_resource/_list_tags_for_resource_output.rs`
+- `src/operation/list_tags_for_resource/builders.rs`
+- `src/operation/list_tenant_resources.rs`
+- `src/operation/list_tenant_resources/_list_tenant_resources_input.rs`
+- `src/operation/list_tenant_resources/_list_tenant_resources_output.rs`
+- `src/operation/list_tenant_resources/builders.rs`
+- `src/operation/list_tenant_resources/paginator.rs`
+- `src/operation/list_tenants.rs`
+- `src/operation/list_tenants/_list_tenants_input.rs`
+- `src/operation/list_tenants/_list_tenants_output.rs`
+- `src/operation/list_tenants/builders.rs`
+- `src/operation/list_tenants/paginator.rs`
+- `src/operation/put_account_dedicated_ip_warmup_attributes.rs`
+- `src/operation/put_account_dedicated_ip_warmup_attributes/_put_account_dedicated_ip_warmup_attributes_input.rs`
+- `src/operation/put_account_dedicated_ip_warmup_attributes/_put_account_dedicated_ip_warmup_attributes_output.rs`
+- `src/operation/put_account_dedicated_ip_warmup_attributes/builders.rs`
+- `src/operation/put_account_details.rs`
+- `src/operation/put_account_details/_put_account_details_input.rs`
+- `src/operation/put_account_details/_put_account_details_output.rs`
+- `src/operation/put_account_details/builders.rs`
+- `src/operation/put_account_pricing_attributes.rs`
+- `src/operation/put_account_pricing_attributes/_put_account_pricing_attributes_input.rs`
+- `src/operation/put_account_pricing_attributes/_put_account_pricing_attributes_output.rs`
+- `src/operation/put_account_pricing_attributes/builders.rs`
+- `src/operation/put_account_sending_attributes.rs`
+- `src/operation/put_account_sending_attributes/_put_account_sending_attributes_input.rs`
+- `src/operation/put_account_sending_attributes/_put_account_sending_attributes_output.rs`
+- `src/operation/put_account_sending_attributes/builders.rs`
+- `src/operation/put_account_suppression_attributes.rs`
+- `src/operation/put_account_suppression_attributes/_put_account_suppression_attributes_input.rs`
+- `src/operation/put_account_suppression_attributes/_put_account_suppression_attributes_output.rs`
+- `src/operation/put_account_suppression_attributes/builders.rs`
+- `src/operation/put_account_vdm_attributes.rs`
+- `src/operation/put_account_vdm_attributes/_put_account_vdm_attributes_input.rs`
+- `src/operation/put_account_vdm_attributes/_put_account_vdm_attributes_output.rs`
+- `src/operation/put_account_vdm_attributes/builders.rs`
+- `src/operation/put_configuration_set_archiving_options.rs`
+- `src/operation/put_configuration_set_archiving_options/_put_configuration_set_archiving_options_input.rs`
+- `src/operation/put_configuration_set_archiving_options/_put_configuration_set_archiving_options_output.rs`
+- `src/operation/put_configuration_set_archiving_options/builders.rs`
+- `src/operation/put_configuration_set_delivery_options.rs`
+- `src/operation/put_configuration_set_delivery_options/_put_configuration_set_delivery_options_input.rs`
+- `src/operation/put_configuration_set_delivery_options/_put_configuration_set_delivery_options_output.rs`
+- `src/operation/put_configuration_set_delivery_options/builders.rs`
+- `src/operation/put_configuration_set_reputation_options.rs`
+- `src/operation/put_configuration_set_reputation_options/_put_configuration_set_reputation_options_input.rs`
+- `src/operation/put_configuration_set_reputation_options/_put_configuration_set_reputation_options_output.rs`
+- `src/operation/put_configuration_set_reputation_options/builders.rs`
+- `src/operation/put_configuration_set_sending_options.rs`
+- `src/operation/put_configuration_set_sending_options/_put_configuration_set_sending_options_input.rs`
+- `src/operation/put_configuration_set_sending_options/_put_configuration_set_sending_options_output.rs`
+- `src/operation/put_configuration_set_sending_options/builders.rs`
+- `src/operation/put_configuration_set_suppression_options.rs`
+- `src/operation/put_configuration_set_suppression_options/_put_configuration_set_suppression_options_input.rs`
+- `src/operation/put_configuration_set_suppression_options/_put_configuration_set_suppression_options_output.rs`
+- `src/operation/put_configuration_set_suppression_options/builders.rs`
+- `src/operation/put_configuration_set_tracking_options.rs`
+- `src/operation/put_configuration_set_tracking_options/_put_configuration_set_tracking_options_input.rs`
+- `src/operation/put_configuration_set_tracking_options/_put_configuration_set_tracking_options_output.rs`
+- `src/operation/put_configuration_set_tracking_options/builders.rs`
+- `src/operation/put_configuration_set_vdm_options.rs`
+- `src/operation/put_configuration_set_vdm_options/_put_configuration_set_vdm_options_input.rs`
+- `src/operation/put_configuration_set_vdm_options/_put_configuration_set_vdm_options_output.rs`
+- `src/operation/put_configuration_set_vdm_options/builders.rs`
+- `src/operation/put_dedicated_ip_in_pool.rs`
+- `src/operation/put_dedicated_ip_in_pool/_put_dedicated_ip_in_pool_input.rs`
+- `src/operation/put_dedicated_ip_in_pool/_put_dedicated_ip_in_pool_output.rs`
+- `src/operation/put_dedicated_ip_in_pool/builders.rs`
+- `src/operation/put_dedicated_ip_pool_scaling_attributes.rs`
+- `src/operation/put_dedicated_ip_pool_scaling_attributes/_put_dedicated_ip_pool_scaling_attributes_input.rs`
+- `src/operation/put_dedicated_ip_pool_scaling_attributes/_put_dedicated_ip_pool_scaling_attributes_output.rs`
+- `src/operation/put_dedicated_ip_pool_scaling_attributes/builders.rs`
+- `src/operation/put_dedicated_ip_warmup_attributes.rs`
+- `src/operation/put_dedicated_ip_warmup_attributes/_put_dedicated_ip_warmup_attributes_input.rs`
+- `src/operation/put_dedicated_ip_warmup_attributes/_put_dedicated_ip_warmup_attributes_output.rs`
+- `src/operation/put_dedicated_ip_warmup_attributes/builders.rs`
+- `src/operation/put_deliverability_dashboard_option.rs`
+- `src/operation/put_deliverability_dashboard_option/_put_deliverability_dashboard_option_input.rs`
+- `src/operation/put_deliverability_dashboard_option/_put_deliverability_dashboard_option_output.rs`
+- `src/operation/put_deliverability_dashboard_option/builders.rs`
+- `src/operation/put_email_identity_configuration_set_attributes.rs`
+- `src/operation/put_email_identity_configuration_set_attributes/_put_email_identity_configuration_set_attributes_input.rs`
+- `src/operation/put_email_identity_configuration_set_attributes/_put_email_identity_configuration_set_attributes_output.rs`
+- `src/operation/put_email_identity_configuration_set_attributes/builders.rs`
+- `src/operation/put_email_identity_dkim_attributes.rs`
+- `src/operation/put_email_identity_dkim_attributes/_put_email_identity_dkim_attributes_input.rs`
+- `src/operation/put_email_identity_dkim_attributes/_put_email_identity_dkim_attributes_output.rs`
+- `src/operation/put_email_identity_dkim_attributes/builders.rs`
+- `src/operation/put_email_identity_dkim_signing_attributes.rs`
+- `src/operation/put_email_identity_dkim_signing_attributes/_put_email_identity_dkim_signing_attributes_input.rs`
+- `src/operation/put_email_identity_dkim_signing_attributes/_put_email_identity_dkim_signing_attributes_output.rs`
+- `src/operation/put_email_identity_dkim_signing_attributes/builders.rs`
+- `src/operation/put_email_identity_feedback_attributes.rs`
+- `src/operation/put_email_identity_feedback_attributes/_put_email_identity_feedback_attributes_input.rs`
+- `src/operation/put_email_identity_feedback_attributes/_put_email_identity_feedback_attributes_output.rs`
+- `src/operation/put_email_identity_feedback_attributes/builders.rs`
+- `src/operation/put_email_identity_mail_from_attributes.rs`
+- `src/operation/put_email_identity_mail_from_attributes/_put_email_identity_mail_from_attributes_input.rs`
+- `src/operation/put_email_identity_mail_from_attributes/_put_email_identity_mail_from_attributes_output.rs`
+- `src/operation/put_email_identity_mail_from_attributes/builders.rs`
+- `src/operation/put_suppressed_destination.rs`
+- `src/operation/put_suppressed_destination/_put_suppressed_destination_input.rs`
+- `src/operation/put_suppressed_destination/_put_suppressed_destination_output.rs`
+- `src/operation/put_suppressed_destination/builders.rs`
+- `src/operation/put_tenant_suppression_attributes.rs`
+- `src/operation/put_tenant_suppression_attributes/_put_tenant_suppression_attributes_input.rs`
+- `src/operation/put_tenant_suppression_attributes/_put_tenant_suppression_attributes_output.rs`
+- `src/operation/put_tenant_suppression_attributes/builders.rs`
+- `src/operation/send_bulk_email.rs`
+- `src/operation/send_bulk_email/_send_bulk_email_input.rs`
+- `src/operation/send_bulk_email/_send_bulk_email_output.rs`
+- `src/operation/send_bulk_email/builders.rs`
+- `src/operation/send_custom_verification_email.rs`
+- `src/operation/send_custom_verification_email/_send_custom_verification_email_input.rs`
+- `src/operation/send_custom_verification_email/_send_custom_verification_email_output.rs`
+- `src/operation/send_custom_verification_email/builders.rs`
+- `src/operation/send_email.rs`
+- `src/operation/send_email/_send_email_input.rs`
+- `src/operation/send_email/_send_email_output.rs`
+- `src/operation/send_email/builders.rs`
+- `src/operation/tag_resource.rs`
+- `src/operation/tag_resource/_tag_resource_input.rs`
+- `src/operation/tag_resource/_tag_resource_output.rs`
+- `src/operation/tag_resource/builders.rs`
+- `src/operation/test_render_email_template.rs`
+- `src/operation/test_render_email_template/_test_render_email_template_input.rs`
+- `src/operation/test_render_email_template/_test_render_email_template_output.rs`
+- `src/operation/test_render_email_template/builders.rs`
+- `src/operation/untag_resource.rs`
+- `src/operation/untag_resource/_untag_resource_input.rs`
+- `src/operation/untag_resource/_untag_resource_output.rs`
+- `src/operation/untag_resource/builders.rs`
+- `src/operation/update_configuration_set_event_destination.rs`
+- `src/operation/update_configuration_set_event_destination/_update_configuration_set_event_destination_input.rs`
+- `src/operation/update_configuration_set_event_destination/_update_configuration_set_event_destination_output.rs`
+- `src/operation/update_configuration_set_event_destination/builders.rs`
+- `src/operation/update_contact.rs`
+- `src/operation/update_contact/_update_contact_input.rs`
+- `src/operation/update_contact/_update_contact_output.rs`
+- `src/operation/update_contact/builders.rs`
+- `src/operation/update_contact_list.rs`
+- `src/operation/update_contact_list/_update_contact_list_input.rs`
+- `src/operation/update_contact_list/_update_contact_list_output.rs`
+- `src/operation/update_contact_list/builders.rs`
+- `src/operation/update_custom_verification_email_template.rs`
+- `src/operation/update_custom_verification_email_template/_update_custom_verification_email_template_input.rs`
+- `src/operation/update_custom_verification_email_template/_update_custom_verification_email_template_output.rs`
+- `src/operation/update_custom_verification_email_template/builders.rs`
+- `src/operation/update_email_identity_policy.rs`
+- `src/operation/update_email_identity_policy/_update_email_identity_policy_input.rs`
+- `src/operation/update_email_identity_policy/_update_email_identity_policy_output.rs`
+- `src/operation/update_email_identity_policy/builders.rs`
+- `src/operation/update_email_template.rs`
+- `src/operation/update_email_template/_update_email_template_input.rs`
+- `src/operation/update_email_template/_update_email_template_output.rs`
+- `src/operation/update_email_template/builders.rs`
+- `src/operation/update_reputation_entity_customer_managed_status.rs`
+- `src/operation/update_reputation_entity_customer_managed_status/_update_reputation_entity_customer_managed_status_input.rs`
+- `src/operation/update_reputation_entity_customer_managed_status/_update_reputation_entity_customer_managed_status_output.rs`
+- `src/operation/update_reputation_entity_customer_managed_status/builders.rs`
+- `src/operation/update_reputation_entity_policy.rs`
+- `src/operation/update_reputation_entity_policy/_update_reputation_entity_policy_input.rs`
+- `src/operation/update_reputation_entity_policy/_update_reputation_entity_policy_output.rs`
+- `src/operation/update_reputation_entity_policy/builders.rs`
+- `src/protocol_serde.rs`
+- `src/protocol_serde/shape_batch_get_metric_data.rs`
+- `src/protocol_serde/shape_batch_get_metric_data_input.rs`
+- `src/protocol_serde/shape_batch_get_metric_data_query.rs`
+- `src/protocol_serde/shape_cancel_export_job.rs`
+- `src/protocol_serde/shape_create_configuration_set.rs`
+- `src/protocol_serde/shape_create_configuration_set_event_destination.rs`
+- `src/protocol_serde/shape_create_configuration_set_event_destination_input.rs`
+- `src/protocol_serde/shape_create_configuration_set_input.rs`
+- `src/protocol_serde/shape_create_contact.rs`
+- `src/protocol_serde/shape_create_contact_input.rs`
+- `src/protocol_serde/shape_create_contact_list.rs`
+- `src/protocol_serde/shape_create_contact_list_input.rs`
+- `src/protocol_serde/shape_create_custom_verification_email_template.rs`
+- `src/protocol_serde/shape_create_custom_verification_email_template_input.rs`
+- `src/protocol_serde/shape_create_dedicated_ip_pool.rs`
+- `src/protocol_serde/shape_create_dedicated_ip_pool_input.rs`
+- `src/protocol_serde/shape_create_deliverability_test_report.rs`
+- `src/protocol_serde/shape_create_deliverability_test_report_input.rs`
+- `src/protocol_serde/shape_create_email_identity.rs`
+- `src/protocol_serde/shape_create_email_identity_input.rs`
+- `src/protocol_serde/shape_create_email_identity_policy.rs`
+- `src/protocol_serde/shape_create_email_identity_policy_input.rs`
+- `src/protocol_serde/shape_create_email_template.rs`
+- `src/protocol_serde/shape_create_email_template_input.rs`
+- `src/protocol_serde/shape_create_export_job.rs`
+- `src/protocol_serde/shape_create_export_job_input.rs`
+- `src/protocol_serde/shape_create_import_job.rs`
+- `src/protocol_serde/shape_create_import_job_input.rs`
+- `src/protocol_serde/shape_create_multi_region_endpoint.rs`
+- `src/protocol_serde/shape_create_multi_region_endpoint_input.rs`
+- `src/protocol_serde/shape_create_tenant.rs`
+- `src/protocol_serde/shape_create_tenant_input.rs`
+- `src/protocol_serde/shape_create_tenant_resource_association.rs`
+- `src/protocol_serde/shape_create_tenant_resource_association_input.rs`
+- `src/protocol_serde/shape_delete_configuration_set.rs`
+- `src/protocol_serde/shape_delete_configuration_set_event_destination.rs`
+- `src/protocol_serde/shape_delete_contact.rs`
+- `src/protocol_serde/shape_delete_contact_list.rs`
+- `src/protocol_serde/shape_delete_custom_verification_email_template.rs`
+- `src/protocol_serde/shape_delete_dedicated_ip_pool.rs`
+- `src/protocol_serde/shape_delete_email_identity.rs`
+- `src/protocol_serde/shape_delete_email_identity_policy.rs`
+- `src/protocol_serde/shape_delete_email_template.rs`
+- `src/protocol_serde/shape_delete_multi_region_endpoint.rs`
+- `src/protocol_serde/shape_delete_suppressed_destination.rs`
+- `src/protocol_serde/shape_delete_tenant.rs`
+- `src/protocol_serde/shape_delete_tenant_input.rs`
+- `src/protocol_serde/shape_delete_tenant_resource_association.rs`
+- `src/protocol_serde/shape_delete_tenant_resource_association_input.rs`
+- `src/protocol_serde/shape_get_account.rs`
+- `src/protocol_serde/shape_get_blacklist_reports.rs`
+- `src/protocol_serde/shape_get_configuration_set.rs`
+- `src/protocol_serde/shape_get_configuration_set_event_destinations.rs`
+- `src/protocol_serde/shape_get_contact.rs`
+- `src/protocol_serde/shape_get_contact_list.rs`
+- `src/protocol_serde/shape_get_custom_verification_email_template.rs`
+- `src/protocol_serde/shape_get_dedicated_ip.rs`
+- `src/protocol_serde/shape_get_dedicated_ip_pool.rs`
+- `src/protocol_serde/shape_get_dedicated_ips.rs`
+- `src/protocol_serde/shape_get_deliverability_dashboard_options.rs`
+- `src/protocol_serde/shape_get_deliverability_test_report.rs`
+- `src/protocol_serde/shape_get_domain_deliverability_campaign.rs`
+- `src/protocol_serde/shape_get_domain_statistics_report.rs`
+- `src/protocol_serde/shape_get_email_address_insights.rs`
+- `src/protocol_serde/shape_get_email_address_insights_input.rs`
+- `src/protocol_serde/shape_get_email_identity.rs`
+- `src/protocol_serde/shape_get_email_identity_policies.rs`
+- `src/protocol_serde/shape_get_email_template.rs`
+- `src/protocol_serde/shape_get_export_job.rs`
+- `src/protocol_serde/shape_get_import_job.rs`
+- `src/protocol_serde/shape_get_message_insights.rs`
+- `src/protocol_serde/shape_get_multi_region_endpoint.rs`
+- `src/protocol_serde/shape_get_reputation_entity.rs`
+- `src/protocol_serde/shape_get_suppressed_destination.rs`
+- `src/protocol_serde/shape_get_tenant.rs`
+- `src/protocol_serde/shape_get_tenant_input.rs`
+- `src/protocol_serde/shape_list_configuration_sets.rs`
+- `src/protocol_serde/shape_list_contact_lists.rs`
+- `src/protocol_serde/shape_list_contacts.rs`
+- `src/protocol_serde/shape_list_contacts_filter.rs`
+- `src/protocol_serde/shape_list_contacts_input.rs`
+- `src/protocol_serde/shape_list_custom_verification_email_templates.rs`
+- `src/protocol_serde/shape_list_dedicated_ip_pools.rs`
+- `src/protocol_serde/shape_list_deliverability_test_reports.rs`
+- `src/protocol_serde/shape_list_domain_deliverability_campaigns.rs`
+- `src/protocol_serde/shape_list_email_identities.rs`
+- `src/protocol_serde/shape_list_email_templates.rs`
+- `src/protocol_serde/shape_list_export_jobs.rs`
+- `src/protocol_serde/shape_list_export_jobs_input.rs`
+- `src/protocol_serde/shape_list_import_jobs.rs`
+- `src/protocol_serde/shape_list_import_jobs_input.rs`
+- `src/protocol_serde/shape_list_multi_region_endpoints.rs`
+- `src/protocol_serde/shape_list_recommendations.rs`
+- `src/protocol_serde/shape_list_recommendations_input.rs`
+- `src/protocol_serde/shape_list_reputation_entities.rs`
+- `src/protocol_serde/shape_list_reputation_entities_input.rs`
+- `src/protocol_serde/shape_list_resource_tenants.rs`
+- `src/protocol_serde/shape_list_resource_tenants_input.rs`
+- `src/protocol_serde/shape_list_suppressed_destinations.rs`
+- `src/protocol_serde/shape_list_tags_for_resource.rs`
+- `src/protocol_serde/shape_list_tenant_resources.rs`
+- `src/protocol_serde/shape_list_tenant_resources_input.rs`
+- `src/protocol_serde/shape_list_tenants.rs`
+- `src/protocol_serde/shape_list_tenants_input.rs`
+- `src/protocol_serde/shape_put_account_dedicated_ip_warmup_attributes.rs`
+- `src/protocol_serde/shape_put_account_dedicated_ip_warmup_attributes_input.rs`
+- `src/protocol_serde/shape_put_account_details.rs`
+- `src/protocol_serde/shape_put_account_details_input.rs`
+- `src/protocol_serde/shape_put_account_pricing_attributes.rs`
+- `src/protocol_serde/shape_put_account_pricing_attributes_input.rs`
+- `src/protocol_serde/shape_put_account_sending_attributes.rs`
+- `src/protocol_serde/shape_put_account_sending_attributes_input.rs`
+- `src/protocol_serde/shape_put_account_suppression_attributes.rs`
+- `src/protocol_serde/shape_put_account_suppression_attributes_input.rs`
+- `src/protocol_serde/shape_put_account_vdm_attributes.rs`
+- `src/protocol_serde/shape_put_account_vdm_attributes_input.rs`
+- `src/protocol_serde/shape_put_configuration_set_archiving_options.rs`
+- `src/protocol_serde/shape_put_configuration_set_archiving_options_input.rs`
+- `src/protocol_serde/shape_put_configuration_set_delivery_options.rs`
+- `src/protocol_serde/shape_put_configuration_set_delivery_options_input.rs`
+- `src/protocol_serde/shape_put_configuration_set_reputation_options.rs`
+- `src/protocol_serde/shape_put_configuration_set_reputation_options_input.rs`
+- `src/protocol_serde/shape_put_configuration_set_sending_options.rs`
+- `src/protocol_serde/shape_put_configuration_set_sending_options_input.rs`
+- `src/protocol_serde/shape_put_configuration_set_suppression_options.rs`
+- `src/protocol_serde/shape_put_configuration_set_suppression_options_input.rs`
+- `src/protocol_serde/shape_put_configuration_set_tracking_options.rs`
+- `src/protocol_serde/shape_put_configuration_set_tracking_options_input.rs`
+- `src/protocol_serde/shape_put_configuration_set_vdm_options.rs`
+- `src/protocol_serde/shape_put_configuration_set_vdm_options_input.rs`
+- `src/protocol_serde/shape_put_dedicated_ip_in_pool.rs`
+- `src/protocol_serde/shape_put_dedicated_ip_in_pool_input.rs`
+- `src/protocol_serde/shape_put_dedicated_ip_pool_scaling_attributes.rs`
+- `src/protocol_serde/shape_put_dedicated_ip_pool_scaling_attributes_input.rs`
+- `src/protocol_serde/shape_put_dedicated_ip_warmup_attributes.rs`
+- `src/protocol_serde/shape_put_dedicated_ip_warmup_attributes_input.rs`
+- `src/protocol_serde/shape_put_deliverability_dashboard_option.rs`
+- `src/protocol_serde/shape_put_deliverability_dashboard_option_input.rs`
+- `src/protocol_serde/shape_put_email_identity_configuration_set_attributes.rs`
+- `src/protocol_serde/shape_put_email_identity_configuration_set_attributes_input.rs`
+- `src/protocol_serde/shape_put_email_identity_dkim_attributes.rs`
+- `src/protocol_serde/shape_put_email_identity_dkim_attributes_input.rs`
+- `src/protocol_serde/shape_put_email_identity_dkim_signing_attributes.rs`
+- `src/protocol_serde/shape_put_email_identity_dkim_signing_attributes_input.rs`
+- `src/protocol_serde/shape_put_email_identity_feedback_attributes.rs`
+- `src/protocol_serde/shape_put_email_identity_feedback_attributes_input.rs`
+- `src/protocol_serde/shape_put_email_identity_mail_from_attributes.rs`
+- `src/protocol_serde/shape_put_email_identity_mail_from_attributes_input.rs`
+- `src/protocol_serde/shape_put_suppressed_destination.rs`
+- `src/protocol_serde/shape_put_suppressed_destination_input.rs`
+- `src/protocol_serde/shape_put_tenant_suppression_attributes.rs`
+- `src/protocol_serde/shape_put_tenant_suppression_attributes_input.rs`
+- `src/protocol_serde/shape_send_bulk_email.rs`
+- `src/protocol_serde/shape_send_bulk_email_input.rs`
+- `src/protocol_serde/shape_send_custom_verification_email.rs`
+- `src/protocol_serde/shape_send_custom_verification_email_input.rs`
+- `src/protocol_serde/shape_send_email.rs`
+- `src/protocol_serde/shape_send_email_input.rs`
+- `src/protocol_serde/shape_tag_resource.rs`
+- `src/protocol_serde/shape_tag_resource_input.rs`
+- `src/protocol_serde/shape_test_render_email_template.rs`
+- `src/protocol_serde/shape_test_render_email_template_input.rs`
+- `src/protocol_serde/shape_untag_resource.rs`
+- `src/protocol_serde/shape_update_configuration_set_event_destination.rs`
+- `src/protocol_serde/shape_update_configuration_set_event_destination_input.rs`
+- `src/protocol_serde/shape_update_contact.rs`
+- `src/protocol_serde/shape_update_contact_input.rs`
+- `src/protocol_serde/shape_update_contact_list.rs`
+- `src/protocol_serde/shape_update_contact_list_input.rs`
+- `src/protocol_serde/shape_update_custom_verification_email_template.rs`
+- `src/protocol_serde/shape_update_custom_verification_email_template_input.rs`
+- `src/protocol_serde/shape_update_email_identity_policy.rs`
+- `src/protocol_serde/shape_update_email_identity_policy_input.rs`
+- `src/protocol_serde/shape_update_email_template.rs`
+- `src/protocol_serde/shape_update_email_template_input.rs`
+- `src/protocol_serde/shape_update_reputation_entity_customer_managed_status.rs`
+- `src/protocol_serde/shape_update_reputation_entity_customer_managed_status_input.rs`
+- `src/protocol_serde/shape_update_reputation_entity_policy.rs`
+- `src/protocol_serde/shape_update_reputation_entity_policy_input.rs`
+- `src/serde_util.rs`
+
+## Customizations
+
+- Add one non-default Cargo feature and matching cfg gates for each model operation.
+- Rename the Cargo package/library from manifest data.
+- Remove upstream `tests/` from generated output.
+
+## Reproduction
+
+```text
+cargo run -p aws-sdk-modularizer -- --manifest services-manifest.json
+```

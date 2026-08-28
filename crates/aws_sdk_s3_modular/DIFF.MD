@@ -1,0 +1,932 @@
+# AWS SDK modularizer diff
+
+- repository: `https://github.com/awslabs/aws-sdk-rust`
+- revision: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
+- service: `sdk/s3`
+- model: `models/s3.json`
+- package: `aws-sdk-s3-modular`
+- library: `aws_sdk_s3_modular`
+- tests exclusion: `tests/**` is excluded from the comparison.
+
+## Operations
+
+- `op_abort_multipart_upload`: `AbortMultipartUpload`
+- `op_complete_multipart_upload`: `CompleteMultipartUpload`
+- `op_copy_object`: `CopyObject`
+- `op_create_bucket`: `CreateBucket`
+- `op_create_bucket_metadata_configuration`: `CreateBucketMetadataConfiguration`
+- `op_create_bucket_metadata_table_configuration`: `CreateBucketMetadataTableConfiguration`
+- `op_create_multipart_upload`: `CreateMultipartUpload`
+- `op_create_session`: `CreateSession`
+- `op_delete_bucket`: `DeleteBucket`
+- `op_delete_bucket_analytics_configuration`: `DeleteBucketAnalyticsConfiguration`
+- `op_delete_bucket_cors`: `DeleteBucketCors`
+- `op_delete_bucket_encryption`: `DeleteBucketEncryption`
+- `op_delete_bucket_intelligent_tiering_configuration`: `DeleteBucketIntelligentTieringConfiguration`
+- `op_delete_bucket_inventory_configuration`: `DeleteBucketInventoryConfiguration`
+- `op_delete_bucket_lifecycle`: `DeleteBucketLifecycle`
+- `op_delete_bucket_metadata_configuration`: `DeleteBucketMetadataConfiguration`
+- `op_delete_bucket_metadata_table_configuration`: `DeleteBucketMetadataTableConfiguration`
+- `op_delete_bucket_metrics_configuration`: `DeleteBucketMetricsConfiguration`
+- `op_delete_bucket_ownership_controls`: `DeleteBucketOwnershipControls`
+- `op_delete_bucket_policy`: `DeleteBucketPolicy`
+- `op_delete_bucket_replication`: `DeleteBucketReplication`
+- `op_delete_bucket_tagging`: `DeleteBucketTagging`
+- `op_delete_bucket_website`: `DeleteBucketWebsite`
+- `op_delete_object`: `DeleteObject`
+- `op_delete_object_annotation`: `DeleteObjectAnnotation`
+- `op_delete_objects`: `DeleteObjects`
+- `op_delete_object_tagging`: `DeleteObjectTagging`
+- `op_delete_public_access_block`: `DeletePublicAccessBlock`
+- `op_get_bucket_abac`: `GetBucketAbac`
+- `op_get_bucket_accelerate_configuration`: `GetBucketAccelerateConfiguration`
+- `op_get_bucket_acl`: `GetBucketAcl`
+- `op_get_bucket_analytics_configuration`: `GetBucketAnalyticsConfiguration`
+- `op_get_bucket_cors`: `GetBucketCors`
+- `op_get_bucket_encryption`: `GetBucketEncryption`
+- `op_get_bucket_intelligent_tiering_configuration`: `GetBucketIntelligentTieringConfiguration`
+- `op_get_bucket_inventory_configuration`: `GetBucketInventoryConfiguration`
+- `op_get_bucket_lifecycle_configuration`: `GetBucketLifecycleConfiguration`
+- `op_get_bucket_location`: `GetBucketLocation`
+- `op_get_bucket_logging`: `GetBucketLogging`
+- `op_get_bucket_metadata_configuration`: `GetBucketMetadataConfiguration`
+- `op_get_bucket_metadata_table_configuration`: `GetBucketMetadataTableConfiguration`
+- `op_get_bucket_metrics_configuration`: `GetBucketMetricsConfiguration`
+- `op_get_bucket_notification_configuration`: `GetBucketNotificationConfiguration`
+- `op_get_bucket_ownership_controls`: `GetBucketOwnershipControls`
+- `op_get_bucket_policy`: `GetBucketPolicy`
+- `op_get_bucket_policy_status`: `GetBucketPolicyStatus`
+- `op_get_bucket_replication`: `GetBucketReplication`
+- `op_get_bucket_request_payment`: `GetBucketRequestPayment`
+- `op_get_bucket_tagging`: `GetBucketTagging`
+- `op_get_bucket_versioning`: `GetBucketVersioning`
+- `op_get_bucket_website`: `GetBucketWebsite`
+- `op_get_object`: `GetObject`
+- `op_get_object_acl`: `GetObjectAcl`
+- `op_get_object_annotation`: `GetObjectAnnotation`
+- `op_get_object_attributes`: `GetObjectAttributes`
+- `op_get_object_legal_hold`: `GetObjectLegalHold`
+- `op_get_object_lock_configuration`: `GetObjectLockConfiguration`
+- `op_get_object_retention`: `GetObjectRetention`
+- `op_get_object_tagging`: `GetObjectTagging`
+- `op_get_object_torrent`: `GetObjectTorrent`
+- `op_get_public_access_block`: `GetPublicAccessBlock`
+- `op_head_bucket`: `HeadBucket`
+- `op_head_object`: `HeadObject`
+- `op_list_bucket_analytics_configurations`: `ListBucketAnalyticsConfigurations`
+- `op_list_bucket_intelligent_tiering_configurations`: `ListBucketIntelligentTieringConfigurations`
+- `op_list_bucket_inventory_configurations`: `ListBucketInventoryConfigurations`
+- `op_list_bucket_metrics_configurations`: `ListBucketMetricsConfigurations`
+- `op_list_buckets`: `ListBuckets`
+- `op_list_directory_buckets`: `ListDirectoryBuckets`
+- `op_list_multipart_uploads`: `ListMultipartUploads`
+- `op_list_object_annotations`: `ListObjectAnnotations`
+- `op_list_objects`: `ListObjects`
+- `op_list_objects_v2`: `ListObjectsV2`
+- `op_list_object_versions`: `ListObjectVersions`
+- `op_list_parts`: `ListParts`
+- `op_put_bucket_abac`: `PutBucketAbac`
+- `op_put_bucket_accelerate_configuration`: `PutBucketAccelerateConfiguration`
+- `op_put_bucket_acl`: `PutBucketAcl`
+- `op_put_bucket_analytics_configuration`: `PutBucketAnalyticsConfiguration`
+- `op_put_bucket_cors`: `PutBucketCors`
+- `op_put_bucket_encryption`: `PutBucketEncryption`
+- `op_put_bucket_intelligent_tiering_configuration`: `PutBucketIntelligentTieringConfiguration`
+- `op_put_bucket_inventory_configuration`: `PutBucketInventoryConfiguration`
+- `op_put_bucket_lifecycle_configuration`: `PutBucketLifecycleConfiguration`
+- `op_put_bucket_logging`: `PutBucketLogging`
+- `op_put_bucket_metrics_configuration`: `PutBucketMetricsConfiguration`
+- `op_put_bucket_notification_configuration`: `PutBucketNotificationConfiguration`
+- `op_put_bucket_ownership_controls`: `PutBucketOwnershipControls`
+- `op_put_bucket_policy`: `PutBucketPolicy`
+- `op_put_bucket_replication`: `PutBucketReplication`
+- `op_put_bucket_request_payment`: `PutBucketRequestPayment`
+- `op_put_bucket_tagging`: `PutBucketTagging`
+- `op_put_bucket_versioning`: `PutBucketVersioning`
+- `op_put_bucket_website`: `PutBucketWebsite`
+- `op_put_object`: `PutObject`
+- `op_put_object_acl`: `PutObjectAcl`
+- `op_put_object_annotation`: `PutObjectAnnotation`
+- `op_put_object_legal_hold`: `PutObjectLegalHold`
+- `op_put_object_lock_configuration`: `PutObjectLockConfiguration`
+- `op_put_object_retention`: `PutObjectRetention`
+- `op_put_object_tagging`: `PutObjectTagging`
+- `op_put_public_access_block`: `PutPublicAccessBlock`
+- `op_rename_object`: `RenameObject`
+- `op_restore_object`: `RestoreObject`
+- `op_select_object_content`: `SelectObjectContent`
+- `op_update_bucket_metadata_annotation_table_configuration`: `UpdateBucketMetadataAnnotationTableConfiguration`
+- `op_update_bucket_metadata_inventory_table_configuration`: `UpdateBucketMetadataInventoryTableConfiguration`
+- `op_update_bucket_metadata_journal_table_configuration`: `UpdateBucketMetadataJournalTableConfiguration`
+- `op_update_object_encryption`: `UpdateObjectEncryption`
+- `op_upload_part`: `UploadPart`
+- `op_upload_part_copy`: `UploadPartCopy`
+- `op_write_get_object_response`: `WriteGetObjectResponse`
+
+## Changed files
+
+- `Cargo.toml`
+- `src/client.rs`
+- `src/client/abort_multipart_upload.rs`
+- `src/client/complete_multipart_upload.rs`
+- `src/client/copy_object.rs`
+- `src/client/create_bucket.rs`
+- `src/client/create_bucket_metadata_configuration.rs`
+- `src/client/create_bucket_metadata_table_configuration.rs`
+- `src/client/create_multipart_upload.rs`
+- `src/client/create_session.rs`
+- `src/client/customize.rs`
+- `src/client/delete_bucket.rs`
+- `src/client/delete_bucket_analytics_configuration.rs`
+- `src/client/delete_bucket_cors.rs`
+- `src/client/delete_bucket_encryption.rs`
+- `src/client/delete_bucket_intelligent_tiering_configuration.rs`
+- `src/client/delete_bucket_inventory_configuration.rs`
+- `src/client/delete_bucket_lifecycle.rs`
+- `src/client/delete_bucket_metadata_configuration.rs`
+- `src/client/delete_bucket_metadata_table_configuration.rs`
+- `src/client/delete_bucket_metrics_configuration.rs`
+- `src/client/delete_bucket_ownership_controls.rs`
+- `src/client/delete_bucket_policy.rs`
+- `src/client/delete_bucket_replication.rs`
+- `src/client/delete_bucket_tagging.rs`
+- `src/client/delete_bucket_website.rs`
+- `src/client/delete_object.rs`
+- `src/client/delete_object_annotation.rs`
+- `src/client/delete_object_tagging.rs`
+- `src/client/delete_objects.rs`
+- `src/client/delete_public_access_block.rs`
+- `src/client/get_bucket_abac.rs`
+- `src/client/get_bucket_accelerate_configuration.rs`
+- `src/client/get_bucket_acl.rs`
+- `src/client/get_bucket_analytics_configuration.rs`
+- `src/client/get_bucket_cors.rs`
+- `src/client/get_bucket_encryption.rs`
+- `src/client/get_bucket_intelligent_tiering_configuration.rs`
+- `src/client/get_bucket_inventory_configuration.rs`
+- `src/client/get_bucket_lifecycle_configuration.rs`
+- `src/client/get_bucket_location.rs`
+- `src/client/get_bucket_logging.rs`
+- `src/client/get_bucket_metadata_configuration.rs`
+- `src/client/get_bucket_metadata_table_configuration.rs`
+- `src/client/get_bucket_metrics_configuration.rs`
+- `src/client/get_bucket_notification_configuration.rs`
+- `src/client/get_bucket_ownership_controls.rs`
+- `src/client/get_bucket_policy.rs`
+- `src/client/get_bucket_policy_status.rs`
+- `src/client/get_bucket_replication.rs`
+- `src/client/get_bucket_request_payment.rs`
+- `src/client/get_bucket_tagging.rs`
+- `src/client/get_bucket_versioning.rs`
+- `src/client/get_bucket_website.rs`
+- `src/client/get_object.rs`
+- `src/client/get_object_acl.rs`
+- `src/client/get_object_annotation.rs`
+- `src/client/get_object_attributes.rs`
+- `src/client/get_object_legal_hold.rs`
+- `src/client/get_object_lock_configuration.rs`
+- `src/client/get_object_retention.rs`
+- `src/client/get_object_tagging.rs`
+- `src/client/get_object_torrent.rs`
+- `src/client/get_public_access_block.rs`
+- `src/client/head_bucket.rs`
+- `src/client/head_object.rs`
+- `src/client/list_bucket_analytics_configurations.rs`
+- `src/client/list_bucket_intelligent_tiering_configurations.rs`
+- `src/client/list_bucket_inventory_configurations.rs`
+- `src/client/list_bucket_metrics_configurations.rs`
+- `src/client/list_buckets.rs`
+- `src/client/list_directory_buckets.rs`
+- `src/client/list_multipart_uploads.rs`
+- `src/client/list_object_annotations.rs`
+- `src/client/list_object_versions.rs`
+- `src/client/list_objects.rs`
+- `src/client/list_objects_v2.rs`
+- `src/client/list_parts.rs`
+- `src/client/put_bucket_abac.rs`
+- `src/client/put_bucket_accelerate_configuration.rs`
+- `src/client/put_bucket_acl.rs`
+- `src/client/put_bucket_analytics_configuration.rs`
+- `src/client/put_bucket_cors.rs`
+- `src/client/put_bucket_encryption.rs`
+- `src/client/put_bucket_intelligent_tiering_configuration.rs`
+- `src/client/put_bucket_inventory_configuration.rs`
+- `src/client/put_bucket_lifecycle_configuration.rs`
+- `src/client/put_bucket_logging.rs`
+- `src/client/put_bucket_metrics_configuration.rs`
+- `src/client/put_bucket_notification_configuration.rs`
+- `src/client/put_bucket_ownership_controls.rs`
+- `src/client/put_bucket_policy.rs`
+- `src/client/put_bucket_replication.rs`
+- `src/client/put_bucket_request_payment.rs`
+- `src/client/put_bucket_tagging.rs`
+- `src/client/put_bucket_versioning.rs`
+- `src/client/put_bucket_website.rs`
+- `src/client/put_object.rs`
+- `src/client/put_object_acl.rs`
+- `src/client/put_object_annotation.rs`
+- `src/client/put_object_legal_hold.rs`
+- `src/client/put_object_lock_configuration.rs`
+- `src/client/put_object_retention.rs`
+- `src/client/put_object_tagging.rs`
+- `src/client/put_public_access_block.rs`
+- `src/client/rename_object.rs`
+- `src/client/restore_object.rs`
+- `src/client/select_object_content.rs`
+- `src/client/update_bucket_metadata_annotation_table_configuration.rs`
+- `src/client/update_bucket_metadata_inventory_table_configuration.rs`
+- `src/client/update_bucket_metadata_journal_table_configuration.rs`
+- `src/client/update_object_encryption.rs`
+- `src/client/upload_part.rs`
+- `src/client/upload_part_copy.rs`
+- `src/client/write_get_object_response.rs`
+- `src/config.rs`
+- `src/error_meta.rs`
+- `src/lens.rs`
+- `src/operation.rs`
+- `src/operation/abort_multipart_upload.rs`
+- `src/operation/abort_multipart_upload/_abort_multipart_upload_input.rs`
+- `src/operation/abort_multipart_upload/_abort_multipart_upload_output.rs`
+- `src/operation/abort_multipart_upload/builders.rs`
+- `src/operation/complete_multipart_upload.rs`
+- `src/operation/complete_multipart_upload/_complete_multipart_upload_input.rs`
+- `src/operation/complete_multipart_upload/_complete_multipart_upload_output.rs`
+- `src/operation/complete_multipart_upload/builders.rs`
+- `src/operation/copy_object.rs`
+- `src/operation/copy_object/_copy_object_input.rs`
+- `src/operation/copy_object/_copy_object_output.rs`
+- `src/operation/copy_object/builders.rs`
+- `src/operation/create_bucket.rs`
+- `src/operation/create_bucket/_create_bucket_input.rs`
+- `src/operation/create_bucket/_create_bucket_output.rs`
+- `src/operation/create_bucket/builders.rs`
+- `src/operation/create_bucket_metadata_configuration.rs`
+- `src/operation/create_bucket_metadata_configuration/_create_bucket_metadata_configuration_input.rs`
+- `src/operation/create_bucket_metadata_configuration/_create_bucket_metadata_configuration_output.rs`
+- `src/operation/create_bucket_metadata_configuration/builders.rs`
+- `src/operation/create_bucket_metadata_table_configuration.rs`
+- `src/operation/create_bucket_metadata_table_configuration/_create_bucket_metadata_table_configuration_input.rs`
+- `src/operation/create_bucket_metadata_table_configuration/_create_bucket_metadata_table_configuration_output.rs`
+- `src/operation/create_bucket_metadata_table_configuration/builders.rs`
+- `src/operation/create_multipart_upload.rs`
+- `src/operation/create_multipart_upload/_create_multipart_upload_input.rs`
+- `src/operation/create_multipart_upload/_create_multipart_upload_output.rs`
+- `src/operation/create_multipart_upload/builders.rs`
+- `src/operation/create_session.rs`
+- `src/operation/create_session/_create_session_input.rs`
+- `src/operation/create_session/_create_session_output.rs`
+- `src/operation/create_session/builders.rs`
+- `src/operation/delete_bucket.rs`
+- `src/operation/delete_bucket/_delete_bucket_input.rs`
+- `src/operation/delete_bucket/_delete_bucket_output.rs`
+- `src/operation/delete_bucket/builders.rs`
+- `src/operation/delete_bucket_analytics_configuration.rs`
+- `src/operation/delete_bucket_analytics_configuration/_delete_bucket_analytics_configuration_input.rs`
+- `src/operation/delete_bucket_analytics_configuration/_delete_bucket_analytics_configuration_output.rs`
+- `src/operation/delete_bucket_analytics_configuration/builders.rs`
+- `src/operation/delete_bucket_cors.rs`
+- `src/operation/delete_bucket_cors/_delete_bucket_cors_input.rs`
+- `src/operation/delete_bucket_cors/_delete_bucket_cors_output.rs`
+- `src/operation/delete_bucket_cors/builders.rs`
+- `src/operation/delete_bucket_encryption.rs`
+- `src/operation/delete_bucket_encryption/_delete_bucket_encryption_input.rs`
+- `src/operation/delete_bucket_encryption/_delete_bucket_encryption_output.rs`
+- `src/operation/delete_bucket_encryption/builders.rs`
+- `src/operation/delete_bucket_intelligent_tiering_configuration.rs`
+- `src/operation/delete_bucket_intelligent_tiering_configuration/_delete_bucket_intelligent_tiering_configuration_input.rs`
+- `src/operation/delete_bucket_intelligent_tiering_configuration/_delete_bucket_intelligent_tiering_configuration_output.rs`
+- `src/operation/delete_bucket_intelligent_tiering_configuration/builders.rs`
+- `src/operation/delete_bucket_inventory_configuration.rs`
+- `src/operation/delete_bucket_inventory_configuration/_delete_bucket_inventory_configuration_input.rs`
+- `src/operation/delete_bucket_inventory_configuration/_delete_bucket_inventory_configuration_output.rs`
+- `src/operation/delete_bucket_inventory_configuration/builders.rs`
+- `src/operation/delete_bucket_lifecycle.rs`
+- `src/operation/delete_bucket_lifecycle/_delete_bucket_lifecycle_input.rs`
+- `src/operation/delete_bucket_lifecycle/_delete_bucket_lifecycle_output.rs`
+- `src/operation/delete_bucket_lifecycle/builders.rs`
+- `src/operation/delete_bucket_metadata_configuration.rs`
+- `src/operation/delete_bucket_metadata_configuration/_delete_bucket_metadata_configuration_input.rs`
+- `src/operation/delete_bucket_metadata_configuration/_delete_bucket_metadata_configuration_output.rs`
+- `src/operation/delete_bucket_metadata_configuration/builders.rs`
+- `src/operation/delete_bucket_metadata_table_configuration.rs`
+- `src/operation/delete_bucket_metadata_table_configuration/_delete_bucket_metadata_table_configuration_input.rs`
+- `src/operation/delete_bucket_metadata_table_configuration/_delete_bucket_metadata_table_configuration_output.rs`
+- `src/operation/delete_bucket_metadata_table_configuration/builders.rs`
+- `src/operation/delete_bucket_metrics_configuration.rs`
+- `src/operation/delete_bucket_metrics_configuration/_delete_bucket_metrics_configuration_input.rs`
+- `src/operation/delete_bucket_metrics_configuration/_delete_bucket_metrics_configuration_output.rs`
+- `src/operation/delete_bucket_metrics_configuration/builders.rs`
+- `src/operation/delete_bucket_ownership_controls.rs`
+- `src/operation/delete_bucket_ownership_controls/_delete_bucket_ownership_controls_input.rs`
+- `src/operation/delete_bucket_ownership_controls/_delete_bucket_ownership_controls_output.rs`
+- `src/operation/delete_bucket_ownership_controls/builders.rs`
+- `src/operation/delete_bucket_policy.rs`
+- `src/operation/delete_bucket_policy/_delete_bucket_policy_input.rs`
+- `src/operation/delete_bucket_policy/_delete_bucket_policy_output.rs`
+- `src/operation/delete_bucket_policy/builders.rs`
+- `src/operation/delete_bucket_replication.rs`
+- `src/operation/delete_bucket_replication/_delete_bucket_replication_input.rs`
+- `src/operation/delete_bucket_replication/_delete_bucket_replication_output.rs`
+- `src/operation/delete_bucket_replication/builders.rs`
+- `src/operation/delete_bucket_tagging.rs`
+- `src/operation/delete_bucket_tagging/_delete_bucket_tagging_input.rs`
+- `src/operation/delete_bucket_tagging/_delete_bucket_tagging_output.rs`
+- `src/operation/delete_bucket_tagging/builders.rs`
+- `src/operation/delete_bucket_website.rs`
+- `src/operation/delete_bucket_website/_delete_bucket_website_input.rs`
+- `src/operation/delete_bucket_website/_delete_bucket_website_output.rs`
+- `src/operation/delete_bucket_website/builders.rs`
+- `src/operation/delete_object.rs`
+- `src/operation/delete_object/_delete_object_input.rs`
+- `src/operation/delete_object/_delete_object_output.rs`
+- `src/operation/delete_object/builders.rs`
+- `src/operation/delete_object_annotation.rs`
+- `src/operation/delete_object_annotation/_delete_object_annotation_input.rs`
+- `src/operation/delete_object_annotation/_delete_object_annotation_output.rs`
+- `src/operation/delete_object_annotation/builders.rs`
+- `src/operation/delete_object_tagging.rs`
+- `src/operation/delete_object_tagging/_delete_object_tagging_input.rs`
+- `src/operation/delete_object_tagging/_delete_object_tagging_output.rs`
+- `src/operation/delete_object_tagging/builders.rs`
+- `src/operation/delete_objects.rs`
+- `src/operation/delete_objects/_delete_objects_input.rs`
+- `src/operation/delete_objects/_delete_objects_output.rs`
+- `src/operation/delete_objects/builders.rs`
+- `src/operation/delete_public_access_block.rs`
+- `src/operation/delete_public_access_block/_delete_public_access_block_input.rs`
+- `src/operation/delete_public_access_block/_delete_public_access_block_output.rs`
+- `src/operation/delete_public_access_block/builders.rs`
+- `src/operation/get_bucket_abac.rs`
+- `src/operation/get_bucket_abac/_get_bucket_abac_input.rs`
+- `src/operation/get_bucket_abac/_get_bucket_abac_output.rs`
+- `src/operation/get_bucket_abac/builders.rs`
+- `src/operation/get_bucket_accelerate_configuration.rs`
+- `src/operation/get_bucket_accelerate_configuration/_get_bucket_accelerate_configuration_input.rs`
+- `src/operation/get_bucket_accelerate_configuration/_get_bucket_accelerate_configuration_output.rs`
+- `src/operation/get_bucket_accelerate_configuration/builders.rs`
+- `src/operation/get_bucket_acl.rs`
+- `src/operation/get_bucket_acl/_get_bucket_acl_input.rs`
+- `src/operation/get_bucket_acl/_get_bucket_acl_output.rs`
+- `src/operation/get_bucket_acl/builders.rs`
+- `src/operation/get_bucket_analytics_configuration.rs`
+- `src/operation/get_bucket_analytics_configuration/_get_bucket_analytics_configuration_input.rs`
+- `src/operation/get_bucket_analytics_configuration/_get_bucket_analytics_configuration_output.rs`
+- `src/operation/get_bucket_analytics_configuration/builders.rs`
+- `src/operation/get_bucket_cors.rs`
+- `src/operation/get_bucket_cors/_get_bucket_cors_input.rs`
+- `src/operation/get_bucket_cors/_get_bucket_cors_output.rs`
+- `src/operation/get_bucket_cors/builders.rs`
+- `src/operation/get_bucket_encryption.rs`
+- `src/operation/get_bucket_encryption/_get_bucket_encryption_input.rs`
+- `src/operation/get_bucket_encryption/_get_bucket_encryption_output.rs`
+- `src/operation/get_bucket_encryption/builders.rs`
+- `src/operation/get_bucket_intelligent_tiering_configuration.rs`
+- `src/operation/get_bucket_intelligent_tiering_configuration/_get_bucket_intelligent_tiering_configuration_input.rs`
+- `src/operation/get_bucket_intelligent_tiering_configuration/_get_bucket_intelligent_tiering_configuration_output.rs`
+- `src/operation/get_bucket_intelligent_tiering_configuration/builders.rs`
+- `src/operation/get_bucket_inventory_configuration.rs`
+- `src/operation/get_bucket_inventory_configuration/_get_bucket_inventory_configuration_input.rs`
+- `src/operation/get_bucket_inventory_configuration/_get_bucket_inventory_configuration_output.rs`
+- `src/operation/get_bucket_inventory_configuration/builders.rs`
+- `src/operation/get_bucket_lifecycle_configuration.rs`
+- `src/operation/get_bucket_lifecycle_configuration/_get_bucket_lifecycle_configuration_input.rs`
+- `src/operation/get_bucket_lifecycle_configuration/_get_bucket_lifecycle_configuration_output.rs`
+- `src/operation/get_bucket_lifecycle_configuration/builders.rs`
+- `src/operation/get_bucket_location.rs`
+- `src/operation/get_bucket_location/_get_bucket_location_input.rs`
+- `src/operation/get_bucket_location/_get_bucket_location_output.rs`
+- `src/operation/get_bucket_location/builders.rs`
+- `src/operation/get_bucket_logging.rs`
+- `src/operation/get_bucket_logging/_get_bucket_logging_input.rs`
+- `src/operation/get_bucket_logging/_get_bucket_logging_output.rs`
+- `src/operation/get_bucket_logging/builders.rs`
+- `src/operation/get_bucket_metadata_configuration.rs`
+- `src/operation/get_bucket_metadata_configuration/_get_bucket_metadata_configuration_input.rs`
+- `src/operation/get_bucket_metadata_configuration/_get_bucket_metadata_configuration_output.rs`
+- `src/operation/get_bucket_metadata_configuration/builders.rs`
+- `src/operation/get_bucket_metadata_table_configuration.rs`
+- `src/operation/get_bucket_metadata_table_configuration/_get_bucket_metadata_table_configuration_input.rs`
+- `src/operation/get_bucket_metadata_table_configuration/_get_bucket_metadata_table_configuration_output.rs`
+- `src/operation/get_bucket_metadata_table_configuration/builders.rs`
+- `src/operation/get_bucket_metrics_configuration.rs`
+- `src/operation/get_bucket_metrics_configuration/_get_bucket_metrics_configuration_input.rs`
+- `src/operation/get_bucket_metrics_configuration/_get_bucket_metrics_configuration_output.rs`
+- `src/operation/get_bucket_metrics_configuration/builders.rs`
+- `src/operation/get_bucket_notification_configuration.rs`
+- `src/operation/get_bucket_notification_configuration/_get_bucket_notification_configuration_input.rs`
+- `src/operation/get_bucket_notification_configuration/_get_bucket_notification_configuration_output.rs`
+- `src/operation/get_bucket_notification_configuration/builders.rs`
+- `src/operation/get_bucket_ownership_controls.rs`
+- `src/operation/get_bucket_ownership_controls/_get_bucket_ownership_controls_input.rs`
+- `src/operation/get_bucket_ownership_controls/_get_bucket_ownership_controls_output.rs`
+- `src/operation/get_bucket_ownership_controls/builders.rs`
+- `src/operation/get_bucket_policy.rs`
+- `src/operation/get_bucket_policy/_get_bucket_policy_input.rs`
+- `src/operation/get_bucket_policy/_get_bucket_policy_output.rs`
+- `src/operation/get_bucket_policy/builders.rs`
+- `src/operation/get_bucket_policy_status.rs`
+- `src/operation/get_bucket_policy_status/_get_bucket_policy_status_input.rs`
+- `src/operation/get_bucket_policy_status/_get_bucket_policy_status_output.rs`
+- `src/operation/get_bucket_policy_status/builders.rs`
+- `src/operation/get_bucket_replication.rs`
+- `src/operation/get_bucket_replication/_get_bucket_replication_input.rs`
+- `src/operation/get_bucket_replication/_get_bucket_replication_output.rs`
+- `src/operation/get_bucket_replication/builders.rs`
+- `src/operation/get_bucket_request_payment.rs`
+- `src/operation/get_bucket_request_payment/_get_bucket_request_payment_input.rs`
+- `src/operation/get_bucket_request_payment/_get_bucket_request_payment_output.rs`
+- `src/operation/get_bucket_request_payment/builders.rs`
+- `src/operation/get_bucket_tagging.rs`
+- `src/operation/get_bucket_tagging/_get_bucket_tagging_input.rs`
+- `src/operation/get_bucket_tagging/_get_bucket_tagging_output.rs`
+- `src/operation/get_bucket_tagging/builders.rs`
+- `src/operation/get_bucket_versioning.rs`
+- `src/operation/get_bucket_versioning/_get_bucket_versioning_input.rs`
+- `src/operation/get_bucket_versioning/_get_bucket_versioning_output.rs`
+- `src/operation/get_bucket_versioning/builders.rs`
+- `src/operation/get_bucket_website.rs`
+- `src/operation/get_bucket_website/_get_bucket_website_input.rs`
+- `src/operation/get_bucket_website/_get_bucket_website_output.rs`
+- `src/operation/get_bucket_website/builders.rs`
+- `src/operation/get_object.rs`
+- `src/operation/get_object/_get_object_input.rs`
+- `src/operation/get_object/_get_object_output.rs`
+- `src/operation/get_object/builders.rs`
+- `src/operation/get_object_acl.rs`
+- `src/operation/get_object_acl/_get_object_acl_input.rs`
+- `src/operation/get_object_acl/_get_object_acl_output.rs`
+- `src/operation/get_object_acl/builders.rs`
+- `src/operation/get_object_annotation.rs`
+- `src/operation/get_object_annotation/_get_object_annotation_input.rs`
+- `src/operation/get_object_annotation/_get_object_annotation_output.rs`
+- `src/operation/get_object_annotation/builders.rs`
+- `src/operation/get_object_attributes.rs`
+- `src/operation/get_object_attributes/_get_object_attributes_input.rs`
+- `src/operation/get_object_attributes/_get_object_attributes_output.rs`
+- `src/operation/get_object_attributes/builders.rs`
+- `src/operation/get_object_legal_hold.rs`
+- `src/operation/get_object_legal_hold/_get_object_legal_hold_input.rs`
+- `src/operation/get_object_legal_hold/_get_object_legal_hold_output.rs`
+- `src/operation/get_object_legal_hold/builders.rs`
+- `src/operation/get_object_lock_configuration.rs`
+- `src/operation/get_object_lock_configuration/_get_object_lock_configuration_input.rs`
+- `src/operation/get_object_lock_configuration/_get_object_lock_configuration_output.rs`
+- `src/operation/get_object_lock_configuration/builders.rs`
+- `src/operation/get_object_retention.rs`
+- `src/operation/get_object_retention/_get_object_retention_input.rs`
+- `src/operation/get_object_retention/_get_object_retention_output.rs`
+- `src/operation/get_object_retention/builders.rs`
+- `src/operation/get_object_tagging.rs`
+- `src/operation/get_object_tagging/_get_object_tagging_input.rs`
+- `src/operation/get_object_tagging/_get_object_tagging_output.rs`
+- `src/operation/get_object_tagging/builders.rs`
+- `src/operation/get_object_torrent.rs`
+- `src/operation/get_object_torrent/_get_object_torrent_input.rs`
+- `src/operation/get_object_torrent/_get_object_torrent_output.rs`
+- `src/operation/get_object_torrent/builders.rs`
+- `src/operation/get_public_access_block.rs`
+- `src/operation/get_public_access_block/_get_public_access_block_input.rs`
+- `src/operation/get_public_access_block/_get_public_access_block_output.rs`
+- `src/operation/get_public_access_block/builders.rs`
+- `src/operation/head_bucket.rs`
+- `src/operation/head_bucket/_head_bucket_input.rs`
+- `src/operation/head_bucket/_head_bucket_output.rs`
+- `src/operation/head_bucket/builders.rs`
+- `src/operation/head_object.rs`
+- `src/operation/head_object/_head_object_input.rs`
+- `src/operation/head_object/_head_object_output.rs`
+- `src/operation/head_object/builders.rs`
+- `src/operation/list_bucket_analytics_configurations.rs`
+- `src/operation/list_bucket_analytics_configurations/_list_bucket_analytics_configurations_input.rs`
+- `src/operation/list_bucket_analytics_configurations/_list_bucket_analytics_configurations_output.rs`
+- `src/operation/list_bucket_analytics_configurations/builders.rs`
+- `src/operation/list_bucket_intelligent_tiering_configurations.rs`
+- `src/operation/list_bucket_intelligent_tiering_configurations/_list_bucket_intelligent_tiering_configurations_input.rs`
+- `src/operation/list_bucket_intelligent_tiering_configurations/_list_bucket_intelligent_tiering_configurations_output.rs`
+- `src/operation/list_bucket_intelligent_tiering_configurations/builders.rs`
+- `src/operation/list_bucket_inventory_configurations.rs`
+- `src/operation/list_bucket_inventory_configurations/_list_bucket_inventory_configurations_input.rs`
+- `src/operation/list_bucket_inventory_configurations/_list_bucket_inventory_configurations_output.rs`
+- `src/operation/list_bucket_inventory_configurations/builders.rs`
+- `src/operation/list_bucket_metrics_configurations.rs`
+- `src/operation/list_bucket_metrics_configurations/_list_bucket_metrics_configurations_input.rs`
+- `src/operation/list_bucket_metrics_configurations/_list_bucket_metrics_configurations_output.rs`
+- `src/operation/list_bucket_metrics_configurations/builders.rs`
+- `src/operation/list_buckets.rs`
+- `src/operation/list_buckets/_list_buckets_input.rs`
+- `src/operation/list_buckets/_list_buckets_output.rs`
+- `src/operation/list_buckets/builders.rs`
+- `src/operation/list_buckets/paginator.rs`
+- `src/operation/list_directory_buckets.rs`
+- `src/operation/list_directory_buckets/_list_directory_buckets_input.rs`
+- `src/operation/list_directory_buckets/_list_directory_buckets_output.rs`
+- `src/operation/list_directory_buckets/builders.rs`
+- `src/operation/list_directory_buckets/paginator.rs`
+- `src/operation/list_multipart_uploads.rs`
+- `src/operation/list_multipart_uploads/_list_multipart_uploads_input.rs`
+- `src/operation/list_multipart_uploads/_list_multipart_uploads_output.rs`
+- `src/operation/list_multipart_uploads/builders.rs`
+- `src/operation/list_object_annotations.rs`
+- `src/operation/list_object_annotations/_list_object_annotations_input.rs`
+- `src/operation/list_object_annotations/_list_object_annotations_output.rs`
+- `src/operation/list_object_annotations/builders.rs`
+- `src/operation/list_object_annotations/paginator.rs`
+- `src/operation/list_object_versions.rs`
+- `src/operation/list_object_versions/_list_object_versions_input.rs`
+- `src/operation/list_object_versions/_list_object_versions_output.rs`
+- `src/operation/list_object_versions/builders.rs`
+- `src/operation/list_objects.rs`
+- `src/operation/list_objects/_list_objects_input.rs`
+- `src/operation/list_objects/_list_objects_output.rs`
+- `src/operation/list_objects/builders.rs`
+- `src/operation/list_objects_v2.rs`
+- `src/operation/list_objects_v2/_list_objects_v2_input.rs`
+- `src/operation/list_objects_v2/_list_objects_v2_output.rs`
+- `src/operation/list_objects_v2/builders.rs`
+- `src/operation/list_objects_v2/paginator.rs`
+- `src/operation/list_parts.rs`
+- `src/operation/list_parts/_list_parts_input.rs`
+- `src/operation/list_parts/_list_parts_output.rs`
+- `src/operation/list_parts/builders.rs`
+- `src/operation/list_parts/paginator.rs`
+- `src/operation/put_bucket_abac.rs`
+- `src/operation/put_bucket_abac/_put_bucket_abac_input.rs`
+- `src/operation/put_bucket_abac/_put_bucket_abac_output.rs`
+- `src/operation/put_bucket_abac/builders.rs`
+- `src/operation/put_bucket_accelerate_configuration.rs`
+- `src/operation/put_bucket_accelerate_configuration/_put_bucket_accelerate_configuration_input.rs`
+- `src/operation/put_bucket_accelerate_configuration/_put_bucket_accelerate_configuration_output.rs`
+- `src/operation/put_bucket_accelerate_configuration/builders.rs`
+- `src/operation/put_bucket_acl.rs`
+- `src/operation/put_bucket_acl/_put_bucket_acl_input.rs`
+- `src/operation/put_bucket_acl/_put_bucket_acl_output.rs`
+- `src/operation/put_bucket_acl/builders.rs`
+- `src/operation/put_bucket_analytics_configuration.rs`
+- `src/operation/put_bucket_analytics_configuration/_put_bucket_analytics_configuration_input.rs`
+- `src/operation/put_bucket_analytics_configuration/_put_bucket_analytics_configuration_output.rs`
+- `src/operation/put_bucket_analytics_configuration/builders.rs`
+- `src/operation/put_bucket_cors.rs`
+- `src/operation/put_bucket_cors/_put_bucket_cors_input.rs`
+- `src/operation/put_bucket_cors/_put_bucket_cors_output.rs`
+- `src/operation/put_bucket_cors/builders.rs`
+- `src/operation/put_bucket_encryption.rs`
+- `src/operation/put_bucket_encryption/_put_bucket_encryption_input.rs`
+- `src/operation/put_bucket_encryption/_put_bucket_encryption_output.rs`
+- `src/operation/put_bucket_encryption/builders.rs`
+- `src/operation/put_bucket_intelligent_tiering_configuration.rs`
+- `src/operation/put_bucket_intelligent_tiering_configuration/_put_bucket_intelligent_tiering_configuration_input.rs`
+- `src/operation/put_bucket_intelligent_tiering_configuration/_put_bucket_intelligent_tiering_configuration_output.rs`
+- `src/operation/put_bucket_intelligent_tiering_configuration/builders.rs`
+- `src/operation/put_bucket_inventory_configuration.rs`
+- `src/operation/put_bucket_inventory_configuration/_put_bucket_inventory_configuration_input.rs`
+- `src/operation/put_bucket_inventory_configuration/_put_bucket_inventory_configuration_output.rs`
+- `src/operation/put_bucket_inventory_configuration/builders.rs`
+- `src/operation/put_bucket_lifecycle_configuration.rs`
+- `src/operation/put_bucket_lifecycle_configuration/_put_bucket_lifecycle_configuration_input.rs`
+- `src/operation/put_bucket_lifecycle_configuration/_put_bucket_lifecycle_configuration_output.rs`
+- `src/operation/put_bucket_lifecycle_configuration/builders.rs`
+- `src/operation/put_bucket_logging.rs`
+- `src/operation/put_bucket_logging/_put_bucket_logging_input.rs`
+- `src/operation/put_bucket_logging/_put_bucket_logging_output.rs`
+- `src/operation/put_bucket_logging/builders.rs`
+- `src/operation/put_bucket_metrics_configuration.rs`
+- `src/operation/put_bucket_metrics_configuration/_put_bucket_metrics_configuration_input.rs`
+- `src/operation/put_bucket_metrics_configuration/_put_bucket_metrics_configuration_output.rs`
+- `src/operation/put_bucket_metrics_configuration/builders.rs`
+- `src/operation/put_bucket_notification_configuration.rs`
+- `src/operation/put_bucket_notification_configuration/_put_bucket_notification_configuration_input.rs`
+- `src/operation/put_bucket_notification_configuration/_put_bucket_notification_configuration_output.rs`
+- `src/operation/put_bucket_notification_configuration/builders.rs`
+- `src/operation/put_bucket_ownership_controls.rs`
+- `src/operation/put_bucket_ownership_controls/_put_bucket_ownership_controls_input.rs`
+- `src/operation/put_bucket_ownership_controls/_put_bucket_ownership_controls_output.rs`
+- `src/operation/put_bucket_ownership_controls/builders.rs`
+- `src/operation/put_bucket_policy.rs`
+- `src/operation/put_bucket_policy/_put_bucket_policy_input.rs`
+- `src/operation/put_bucket_policy/_put_bucket_policy_output.rs`
+- `src/operation/put_bucket_policy/builders.rs`
+- `src/operation/put_bucket_replication.rs`
+- `src/operation/put_bucket_replication/_put_bucket_replication_input.rs`
+- `src/operation/put_bucket_replication/_put_bucket_replication_output.rs`
+- `src/operation/put_bucket_replication/builders.rs`
+- `src/operation/put_bucket_request_payment.rs`
+- `src/operation/put_bucket_request_payment/_put_bucket_request_payment_input.rs`
+- `src/operation/put_bucket_request_payment/_put_bucket_request_payment_output.rs`
+- `src/operation/put_bucket_request_payment/builders.rs`
+- `src/operation/put_bucket_tagging.rs`
+- `src/operation/put_bucket_tagging/_put_bucket_tagging_input.rs`
+- `src/operation/put_bucket_tagging/_put_bucket_tagging_output.rs`
+- `src/operation/put_bucket_tagging/builders.rs`
+- `src/operation/put_bucket_versioning.rs`
+- `src/operation/put_bucket_versioning/_put_bucket_versioning_input.rs`
+- `src/operation/put_bucket_versioning/_put_bucket_versioning_output.rs`
+- `src/operation/put_bucket_versioning/builders.rs`
+- `src/operation/put_bucket_website.rs`
+- `src/operation/put_bucket_website/_put_bucket_website_input.rs`
+- `src/operation/put_bucket_website/_put_bucket_website_output.rs`
+- `src/operation/put_bucket_website/builders.rs`
+- `src/operation/put_object.rs`
+- `src/operation/put_object/_put_object_input.rs`
+- `src/operation/put_object/_put_object_output.rs`
+- `src/operation/put_object/builders.rs`
+- `src/operation/put_object_acl.rs`
+- `src/operation/put_object_acl/_put_object_acl_input.rs`
+- `src/operation/put_object_acl/_put_object_acl_output.rs`
+- `src/operation/put_object_acl/builders.rs`
+- `src/operation/put_object_annotation.rs`
+- `src/operation/put_object_annotation/_put_object_annotation_input.rs`
+- `src/operation/put_object_annotation/_put_object_annotation_output.rs`
+- `src/operation/put_object_annotation/builders.rs`
+- `src/operation/put_object_legal_hold.rs`
+- `src/operation/put_object_legal_hold/_put_object_legal_hold_input.rs`
+- `src/operation/put_object_legal_hold/_put_object_legal_hold_output.rs`
+- `src/operation/put_object_legal_hold/builders.rs`
+- `src/operation/put_object_lock_configuration.rs`
+- `src/operation/put_object_lock_configuration/_put_object_lock_configuration_input.rs`
+- `src/operation/put_object_lock_configuration/_put_object_lock_configuration_output.rs`
+- `src/operation/put_object_lock_configuration/builders.rs`
+- `src/operation/put_object_retention.rs`
+- `src/operation/put_object_retention/_put_object_retention_input.rs`
+- `src/operation/put_object_retention/_put_object_retention_output.rs`
+- `src/operation/put_object_retention/builders.rs`
+- `src/operation/put_object_tagging.rs`
+- `src/operation/put_object_tagging/_put_object_tagging_input.rs`
+- `src/operation/put_object_tagging/_put_object_tagging_output.rs`
+- `src/operation/put_object_tagging/builders.rs`
+- `src/operation/put_public_access_block.rs`
+- `src/operation/put_public_access_block/_put_public_access_block_input.rs`
+- `src/operation/put_public_access_block/_put_public_access_block_output.rs`
+- `src/operation/put_public_access_block/builders.rs`
+- `src/operation/rename_object.rs`
+- `src/operation/rename_object/_rename_object_input.rs`
+- `src/operation/rename_object/_rename_object_output.rs`
+- `src/operation/rename_object/builders.rs`
+- `src/operation/restore_object.rs`
+- `src/operation/restore_object/_restore_object_input.rs`
+- `src/operation/restore_object/_restore_object_output.rs`
+- `src/operation/restore_object/builders.rs`
+- `src/operation/select_object_content.rs`
+- `src/operation/select_object_content/_select_object_content_input.rs`
+- `src/operation/select_object_content/_select_object_content_output.rs`
+- `src/operation/select_object_content/builders.rs`
+- `src/operation/update_bucket_metadata_annotation_table_configuration.rs`
+- `src/operation/update_bucket_metadata_annotation_table_configuration/_update_bucket_metadata_annotation_table_configuration_input.rs`
+- `src/operation/update_bucket_metadata_annotation_table_configuration/_update_bucket_metadata_annotation_table_configuration_output.rs`
+- `src/operation/update_bucket_metadata_annotation_table_configuration/builders.rs`
+- `src/operation/update_bucket_metadata_inventory_table_configuration.rs`
+- `src/operation/update_bucket_metadata_inventory_table_configuration/_update_bucket_metadata_inventory_table_configuration_input.rs`
+- `src/operation/update_bucket_metadata_inventory_table_configuration/_update_bucket_metadata_inventory_table_configuration_output.rs`
+- `src/operation/update_bucket_metadata_inventory_table_configuration/builders.rs`
+- `src/operation/update_bucket_metadata_journal_table_configuration.rs`
+- `src/operation/update_bucket_metadata_journal_table_configuration/_update_bucket_metadata_journal_table_configuration_input.rs`
+- `src/operation/update_bucket_metadata_journal_table_configuration/_update_bucket_metadata_journal_table_configuration_output.rs`
+- `src/operation/update_bucket_metadata_journal_table_configuration/builders.rs`
+- `src/operation/update_object_encryption.rs`
+- `src/operation/update_object_encryption/_update_object_encryption_input.rs`
+- `src/operation/update_object_encryption/_update_object_encryption_output.rs`
+- `src/operation/update_object_encryption/builders.rs`
+- `src/operation/upload_part.rs`
+- `src/operation/upload_part/_upload_part_input.rs`
+- `src/operation/upload_part/_upload_part_output.rs`
+- `src/operation/upload_part/builders.rs`
+- `src/operation/upload_part_copy.rs`
+- `src/operation/upload_part_copy/_upload_part_copy_input.rs`
+- `src/operation/upload_part_copy/_upload_part_copy_output.rs`
+- `src/operation/upload_part_copy/builders.rs`
+- `src/operation/write_get_object_response.rs`
+- `src/operation/write_get_object_response/_write_get_object_response_input.rs`
+- `src/operation/write_get_object_response/_write_get_object_response_output.rs`
+- `src/operation/write_get_object_response/builders.rs`
+- `src/protocol_serde.rs`
+- `src/protocol_serde/shape_abort_multipart_upload.rs`
+- `src/protocol_serde/shape_abort_multipart_upload_output.rs`
+- `src/protocol_serde/shape_complete_multipart_upload.rs`
+- `src/protocol_serde/shape_complete_multipart_upload_input.rs`
+- `src/protocol_serde/shape_complete_multipart_upload_output.rs`
+- `src/protocol_serde/shape_copy_object.rs`
+- `src/protocol_serde/shape_copy_object_output.rs`
+- `src/protocol_serde/shape_copy_object_result.rs`
+- `src/protocol_serde/shape_create_bucket.rs`
+- `src/protocol_serde/shape_create_bucket_configuration.rs`
+- `src/protocol_serde/shape_create_bucket_input.rs`
+- `src/protocol_serde/shape_create_bucket_metadata_configuration.rs`
+- `src/protocol_serde/shape_create_bucket_metadata_configuration_input.rs`
+- `src/protocol_serde/shape_create_bucket_metadata_table_configuration.rs`
+- `src/protocol_serde/shape_create_bucket_metadata_table_configuration_input.rs`
+- `src/protocol_serde/shape_create_bucket_output.rs`
+- `src/protocol_serde/shape_create_multipart_upload.rs`
+- `src/protocol_serde/shape_create_multipart_upload_output.rs`
+- `src/protocol_serde/shape_create_session.rs`
+- `src/protocol_serde/shape_create_session_output.rs`
+- `src/protocol_serde/shape_delete_bucket.rs`
+- `src/protocol_serde/shape_delete_bucket_analytics_configuration.rs`
+- `src/protocol_serde/shape_delete_bucket_cors.rs`
+- `src/protocol_serde/shape_delete_bucket_encryption.rs`
+- `src/protocol_serde/shape_delete_bucket_intelligent_tiering_configuration.rs`
+- `src/protocol_serde/shape_delete_bucket_inventory_configuration.rs`
+- `src/protocol_serde/shape_delete_bucket_lifecycle.rs`
+- `src/protocol_serde/shape_delete_bucket_metadata_configuration.rs`
+- `src/protocol_serde/shape_delete_bucket_metadata_table_configuration.rs`
+- `src/protocol_serde/shape_delete_bucket_metrics_configuration.rs`
+- `src/protocol_serde/shape_delete_bucket_ownership_controls.rs`
+- `src/protocol_serde/shape_delete_bucket_policy.rs`
+- `src/protocol_serde/shape_delete_bucket_replication.rs`
+- `src/protocol_serde/shape_delete_bucket_tagging.rs`
+- `src/protocol_serde/shape_delete_bucket_website.rs`
+- `src/protocol_serde/shape_delete_object.rs`
+- `src/protocol_serde/shape_delete_object_annotation.rs`
+- `src/protocol_serde/shape_delete_object_annotation_output.rs`
+- `src/protocol_serde/shape_delete_object_output.rs`
+- `src/protocol_serde/shape_delete_object_tagging.rs`
+- `src/protocol_serde/shape_delete_object_tagging_output.rs`
+- `src/protocol_serde/shape_delete_objects.rs`
+- `src/protocol_serde/shape_delete_objects_input.rs`
+- `src/protocol_serde/shape_delete_objects_output.rs`
+- `src/protocol_serde/shape_delete_public_access_block.rs`
+- `src/protocol_serde/shape_get_bucket_abac.rs`
+- `src/protocol_serde/shape_get_bucket_abac_output.rs`
+- `src/protocol_serde/shape_get_bucket_accelerate_configuration.rs`
+- `src/protocol_serde/shape_get_bucket_accelerate_configuration_output.rs`
+- `src/protocol_serde/shape_get_bucket_acl.rs`
+- `src/protocol_serde/shape_get_bucket_analytics_configuration.rs`
+- `src/protocol_serde/shape_get_bucket_analytics_configuration_output.rs`
+- `src/protocol_serde/shape_get_bucket_cors.rs`
+- `src/protocol_serde/shape_get_bucket_encryption.rs`
+- `src/protocol_serde/shape_get_bucket_encryption_output.rs`
+- `src/protocol_serde/shape_get_bucket_intelligent_tiering_configuration.rs`
+- `src/protocol_serde/shape_get_bucket_intelligent_tiering_configuration_output.rs`
+- `src/protocol_serde/shape_get_bucket_inventory_configuration.rs`
+- `src/protocol_serde/shape_get_bucket_inventory_configuration_output.rs`
+- `src/protocol_serde/shape_get_bucket_lifecycle_configuration.rs`
+- `src/protocol_serde/shape_get_bucket_lifecycle_configuration_output.rs`
+- `src/protocol_serde/shape_get_bucket_location.rs`
+- `src/protocol_serde/shape_get_bucket_logging.rs`
+- `src/protocol_serde/shape_get_bucket_metadata_configuration.rs`
+- `src/protocol_serde/shape_get_bucket_metadata_configuration_output.rs`
+- `src/protocol_serde/shape_get_bucket_metadata_configuration_result.rs`
+- `src/protocol_serde/shape_get_bucket_metadata_table_configuration.rs`
+- `src/protocol_serde/shape_get_bucket_metadata_table_configuration_output.rs`
+- `src/protocol_serde/shape_get_bucket_metadata_table_configuration_result.rs`
+- `src/protocol_serde/shape_get_bucket_metrics_configuration.rs`
+- `src/protocol_serde/shape_get_bucket_metrics_configuration_output.rs`
+- `src/protocol_serde/shape_get_bucket_notification_configuration.rs`
+- `src/protocol_serde/shape_get_bucket_ownership_controls.rs`
+- `src/protocol_serde/shape_get_bucket_ownership_controls_output.rs`
+- `src/protocol_serde/shape_get_bucket_policy.rs`
+- `src/protocol_serde/shape_get_bucket_policy_output.rs`
+- `src/protocol_serde/shape_get_bucket_policy_status.rs`
+- `src/protocol_serde/shape_get_bucket_policy_status_output.rs`
+- `src/protocol_serde/shape_get_bucket_replication.rs`
+- `src/protocol_serde/shape_get_bucket_replication_output.rs`
+- `src/protocol_serde/shape_get_bucket_request_payment.rs`
+- `src/protocol_serde/shape_get_bucket_tagging.rs`
+- `src/protocol_serde/shape_get_bucket_versioning.rs`
+- `src/protocol_serde/shape_get_bucket_website.rs`
+- `src/protocol_serde/shape_get_object.rs`
+- `src/protocol_serde/shape_get_object_acl.rs`
+- `src/protocol_serde/shape_get_object_acl_output.rs`
+- `src/protocol_serde/shape_get_object_annotation.rs`
+- `src/protocol_serde/shape_get_object_annotation_output.rs`
+- `src/protocol_serde/shape_get_object_attributes.rs`
+- `src/protocol_serde/shape_get_object_attributes_output.rs`
+- `src/protocol_serde/shape_get_object_attributes_parts.rs`
+- `src/protocol_serde/shape_get_object_legal_hold.rs`
+- `src/protocol_serde/shape_get_object_legal_hold_output.rs`
+- `src/protocol_serde/shape_get_object_lock_configuration.rs`
+- `src/protocol_serde/shape_get_object_lock_configuration_output.rs`
+- `src/protocol_serde/shape_get_object_output.rs`
+- `src/protocol_serde/shape_get_object_retention.rs`
+- `src/protocol_serde/shape_get_object_retention_output.rs`
+- `src/protocol_serde/shape_get_object_tagging.rs`
+- `src/protocol_serde/shape_get_object_tagging_output.rs`
+- `src/protocol_serde/shape_get_object_torrent.rs`
+- `src/protocol_serde/shape_get_object_torrent_output.rs`
+- `src/protocol_serde/shape_get_public_access_block.rs`
+- `src/protocol_serde/shape_get_public_access_block_output.rs`
+- `src/protocol_serde/shape_head_bucket.rs`
+- `src/protocol_serde/shape_head_bucket_output.rs`
+- `src/protocol_serde/shape_head_object.rs`
+- `src/protocol_serde/shape_head_object_output.rs`
+- `src/protocol_serde/shape_list_bucket_analytics_configurations.rs`
+- `src/protocol_serde/shape_list_bucket_intelligent_tiering_configurations.rs`
+- `src/protocol_serde/shape_list_bucket_inventory_configurations.rs`
+- `src/protocol_serde/shape_list_bucket_metrics_configurations.rs`
+- `src/protocol_serde/shape_list_buckets.rs`
+- `src/protocol_serde/shape_list_directory_buckets.rs`
+- `src/protocol_serde/shape_list_multipart_uploads.rs`
+- `src/protocol_serde/shape_list_multipart_uploads_output.rs`
+- `src/protocol_serde/shape_list_object_annotations.rs`
+- `src/protocol_serde/shape_list_object_annotations_output.rs`
+- `src/protocol_serde/shape_list_object_versions.rs`
+- `src/protocol_serde/shape_list_object_versions_output.rs`
+- `src/protocol_serde/shape_list_objects.rs`
+- `src/protocol_serde/shape_list_objects_output.rs`
+- `src/protocol_serde/shape_list_objects_v2.rs`
+- `src/protocol_serde/shape_list_objects_v2_output.rs`
+- `src/protocol_serde/shape_list_parts.rs`
+- `src/protocol_serde/shape_list_parts_output.rs`
+- `src/protocol_serde/shape_put_bucket_abac.rs`
+- `src/protocol_serde/shape_put_bucket_abac_input.rs`
+- `src/protocol_serde/shape_put_bucket_accelerate_configuration.rs`
+- `src/protocol_serde/shape_put_bucket_accelerate_configuration_input.rs`
+- `src/protocol_serde/shape_put_bucket_acl.rs`
+- `src/protocol_serde/shape_put_bucket_acl_input.rs`
+- `src/protocol_serde/shape_put_bucket_analytics_configuration.rs`
+- `src/protocol_serde/shape_put_bucket_analytics_configuration_input.rs`
+- `src/protocol_serde/shape_put_bucket_cors.rs`
+- `src/protocol_serde/shape_put_bucket_cors_input.rs`
+- `src/protocol_serde/shape_put_bucket_encryption.rs`
+- `src/protocol_serde/shape_put_bucket_encryption_input.rs`
+- `src/protocol_serde/shape_put_bucket_intelligent_tiering_configuration.rs`
+- `src/protocol_serde/shape_put_bucket_intelligent_tiering_configuration_input.rs`
+- `src/protocol_serde/shape_put_bucket_inventory_configuration.rs`
+- `src/protocol_serde/shape_put_bucket_inventory_configuration_input.rs`
+- `src/protocol_serde/shape_put_bucket_lifecycle_configuration.rs`
+- `src/protocol_serde/shape_put_bucket_lifecycle_configuration_input.rs`
+- `src/protocol_serde/shape_put_bucket_lifecycle_configuration_output.rs`
+- `src/protocol_serde/shape_put_bucket_logging.rs`
+- `src/protocol_serde/shape_put_bucket_logging_input.rs`
+- `src/protocol_serde/shape_put_bucket_metrics_configuration.rs`
+- `src/protocol_serde/shape_put_bucket_metrics_configuration_input.rs`
+- `src/protocol_serde/shape_put_bucket_notification_configuration.rs`
+- `src/protocol_serde/shape_put_bucket_notification_configuration_input.rs`
+- `src/protocol_serde/shape_put_bucket_ownership_controls.rs`
+- `src/protocol_serde/shape_put_bucket_ownership_controls_input.rs`
+- `src/protocol_serde/shape_put_bucket_policy.rs`
+- `src/protocol_serde/shape_put_bucket_policy_input.rs`
+- `src/protocol_serde/shape_put_bucket_replication.rs`
+- `src/protocol_serde/shape_put_bucket_replication_input.rs`
+- `src/protocol_serde/shape_put_bucket_request_payment.rs`
+- `src/protocol_serde/shape_put_bucket_request_payment_input.rs`
+- `src/protocol_serde/shape_put_bucket_tagging.rs`
+- `src/protocol_serde/shape_put_bucket_tagging_input.rs`
+- `src/protocol_serde/shape_put_bucket_versioning.rs`
+- `src/protocol_serde/shape_put_bucket_versioning_input.rs`
+- `src/protocol_serde/shape_put_bucket_website.rs`
+- `src/protocol_serde/shape_put_bucket_website_input.rs`
+- `src/protocol_serde/shape_put_object.rs`
+- `src/protocol_serde/shape_put_object_acl.rs`
+- `src/protocol_serde/shape_put_object_acl_input.rs`
+- `src/protocol_serde/shape_put_object_acl_output.rs`
+- `src/protocol_serde/shape_put_object_annotation.rs`
+- `src/protocol_serde/shape_put_object_annotation_input.rs`
+- `src/protocol_serde/shape_put_object_annotation_output.rs`
+- `src/protocol_serde/shape_put_object_input.rs`
+- `src/protocol_serde/shape_put_object_legal_hold.rs`
+- `src/protocol_serde/shape_put_object_legal_hold_input.rs`
+- `src/protocol_serde/shape_put_object_legal_hold_output.rs`
+- `src/protocol_serde/shape_put_object_lock_configuration.rs`
+- `src/protocol_serde/shape_put_object_lock_configuration_input.rs`
+- `src/protocol_serde/shape_put_object_lock_configuration_output.rs`
+- `src/protocol_serde/shape_put_object_output.rs`
+- `src/protocol_serde/shape_put_object_retention.rs`
+- `src/protocol_serde/shape_put_object_retention_input.rs`
+- `src/protocol_serde/shape_put_object_retention_output.rs`
+- `src/protocol_serde/shape_put_object_tagging.rs`
+- `src/protocol_serde/shape_put_object_tagging_input.rs`
+- `src/protocol_serde/shape_put_object_tagging_output.rs`
+- `src/protocol_serde/shape_put_public_access_block.rs`
+- `src/protocol_serde/shape_put_public_access_block_input.rs`
+- `src/protocol_serde/shape_rename_object.rs`
+- `src/protocol_serde/shape_restore_object.rs`
+- `src/protocol_serde/shape_restore_object_input.rs`
+- `src/protocol_serde/shape_restore_object_output.rs`
+- `src/protocol_serde/shape_select_object_content.rs`
+- `src/protocol_serde/shape_select_object_content_input.rs`
+- `src/protocol_serde/shape_select_object_content_output.rs`
+- `src/protocol_serde/shape_update_bucket_metadata_annotation_table_configuration.rs`
+- `src/protocol_serde/shape_update_bucket_metadata_annotation_table_configuration_input.rs`
+- `src/protocol_serde/shape_update_bucket_metadata_inventory_table_configuration.rs`
+- `src/protocol_serde/shape_update_bucket_metadata_inventory_table_configuration_input.rs`
+- `src/protocol_serde/shape_update_bucket_metadata_journal_table_configuration.rs`
+- `src/protocol_serde/shape_update_bucket_metadata_journal_table_configuration_input.rs`
+- `src/protocol_serde/shape_update_object_encryption.rs`
+- `src/protocol_serde/shape_update_object_encryption_input.rs`
+- `src/protocol_serde/shape_update_object_encryption_output.rs`
+- `src/protocol_serde/shape_upload_part.rs`
+- `src/protocol_serde/shape_upload_part_copy.rs`
+- `src/protocol_serde/shape_upload_part_copy_output.rs`
+- `src/protocol_serde/shape_upload_part_input.rs`
+- `src/protocol_serde/shape_upload_part_output.rs`
+- `src/protocol_serde/shape_write_get_object_response.rs`
+- `src/protocol_serde/shape_write_get_object_response_input.rs`
+- `src/s3_express.rs`
+- `src/serde_util.rs`
+- `src/waiters.rs`
+- `src/waiters/bucket_exists.rs`
+- `src/waiters/bucket_not_exists.rs`
+- `src/waiters/matchers.rs`
+- `src/waiters/object_exists.rs`
+- `src/waiters/object_not_exists.rs`
+
+## Customizations
+
+- Add one non-default Cargo feature and matching cfg gates for each model operation.
+- Rename the Cargo package/library from manifest data.
+- Remove upstream `tests/` from generated output.
+
+## Reproduction
+
+```text
+cargo run -p aws-sdk-modularizer -- --manifest services-manifest.json
+```

@@ -1,0 +1,22 @@
+[package]
+name = "aws-sdk-modularizer"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Manifest-driven AST codemod for per-operation AWS SDK service crates."
+publish = false
+
+[dependencies]
+diffy = "0.5.1"
+proc-macro2 = { version = "1", features = ["span-locations"] }
+quote = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+syn = { version = "3", features = ["full", "parsing", "visit"] }
+tempfile = "3"
+thiserror = "2"
+toml_edit = "0.22"
+
+[dev-dependencies]
+pretty_assertions = "1"

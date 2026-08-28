@@ -1,0 +1,1077 @@
+# AWS SDK modularizer diff
+
+- repository: `https://github.com/awslabs/aws-sdk-rust`
+- revision: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
+- service: `sdk/cognitoidentityprovider`
+- model: `models/cognitoidentityprovider.json`
+- package: `aws-sdk-cognitoidentityprovider-modular`
+- library: `aws_sdk_cognitoidentityprovider_modular`
+- tests exclusion: `tests/**` is excluded from the comparison.
+
+## Operations
+
+- `op_add_custom_attributes`: `AddCustomAttributes`
+- `op_add_user_pool_client_secret`: `AddUserPoolClientSecret`
+- `op_admin_add_user_to_group`: `AdminAddUserToGroup`
+- `op_admin_confirm_sign_up`: `AdminConfirmSignUp`
+- `op_admin_create_user`: `AdminCreateUser`
+- `op_admin_delete_user`: `AdminDeleteUser`
+- `op_admin_delete_user_attributes`: `AdminDeleteUserAttributes`
+- `op_admin_disable_provider_for_user`: `AdminDisableProviderForUser`
+- `op_admin_disable_user`: `AdminDisableUser`
+- `op_admin_enable_user`: `AdminEnableUser`
+- `op_admin_forget_device`: `AdminForgetDevice`
+- `op_admin_get_device`: `AdminGetDevice`
+- `op_admin_get_user`: `AdminGetUser`
+- `op_admin_get_user_auth_factors`: `AdminGetUserAuthFactors`
+- `op_admin_initiate_auth`: `AdminInitiateAuth`
+- `op_admin_link_provider_for_user`: `AdminLinkProviderForUser`
+- `op_admin_list_devices`: `AdminListDevices`
+- `op_admin_list_groups_for_user`: `AdminListGroupsForUser`
+- `op_admin_list_user_auth_events`: `AdminListUserAuthEvents`
+- `op_admin_remove_user_from_group`: `AdminRemoveUserFromGroup`
+- `op_admin_reset_user_password`: `AdminResetUserPassword`
+- `op_admin_respond_to_auth_challenge`: `AdminRespondToAuthChallenge`
+- `op_admin_set_user_mfa_preference`: `AdminSetUserMFAPreference`
+- `op_admin_set_user_password`: `AdminSetUserPassword`
+- `op_admin_set_user_settings`: `AdminSetUserSettings`
+- `op_admin_update_auth_event_feedback`: `AdminUpdateAuthEventFeedback`
+- `op_admin_update_device_status`: `AdminUpdateDeviceStatus`
+- `op_admin_update_user_attributes`: `AdminUpdateUserAttributes`
+- `op_admin_user_global_sign_out`: `AdminUserGlobalSignOut`
+- `op_associate_software_token`: `AssociateSoftwareToken`
+- `op_change_password`: `ChangePassword`
+- `op_complete_web_authn_registration`: `CompleteWebAuthnRegistration`
+- `op_confirm_device`: `ConfirmDevice`
+- `op_confirm_forgot_password`: `ConfirmForgotPassword`
+- `op_confirm_sign_up`: `ConfirmSignUp`
+- `op_create_group`: `CreateGroup`
+- `op_create_identity_provider`: `CreateIdentityProvider`
+- `op_create_managed_login_branding`: `CreateManagedLoginBranding`
+- `op_create_resource_server`: `CreateResourceServer`
+- `op_create_terms`: `CreateTerms`
+- `op_create_user_import_job`: `CreateUserImportJob`
+- `op_create_user_pool`: `CreateUserPool`
+- `op_create_user_pool_client`: `CreateUserPoolClient`
+- `op_create_user_pool_domain`: `CreateUserPoolDomain`
+- `op_create_user_pool_replica`: `CreateUserPoolReplica`
+- `op_delete_group`: `DeleteGroup`
+- `op_delete_identity_provider`: `DeleteIdentityProvider`
+- `op_delete_managed_login_branding`: `DeleteManagedLoginBranding`
+- `op_delete_resource_server`: `DeleteResourceServer`
+- `op_delete_terms`: `DeleteTerms`
+- `op_delete_user`: `DeleteUser`
+- `op_delete_user_attributes`: `DeleteUserAttributes`
+- `op_delete_user_pool`: `DeleteUserPool`
+- `op_delete_user_pool_client`: `DeleteUserPoolClient`
+- `op_delete_user_pool_client_secret`: `DeleteUserPoolClientSecret`
+- `op_delete_user_pool_domain`: `DeleteUserPoolDomain`
+- `op_delete_user_pool_replica`: `DeleteUserPoolReplica`
+- `op_delete_web_authn_credential`: `DeleteWebAuthnCredential`
+- `op_describe_identity_provider`: `DescribeIdentityProvider`
+- `op_describe_managed_login_branding`: `DescribeManagedLoginBranding`
+- `op_describe_managed_login_branding_by_client`: `DescribeManagedLoginBrandingByClient`
+- `op_describe_resource_server`: `DescribeResourceServer`
+- `op_describe_risk_configuration`: `DescribeRiskConfiguration`
+- `op_describe_terms`: `DescribeTerms`
+- `op_describe_user_import_job`: `DescribeUserImportJob`
+- `op_describe_user_pool`: `DescribeUserPool`
+- `op_describe_user_pool_client`: `DescribeUserPoolClient`
+- `op_describe_user_pool_domain`: `DescribeUserPoolDomain`
+- `op_forget_device`: `ForgetDevice`
+- `op_forgot_password`: `ForgotPassword`
+- `op_get_csv_header`: `GetCSVHeader`
+- `op_get_device`: `GetDevice`
+- `op_get_group`: `GetGroup`
+- `op_get_identity_provider_by_identifier`: `GetIdentityProviderByIdentifier`
+- `op_get_log_delivery_configuration`: `GetLogDeliveryConfiguration`
+- `op_get_provisioned_limit`: `GetProvisionedLimit`
+- `op_get_signing_certificate`: `GetSigningCertificate`
+- `op_get_tokens_from_refresh_token`: `GetTokensFromRefreshToken`
+- `op_get_ui_customization`: `GetUICustomization`
+- `op_get_user`: `GetUser`
+- `op_get_user_attribute_verification_code`: `GetUserAttributeVerificationCode`
+- `op_get_user_auth_factors`: `GetUserAuthFactors`
+- `op_get_user_pool_mfa_config`: `GetUserPoolMfaConfig`
+- `op_global_sign_out`: `GlobalSignOut`
+- `op_initiate_auth`: `InitiateAuth`
+- `op_list_devices`: `ListDevices`
+- `op_list_groups`: `ListGroups`
+- `op_list_identity_providers`: `ListIdentityProviders`
+- `op_list_resource_servers`: `ListResourceServers`
+- `op_list_tags_for_resource`: `ListTagsForResource`
+- `op_list_terms`: `ListTerms`
+- `op_list_user_import_jobs`: `ListUserImportJobs`
+- `op_list_user_pool_clients`: `ListUserPoolClients`
+- `op_list_user_pool_client_secrets`: `ListUserPoolClientSecrets`
+- `op_list_user_pool_replicas`: `ListUserPoolReplicas`
+- `op_list_user_pools`: `ListUserPools`
+- `op_list_users`: `ListUsers`
+- `op_list_users_in_group`: `ListUsersInGroup`
+- `op_list_web_authn_credentials`: `ListWebAuthnCredentials`
+- `op_resend_confirmation_code`: `ResendConfirmationCode`
+- `op_respond_to_auth_challenge`: `RespondToAuthChallenge`
+- `op_revoke_token`: `RevokeToken`
+- `op_set_log_delivery_configuration`: `SetLogDeliveryConfiguration`
+- `op_set_risk_configuration`: `SetRiskConfiguration`
+- `op_set_ui_customization`: `SetUICustomization`
+- `op_set_user_mfa_preference`: `SetUserMFAPreference`
+- `op_set_user_pool_mfa_config`: `SetUserPoolMfaConfig`
+- `op_set_user_settings`: `SetUserSettings`
+- `op_sign_up`: `SignUp`
+- `op_start_user_import_job`: `StartUserImportJob`
+- `op_start_web_authn_registration`: `StartWebAuthnRegistration`
+- `op_stop_user_import_job`: `StopUserImportJob`
+- `op_tag_resource`: `TagResource`
+- `op_untag_resource`: `UntagResource`
+- `op_update_auth_event_feedback`: `UpdateAuthEventFeedback`
+- `op_update_device_status`: `UpdateDeviceStatus`
+- `op_update_group`: `UpdateGroup`
+- `op_update_identity_provider`: `UpdateIdentityProvider`
+- `op_update_managed_login_branding`: `UpdateManagedLoginBranding`
+- `op_update_provisioned_limit`: `UpdateProvisionedLimit`
+- `op_update_resource_server`: `UpdateResourceServer`
+- `op_update_terms`: `UpdateTerms`
+- `op_update_user_attributes`: `UpdateUserAttributes`
+- `op_update_user_pool`: `UpdateUserPool`
+- `op_update_user_pool_client`: `UpdateUserPoolClient`
+- `op_update_user_pool_domain`: `UpdateUserPoolDomain`
+- `op_update_user_pool_replica`: `UpdateUserPoolReplica`
+- `op_verify_software_token`: `VerifySoftwareToken`
+- `op_verify_user_attribute`: `VerifyUserAttribute`
+
+## Changed files
+
+- `Cargo.toml`
+- `src/client.rs`
+- `src/client/add_custom_attributes.rs`
+- `src/client/add_user_pool_client_secret.rs`
+- `src/client/admin_add_user_to_group.rs`
+- `src/client/admin_confirm_sign_up.rs`
+- `src/client/admin_create_user.rs`
+- `src/client/admin_delete_user.rs`
+- `src/client/admin_delete_user_attributes.rs`
+- `src/client/admin_disable_provider_for_user.rs`
+- `src/client/admin_disable_user.rs`
+- `src/client/admin_enable_user.rs`
+- `src/client/admin_forget_device.rs`
+- `src/client/admin_get_device.rs`
+- `src/client/admin_get_user.rs`
+- `src/client/admin_get_user_auth_factors.rs`
+- `src/client/admin_initiate_auth.rs`
+- `src/client/admin_link_provider_for_user.rs`
+- `src/client/admin_list_devices.rs`
+- `src/client/admin_list_groups_for_user.rs`
+- `src/client/admin_list_user_auth_events.rs`
+- `src/client/admin_remove_user_from_group.rs`
+- `src/client/admin_reset_user_password.rs`
+- `src/client/admin_respond_to_auth_challenge.rs`
+- `src/client/admin_set_user_mfa_preference.rs`
+- `src/client/admin_set_user_password.rs`
+- `src/client/admin_set_user_settings.rs`
+- `src/client/admin_update_auth_event_feedback.rs`
+- `src/client/admin_update_device_status.rs`
+- `src/client/admin_update_user_attributes.rs`
+- `src/client/admin_user_global_sign_out.rs`
+- `src/client/associate_software_token.rs`
+- `src/client/change_password.rs`
+- `src/client/complete_web_authn_registration.rs`
+- `src/client/confirm_device.rs`
+- `src/client/confirm_forgot_password.rs`
+- `src/client/confirm_sign_up.rs`
+- `src/client/create_group.rs`
+- `src/client/create_identity_provider.rs`
+- `src/client/create_managed_login_branding.rs`
+- `src/client/create_resource_server.rs`
+- `src/client/create_terms.rs`
+- `src/client/create_user_import_job.rs`
+- `src/client/create_user_pool.rs`
+- `src/client/create_user_pool_client.rs`
+- `src/client/create_user_pool_domain.rs`
+- `src/client/create_user_pool_replica.rs`
+- `src/client/delete_group.rs`
+- `src/client/delete_identity_provider.rs`
+- `src/client/delete_managed_login_branding.rs`
+- `src/client/delete_resource_server.rs`
+- `src/client/delete_terms.rs`
+- `src/client/delete_user.rs`
+- `src/client/delete_user_attributes.rs`
+- `src/client/delete_user_pool.rs`
+- `src/client/delete_user_pool_client.rs`
+- `src/client/delete_user_pool_client_secret.rs`
+- `src/client/delete_user_pool_domain.rs`
+- `src/client/delete_user_pool_replica.rs`
+- `src/client/delete_web_authn_credential.rs`
+- `src/client/describe_identity_provider.rs`
+- `src/client/describe_managed_login_branding.rs`
+- `src/client/describe_managed_login_branding_by_client.rs`
+- `src/client/describe_resource_server.rs`
+- `src/client/describe_risk_configuration.rs`
+- `src/client/describe_terms.rs`
+- `src/client/describe_user_import_job.rs`
+- `src/client/describe_user_pool.rs`
+- `src/client/describe_user_pool_client.rs`
+- `src/client/describe_user_pool_domain.rs`
+- `src/client/forget_device.rs`
+- `src/client/forgot_password.rs`
+- `src/client/get_csv_header.rs`
+- `src/client/get_device.rs`
+- `src/client/get_group.rs`
+- `src/client/get_identity_provider_by_identifier.rs`
+- `src/client/get_log_delivery_configuration.rs`
+- `src/client/get_provisioned_limit.rs`
+- `src/client/get_signing_certificate.rs`
+- `src/client/get_tokens_from_refresh_token.rs`
+- `src/client/get_ui_customization.rs`
+- `src/client/get_user.rs`
+- `src/client/get_user_attribute_verification_code.rs`
+- `src/client/get_user_auth_factors.rs`
+- `src/client/get_user_pool_mfa_config.rs`
+- `src/client/global_sign_out.rs`
+- `src/client/initiate_auth.rs`
+- `src/client/list_devices.rs`
+- `src/client/list_groups.rs`
+- `src/client/list_identity_providers.rs`
+- `src/client/list_resource_servers.rs`
+- `src/client/list_tags_for_resource.rs`
+- `src/client/list_terms.rs`
+- `src/client/list_user_import_jobs.rs`
+- `src/client/list_user_pool_client_secrets.rs`
+- `src/client/list_user_pool_clients.rs`
+- `src/client/list_user_pool_replicas.rs`
+- `src/client/list_user_pools.rs`
+- `src/client/list_users.rs`
+- `src/client/list_users_in_group.rs`
+- `src/client/list_web_authn_credentials.rs`
+- `src/client/resend_confirmation_code.rs`
+- `src/client/respond_to_auth_challenge.rs`
+- `src/client/revoke_token.rs`
+- `src/client/set_log_delivery_configuration.rs`
+- `src/client/set_risk_configuration.rs`
+- `src/client/set_ui_customization.rs`
+- `src/client/set_user_mfa_preference.rs`
+- `src/client/set_user_pool_mfa_config.rs`
+- `src/client/set_user_settings.rs`
+- `src/client/sign_up.rs`
+- `src/client/start_user_import_job.rs`
+- `src/client/start_web_authn_registration.rs`
+- `src/client/stop_user_import_job.rs`
+- `src/client/tag_resource.rs`
+- `src/client/untag_resource.rs`
+- `src/client/update_auth_event_feedback.rs`
+- `src/client/update_device_status.rs`
+- `src/client/update_group.rs`
+- `src/client/update_identity_provider.rs`
+- `src/client/update_managed_login_branding.rs`
+- `src/client/update_provisioned_limit.rs`
+- `src/client/update_resource_server.rs`
+- `src/client/update_terms.rs`
+- `src/client/update_user_attributes.rs`
+- `src/client/update_user_pool.rs`
+- `src/client/update_user_pool_client.rs`
+- `src/client/update_user_pool_domain.rs`
+- `src/client/update_user_pool_replica.rs`
+- `src/client/verify_software_token.rs`
+- `src/client/verify_user_attribute.rs`
+- `src/error_meta.rs`
+- `src/lens.rs`
+- `src/operation.rs`
+- `src/operation/add_custom_attributes.rs`
+- `src/operation/add_custom_attributes/_add_custom_attributes_input.rs`
+- `src/operation/add_custom_attributes/_add_custom_attributes_output.rs`
+- `src/operation/add_custom_attributes/builders.rs`
+- `src/operation/add_user_pool_client_secret.rs`
+- `src/operation/add_user_pool_client_secret/_add_user_pool_client_secret_input.rs`
+- `src/operation/add_user_pool_client_secret/_add_user_pool_client_secret_output.rs`
+- `src/operation/add_user_pool_client_secret/builders.rs`
+- `src/operation/admin_add_user_to_group.rs`
+- `src/operation/admin_add_user_to_group/_admin_add_user_to_group_input.rs`
+- `src/operation/admin_add_user_to_group/_admin_add_user_to_group_output.rs`
+- `src/operation/admin_add_user_to_group/builders.rs`
+- `src/operation/admin_confirm_sign_up.rs`
+- `src/operation/admin_confirm_sign_up/_admin_confirm_sign_up_input.rs`
+- `src/operation/admin_confirm_sign_up/_admin_confirm_sign_up_output.rs`
+- `src/operation/admin_confirm_sign_up/builders.rs`
+- `src/operation/admin_create_user.rs`
+- `src/operation/admin_create_user/_admin_create_user_input.rs`
+- `src/operation/admin_create_user/_admin_create_user_output.rs`
+- `src/operation/admin_create_user/builders.rs`
+- `src/operation/admin_delete_user.rs`
+- `src/operation/admin_delete_user/_admin_delete_user_input.rs`
+- `src/operation/admin_delete_user/_admin_delete_user_output.rs`
+- `src/operation/admin_delete_user/builders.rs`
+- `src/operation/admin_delete_user_attributes.rs`
+- `src/operation/admin_delete_user_attributes/_admin_delete_user_attributes_input.rs`
+- `src/operation/admin_delete_user_attributes/_admin_delete_user_attributes_output.rs`
+- `src/operation/admin_delete_user_attributes/builders.rs`
+- `src/operation/admin_disable_provider_for_user.rs`
+- `src/operation/admin_disable_provider_for_user/_admin_disable_provider_for_user_input.rs`
+- `src/operation/admin_disable_provider_for_user/_admin_disable_provider_for_user_output.rs`
+- `src/operation/admin_disable_provider_for_user/builders.rs`
+- `src/operation/admin_disable_user.rs`
+- `src/operation/admin_disable_user/_admin_disable_user_input.rs`
+- `src/operation/admin_disable_user/_admin_disable_user_output.rs`
+- `src/operation/admin_disable_user/builders.rs`
+- `src/operation/admin_enable_user.rs`
+- `src/operation/admin_enable_user/_admin_enable_user_input.rs`
+- `src/operation/admin_enable_user/_admin_enable_user_output.rs`
+- `src/operation/admin_enable_user/builders.rs`
+- `src/operation/admin_forget_device.rs`
+- `src/operation/admin_forget_device/_admin_forget_device_input.rs`
+- `src/operation/admin_forget_device/_admin_forget_device_output.rs`
+- `src/operation/admin_forget_device/builders.rs`
+- `src/operation/admin_get_device.rs`
+- `src/operation/admin_get_device/_admin_get_device_input.rs`
+- `src/operation/admin_get_device/_admin_get_device_output.rs`
+- `src/operation/admin_get_device/builders.rs`
+- `src/operation/admin_get_user.rs`
+- `src/operation/admin_get_user/_admin_get_user_input.rs`
+- `src/operation/admin_get_user/_admin_get_user_output.rs`
+- `src/operation/admin_get_user/builders.rs`
+- `src/operation/admin_get_user_auth_factors.rs`
+- `src/operation/admin_get_user_auth_factors/_admin_get_user_auth_factors_input.rs`
+- `src/operation/admin_get_user_auth_factors/_admin_get_user_auth_factors_output.rs`
+- `src/operation/admin_get_user_auth_factors/builders.rs`
+- `src/operation/admin_initiate_auth.rs`
+- `src/operation/admin_initiate_auth/_admin_initiate_auth_input.rs`
+- `src/operation/admin_initiate_auth/_admin_initiate_auth_output.rs`
+- `src/operation/admin_initiate_auth/builders.rs`
+- `src/operation/admin_link_provider_for_user.rs`
+- `src/operation/admin_link_provider_for_user/_admin_link_provider_for_user_input.rs`
+- `src/operation/admin_link_provider_for_user/_admin_link_provider_for_user_output.rs`
+- `src/operation/admin_link_provider_for_user/builders.rs`
+- `src/operation/admin_list_devices.rs`
+- `src/operation/admin_list_devices/_admin_list_devices_input.rs`
+- `src/operation/admin_list_devices/_admin_list_devices_output.rs`
+- `src/operation/admin_list_devices/builders.rs`
+- `src/operation/admin_list_groups_for_user.rs`
+- `src/operation/admin_list_groups_for_user/_admin_list_groups_for_user_input.rs`
+- `src/operation/admin_list_groups_for_user/_admin_list_groups_for_user_output.rs`
+- `src/operation/admin_list_groups_for_user/builders.rs`
+- `src/operation/admin_list_groups_for_user/paginator.rs`
+- `src/operation/admin_list_user_auth_events.rs`
+- `src/operation/admin_list_user_auth_events/_admin_list_user_auth_events_input.rs`
+- `src/operation/admin_list_user_auth_events/_admin_list_user_auth_events_output.rs`
+- `src/operation/admin_list_user_auth_events/builders.rs`
+- `src/operation/admin_list_user_auth_events/paginator.rs`
+- `src/operation/admin_remove_user_from_group.rs`
+- `src/operation/admin_remove_user_from_group/_admin_remove_user_from_group_input.rs`
+- `src/operation/admin_remove_user_from_group/_admin_remove_user_from_group_output.rs`
+- `src/operation/admin_remove_user_from_group/builders.rs`
+- `src/operation/admin_reset_user_password.rs`
+- `src/operation/admin_reset_user_password/_admin_reset_user_password_input.rs`
+- `src/operation/admin_reset_user_password/_admin_reset_user_password_output.rs`
+- `src/operation/admin_reset_user_password/builders.rs`
+- `src/operation/admin_respond_to_auth_challenge.rs`
+- `src/operation/admin_respond_to_auth_challenge/_admin_respond_to_auth_challenge_input.rs`
+- `src/operation/admin_respond_to_auth_challenge/_admin_respond_to_auth_challenge_output.rs`
+- `src/operation/admin_respond_to_auth_challenge/builders.rs`
+- `src/operation/admin_set_user_mfa_preference.rs`
+- `src/operation/admin_set_user_mfa_preference/_admin_set_user_mfa_preference_input.rs`
+- `src/operation/admin_set_user_mfa_preference/_admin_set_user_mfa_preference_output.rs`
+- `src/operation/admin_set_user_mfa_preference/builders.rs`
+- `src/operation/admin_set_user_password.rs`
+- `src/operation/admin_set_user_password/_admin_set_user_password_input.rs`
+- `src/operation/admin_set_user_password/_admin_set_user_password_output.rs`
+- `src/operation/admin_set_user_password/builders.rs`
+- `src/operation/admin_set_user_settings.rs`
+- `src/operation/admin_set_user_settings/_admin_set_user_settings_input.rs`
+- `src/operation/admin_set_user_settings/_admin_set_user_settings_output.rs`
+- `src/operation/admin_set_user_settings/builders.rs`
+- `src/operation/admin_update_auth_event_feedback.rs`
+- `src/operation/admin_update_auth_event_feedback/_admin_update_auth_event_feedback_input.rs`
+- `src/operation/admin_update_auth_event_feedback/_admin_update_auth_event_feedback_output.rs`
+- `src/operation/admin_update_auth_event_feedback/builders.rs`
+- `src/operation/admin_update_device_status.rs`
+- `src/operation/admin_update_device_status/_admin_update_device_status_input.rs`
+- `src/operation/admin_update_device_status/_admin_update_device_status_output.rs`
+- `src/operation/admin_update_device_status/builders.rs`
+- `src/operation/admin_update_user_attributes.rs`
+- `src/operation/admin_update_user_attributes/_admin_update_user_attributes_input.rs`
+- `src/operation/admin_update_user_attributes/_admin_update_user_attributes_output.rs`
+- `src/operation/admin_update_user_attributes/builders.rs`
+- `src/operation/admin_user_global_sign_out.rs`
+- `src/operation/admin_user_global_sign_out/_admin_user_global_sign_out_input.rs`
+- `src/operation/admin_user_global_sign_out/_admin_user_global_sign_out_output.rs`
+- `src/operation/admin_user_global_sign_out/builders.rs`
+- `src/operation/associate_software_token.rs`
+- `src/operation/associate_software_token/_associate_software_token_input.rs`
+- `src/operation/associate_software_token/_associate_software_token_output.rs`
+- `src/operation/associate_software_token/builders.rs`
+- `src/operation/change_password.rs`
+- `src/operation/change_password/_change_password_input.rs`
+- `src/operation/change_password/_change_password_output.rs`
+- `src/operation/change_password/builders.rs`
+- `src/operation/complete_web_authn_registration.rs`
+- `src/operation/complete_web_authn_registration/_complete_web_authn_registration_input.rs`
+- `src/operation/complete_web_authn_registration/_complete_web_authn_registration_output.rs`
+- `src/operation/complete_web_authn_registration/builders.rs`
+- `src/operation/confirm_device.rs`
+- `src/operation/confirm_device/_confirm_device_input.rs`
+- `src/operation/confirm_device/_confirm_device_output.rs`
+- `src/operation/confirm_device/builders.rs`
+- `src/operation/confirm_forgot_password.rs`
+- `src/operation/confirm_forgot_password/_confirm_forgot_password_input.rs`
+- `src/operation/confirm_forgot_password/_confirm_forgot_password_output.rs`
+- `src/operation/confirm_forgot_password/builders.rs`
+- `src/operation/confirm_sign_up.rs`
+- `src/operation/confirm_sign_up/_confirm_sign_up_input.rs`
+- `src/operation/confirm_sign_up/_confirm_sign_up_output.rs`
+- `src/operation/confirm_sign_up/builders.rs`
+- `src/operation/create_group.rs`
+- `src/operation/create_group/_create_group_input.rs`
+- `src/operation/create_group/_create_group_output.rs`
+- `src/operation/create_group/builders.rs`
+- `src/operation/create_identity_provider.rs`
+- `src/operation/create_identity_provider/_create_identity_provider_input.rs`
+- `src/operation/create_identity_provider/_create_identity_provider_output.rs`
+- `src/operation/create_identity_provider/builders.rs`
+- `src/operation/create_managed_login_branding.rs`
+- `src/operation/create_managed_login_branding/_create_managed_login_branding_input.rs`
+- `src/operation/create_managed_login_branding/_create_managed_login_branding_output.rs`
+- `src/operation/create_managed_login_branding/builders.rs`
+- `src/operation/create_resource_server.rs`
+- `src/operation/create_resource_server/_create_resource_server_input.rs`
+- `src/operation/create_resource_server/_create_resource_server_output.rs`
+- `src/operation/create_resource_server/builders.rs`
+- `src/operation/create_terms.rs`
+- `src/operation/create_terms/_create_terms_input.rs`
+- `src/operation/create_terms/_create_terms_output.rs`
+- `src/operation/create_terms/builders.rs`
+- `src/operation/create_user_import_job.rs`
+- `src/operation/create_user_import_job/_create_user_import_job_input.rs`
+- `src/operation/create_user_import_job/_create_user_import_job_output.rs`
+- `src/operation/create_user_import_job/builders.rs`
+- `src/operation/create_user_pool.rs`
+- `src/operation/create_user_pool/_create_user_pool_input.rs`
+- `src/operation/create_user_pool/_create_user_pool_output.rs`
+- `src/operation/create_user_pool/builders.rs`
+- `src/operation/create_user_pool_client.rs`
+- `src/operation/create_user_pool_client/_create_user_pool_client_input.rs`
+- `src/operation/create_user_pool_client/_create_user_pool_client_output.rs`
+- `src/operation/create_user_pool_client/builders.rs`
+- `src/operation/create_user_pool_domain.rs`
+- `src/operation/create_user_pool_domain/_create_user_pool_domain_input.rs`
+- `src/operation/create_user_pool_domain/_create_user_pool_domain_output.rs`
+- `src/operation/create_user_pool_domain/builders.rs`
+- `src/operation/create_user_pool_replica.rs`
+- `src/operation/create_user_pool_replica/_create_user_pool_replica_input.rs`
+- `src/operation/create_user_pool_replica/_create_user_pool_replica_output.rs`
+- `src/operation/create_user_pool_replica/builders.rs`
+- `src/operation/delete_group.rs`
+- `src/operation/delete_group/_delete_group_input.rs`
+- `src/operation/delete_group/_delete_group_output.rs`
+- `src/operation/delete_group/builders.rs`
+- `src/operation/delete_identity_provider.rs`
+- `src/operation/delete_identity_provider/_delete_identity_provider_input.rs`
+- `src/operation/delete_identity_provider/_delete_identity_provider_output.rs`
+- `src/operation/delete_identity_provider/builders.rs`
+- `src/operation/delete_managed_login_branding.rs`
+- `src/operation/delete_managed_login_branding/_delete_managed_login_branding_input.rs`
+- `src/operation/delete_managed_login_branding/_delete_managed_login_branding_output.rs`
+- `src/operation/delete_managed_login_branding/builders.rs`
+- `src/operation/delete_resource_server.rs`
+- `src/operation/delete_resource_server/_delete_resource_server_input.rs`
+- `src/operation/delete_resource_server/_delete_resource_server_output.rs`
+- `src/operation/delete_resource_server/builders.rs`
+- `src/operation/delete_terms.rs`
+- `src/operation/delete_terms/_delete_terms_input.rs`
+- `src/operation/delete_terms/_delete_terms_output.rs`
+- `src/operation/delete_terms/builders.rs`
+- `src/operation/delete_user.rs`
+- `src/operation/delete_user/_delete_user_input.rs`
+- `src/operation/delete_user/_delete_user_output.rs`
+- `src/operation/delete_user/builders.rs`
+- `src/operation/delete_user_attributes.rs`
+- `src/operation/delete_user_attributes/_delete_user_attributes_input.rs`
+- `src/operation/delete_user_attributes/_delete_user_attributes_output.rs`
+- `src/operation/delete_user_attributes/builders.rs`
+- `src/operation/delete_user_pool.rs`
+- `src/operation/delete_user_pool/_delete_user_pool_input.rs`
+- `src/operation/delete_user_pool/_delete_user_pool_output.rs`
+- `src/operation/delete_user_pool/builders.rs`
+- `src/operation/delete_user_pool_client.rs`
+- `src/operation/delete_user_pool_client/_delete_user_pool_client_input.rs`
+- `src/operation/delete_user_pool_client/_delete_user_pool_client_output.rs`
+- `src/operation/delete_user_pool_client/builders.rs`
+- `src/operation/delete_user_pool_client_secret.rs`
+- `src/operation/delete_user_pool_client_secret/_delete_user_pool_client_secret_input.rs`
+- `src/operation/delete_user_pool_client_secret/_delete_user_pool_client_secret_output.rs`
+- `src/operation/delete_user_pool_client_secret/builders.rs`
+- `src/operation/delete_user_pool_domain.rs`
+- `src/operation/delete_user_pool_domain/_delete_user_pool_domain_input.rs`
+- `src/operation/delete_user_pool_domain/_delete_user_pool_domain_output.rs`
+- `src/operation/delete_user_pool_domain/builders.rs`
+- `src/operation/delete_user_pool_replica.rs`
+- `src/operation/delete_user_pool_replica/_delete_user_pool_replica_input.rs`
+- `src/operation/delete_user_pool_replica/_delete_user_pool_replica_output.rs`
+- `src/operation/delete_user_pool_replica/builders.rs`
+- `src/operation/delete_web_authn_credential.rs`
+- `src/operation/delete_web_authn_credential/_delete_web_authn_credential_input.rs`
+- `src/operation/delete_web_authn_credential/_delete_web_authn_credential_output.rs`
+- `src/operation/delete_web_authn_credential/builders.rs`
+- `src/operation/describe_identity_provider.rs`
+- `src/operation/describe_identity_provider/_describe_identity_provider_input.rs`
+- `src/operation/describe_identity_provider/_describe_identity_provider_output.rs`
+- `src/operation/describe_identity_provider/builders.rs`
+- `src/operation/describe_managed_login_branding.rs`
+- `src/operation/describe_managed_login_branding/_describe_managed_login_branding_input.rs`
+- `src/operation/describe_managed_login_branding/_describe_managed_login_branding_output.rs`
+- `src/operation/describe_managed_login_branding/builders.rs`
+- `src/operation/describe_managed_login_branding_by_client.rs`
+- `src/operation/describe_managed_login_branding_by_client/_describe_managed_login_branding_by_client_input.rs`
+- `src/operation/describe_managed_login_branding_by_client/_describe_managed_login_branding_by_client_output.rs`
+- `src/operation/describe_managed_login_branding_by_client/builders.rs`
+- `src/operation/describe_resource_server.rs`
+- `src/operation/describe_resource_server/_describe_resource_server_input.rs`
+- `src/operation/describe_resource_server/_describe_resource_server_output.rs`
+- `src/operation/describe_resource_server/builders.rs`
+- `src/operation/describe_risk_configuration.rs`
+- `src/operation/describe_risk_configuration/_describe_risk_configuration_input.rs`
+- `src/operation/describe_risk_configuration/_describe_risk_configuration_output.rs`
+- `src/operation/describe_risk_configuration/builders.rs`
+- `src/operation/describe_terms.rs`
+- `src/operation/describe_terms/_describe_terms_input.rs`
+- `src/operation/describe_terms/_describe_terms_output.rs`
+- `src/operation/describe_terms/builders.rs`
+- `src/operation/describe_user_import_job.rs`
+- `src/operation/describe_user_import_job/_describe_user_import_job_input.rs`
+- `src/operation/describe_user_import_job/_describe_user_import_job_output.rs`
+- `src/operation/describe_user_import_job/builders.rs`
+- `src/operation/describe_user_pool.rs`
+- `src/operation/describe_user_pool/_describe_user_pool_input.rs`
+- `src/operation/describe_user_pool/_describe_user_pool_output.rs`
+- `src/operation/describe_user_pool/builders.rs`
+- `src/operation/describe_user_pool_client.rs`
+- `src/operation/describe_user_pool_client/_describe_user_pool_client_input.rs`
+- `src/operation/describe_user_pool_client/_describe_user_pool_client_output.rs`
+- `src/operation/describe_user_pool_client/builders.rs`
+- `src/operation/describe_user_pool_domain.rs`
+- `src/operation/describe_user_pool_domain/_describe_user_pool_domain_input.rs`
+- `src/operation/describe_user_pool_domain/_describe_user_pool_domain_output.rs`
+- `src/operation/describe_user_pool_domain/builders.rs`
+- `src/operation/forget_device.rs`
+- `src/operation/forget_device/_forget_device_input.rs`
+- `src/operation/forget_device/_forget_device_output.rs`
+- `src/operation/forget_device/builders.rs`
+- `src/operation/forgot_password.rs`
+- `src/operation/forgot_password/_forgot_password_input.rs`
+- `src/operation/forgot_password/_forgot_password_output.rs`
+- `src/operation/forgot_password/builders.rs`
+- `src/operation/get_csv_header.rs`
+- `src/operation/get_csv_header/_get_csv_header_input.rs`
+- `src/operation/get_csv_header/_get_csv_header_output.rs`
+- `src/operation/get_csv_header/builders.rs`
+- `src/operation/get_device.rs`
+- `src/operation/get_device/_get_device_input.rs`
+- `src/operation/get_device/_get_device_output.rs`
+- `src/operation/get_device/builders.rs`
+- `src/operation/get_group.rs`
+- `src/operation/get_group/_get_group_input.rs`
+- `src/operation/get_group/_get_group_output.rs`
+- `src/operation/get_group/builders.rs`
+- `src/operation/get_identity_provider_by_identifier.rs`
+- `src/operation/get_identity_provider_by_identifier/_get_identity_provider_by_identifier_input.rs`
+- `src/operation/get_identity_provider_by_identifier/_get_identity_provider_by_identifier_output.rs`
+- `src/operation/get_identity_provider_by_identifier/builders.rs`
+- `src/operation/get_log_delivery_configuration.rs`
+- `src/operation/get_log_delivery_configuration/_get_log_delivery_configuration_input.rs`
+- `src/operation/get_log_delivery_configuration/_get_log_delivery_configuration_output.rs`
+- `src/operation/get_log_delivery_configuration/builders.rs`
+- `src/operation/get_provisioned_limit.rs`
+- `src/operation/get_provisioned_limit/_get_provisioned_limit_input.rs`
+- `src/operation/get_provisioned_limit/_get_provisioned_limit_output.rs`
+- `src/operation/get_provisioned_limit/builders.rs`
+- `src/operation/get_signing_certificate.rs`
+- `src/operation/get_signing_certificate/_get_signing_certificate_input.rs`
+- `src/operation/get_signing_certificate/_get_signing_certificate_output.rs`
+- `src/operation/get_signing_certificate/builders.rs`
+- `src/operation/get_tokens_from_refresh_token.rs`
+- `src/operation/get_tokens_from_refresh_token/_get_tokens_from_refresh_token_input.rs`
+- `src/operation/get_tokens_from_refresh_token/_get_tokens_from_refresh_token_output.rs`
+- `src/operation/get_tokens_from_refresh_token/builders.rs`
+- `src/operation/get_ui_customization.rs`
+- `src/operation/get_ui_customization/_get_ui_customization_input.rs`
+- `src/operation/get_ui_customization/_get_ui_customization_output.rs`
+- `src/operation/get_ui_customization/builders.rs`
+- `src/operation/get_user.rs`
+- `src/operation/get_user/_get_user_input.rs`
+- `src/operation/get_user/_get_user_output.rs`
+- `src/operation/get_user/builders.rs`
+- `src/operation/get_user_attribute_verification_code.rs`
+- `src/operation/get_user_attribute_verification_code/_get_user_attribute_verification_code_input.rs`
+- `src/operation/get_user_attribute_verification_code/_get_user_attribute_verification_code_output.rs`
+- `src/operation/get_user_attribute_verification_code/builders.rs`
+- `src/operation/get_user_auth_factors.rs`
+- `src/operation/get_user_auth_factors/_get_user_auth_factors_input.rs`
+- `src/operation/get_user_auth_factors/_get_user_auth_factors_output.rs`
+- `src/operation/get_user_auth_factors/builders.rs`
+- `src/operation/get_user_pool_mfa_config.rs`
+- `src/operation/get_user_pool_mfa_config/_get_user_pool_mfa_config_input.rs`
+- `src/operation/get_user_pool_mfa_config/_get_user_pool_mfa_config_output.rs`
+- `src/operation/get_user_pool_mfa_config/builders.rs`
+- `src/operation/global_sign_out.rs`
+- `src/operation/global_sign_out/_global_sign_out_input.rs`
+- `src/operation/global_sign_out/_global_sign_out_output.rs`
+- `src/operation/global_sign_out/builders.rs`
+- `src/operation/initiate_auth.rs`
+- `src/operation/initiate_auth/_initiate_auth_input.rs`
+- `src/operation/initiate_auth/_initiate_auth_output.rs`
+- `src/operation/initiate_auth/builders.rs`
+- `src/operation/list_devices.rs`
+- `src/operation/list_devices/_list_devices_input.rs`
+- `src/operation/list_devices/_list_devices_output.rs`
+- `src/operation/list_devices/builders.rs`
+- `src/operation/list_groups.rs`
+- `src/operation/list_groups/_list_groups_input.rs`
+- `src/operation/list_groups/_list_groups_output.rs`
+- `src/operation/list_groups/builders.rs`
+- `src/operation/list_groups/paginator.rs`
+- `src/operation/list_identity_providers.rs`
+- `src/operation/list_identity_providers/_list_identity_providers_input.rs`
+- `src/operation/list_identity_providers/_list_identity_providers_output.rs`
+- `src/operation/list_identity_providers/builders.rs`
+- `src/operation/list_identity_providers/paginator.rs`
+- `src/operation/list_resource_servers.rs`
+- `src/operation/list_resource_servers/_list_resource_servers_input.rs`
+- `src/operation/list_resource_servers/_list_resource_servers_output.rs`
+- `src/operation/list_resource_servers/builders.rs`
+- `src/operation/list_resource_servers/paginator.rs`
+- `src/operation/list_tags_for_resource.rs`
+- `src/operation/list_tags_for_resource/_list_tags_for_resource_input.rs`
+- `src/operation/list_tags_for_resource/_list_tags_for_resource_output.rs`
+- `src/operation/list_tags_for_resource/builders.rs`
+- `src/operation/list_terms.rs`
+- `src/operation/list_terms/_list_terms_input.rs`
+- `src/operation/list_terms/_list_terms_output.rs`
+- `src/operation/list_terms/builders.rs`
+- `src/operation/list_user_import_jobs.rs`
+- `src/operation/list_user_import_jobs/_list_user_import_jobs_input.rs`
+- `src/operation/list_user_import_jobs/_list_user_import_jobs_output.rs`
+- `src/operation/list_user_import_jobs/builders.rs`
+- `src/operation/list_user_pool_client_secrets.rs`
+- `src/operation/list_user_pool_client_secrets/_list_user_pool_client_secrets_input.rs`
+- `src/operation/list_user_pool_client_secrets/_list_user_pool_client_secrets_output.rs`
+- `src/operation/list_user_pool_client_secrets/builders.rs`
+- `src/operation/list_user_pool_clients.rs`
+- `src/operation/list_user_pool_clients/_list_user_pool_clients_input.rs`
+- `src/operation/list_user_pool_clients/_list_user_pool_clients_output.rs`
+- `src/operation/list_user_pool_clients/builders.rs`
+- `src/operation/list_user_pool_clients/paginator.rs`
+- `src/operation/list_user_pool_replicas.rs`
+- `src/operation/list_user_pool_replicas/_list_user_pool_replicas_input.rs`
+- `src/operation/list_user_pool_replicas/_list_user_pool_replicas_output.rs`
+- `src/operation/list_user_pool_replicas/builders.rs`
+- `src/operation/list_user_pools.rs`
+- `src/operation/list_user_pools/_list_user_pools_input.rs`
+- `src/operation/list_user_pools/_list_user_pools_output.rs`
+- `src/operation/list_user_pools/builders.rs`
+- `src/operation/list_user_pools/paginator.rs`
+- `src/operation/list_users.rs`
+- `src/operation/list_users/_list_users_input.rs`
+- `src/operation/list_users/_list_users_output.rs`
+- `src/operation/list_users/builders.rs`
+- `src/operation/list_users/paginator.rs`
+- `src/operation/list_users_in_group.rs`
+- `src/operation/list_users_in_group/_list_users_in_group_input.rs`
+- `src/operation/list_users_in_group/_list_users_in_group_output.rs`
+- `src/operation/list_users_in_group/builders.rs`
+- `src/operation/list_users_in_group/paginator.rs`
+- `src/operation/list_web_authn_credentials.rs`
+- `src/operation/list_web_authn_credentials/_list_web_authn_credentials_input.rs`
+- `src/operation/list_web_authn_credentials/_list_web_authn_credentials_output.rs`
+- `src/operation/list_web_authn_credentials/builders.rs`
+- `src/operation/resend_confirmation_code.rs`
+- `src/operation/resend_confirmation_code/_resend_confirmation_code_input.rs`
+- `src/operation/resend_confirmation_code/_resend_confirmation_code_output.rs`
+- `src/operation/resend_confirmation_code/builders.rs`
+- `src/operation/respond_to_auth_challenge.rs`
+- `src/operation/respond_to_auth_challenge/_respond_to_auth_challenge_input.rs`
+- `src/operation/respond_to_auth_challenge/_respond_to_auth_challenge_output.rs`
+- `src/operation/respond_to_auth_challenge/builders.rs`
+- `src/operation/revoke_token.rs`
+- `src/operation/revoke_token/_revoke_token_input.rs`
+- `src/operation/revoke_token/_revoke_token_output.rs`
+- `src/operation/revoke_token/builders.rs`
+- `src/operation/set_log_delivery_configuration.rs`
+- `src/operation/set_log_delivery_configuration/_set_log_delivery_configuration_input.rs`
+- `src/operation/set_log_delivery_configuration/_set_log_delivery_configuration_output.rs`
+- `src/operation/set_log_delivery_configuration/builders.rs`
+- `src/operation/set_risk_configuration.rs`
+- `src/operation/set_risk_configuration/_set_risk_configuration_input.rs`
+- `src/operation/set_risk_configuration/_set_risk_configuration_output.rs`
+- `src/operation/set_risk_configuration/builders.rs`
+- `src/operation/set_ui_customization.rs`
+- `src/operation/set_ui_customization/_set_ui_customization_input.rs`
+- `src/operation/set_ui_customization/_set_ui_customization_output.rs`
+- `src/operation/set_ui_customization/builders.rs`
+- `src/operation/set_user_mfa_preference.rs`
+- `src/operation/set_user_mfa_preference/_set_user_mfa_preference_input.rs`
+- `src/operation/set_user_mfa_preference/_set_user_mfa_preference_output.rs`
+- `src/operation/set_user_mfa_preference/builders.rs`
+- `src/operation/set_user_pool_mfa_config.rs`
+- `src/operation/set_user_pool_mfa_config/_set_user_pool_mfa_config_input.rs`
+- `src/operation/set_user_pool_mfa_config/_set_user_pool_mfa_config_output.rs`
+- `src/operation/set_user_pool_mfa_config/builders.rs`
+- `src/operation/set_user_settings.rs`
+- `src/operation/set_user_settings/_set_user_settings_input.rs`
+- `src/operation/set_user_settings/_set_user_settings_output.rs`
+- `src/operation/set_user_settings/builders.rs`
+- `src/operation/sign_up.rs`
+- `src/operation/sign_up/_sign_up_input.rs`
+- `src/operation/sign_up/_sign_up_output.rs`
+- `src/operation/sign_up/builders.rs`
+- `src/operation/start_user_import_job.rs`
+- `src/operation/start_user_import_job/_start_user_import_job_input.rs`
+- `src/operation/start_user_import_job/_start_user_import_job_output.rs`
+- `src/operation/start_user_import_job/builders.rs`
+- `src/operation/start_web_authn_registration.rs`
+- `src/operation/start_web_authn_registration/_start_web_authn_registration_input.rs`
+- `src/operation/start_web_authn_registration/_start_web_authn_registration_output.rs`
+- `src/operation/start_web_authn_registration/builders.rs`
+- `src/operation/stop_user_import_job.rs`
+- `src/operation/stop_user_import_job/_stop_user_import_job_input.rs`
+- `src/operation/stop_user_import_job/_stop_user_import_job_output.rs`
+- `src/operation/stop_user_import_job/builders.rs`
+- `src/operation/tag_resource.rs`
+- `src/operation/tag_resource/_tag_resource_input.rs`
+- `src/operation/tag_resource/_tag_resource_output.rs`
+- `src/operation/tag_resource/builders.rs`
+- `src/operation/untag_resource.rs`
+- `src/operation/untag_resource/_untag_resource_input.rs`
+- `src/operation/untag_resource/_untag_resource_output.rs`
+- `src/operation/untag_resource/builders.rs`
+- `src/operation/update_auth_event_feedback.rs`
+- `src/operation/update_auth_event_feedback/_update_auth_event_feedback_input.rs`
+- `src/operation/update_auth_event_feedback/_update_auth_event_feedback_output.rs`
+- `src/operation/update_auth_event_feedback/builders.rs`
+- `src/operation/update_device_status.rs`
+- `src/operation/update_device_status/_update_device_status_input.rs`
+- `src/operation/update_device_status/_update_device_status_output.rs`
+- `src/operation/update_device_status/builders.rs`
+- `src/operation/update_group.rs`
+- `src/operation/update_group/_update_group_input.rs`
+- `src/operation/update_group/_update_group_output.rs`
+- `src/operation/update_group/builders.rs`
+- `src/operation/update_identity_provider.rs`
+- `src/operation/update_identity_provider/_update_identity_provider_input.rs`
+- `src/operation/update_identity_provider/_update_identity_provider_output.rs`
+- `src/operation/update_identity_provider/builders.rs`
+- `src/operation/update_managed_login_branding.rs`
+- `src/operation/update_managed_login_branding/_update_managed_login_branding_input.rs`
+- `src/operation/update_managed_login_branding/_update_managed_login_branding_output.rs`
+- `src/operation/update_managed_login_branding/builders.rs`
+- `src/operation/update_provisioned_limit.rs`
+- `src/operation/update_provisioned_limit/_update_provisioned_limit_input.rs`
+- `src/operation/update_provisioned_limit/_update_provisioned_limit_output.rs`
+- `src/operation/update_provisioned_limit/builders.rs`
+- `src/operation/update_resource_server.rs`
+- `src/operation/update_resource_server/_update_resource_server_input.rs`
+- `src/operation/update_resource_server/_update_resource_server_output.rs`
+- `src/operation/update_resource_server/builders.rs`
+- `src/operation/update_terms.rs`
+- `src/operation/update_terms/_update_terms_input.rs`
+- `src/operation/update_terms/_update_terms_output.rs`
+- `src/operation/update_terms/builders.rs`
+- `src/operation/update_user_attributes.rs`
+- `src/operation/update_user_attributes/_update_user_attributes_input.rs`
+- `src/operation/update_user_attributes/_update_user_attributes_output.rs`
+- `src/operation/update_user_attributes/builders.rs`
+- `src/operation/update_user_pool.rs`
+- `src/operation/update_user_pool/_update_user_pool_input.rs`
+- `src/operation/update_user_pool/_update_user_pool_output.rs`
+- `src/operation/update_user_pool/builders.rs`
+- `src/operation/update_user_pool_client.rs`
+- `src/operation/update_user_pool_client/_update_user_pool_client_input.rs`
+- `src/operation/update_user_pool_client/_update_user_pool_client_output.rs`
+- `src/operation/update_user_pool_client/builders.rs`
+- `src/operation/update_user_pool_domain.rs`
+- `src/operation/update_user_pool_domain/_update_user_pool_domain_input.rs`
+- `src/operation/update_user_pool_domain/_update_user_pool_domain_output.rs`
+- `src/operation/update_user_pool_domain/builders.rs`
+- `src/operation/update_user_pool_replica.rs`
+- `src/operation/update_user_pool_replica/_update_user_pool_replica_input.rs`
+- `src/operation/update_user_pool_replica/_update_user_pool_replica_output.rs`
+- `src/operation/update_user_pool_replica/builders.rs`
+- `src/operation/verify_software_token.rs`
+- `src/operation/verify_software_token/_verify_software_token_input.rs`
+- `src/operation/verify_software_token/_verify_software_token_output.rs`
+- `src/operation/verify_software_token/builders.rs`
+- `src/operation/verify_user_attribute.rs`
+- `src/operation/verify_user_attribute/_verify_user_attribute_input.rs`
+- `src/operation/verify_user_attribute/_verify_user_attribute_output.rs`
+- `src/operation/verify_user_attribute/builders.rs`
+- `src/protocol_serde.rs`
+- `src/protocol_serde/shape_add_custom_attributes.rs`
+- `src/protocol_serde/shape_add_custom_attributes_input.rs`
+- `src/protocol_serde/shape_add_user_pool_client_secret.rs`
+- `src/protocol_serde/shape_add_user_pool_client_secret_input.rs`
+- `src/protocol_serde/shape_admin_add_user_to_group.rs`
+- `src/protocol_serde/shape_admin_add_user_to_group_input.rs`
+- `src/protocol_serde/shape_admin_confirm_sign_up.rs`
+- `src/protocol_serde/shape_admin_confirm_sign_up_input.rs`
+- `src/protocol_serde/shape_admin_create_user.rs`
+- `src/protocol_serde/shape_admin_create_user_config_type.rs`
+- `src/protocol_serde/shape_admin_create_user_input.rs`
+- `src/protocol_serde/shape_admin_delete_user.rs`
+- `src/protocol_serde/shape_admin_delete_user_attributes.rs`
+- `src/protocol_serde/shape_admin_delete_user_attributes_input.rs`
+- `src/protocol_serde/shape_admin_delete_user_input.rs`
+- `src/protocol_serde/shape_admin_disable_provider_for_user.rs`
+- `src/protocol_serde/shape_admin_disable_provider_for_user_input.rs`
+- `src/protocol_serde/shape_admin_disable_user.rs`
+- `src/protocol_serde/shape_admin_disable_user_input.rs`
+- `src/protocol_serde/shape_admin_enable_user.rs`
+- `src/protocol_serde/shape_admin_enable_user_input.rs`
+- `src/protocol_serde/shape_admin_forget_device.rs`
+- `src/protocol_serde/shape_admin_forget_device_input.rs`
+- `src/protocol_serde/shape_admin_get_device.rs`
+- `src/protocol_serde/shape_admin_get_device_input.rs`
+- `src/protocol_serde/shape_admin_get_user.rs`
+- `src/protocol_serde/shape_admin_get_user_auth_factors.rs`
+- `src/protocol_serde/shape_admin_get_user_auth_factors_input.rs`
+- `src/protocol_serde/shape_admin_get_user_input.rs`
+- `src/protocol_serde/shape_admin_initiate_auth.rs`
+- `src/protocol_serde/shape_admin_initiate_auth_input.rs`
+- `src/protocol_serde/shape_admin_link_provider_for_user.rs`
+- `src/protocol_serde/shape_admin_link_provider_for_user_input.rs`
+- `src/protocol_serde/shape_admin_list_devices.rs`
+- `src/protocol_serde/shape_admin_list_devices_input.rs`
+- `src/protocol_serde/shape_admin_list_groups_for_user.rs`
+- `src/protocol_serde/shape_admin_list_groups_for_user_input.rs`
+- `src/protocol_serde/shape_admin_list_user_auth_events.rs`
+- `src/protocol_serde/shape_admin_list_user_auth_events_input.rs`
+- `src/protocol_serde/shape_admin_remove_user_from_group.rs`
+- `src/protocol_serde/shape_admin_remove_user_from_group_input.rs`
+- `src/protocol_serde/shape_admin_reset_user_password.rs`
+- `src/protocol_serde/shape_admin_reset_user_password_input.rs`
+- `src/protocol_serde/shape_admin_respond_to_auth_challenge.rs`
+- `src/protocol_serde/shape_admin_respond_to_auth_challenge_input.rs`
+- `src/protocol_serde/shape_admin_set_user_mfa_preference.rs`
+- `src/protocol_serde/shape_admin_set_user_mfa_preference_input.rs`
+- `src/protocol_serde/shape_admin_set_user_password.rs`
+- `src/protocol_serde/shape_admin_set_user_password_input.rs`
+- `src/protocol_serde/shape_admin_set_user_settings.rs`
+- `src/protocol_serde/shape_admin_set_user_settings_input.rs`
+- `src/protocol_serde/shape_admin_update_auth_event_feedback.rs`
+- `src/protocol_serde/shape_admin_update_auth_event_feedback_input.rs`
+- `src/protocol_serde/shape_admin_update_device_status.rs`
+- `src/protocol_serde/shape_admin_update_device_status_input.rs`
+- `src/protocol_serde/shape_admin_update_user_attributes.rs`
+- `src/protocol_serde/shape_admin_update_user_attributes_input.rs`
+- `src/protocol_serde/shape_admin_user_global_sign_out.rs`
+- `src/protocol_serde/shape_admin_user_global_sign_out_input.rs`
+- `src/protocol_serde/shape_associate_software_token.rs`
+- `src/protocol_serde/shape_associate_software_token_input.rs`
+- `src/protocol_serde/shape_change_password.rs`
+- `src/protocol_serde/shape_change_password_input.rs`
+- `src/protocol_serde/shape_complete_web_authn_registration.rs`
+- `src/protocol_serde/shape_complete_web_authn_registration_input.rs`
+- `src/protocol_serde/shape_confirm_device.rs`
+- `src/protocol_serde/shape_confirm_device_input.rs`
+- `src/protocol_serde/shape_confirm_forgot_password.rs`
+- `src/protocol_serde/shape_confirm_forgot_password_input.rs`
+- `src/protocol_serde/shape_confirm_sign_up.rs`
+- `src/protocol_serde/shape_confirm_sign_up_input.rs`
+- `src/protocol_serde/shape_create_group.rs`
+- `src/protocol_serde/shape_create_group_input.rs`
+- `src/protocol_serde/shape_create_identity_provider.rs`
+- `src/protocol_serde/shape_create_identity_provider_input.rs`
+- `src/protocol_serde/shape_create_managed_login_branding.rs`
+- `src/protocol_serde/shape_create_managed_login_branding_input.rs`
+- `src/protocol_serde/shape_create_resource_server.rs`
+- `src/protocol_serde/shape_create_resource_server_input.rs`
+- `src/protocol_serde/shape_create_terms.rs`
+- `src/protocol_serde/shape_create_terms_input.rs`
+- `src/protocol_serde/shape_create_user_import_job.rs`
+- `src/protocol_serde/shape_create_user_import_job_input.rs`
+- `src/protocol_serde/shape_create_user_pool.rs`
+- `src/protocol_serde/shape_create_user_pool_client.rs`
+- `src/protocol_serde/shape_create_user_pool_client_input.rs`
+- `src/protocol_serde/shape_create_user_pool_domain.rs`
+- `src/protocol_serde/shape_create_user_pool_domain_input.rs`
+- `src/protocol_serde/shape_create_user_pool_input.rs`
+- `src/protocol_serde/shape_create_user_pool_replica.rs`
+- `src/protocol_serde/shape_create_user_pool_replica_input.rs`
+- `src/protocol_serde/shape_delete_group.rs`
+- `src/protocol_serde/shape_delete_group_input.rs`
+- `src/protocol_serde/shape_delete_identity_provider.rs`
+- `src/protocol_serde/shape_delete_identity_provider_input.rs`
+- `src/protocol_serde/shape_delete_managed_login_branding.rs`
+- `src/protocol_serde/shape_delete_managed_login_branding_input.rs`
+- `src/protocol_serde/shape_delete_resource_server.rs`
+- `src/protocol_serde/shape_delete_resource_server_input.rs`
+- `src/protocol_serde/shape_delete_terms.rs`
+- `src/protocol_serde/shape_delete_terms_input.rs`
+- `src/protocol_serde/shape_delete_user.rs`
+- `src/protocol_serde/shape_delete_user_attributes.rs`
+- `src/protocol_serde/shape_delete_user_attributes_input.rs`
+- `src/protocol_serde/shape_delete_user_input.rs`
+- `src/protocol_serde/shape_delete_user_pool.rs`
+- `src/protocol_serde/shape_delete_user_pool_client.rs`
+- `src/protocol_serde/shape_delete_user_pool_client_input.rs`
+- `src/protocol_serde/shape_delete_user_pool_client_secret.rs`
+- `src/protocol_serde/shape_delete_user_pool_client_secret_input.rs`
+- `src/protocol_serde/shape_delete_user_pool_domain.rs`
+- `src/protocol_serde/shape_delete_user_pool_domain_input.rs`
+- `src/protocol_serde/shape_delete_user_pool_input.rs`
+- `src/protocol_serde/shape_delete_user_pool_replica.rs`
+- `src/protocol_serde/shape_delete_user_pool_replica_input.rs`
+- `src/protocol_serde/shape_delete_web_authn_credential.rs`
+- `src/protocol_serde/shape_delete_web_authn_credential_input.rs`
+- `src/protocol_serde/shape_describe_identity_provider.rs`
+- `src/protocol_serde/shape_describe_identity_provider_input.rs`
+- `src/protocol_serde/shape_describe_managed_login_branding.rs`
+- `src/protocol_serde/shape_describe_managed_login_branding_by_client.rs`
+- `src/protocol_serde/shape_describe_managed_login_branding_by_client_input.rs`
+- `src/protocol_serde/shape_describe_managed_login_branding_input.rs`
+- `src/protocol_serde/shape_describe_resource_server.rs`
+- `src/protocol_serde/shape_describe_resource_server_input.rs`
+- `src/protocol_serde/shape_describe_risk_configuration.rs`
+- `src/protocol_serde/shape_describe_risk_configuration_input.rs`
+- `src/protocol_serde/shape_describe_terms.rs`
+- `src/protocol_serde/shape_describe_terms_input.rs`
+- `src/protocol_serde/shape_describe_user_import_job.rs`
+- `src/protocol_serde/shape_describe_user_import_job_input.rs`
+- `src/protocol_serde/shape_describe_user_pool.rs`
+- `src/protocol_serde/shape_describe_user_pool_client.rs`
+- `src/protocol_serde/shape_describe_user_pool_client_input.rs`
+- `src/protocol_serde/shape_describe_user_pool_domain.rs`
+- `src/protocol_serde/shape_describe_user_pool_domain_input.rs`
+- `src/protocol_serde/shape_describe_user_pool_input.rs`
+- `src/protocol_serde/shape_forget_device.rs`
+- `src/protocol_serde/shape_forget_device_input.rs`
+- `src/protocol_serde/shape_forgot_password.rs`
+- `src/protocol_serde/shape_forgot_password_input.rs`
+- `src/protocol_serde/shape_get_csv_header.rs`
+- `src/protocol_serde/shape_get_csv_header_input.rs`
+- `src/protocol_serde/shape_get_device.rs`
+- `src/protocol_serde/shape_get_device_input.rs`
+- `src/protocol_serde/shape_get_group.rs`
+- `src/protocol_serde/shape_get_group_input.rs`
+- `src/protocol_serde/shape_get_identity_provider_by_identifier.rs`
+- `src/protocol_serde/shape_get_identity_provider_by_identifier_input.rs`
+- `src/protocol_serde/shape_get_log_delivery_configuration.rs`
+- `src/protocol_serde/shape_get_log_delivery_configuration_input.rs`
+- `src/protocol_serde/shape_get_provisioned_limit.rs`
+- `src/protocol_serde/shape_get_provisioned_limit_input.rs`
+- `src/protocol_serde/shape_get_signing_certificate.rs`
+- `src/protocol_serde/shape_get_signing_certificate_input.rs`
+- `src/protocol_serde/shape_get_tokens_from_refresh_token.rs`
+- `src/protocol_serde/shape_get_tokens_from_refresh_token_input.rs`
+- `src/protocol_serde/shape_get_ui_customization.rs`
+- `src/protocol_serde/shape_get_ui_customization_input.rs`
+- `src/protocol_serde/shape_get_user.rs`
+- `src/protocol_serde/shape_get_user_attribute_verification_code.rs`
+- `src/protocol_serde/shape_get_user_attribute_verification_code_input.rs`
+- `src/protocol_serde/shape_get_user_auth_factors.rs`
+- `src/protocol_serde/shape_get_user_auth_factors_input.rs`
+- `src/protocol_serde/shape_get_user_input.rs`
+- `src/protocol_serde/shape_get_user_pool_mfa_config.rs`
+- `src/protocol_serde/shape_get_user_pool_mfa_config_input.rs`
+- `src/protocol_serde/shape_global_sign_out.rs`
+- `src/protocol_serde/shape_global_sign_out_input.rs`
+- `src/protocol_serde/shape_initiate_auth.rs`
+- `src/protocol_serde/shape_initiate_auth_input.rs`
+- `src/protocol_serde/shape_list_devices.rs`
+- `src/protocol_serde/shape_list_devices_input.rs`
+- `src/protocol_serde/shape_list_groups.rs`
+- `src/protocol_serde/shape_list_groups_input.rs`
+- `src/protocol_serde/shape_list_identity_providers.rs`
+- `src/protocol_serde/shape_list_identity_providers_input.rs`
+- `src/protocol_serde/shape_list_resource_servers.rs`
+- `src/protocol_serde/shape_list_resource_servers_input.rs`
+- `src/protocol_serde/shape_list_tags_for_resource.rs`
+- `src/protocol_serde/shape_list_tags_for_resource_input.rs`
+- `src/protocol_serde/shape_list_terms.rs`
+- `src/protocol_serde/shape_list_terms_input.rs`
+- `src/protocol_serde/shape_list_user_import_jobs.rs`
+- `src/protocol_serde/shape_list_user_import_jobs_input.rs`
+- `src/protocol_serde/shape_list_user_pool_client_secrets.rs`
+- `src/protocol_serde/shape_list_user_pool_client_secrets_input.rs`
+- `src/protocol_serde/shape_list_user_pool_clients.rs`
+- `src/protocol_serde/shape_list_user_pool_clients_input.rs`
+- `src/protocol_serde/shape_list_user_pool_replicas.rs`
+- `src/protocol_serde/shape_list_user_pool_replicas_input.rs`
+- `src/protocol_serde/shape_list_user_pools.rs`
+- `src/protocol_serde/shape_list_user_pools_input.rs`
+- `src/protocol_serde/shape_list_users.rs`
+- `src/protocol_serde/shape_list_users_in_group.rs`
+- `src/protocol_serde/shape_list_users_in_group_input.rs`
+- `src/protocol_serde/shape_list_users_input.rs`
+- `src/protocol_serde/shape_list_web_authn_credentials.rs`
+- `src/protocol_serde/shape_list_web_authn_credentials_input.rs`
+- `src/protocol_serde/shape_resend_confirmation_code.rs`
+- `src/protocol_serde/shape_resend_confirmation_code_input.rs`
+- `src/protocol_serde/shape_respond_to_auth_challenge.rs`
+- `src/protocol_serde/shape_respond_to_auth_challenge_input.rs`
+- `src/protocol_serde/shape_revoke_token.rs`
+- `src/protocol_serde/shape_revoke_token_input.rs`
+- `src/protocol_serde/shape_set_log_delivery_configuration.rs`
+- `src/protocol_serde/shape_set_log_delivery_configuration_input.rs`
+- `src/protocol_serde/shape_set_risk_configuration.rs`
+- `src/protocol_serde/shape_set_risk_configuration_input.rs`
+- `src/protocol_serde/shape_set_ui_customization.rs`
+- `src/protocol_serde/shape_set_ui_customization_input.rs`
+- `src/protocol_serde/shape_set_user_mfa_preference.rs`
+- `src/protocol_serde/shape_set_user_mfa_preference_input.rs`
+- `src/protocol_serde/shape_set_user_pool_mfa_config.rs`
+- `src/protocol_serde/shape_set_user_pool_mfa_config_input.rs`
+- `src/protocol_serde/shape_set_user_settings.rs`
+- `src/protocol_serde/shape_set_user_settings_input.rs`
+- `src/protocol_serde/shape_sign_up.rs`
+- `src/protocol_serde/shape_sign_up_input.rs`
+- `src/protocol_serde/shape_start_user_import_job.rs`
+- `src/protocol_serde/shape_start_user_import_job_input.rs`
+- `src/protocol_serde/shape_start_web_authn_registration.rs`
+- `src/protocol_serde/shape_start_web_authn_registration_input.rs`
+- `src/protocol_serde/shape_stop_user_import_job.rs`
+- `src/protocol_serde/shape_stop_user_import_job_input.rs`
+- `src/protocol_serde/shape_tag_resource.rs`
+- `src/protocol_serde/shape_tag_resource_input.rs`
+- `src/protocol_serde/shape_untag_resource.rs`
+- `src/protocol_serde/shape_untag_resource_input.rs`
+- `src/protocol_serde/shape_update_auth_event_feedback.rs`
+- `src/protocol_serde/shape_update_auth_event_feedback_input.rs`
+- `src/protocol_serde/shape_update_device_status.rs`
+- `src/protocol_serde/shape_update_device_status_input.rs`
+- `src/protocol_serde/shape_update_group.rs`
+- `src/protocol_serde/shape_update_group_input.rs`
+- `src/protocol_serde/shape_update_identity_provider.rs`
+- `src/protocol_serde/shape_update_identity_provider_input.rs`
+- `src/protocol_serde/shape_update_managed_login_branding.rs`
+- `src/protocol_serde/shape_update_managed_login_branding_input.rs`
+- `src/protocol_serde/shape_update_provisioned_limit.rs`
+- `src/protocol_serde/shape_update_provisioned_limit_input.rs`
+- `src/protocol_serde/shape_update_resource_server.rs`
+- `src/protocol_serde/shape_update_resource_server_input.rs`
+- `src/protocol_serde/shape_update_terms.rs`
+- `src/protocol_serde/shape_update_terms_input.rs`
+- `src/protocol_serde/shape_update_user_attributes.rs`
+- `src/protocol_serde/shape_update_user_attributes_input.rs`
+- `src/protocol_serde/shape_update_user_pool.rs`
+- `src/protocol_serde/shape_update_user_pool_client.rs`
+- `src/protocol_serde/shape_update_user_pool_client_input.rs`
+- `src/protocol_serde/shape_update_user_pool_domain.rs`
+- `src/protocol_serde/shape_update_user_pool_domain_input.rs`
+- `src/protocol_serde/shape_update_user_pool_input.rs`
+- `src/protocol_serde/shape_update_user_pool_replica.rs`
+- `src/protocol_serde/shape_update_user_pool_replica_input.rs`
+- `src/protocol_serde/shape_user_pool_type.rs`
+- `src/protocol_serde/shape_verify_software_token.rs`
+- `src/protocol_serde/shape_verify_software_token_input.rs`
+- `src/protocol_serde/shape_verify_user_attribute.rs`
+- `src/protocol_serde/shape_verify_user_attribute_input.rs`
+- `src/serde_util.rs`
+
+## Customizations
+
+- Add one non-default Cargo feature and matching cfg gates for each model operation.
+- Rename the Cargo package/library from manifest data.
+- Remove upstream `tests/` from generated output.
+
+## Reproduction
+
+```text
+cargo run -p aws-sdk-modularizer -- --manifest services-manifest.json
+```
