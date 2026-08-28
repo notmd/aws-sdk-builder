@@ -772,6 +772,9 @@ fn operation_error_reference_owners(
     item: &Item,
     type_owners: &BTreeMap<String, BTreeSet<String>>,
 ) -> BTreeSet<String> {
+    if matches!(item, Item::Enum(item) if item.ident == "Error") {
+        return BTreeSet::new();
+    }
     let mut visitor = TypeReferenceVisitor::default();
     visitor.visit_item(item);
     intersect_owner_sets(visitor.references.iter().filter_map(|reference| {
