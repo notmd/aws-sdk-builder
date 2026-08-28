@@ -247,6 +247,10 @@ pub fn transform_tree(
             item_visitor.visit_item(item);
             if direct_owners.is_empty() {
                 owners.extend(item_visitor.owners);
+                owners.extend(protocol_reference_owners(
+                    &item_visitor.references,
+                    &symbol_owners,
+                ));
             }
             if let Item::Impl(item_impl) = item {
                 let header_owners =
@@ -469,9 +473,7 @@ fn operation_symbols(
         for file in files {
             let mut file_owners = path_owners(&file.relative, operations);
             if is_protocol_serde_path(&file.relative) {
-                if let Some(module_owners) =
-                    previous.get(&source_module_path(&file.relative))
-                {
+                if let Some(module_owners) = previous.get(&source_module_path(&file.relative)) {
                     file_owners.extend(module_owners.iter().cloned());
                 }
             }
@@ -521,7 +523,12 @@ fn collect_operation_symbols(
         };
         visitor.visit_item(item);
         let item_owners = if inherited_owners.is_empty() {
-            visitor.owners.clone()
+            let mut owners = visitor.owners.clone();
+            owners.extend(protocol_reference_owners(
+                &visitor.references,
+                known_symbols,
+            ));
+            owners
         } else {
             inherited_owners.clone()
         };
@@ -558,7 +565,12 @@ fn collect_operation_symbols(
                     };
                     child_visitor.visit_item(child);
                     let child_owners = if module_owners.is_empty() {
-                        child_visitor.owners.clone()
+                        let mut owners = child_visitor.owners.clone();
+                        owners.extend(protocol_reference_owners(
+                            &child_visitor.references,
+                            known_symbols,
+                        ));
+                        owners
                     } else {
                         module_owners.clone()
                     };
@@ -609,6 +621,26 @@ fn add_symbol(
 
 fn is_operation_or_client_symbol(symbol: &str) -> bool {
     matches!(symbol.split("::").next(), Some("operation" | "client"))
+}
+
+fn protocol_reference_owners(
+    references: &BTreeSet<String>,
+    symbol_owners: &BTreeMap<String, BTreeSet<String>>,
+) -> BTreeSet<String> {
+    references
+        .iter()
+        .filter(|reference| is_protocol_shape_symbol(reference))
+        .filter_map(|reference| symbol_owners.get(reference))
+        .flat_map(|owners| owners.iter().cloned())
+        .collect()
+}
+
+fn is_protocol_shape_symbol(symbol: &str) -> bool {
+    let mut segments = symbol.split("::");
+    segments.next() == Some("protocol_serde")
+        && segments
+            .next()
+            .is_some_and(|segment| segment.starts_with("shape_"))
 }
 
 fn join_symbol_path(parent: &str, name: &str) -> String {
