@@ -629,6 +629,11 @@ fn source_module_path(relative: &str) -> String {
     components.join("::")
 }
 
+fn is_protocol_serde_path(relative: &str) -> bool {
+    let path = relative.strip_prefix("src/").unwrap_or(relative);
+    path == "protocol_serde.rs" || path.starts_with("protocol_serde/")
+}
+
 fn waiter_owners(
     files: &[SourceFile],
     operations: &[Operation],
