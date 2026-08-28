@@ -49,3 +49,13 @@
 - Operation coverage: unchanged; all 15 services remain mapped.
 - Remaining blocker: rerun conformance with shared type modules restored and validate operation-specific error gating.
 - Next action: run the required conformance command.
+
+## 2026-08-29 — `503a22672`
+
+- Objective: keep `error_meta` compilable when operation-specific synthetic errors are disabled.
+- Generic rule: gate individual items that reference exact `types::error::<...Error>` operation error types; keep the shared service `Error` and modeled exceptions available.
+- Changed files: `crates/aws-sdk-modularizer/src/transform.rs`.
+- Commands: `cargo test -p aws-sdk-modularizer` passed; `cargo fmt --all` passed; conformance on `df414241c` reached the remaining un-gated `error_meta` conversion references.
+- Operation coverage: unchanged; all 15 services remain mapped.
+- Remaining blocker: validate the corrected error conversion gates and then handle redundant child-module cfg cleanup.
+- Next action: run the required conformance command.
