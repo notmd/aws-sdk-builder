@@ -317,42 +317,59 @@ pub fn transform_tree(
                     ));
                 }
                 if owners.is_empty() {
-                    owners.extend(protocol_reference_owners(
+                    owners.extend(symbol_reference_owners(
                         &item_visitor.references,
                         &symbol_owners,
                     ));
                 }
             }
-            if let Item::Impl(item_impl) = item {
-                let trait_method_owners = impl_method_owners(item_impl, &method_owners);
-                let header_owners =
-                    impl_header_owners(item_impl, operations, &waiter_owners, &symbol_owners);
-                if direct_owners.is_empty() && !header_owners.is_empty() {
-                    if !has_matching_cfg(item_attrs(item), &header_owners) {
-                        add_edit(
-                            &mut edits,
+            if !child_of_parent_gated_module {
+                if let Item::Impl(item_impl) = item {
+                    let trait_method_owners = impl_method_owners(item_impl, &method_owners);
+                    let header_owners =
+                        impl_header_owners(item_impl, operations, &waiter_owners, &symbol_owners);
+                    if direct_owners.is_empty() && !header_owners.is_empty() {
+                        if !has_matching_cfg(item_attrs(item), &header_owners) {
+                            add_edit(
+                                &mut edits,
+                                &source_file.relative,
+                                item_start(item, &source_file.source)?,
+                                header_owners,
+                            );
+                        }
+                    } else if direct_owners.is_empty()
+                        && item_impl.trait_.is_some()
+                        && !trait_method_owners.is_empty()
+                        && item_impl
+                            .items
+                            .iter()
+                            .all(|item| matches!(item, syn::ImplItem::Fn(_)))
+                    {
+                        collect_impl_method_edits(
                             &source_file.relative,
-                            item_start(item, &source_file.source)?,
-                            header_owners,
-                        );
-                    }
-                } else if direct_owners.is_empty()
-                    && item_impl.trait_.is_some()
-                    && !trait_method_owners.is_empty()
-                    && item_impl
-                        .items
-                        .iter()
-                        .all(|item| matches!(item, syn::ImplItem::Fn(_)))
-                {
-                    collect_impl_method_edits(
-                        &source_file.relative,
-                        &source_file.source,
-                        item_impl,
-                        &method_owners,
-                        &mut edits,
-                    )?;
-                } else if direct_owners.is_empty() && !owners.is_empty() {
-                    if !has_matching_cfg(item_attrs(item), &owners) {
+                            &source_file.source,
+                            item_impl,
+                            &method_owners,
+                            &mut edits,
+                        )?;
+                    } else if direct_owners.is_empty() && !owners.is_empty() {
+                        if !has_matching_cfg(item_attrs(item), &owners) {
+                            add_edit(
+                                &mut edits,
+                                &source_file.relative,
+                                item_start(item, &source_file.source)?,
+                                owners,
+                            );
+                        }
+                    } else if direct_owners.is_empty() {
+                        collect_impl_method_edits(
+                            &source_file.relative,
+                            &source_file.source,
+                            item_impl,
+                            &method_owners,
+                            &mut edits,
+                        )?;
+                    } else if !owners.is_empty() && !has_matching_cfg(item_attrs(item), &owners) {
                         add_edit(
                             &mut edits,
                             &source_file.relative,
@@ -360,16 +377,8 @@ pub fn transform_tree(
                             owners,
                         );
                     }
-                } else if direct_owners.is_empty() {
-                    collect_impl_method_edits(
-                        &source_file.relative,
-                        &source_file.source,
-                        item_impl,
-                        &method_owners,
-                        &mut edits,
-                    )?;
-                } else if !child_of_parent_gated_module
-                    && !owners.is_empty()
+                } else if !owners.is_empty()
+                    && !matches!(item, Item::Trait(_))
                     && !has_matching_cfg(item_attrs(item), &owners)
                 {
                     add_edit(
@@ -379,31 +388,22 @@ pub fn transform_tree(
                         owners,
                     );
                 }
-            } else if !child_of_parent_gated_module
-                && !owners.is_empty()
-                && !matches!(item, Item::Trait(_))
-                && !has_matching_cfg(item_attrs(item), &owners)
-            {
-                add_edit(
-                    &mut edits,
-                    &source_file.relative,
-                    item_start(item, &source_file.source)?,
-                    owners,
-                );
             }
-            if let Item::Trait(item_trait) = item {
-                let trait_method_owners =
-                    trait_method_owners(item_trait, operations, &waiter_owners, &symbol_owners);
-                if !trait_method_owners.is_empty() {
-                    collect_trait_method_edits(
-                        &source_file.relative,
-                        &source_file.source,
-                        item_trait,
-                        operations,
-                        &waiter_owners,
-                        &symbol_owners,
-                        &mut edits,
-                    )?;
+            if !child_of_parent_gated_module {
+                if let Item::Trait(item_trait) = item {
+                    let trait_method_owners =
+                        trait_method_owners(item_trait, operations, &waiter_owners, &symbol_owners);
+                    if !trait_method_owners.is_empty() {
+                        collect_trait_method_edits(
+                            &source_file.relative,
+                            &source_file.source,
+                            item_trait,
+                            operations,
+                            &waiter_owners,
+                            &symbol_owners,
+                            &mut edits,
+                        )?;
+                    }
                 }
             }
             if !child_of_parent_gated_module {
@@ -981,7 +981,7 @@ fn inferred_item_owners(
             return type_reference_owners;
         }
     }
-    protocol_reference_owners(&visitor.references, known_symbols)
+    symbol_reference_owners(&visitor.references, known_symbols)
 }
 
 fn type_reference_owners(
@@ -1124,24 +1124,16 @@ fn is_operation_or_client_symbol(symbol: &str) -> bool {
     matches!(symbol.split("::").next(), Some("operation" | "client"))
 }
 
-fn protocol_reference_owners(
+fn symbol_reference_owners(
     references: &BTreeSet<String>,
     symbol_owners: &BTreeMap<String, BTreeSet<String>>,
 ) -> BTreeSet<String> {
     references
         .iter()
-        .filter(|reference| is_protocol_shape_symbol(reference))
+        .filter(|reference| !is_operation_or_client_symbol(reference))
         .filter_map(|reference| symbol_owners.get(reference))
         .flat_map(|owners| owners.iter().cloned())
         .collect()
-}
-
-fn is_protocol_shape_symbol(symbol: &str) -> bool {
-    let mut segments = symbol.split("::");
-    segments.next() == Some("protocol_serde")
-        && segments
-            .next()
-            .is_some_and(|segment| segment.starts_with("shape_"))
 }
 
 fn join_symbol_path(parent: &str, name: &str) -> String {
@@ -1244,10 +1236,15 @@ fn is_operation_or_client_child_path(relative: &str) -> bool {
 }
 
 fn is_parent_gated_child_path(relative: &str) -> bool {
-    if is_operation_or_client_child_path(relative) {
-        return true;
-    }
-    waiter_module_name(relative).is_some_and(|name| name != "matchers")
+    is_operation_or_client_child_path(relative)
+        || is_protocol_serde_child_path(relative)
+        || waiter_module_name(relative).is_some_and(|name| name != "matchers")
+}
+
+fn is_protocol_serde_child_path(relative: &str) -> bool {
+    relative
+        .strip_prefix("src/protocol_serde/")
+        .is_some_and(|path| path.ends_with(".rs"))
 }
 
 fn waiter_module_name(relative: &str) -> Option<&str> {
@@ -2015,6 +2012,69 @@ mod tests {
         );
         let client_source = fs::read_to_string(directory.path().join("src/client.rs")).unwrap();
         assert!(client_source.contains("#[cfg(feature = \"op_get_thing\")]\nmod get_thing;"));
+    }
+
+    #[test]
+    fn gates_protocol_modules_instead_of_child_items() {
+        let directory = tempdir().unwrap();
+        fs::create_dir(directory.path().join("src")).unwrap();
+        fs::create_dir(directory.path().join("src/operation")).unwrap();
+        fs::create_dir(directory.path().join("src/client")).unwrap();
+        fs::create_dir(directory.path().join("src/protocol_serde")).unwrap();
+        fs::write(
+            directory.path().join("src/lib.rs"),
+            "pub mod operation;\npub mod client;\npub(crate) mod protocol_serde;\n",
+        )
+        .unwrap();
+        fs::write(
+            directory.path().join("src/operation.rs"),
+            "pub mod get_thing;\n",
+        )
+        .unwrap();
+        fs::write(directory.path().join("src/client.rs"), "mod get_thing;\n").unwrap();
+        fs::write(
+            directory.path().join("src/operation/get_thing.rs"),
+            "pub struct GetThing;\nfn serialize() { crate::protocol_serde::shape_get_thing::serialize(); }\n",
+        )
+        .unwrap();
+        fs::write(
+            directory.path().join("src/client/get_thing.rs"),
+            "impl super::Client {}\n",
+        )
+        .unwrap();
+        fs::write(
+            directory.path().join("src/protocol_serde.rs"),
+            "pub(crate) mod shape_get_thing;\n",
+        )
+        .unwrap();
+        fs::write(
+            directory
+                .path()
+                .join("src/protocol_serde/shape_get_thing.rs"),
+            "pub(crate) fn serialize() {}\n",
+        )
+        .unwrap();
+        fs::write(
+            directory.path().join("Cargo.toml"),
+            "[package]\nname = \"old\"\nversion = \"0.1.0\"\nedition = \"2024\"\n",
+        )
+        .unwrap();
+
+        transform_tree(directory.path(), "new", "new", &operations()).unwrap();
+
+        let protocol_source =
+            fs::read_to_string(directory.path().join("src/protocol_serde.rs")).unwrap();
+        assert!(
+            protocol_source
+                .contains("#[cfg(feature = \"op_get_thing\")]\npub(crate) mod shape_get_thing;")
+        );
+        let child_source = fs::read_to_string(
+            directory
+                .path()
+                .join("src/protocol_serde/shape_get_thing.rs"),
+        )
+        .unwrap();
+        assert!(!child_source.contains("#[cfg"));
     }
 
     #[test]
