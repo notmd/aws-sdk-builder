@@ -587,8 +587,9 @@ fn run_cargo_check(
         })?;
     if !output.status.success() {
         return Err(ConformanceError::Message(format!(
-            "cargo check failed for {}: {}",
+            "cargo check failed for {} with features [{}]: {}",
             crate_root.display(),
+            features.join(","),
             String::from_utf8_lossy(&output.stderr)
         )));
     }
