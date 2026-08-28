@@ -453,7 +453,7 @@ fn operation_symbols(
     operations: &[Operation],
     waiter_owners: &BTreeMap<String, BTreeSet<String>>,
 ) -> BTreeMap<String, BTreeSet<String>> {
-    let mut symbols = BTreeMap::new();
+    let mut symbols = BTreeMap::<String, BTreeSet<String>>::new();
     for file in files {
         let module_path = source_module_path(&file.relative);
         if module_path.contains("::") {
