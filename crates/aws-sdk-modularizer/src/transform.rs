@@ -467,7 +467,14 @@ fn operation_symbols(
     loop {
         let previous = symbols.clone();
         for file in files {
-            let file_owners = path_owners(&file.relative, operations);
+            let mut file_owners = path_owners(&file.relative, operations);
+            if is_protocol_serde_path(&file.relative) {
+                if let Some(module_owners) =
+                    previous.get(&source_module_path(&file.relative))
+                {
+                    file_owners.extend(module_owners.iter().cloned());
+                }
+            }
             if !file_owners.is_empty() {
                 add_symbol(
                     &mut symbols,
