@@ -242,6 +242,7 @@ pub fn transform_tree(
 
     let waiter_owners = waiter_owners(&source_files, operations);
     let type_owners = build_type_owners(&source_files, operations);
+    let operation_error_names = operation_error_names(&source_files);
     let symbol_owners = operation_symbols(&source_files, operations, &waiter_owners, &type_owners);
     let mut edits = BTreeMap::<String, BTreeMap<usize, BTreeSet<String>>>::new();
     for source_file in &source_files {
@@ -284,7 +285,11 @@ pub fn transform_tree(
                     owners.extend(type_reference_owners(item, &type_owners));
                 }
                 if owners.is_empty() {
-                    owners.extend(operation_error_reference_owners(item, &type_owners));
+                    owners.extend(operation_error_reference_owners(
+                        item,
+                        &type_owners,
+                        &operation_error_names,
+                    ));
                 }
                 if owners.is_empty() {
                     owners.extend(protocol_reference_owners(
@@ -768,7 +773,7 @@ fn operation_error_owners_for_name(
     name: Option<String>,
     type_owners: &BTreeMap<String, BTreeSet<String>>,
 ) -> BTreeSet<String> {
-    let Some(name) = name.filter(|name| name.ends_with("Error")) else {
+    let Some(name) = name.filter(|name| name != "Error" && name.ends_with("Error")) else {
         return BTreeSet::new();
     };
     type_owners
@@ -780,10 +785,8 @@ fn operation_error_owners_for_name(
 fn operation_error_reference_owners(
     item: &Item,
     type_owners: &BTreeMap<String, BTreeSet<String>>,
+    operation_error_names: &BTreeSet<String>,
 ) -> BTreeSet<String> {
-    if matches!(item, Item::Enum(item) if item.ident == "Error") {
-        return BTreeSet::new();
-    }
     let mut visitor = TypeReferenceVisitor::default();
     visitor.visit_item(item);
     intersect_owner_sets(visitor.references.iter().filter_map(|reference| {
@@ -791,8 +794,28 @@ fn operation_error_reference_owners(
         if name.contains("::") || !name.ends_with("Error") {
             return None;
         }
+        if !operation_error_names.contains(name) {
+            return None;
+        }
         type_owners.get(reference)
     }))
+}
+
+fn operation_error_names(files: &[SourceFile]) -> BTreeSet<String> {
+    files
+        .iter()
+        .find(|file| file.relative == "src/types/error.rs")
+        .into_iter()
+        .flat_map(|file| file.syntax.items.iter())
+        .filter_map(|item| match item {
+            Item::Enum(item)
+                if item.ident != "Error" && item.ident.to_string().ends_with("Error") =>
+            {
+                Some(item.ident.to_string())
+            }
+            _ => None,
+        })
+        .collect()
 }
 
 fn item_type_name(item: &Item) -> Option<String> {
