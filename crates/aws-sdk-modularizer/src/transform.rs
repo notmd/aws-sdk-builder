@@ -283,6 +283,9 @@ pub fn transform_tree(
                     owners.extend(type_reference_owners(item, &type_owners));
                 }
                 if owners.is_empty() {
+                    owners.extend(operation_error_reference_owners(item, &type_owners));
+                }
+                if owners.is_empty() {
                     owners.extend(protocol_reference_owners(
                         &item_visitor.references,
                         &symbol_owners,
@@ -763,6 +766,21 @@ fn operation_error_owners_for_name(
         .get(&format!("types::error::{name}"))
         .cloned()
         .unwrap_or_default()
+}
+
+fn operation_error_reference_owners(
+    item: &Item,
+    type_owners: &BTreeMap<String, BTreeSet<String>>,
+) -> BTreeSet<String> {
+    let mut visitor = TypeReferenceVisitor::default();
+    visitor.visit_item(item);
+    intersect_owner_sets(visitor.references.iter().filter_map(|reference| {
+        let name = reference.strip_prefix("types::error::")?;
+        if name.contains("::") || !name.ends_with("Error") {
+            return None;
+        }
+        type_owners.get(reference)
+    }))
 }
 
 fn item_type_name(item: &Item) -> Option<String> {
