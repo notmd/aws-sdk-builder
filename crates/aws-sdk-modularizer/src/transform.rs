@@ -419,6 +419,15 @@ pub fn transform_tree(
                     &method_owners,
                     &mut edits,
                 )?;
+                collect_statement_edits(
+                    &source_file.relative,
+                    &source_file.source,
+                    item,
+                    operations,
+                    &waiter_owners,
+                    &symbol_owners,
+                    &mut edits,
+                )?;
             }
         }
     }
@@ -1155,6 +1164,24 @@ fn is_protocol_shape_symbol(symbol: &str) -> bool {
             .is_some_and(|segment| segment.starts_with("shape_"))
 }
 
+fn operation_symbol_reference_owners(
+    references: &BTreeSet<String>,
+    symbol_owners: &BTreeMap<String, BTreeSet<String>>,
+) -> BTreeSet<String> {
+    references
+        .iter()
+        .filter(|reference| {
+            !is_operation_or_client_symbol(reference)
+                && !matches!(
+                    reference.split("::").next(),
+                    Some("config" | "error_meta" | "types")
+                )
+        })
+        .filter_map(|reference| symbol_owners.get(reference))
+        .flat_map(|owners| owners.iter().cloned())
+        .collect()
+}
+
 fn join_symbol_path(parent: &str, name: &str) -> String {
     if parent.is_empty() {
         name.to_owned()
@@ -1375,6 +1402,66 @@ fn collect_module_edits(
         )?;
     }
     Ok(())
+}
+
+struct StatementCfgVisitor<'a> {
+    relative: &'a str,
+    source: &'a str,
+    operations: &'a [Operation],
+    waiter_owners: &'a BTreeMap<String, BTreeSet<String>>,
+    symbol_owners: &'a BTreeMap<String, BTreeSet<String>>,
+    edits: &'a mut BTreeMap<String, BTreeMap<usize, BTreeSet<String>>>,
+}
+
+impl<'ast> Visit<'ast> for StatementCfgVisitor<'_> {
+    fn visit_stmt(&mut self, statement: &'ast syn::Stmt) {
+        let mut visitor = OperationPathVisitor {
+            operations: self.operations,
+            waiter_owners: self.waiter_owners,
+            symbol_owners: self.symbol_owners,
+            owners: BTreeSet::new(),
+            method_calls: BTreeSet::new(),
+            references: BTreeSet::new(),
+        };
+        visitor.visit_stmt(statement);
+        let owners = operation_symbol_reference_owners(&visitor.references, self.symbol_owners);
+        if !owners.is_empty() && !has_matching_cfg(statement_attrs(statement), &owners) {
+            if let Ok(offset) = source_offset(self.source, statement.span().start()) {
+                add_edit(self.edits, self.relative, offset, owners);
+            }
+        }
+        visit::visit_stmt(self, statement);
+    }
+}
+
+fn collect_statement_edits(
+    relative: &str,
+    source: &str,
+    item: &Item,
+    operations: &[Operation],
+    waiter_owners: &BTreeMap<String, BTreeSet<String>>,
+    symbol_owners: &BTreeMap<String, BTreeSet<String>>,
+    edits: &mut BTreeMap<String, BTreeMap<usize, BTreeSet<String>>>,
+) -> Result<(), TransformError> {
+    let mut visitor = StatementCfgVisitor {
+        relative,
+        source,
+        operations,
+        waiter_owners,
+        symbol_owners,
+        edits,
+    };
+    visitor.visit_item(item);
+    Ok(())
+}
+
+fn statement_attrs(statement: &syn::Stmt) -> &[Attribute] {
+    match statement {
+        syn::Stmt::Local(local) => &local.attrs,
+        syn::Stmt::Item(item) => item_attrs(item),
+        syn::Stmt::Expr(_, _) => &[],
+        syn::Stmt::Macro(statement_macro) => &statement_macro.attrs,
+    }
 }
 
 fn collect_inline_item_edits(
