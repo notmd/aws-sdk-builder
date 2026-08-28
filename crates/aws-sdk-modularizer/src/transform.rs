@@ -141,6 +141,7 @@ struct MethodKey {
 }
 
 type MethodOwnership = BTreeMap<MethodKey, BTreeSet<String>>;
+type StatementEdits = BTreeMap<String, Vec<(usize, usize, BTreeSet<String>)>>;
 
 fn impl_context(item_impl: &syn::ItemImpl) -> (String, Option<String>) {
     (
@@ -270,6 +271,7 @@ pub fn transform_tree(
     let operation_error_names = operation_error_names(&source_files);
     let symbol_owners = operation_symbols(&source_files, operations, &waiter_owners, &type_owners);
     let mut edits = BTreeMap::<String, BTreeMap<usize, BTreeSet<String>>>::new();
+    let mut statement_edits = StatementEdits::new();
     for source_file in &source_files {
         let child_of_parent_gated_module =
             is_parent_gated_child_path(&source_file.relative, operations);
@@ -426,17 +428,24 @@ pub fn transform_tree(
                     operations,
                     &waiter_owners,
                     &symbol_owners,
-                    &mut edits,
+                    &mut statement_edits,
                 )?;
             }
         }
     }
 
     for source_file in &source_files {
-        let Some(file_edits) = edits.get(&source_file.relative) else {
+        let file_edits = edits.get(&source_file.relative);
+        let file_statement_edits = statement_edits.get(&source_file.relative);
+        if file_edits.is_none() && file_statement_edits.is_none() {
             continue;
-        };
-        let updated = apply_edits(&source_file.source, file_edits, &source_file.relative)?;
+        }
+        let updated = apply_edits(
+            &source_file.source,
+            file_edits,
+            file_statement_edits,
+            &source_file.relative,
+        )?;
         syn::parse_file(&updated).map_err(|error| TransformError::Rust {
             path: crate_root.join(&source_file.relative),
             message: error.to_string(),
@@ -1413,7 +1422,8 @@ struct StatementCfgVisitor<'a> {
     operations: &'a [Operation],
     waiter_owners: &'a BTreeMap<String, BTreeSet<String>>,
     symbol_owners: &'a BTreeMap<String, BTreeSet<String>>,
-    edits: &'a mut BTreeMap<String, BTreeMap<usize, BTreeSet<String>>>,
+    edits: &'a mut StatementEdits,
+    error: Option<TransformError>,
 }
 
 impl<'ast> Visit<'ast> for StatementCfgVisitor<'_> {
@@ -1429,9 +1439,18 @@ impl<'ast> Visit<'ast> for StatementCfgVisitor<'_> {
         visitor.visit_stmt(statement);
         let owners = operation_symbol_reference_owners(&visitor.references, self.symbol_owners);
         if !owners.is_empty() && !has_matching_cfg(statement_attrs(statement), &owners) {
-            if let Ok(offset) = source_offset(self.source, statement.span().start()) {
-                add_edit(self.edits, self.relative, offset, owners);
+            match statement_range(statement, self.source) {
+                Ok((start, end)) => self
+                    .edits
+                    .entry(self.relative.to_owned())
+                    .or_default()
+                    .push((start, end, owners)),
+                Err(error) => {
+                    self.error = Some(error);
+                    return;
+                }
             }
+            return;
         }
         visit::visit_stmt(self, statement);
     }
@@ -1444,7 +1463,7 @@ fn collect_statement_edits(
     operations: &[Operation],
     waiter_owners: &BTreeMap<String, BTreeSet<String>>,
     symbol_owners: &BTreeMap<String, BTreeSet<String>>,
-    edits: &mut BTreeMap<String, BTreeMap<usize, BTreeSet<String>>>,
+    statement_edits: &mut StatementEdits,
 ) -> Result<(), TransformError> {
     let mut visitor = StatementCfgVisitor {
         relative,
@@ -1452,9 +1471,13 @@ fn collect_statement_edits(
         operations,
         waiter_owners,
         symbol_owners,
-        edits,
+        edits: statement_edits,
+        error: None,
     };
     visitor.visit_item(item);
+    if let Some(error) = visitor.error {
+        return Err(error);
+    }
     Ok(())
 }
 
@@ -1465,6 +1488,14 @@ fn statement_attrs(statement: &syn::Stmt) -> &[Attribute] {
         syn::Stmt::Expr(_, _) => &[],
         syn::Stmt::Macro(statement_macro) => &statement_macro.attrs,
     }
+}
+
+fn statement_range(statement: &syn::Stmt, source: &str) -> Result<(usize, usize), TransformError> {
+    token_range(
+        statement.to_token_stream(),
+        statement_attrs(statement),
+        source,
+    )
 }
 
 fn collect_inline_item_edits(
@@ -1942,12 +1973,30 @@ fn item_attrs(item: &Item) -> &[Attribute] {
 
 fn apply_edits(
     source: &str,
-    edits: &BTreeMap<usize, BTreeSet<String>>,
+    edits: Option<&BTreeMap<usize, BTreeSet<String>>>,
+    statement_edits: Option<&Vec<(usize, usize, BTreeSet<String>)>>,
     relative: &str,
 ) -> Result<String, TransformError> {
     let mut output = source.to_owned();
-    for (offset, owners) in edits.iter().rev() {
-        let text = cfg_attribute(owners);
+    let mut insertions = BTreeMap::<usize, String>::new();
+    if let Some(edits) = edits {
+        for (offset, owners) in edits {
+            insertions
+                .entry(*offset)
+                .or_default()
+                .push_str(&cfg_attribute(owners));
+        }
+    }
+    if let Some(statement_edits) = statement_edits {
+        for (start, end, owners) in statement_edits {
+            insertions
+                .entry(*start)
+                .or_default()
+                .push_str(&format!("{}{{\n", cfg_attribute(owners)));
+            insertions.entry(*end).or_default().push_str("\n}\n");
+        }
+    }
+    for (offset, text) in insertions.iter().rev() {
         if *offset > output.len() {
             return Err(TransformError::Invalid {
                 path: PathBuf::from(relative),
