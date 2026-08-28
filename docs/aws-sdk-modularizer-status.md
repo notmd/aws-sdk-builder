@@ -29,3 +29,13 @@
 - Operation coverage: unchanged; all 15 services remain mapped.
 - Remaining blocker: confirm the feature matrix and identify any next ownership or generated-surface failures.
 - Next action: run `AWS_SDK_MODULARIZER_ARCHIVE=/tmp/aws-sdk-rust.tar.gz RUSTFLAGS='-Awarnings' just conformance`.
+
+## 2026-08-28 — `f3d90071b`
+
+- Objective: correct the scope of type ownership inference.
+- Generic rule: apply type-reference ownership only inside `types`, `types/error`, `protocol_serde`, and `event_stream_serde`; keep service-wide runtime/config modules unconditional.
+- Changed files: `crates/aws-sdk-modularizer/src/transform.rs`.
+- Commands: `cargo test -p aws-sdk-modularizer` passed; `cargo fmt --all` passed; conformance on `702672a9a` failed in Batch zero-feature mode because shared `error_meta`, config auth/endpoint, and endpoint partition modules were over-gated.
+- Operation coverage: unchanged; all 15 services remain mapped.
+- Remaining blocker: rerun conformance with the narrowed rule and continue from the next compiler failure.
+- Next action: run the required conformance command.
