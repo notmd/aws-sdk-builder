@@ -1177,7 +1177,7 @@ fn operation_symbol_reference_owners(
             !is_operation_or_client_symbol(reference)
                 && !matches!(
                     reference.split("::").next(),
-                    Some("config" | "error_meta" | "types")
+                    Some("config" | "error" | "error_meta" | "types")
                 )
         })
         .filter_map(|reference| symbol_owners.get(reference))
@@ -2209,6 +2209,34 @@ mod tests {
             "src/client/customize/internal.rs",
             &operations
         ));
+    }
+
+    #[test]
+    fn statement_ownership_skips_shared_runtime_symbols() {
+        let owners = BTreeMap::from([
+            (
+                "error::sealed_unhandled".to_owned(),
+                BTreeSet::from(["op_get_thing".to_owned()]),
+            ),
+            (
+                "s3_express::runtime_plugin".to_owned(),
+                BTreeSet::from(["op_get_thing".to_owned()]),
+            ),
+        ]);
+        assert!(
+            operation_symbol_reference_owners(
+                &BTreeSet::from(["error::sealed_unhandled".to_owned()]),
+                &owners,
+            )
+            .is_empty()
+        );
+        assert_eq!(
+            operation_symbol_reference_owners(
+                &BTreeSet::from(["s3_express::runtime_plugin".to_owned()]),
+                &owners,
+            ),
+            BTreeSet::from(["op_get_thing".to_owned()]),
+        );
     }
 
     #[test]
