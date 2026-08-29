@@ -49,9 +49,7 @@ impl SourceDetail {
     /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
     /// <p>Based on the valid value you choose, Config runs evaluations once for each valid value. For example, if you choose <code>Three_Hours</code>, Config runs evaluations once every three hours. In this case, <code>Three_Hours</code> is the frequency of this rule.</p>
     /// </note>
-    pub fn maximum_execution_frequency(
-        &self,
-    ) -> ::std::option::Option<&crate::types::MaximumExecutionFrequency> {
+    pub fn maximum_execution_frequency(&self) -> ::std::option::Option<&crate::types::MaximumExecutionFrequency> {
         self.maximum_execution_frequency.as_ref()
     }
 }
@@ -63,15 +61,12 @@ impl SourceDetail {
 }
 
 /// A builder for [`SourceDetail`](crate::types::SourceDetail).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SourceDetailBuilder {
     pub(crate) event_source: ::std::option::Option<crate::types::EventSource>,
     pub(crate) message_type: ::std::option::Option<crate::types::MessageType>,
-    pub(crate) maximum_execution_frequency:
-        ::std::option::Option<crate::types::MaximumExecutionFrequency>,
+    pub(crate) maximum_execution_frequency: ::std::option::Option<crate::types::MaximumExecutionFrequency>,
 }
 impl SourceDetailBuilder {
     /// <p>The source of the event, such as an Amazon Web Services service, that triggers Config to evaluate your Amazon Web Services resources.</p>
@@ -80,10 +75,7 @@ impl SourceDetailBuilder {
         self
     }
     /// <p>The source of the event, such as an Amazon Web Services service, that triggers Config to evaluate your Amazon Web Services resources.</p>
-    pub fn set_event_source(
-        mut self,
-        input: ::std::option::Option<crate::types::EventSource>,
-    ) -> Self {
+    pub fn set_event_source(mut self, input: ::std::option::Option<crate::types::EventSource>) -> Self {
         self.event_source = input;
         self
     }
@@ -119,10 +111,7 @@ impl SourceDetailBuilder {
     /// <p><code>ConfigurationSnapshotDeliveryCompleted</code> - Triggers a periodic evaluation when Config delivers a configuration snapshot.</p></li>
     /// </ul>
     /// <p>If you want your custom rule to be triggered by configuration changes, specify two SourceDetail objects, one for <code>ConfigurationItemChangeNotification</code> and one for <code>OversizedConfigurationItemChangeNotification</code>.</p>
-    pub fn set_message_type(
-        mut self,
-        input: ::std::option::Option<crate::types::MessageType>,
-    ) -> Self {
+    pub fn set_message_type(mut self, input: ::std::option::Option<crate::types::MessageType>) -> Self {
         self.message_type = input;
         self
     }
@@ -145,10 +134,7 @@ impl SourceDetailBuilder {
     /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
     /// <p>Based on the valid value you choose, Config runs evaluations once for each valid value. For example, if you choose <code>Three_Hours</code>, Config runs evaluations once every three hours. In this case, <code>Three_Hours</code> is the frequency of this rule.</p>
     /// </note>
-    pub fn maximum_execution_frequency(
-        mut self,
-        input: crate::types::MaximumExecutionFrequency,
-    ) -> Self {
+    pub fn maximum_execution_frequency(mut self, input: crate::types::MaximumExecutionFrequency) -> Self {
         self.maximum_execution_frequency = ::std::option::Option::Some(input);
         self
     }
@@ -156,10 +142,7 @@ impl SourceDetailBuilder {
     /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
     /// <p>Based on the valid value you choose, Config runs evaluations once for each valid value. For example, if you choose <code>Three_Hours</code>, Config runs evaluations once every three hours. In this case, <code>Three_Hours</code> is the frequency of this rule.</p>
     /// </note>
-    pub fn set_maximum_execution_frequency(
-        mut self,
-        input: ::std::option::Option<crate::types::MaximumExecutionFrequency>,
-    ) -> Self {
+    pub fn set_maximum_execution_frequency(mut self, input: ::std::option::Option<crate::types::MaximumExecutionFrequency>) -> Self {
         self.maximum_execution_frequency = input;
         self
     }
@@ -167,9 +150,7 @@ impl SourceDetailBuilder {
     /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
     /// <p>Based on the valid value you choose, Config runs evaluations once for each valid value. For example, if you choose <code>Three_Hours</code>, Config runs evaluations once every three hours. In this case, <code>Three_Hours</code> is the frequency of this rule.</p>
     /// </note>
-    pub fn get_maximum_execution_frequency(
-        &self,
-    ) -> &::std::option::Option<crate::types::MaximumExecutionFrequency> {
+    pub fn get_maximum_execution_frequency(&self) -> &::std::option::Option<crate::types::MaximumExecutionFrequency> {
         &self.maximum_execution_frequency
     }
     /// Consumes the builder and constructs a [`SourceDetail`](crate::types::SourceDetail).

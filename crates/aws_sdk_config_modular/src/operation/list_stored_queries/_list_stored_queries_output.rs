@@ -5,8 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListStoredQueriesOutput {
     /// <p>A list of <code>StoredQueryMetadata</code> objects.</p>
-    pub stored_query_metadata:
-        ::std::option::Option<::std::vec::Vec<crate::types::StoredQueryMetadata>>,
+    pub stored_query_metadata: ::std::option::Option<::std::vec::Vec<crate::types::StoredQueryMetadata>>,
     /// <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this operation again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -33,21 +32,17 @@ impl ::aws_types::request_id::RequestId for ListStoredQueriesOutput {
 #[cfg(feature = "op_list_stored_queries")]
 impl ListStoredQueriesOutput {
     /// Creates a new builder-style object to manufacture [`ListStoredQueriesOutput`](crate::operation::list_stored_queries::ListStoredQueriesOutput).
-    pub fn builder(
-    ) -> crate::operation::list_stored_queries::builders::ListStoredQueriesOutputBuilder {
+    pub fn builder() -> crate::operation::list_stored_queries::builders::ListStoredQueriesOutputBuilder {
         crate::operation::list_stored_queries::builders::ListStoredQueriesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_stored_queries")]
 /// A builder for [`ListStoredQueriesOutput`](crate::operation::list_stored_queries::ListStoredQueriesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListStoredQueriesOutputBuilder {
-    pub(crate) stored_query_metadata:
-        ::std::option::Option<::std::vec::Vec<crate::types::StoredQueryMetadata>>,
+    pub(crate) stored_query_metadata: ::std::option::Option<::std::vec::Vec<crate::types::StoredQueryMetadata>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -65,17 +60,12 @@ impl ListStoredQueriesOutputBuilder {
         self
     }
     /// <p>A list of <code>StoredQueryMetadata</code> objects.</p>
-    pub fn set_stored_query_metadata(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::StoredQueryMetadata>>,
-    ) -> Self {
+    pub fn set_stored_query_metadata(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::StoredQueryMetadata>>) -> Self {
         self.stored_query_metadata = input;
         self
     }
     /// <p>A list of <code>StoredQueryMetadata</code> objects.</p>
-    pub fn get_stored_query_metadata(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::StoredQueryMetadata>> {
+    pub fn get_stored_query_metadata(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::StoredQueryMetadata>> {
         &self.stored_query_metadata
     }
     /// <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this operation again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>

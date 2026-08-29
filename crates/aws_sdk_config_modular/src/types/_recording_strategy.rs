@@ -97,9 +97,7 @@ impl RecordingStrategy {
 }
 
 /// A builder for [`RecordingStrategy`](crate::types::RecordingStrategy).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RecordingStrategyBuilder {
     pub(crate) use_only: ::std::option::Option<crate::types::RecordingStrategyType>,
@@ -187,10 +185,7 @@ impl RecordingStrategyBuilder {
     /// <p>Middle East (UAE)</p></li>
     /// </ul>
     /// </note>
-    pub fn set_use_only(
-        mut self,
-        input: ::std::option::Option<crate::types::RecordingStrategyType>,
-    ) -> Self {
+    pub fn set_use_only(mut self, input: ::std::option::Option<crate::types::RecordingStrategyType>) -> Self {
         self.use_only = input;
         self
     }
@@ -238,8 +233,6 @@ impl RecordingStrategyBuilder {
     }
     /// Consumes the builder and constructs a [`RecordingStrategy`](crate::types::RecordingStrategy).
     pub fn build(self) -> crate::types::RecordingStrategy {
-        crate::types::RecordingStrategy {
-            use_only: self.use_only,
-        }
+        crate::types::RecordingStrategy { use_only: self.use_only }
     }
 }

@@ -31,9 +31,7 @@ impl GetConnectorOutput {
 
 #[cfg(feature = "op_get_connector")]
 /// A builder for [`GetConnectorOutput`](crate::operation::get_connector::GetConnectorOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetConnectorOutputBuilder {
     pub(crate) connector: ::std::option::Option<crate::types::Connector>,

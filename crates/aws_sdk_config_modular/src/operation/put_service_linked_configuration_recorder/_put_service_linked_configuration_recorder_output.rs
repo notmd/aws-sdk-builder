@@ -32,16 +32,14 @@ impl ::aws_types::request_id::RequestId for PutServiceLinkedConfigurationRecorde
 #[cfg(feature = "op_put_service_linked_configuration_recorder")]
 impl PutServiceLinkedConfigurationRecorderOutput {
     /// Creates a new builder-style object to manufacture [`PutServiceLinkedConfigurationRecorderOutput`](crate::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderOutput).
-    pub fn builder() -> crate::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderOutputBuilder{
+    pub fn builder() -> crate::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderOutputBuilder {
         crate::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_service_linked_configuration_recorder")]
 /// A builder for [`PutServiceLinkedConfigurationRecorderOutput`](crate::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutServiceLinkedConfigurationRecorderOutputBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
@@ -91,7 +89,7 @@ impl PutServiceLinkedConfigurationRecorderOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutServiceLinkedConfigurationRecorderOutput`](crate::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderOutput).
-    pub fn build(self) -> crate::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderOutput{
+    pub fn build(self) -> crate::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderOutput {
         crate::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderOutput {
             arn: self.arn,
             name: self.name,

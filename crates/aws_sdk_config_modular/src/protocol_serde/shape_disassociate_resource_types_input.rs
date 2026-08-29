@@ -4,9 +4,7 @@ pub fn ser_disassociate_resource_types_input_input(
     input: &crate::operation::disassociate_resource_types::DisassociateResourceTypesInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     if let Some(var_1) = &input.configuration_recorder_arn {
-        object
-            .key("ConfigurationRecorderArn")
-            .string(var_1.as_str());
+        object.key("ConfigurationRecorderArn").string(var_1.as_str());
     }
     if let Some(var_2) = &input.resource_types {
         let mut array_3 = object.key("ResourceTypes").start_array();

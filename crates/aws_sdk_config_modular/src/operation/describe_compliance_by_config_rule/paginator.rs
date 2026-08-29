@@ -25,7 +25,7 @@ impl DescribeComplianceByConfigRulePaginator {
     ///
     /// This paginator automatically flattens results using `compliance_by_config_rules`. Queries to the underlying service
     /// are dispatched lazily.
-    pub fn items(self) -> crate::operation::describe_compliance_by_config_rule::paginator::DescribeComplianceByConfigRulePaginatorItems{
+    pub fn items(self) -> crate::operation::describe_compliance_by_config_rule::paginator::DescribeComplianceByConfigRulePaginatorItems {
         crate::operation::describe_compliance_by_config_rule::paginator::DescribeComplianceByConfigRulePaginatorItems(self)
     }
 
@@ -55,7 +55,7 @@ impl DescribeComplianceByConfigRulePaginator {
                 ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
             >,
         >,
-    >{
+    > {
         // Move individual fields out of self for the borrow checker
         let builder = self.builder;
         let handle = self.handle;
@@ -65,13 +65,14 @@ impl DescribeComplianceByConfigRulePaginator {
             ::std::option::Option::None,
         )
         .with_operation_plugin(crate::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
-        ::aws_smithy_async::future::pagination_stream::PaginationStream::new(
-            ::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(move |tx| {
+        ::aws_smithy_async::future::pagination_stream::PaginationStream::new(::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(
+            move |tx| {
                 ::std::boxed::Box::pin(async move {
                     // Build the input for the first time. If required fields are missing, this is where we'll produce an early error.
-                    let mut input = match builder.build().map_err(
-                        ::aws_smithy_runtime_api::client::result::SdkError::construction_failure,
-                    ) {
+                    let mut input = match builder
+                        .build()
+                        .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)
+                    {
                         ::std::result::Result::Ok(input) => input,
                         ::std::result::Result::Err(e) => {
                             let _ = tx.send(::std::result::Result::Err(e)).await;
@@ -89,12 +90,8 @@ impl DescribeComplianceByConfigRulePaginator {
                             ::std::result::Result::Ok(ref resp) => {
                                 let new_token = crate::lens::reflens_describe_compliance_by_config_rule_output_output_next_token(resp);
                                 // Pagination is exhausted when the next token is an empty string
-                                let is_empty =
-                                    new_token.map(|token| token.is_empty()).unwrap_or(true);
-                                if !is_empty
-                                    && new_token == input.next_token.as_ref()
-                                    && self.stop_on_duplicate_token
-                                {
+                                let is_empty = new_token.map(|token| token.is_empty()).unwrap_or(true);
+                                if !is_empty && new_token == input.next_token.as_ref() && self.stop_on_duplicate_token {
                                     true
                                 } else {
                                     input.next_token = new_token.cloned();
@@ -112,8 +109,8 @@ impl DescribeComplianceByConfigRulePaginator {
                         }
                     }
                 })
-            }),
-        )
+            },
+        ))
     }
 }
 
@@ -141,7 +138,7 @@ impl DescribeComplianceByConfigRulePaginatorItems {
                 ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
             >,
         >,
-    >{
+    > {
         ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
             crate::lens::lens_describe_compliance_by_config_rule_output_output_compliance_by_config_rules(page)
                 .unwrap_or_default()

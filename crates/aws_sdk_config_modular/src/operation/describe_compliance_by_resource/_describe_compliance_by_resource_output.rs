@@ -6,8 +6,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeComplianceByResourceOutput {
     /// <p>Indicates whether the specified Amazon Web Services resource complies with all of the Config rules that evaluate it.</p>
-    pub compliance_by_resources:
-        ::std::option::Option<::std::vec::Vec<crate::types::ComplianceByResource>>,
+    pub compliance_by_resources: ::std::option::Option<::std::vec::Vec<crate::types::ComplianceByResource>>,
     /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -34,20 +33,17 @@ impl ::aws_types::request_id::RequestId for DescribeComplianceByResourceOutput {
 #[cfg(feature = "op_describe_compliance_by_resource")]
 impl DescribeComplianceByResourceOutput {
     /// Creates a new builder-style object to manufacture [`DescribeComplianceByResourceOutput`](crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceOutput).
-    pub fn builder() -> crate::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceOutputBuilder{
+    pub fn builder() -> crate::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceOutputBuilder {
         crate::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_compliance_by_resource")]
 /// A builder for [`DescribeComplianceByResourceOutput`](crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeComplianceByResourceOutputBuilder {
-    pub(crate) compliance_by_resources:
-        ::std::option::Option<::std::vec::Vec<crate::types::ComplianceByResource>>,
+    pub(crate) compliance_by_resources: ::std::option::Option<::std::vec::Vec<crate::types::ComplianceByResource>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -65,17 +61,12 @@ impl DescribeComplianceByResourceOutputBuilder {
         self
     }
     /// <p>Indicates whether the specified Amazon Web Services resource complies with all of the Config rules that evaluate it.</p>
-    pub fn set_compliance_by_resources(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ComplianceByResource>>,
-    ) -> Self {
+    pub fn set_compliance_by_resources(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ComplianceByResource>>) -> Self {
         self.compliance_by_resources = input;
         self
     }
     /// <p>Indicates whether the specified Amazon Web Services resource complies with all of the Config rules that evaluate it.</p>
-    pub fn get_compliance_by_resources(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ComplianceByResource>> {
+    pub fn get_compliance_by_resources(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ComplianceByResource>> {
         &self.compliance_by_resources
     }
     /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
@@ -102,9 +93,7 @@ impl DescribeComplianceByResourceOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeComplianceByResourceOutput`](crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceOutput {
+    pub fn build(self) -> crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceOutput {
         crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceOutput {
             compliance_by_resources: self.compliance_by_resources,
             next_token: self.next_token,

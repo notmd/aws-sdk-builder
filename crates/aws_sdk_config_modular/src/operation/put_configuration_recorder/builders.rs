@@ -74,10 +74,7 @@ impl PutConfigurationRecorderFluentBuilder {
         }
     }
     /// Access the PutConfigurationRecorder as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_configuration_recorder::builders::PutConfigurationRecorderInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::put_configuration_recorder::builders::PutConfigurationRecorderInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -106,11 +103,7 @@ impl PutConfigurationRecorderFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_configuration_recorder::PutConfigurationRecorder::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::put_configuration_recorder::PutConfigurationRecorder::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -123,18 +116,12 @@ impl PutConfigurationRecorderFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -144,17 +131,12 @@ impl PutConfigurationRecorderFluentBuilder {
         self
     }
     /// <p>An object for the configuration recorder. A configuration recorder records configuration changes for the resource types in scope.</p>
-    pub fn set_configuration_recorder(
-        mut self,
-        input: ::std::option::Option<crate::types::ConfigurationRecorder>,
-    ) -> Self {
+    pub fn set_configuration_recorder(mut self, input: ::std::option::Option<crate::types::ConfigurationRecorder>) -> Self {
         self.inner = self.inner.set_configuration_recorder(input);
         self
     }
     /// <p>An object for the configuration recorder. A configuration recorder records configuration changes for the resource types in scope.</p>
-    pub fn get_configuration_recorder(
-        &self,
-    ) -> &::std::option::Option<crate::types::ConfigurationRecorder> {
+    pub fn get_configuration_recorder(&self) -> &::std::option::Option<crate::types::ConfigurationRecorder> {
         self.inner.get_configuration_recorder()
     }
     ///
@@ -168,10 +150,7 @@ impl PutConfigurationRecorderFluentBuilder {
         self
     }
     /// <p>The tags for the customer managed configuration recorder. Each tag consists of a key and an optional value, both of which you define.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }

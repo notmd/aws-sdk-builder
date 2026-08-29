@@ -33,20 +33,17 @@ impl ::aws_types::request_id::RequestId for GetComplianceDetailsByResourceOutput
 #[cfg(feature = "op_get_compliance_details_by_resource")]
 impl GetComplianceDetailsByResourceOutput {
     /// Creates a new builder-style object to manufacture [`GetComplianceDetailsByResourceOutput`](crate::operation::get_compliance_details_by_resource::GetComplianceDetailsByResourceOutput).
-    pub fn builder() -> crate::operation::get_compliance_details_by_resource::builders::GetComplianceDetailsByResourceOutputBuilder{
+    pub fn builder() -> crate::operation::get_compliance_details_by_resource::builders::GetComplianceDetailsByResourceOutputBuilder {
         crate::operation::get_compliance_details_by_resource::builders::GetComplianceDetailsByResourceOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_compliance_details_by_resource")]
 /// A builder for [`GetComplianceDetailsByResourceOutput`](crate::operation::get_compliance_details_by_resource::GetComplianceDetailsByResourceOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetComplianceDetailsByResourceOutputBuilder {
-    pub(crate) evaluation_results:
-        ::std::option::Option<::std::vec::Vec<crate::types::EvaluationResult>>,
+    pub(crate) evaluation_results: ::std::option::Option<::std::vec::Vec<crate::types::EvaluationResult>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -64,17 +61,12 @@ impl GetComplianceDetailsByResourceOutputBuilder {
         self
     }
     /// <p>Indicates whether the specified Amazon Web Services resource complies each Config rule.</p>
-    pub fn set_evaluation_results(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::EvaluationResult>>,
-    ) -> Self {
+    pub fn set_evaluation_results(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EvaluationResult>>) -> Self {
         self.evaluation_results = input;
         self
     }
     /// <p>Indicates whether the specified Amazon Web Services resource complies each Config rule.</p>
-    pub fn get_evaluation_results(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::EvaluationResult>> {
+    pub fn get_evaluation_results(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EvaluationResult>> {
         &self.evaluation_results
     }
     /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
@@ -101,10 +93,7 @@ impl GetComplianceDetailsByResourceOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetComplianceDetailsByResourceOutput`](crate::operation::get_compliance_details_by_resource::GetComplianceDetailsByResourceOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::get_compliance_details_by_resource::GetComplianceDetailsByResourceOutput
-    {
+    pub fn build(self) -> crate::operation::get_compliance_details_by_resource::GetComplianceDetailsByResourceOutput {
         crate::operation::get_compliance_details_by_resource::GetComplianceDetailsByResourceOutput {
             evaluation_results: self.evaluation_results,
             next_token: self.next_token,

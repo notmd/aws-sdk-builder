@@ -15,8 +15,7 @@ pub struct DescribeConfigurationAggregatorSourcesStatusInput {
     /// <li>
     /// <p>Valid value OUTDATED indicates the data is not the most recent.</p></li>
     /// </ul>
-    pub update_status:
-        ::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>>,
+    pub update_status: ::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     /// <p>The maximum number of AggregatorSourceStatus returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>
@@ -55,21 +54,18 @@ impl DescribeConfigurationAggregatorSourcesStatusInput {
 impl DescribeConfigurationAggregatorSourcesStatusInput {
     /// Creates a new builder-style object to manufacture [`DescribeConfigurationAggregatorSourcesStatusInput`](crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusInput).
     pub fn builder(
-    ) -> crate::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusInputBuilder{
+    ) -> crate::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusInputBuilder {
         crate::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_configuration_aggregator_sources_status")]
 /// A builder for [`DescribeConfigurationAggregatorSourcesStatusInput`](crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeConfigurationAggregatorSourcesStatusInputBuilder {
     pub(crate) configuration_aggregator_name: ::std::option::Option<::std::string::String>,
-    pub(crate) update_status:
-        ::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>>,
+    pub(crate) update_status: ::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     pub(crate) limit: ::std::option::Option<i32>,
 }
@@ -77,25 +73,17 @@ pub struct DescribeConfigurationAggregatorSourcesStatusInputBuilder {
 impl DescribeConfigurationAggregatorSourcesStatusInputBuilder {
     /// <p>The name of the configuration aggregator.</p>
     /// This field is required.
-    pub fn configuration_aggregator_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.configuration_aggregator_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.configuration_aggregator_name = input;
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.configuration_aggregator_name
     }
     /// Appends an item to `update_status`.
@@ -126,10 +114,7 @@ impl DescribeConfigurationAggregatorSourcesStatusInputBuilder {
     /// <li>
     /// <p>Valid value OUTDATED indicates the data is not the most recent.</p></li>
     /// </ul>
-    pub fn set_update_status(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>>,
-    ) -> Self {
+    pub fn set_update_status(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>>) -> Self {
         self.update_status = input;
         self
     }
@@ -142,9 +127,7 @@ impl DescribeConfigurationAggregatorSourcesStatusInputBuilder {
     /// <li>
     /// <p>Valid value OUTDATED indicates the data is not the most recent.</p></li>
     /// </ul>
-    pub fn get_update_status(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>> {
+    pub fn get_update_status(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>> {
         &self.update_status
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -181,7 +164,7 @@ impl DescribeConfigurationAggregatorSourcesStatusInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusInput {
                 configuration_aggregator_name: self.configuration_aggregator_name,

@@ -74,9 +74,7 @@ impl PutConfigRuleFluentBuilder {
         }
     }
     /// Access the PutConfigRule as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_config_rule::builders::PutConfigRuleInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_config_rule::builders::PutConfigRuleInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -100,12 +98,11 @@ impl PutConfigRuleFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::put_config_rule::PutConfigRule::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::put_config_rule::PutConfigRule::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::put_config_rule::PutConfigRule::orchestrate(&runtime_plugins, input).await
     }
 
@@ -119,18 +116,12 @@ impl PutConfigRuleFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -140,10 +131,7 @@ impl PutConfigRuleFluentBuilder {
         self
     }
     /// <p>The rule that you want to add to your account.</p>
-    pub fn set_config_rule(
-        mut self,
-        input: ::std::option::Option<crate::types::ConfigRule>,
-    ) -> Self {
+    pub fn set_config_rule(mut self, input: ::std::option::Option<crate::types::ConfigRule>) -> Self {
         self.inner = self.inner.set_config_rule(input);
         self
     }
@@ -162,10 +150,7 @@ impl PutConfigRuleFluentBuilder {
         self
     }
     /// <p>An array of tag object.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }

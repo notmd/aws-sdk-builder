@@ -11,7 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutServiceLinkedConfigurationRecorderError>`](crate::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError)
     pub fn put_service_linked_configuration_recorder(
         &self,
-    ) -> crate::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderFluentBuilder{
+    ) -> crate::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderFluentBuilder {
         crate::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderFluentBuilder::new(
             self.handle.clone(),
         )

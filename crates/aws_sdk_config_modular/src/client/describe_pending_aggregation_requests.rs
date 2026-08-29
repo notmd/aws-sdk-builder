@@ -12,7 +12,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribePendingAggregationRequestsError>`](crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsError)
     pub fn describe_pending_aggregation_requests(
         &self,
-    ) -> crate::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsFluentBuilder{
+    ) -> crate::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsFluentBuilder {
         crate::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsFluentBuilder::new(self.handle.clone())
     }
 }

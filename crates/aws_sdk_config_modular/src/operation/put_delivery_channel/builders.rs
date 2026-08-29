@@ -68,9 +68,7 @@ impl PutDeliveryChannelFluentBuilder {
         }
     }
     /// Access the PutDeliveryChannel as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_delivery_channel::builders::PutDeliveryChannelInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_delivery_channel::builders::PutDeliveryChannelInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -94,17 +92,12 @@ impl PutDeliveryChannelFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::put_delivery_channel::PutDeliveryChannel::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::put_delivery_channel::PutDeliveryChannel::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::put_delivery_channel::PutDeliveryChannel::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::put_delivery_channel::PutDeliveryChannel::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -117,18 +110,12 @@ impl PutDeliveryChannelFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -138,10 +125,7 @@ impl PutDeliveryChannelFluentBuilder {
         self
     }
     /// <p>An object for the delivery channel. A delivery channel sends notifications and updated configuration states.</p>
-    pub fn set_delivery_channel(
-        mut self,
-        input: ::std::option::Option<crate::types::DeliveryChannel>,
-    ) -> Self {
+    pub fn set_delivery_channel(mut self, input: ::std::option::Option<crate::types::DeliveryChannel>) -> Self {
         self.inner = self.inner.set_delivery_channel(input);
         self
     }

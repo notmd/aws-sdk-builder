@@ -9,8 +9,7 @@ pub struct GetAggregateDiscoveredResourceCountsOutput {
     /// <p>The key passed into the request object. If <code>GroupByKey</code> is not provided, the result will be empty.</p>
     pub group_by_key: ::std::option::Option<::std::string::String>,
     /// <p>Returns a list of GroupedResourceCount objects.</p>
-    pub grouped_resource_counts:
-        ::std::option::Option<::std::vec::Vec<crate::types::GroupedResourceCount>>,
+    pub grouped_resource_counts: ::std::option::Option<::std::vec::Vec<crate::types::GroupedResourceCount>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -45,22 +44,19 @@ impl ::aws_types::request_id::RequestId for GetAggregateDiscoveredResourceCounts
 #[cfg(feature = "op_get_aggregate_discovered_resource_counts")]
 impl GetAggregateDiscoveredResourceCountsOutput {
     /// Creates a new builder-style object to manufacture [`GetAggregateDiscoveredResourceCountsOutput`](crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsOutput).
-    pub fn builder() -> crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsOutputBuilder{
+    pub fn builder() -> crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsOutputBuilder {
         crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_aggregate_discovered_resource_counts")]
 /// A builder for [`GetAggregateDiscoveredResourceCountsOutput`](crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetAggregateDiscoveredResourceCountsOutputBuilder {
     pub(crate) total_discovered_resources: ::std::option::Option<i64>,
     pub(crate) group_by_key: ::std::option::Option<::std::string::String>,
-    pub(crate) grouped_resource_counts:
-        ::std::option::Option<::std::vec::Vec<crate::types::GroupedResourceCount>>,
+    pub(crate) grouped_resource_counts: ::std::option::Option<::std::vec::Vec<crate::types::GroupedResourceCount>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -107,17 +103,12 @@ impl GetAggregateDiscoveredResourceCountsOutputBuilder {
         self
     }
     /// <p>Returns a list of GroupedResourceCount objects.</p>
-    pub fn set_grouped_resource_counts(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::GroupedResourceCount>>,
-    ) -> Self {
+    pub fn set_grouped_resource_counts(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GroupedResourceCount>>) -> Self {
         self.grouped_resource_counts = input;
         self
     }
     /// <p>Returns a list of GroupedResourceCount objects.</p>
-    pub fn get_grouped_resource_counts(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GroupedResourceCount>> {
+    pub fn get_grouped_resource_counts(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GroupedResourceCount>> {
         &self.grouped_resource_counts
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -144,7 +135,7 @@ impl GetAggregateDiscoveredResourceCountsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetAggregateDiscoveredResourceCountsOutput`](crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsOutput).
-    pub fn build(self) -> crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsOutput{
+    pub fn build(self) -> crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsOutput {
         crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsOutput {
             total_discovered_resources: self.total_discovered_resources.unwrap_or_default(),
             group_by_key: self.group_by_key,

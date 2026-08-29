@@ -23,16 +23,14 @@ impl DescribeAggregationAuthorizationsInput {
 #[cfg(feature = "op_describe_aggregation_authorizations")]
 impl DescribeAggregationAuthorizationsInput {
     /// Creates a new builder-style object to manufacture [`DescribeAggregationAuthorizationsInput`](crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsInput).
-    pub fn builder() -> crate::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsInputBuilder{
+    pub fn builder() -> crate::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsInputBuilder {
         crate::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_aggregation_authorizations")]
 /// A builder for [`DescribeAggregationAuthorizationsInput`](crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeAggregationAuthorizationsInputBuilder {
     pub(crate) limit: ::std::option::Option<i32>,
@@ -74,7 +72,7 @@ impl DescribeAggregationAuthorizationsInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsInput {
                 limit: self.limit,

@@ -4,28 +4,21 @@ pub fn ser_external_evaluation(
     input: &crate::types::ExternalEvaluation,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     {
-        object
-            .key("ComplianceResourceType")
-            .string(input.compliance_resource_type.as_str());
+        object.key("ComplianceResourceType").string(input.compliance_resource_type.as_str());
     }
     {
-        object
-            .key("ComplianceResourceId")
-            .string(input.compliance_resource_id.as_str());
+        object.key("ComplianceResourceId").string(input.compliance_resource_id.as_str());
     }
     {
-        object
-            .key("ComplianceType")
-            .string(input.compliance_type.as_str());
+        object.key("ComplianceType").string(input.compliance_type.as_str());
     }
     if let Some(var_1) = &input.annotation {
         object.key("Annotation").string(var_1.as_str());
     }
     {
-        object.key("OrderingTimestamp").date_time(
-            &input.ordering_timestamp,
-            ::aws_smithy_types::date_time::Format::EpochSeconds,
-        )?;
+        object
+            .key("OrderingTimestamp")
+            .date_time(&input.ordering_timestamp, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
     }
     Ok(())
 }

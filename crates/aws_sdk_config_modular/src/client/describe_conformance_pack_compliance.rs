@@ -15,7 +15,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeConformancePackComplianceError>`](crate::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError)
     pub fn describe_conformance_pack_compliance(
         &self,
-    ) -> crate::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceFluentBuilder{
+    ) -> crate::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceFluentBuilder {
         crate::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceFluentBuilder::new(self.handle.clone())
     }
 }

@@ -13,7 +13,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetConformancePackComplianceSummaryError>`](crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError)
     pub fn get_conformance_pack_compliance_summary(
         &self,
-    ) -> crate::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryFluentBuilder{
+    ) -> crate::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryFluentBuilder {
         crate::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryFluentBuilder::new(
             self.handle.clone(),
         )

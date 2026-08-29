@@ -67,7 +67,7 @@ impl GetAggregateConfigRuleComplianceSummaryFluentBuilder {
     /// Access the GetAggregateConfigRuleComplianceSummary as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryInputBuilder{
+    ) -> &crate::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +86,7 @@ impl GetAggregateConfigRuleComplianceSummaryFluentBuilder {
             crate::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -108,21 +108,15 @@ impl GetAggregateConfigRuleComplianceSummaryFluentBuilder {
         crate::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryOutput,
         crate::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -131,32 +125,24 @@ impl GetAggregateConfigRuleComplianceSummaryFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::get_aggregate_config_rule_compliance_summary::paginator::GetAggregateConfigRuleComplianceSummaryPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::get_aggregate_config_rule_compliance_summary::paginator::GetAggregateConfigRuleComplianceSummaryPaginator{
+    ) -> crate::operation::get_aggregate_config_rule_compliance_summary::paginator::GetAggregateConfigRuleComplianceSummaryPaginator {
         crate::operation::get_aggregate_config_rule_compliance_summary::paginator::GetAggregateConfigRuleComplianceSummaryPaginator::new(
             self.handle,
             self.inner,
         )
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn configuration_aggregator_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_aggregator_name(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_aggregator_name(input);
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_configuration_aggregator_name()
     }
     /// <p>Filters the results based on the ConfigRuleComplianceSummaryFilters object.</p>
@@ -165,39 +151,26 @@ impl GetAggregateConfigRuleComplianceSummaryFluentBuilder {
         self
     }
     /// <p>Filters the results based on the ConfigRuleComplianceSummaryFilters object.</p>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<crate::types::ConfigRuleComplianceSummaryFilters>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<crate::types::ConfigRuleComplianceSummaryFilters>) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }
     /// <p>Filters the results based on the ConfigRuleComplianceSummaryFilters object.</p>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<crate::types::ConfigRuleComplianceSummaryFilters> {
+    pub fn get_filters(&self) -> &::std::option::Option<crate::types::ConfigRuleComplianceSummaryFilters> {
         self.inner.get_filters()
     }
     /// <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
-    pub fn group_by_key(
-        mut self,
-        input: crate::types::ConfigRuleComplianceSummaryGroupKey,
-    ) -> Self {
+    pub fn group_by_key(mut self, input: crate::types::ConfigRuleComplianceSummaryGroupKey) -> Self {
         self.inner = self.inner.group_by_key(input);
         self
     }
     /// <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
-    pub fn set_group_by_key(
-        mut self,
-        input: ::std::option::Option<crate::types::ConfigRuleComplianceSummaryGroupKey>,
-    ) -> Self {
+    pub fn set_group_by_key(mut self, input: ::std::option::Option<crate::types::ConfigRuleComplianceSummaryGroupKey>) -> Self {
         self.inner = self.inner.set_group_by_key(input);
         self
     }
     /// <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
-    pub fn get_group_by_key(
-        &self,
-    ) -> &::std::option::Option<crate::types::ConfigRuleComplianceSummaryGroupKey> {
+    pub fn get_group_by_key(&self) -> &::std::option::Option<crate::types::ConfigRuleComplianceSummaryGroupKey> {
         self.inner.get_group_by_key()
     }
     /// <p>The maximum number of evaluation results returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, Config uses the default.</p>

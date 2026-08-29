@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutRemediationConfigurationsError>`](crate::operation::put_remediation_configurations::PutRemediationConfigurationsError)
     pub fn put_remediation_configurations(
         &self,
-    ) -> crate::operation::put_remediation_configurations::builders::PutRemediationConfigurationsFluentBuilder{
+    ) -> crate::operation::put_remediation_configurations::builders::PutRemediationConfigurationsFluentBuilder {
         crate::operation::put_remediation_configurations::builders::PutRemediationConfigurationsFluentBuilder::new(self.handle.clone())
     }
 }

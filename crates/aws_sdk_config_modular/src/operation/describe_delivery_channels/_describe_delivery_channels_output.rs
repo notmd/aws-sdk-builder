@@ -27,22 +27,17 @@ impl ::aws_types::request_id::RequestId for DescribeDeliveryChannelsOutput {
 #[cfg(feature = "op_describe_delivery_channels")]
 impl DescribeDeliveryChannelsOutput {
     /// Creates a new builder-style object to manufacture [`DescribeDeliveryChannelsOutput`](crate::operation::describe_delivery_channels::DescribeDeliveryChannelsOutput).
-    pub fn builder(
-    ) -> crate::operation::describe_delivery_channels::builders::DescribeDeliveryChannelsOutputBuilder
-    {
+    pub fn builder() -> crate::operation::describe_delivery_channels::builders::DescribeDeliveryChannelsOutputBuilder {
         crate::operation::describe_delivery_channels::builders::DescribeDeliveryChannelsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_delivery_channels")]
 /// A builder for [`DescribeDeliveryChannelsOutput`](crate::operation::describe_delivery_channels::DescribeDeliveryChannelsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeDeliveryChannelsOutputBuilder {
-    pub(crate) delivery_channels:
-        ::std::option::Option<::std::vec::Vec<crate::types::DeliveryChannel>>,
+    pub(crate) delivery_channels: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryChannel>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_describe_delivery_channels")]
@@ -59,17 +54,12 @@ impl DescribeDeliveryChannelsOutputBuilder {
         self
     }
     /// <p>A list that contains the descriptions of the specified delivery channel.</p>
-    pub fn set_delivery_channels(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryChannel>>,
-    ) -> Self {
+    pub fn set_delivery_channels(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryChannel>>) -> Self {
         self.delivery_channels = input;
         self
     }
     /// <p>A list that contains the descriptions of the specified delivery channel.</p>
-    pub fn get_delivery_channels(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DeliveryChannel>> {
+    pub fn get_delivery_channels(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeliveryChannel>> {
         &self.delivery_channels
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -82,9 +72,7 @@ impl DescribeDeliveryChannelsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeDeliveryChannelsOutput`](crate::operation::describe_delivery_channels::DescribeDeliveryChannelsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::describe_delivery_channels::DescribeDeliveryChannelsOutput {
+    pub fn build(self) -> crate::operation::describe_delivery_channels::DescribeDeliveryChannelsOutput {
         crate::operation::describe_delivery_channels::DescribeDeliveryChannelsOutput {
             delivery_channels: self.delivery_channels,
             _request_id: self._request_id,

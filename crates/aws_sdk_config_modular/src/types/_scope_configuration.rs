@@ -44,9 +44,7 @@ impl ScopeConfiguration {
 }
 
 /// A builder for [`ScopeConfiguration`](crate::types::ScopeConfiguration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ScopeConfigurationBuilder {
     pub(crate) scope_type: ::std::option::Option<::std::string::String>,
@@ -82,17 +80,12 @@ impl ScopeConfigurationBuilder {
         self
     }
     /// <p>The list of specific scope values for the third-party cloud resources. For example, a list of Azure subscriptions or management groups.</p>
-    pub fn set_scope_values(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_scope_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.scope_values = input;
         self
     }
     /// <p>The list of specific scope values for the third-party cloud resources. For example, a list of Azure subscriptions or management groups.</p>
-    pub fn get_scope_values(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_scope_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.scope_values
     }
     /// <p>Specifies whether to record resources from all supported regions for the third-party cloud service provider.</p>
@@ -115,38 +108,25 @@ impl ScopeConfigurationBuilder {
     /// To override the contents of this collection use [`set_included_regions`](Self::set_included_regions).
     ///
     /// <p>The list of regions from the third-party cloud service provider to include when recording resources. Used when <code>allRegions</code> is set to <code>false</code>.</p>
-    pub fn included_regions(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn included_regions(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.included_regions.unwrap_or_default();
         v.push(input.into());
         self.included_regions = ::std::option::Option::Some(v);
         self
     }
     /// <p>The list of regions from the third-party cloud service provider to include when recording resources. Used when <code>allRegions</code> is set to <code>false</code>.</p>
-    pub fn set_included_regions(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_included_regions(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.included_regions = input;
         self
     }
     /// <p>The list of regions from the third-party cloud service provider to include when recording resources. Used when <code>allRegions</code> is set to <code>false</code>.</p>
-    pub fn get_included_regions(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_included_regions(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.included_regions
     }
     /// Consumes the builder and constructs a [`ScopeConfiguration`](crate::types::ScopeConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`scope_type`](crate::types::builders::ScopeConfigurationBuilder::scope_type)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::ScopeConfiguration,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::ScopeConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ScopeConfiguration {
             scope_type: self.scope_type.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

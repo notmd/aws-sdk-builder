@@ -63,7 +63,7 @@ impl DescribePendingAggregationRequestsFluentBuilder {
         }
     }
     /// Access the DescribePendingAggregationRequests as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,7 +82,7 @@ impl DescribePendingAggregationRequestsFluentBuilder {
             crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -102,28 +102,22 @@ impl DescribePendingAggregationRequestsFluentBuilder {
         crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsOutput,
         crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_pending_aggregation_requests::paginator::DescribePendingAggregationRequestsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::describe_pending_aggregation_requests::paginator::DescribePendingAggregationRequestsPaginator{
+    pub fn into_paginator(self) -> crate::operation::describe_pending_aggregation_requests::paginator::DescribePendingAggregationRequestsPaginator {
         crate::operation::describe_pending_aggregation_requests::paginator::DescribePendingAggregationRequestsPaginator::new(self.handle, self.inner)
     }
     /// <p>The maximum number of evaluation results returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>

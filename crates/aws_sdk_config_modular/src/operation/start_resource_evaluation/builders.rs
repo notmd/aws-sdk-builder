@@ -34,8 +34,7 @@ impl crate::operation::start_resource_evaluation::builders::StartResourceEvaluat
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct StartResourceEvaluationFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::start_resource_evaluation::builders::StartResourceEvaluationInputBuilder,
+    inner: crate::operation::start_resource_evaluation::builders::StartResourceEvaluationInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_start_resource_evaluation")]
@@ -68,10 +67,7 @@ impl StartResourceEvaluationFluentBuilder {
         }
     }
     /// Access the StartResourceEvaluation as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::start_resource_evaluation::builders::StartResourceEvaluationInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::start_resource_evaluation::builders::StartResourceEvaluationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -100,11 +96,7 @@ impl StartResourceEvaluationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::start_resource_evaluation::StartResourceEvaluation::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::start_resource_evaluation::StartResourceEvaluation::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -117,18 +109,12 @@ impl StartResourceEvaluationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -138,10 +124,7 @@ impl StartResourceEvaluationFluentBuilder {
         self
     }
     /// <p>Returns a <code>ResourceDetails</code> object.</p>
-    pub fn set_resource_details(
-        mut self,
-        input: ::std::option::Option<crate::types::ResourceDetails>,
-    ) -> Self {
+    pub fn set_resource_details(mut self, input: ::std::option::Option<crate::types::ResourceDetails>) -> Self {
         self.inner = self.inner.set_resource_details(input);
         self
     }
@@ -155,17 +138,12 @@ impl StartResourceEvaluationFluentBuilder {
         self
     }
     /// <p>Returns an <code>EvaluationContext</code> object.</p>
-    pub fn set_evaluation_context(
-        mut self,
-        input: ::std::option::Option<crate::types::EvaluationContext>,
-    ) -> Self {
+    pub fn set_evaluation_context(mut self, input: ::std::option::Option<crate::types::EvaluationContext>) -> Self {
         self.inner = self.inner.set_evaluation_context(input);
         self
     }
     /// <p>Returns an <code>EvaluationContext</code> object.</p>
-    pub fn get_evaluation_context(
-        &self,
-    ) -> &::std::option::Option<crate::types::EvaluationContext> {
+    pub fn get_evaluation_context(&self) -> &::std::option::Option<crate::types::EvaluationContext> {
         self.inner.get_evaluation_context()
     }
     /// <p>The mode of an evaluation.</p><note>
@@ -178,10 +156,7 @@ impl StartResourceEvaluationFluentBuilder {
     /// <p>The mode of an evaluation.</p><note>
     /// <p>The only valid value for this API is <code>PROACTIVE</code>.</p>
     /// </note>
-    pub fn set_evaluation_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::EvaluationMode>,
-    ) -> Self {
+    pub fn set_evaluation_mode(mut self, input: ::std::option::Option<crate::types::EvaluationMode>) -> Self {
         self.inner = self.inner.set_evaluation_mode(input);
         self
     }

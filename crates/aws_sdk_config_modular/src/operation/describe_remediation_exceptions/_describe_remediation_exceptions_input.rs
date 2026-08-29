@@ -7,8 +7,7 @@ pub struct DescribeRemediationExceptionsInput {
     /// <p>The name of the Config rule.</p>
     pub config_rule_name: ::std::option::Option<::std::string::String>,
     /// <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys.</p>
-    pub resource_keys:
-        ::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>,
+    pub resource_keys: ::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>,
     /// <p>The maximum number of RemediationExceptionResourceKey returned on each page. The default is 25. If you specify 0, Config uses the default.</p>
     pub limit: ::std::option::Option<i32>,
     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
@@ -38,21 +37,18 @@ impl DescribeRemediationExceptionsInput {
 #[cfg(feature = "op_describe_remediation_exceptions")]
 impl DescribeRemediationExceptionsInput {
     /// Creates a new builder-style object to manufacture [`DescribeRemediationExceptionsInput`](crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsInput).
-    pub fn builder() -> crate::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsInputBuilder{
+    pub fn builder() -> crate::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsInputBuilder {
         crate::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_remediation_exceptions")]
 /// A builder for [`DescribeRemediationExceptionsInput`](crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeRemediationExceptionsInputBuilder {
     pub(crate) config_rule_name: ::std::option::Option<::std::string::String>,
-    pub(crate) resource_keys:
-        ::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>,
+    pub(crate) resource_keys: ::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>,
     pub(crate) limit: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }
@@ -60,18 +56,12 @@ pub struct DescribeRemediationExceptionsInputBuilder {
 impl DescribeRemediationExceptionsInputBuilder {
     /// <p>The name of the Config rule.</p>
     /// This field is required.
-    pub fn config_rule_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.config_rule_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the Config rule.</p>
-    pub fn set_config_rule_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.config_rule_name = input;
         self
     }
@@ -91,20 +81,12 @@ impl DescribeRemediationExceptionsInputBuilder {
         self
     }
     /// <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys.</p>
-    pub fn set_resource_keys(
-        mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::RemediationExceptionResourceKey>,
-        >,
-    ) -> Self {
+    pub fn set_resource_keys(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>) -> Self {
         self.resource_keys = input;
         self
     }
     /// <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys.</p>
-    pub fn get_resource_keys(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>
-    {
+    pub fn get_resource_keys(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>> {
         &self.resource_keys
     }
     /// <p>The maximum number of RemediationExceptionResourceKey returned on each page. The default is 25. If you specify 0, Config uses the default.</p>
@@ -142,13 +124,11 @@ impl DescribeRemediationExceptionsInputBuilder {
         crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsInput {
-                config_rule_name: self.config_rule_name,
-                resource_keys: self.resource_keys,
-                limit: self.limit,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsInput {
+            config_rule_name: self.config_rule_name,
+            resource_keys: self.resource_keys,
+            limit: self.limit,
+            next_token: self.next_token,
+        })
     }
 }

@@ -7,16 +7,14 @@ pub struct GetComplianceSummaryByConfigRuleInput {}
 #[cfg(feature = "op_get_compliance_summary_by_config_rule")]
 impl GetComplianceSummaryByConfigRuleInput {
     /// Creates a new builder-style object to manufacture [`GetComplianceSummaryByConfigRuleInput`](crate::operation::get_compliance_summary_by_config_rule::GetComplianceSummaryByConfigRuleInput).
-    pub fn builder() -> crate::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleInputBuilder{
+    pub fn builder() -> crate::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleInputBuilder {
         crate::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_compliance_summary_by_config_rule")]
 /// A builder for [`GetComplianceSummaryByConfigRuleInput`](crate::operation::get_compliance_summary_by_config_rule::GetComplianceSummaryByConfigRuleInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetComplianceSummaryByConfigRuleInputBuilder {}
 #[cfg(feature = "op_get_compliance_summary_by_config_rule")]
@@ -27,7 +25,7 @@ impl GetComplianceSummaryByConfigRuleInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::get_compliance_summary_by_config_rule::GetComplianceSummaryByConfigRuleInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(crate::operation::get_compliance_summary_by_config_rule::GetComplianceSummaryByConfigRuleInput {})
     }
 }

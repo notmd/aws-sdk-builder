@@ -70,9 +70,7 @@ impl RecordingModeOverride {
 }
 
 /// A builder for [`RecordingModeOverride`](crate::types::RecordingModeOverride).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RecordingModeOverrideBuilder {
     pub(crate) description: ::std::option::Option<::std::string::String>,
@@ -126,10 +124,7 @@ impl RecordingModeOverrideBuilder {
     /// <p><code>AWS::Config::ConfigurationRecorder</code></p></li>
     /// </ul>
     /// </important>
-    pub fn set_resource_types(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceType>>,
-    ) -> Self {
+    pub fn set_resource_types(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceType>>) -> Self {
         self.resource_types = input;
         self
     }
@@ -144,9 +139,7 @@ impl RecordingModeOverrideBuilder {
     /// <p><code>AWS::Config::ConfigurationRecorder</code></p></li>
     /// </ul>
     /// </important>
-    pub fn get_resource_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceType>> {
+    pub fn get_resource_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceType>> {
         &self.resource_types
     }
     /// <p>The recording frequency that will be applied to all the resource types specified in the override.</p>
@@ -172,10 +165,7 @@ impl RecordingModeOverrideBuilder {
     /// </ul><note>
     /// <p>Firewall Manager depends on continuous recording to monitor your resources. If you are using Firewall Manager, it is recommended that you set the recording frequency to Continuous.</p>
     /// </note>
-    pub fn set_recording_frequency(
-        mut self,
-        input: ::std::option::Option<crate::types::RecordingFrequency>,
-    ) -> Self {
+    pub fn set_recording_frequency(mut self, input: ::std::option::Option<crate::types::RecordingFrequency>) -> Self {
         self.recording_frequency = input;
         self
     }
@@ -188,21 +178,14 @@ impl RecordingModeOverrideBuilder {
     /// </ul><note>
     /// <p>Firewall Manager depends on continuous recording to monitor your resources. If you are using Firewall Manager, it is recommended that you set the recording frequency to Continuous.</p>
     /// </note>
-    pub fn get_recording_frequency(
-        &self,
-    ) -> &::std::option::Option<crate::types::RecordingFrequency> {
+    pub fn get_recording_frequency(&self) -> &::std::option::Option<crate::types::RecordingFrequency> {
         &self.recording_frequency
     }
     /// Consumes the builder and constructs a [`RecordingModeOverride`](crate::types::RecordingModeOverride).
     /// This method will fail if any of the following fields are not set:
     /// - [`resource_types`](crate::types::builders::RecordingModeOverrideBuilder::resource_types)
     /// - [`recording_frequency`](crate::types::builders::RecordingModeOverrideBuilder::recording_frequency)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::RecordingModeOverride,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::RecordingModeOverride, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::RecordingModeOverride {
             description: self.description,
             resource_types: self.resource_types.ok_or_else(|| {

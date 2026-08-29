@@ -18,18 +18,14 @@ impl DeleteDeliveryChannelInput {
 #[cfg(feature = "op_delete_delivery_channel")]
 impl DeleteDeliveryChannelInput {
     /// Creates a new builder-style object to manufacture [`DeleteDeliveryChannelInput`](crate::operation::delete_delivery_channel::DeleteDeliveryChannelInput).
-    pub fn builder(
-    ) -> crate::operation::delete_delivery_channel::builders::DeleteDeliveryChannelInputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_delivery_channel::builders::DeleteDeliveryChannelInputBuilder {
         crate::operation::delete_delivery_channel::builders::DeleteDeliveryChannelInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_delivery_channel")]
 /// A builder for [`DeleteDeliveryChannelInput`](crate::operation::delete_delivery_channel::DeleteDeliveryChannelInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteDeliveryChannelInputBuilder {
     pub(crate) delivery_channel_name: ::std::option::Option<::std::string::String>,
@@ -38,18 +34,12 @@ pub struct DeleteDeliveryChannelInputBuilder {
 impl DeleteDeliveryChannelInputBuilder {
     /// <p>The name of the delivery channel that you want to delete.</p>
     /// This field is required.
-    pub fn delivery_channel_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delivery_channel_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delivery_channel_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the delivery channel that you want to delete.</p>
-    pub fn set_delivery_channel_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delivery_channel_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delivery_channel_name = input;
         self
     }
@@ -60,14 +50,10 @@ impl DeleteDeliveryChannelInputBuilder {
     /// Consumes the builder and constructs a [`DeleteDeliveryChannelInput`](crate::operation::delete_delivery_channel::DeleteDeliveryChannelInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_delivery_channel::DeleteDeliveryChannelInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_delivery_channel::DeleteDeliveryChannelInput {
-                delivery_channel_name: self.delivery_channel_name,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::delete_delivery_channel::DeleteDeliveryChannelInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::delete_delivery_channel::DeleteDeliveryChannelInput {
+            delivery_channel_name: self.delivery_channel_name,
+        })
     }
 }

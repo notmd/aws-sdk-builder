@@ -8,7 +8,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<StartConfigRulesEvaluationError>`](crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError)
     pub fn start_config_rules_evaluation(
         &self,
-    ) -> crate::operation::start_config_rules_evaluation::builders::StartConfigRulesEvaluationFluentBuilder{
+    ) -> crate::operation::start_config_rules_evaluation::builders::StartConfigRulesEvaluationFluentBuilder {
         crate::operation::start_config_rules_evaluation::builders::StartConfigRulesEvaluationFluentBuilder::new(self.handle.clone())
     }
 }

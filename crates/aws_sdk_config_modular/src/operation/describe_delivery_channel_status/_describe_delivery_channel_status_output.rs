@@ -6,8 +6,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeDeliveryChannelStatusOutput {
     /// <p>A list that contains the status of a specified delivery channel.</p>
-    pub delivery_channels_status:
-        ::std::option::Option<::std::vec::Vec<crate::types::DeliveryChannelStatus>>,
+    pub delivery_channels_status: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryChannelStatus>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_describe_delivery_channel_status")]
@@ -28,20 +27,17 @@ impl ::aws_types::request_id::RequestId for DescribeDeliveryChannelStatusOutput 
 #[cfg(feature = "op_describe_delivery_channel_status")]
 impl DescribeDeliveryChannelStatusOutput {
     /// Creates a new builder-style object to manufacture [`DescribeDeliveryChannelStatusOutput`](crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusOutput).
-    pub fn builder() -> crate::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusOutputBuilder{
+    pub fn builder() -> crate::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusOutputBuilder {
         crate::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_delivery_channel_status")]
 /// A builder for [`DescribeDeliveryChannelStatusOutput`](crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeDeliveryChannelStatusOutputBuilder {
-    pub(crate) delivery_channels_status:
-        ::std::option::Option<::std::vec::Vec<crate::types::DeliveryChannelStatus>>,
+    pub(crate) delivery_channels_status: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryChannelStatus>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_describe_delivery_channel_status")]
@@ -58,17 +54,12 @@ impl DescribeDeliveryChannelStatusOutputBuilder {
         self
     }
     /// <p>A list that contains the status of a specified delivery channel.</p>
-    pub fn set_delivery_channels_status(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryChannelStatus>>,
-    ) -> Self {
+    pub fn set_delivery_channels_status(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryChannelStatus>>) -> Self {
         self.delivery_channels_status = input;
         self
     }
     /// <p>A list that contains the status of a specified delivery channel.</p>
-    pub fn get_delivery_channels_status(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DeliveryChannelStatus>> {
+    pub fn get_delivery_channels_status(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeliveryChannelStatus>> {
         &self.delivery_channels_status
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -81,10 +72,7 @@ impl DescribeDeliveryChannelStatusOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeDeliveryChannelStatusOutput`](crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusOutput
-    {
+    pub fn build(self) -> crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusOutput {
         crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusOutput {
             delivery_channels_status: self.delivery_channels_status,
             _request_id: self._request_id,

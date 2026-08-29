@@ -58,7 +58,7 @@ impl
             crate::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleOutput,
             crate::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -73,7 +73,7 @@ impl DescribeComplianceByConfigRuleFluentBuilder {
         }
     }
     /// Access the DescribeComplianceByConfigRule as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_compliance_by_config_rule::builders::DescribeComplianceByConfigRuleInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::describe_compliance_by_config_rule::builders::DescribeComplianceByConfigRuleInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,7 +92,7 @@ impl DescribeComplianceByConfigRuleFluentBuilder {
             crate::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -115,25 +115,19 @@ impl DescribeComplianceByConfigRuleFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_compliance_by_config_rule::paginator::DescribeComplianceByConfigRulePaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::describe_compliance_by_config_rule::paginator::DescribeComplianceByConfigRulePaginator{
+    pub fn into_paginator(self) -> crate::operation::describe_compliance_by_config_rule::paginator::DescribeComplianceByConfigRulePaginator {
         crate::operation::describe_compliance_by_config_rule::paginator::DescribeComplianceByConfigRulePaginator::new(self.handle, self.inner)
     }
     ///
@@ -142,25 +136,17 @@ impl DescribeComplianceByConfigRuleFluentBuilder {
     /// To override the contents of this collection use [`set_config_rule_names`](Self::set_config_rule_names).
     ///
     /// <p>Specify one or more Config rule names to filter the results by rule.</p>
-    pub fn config_rule_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn config_rule_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.config_rule_names(input.into());
         self
     }
     /// <p>Specify one or more Config rule names to filter the results by rule.</p>
-    pub fn set_config_rule_names(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_config_rule_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_config_rule_names(input);
         self
     }
     /// <p>Specify one or more Config rule names to filter the results by rule.</p>
-    pub fn get_config_rule_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_config_rule_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_config_rule_names()
     }
     ///
@@ -174,17 +160,12 @@ impl DescribeComplianceByConfigRuleFluentBuilder {
         self
     }
     /// <p>Filters the results by compliance.</p>
-    pub fn set_compliance_types(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ComplianceType>>,
-    ) -> Self {
+    pub fn set_compliance_types(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ComplianceType>>) -> Self {
         self.inner = self.inner.set_compliance_types(input);
         self
     }
     /// <p>Filters the results by compliance.</p>
-    pub fn get_compliance_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ComplianceType>> {
+    pub fn get_compliance_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ComplianceType>> {
         self.inner.get_compliance_types()
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>

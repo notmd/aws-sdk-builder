@@ -64,7 +64,7 @@ impl ListAggregateDiscoveredResourcesFluentBuilder {
         }
     }
     /// Access the ListAggregateDiscoveredResources as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_aggregate_discovered_resources::builders::ListAggregateDiscoveredResourcesInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::list_aggregate_discovered_resources::builders::ListAggregateDiscoveredResourcesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,7 +83,7 @@ impl ListAggregateDiscoveredResourcesFluentBuilder {
             crate::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -103,50 +103,36 @@ impl ListAggregateDiscoveredResourcesFluentBuilder {
         crate::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesOutput,
         crate::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_aggregate_discovered_resources::paginator::ListAggregateDiscoveredResourcesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_aggregate_discovered_resources::paginator::ListAggregateDiscoveredResourcesPaginator{
+    pub fn into_paginator(self) -> crate::operation::list_aggregate_discovered_resources::paginator::ListAggregateDiscoveredResourcesPaginator {
         crate::operation::list_aggregate_discovered_resources::paginator::ListAggregateDiscoveredResourcesPaginator::new(self.handle, self.inner)
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn configuration_aggregator_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_aggregator_name(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_aggregator_name(input);
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_configuration_aggregator_name()
     }
     /// <p>The type of resources that you want Config to list in the response.</p>
@@ -155,10 +141,7 @@ impl ListAggregateDiscoveredResourcesFluentBuilder {
         self
     }
     /// <p>The type of resources that you want Config to list in the response.</p>
-    pub fn set_resource_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ResourceType>,
-    ) -> Self {
+    pub fn set_resource_type(mut self, input: ::std::option::Option<crate::types::ResourceType>) -> Self {
         self.inner = self.inner.set_resource_type(input);
         self
     }
@@ -172,10 +155,7 @@ impl ListAggregateDiscoveredResourcesFluentBuilder {
         self
     }
     /// <p>Filters the results based on the <code>ResourceFilters</code> object.</p>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<crate::types::ResourceFilters>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<crate::types::ResourceFilters>) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }

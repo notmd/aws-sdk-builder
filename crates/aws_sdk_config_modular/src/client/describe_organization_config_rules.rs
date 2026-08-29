@@ -13,7 +13,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeOrganizationConfigRulesError>`](crate::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError)
     pub fn describe_organization_config_rules(
         &self,
-    ) -> crate::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesFluentBuilder{
+    ) -> crate::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesFluentBuilder {
         crate::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesFluentBuilder::new(self.handle.clone())
     }
 }

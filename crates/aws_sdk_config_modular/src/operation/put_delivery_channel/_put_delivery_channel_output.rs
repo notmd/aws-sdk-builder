@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for PutDeliveryChannelOutput {
 #[cfg(feature = "op_put_delivery_channel")]
 impl PutDeliveryChannelOutput {
     /// Creates a new builder-style object to manufacture [`PutDeliveryChannelOutput`](crate::operation::put_delivery_channel::PutDeliveryChannelOutput).
-    pub fn builder(
-    ) -> crate::operation::put_delivery_channel::builders::PutDeliveryChannelOutputBuilder {
+    pub fn builder() -> crate::operation::put_delivery_channel::builders::PutDeliveryChannelOutputBuilder {
         crate::operation::put_delivery_channel::builders::PutDeliveryChannelOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_delivery_channel")]
 /// A builder for [`PutDeliveryChannelOutput`](crate::operation::put_delivery_channel::PutDeliveryChannelOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutDeliveryChannelOutputBuilder {
     _request_id: Option<String>,

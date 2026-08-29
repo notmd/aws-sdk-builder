@@ -13,9 +13,7 @@ pub struct AssociateResourceTypesOutput {
 impl AssociateResourceTypesOutput {
     /// <p>Records configuration changes to the resource types in scope.</p>
     /// <p>For more information about the configuration recorder, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html"> <b>Working with the Configuration Recorder</b> </a> in the <i>Config Developer Guide</i>.</p>
-    pub fn configuration_recorder(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ConfigurationRecorder> {
+    pub fn configuration_recorder(&self) -> ::std::option::Option<&crate::types::ConfigurationRecorder> {
         self.configuration_recorder.as_ref()
     }
 }
@@ -28,18 +26,14 @@ impl ::aws_types::request_id::RequestId for AssociateResourceTypesOutput {
 #[cfg(feature = "op_associate_resource_types")]
 impl AssociateResourceTypesOutput {
     /// Creates a new builder-style object to manufacture [`AssociateResourceTypesOutput`](crate::operation::associate_resource_types::AssociateResourceTypesOutput).
-    pub fn builder(
-    ) -> crate::operation::associate_resource_types::builders::AssociateResourceTypesOutputBuilder
-    {
+    pub fn builder() -> crate::operation::associate_resource_types::builders::AssociateResourceTypesOutputBuilder {
         crate::operation::associate_resource_types::builders::AssociateResourceTypesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_associate_resource_types")]
 /// A builder for [`AssociateResourceTypesOutput`](crate::operation::associate_resource_types::AssociateResourceTypesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AssociateResourceTypesOutputBuilder {
     pub(crate) configuration_recorder: ::std::option::Option<crate::types::ConfigurationRecorder>,
@@ -56,18 +50,13 @@ impl AssociateResourceTypesOutputBuilder {
     }
     /// <p>Records configuration changes to the resource types in scope.</p>
     /// <p>For more information about the configuration recorder, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html"> <b>Working with the Configuration Recorder</b> </a> in the <i>Config Developer Guide</i>.</p>
-    pub fn set_configuration_recorder(
-        mut self,
-        input: ::std::option::Option<crate::types::ConfigurationRecorder>,
-    ) -> Self {
+    pub fn set_configuration_recorder(mut self, input: ::std::option::Option<crate::types::ConfigurationRecorder>) -> Self {
         self.configuration_recorder = input;
         self
     }
     /// <p>Records configuration changes to the resource types in scope.</p>
     /// <p>For more information about the configuration recorder, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html"> <b>Working with the Configuration Recorder</b> </a> in the <i>Config Developer Guide</i>.</p>
-    pub fn get_configuration_recorder(
-        &self,
-    ) -> &::std::option::Option<crate::types::ConfigurationRecorder> {
+    pub fn get_configuration_recorder(&self) -> &::std::option::Option<crate::types::ConfigurationRecorder> {
         &self.configuration_recorder
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

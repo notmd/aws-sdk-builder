@@ -5,9 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DeleteRemediationExceptionsOutput {
     /// <p>Returns a list of failed delete remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
-    pub failed_batches: ::std::option::Option<
-        ::std::vec::Vec<crate::types::FailedDeleteRemediationExceptionsBatch>,
-    >,
+    pub failed_batches: ::std::option::Option<::std::vec::Vec<crate::types::FailedDeleteRemediationExceptionsBatch>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_delete_remediation_exceptions")]
@@ -28,21 +26,17 @@ impl ::aws_types::request_id::RequestId for DeleteRemediationExceptionsOutput {
 #[cfg(feature = "op_delete_remediation_exceptions")]
 impl DeleteRemediationExceptionsOutput {
     /// Creates a new builder-style object to manufacture [`DeleteRemediationExceptionsOutput`](crate::operation::delete_remediation_exceptions::DeleteRemediationExceptionsOutput).
-    pub fn builder() -> crate::operation::delete_remediation_exceptions::builders::DeleteRemediationExceptionsOutputBuilder{
+    pub fn builder() -> crate::operation::delete_remediation_exceptions::builders::DeleteRemediationExceptionsOutputBuilder {
         crate::operation::delete_remediation_exceptions::builders::DeleteRemediationExceptionsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_remediation_exceptions")]
 /// A builder for [`DeleteRemediationExceptionsOutput`](crate::operation::delete_remediation_exceptions::DeleteRemediationExceptionsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteRemediationExceptionsOutputBuilder {
-    pub(crate) failed_batches: ::std::option::Option<
-        ::std::vec::Vec<crate::types::FailedDeleteRemediationExceptionsBatch>,
-    >,
+    pub(crate) failed_batches: ::std::option::Option<::std::vec::Vec<crate::types::FailedDeleteRemediationExceptionsBatch>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_delete_remediation_exceptions")]
@@ -52,30 +46,19 @@ impl DeleteRemediationExceptionsOutputBuilder {
     /// To override the contents of this collection use [`set_failed_batches`](Self::set_failed_batches).
     ///
     /// <p>Returns a list of failed delete remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
-    pub fn failed_batches(
-        mut self,
-        input: crate::types::FailedDeleteRemediationExceptionsBatch,
-    ) -> Self {
+    pub fn failed_batches(mut self, input: crate::types::FailedDeleteRemediationExceptionsBatch) -> Self {
         let mut v = self.failed_batches.unwrap_or_default();
         v.push(input);
         self.failed_batches = ::std::option::Option::Some(v);
         self
     }
     /// <p>Returns a list of failed delete remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
-    pub fn set_failed_batches(
-        mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::FailedDeleteRemediationExceptionsBatch>,
-        >,
-    ) -> Self {
+    pub fn set_failed_batches(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FailedDeleteRemediationExceptionsBatch>>) -> Self {
         self.failed_batches = input;
         self
     }
     /// <p>Returns a list of failed delete remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
-    pub fn get_failed_batches(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::FailedDeleteRemediationExceptionsBatch>>
-    {
+    pub fn get_failed_batches(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FailedDeleteRemediationExceptionsBatch>> {
         &self.failed_batches
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -88,9 +71,7 @@ impl DeleteRemediationExceptionsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteRemediationExceptionsOutput`](crate::operation::delete_remediation_exceptions::DeleteRemediationExceptionsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::delete_remediation_exceptions::DeleteRemediationExceptionsOutput {
+    pub fn build(self) -> crate::operation::delete_remediation_exceptions::DeleteRemediationExceptionsOutput {
         crate::operation::delete_remediation_exceptions::DeleteRemediationExceptionsOutput {
             failed_batches: self.failed_batches,
             _request_id: self._request_id,

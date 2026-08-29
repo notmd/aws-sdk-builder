@@ -25,16 +25,14 @@ impl DisassociateResourceTypesInput {
 #[cfg(feature = "op_disassociate_resource_types")]
 impl DisassociateResourceTypesInput {
     /// Creates a new builder-style object to manufacture [`DisassociateResourceTypesInput`](crate::operation::disassociate_resource_types::DisassociateResourceTypesInput).
-    pub fn builder() -> crate::operation::disassociate_resource_types::builders::DisassociateResourceTypesInputBuilder{
+    pub fn builder() -> crate::operation::disassociate_resource_types::builders::DisassociateResourceTypesInputBuilder {
         crate::operation::disassociate_resource_types::builders::DisassociateResourceTypesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_disassociate_resource_types")]
 /// A builder for [`DisassociateResourceTypesInput`](crate::operation::disassociate_resource_types::DisassociateResourceTypesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DisassociateResourceTypesInputBuilder {
     pub(crate) configuration_recorder_arn: ::std::option::Option<::std::string::String>,
@@ -44,18 +42,12 @@ pub struct DisassociateResourceTypesInputBuilder {
 impl DisassociateResourceTypesInputBuilder {
     /// <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
     /// This field is required.
-    pub fn configuration_recorder_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_recorder_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.configuration_recorder_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
-    pub fn set_configuration_recorder_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_recorder_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.configuration_recorder_arn = input;
         self
     }
@@ -75,17 +67,12 @@ impl DisassociateResourceTypesInputBuilder {
         self
     }
     /// <p>The list of resource types you want to remove from the recording group of the specified configuration recorder.</p>
-    pub fn set_resource_types(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceType>>,
-    ) -> Self {
+    pub fn set_resource_types(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceType>>) -> Self {
         self.resource_types = input;
         self
     }
     /// <p>The list of resource types you want to remove from the recording group of the specified configuration recorder.</p>
-    pub fn get_resource_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceType>> {
+    pub fn get_resource_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceType>> {
         &self.resource_types
     }
     /// Consumes the builder and constructs a [`DisassociateResourceTypesInput`](crate::operation::disassociate_resource_types::DisassociateResourceTypesInput).
@@ -95,11 +82,9 @@ impl DisassociateResourceTypesInputBuilder {
         crate::operation::disassociate_resource_types::DisassociateResourceTypesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::disassociate_resource_types::DisassociateResourceTypesInput {
-                configuration_recorder_arn: self.configuration_recorder_arn,
-                resource_types: self.resource_types,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::disassociate_resource_types::DisassociateResourceTypesInput {
+            configuration_recorder_arn: self.configuration_recorder_arn,
+            resource_types: self.resource_types,
+        })
     }
 }

@@ -8,7 +8,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteOrganizationConformancePackError>`](crate::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError)
     pub fn delete_organization_conformance_pack(
         &self,
-    ) -> crate::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackFluentBuilder{
+    ) -> crate::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackFluentBuilder {
         crate::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackFluentBuilder::new(self.handle.clone())
     }
 }

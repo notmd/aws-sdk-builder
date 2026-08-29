@@ -66,9 +66,7 @@ impl PutStoredQueryFluentBuilder {
         }
     }
     /// Access the PutStoredQuery as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_stored_query::builders::PutStoredQueryInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_stored_query::builders::PutStoredQueryInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,14 +90,12 @@ impl PutStoredQueryFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::put_stored_query::PutStoredQuery::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::put_stored_query::PutStoredQuery::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::put_stored_query::PutStoredQuery::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::put_stored_query::PutStoredQuery::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -112,18 +108,12 @@ impl PutStoredQueryFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -137,10 +127,7 @@ impl PutStoredQueryFluentBuilder {
     /// <p>A list of <code>StoredQuery</code> objects. The mandatory fields are <code>QueryName</code> and <code>Expression</code>.</p><note>
     /// <p>When you are creating a query, you must provide a query name and an expression. When you are updating a query, you must provide a query name but updating the description is optional.</p>
     /// </note>
-    pub fn set_stored_query(
-        mut self,
-        input: ::std::option::Option<crate::types::StoredQuery>,
-    ) -> Self {
+    pub fn set_stored_query(mut self, input: ::std::option::Option<crate::types::StoredQuery>) -> Self {
         self.inner = self.inner.set_stored_query(input);
         self
     }
@@ -161,10 +148,7 @@ impl PutStoredQueryFluentBuilder {
         self
     }
     /// <p>A list of <code>Tags</code> object.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }

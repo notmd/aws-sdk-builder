@@ -5,8 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeRetentionConfigurationsOutput {
     /// <p>Returns a retention configuration object.</p>
-    pub retention_configurations:
-        ::std::option::Option<::std::vec::Vec<crate::types::RetentionConfiguration>>,
+    pub retention_configurations: ::std::option::Option<::std::vec::Vec<crate::types::RetentionConfiguration>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -33,20 +32,17 @@ impl ::aws_types::request_id::RequestId for DescribeRetentionConfigurationsOutpu
 #[cfg(feature = "op_describe_retention_configurations")]
 impl DescribeRetentionConfigurationsOutput {
     /// Creates a new builder-style object to manufacture [`DescribeRetentionConfigurationsOutput`](crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsOutput).
-    pub fn builder() -> crate::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsOutputBuilder{
+    pub fn builder() -> crate::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsOutputBuilder {
         crate::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_retention_configurations")]
 /// A builder for [`DescribeRetentionConfigurationsOutput`](crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeRetentionConfigurationsOutputBuilder {
-    pub(crate) retention_configurations:
-        ::std::option::Option<::std::vec::Vec<crate::types::RetentionConfiguration>>,
+    pub(crate) retention_configurations: ::std::option::Option<::std::vec::Vec<crate::types::RetentionConfiguration>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -64,17 +60,12 @@ impl DescribeRetentionConfigurationsOutputBuilder {
         self
     }
     /// <p>Returns a retention configuration object.</p>
-    pub fn set_retention_configurations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::RetentionConfiguration>>,
-    ) -> Self {
+    pub fn set_retention_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RetentionConfiguration>>) -> Self {
         self.retention_configurations = input;
         self
     }
     /// <p>Returns a retention configuration object.</p>
-    pub fn get_retention_configurations(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::RetentionConfiguration>> {
+    pub fn get_retention_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RetentionConfiguration>> {
         &self.retention_configurations
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -101,10 +92,7 @@ impl DescribeRetentionConfigurationsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeRetentionConfigurationsOutput`](crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsOutput
-    {
+    pub fn build(self) -> crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsOutput {
         crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsOutput {
             retention_configurations: self.retention_configurations,
             next_token: self.next_token,

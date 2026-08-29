@@ -73,7 +73,7 @@ impl GetResourceConfigHistoryFluentBuilder {
         }
     }
     /// Access the GetResourceConfigHistory as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_resource_config_history::builders::GetResourceConfigHistoryInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::get_resource_config_history::builders::GetResourceConfigHistoryInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -102,11 +102,7 @@ impl GetResourceConfigHistoryFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_resource_config_history::GetResourceConfigHistory::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::get_resource_config_history::GetResourceConfigHistory::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -119,28 +115,19 @@ impl GetResourceConfigHistoryFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::get_resource_config_history::paginator::GetResourceConfigHistoryPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::get_resource_config_history::paginator::GetResourceConfigHistoryPaginator
-    {
+    pub fn into_paginator(self) -> crate::operation::get_resource_config_history::paginator::GetResourceConfigHistoryPaginator {
         crate::operation::get_resource_config_history::paginator::GetResourceConfigHistoryPaginator::new(self.handle, self.inner)
     }
     /// <p>The resource type.</p>
@@ -149,10 +136,7 @@ impl GetResourceConfigHistoryFluentBuilder {
         self
     }
     /// <p>The resource type.</p>
-    pub fn set_resource_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ResourceType>,
-    ) -> Self {
+    pub fn set_resource_type(mut self, input: ::std::option::Option<crate::types::ResourceType>) -> Self {
         self.inner = self.inner.set_resource_type(input);
         self
     }
@@ -180,10 +164,7 @@ impl GetResourceConfigHistoryFluentBuilder {
         self
     }
     /// <p>The chronologically latest time in the time range for which the history requested. If not specified, current time is taken.</p>
-    pub fn set_later_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_later_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.inner = self.inner.set_later_time(input);
         self
     }
@@ -197,10 +178,7 @@ impl GetResourceConfigHistoryFluentBuilder {
         self
     }
     /// <p>The chronologically earliest time in the time range for which the history requested. If not specified, the action returns paginated results that contain configuration items that start when the first configuration item was recorded.</p>
-    pub fn set_earlier_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_earlier_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.inner = self.inner.set_earlier_time(input);
         self
     }
@@ -214,17 +192,12 @@ impl GetResourceConfigHistoryFluentBuilder {
         self
     }
     /// <p>The chronological order for configuration items listed. By default, the results are listed in reverse chronological order.</p>
-    pub fn set_chronological_order(
-        mut self,
-        input: ::std::option::Option<crate::types::ChronologicalOrder>,
-    ) -> Self {
+    pub fn set_chronological_order(mut self, input: ::std::option::Option<crate::types::ChronologicalOrder>) -> Self {
         self.inner = self.inner.set_chronological_order(input);
         self
     }
     /// <p>The chronological order for configuration items listed. By default, the results are listed in reverse chronological order.</p>
-    pub fn get_chronological_order(
-        &self,
-    ) -> &::std::option::Option<crate::types::ChronologicalOrder> {
+    pub fn get_chronological_order(&self) -> &::std::option::Option<crate::types::ChronologicalOrder> {
         self.inner.get_chronological_order()
     }
     /// <p>The maximum number of configuration items returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>

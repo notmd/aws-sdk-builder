@@ -74,19 +74,14 @@ pub fn de_describe_configuration_recorders_http_response(
         let mut output = crate::operation::describe_configuration_recorders::builders::DescribeConfigurationRecordersOutputBuilder::default();
         output = crate::protocol_serde::shape_describe_configuration_recorders::de_describe_configuration_recorders(_response_body, output)
             .map_err(crate::operation::describe_configuration_recorders::DescribeConfigurationRecordersError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_describe_configuration_recorders_input(
     input: &crate::operation::describe_configuration_recorders::DescribeConfigurationRecordersInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     crate::protocol_serde::shape_describe_configuration_recorders_input::ser_describe_configuration_recorders_input_input(&mut object, input)?;
@@ -100,11 +95,8 @@ pub(crate) fn de_describe_configuration_recorders(
 ) -> ::std::result::Result<
     crate::operation::describe_configuration_recorders::builders::DescribeConfigurationRecordersOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
->{
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+> {
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -112,31 +104,25 @@ pub(crate) fn de_describe_configuration_recorders(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "ConfigurationRecorders" => {
-                        builder = builder.set_configuration_recorders(
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "ConfigurationRecorders" => {
+                    builder = builder.set_configuration_recorders(
                         crate::protocol_serde::shape_configuration_recorder_list::de_configuration_recorder_list(tokens, _value, depth + 1)?,
                     );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-            }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                    "expected object key or end object, found: {other:?}"
+                )))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

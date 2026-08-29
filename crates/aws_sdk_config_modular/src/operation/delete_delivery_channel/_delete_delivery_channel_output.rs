@@ -15,18 +15,14 @@ impl ::aws_types::request_id::RequestId for DeleteDeliveryChannelOutput {
 #[cfg(feature = "op_delete_delivery_channel")]
 impl DeleteDeliveryChannelOutput {
     /// Creates a new builder-style object to manufacture [`DeleteDeliveryChannelOutput`](crate::operation::delete_delivery_channel::DeleteDeliveryChannelOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_delivery_channel::builders::DeleteDeliveryChannelOutputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_delivery_channel::builders::DeleteDeliveryChannelOutputBuilder {
         crate::operation::delete_delivery_channel::builders::DeleteDeliveryChannelOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_delivery_channel")]
 /// A builder for [`DeleteDeliveryChannelOutput`](crate::operation::delete_delivery_channel::DeleteDeliveryChannelOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteDeliveryChannelOutputBuilder {
     _request_id: Option<String>,

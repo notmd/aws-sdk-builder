@@ -28,9 +28,7 @@ impl GroupedResourceCount {
 }
 
 /// A builder for [`GroupedResourceCount`](crate::types::GroupedResourceCount).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GroupedResourceCountBuilder {
     pub(crate) group_name: ::std::option::Option<::std::string::String>,
@@ -70,12 +68,7 @@ impl GroupedResourceCountBuilder {
     /// Consumes the builder and constructs a [`GroupedResourceCount`](crate::types::GroupedResourceCount).
     /// This method will fail if any of the following fields are not set:
     /// - [`group_name`](crate::types::builders::GroupedResourceCountBuilder::group_name)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::GroupedResourceCount,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::GroupedResourceCount, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GroupedResourceCount {
             group_name: self.group_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

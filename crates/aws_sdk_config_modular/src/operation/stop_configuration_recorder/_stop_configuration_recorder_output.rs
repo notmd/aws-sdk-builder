@@ -15,16 +15,14 @@ impl ::aws_types::request_id::RequestId for StopConfigurationRecorderOutput {
 #[cfg(feature = "op_stop_configuration_recorder")]
 impl StopConfigurationRecorderOutput {
     /// Creates a new builder-style object to manufacture [`StopConfigurationRecorderOutput`](crate::operation::stop_configuration_recorder::StopConfigurationRecorderOutput).
-    pub fn builder() -> crate::operation::stop_configuration_recorder::builders::StopConfigurationRecorderOutputBuilder{
+    pub fn builder() -> crate::operation::stop_configuration_recorder::builders::StopConfigurationRecorderOutputBuilder {
         crate::operation::stop_configuration_recorder::builders::StopConfigurationRecorderOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_stop_configuration_recorder")]
 /// A builder for [`StopConfigurationRecorderOutput`](crate::operation::stop_configuration_recorder::StopConfigurationRecorderOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct StopConfigurationRecorderOutputBuilder {
     _request_id: Option<String>,
@@ -41,9 +39,7 @@ impl StopConfigurationRecorderOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`StopConfigurationRecorderOutput`](crate::operation::stop_configuration_recorder::StopConfigurationRecorderOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::stop_configuration_recorder::StopConfigurationRecorderOutput {
+    pub fn build(self) -> crate::operation::stop_configuration_recorder::StopConfigurationRecorderOutput {
         crate::operation::stop_configuration_recorder::StopConfigurationRecorderOutput {
             _request_id: self._request_id,
         }

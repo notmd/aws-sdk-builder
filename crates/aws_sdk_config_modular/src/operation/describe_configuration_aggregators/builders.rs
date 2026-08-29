@@ -63,7 +63,7 @@ impl DescribeConfigurationAggregatorsFluentBuilder {
         }
     }
     /// Access the DescribeConfigurationAggregators as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,7 +82,7 @@ impl DescribeConfigurationAggregatorsFluentBuilder {
             crate::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -102,28 +102,22 @@ impl DescribeConfigurationAggregatorsFluentBuilder {
         crate::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsOutput,
         crate::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_configuration_aggregators::paginator::DescribeConfigurationAggregatorsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::describe_configuration_aggregators::paginator::DescribeConfigurationAggregatorsPaginator{
+    pub fn into_paginator(self) -> crate::operation::describe_configuration_aggregators::paginator::DescribeConfigurationAggregatorsPaginator {
         crate::operation::describe_configuration_aggregators::paginator::DescribeConfigurationAggregatorsPaginator::new(self.handle, self.inner)
     }
     ///
@@ -132,25 +126,17 @@ impl DescribeConfigurationAggregatorsFluentBuilder {
     /// To override the contents of this collection use [`set_configuration_aggregator_names`](Self::set_configuration_aggregator_names).
     ///
     /// <p>The name of the configuration aggregators.</p>
-    pub fn configuration_aggregator_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_aggregator_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_aggregator_names(input.into());
         self
     }
     /// <p>The name of the configuration aggregators.</p>
-    pub fn set_configuration_aggregator_names(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_configuration_aggregator_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_configuration_aggregator_names(input);
         self
     }
     /// <p>The name of the configuration aggregators.</p>
-    pub fn get_configuration_aggregator_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_configuration_aggregator_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_configuration_aggregator_names()
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>

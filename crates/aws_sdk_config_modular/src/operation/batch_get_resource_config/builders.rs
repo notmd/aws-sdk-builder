@@ -37,8 +37,7 @@ impl crate::operation::batch_get_resource_config::builders::BatchGetResourceConf
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct BatchGetResourceConfigFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::batch_get_resource_config::builders::BatchGetResourceConfigInputBuilder,
+    inner: crate::operation::batch_get_resource_config::builders::BatchGetResourceConfigInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_batch_get_resource_config")]
@@ -71,10 +70,7 @@ impl BatchGetResourceConfigFluentBuilder {
         }
     }
     /// Access the BatchGetResourceConfig as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::batch_get_resource_config::builders::BatchGetResourceConfigInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::batch_get_resource_config::builders::BatchGetResourceConfigInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -103,11 +99,7 @@ impl BatchGetResourceConfigFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::batch_get_resource_config::BatchGetResourceConfig::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::batch_get_resource_config::BatchGetResourceConfig::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -120,18 +112,12 @@ impl BatchGetResourceConfigFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -146,17 +132,12 @@ impl BatchGetResourceConfigFluentBuilder {
         self
     }
     /// <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.</p>
-    pub fn set_resource_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>>,
-    ) -> Self {
+    pub fn set_resource_keys(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>>) -> Self {
         self.inner = self.inner.set_resource_keys(input);
         self
     }
     /// <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.</p>
-    pub fn get_resource_keys(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>> {
+    pub fn get_resource_keys(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>> {
         self.inner.get_resource_keys()
     }
 }

@@ -23,16 +23,14 @@ impl DescribePendingAggregationRequestsInput {
 #[cfg(feature = "op_describe_pending_aggregation_requests")]
 impl DescribePendingAggregationRequestsInput {
     /// Creates a new builder-style object to manufacture [`DescribePendingAggregationRequestsInput`](crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput).
-    pub fn builder() -> crate::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsInputBuilder{
+    pub fn builder() -> crate::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsInputBuilder {
         crate::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_pending_aggregation_requests")]
 /// A builder for [`DescribePendingAggregationRequestsInput`](crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribePendingAggregationRequestsInputBuilder {
     pub(crate) limit: ::std::option::Option<i32>,
@@ -74,7 +72,7 @@ impl DescribePendingAggregationRequestsInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput {
                 limit: self.limit,

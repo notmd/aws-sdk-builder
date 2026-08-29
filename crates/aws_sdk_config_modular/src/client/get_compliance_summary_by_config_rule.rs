@@ -8,7 +8,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetComplianceSummaryByConfigRuleError>`](crate::operation::get_compliance_summary_by_config_rule::GetComplianceSummaryByConfigRuleError)
     pub fn get_compliance_summary_by_config_rule(
         &self,
-    ) -> crate::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleFluentBuilder{
+    ) -> crate::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleFluentBuilder {
         crate::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleFluentBuilder::new(self.handle.clone())
     }
 }

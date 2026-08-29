@@ -6,9 +6,7 @@ pub use crate::operation::disassociate_resource_types::_disassociate_resource_ty
 pub use crate::operation::disassociate_resource_types::_disassociate_resource_types_output::DisassociateResourceTypesOutputBuilder;
 
 #[cfg(feature = "op_disassociate_resource_types")]
-impl
-    crate::operation::disassociate_resource_types::builders::DisassociateResourceTypesInputBuilder
-{
+impl crate::operation::disassociate_resource_types::builders::DisassociateResourceTypesInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -66,7 +64,7 @@ impl DisassociateResourceTypesFluentBuilder {
         }
     }
     /// Access the DisassociateResourceTypes as a reference.
-    pub fn as_input(&self) -> &crate::operation::disassociate_resource_types::builders::DisassociateResourceTypesInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::disassociate_resource_types::builders::DisassociateResourceTypesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -95,11 +93,7 @@ impl DisassociateResourceTypesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::disassociate_resource_types::DisassociateResourceTypes::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::disassociate_resource_types::DisassociateResourceTypes::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -112,34 +106,22 @@ impl DisassociateResourceTypesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
-    pub fn configuration_recorder_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_recorder_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_recorder_arn(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
-    pub fn set_configuration_recorder_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_recorder_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_recorder_arn(input);
         self
     }
@@ -158,17 +140,12 @@ impl DisassociateResourceTypesFluentBuilder {
         self
     }
     /// <p>The list of resource types you want to remove from the recording group of the specified configuration recorder.</p>
-    pub fn set_resource_types(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceType>>,
-    ) -> Self {
+    pub fn set_resource_types(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceType>>) -> Self {
         self.inner = self.inner.set_resource_types(input);
         self
     }
     /// <p>The list of resource types you want to remove from the recording group of the specified configuration recorder.</p>
-    pub fn get_resource_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceType>> {
+    pub fn get_resource_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceType>> {
         self.inner.get_resource_types()
     }
 }

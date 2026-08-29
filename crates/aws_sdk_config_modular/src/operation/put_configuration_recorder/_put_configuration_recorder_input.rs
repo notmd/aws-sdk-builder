@@ -13,9 +13,7 @@ pub struct PutConfigurationRecorderInput {
 #[cfg(feature = "op_put_configuration_recorder")]
 impl PutConfigurationRecorderInput {
     /// <p>An object for the configuration recorder. A configuration recorder records configuration changes for the resource types in scope.</p>
-    pub fn configuration_recorder(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ConfigurationRecorder> {
+    pub fn configuration_recorder(&self) -> ::std::option::Option<&crate::types::ConfigurationRecorder> {
         self.configuration_recorder.as_ref()
     }
     /// <p>The tags for the customer managed configuration recorder. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -28,18 +26,14 @@ impl PutConfigurationRecorderInput {
 #[cfg(feature = "op_put_configuration_recorder")]
 impl PutConfigurationRecorderInput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationRecorderInput`](crate::operation::put_configuration_recorder::PutConfigurationRecorderInput).
-    pub fn builder(
-    ) -> crate::operation::put_configuration_recorder::builders::PutConfigurationRecorderInputBuilder
-    {
+    pub fn builder() -> crate::operation::put_configuration_recorder::builders::PutConfigurationRecorderInputBuilder {
         crate::operation::put_configuration_recorder::builders::PutConfigurationRecorderInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_configuration_recorder")]
 /// A builder for [`PutConfigurationRecorderInput`](crate::operation::put_configuration_recorder::PutConfigurationRecorderInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutConfigurationRecorderInputBuilder {
     pub(crate) configuration_recorder: ::std::option::Option<crate::types::ConfigurationRecorder>,
@@ -54,17 +48,12 @@ impl PutConfigurationRecorderInputBuilder {
         self
     }
     /// <p>An object for the configuration recorder. A configuration recorder records configuration changes for the resource types in scope.</p>
-    pub fn set_configuration_recorder(
-        mut self,
-        input: ::std::option::Option<crate::types::ConfigurationRecorder>,
-    ) -> Self {
+    pub fn set_configuration_recorder(mut self, input: ::std::option::Option<crate::types::ConfigurationRecorder>) -> Self {
         self.configuration_recorder = input;
         self
     }
     /// <p>An object for the configuration recorder. A configuration recorder records configuration changes for the resource types in scope.</p>
-    pub fn get_configuration_recorder(
-        &self,
-    ) -> &::std::option::Option<crate::types::ConfigurationRecorder> {
+    pub fn get_configuration_recorder(&self) -> &::std::option::Option<crate::types::ConfigurationRecorder> {
         &self.configuration_recorder
     }
     /// Appends an item to `tags`.
@@ -79,10 +68,7 @@ impl PutConfigurationRecorderInputBuilder {
         self
     }
     /// <p>The tags for the customer managed configuration recorder. Each tag consists of a key and an optional value, both of which you define.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
@@ -97,11 +83,9 @@ impl PutConfigurationRecorderInputBuilder {
         crate::operation::put_configuration_recorder::PutConfigurationRecorderInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::put_configuration_recorder::PutConfigurationRecorderInput {
-                configuration_recorder: self.configuration_recorder,
-                tags: self.tags,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::put_configuration_recorder::PutConfigurationRecorderInput {
+            configuration_recorder: self.configuration_recorder,
+            tags: self.tags,
+        })
     }
 }

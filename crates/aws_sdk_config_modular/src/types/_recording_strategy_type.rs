@@ -40,13 +40,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(
-    ::std::clone::Clone,
-    ::std::cmp::Eq,
-    ::std::cmp::Ord,
-    ::std::cmp::PartialEq,
-    ::std::cmp::PartialOrd,
-    ::std::fmt::Debug,
-    ::std::hash::Hash,
+    ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
 )]
 pub enum RecordingStrategyType {
     #[allow(missing_docs)] // documentation missing in model
@@ -56,9 +50,7 @@ pub enum RecordingStrategyType {
     #[allow(missing_docs)] // documentation missing in model
     InclusionByResourceTypes,
     /// `Unknown` contains new variants that have been added since this code was generated.
-    #[deprecated(
-        note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants."
-    )]
+    #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
 }
 impl ::std::convert::From<&str> for RecordingStrategyType {
@@ -67,9 +59,7 @@ impl ::std::convert::From<&str> for RecordingStrategyType {
             "ALL_SUPPORTED_RESOURCE_TYPES" => RecordingStrategyType::AllSupportedResourceTypes,
             "EXCLUSION_BY_RESOURCE_TYPES" => RecordingStrategyType::ExclusionByResourceTypes,
             "INCLUSION_BY_RESOURCE_TYPES" => RecordingStrategyType::InclusionByResourceTypes,
-            other => RecordingStrategyType::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => RecordingStrategyType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }
@@ -108,14 +98,10 @@ impl RecordingStrategyType {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -123,15 +109,9 @@ impl RecordingStrategyType {
 impl ::std::fmt::Display for RecordingStrategyType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
-            RecordingStrategyType::AllSupportedResourceTypes => {
-                write!(f, "ALL_SUPPORTED_RESOURCE_TYPES")
-            }
-            RecordingStrategyType::ExclusionByResourceTypes => {
-                write!(f, "EXCLUSION_BY_RESOURCE_TYPES")
-            }
-            RecordingStrategyType::InclusionByResourceTypes => {
-                write!(f, "INCLUSION_BY_RESOURCE_TYPES")
-            }
+            RecordingStrategyType::AllSupportedResourceTypes => write!(f, "ALL_SUPPORTED_RESOURCE_TYPES"),
+            RecordingStrategyType::ExclusionByResourceTypes => write!(f, "EXCLUSION_BY_RESOURCE_TYPES"),
+            RecordingStrategyType::InclusionByResourceTypes => write!(f, "INCLUSION_BY_RESOURCE_TYPES"),
             RecordingStrategyType::Unknown(value) => write!(f, "{value}"),
         }
     }

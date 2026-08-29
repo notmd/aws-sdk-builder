@@ -65,7 +65,7 @@ impl DescribeConformancePackComplianceFluentBuilder {
         }
     }
     /// Access the DescribeConformancePackCompliance as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,7 +84,7 @@ impl DescribeConformancePackComplianceFluentBuilder {
             crate::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -104,43 +104,31 @@ impl DescribeConformancePackComplianceFluentBuilder {
         crate::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceOutput,
         crate::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_conformance_pack_compliance::paginator::DescribeConformancePackCompliancePaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::describe_conformance_pack_compliance::paginator::DescribeConformancePackCompliancePaginator{
+    pub fn into_paginator(self) -> crate::operation::describe_conformance_pack_compliance::paginator::DescribeConformancePackCompliancePaginator {
         crate::operation::describe_conformance_pack_compliance::paginator::DescribeConformancePackCompliancePaginator::new(self.handle, self.inner)
     }
     /// <p>Name of the conformance pack.</p>
-    pub fn conformance_pack_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn conformance_pack_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.conformance_pack_name(input.into());
         self
     }
     /// <p>Name of the conformance pack.</p>
-    pub fn set_conformance_pack_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_conformance_pack_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_conformance_pack_name(input);
         self
     }
@@ -154,17 +142,12 @@ impl DescribeConformancePackComplianceFluentBuilder {
         self
     }
     /// <p>A <code>ConformancePackComplianceFilters</code> object.</p>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<crate::types::ConformancePackComplianceFilters>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<crate::types::ConformancePackComplianceFilters>) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }
     /// <p>A <code>ConformancePackComplianceFilters</code> object.</p>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<crate::types::ConformancePackComplianceFilters> {
+    pub fn get_filters(&self) -> &::std::option::Option<crate::types::ConformancePackComplianceFilters> {
         self.inner.get_filters()
     }
     /// <p>The maximum number of Config rules within a conformance pack are returned on each page.</p>

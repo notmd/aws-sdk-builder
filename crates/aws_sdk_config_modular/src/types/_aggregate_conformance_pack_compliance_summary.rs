@@ -5,16 +5,13 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct AggregateConformancePackComplianceSummary {
     /// <p>Returns an <code>AggregateConformancePackComplianceCount</code> object.</p>
-    pub compliance_summary:
-        ::std::option::Option<crate::types::AggregateConformancePackComplianceCount>,
+    pub compliance_summary: ::std::option::Option<crate::types::AggregateConformancePackComplianceCount>,
     /// <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
     pub group_name: ::std::option::Option<::std::string::String>,
 }
 impl AggregateConformancePackComplianceSummary {
     /// <p>Returns an <code>AggregateConformancePackComplianceCount</code> object.</p>
-    pub fn compliance_summary(
-        &self,
-    ) -> ::std::option::Option<&crate::types::AggregateConformancePackComplianceCount> {
+    pub fn compliance_summary(&self) -> ::std::option::Option<&crate::types::AggregateConformancePackComplianceCount> {
         self.compliance_summary.as_ref()
     }
     /// <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
@@ -30,36 +27,25 @@ impl AggregateConformancePackComplianceSummary {
 }
 
 /// A builder for [`AggregateConformancePackComplianceSummary`](crate::types::AggregateConformancePackComplianceSummary).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AggregateConformancePackComplianceSummaryBuilder {
-    pub(crate) compliance_summary:
-        ::std::option::Option<crate::types::AggregateConformancePackComplianceCount>,
+    pub(crate) compliance_summary: ::std::option::Option<crate::types::AggregateConformancePackComplianceCount>,
     pub(crate) group_name: ::std::option::Option<::std::string::String>,
 }
 impl AggregateConformancePackComplianceSummaryBuilder {
     /// <p>Returns an <code>AggregateConformancePackComplianceCount</code> object.</p>
-    pub fn compliance_summary(
-        mut self,
-        input: crate::types::AggregateConformancePackComplianceCount,
-    ) -> Self {
+    pub fn compliance_summary(mut self, input: crate::types::AggregateConformancePackComplianceCount) -> Self {
         self.compliance_summary = ::std::option::Option::Some(input);
         self
     }
     /// <p>Returns an <code>AggregateConformancePackComplianceCount</code> object.</p>
-    pub fn set_compliance_summary(
-        mut self,
-        input: ::std::option::Option<crate::types::AggregateConformancePackComplianceCount>,
-    ) -> Self {
+    pub fn set_compliance_summary(mut self, input: ::std::option::Option<crate::types::AggregateConformancePackComplianceCount>) -> Self {
         self.compliance_summary = input;
         self
     }
     /// <p>Returns an <code>AggregateConformancePackComplianceCount</code> object.</p>
-    pub fn get_compliance_summary(
-        &self,
-    ) -> &::std::option::Option<crate::types::AggregateConformancePackComplianceCount> {
+    pub fn get_compliance_summary(&self) -> &::std::option::Option<crate::types::AggregateConformancePackComplianceCount> {
         &self.compliance_summary
     }
     /// <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>

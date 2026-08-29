@@ -37,16 +37,14 @@ impl DescribeRemediationExecutionStatusInput {
 #[cfg(feature = "op_describe_remediation_execution_status")]
 impl DescribeRemediationExecutionStatusInput {
     /// Creates a new builder-style object to manufacture [`DescribeRemediationExecutionStatusInput`](crate::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusInput).
-    pub fn builder() -> crate::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusInputBuilder{
+    pub fn builder() -> crate::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusInputBuilder {
         crate::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_remediation_execution_status")]
 /// A builder for [`DescribeRemediationExecutionStatusInput`](crate::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeRemediationExecutionStatusInputBuilder {
     pub(crate) config_rule_name: ::std::option::Option<::std::string::String>,
@@ -58,18 +56,12 @@ pub struct DescribeRemediationExecutionStatusInputBuilder {
 impl DescribeRemediationExecutionStatusInputBuilder {
     /// <p>The name of the Config rule.</p>
     /// This field is required.
-    pub fn config_rule_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.config_rule_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the Config rule.</p>
-    pub fn set_config_rule_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.config_rule_name = input;
         self
     }
@@ -89,17 +81,12 @@ impl DescribeRemediationExecutionStatusInputBuilder {
         self
     }
     /// <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.</p>
-    pub fn set_resource_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>>,
-    ) -> Self {
+    pub fn set_resource_keys(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>>) -> Self {
         self.resource_keys = input;
         self
     }
     /// <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.</p>
-    pub fn get_resource_keys(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>> {
+    pub fn get_resource_keys(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>> {
         &self.resource_keys
     }
     /// <p>The maximum number of RemediationExecutionStatuses returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>
@@ -136,7 +123,7 @@ impl DescribeRemediationExecutionStatusInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusInput {
                 config_rule_name: self.config_rule_name,

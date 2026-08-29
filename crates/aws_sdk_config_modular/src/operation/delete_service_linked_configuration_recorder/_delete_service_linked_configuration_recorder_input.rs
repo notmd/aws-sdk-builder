@@ -24,16 +24,14 @@ impl DeleteServiceLinkedConfigurationRecorderInput {
 impl DeleteServiceLinkedConfigurationRecorderInput {
     /// Creates a new builder-style object to manufacture [`DeleteServiceLinkedConfigurationRecorderInput`](crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderInput).
     pub fn builder() -> crate::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderInputBuilder
-{
+    {
         crate::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_service_linked_configuration_recorder")]
 /// A builder for [`DeleteServiceLinkedConfigurationRecorderInput`](crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteServiceLinkedConfigurationRecorderInputBuilder {
     pub(crate) service_principal: ::std::option::Option<::std::string::String>,
@@ -42,18 +40,12 @@ pub struct DeleteServiceLinkedConfigurationRecorderInputBuilder {
 #[cfg(feature = "op_delete_service_linked_configuration_recorder")]
 impl DeleteServiceLinkedConfigurationRecorderInputBuilder {
     /// <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to delete. This field is only supported for Amazon Web Services service principals. For third-party service-linked configuration recorders, use <code>Arn</code> instead.</p>
-    pub fn service_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.service_principal = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to delete. This field is only supported for Amazon Web Services service principals. For third-party service-linked configuration recorders, use <code>Arn</code> instead.</p>
-    pub fn set_service_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.service_principal = input;
         self
     }
@@ -81,7 +73,7 @@ impl DeleteServiceLinkedConfigurationRecorderInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderInput {
                 service_principal: self.service_principal,

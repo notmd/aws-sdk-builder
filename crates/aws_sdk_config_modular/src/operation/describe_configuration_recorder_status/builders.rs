@@ -67,7 +67,7 @@ impl DescribeConfigurationRecorderStatusFluentBuilder {
         }
     }
     /// Access the DescribeConfigurationRecorderStatus as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +86,7 @@ impl DescribeConfigurationRecorderStatusFluentBuilder {
             crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -107,21 +107,15 @@ impl DescribeConfigurationRecorderStatusFluentBuilder {
         crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusOutput,
         crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -133,44 +127,30 @@ impl DescribeConfigurationRecorderStatusFluentBuilder {
     /// <p>The name of the configuration recorder. If the name is not specified, the operation returns the status for the customer managed configuration recorder configured for the account, if applicable.</p><note>
     /// <p>When making a request to this operation, you can only specify one configuration recorder.</p>
     /// </note>
-    pub fn configuration_recorder_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_recorder_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_recorder_names(input.into());
         self
     }
     /// <p>The name of the configuration recorder. If the name is not specified, the operation returns the status for the customer managed configuration recorder configured for the account, if applicable.</p><note>
     /// <p>When making a request to this operation, you can only specify one configuration recorder.</p>
     /// </note>
-    pub fn set_configuration_recorder_names(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_configuration_recorder_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_configuration_recorder_names(input);
         self
     }
     /// <p>The name of the configuration recorder. If the name is not specified, the operation returns the status for the customer managed configuration recorder configured for the account, if applicable.</p><note>
     /// <p>When making a request to this operation, you can only specify one configuration recorder.</p>
     /// </note>
-    pub fn get_configuration_recorder_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_configuration_recorder_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_configuration_recorder_names()
     }
     /// <p>For service-linked configuration recorders, you can use the service principal of the linked Amazon Web Services service to specify the configuration recorder. This field is only supported for Amazon Web Services service principals. For third-party service-linked configuration recorders, use <code>Arn</code> instead.</p>
-    pub fn service_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.service_principal(input.into());
         self
     }
     /// <p>For service-linked configuration recorders, you can use the service principal of the linked Amazon Web Services service to specify the configuration recorder. This field is only supported for Amazon Web Services service principals. For third-party service-linked configuration recorders, use <code>Arn</code> instead.</p>
-    pub fn set_service_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_service_principal(input);
         self
     }

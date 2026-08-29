@@ -76,9 +76,7 @@ impl ConfigurationRecorderStatus {
 }
 
 /// A builder for [`ConfigurationRecorderStatus`](crate::types::ConfigurationRecorderStatus).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ConfigurationRecorderStatusBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
@@ -127,10 +125,7 @@ impl ConfigurationRecorderStatusBuilder {
         self
     }
     /// <p>The time the recorder was last started.</p>
-    pub fn set_last_start_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_start_time = input;
         self
     }
@@ -144,10 +139,7 @@ impl ConfigurationRecorderStatusBuilder {
         self
     }
     /// <p>The time the recorder was last stopped.</p>
-    pub fn set_last_stop_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_stop_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_stop_time = input;
         self
     }
@@ -175,10 +167,7 @@ impl ConfigurationRecorderStatusBuilder {
         self
     }
     /// <p>The status of the latest recording event processed by the recorder.</p>
-    pub fn set_last_status(
-        mut self,
-        input: ::std::option::Option<crate::types::RecorderStatus>,
-    ) -> Self {
+    pub fn set_last_status(mut self, input: ::std::option::Option<crate::types::RecorderStatus>) -> Self {
         self.last_status = input;
         self
     }
@@ -187,18 +176,12 @@ impl ConfigurationRecorderStatusBuilder {
         &self.last_status
     }
     /// <p>The latest error code from when the recorder last failed.</p>
-    pub fn last_error_code(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn last_error_code(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.last_error_code = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The latest error code from when the recorder last failed.</p>
-    pub fn set_last_error_code(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_last_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.last_error_code = input;
         self
     }
@@ -207,18 +190,12 @@ impl ConfigurationRecorderStatusBuilder {
         &self.last_error_code
     }
     /// <p>The latest error message from when the recorder last failed.</p>
-    pub fn last_error_message(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn last_error_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.last_error_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The latest error message from when the recorder last failed.</p>
-    pub fn set_last_error_message(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_last_error_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.last_error_message = input;
         self
     }
@@ -232,32 +209,21 @@ impl ConfigurationRecorderStatusBuilder {
         self
     }
     /// <p>The time of the latest change in status of an recording event processed by the recorder.</p>
-    pub fn set_last_status_change_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_status_change_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_status_change_time = input;
         self
     }
     /// <p>The time of the latest change in status of an recording event processed by the recorder.</p>
-    pub fn get_last_status_change_time(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_last_status_change_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_status_change_time
     }
     /// <p>For service-linked configuration recorders, the service principal of the linked Amazon Web Services service.</p>
-    pub fn service_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.service_principal = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>For service-linked configuration recorders, the service principal of the linked Amazon Web Services service.</p>
-    pub fn set_service_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.service_principal = input;
         self
     }

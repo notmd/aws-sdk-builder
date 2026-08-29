@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteRemediationExceptionsError>`](crate::operation::delete_remediation_exceptions::DeleteRemediationExceptionsError)
     pub fn delete_remediation_exceptions(
         &self,
-    ) -> crate::operation::delete_remediation_exceptions::builders::DeleteRemediationExceptionsFluentBuilder{
+    ) -> crate::operation::delete_remediation_exceptions::builders::DeleteRemediationExceptionsFluentBuilder {
         crate::operation::delete_remediation_exceptions::builders::DeleteRemediationExceptionsFluentBuilder::new(self.handle.clone())
     }
 }

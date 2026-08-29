@@ -44,9 +44,7 @@ pub struct BaseConfigurationItem {
     pub configuration: ::std::option::Option<::std::string::String>,
     /// <p>A string to string map that contains additional contents for the resource configuration.Config returns this field for certain resource types to supplement the information returned for the <code>configuration</code> field.</p>
     /// <p>This string needs to be deserialized using <code>json.loads()</code> before you can access the contents.</p>
-    pub supplementary_configuration: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub supplementary_configuration: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>The recording frequency that Config uses to record configuration changes for the resource.</p><note>
     /// <p>This field only appears in the API response when <code>DAILY</code> recording is enabled for a resource type. If this field is not present, <code>CONTINUOUS</code> recording is enabled for that resource type. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config Developer Guide</i>.</p>
     /// </note>
@@ -66,9 +64,7 @@ impl BaseConfigurationItem {
         self.account_id.as_deref()
     }
     /// <p>The time when the recording of configuration changes was initiated for the resource.</p>
-    pub fn configuration_item_capture_time(
-        &self,
-    ) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn configuration_item_capture_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.configuration_item_capture_time.as_ref()
     }
     /// <p>The configuration item status. Valid values include:</p>
@@ -84,9 +80,7 @@ impl BaseConfigurationItem {
     /// <li>
     /// <p>ResourceDeletedNotRecorded – The resource was deleted, but its configuration was not recorded since the recorder doesn't record resources of this type.</p></li>
     /// </ul>
-    pub fn configuration_item_status(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ConfigurationItemStatus> {
+    pub fn configuration_item_status(&self) -> ::std::option::Option<&crate::types::ConfigurationItemStatus> {
         self.configuration_item_status.as_ref()
     }
     /// <p>An identifier that indicates the ordering of the configuration items of a resource.</p>
@@ -127,11 +121,7 @@ impl BaseConfigurationItem {
     }
     /// <p>A string to string map that contains additional contents for the resource configuration.Config returns this field for certain resource types to supplement the information returned for the <code>configuration</code> field.</p>
     /// <p>This string needs to be deserialized using <code>json.loads()</code> before you can access the contents.</p>
-    pub fn supplementary_configuration(
-        &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn supplementary_configuration(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.supplementary_configuration.as_ref()
     }
     /// <p>The recording frequency that Config uses to record configuration changes for the resource.</p><note>
@@ -143,9 +133,7 @@ impl BaseConfigurationItem {
     /// <p>The time when configuration changes for the resource were delivered.</p><note>
     /// <p>This field is optional and is not guaranteed to be present in a configuration item (CI). If you are using daily recording, this field will be populated. However, if you are using continuous recording, this field will be omitted since the delivery time is instantaneous as the CI is available right away. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config Developer Guide</i>.</p>
     /// </note>
-    pub fn configuration_item_delivery_time(
-        &self,
-    ) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn configuration_item_delivery_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.configuration_item_delivery_time.as_ref()
     }
 }
@@ -157,16 +145,13 @@ impl BaseConfigurationItem {
 }
 
 /// A builder for [`BaseConfigurationItem`](crate::types::BaseConfigurationItem).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct BaseConfigurationItemBuilder {
     pub(crate) version: ::std::option::Option<::std::string::String>,
     pub(crate) account_id: ::std::option::Option<::std::string::String>,
     pub(crate) configuration_item_capture_time: ::std::option::Option<::aws_smithy_types::DateTime>,
-    pub(crate) configuration_item_status:
-        ::std::option::Option<crate::types::ConfigurationItemStatus>,
+    pub(crate) configuration_item_status: ::std::option::Option<crate::types::ConfigurationItemStatus>,
     pub(crate) configuration_state_id: ::std::option::Option<::std::string::String>,
     pub(crate) arn: ::std::option::Option<::std::string::String>,
     pub(crate) resource_type: ::std::option::Option<crate::types::ResourceType>,
@@ -176,12 +161,9 @@ pub struct BaseConfigurationItemBuilder {
     pub(crate) availability_zone: ::std::option::Option<::std::string::String>,
     pub(crate) resource_creation_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) configuration: ::std::option::Option<::std::string::String>,
-    pub(crate) supplementary_configuration: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) supplementary_configuration: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) recording_frequency: ::std::option::Option<crate::types::RecordingFrequency>,
-    pub(crate) configuration_item_delivery_time:
-        ::std::option::Option<::aws_smithy_types::DateTime>,
+    pub(crate) configuration_item_delivery_time: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl BaseConfigurationItemBuilder {
     /// <p>The version number of the resource configuration.</p>
@@ -218,17 +200,12 @@ impl BaseConfigurationItemBuilder {
         self
     }
     /// <p>The time when the recording of configuration changes was initiated for the resource.</p>
-    pub fn set_configuration_item_capture_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_configuration_item_capture_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.configuration_item_capture_time = input;
         self
     }
     /// <p>The time when the recording of configuration changes was initiated for the resource.</p>
-    pub fn get_configuration_item_capture_time(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_configuration_item_capture_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.configuration_item_capture_time
     }
     /// <p>The configuration item status. Valid values include:</p>
@@ -244,10 +221,7 @@ impl BaseConfigurationItemBuilder {
     /// <li>
     /// <p>ResourceDeletedNotRecorded – The resource was deleted, but its configuration was not recorded since the recorder doesn't record resources of this type.</p></li>
     /// </ul>
-    pub fn configuration_item_status(
-        mut self,
-        input: crate::types::ConfigurationItemStatus,
-    ) -> Self {
+    pub fn configuration_item_status(mut self, input: crate::types::ConfigurationItemStatus) -> Self {
         self.configuration_item_status = ::std::option::Option::Some(input);
         self
     }
@@ -264,10 +238,7 @@ impl BaseConfigurationItemBuilder {
     /// <li>
     /// <p>ResourceDeletedNotRecorded – The resource was deleted, but its configuration was not recorded since the recorder doesn't record resources of this type.</p></li>
     /// </ul>
-    pub fn set_configuration_item_status(
-        mut self,
-        input: ::std::option::Option<crate::types::ConfigurationItemStatus>,
-    ) -> Self {
+    pub fn set_configuration_item_status(mut self, input: ::std::option::Option<crate::types::ConfigurationItemStatus>) -> Self {
         self.configuration_item_status = input;
         self
     }
@@ -284,24 +255,16 @@ impl BaseConfigurationItemBuilder {
     /// <li>
     /// <p>ResourceDeletedNotRecorded – The resource was deleted, but its configuration was not recorded since the recorder doesn't record resources of this type.</p></li>
     /// </ul>
-    pub fn get_configuration_item_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::ConfigurationItemStatus> {
+    pub fn get_configuration_item_status(&self) -> &::std::option::Option<crate::types::ConfigurationItemStatus> {
         &self.configuration_item_status
     }
     /// <p>An identifier that indicates the ordering of the configuration items of a resource.</p>
-    pub fn configuration_state_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_state_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.configuration_state_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>An identifier that indicates the ordering of the configuration items of a resource.</p>
-    pub fn set_configuration_state_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_state_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.configuration_state_id = input;
         self
     }
@@ -329,10 +292,7 @@ impl BaseConfigurationItemBuilder {
         self
     }
     /// <p>The type of Amazon Web Services resource.</p>
-    pub fn set_resource_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ResourceType>,
-    ) -> Self {
+    pub fn set_resource_type(mut self, input: ::std::option::Option<crate::types::ResourceType>) -> Self {
         self.resource_type = input;
         self
     }
@@ -355,18 +315,12 @@ impl BaseConfigurationItemBuilder {
         &self.resource_id
     }
     /// <p>The custom name of the resource, if available.</p>
-    pub fn resource_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.resource_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The custom name of the resource, if available.</p>
-    pub fn set_resource_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource_name = input;
         self
     }
@@ -389,18 +343,12 @@ impl BaseConfigurationItemBuilder {
         &self.aws_region
     }
     /// <p>The Availability Zone associated with the resource.</p>
-    pub fn availability_zone(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn availability_zone(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.availability_zone = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Availability Zone associated with the resource.</p>
-    pub fn set_availability_zone(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_availability_zone(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.availability_zone = input;
         self
     }
@@ -414,32 +362,21 @@ impl BaseConfigurationItemBuilder {
         self
     }
     /// <p>The time stamp when the resource was created.</p>
-    pub fn set_resource_creation_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_resource_creation_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.resource_creation_time = input;
         self
     }
     /// <p>The time stamp when the resource was created.</p>
-    pub fn get_resource_creation_time(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_resource_creation_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.resource_creation_time
     }
     /// <p>A JSON-encoded string that contains the contents for the resource configuration. This string needs to be deserialized using <code>json.loads()</code> before you can access the contents.</p>
-    pub fn configuration(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.configuration = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A JSON-encoded string that contains the contents for the resource configuration. This string needs to be deserialized using <code>json.loads()</code> before you can access the contents.</p>
-    pub fn set_configuration(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.configuration = input;
         self
     }
@@ -467,9 +404,7 @@ impl BaseConfigurationItemBuilder {
     /// <p>This string needs to be deserialized using <code>json.loads()</code> before you can access the contents.</p>
     pub fn set_supplementary_configuration(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.supplementary_configuration = input;
         self
@@ -478,9 +413,7 @@ impl BaseConfigurationItemBuilder {
     /// <p>This string needs to be deserialized using <code>json.loads()</code> before you can access the contents.</p>
     pub fn get_supplementary_configuration(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.supplementary_configuration
     }
     /// <p>The recording frequency that Config uses to record configuration changes for the resource.</p><note>
@@ -493,19 +426,14 @@ impl BaseConfigurationItemBuilder {
     /// <p>The recording frequency that Config uses to record configuration changes for the resource.</p><note>
     /// <p>This field only appears in the API response when <code>DAILY</code> recording is enabled for a resource type. If this field is not present, <code>CONTINUOUS</code> recording is enabled for that resource type. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config Developer Guide</i>.</p>
     /// </note>
-    pub fn set_recording_frequency(
-        mut self,
-        input: ::std::option::Option<crate::types::RecordingFrequency>,
-    ) -> Self {
+    pub fn set_recording_frequency(mut self, input: ::std::option::Option<crate::types::RecordingFrequency>) -> Self {
         self.recording_frequency = input;
         self
     }
     /// <p>The recording frequency that Config uses to record configuration changes for the resource.</p><note>
     /// <p>This field only appears in the API response when <code>DAILY</code> recording is enabled for a resource type. If this field is not present, <code>CONTINUOUS</code> recording is enabled for that resource type. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config Developer Guide</i>.</p>
     /// </note>
-    pub fn get_recording_frequency(
-        &self,
-    ) -> &::std::option::Option<crate::types::RecordingFrequency> {
+    pub fn get_recording_frequency(&self) -> &::std::option::Option<crate::types::RecordingFrequency> {
         &self.recording_frequency
     }
     /// <p>The time when configuration changes for the resource were delivered.</p><note>
@@ -518,19 +446,14 @@ impl BaseConfigurationItemBuilder {
     /// <p>The time when configuration changes for the resource were delivered.</p><note>
     /// <p>This field is optional and is not guaranteed to be present in a configuration item (CI). If you are using daily recording, this field will be populated. However, if you are using continuous recording, this field will be omitted since the delivery time is instantaneous as the CI is available right away. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config Developer Guide</i>.</p>
     /// </note>
-    pub fn set_configuration_item_delivery_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_configuration_item_delivery_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.configuration_item_delivery_time = input;
         self
     }
     /// <p>The time when configuration changes for the resource were delivered.</p><note>
     /// <p>This field is optional and is not guaranteed to be present in a configuration item (CI). If you are using daily recording, this field will be populated. However, if you are using continuous recording, this field will be omitted since the delivery time is instantaneous as the CI is available right away. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config Developer Guide</i>.</p>
     /// </note>
-    pub fn get_configuration_item_delivery_time(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_configuration_item_delivery_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.configuration_item_delivery_time
     }
     /// Consumes the builder and constructs a [`BaseConfigurationItem`](crate::types::BaseConfigurationItem).

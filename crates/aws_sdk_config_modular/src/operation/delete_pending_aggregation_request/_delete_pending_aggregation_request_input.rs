@@ -23,16 +23,14 @@ impl DeletePendingAggregationRequestInput {
 #[cfg(feature = "op_delete_pending_aggregation_request")]
 impl DeletePendingAggregationRequestInput {
     /// Creates a new builder-style object to manufacture [`DeletePendingAggregationRequestInput`](crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestInput).
-    pub fn builder() -> crate::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestInputBuilder{
+    pub fn builder() -> crate::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestInputBuilder {
         crate::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_pending_aggregation_request")]
 /// A builder for [`DeletePendingAggregationRequestInput`](crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeletePendingAggregationRequestInputBuilder {
     pub(crate) requester_account_id: ::std::option::Option<::std::string::String>,
@@ -42,18 +40,12 @@ pub struct DeletePendingAggregationRequestInputBuilder {
 impl DeletePendingAggregationRequestInputBuilder {
     /// <p>The 12-digit account ID of the account requesting to aggregate data.</p>
     /// This field is required.
-    pub fn requester_account_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn requester_account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.requester_account_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The 12-digit account ID of the account requesting to aggregate data.</p>
-    pub fn set_requester_account_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_requester_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.requester_account_id = input;
         self
     }
@@ -63,18 +55,12 @@ impl DeletePendingAggregationRequestInputBuilder {
     }
     /// <p>The region requesting to aggregate data.</p>
     /// This field is required.
-    pub fn requester_aws_region(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn requester_aws_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.requester_aws_region = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The region requesting to aggregate data.</p>
-    pub fn set_requester_aws_region(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_requester_aws_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.requester_aws_region = input;
         self
     }

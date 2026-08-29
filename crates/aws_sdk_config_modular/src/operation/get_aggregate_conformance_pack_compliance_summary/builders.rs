@@ -68,7 +68,7 @@ impl GetAggregateConformancePackComplianceSummaryFluentBuilder {
     pub fn as_input(
         &self,
     ) -> &crate::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryInputBuilder
-{
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,7 +87,7 @@ impl GetAggregateConformancePackComplianceSummaryFluentBuilder {
             crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -111,21 +111,15 @@ impl GetAggregateConformancePackComplianceSummaryFluentBuilder {
         crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryOutput,
         crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -134,82 +128,52 @@ impl GetAggregateConformancePackComplianceSummaryFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::get_aggregate_conformance_pack_compliance_summary::paginator::GetAggregateConformancePackComplianceSummaryPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::get_aggregate_conformance_pack_compliance_summary::paginator::GetAggregateConformancePackComplianceSummaryPaginator{
+    ) -> crate::operation::get_aggregate_conformance_pack_compliance_summary::paginator::GetAggregateConformancePackComplianceSummaryPaginator {
         crate::operation::get_aggregate_conformance_pack_compliance_summary::paginator::GetAggregateConformancePackComplianceSummaryPaginator::new(
             self.handle,
             self.inner,
         )
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn configuration_aggregator_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_aggregator_name(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_aggregator_name(input);
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_configuration_aggregator_name()
     }
     /// <p>Filters the results based on the <code>AggregateConformancePackComplianceSummaryFilters</code> object.</p>
-    pub fn filters(
-        mut self,
-        input: crate::types::AggregateConformancePackComplianceSummaryFilters,
-    ) -> Self {
+    pub fn filters(mut self, input: crate::types::AggregateConformancePackComplianceSummaryFilters) -> Self {
         self.inner = self.inner.filters(input);
         self
     }
     /// <p>Filters the results based on the <code>AggregateConformancePackComplianceSummaryFilters</code> object.</p>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<
-            crate::types::AggregateConformancePackComplianceSummaryFilters,
-        >,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<crate::types::AggregateConformancePackComplianceSummaryFilters>) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }
     /// <p>Filters the results based on the <code>AggregateConformancePackComplianceSummaryFilters</code> object.</p>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<crate::types::AggregateConformancePackComplianceSummaryFilters>
-    {
+    pub fn get_filters(&self) -> &::std::option::Option<crate::types::AggregateConformancePackComplianceSummaryFilters> {
         self.inner.get_filters()
     }
     /// <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
-    pub fn group_by_key(
-        mut self,
-        input: crate::types::AggregateConformancePackComplianceSummaryGroupKey,
-    ) -> Self {
+    pub fn group_by_key(mut self, input: crate::types::AggregateConformancePackComplianceSummaryGroupKey) -> Self {
         self.inner = self.inner.group_by_key(input);
         self
     }
     /// <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
-    pub fn set_group_by_key(
-        mut self,
-        input: ::std::option::Option<
-            crate::types::AggregateConformancePackComplianceSummaryGroupKey,
-        >,
-    ) -> Self {
+    pub fn set_group_by_key(mut self, input: ::std::option::Option<crate::types::AggregateConformancePackComplianceSummaryGroupKey>) -> Self {
         self.inner = self.inner.set_group_by_key(input);
         self
     }
     /// <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
-    pub fn get_group_by_key(
-        &self,
-    ) -> &::std::option::Option<crate::types::AggregateConformancePackComplianceSummaryGroupKey>
-    {
+    pub fn get_group_by_key(&self) -> &::std::option::Option<crate::types::AggregateConformancePackComplianceSummaryGroupKey> {
         self.inner.get_group_by_key()
     }
     /// <p>The maximum number of results returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>

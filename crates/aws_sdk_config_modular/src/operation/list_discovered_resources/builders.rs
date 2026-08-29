@@ -51,8 +51,7 @@ impl crate::operation::list_discovered_resources::builders::ListDiscoveredResour
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListDiscoveredResourcesFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::list_discovered_resources::builders::ListDiscoveredResourcesInputBuilder,
+    inner: crate::operation::list_discovered_resources::builders::ListDiscoveredResourcesInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_list_discovered_resources")]
@@ -85,10 +84,7 @@ impl ListDiscoveredResourcesFluentBuilder {
         }
     }
     /// Access the ListDiscoveredResources as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_discovered_resources::builders::ListDiscoveredResourcesInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::list_discovered_resources::builders::ListDiscoveredResourcesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -117,11 +113,7 @@ impl ListDiscoveredResourcesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_discovered_resources::ListDiscoveredResources::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::list_discovered_resources::ListDiscoveredResources::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -134,28 +126,19 @@ impl ListDiscoveredResourcesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_discovered_resources::paginator::ListDiscoveredResourcesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_discovered_resources::paginator::ListDiscoveredResourcesPaginator
-    {
+    pub fn into_paginator(self) -> crate::operation::list_discovered_resources::paginator::ListDiscoveredResourcesPaginator {
         crate::operation::list_discovered_resources::paginator::ListDiscoveredResourcesPaginator::new(self.handle, self.inner)
     }
     /// <p>The type of resources that you want Config to list in the response.</p>
@@ -164,10 +147,7 @@ impl ListDiscoveredResourcesFluentBuilder {
         self
     }
     /// <p>The type of resources that you want Config to list in the response.</p>
-    pub fn set_resource_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ResourceType>,
-    ) -> Self {
+    pub fn set_resource_type(mut self, input: ::std::option::Option<crate::types::ResourceType>) -> Self {
         self.inner = self.inner.set_resource_type(input);
         self
     }
@@ -186,32 +166,21 @@ impl ListDiscoveredResourcesFluentBuilder {
         self
     }
     /// <p>The IDs of only those resources that you want Config to list in the response. If you do not specify this parameter, Config lists all resources of the specified type that it has discovered. You can list a minimum of 1 resourceID and a maximum of 20 resourceIds.</p>
-    pub fn set_resource_ids(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_resource_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_resource_ids(input);
         self
     }
     /// <p>The IDs of only those resources that you want Config to list in the response. If you do not specify this parameter, Config lists all resources of the specified type that it has discovered. You can list a minimum of 1 resourceID and a maximum of 20 resourceIds.</p>
-    pub fn get_resource_ids(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_resource_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_resource_ids()
     }
     /// <p>The custom name of only those resources that you want Config to list in the response. If you do not specify this parameter, Config lists all resources of the specified type that it has discovered.</p>
-    pub fn resource_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.resource_name(input.into());
         self
     }
     /// <p>The custom name of only those resources that you want Config to list in the response. If you do not specify this parameter, Config lists all resources of the specified type that it has discovered.</p>
-    pub fn set_resource_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_resource_name(input);
         self
     }

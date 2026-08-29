@@ -6,9 +6,7 @@ pub use crate::operation::start_configuration_recorder::_start_configuration_rec
 pub use crate::operation::start_configuration_recorder::_start_configuration_recorder_output::StartConfigurationRecorderOutputBuilder;
 
 #[cfg(feature = "op_start_configuration_recorder")]
-impl
-    crate::operation::start_configuration_recorder::builders::StartConfigurationRecorderInputBuilder
-{
+impl crate::operation::start_configuration_recorder::builders::StartConfigurationRecorderInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -66,7 +64,7 @@ impl StartConfigurationRecorderFluentBuilder {
         }
     }
     /// Access the StartConfigurationRecorder as a reference.
-    pub fn as_input(&self) -> &crate::operation::start_configuration_recorder::builders::StartConfigurationRecorderInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::start_configuration_recorder::builders::StartConfigurationRecorderInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -95,11 +93,7 @@ impl StartConfigurationRecorderFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::start_configuration_recorder::StartConfigurationRecorder::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::start_configuration_recorder::StartConfigurationRecorder::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -112,34 +106,22 @@ impl StartConfigurationRecorderFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the customer managed configuration recorder that you want to start.</p>
-    pub fn configuration_recorder_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_recorder_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_recorder_name(input.into());
         self
     }
     /// <p>The name of the customer managed configuration recorder that you want to start.</p>
-    pub fn set_configuration_recorder_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_recorder_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_recorder_name(input);
         self
     }

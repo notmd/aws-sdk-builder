@@ -17,16 +17,14 @@ impl DeleteConfigurationAggregatorInput {
 #[cfg(feature = "op_delete_configuration_aggregator")]
 impl DeleteConfigurationAggregatorInput {
     /// Creates a new builder-style object to manufacture [`DeleteConfigurationAggregatorInput`](crate::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorInput).
-    pub fn builder() -> crate::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorInputBuilder{
+    pub fn builder() -> crate::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorInputBuilder {
         crate::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_configuration_aggregator")]
 /// A builder for [`DeleteConfigurationAggregatorInput`](crate::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteConfigurationAggregatorInputBuilder {
     pub(crate) configuration_aggregator_name: ::std::option::Option<::std::string::String>,
@@ -35,25 +33,17 @@ pub struct DeleteConfigurationAggregatorInputBuilder {
 impl DeleteConfigurationAggregatorInputBuilder {
     /// <p>The name of the configuration aggregator.</p>
     /// This field is required.
-    pub fn configuration_aggregator_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.configuration_aggregator_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.configuration_aggregator_name = input;
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.configuration_aggregator_name
     }
     /// Consumes the builder and constructs a [`DeleteConfigurationAggregatorInput`](crate::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorInput).
@@ -63,10 +53,8 @@ impl DeleteConfigurationAggregatorInputBuilder {
         crate::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorInput {
-                configuration_aggregator_name: self.configuration_aggregator_name,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorInput {
+            configuration_aggregator_name: self.configuration_aggregator_name,
+        })
     }
 }

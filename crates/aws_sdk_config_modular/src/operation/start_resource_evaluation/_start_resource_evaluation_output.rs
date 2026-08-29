@@ -24,18 +24,14 @@ impl ::aws_types::request_id::RequestId for StartResourceEvaluationOutput {
 #[cfg(feature = "op_start_resource_evaluation")]
 impl StartResourceEvaluationOutput {
     /// Creates a new builder-style object to manufacture [`StartResourceEvaluationOutput`](crate::operation::start_resource_evaluation::StartResourceEvaluationOutput).
-    pub fn builder(
-    ) -> crate::operation::start_resource_evaluation::builders::StartResourceEvaluationOutputBuilder
-    {
+    pub fn builder() -> crate::operation::start_resource_evaluation::builders::StartResourceEvaluationOutputBuilder {
         crate::operation::start_resource_evaluation::builders::StartResourceEvaluationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_start_resource_evaluation")]
 /// A builder for [`StartResourceEvaluationOutput`](crate::operation::start_resource_evaluation::StartResourceEvaluationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct StartResourceEvaluationOutputBuilder {
     pub(crate) resource_evaluation_id: ::std::option::Option<::std::string::String>,
@@ -44,18 +40,12 @@ pub struct StartResourceEvaluationOutputBuilder {
 #[cfg(feature = "op_start_resource_evaluation")]
 impl StartResourceEvaluationOutputBuilder {
     /// <p>A unique ResourceEvaluationId that is associated with a single execution.</p>
-    pub fn resource_evaluation_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_evaluation_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.resource_evaluation_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A unique ResourceEvaluationId that is associated with a single execution.</p>
-    pub fn set_resource_evaluation_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_evaluation_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource_evaluation_id = input;
         self
     }
@@ -73,9 +63,7 @@ impl StartResourceEvaluationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`StartResourceEvaluationOutput`](crate::operation::start_resource_evaluation::StartResourceEvaluationOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::start_resource_evaluation::StartResourceEvaluationOutput {
+    pub fn build(self) -> crate::operation::start_resource_evaluation::StartResourceEvaluationOutput {
         crate::operation::start_resource_evaluation::StartResourceEvaluationOutput {
             resource_evaluation_id: self.resource_evaluation_id,
             _request_id: self._request_id,

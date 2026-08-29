@@ -11,7 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteServiceLinkedConfigurationRecorderError>`](crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError)
     pub fn delete_service_linked_configuration_recorder(
         &self,
-    ) -> crate::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderFluentBuilder{
+    ) -> crate::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderFluentBuilder {
         crate::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderFluentBuilder::new(
             self.handle.clone(),
         )

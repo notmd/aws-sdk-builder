@@ -22,9 +22,7 @@ impl Scope {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.compliance_resource_types.is_none()`.
     pub fn compliance_resource_types(&self) -> &[::std::string::String] {
-        self.compliance_resource_types
-            .as_deref()
-            .unwrap_or_default()
+        self.compliance_resource_types.as_deref().unwrap_or_default()
     }
     /// <p>The tag key that is applied to only those Amazon Web Services resources that you want to trigger an evaluation for the rule.</p>
     pub fn tag_key(&self) -> ::std::option::Option<&str> {
@@ -55,13 +53,10 @@ impl Scope {
 }
 
 /// A builder for [`Scope`](crate::types::Scope).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ScopeBuilder {
-    pub(crate) compliance_resource_types:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) compliance_resource_types: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) tag_key: ::std::option::Option<::std::string::String>,
     pub(crate) tag_value: ::std::option::Option<::std::string::String>,
     pub(crate) compliance_resource_id: ::std::option::Option<::std::string::String>,
@@ -73,27 +68,19 @@ impl ScopeBuilder {
     /// To override the contents of this collection use [`set_compliance_resource_types`](Self::set_compliance_resource_types).
     ///
     /// <p>The resource types of only those Amazon Web Services resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for <code>ComplianceResourceId</code>.</p>
-    pub fn compliance_resource_types(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn compliance_resource_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.compliance_resource_types.unwrap_or_default();
         v.push(input.into());
         self.compliance_resource_types = ::std::option::Option::Some(v);
         self
     }
     /// <p>The resource types of only those Amazon Web Services resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for <code>ComplianceResourceId</code>.</p>
-    pub fn set_compliance_resource_types(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_compliance_resource_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.compliance_resource_types = input;
         self
     }
     /// <p>The resource types of only those Amazon Web Services resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for <code>ComplianceResourceId</code>.</p>
-    pub fn get_compliance_resource_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_compliance_resource_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.compliance_resource_types
     }
     /// <p>The tag key that is applied to only those Amazon Web Services resources that you want to trigger an evaluation for the rule.</p>
@@ -125,18 +112,12 @@ impl ScopeBuilder {
         &self.tag_value
     }
     /// <p>The ID of the only Amazon Web Services resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for <code>ComplianceResourceTypes</code>.</p>
-    pub fn compliance_resource_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn compliance_resource_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.compliance_resource_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ID of the only Amazon Web Services resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for <code>ComplianceResourceTypes</code>.</p>
-    pub fn set_compliance_resource_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_compliance_resource_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.compliance_resource_id = input;
         self
     }
@@ -151,10 +132,7 @@ impl ScopeBuilder {
     /// <p>The service principals of the Amazon Web Services services for the rule.</p><note>
     /// <p>The field is populated only if the service-linked rule is created by a service. The field is empty if you create your own rule.</p>
     /// </note>
-    pub fn service_principals(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_principals(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.service_principals.unwrap_or_default();
         v.push(input.into());
         self.service_principals = ::std::option::Option::Some(v);
@@ -163,19 +141,14 @@ impl ScopeBuilder {
     /// <p>The service principals of the Amazon Web Services services for the rule.</p><note>
     /// <p>The field is populated only if the service-linked rule is created by a service. The field is empty if you create your own rule.</p>
     /// </note>
-    pub fn set_service_principals(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_service_principals(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.service_principals = input;
         self
     }
     /// <p>The service principals of the Amazon Web Services services for the rule.</p><note>
     /// <p>The field is populated only if the service-linked rule is created by a service. The field is empty if you create your own rule.</p>
     /// </note>
-    pub fn get_service_principals(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_service_principals(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.service_principals
     }
     /// Consumes the builder and constructs a [`Scope`](crate::types::Scope).

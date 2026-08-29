@@ -18,18 +18,14 @@ impl DeleteEvaluationResultsInput {
 #[cfg(feature = "op_delete_evaluation_results")]
 impl DeleteEvaluationResultsInput {
     /// Creates a new builder-style object to manufacture [`DeleteEvaluationResultsInput`](crate::operation::delete_evaluation_results::DeleteEvaluationResultsInput).
-    pub fn builder(
-    ) -> crate::operation::delete_evaluation_results::builders::DeleteEvaluationResultsInputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_evaluation_results::builders::DeleteEvaluationResultsInputBuilder {
         crate::operation::delete_evaluation_results::builders::DeleteEvaluationResultsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_evaluation_results")]
 /// A builder for [`DeleteEvaluationResultsInput`](crate::operation::delete_evaluation_results::DeleteEvaluationResultsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteEvaluationResultsInputBuilder {
     pub(crate) config_rule_name: ::std::option::Option<::std::string::String>,
@@ -38,18 +34,12 @@ pub struct DeleteEvaluationResultsInputBuilder {
 impl DeleteEvaluationResultsInputBuilder {
     /// <p>The name of the Config rule for which you want to delete the evaluation results.</p>
     /// This field is required.
-    pub fn config_rule_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.config_rule_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the Config rule for which you want to delete the evaluation results.</p>
-    pub fn set_config_rule_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.config_rule_name = input;
         self
     }
@@ -64,10 +54,8 @@ impl DeleteEvaluationResultsInputBuilder {
         crate::operation::delete_evaluation_results::DeleteEvaluationResultsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_evaluation_results::DeleteEvaluationResultsInput {
-                config_rule_name: self.config_rule_name,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_evaluation_results::DeleteEvaluationResultsInput {
+            config_rule_name: self.config_rule_name,
+        })
     }
 }

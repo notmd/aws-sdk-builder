@@ -31,20 +31,17 @@ impl GetConformancePackComplianceSummaryInput {
 #[cfg(feature = "op_get_conformance_pack_compliance_summary")]
 impl GetConformancePackComplianceSummaryInput {
     /// Creates a new builder-style object to manufacture [`GetConformancePackComplianceSummaryInput`](crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryInput).
-    pub fn builder() -> crate::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryInputBuilder{
+    pub fn builder() -> crate::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryInputBuilder {
         crate::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_conformance_pack_compliance_summary")]
 /// A builder for [`GetConformancePackComplianceSummaryInput`](crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetConformancePackComplianceSummaryInputBuilder {
-    pub(crate) conformance_pack_names:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) conformance_pack_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) limit: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }
@@ -55,27 +52,19 @@ impl GetConformancePackComplianceSummaryInputBuilder {
     /// To override the contents of this collection use [`set_conformance_pack_names`](Self::set_conformance_pack_names).
     ///
     /// <p>Names of conformance packs.</p>
-    pub fn conformance_pack_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn conformance_pack_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.conformance_pack_names.unwrap_or_default();
         v.push(input.into());
         self.conformance_pack_names = ::std::option::Option::Some(v);
         self
     }
     /// <p>Names of conformance packs.</p>
-    pub fn set_conformance_pack_names(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_conformance_pack_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.conformance_pack_names = input;
         self
     }
     /// <p>Names of conformance packs.</p>
-    pub fn get_conformance_pack_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_conformance_pack_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.conformance_pack_names
     }
     /// <p>The maximum number of conformance packs returned on each page.</p>
@@ -112,7 +101,7 @@ impl GetConformancePackComplianceSummaryInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryInput {
                 conformance_pack_names: self.conformance_pack_names,

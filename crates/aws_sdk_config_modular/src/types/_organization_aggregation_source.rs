@@ -36,9 +36,7 @@ impl OrganizationAggregationSource {
 }
 
 /// A builder for [`OrganizationAggregationSource`](crate::types::OrganizationAggregationSource).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct OrganizationAggregationSourceBuilder {
     pub(crate) role_arn: ::std::option::Option<::std::string::String>,
@@ -73,17 +71,12 @@ impl OrganizationAggregationSourceBuilder {
         self
     }
     /// <p>The source regions being aggregated.</p>
-    pub fn set_aws_regions(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_aws_regions(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.aws_regions = input;
         self
     }
     /// <p>The source regions being aggregated.</p>
-    pub fn get_aws_regions(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_aws_regions(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.aws_regions
     }
     /// <p>If true, aggregate existing Config regions and future regions.</p>
@@ -103,12 +96,7 @@ impl OrganizationAggregationSourceBuilder {
     /// Consumes the builder and constructs a [`OrganizationAggregationSource`](crate::types::OrganizationAggregationSource).
     /// This method will fail if any of the following fields are not set:
     /// - [`role_arn`](crate::types::builders::OrganizationAggregationSourceBuilder::role_arn)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::OrganizationAggregationSource,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::OrganizationAggregationSource, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::OrganizationAggregationSource {
             role_arn: self.role_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

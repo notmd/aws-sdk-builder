@@ -42,9 +42,7 @@ impl StoredQueryMetadata {
 }
 
 /// A builder for [`StoredQueryMetadata`](crate::types::StoredQueryMetadata).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct StoredQueryMetadataBuilder {
     pub(crate) query_id: ::std::option::Option<::std::string::String>,
@@ -117,12 +115,7 @@ impl StoredQueryMetadataBuilder {
     /// - [`query_id`](crate::types::builders::StoredQueryMetadataBuilder::query_id)
     /// - [`query_arn`](crate::types::builders::StoredQueryMetadataBuilder::query_arn)
     /// - [`query_name`](crate::types::builders::StoredQueryMetadataBuilder::query_name)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::StoredQueryMetadata,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::StoredQueryMetadata, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::StoredQueryMetadata {
             query_id: self.query_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

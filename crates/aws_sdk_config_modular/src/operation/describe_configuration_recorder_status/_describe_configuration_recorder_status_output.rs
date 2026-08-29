@@ -6,8 +6,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeConfigurationRecorderStatusOutput {
     /// <p>A list that contains status of the specified recorders.</p>
-    pub configuration_recorders_status:
-        ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorderStatus>>,
+    pub configuration_recorders_status: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorderStatus>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_describe_configuration_recorder_status")]
@@ -16,9 +15,7 @@ impl DescribeConfigurationRecorderStatusOutput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.configuration_recorders_status.is_none()`.
     pub fn configuration_recorders_status(&self) -> &[crate::types::ConfigurationRecorderStatus] {
-        self.configuration_recorders_status
-            .as_deref()
-            .unwrap_or_default()
+        self.configuration_recorders_status.as_deref().unwrap_or_default()
     }
 }
 #[cfg(feature = "op_describe_configuration_recorder_status")]
@@ -30,20 +27,17 @@ impl ::aws_types::request_id::RequestId for DescribeConfigurationRecorderStatusO
 #[cfg(feature = "op_describe_configuration_recorder_status")]
 impl DescribeConfigurationRecorderStatusOutput {
     /// Creates a new builder-style object to manufacture [`DescribeConfigurationRecorderStatusOutput`](crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusOutput).
-    pub fn builder() -> crate::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusOutputBuilder{
+    pub fn builder() -> crate::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusOutputBuilder {
         crate::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_configuration_recorder_status")]
 /// A builder for [`DescribeConfigurationRecorderStatusOutput`](crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeConfigurationRecorderStatusOutputBuilder {
-    pub(crate) configuration_recorders_status:
-        ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorderStatus>>,
+    pub(crate) configuration_recorders_status: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorderStatus>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_describe_configuration_recorder_status")]
@@ -53,10 +47,7 @@ impl DescribeConfigurationRecorderStatusOutputBuilder {
     /// To override the contents of this collection use [`set_configuration_recorders_status`](Self::set_configuration_recorders_status).
     ///
     /// <p>A list that contains status of the specified recorders.</p>
-    pub fn configuration_recorders_status(
-        mut self,
-        input: crate::types::ConfigurationRecorderStatus,
-    ) -> Self {
+    pub fn configuration_recorders_status(mut self, input: crate::types::ConfigurationRecorderStatus) -> Self {
         let mut v = self.configuration_recorders_status.unwrap_or_default();
         v.push(input);
         self.configuration_recorders_status = ::std::option::Option::Some(v);
@@ -71,9 +62,7 @@ impl DescribeConfigurationRecorderStatusOutputBuilder {
         self
     }
     /// <p>A list that contains status of the specified recorders.</p>
-    pub fn get_configuration_recorders_status(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorderStatus>> {
+    pub fn get_configuration_recorders_status(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorderStatus>> {
         &self.configuration_recorders_status
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -86,7 +75,7 @@ impl DescribeConfigurationRecorderStatusOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeConfigurationRecorderStatusOutput`](crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusOutput).
-    pub fn build(self) -> crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusOutput{
+    pub fn build(self) -> crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusOutput {
         crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusOutput {
             configuration_recorders_status: self.configuration_recorders_status,
             _request_id: self._request_id,

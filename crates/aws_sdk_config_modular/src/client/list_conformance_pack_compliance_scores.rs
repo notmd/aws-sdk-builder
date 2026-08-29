@@ -15,7 +15,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListConformancePackComplianceScoresError>`](crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresError)
     pub fn list_conformance_pack_compliance_scores(
         &self,
-    ) -> crate::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresFluentBuilder{
+    ) -> crate::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresFluentBuilder {
         crate::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresFluentBuilder::new(
             self.handle.clone(),
         )

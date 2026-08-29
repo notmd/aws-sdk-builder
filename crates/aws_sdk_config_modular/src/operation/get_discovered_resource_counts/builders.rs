@@ -90,7 +90,7 @@ impl GetDiscoveredResourceCountsFluentBuilder {
         }
     }
     /// Access the GetDiscoveredResourceCounts as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -119,11 +119,7 @@ impl GetDiscoveredResourceCountsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCounts::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCounts::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -136,25 +132,19 @@ impl GetDiscoveredResourceCountsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::get_discovered_resource_counts::paginator::GetDiscoveredResourceCountsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::get_discovered_resource_counts::paginator::GetDiscoveredResourceCountsPaginator{
+    pub fn into_paginator(self) -> crate::operation::get_discovered_resource_counts::paginator::GetDiscoveredResourceCountsPaginator {
         crate::operation::get_discovered_resource_counts::paginator::GetDiscoveredResourceCountsPaginator::new(self.handle, self.inner)
     }
     ///
@@ -166,10 +156,7 @@ impl GetDiscoveredResourceCountsFluentBuilder {
     /// <p>If a value for <code>resourceTypes</code> is not specified, Config returns all resource types that Config is recording in the region for your account.</p><note>
     /// <p>If the configuration recorder is turned off, Config returns an empty list of <code>ResourceCount</code> objects. If the configuration recorder is not recording a specific resource type (for example, S3 buckets), that resource type is not returned in the list of <code>ResourceCount</code> objects.</p>
     /// </note>
-    pub fn resource_types(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.resource_types(input.into());
         self
     }
@@ -177,10 +164,7 @@ impl GetDiscoveredResourceCountsFluentBuilder {
     /// <p>If a value for <code>resourceTypes</code> is not specified, Config returns all resource types that Config is recording in the region for your account.</p><note>
     /// <p>If the configuration recorder is turned off, Config returns an empty list of <code>ResourceCount</code> objects. If the configuration recorder is not recording a specific resource type (for example, S3 buckets), that resource type is not returned in the list of <code>ResourceCount</code> objects.</p>
     /// </note>
-    pub fn set_resource_types(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_resource_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_resource_types(input);
         self
     }
@@ -188,9 +172,7 @@ impl GetDiscoveredResourceCountsFluentBuilder {
     /// <p>If a value for <code>resourceTypes</code> is not specified, Config returns all resource types that Config is recording in the region for your account.</p><note>
     /// <p>If the configuration recorder is turned off, Config returns an empty list of <code>ResourceCount</code> objects. If the configuration recorder is not recording a specific resource type (for example, S3 buckets), that resource type is not returned in the list of <code>ResourceCount</code> objects.</p>
     /// </note>
-    pub fn get_resource_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_resource_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_resource_types()
     }
     /// <p>The maximum number of <code>ResourceCount</code> objects returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>

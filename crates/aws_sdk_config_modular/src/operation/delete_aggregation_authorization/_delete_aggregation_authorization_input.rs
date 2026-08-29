@@ -23,16 +23,14 @@ impl DeleteAggregationAuthorizationInput {
 #[cfg(feature = "op_delete_aggregation_authorization")]
 impl DeleteAggregationAuthorizationInput {
     /// Creates a new builder-style object to manufacture [`DeleteAggregationAuthorizationInput`](crate::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationInput).
-    pub fn builder() -> crate::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationInputBuilder{
+    pub fn builder() -> crate::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationInputBuilder {
         crate::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_aggregation_authorization")]
 /// A builder for [`DeleteAggregationAuthorizationInput`](crate::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteAggregationAuthorizationInputBuilder {
     pub(crate) authorized_account_id: ::std::option::Option<::std::string::String>,
@@ -42,18 +40,12 @@ pub struct DeleteAggregationAuthorizationInputBuilder {
 impl DeleteAggregationAuthorizationInputBuilder {
     /// <p>The 12-digit account ID of the account authorized to aggregate data.</p>
     /// This field is required.
-    pub fn authorized_account_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn authorized_account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.authorized_account_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The 12-digit account ID of the account authorized to aggregate data.</p>
-    pub fn set_authorized_account_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_authorized_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.authorized_account_id = input;
         self
     }
@@ -63,18 +55,12 @@ impl DeleteAggregationAuthorizationInputBuilder {
     }
     /// <p>The region authorized to collect aggregated data.</p>
     /// This field is required.
-    pub fn authorized_aws_region(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn authorized_aws_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.authorized_aws_region = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The region authorized to collect aggregated data.</p>
-    pub fn set_authorized_aws_region(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_authorized_aws_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.authorized_aws_region = input;
         self
     }

@@ -25,16 +25,14 @@ impl StartRemediationExecutionInput {
 #[cfg(feature = "op_start_remediation_execution")]
 impl StartRemediationExecutionInput {
     /// Creates a new builder-style object to manufacture [`StartRemediationExecutionInput`](crate::operation::start_remediation_execution::StartRemediationExecutionInput).
-    pub fn builder() -> crate::operation::start_remediation_execution::builders::StartRemediationExecutionInputBuilder{
+    pub fn builder() -> crate::operation::start_remediation_execution::builders::StartRemediationExecutionInputBuilder {
         crate::operation::start_remediation_execution::builders::StartRemediationExecutionInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_start_remediation_execution")]
 /// A builder for [`StartRemediationExecutionInput`](crate::operation::start_remediation_execution::StartRemediationExecutionInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct StartRemediationExecutionInputBuilder {
     pub(crate) config_rule_name: ::std::option::Option<::std::string::String>,
@@ -44,18 +42,12 @@ pub struct StartRemediationExecutionInputBuilder {
 impl StartRemediationExecutionInputBuilder {
     /// <p>The list of names of Config rules that you want to run remediation execution for.</p>
     /// This field is required.
-    pub fn config_rule_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.config_rule_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The list of names of Config rules that you want to run remediation execution for.</p>
-    pub fn set_config_rule_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.config_rule_name = input;
         self
     }
@@ -75,17 +67,12 @@ impl StartRemediationExecutionInputBuilder {
         self
     }
     /// <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.</p>
-    pub fn set_resource_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>>,
-    ) -> Self {
+    pub fn set_resource_keys(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>>) -> Self {
         self.resource_keys = input;
         self
     }
     /// <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.</p>
-    pub fn get_resource_keys(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>> {
+    pub fn get_resource_keys(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>> {
         &self.resource_keys
     }
     /// Consumes the builder and constructs a [`StartRemediationExecutionInput`](crate::operation::start_remediation_execution::StartRemediationExecutionInput).
@@ -95,11 +82,9 @@ impl StartRemediationExecutionInputBuilder {
         crate::operation::start_remediation_execution::StartRemediationExecutionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::start_remediation_execution::StartRemediationExecutionInput {
-                config_rule_name: self.config_rule_name,
-                resource_keys: self.resource_keys,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::start_remediation_execution::StartRemediationExecutionInput {
+            config_rule_name: self.config_rule_name,
+            resource_keys: self.resource_keys,
+        })
     }
 }

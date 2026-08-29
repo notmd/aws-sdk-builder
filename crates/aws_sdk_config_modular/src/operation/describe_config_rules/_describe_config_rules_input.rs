@@ -32,18 +32,14 @@ impl DescribeConfigRulesInput {
 #[cfg(feature = "op_describe_config_rules")]
 impl DescribeConfigRulesInput {
     /// Creates a new builder-style object to manufacture [`DescribeConfigRulesInput`](crate::operation::describe_config_rules::DescribeConfigRulesInput).
-    pub fn builder(
-    ) -> crate::operation::describe_config_rules::builders::DescribeConfigRulesInputBuilder {
-        crate::operation::describe_config_rules::builders::DescribeConfigRulesInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::describe_config_rules::builders::DescribeConfigRulesInputBuilder {
+        crate::operation::describe_config_rules::builders::DescribeConfigRulesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_config_rules")]
 /// A builder for [`DescribeConfigRulesInput`](crate::operation::describe_config_rules::DescribeConfigRulesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeConfigRulesInputBuilder {
     pub(crate) config_rule_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -57,27 +53,19 @@ impl DescribeConfigRulesInputBuilder {
     /// To override the contents of this collection use [`set_config_rule_names`](Self::set_config_rule_names).
     ///
     /// <p>The names of the Config rules for which you want details. If you do not specify any names, Config returns details for all your rules.</p>
-    pub fn config_rule_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn config_rule_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.config_rule_names.unwrap_or_default();
         v.push(input.into());
         self.config_rule_names = ::std::option::Option::Some(v);
         self
     }
     /// <p>The names of the Config rules for which you want details. If you do not specify any names, Config returns details for all your rules.</p>
-    pub fn set_config_rule_names(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_config_rule_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.config_rule_names = input;
         self
     }
     /// <p>The names of the Config rules for which you want details. If you do not specify any names, Config returns details for all your rules.</p>
-    pub fn get_config_rule_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_config_rule_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.config_rule_names
     }
     /// <p>Returns a list of Detective or Proactive Config rules. By default, this API returns an unfiltered list. For more information on Detective or Proactive Config rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html"> <b>Evaluation Mode</b> </a> in the <i>Config Developer Guide</i>.</p>
@@ -86,10 +74,7 @@ impl DescribeConfigRulesInputBuilder {
         self
     }
     /// <p>Returns a list of Detective or Proactive Config rules. By default, this API returns an unfiltered list. For more information on Detective or Proactive Config rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html"> <b>Evaluation Mode</b> </a> in the <i>Config Developer Guide</i>.</p>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<crate::types::DescribeConfigRulesFilters>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<crate::types::DescribeConfigRulesFilters>) -> Self {
         self.filters = input;
         self
     }
@@ -114,16 +99,12 @@ impl DescribeConfigRulesInputBuilder {
     /// Consumes the builder and constructs a [`DescribeConfigRulesInput`](crate::operation::describe_config_rules::DescribeConfigRulesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_config_rules::DescribeConfigRulesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_config_rules::DescribeConfigRulesInput {
-                config_rule_names: self.config_rule_names,
-                filters: self.filters,
-                next_token: self.next_token,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::describe_config_rules::DescribeConfigRulesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::describe_config_rules::DescribeConfigRulesInput {
+            config_rule_names: self.config_rule_names,
+            filters: self.filters,
+            next_token: self.next_token,
+        })
     }
 }

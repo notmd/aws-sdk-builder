@@ -25,18 +25,14 @@ impl ::aws_types::request_id::RequestId for DeliverConfigSnapshotOutput {
 #[cfg(feature = "op_deliver_config_snapshot")]
 impl DeliverConfigSnapshotOutput {
     /// Creates a new builder-style object to manufacture [`DeliverConfigSnapshotOutput`](crate::operation::deliver_config_snapshot::DeliverConfigSnapshotOutput).
-    pub fn builder(
-    ) -> crate::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotOutputBuilder
-    {
+    pub fn builder() -> crate::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotOutputBuilder {
         crate::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_deliver_config_snapshot")]
 /// A builder for [`DeliverConfigSnapshotOutput`](crate::operation::deliver_config_snapshot::DeliverConfigSnapshotOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeliverConfigSnapshotOutputBuilder {
     pub(crate) config_snapshot_id: ::std::option::Option<::std::string::String>,
@@ -45,18 +41,12 @@ pub struct DeliverConfigSnapshotOutputBuilder {
 #[cfg(feature = "op_deliver_config_snapshot")]
 impl DeliverConfigSnapshotOutputBuilder {
     /// <p>The ID of the snapshot that is being created.</p>
-    pub fn config_snapshot_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn config_snapshot_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.config_snapshot_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ID of the snapshot that is being created.</p>
-    pub fn set_config_snapshot_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_config_snapshot_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.config_snapshot_id = input;
         self
     }

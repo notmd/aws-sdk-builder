@@ -34,16 +34,14 @@ impl PutThirdPartyServiceLinkedConfigurationRecorderOutput {
     /// Creates a new builder-style object to manufacture [`PutThirdPartyServiceLinkedConfigurationRecorderOutput`](crate::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderOutput).
     pub fn builder(
     ) -> crate::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderOutputBuilder
-{
+    {
         crate::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_third_party_service_linked_configuration_recorder")]
 /// A builder for [`PutThirdPartyServiceLinkedConfigurationRecorderOutput`](crate::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutThirdPartyServiceLinkedConfigurationRecorderOutputBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
@@ -100,7 +98,7 @@ impl PutThirdPartyServiceLinkedConfigurationRecorderOutputBuilder {
     ) -> ::std::result::Result<
         crate::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderOutput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderOutput {
                 arn: self.arn.ok_or_else(|| {

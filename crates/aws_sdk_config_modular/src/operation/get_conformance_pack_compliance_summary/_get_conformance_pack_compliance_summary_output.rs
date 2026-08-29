@@ -5,8 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetConformancePackComplianceSummaryOutput {
     /// <p>A list of <code>ConformancePackComplianceSummary</code> objects.</p>
-    pub conformance_pack_compliance_summary_list:
-        ::std::option::Option<::std::vec::Vec<crate::types::ConformancePackComplianceSummary>>,
+    pub conformance_pack_compliance_summary_list: ::std::option::Option<::std::vec::Vec<crate::types::ConformancePackComplianceSummary>>,
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -16,12 +15,8 @@ impl GetConformancePackComplianceSummaryOutput {
     /// <p>A list of <code>ConformancePackComplianceSummary</code> objects.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.conformance_pack_compliance_summary_list.is_none()`.
-    pub fn conformance_pack_compliance_summary_list(
-        &self,
-    ) -> &[crate::types::ConformancePackComplianceSummary] {
-        self.conformance_pack_compliance_summary_list
-            .as_deref()
-            .unwrap_or_default()
+    pub fn conformance_pack_compliance_summary_list(&self) -> &[crate::types::ConformancePackComplianceSummary] {
+        self.conformance_pack_compliance_summary_list.as_deref().unwrap_or_default()
     }
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -37,20 +32,17 @@ impl ::aws_types::request_id::RequestId for GetConformancePackComplianceSummaryO
 #[cfg(feature = "op_get_conformance_pack_compliance_summary")]
 impl GetConformancePackComplianceSummaryOutput {
     /// Creates a new builder-style object to manufacture [`GetConformancePackComplianceSummaryOutput`](crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryOutput).
-    pub fn builder() -> crate::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryOutputBuilder{
+    pub fn builder() -> crate::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryOutputBuilder {
         crate::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_conformance_pack_compliance_summary")]
 /// A builder for [`GetConformancePackComplianceSummaryOutput`](crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetConformancePackComplianceSummaryOutputBuilder {
-    pub(crate) conformance_pack_compliance_summary_list:
-        ::std::option::Option<::std::vec::Vec<crate::types::ConformancePackComplianceSummary>>,
+    pub(crate) conformance_pack_compliance_summary_list: ::std::option::Option<::std::vec::Vec<crate::types::ConformancePackComplianceSummary>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -61,13 +53,8 @@ impl GetConformancePackComplianceSummaryOutputBuilder {
     /// To override the contents of this collection use [`set_conformance_pack_compliance_summary_list`](Self::set_conformance_pack_compliance_summary_list).
     ///
     /// <p>A list of <code>ConformancePackComplianceSummary</code> objects.</p>
-    pub fn conformance_pack_compliance_summary_list(
-        mut self,
-        input: crate::types::ConformancePackComplianceSummary,
-    ) -> Self {
-        let mut v = self
-            .conformance_pack_compliance_summary_list
-            .unwrap_or_default();
+    pub fn conformance_pack_compliance_summary_list(mut self, input: crate::types::ConformancePackComplianceSummary) -> Self {
+        let mut v = self.conformance_pack_compliance_summary_list.unwrap_or_default();
         v.push(input);
         self.conformance_pack_compliance_summary_list = ::std::option::Option::Some(v);
         self
@@ -75,9 +62,7 @@ impl GetConformancePackComplianceSummaryOutputBuilder {
     /// <p>A list of <code>ConformancePackComplianceSummary</code> objects.</p>
     pub fn set_conformance_pack_compliance_summary_list(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::ConformancePackComplianceSummary>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ConformancePackComplianceSummary>>,
     ) -> Self {
         self.conformance_pack_compliance_summary_list = input;
         self
@@ -85,8 +70,7 @@ impl GetConformancePackComplianceSummaryOutputBuilder {
     /// <p>A list of <code>ConformancePackComplianceSummary</code> objects.</p>
     pub fn get_conformance_pack_compliance_summary_list(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ConformancePackComplianceSummary>>
-    {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ConformancePackComplianceSummary>> {
         &self.conformance_pack_compliance_summary_list
     }
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -113,7 +97,7 @@ impl GetConformancePackComplianceSummaryOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetConformancePackComplianceSummaryOutput`](crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryOutput).
-    pub fn build(self) -> crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryOutput{
+    pub fn build(self) -> crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryOutput {
         crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryOutput {
             conformance_pack_compliance_summary_list: self.conformance_pack_compliance_summary_list,
             next_token: self.next_token,

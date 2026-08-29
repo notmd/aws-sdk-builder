@@ -14,7 +14,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeRemediationExecutionStatusError>`](crate::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError)
     pub fn describe_remediation_execution_status(
         &self,
-    ) -> crate::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusFluentBuilder{
+    ) -> crate::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusFluentBuilder {
         crate::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusFluentBuilder::new(self.handle.clone())
     }
 }

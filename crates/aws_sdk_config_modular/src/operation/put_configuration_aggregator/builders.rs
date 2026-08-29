@@ -6,9 +6,7 @@ pub use crate::operation::put_configuration_aggregator::_put_configuration_aggre
 pub use crate::operation::put_configuration_aggregator::_put_configuration_aggregator_output::PutConfigurationAggregatorOutputBuilder;
 
 #[cfg(feature = "op_put_configuration_aggregator")]
-impl
-    crate::operation::put_configuration_aggregator::builders::PutConfigurationAggregatorInputBuilder
-{
+impl crate::operation::put_configuration_aggregator::builders::PutConfigurationAggregatorInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -74,7 +72,7 @@ impl PutConfigurationAggregatorFluentBuilder {
         }
     }
     /// Access the PutConfigurationAggregator as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_configuration_aggregator::builders::PutConfigurationAggregatorInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::put_configuration_aggregator::builders::PutConfigurationAggregatorInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -103,11 +101,7 @@ impl PutConfigurationAggregatorFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_configuration_aggregator::PutConfigurationAggregator::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::put_configuration_aggregator::PutConfigurationAggregator::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -120,41 +114,27 @@ impl PutConfigurationAggregatorFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn configuration_aggregator_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_aggregator_name(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_aggregator_name(input);
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_configuration_aggregator_name()
     }
     ///
@@ -163,47 +143,31 @@ impl PutConfigurationAggregatorFluentBuilder {
     /// To override the contents of this collection use [`set_account_aggregation_sources`](Self::set_account_aggregation_sources).
     ///
     /// <p>A list of AccountAggregationSource object.</p>
-    pub fn account_aggregation_sources(
-        mut self,
-        input: crate::types::AccountAggregationSource,
-    ) -> Self {
+    pub fn account_aggregation_sources(mut self, input: crate::types::AccountAggregationSource) -> Self {
         self.inner = self.inner.account_aggregation_sources(input);
         self
     }
     /// <p>A list of AccountAggregationSource object.</p>
-    pub fn set_account_aggregation_sources(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::AccountAggregationSource>>,
-    ) -> Self {
+    pub fn set_account_aggregation_sources(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AccountAggregationSource>>) -> Self {
         self.inner = self.inner.set_account_aggregation_sources(input);
         self
     }
     /// <p>A list of AccountAggregationSource object.</p>
-    pub fn get_account_aggregation_sources(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AccountAggregationSource>> {
+    pub fn get_account_aggregation_sources(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AccountAggregationSource>> {
         self.inner.get_account_aggregation_sources()
     }
     /// <p>An OrganizationAggregationSource object.</p>
-    pub fn organization_aggregation_source(
-        mut self,
-        input: crate::types::OrganizationAggregationSource,
-    ) -> Self {
+    pub fn organization_aggregation_source(mut self, input: crate::types::OrganizationAggregationSource) -> Self {
         self.inner = self.inner.organization_aggregation_source(input);
         self
     }
     /// <p>An OrganizationAggregationSource object.</p>
-    pub fn set_organization_aggregation_source(
-        mut self,
-        input: ::std::option::Option<crate::types::OrganizationAggregationSource>,
-    ) -> Self {
+    pub fn set_organization_aggregation_source(mut self, input: ::std::option::Option<crate::types::OrganizationAggregationSource>) -> Self {
         self.inner = self.inner.set_organization_aggregation_source(input);
         self
     }
     /// <p>An OrganizationAggregationSource object.</p>
-    pub fn get_organization_aggregation_source(
-        &self,
-    ) -> &::std::option::Option<crate::types::OrganizationAggregationSource> {
+    pub fn get_organization_aggregation_source(&self) -> &::std::option::Option<crate::types::OrganizationAggregationSource> {
         self.inner.get_organization_aggregation_source()
     }
     ///
@@ -217,10 +181,7 @@ impl PutConfigurationAggregatorFluentBuilder {
         self
     }
     /// <p>An array of tag object.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
@@ -234,17 +195,12 @@ impl PutConfigurationAggregatorFluentBuilder {
         self
     }
     /// <p>An object to filter configuration recorders in an aggregator. Either <code>ResourceType</code> or <code>ServicePrincipal</code> is required.</p>
-    pub fn set_aggregator_filters(
-        mut self,
-        input: ::std::option::Option<crate::types::AggregatorFilters>,
-    ) -> Self {
+    pub fn set_aggregator_filters(mut self, input: ::std::option::Option<crate::types::AggregatorFilters>) -> Self {
         self.inner = self.inner.set_aggregator_filters(input);
         self
     }
     /// <p>An object to filter configuration recorders in an aggregator. Either <code>ResourceType</code> or <code>ServicePrincipal</code> is required.</p>
-    pub fn get_aggregator_filters(
-        &self,
-    ) -> &::std::option::Option<crate::types::AggregatorFilters> {
+    pub fn get_aggregator_filters(&self) -> &::std::option::Option<crate::types::AggregatorFilters> {
         self.inner.get_aggregator_filters()
     }
 }

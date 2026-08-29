@@ -3,21 +3,15 @@ pub(crate) fn type_erase_result<O, E>(
     result: ::std::result::Result<O, E>,
 ) -> ::std::result::Result<
     ::aws_smithy_runtime_api::client::interceptors::context::Output,
-    ::aws_smithy_runtime_api::client::orchestrator::OrchestratorError<
-        ::aws_smithy_runtime_api::client::interceptors::context::Error,
-    >,
+    ::aws_smithy_runtime_api::client::orchestrator::OrchestratorError<::aws_smithy_runtime_api::client::interceptors::context::Error>,
 >
 where
     O: ::std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
     E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
 {
     result
-        .map(|output| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output)
-        })
-        .map_err(|error| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error)
-        })
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
         .map_err(::std::convert::Into::into)
 }
 
@@ -25,10 +19,7 @@ pub fn parse_http_error_metadata(
     _response_status: u16,
     response_headers: &::aws_smithy_runtime_api::http::Headers,
     response_body: &[u8],
-) -> ::std::result::Result<
-    ::aws_smithy_types::error::metadata::Builder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {
     crate::json_errors::parse_error_metadata(response_body, response_headers)
 }
 
@@ -355,14 +346,7 @@ pub(crate) mod shape_batch_get_aggregate_resource_config_input;
 #[cfg(feature = "op_batch_get_resource_config")]
 pub(crate) mod shape_batch_get_resource_config_input;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_disassociate_resource_types",
-    feature = "op_put_connector",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_third_party_service_linked_configuration_recorder"
-))]
+#[cfg(any(feature = "op_associate_resource_types", feature = "op_delete_service_linked_configuration_recorder", feature = "op_disassociate_resource_types", feature = "op_put_connector", feature = "op_put_service_linked_configuration_recorder", feature = "op_put_third_party_service_linked_configuration_recorder"))]
 pub(crate) mod shape_conflict_exception;
 
 #[cfg(feature = "op_put_conformance_pack")]
@@ -563,20 +547,7 @@ pub(crate) mod shape_idempotent_parameter_mismatch;
 #[cfg(feature = "op_put_delivery_channel")]
 pub(crate) mod shape_insufficient_delivery_policy_exception;
 
-#[cfg(any(
-    feature = "op_delete_remediation_configuration",
-    feature = "op_put_config_rule",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_start_remediation_execution"
-))]
+#[cfg(any(feature = "op_delete_remediation_configuration", feature = "op_put_config_rule", feature = "op_put_conformance_pack", feature = "op_put_connector", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack", feature = "op_put_remediation_configurations", feature = "op_put_remediation_exceptions", feature = "op_put_resource_config", feature = "op_put_service_linked_configuration_recorder", feature = "op_put_third_party_service_linked_configuration_recorder", feature = "op_start_remediation_execution"))]
 pub(crate) mod shape_insufficient_permissions_exception;
 
 #[cfg(feature = "op_put_configuration_recorder")]
@@ -585,127 +556,16 @@ pub(crate) mod shape_invalid_configuration_recorder_name_exception;
 #[cfg(feature = "op_put_delivery_channel")]
 pub(crate) mod shape_invalid_delivery_channel_name_exception;
 
-#[cfg(any(
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config"
-))]
+#[cfg(any(feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
 pub(crate) mod shape_invalid_expression_exception;
 
-#[cfg(any(
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_resource_config_history",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_tags_for_resource",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config"
-))]
+#[cfg(any(feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_aggregation_authorizations", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_pack_status", feature = "op_describe_conformance_packs", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_describe_pending_aggregation_requests", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_conformance_pack_compliance_details", feature = "op_get_conformance_pack_compliance_summary", feature = "op_get_discovered_resource_counts", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_conformance_pack_detailed_status", feature = "op_get_resource_config_history", feature = "op_list_aggregate_discovered_resources", feature = "op_list_conformance_pack_compliance_scores", feature = "op_list_discovered_resources", feature = "op_list_tags_for_resource", feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
 pub(crate) mod shape_invalid_limit_exception;
 
-#[cfg(any(
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_resource_config_history",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config"
-))]
+#[cfg(any(feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_aggregation_authorizations", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_compliance_by_resource", feature = "op_describe_config_rule_evaluation_status", feature = "op_describe_config_rules", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_pack_status", feature = "op_describe_conformance_packs", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_describe_pending_aggregation_requests", feature = "op_describe_remediation_exceptions", feature = "op_describe_remediation_execution_status", feature = "op_describe_retention_configurations", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_conformance_pack_compliance_details", feature = "op_get_conformance_pack_compliance_summary", feature = "op_get_discovered_resource_counts", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_conformance_pack_detailed_status", feature = "op_get_resource_config_history", feature = "op_list_aggregate_discovered_resources", feature = "op_list_conformance_pack_compliance_scores", feature = "op_list_discovered_resources", feature = "op_list_resource_evaluations", feature = "op_list_stored_queries", feature = "op_list_tags_for_resource", feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
 pub(crate) mod shape_invalid_next_token_exception;
 
-#[cfg(any(
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_retention_configuration",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_resource_evaluations",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_retention_configuration",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation"
-))]
+#[cfg(any(feature = "op_delete_aggregation_authorization", feature = "op_delete_pending_aggregation_request", feature = "op_delete_remediation_configuration", feature = "op_delete_retention_configuration", feature = "op_describe_aggregation_authorizations", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_compliance_by_resource", feature = "op_describe_config_rule_evaluation_status", feature = "op_describe_config_rules", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_pack_status", feature = "op_describe_conformance_packs", feature = "op_describe_pending_aggregation_requests", feature = "op_describe_remediation_exceptions", feature = "op_describe_remediation_execution_status", feature = "op_describe_retention_configurations", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_compliance_details_by_resource", feature = "op_get_compliance_summary_by_resource_type", feature = "op_get_conformance_pack_compliance_details", feature = "op_list_conformance_pack_compliance_scores", feature = "op_list_resource_evaluations", feature = "op_put_aggregation_authorization", feature = "op_put_config_rule", feature = "op_put_configuration_aggregator", feature = "op_put_conformance_pack", feature = "op_put_evaluations", feature = "op_put_external_evaluation", feature = "op_put_organization_config_rule", feature = "op_put_remediation_configurations", feature = "op_put_remediation_exceptions", feature = "op_put_retention_configuration", feature = "op_start_config_rules_evaluation", feature = "op_start_remediation_execution", feature = "op_start_resource_evaluation"))]
 pub(crate) mod shape_invalid_parameter_value_exception;
 
 #[cfg(feature = "op_put_configuration_recorder")]
@@ -714,10 +574,7 @@ pub(crate) mod shape_invalid_recording_group_exception;
 #[cfg(feature = "op_put_evaluations")]
 pub(crate) mod shape_invalid_result_token_exception;
 
-#[cfg(any(
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder"
-))]
+#[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_configuration_recorder"))]
 pub(crate) mod shape_invalid_role_exception;
 
 #[cfg(feature = "op_put_delivery_channel")]
@@ -729,20 +586,13 @@ pub(crate) mod shape_invalid_s3_kms_key_arn_exception;
 #[cfg(feature = "op_put_delivery_channel")]
 pub(crate) mod shape_invalid_sns_topic_arn_exception;
 
-#[cfg(any(
-    feature = "op_get_resource_config_history",
-    feature = "op_list_resource_evaluations"
-))]
+#[cfg(any(feature = "op_get_resource_config_history", feature = "op_list_resource_evaluations"))]
 pub(crate) mod shape_invalid_time_range_exception;
 
 #[cfg(feature = "op_delete_delivery_channel")]
 pub(crate) mod shape_last_delivery_channel_delete_failed_exception;
 
-#[cfg(any(
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_start_config_rules_evaluation"
-))]
+#[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_service_linked_configuration_recorder", feature = "op_start_config_rules_evaluation"))]
 pub(crate) mod shape_limit_exceeded_exception;
 
 #[cfg(feature = "op_list_aggregate_discovered_resources")]
@@ -796,156 +646,58 @@ pub(crate) mod shape_max_number_of_organization_conformance_packs_exceeded_excep
 #[cfg(feature = "op_put_retention_configuration")]
 pub(crate) mod shape_max_number_of_retention_configurations_exceeded_exception;
 
-#[cfg(any(
-    feature = "op_batch_get_resource_config",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_get_resource_config_history",
-    feature = "op_list_discovered_resources",
-    feature = "op_put_config_rule",
-    feature = "op_put_delivery_channel"
-))]
+#[cfg(any(feature = "op_batch_get_resource_config", feature = "op_deliver_config_snapshot", feature = "op_get_resource_config_history", feature = "op_list_discovered_resources", feature = "op_put_config_rule", feature = "op_put_delivery_channel"))]
 pub(crate) mod shape_no_available_configuration_recorder_exception;
 
 #[cfg(feature = "op_start_configuration_recorder")]
 pub(crate) mod shape_no_available_delivery_channel_exception;
 
-#[cfg(any(
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack"
-))]
+#[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack"))]
 pub(crate) mod shape_no_available_organization_exception;
 
-#[cfg(any(
-    feature = "op_delete_resource_config",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_put_resource_config"
-))]
+#[cfg(any(feature = "op_delete_resource_config", feature = "op_deliver_config_snapshot", feature = "op_put_resource_config"))]
 pub(crate) mod shape_no_running_configuration_recorder_exception;
 
 #[cfg(feature = "op_put_delivery_channel")]
 pub(crate) mod shape_no_such_bucket_exception;
 
-#[cfg(any(
-    feature = "op_delete_config_rule",
-    feature = "op_delete_evaluation_results",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_start_config_rules_evaluation"
-))]
+#[cfg(any(feature = "op_delete_config_rule", feature = "op_delete_evaluation_results", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_config_rule_evaluation_status", feature = "op_describe_config_rules", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_custom_rule_policy", feature = "op_put_evaluations", feature = "op_put_external_evaluation", feature = "op_start_config_rules_evaluation"))]
 pub(crate) mod shape_no_such_config_rule_exception;
 
-#[cfg(any(
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_get_conformance_pack_compliance_details"
-))]
+#[cfg(any(feature = "op_describe_conformance_pack_compliance", feature = "op_get_conformance_pack_compliance_details"))]
 pub(crate) mod shape_no_such_config_rule_in_conformance_pack_exception;
 
-#[cfg(any(
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_select_aggregate_resource_config"
-))]
+#[cfg(any(feature = "op_batch_get_aggregate_resource_config", feature = "op_delete_configuration_aggregator", feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_aggregate_resource_config", feature = "op_list_aggregate_discovered_resources", feature = "op_select_aggregate_resource_config"))]
 pub(crate) mod shape_no_such_configuration_aggregator_exception;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_disassociate_resource_types",
-    feature = "op_start_configuration_recorder",
-    feature = "op_stop_configuration_recorder"
-))]
+#[cfg(any(feature = "op_associate_resource_types", feature = "op_delete_configuration_recorder", feature = "op_delete_service_linked_configuration_recorder", feature = "op_describe_configuration_recorder_status", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_start_configuration_recorder", feature = "op_stop_configuration_recorder"))]
 pub(crate) mod shape_no_such_configuration_recorder_exception;
 
-#[cfg(any(
-    feature = "op_delete_conformance_pack",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_packs",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary"
-))]
+#[cfg(any(feature = "op_delete_conformance_pack", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_packs", feature = "op_get_conformance_pack_compliance_details", feature = "op_get_conformance_pack_compliance_summary"))]
 pub(crate) mod shape_no_such_conformance_pack_exception;
 
-#[cfg(any(
-    feature = "op_delete_delivery_channel",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels"
-))]
+#[cfg(any(feature = "op_delete_delivery_channel", feature = "op_deliver_config_snapshot", feature = "op_describe_delivery_channel_status", feature = "op_describe_delivery_channels"))]
 pub(crate) mod shape_no_such_delivery_channel_exception;
 
-#[cfg(any(
-    feature = "op_delete_organization_config_rule",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_custom_rule_policy"
-))]
+#[cfg(any(feature = "op_delete_organization_config_rule", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_custom_rule_policy"))]
 pub(crate) mod shape_no_such_organization_config_rule_exception;
 
-#[cfg(any(
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_get_organization_conformance_pack_detailed_status"
-))]
+#[cfg(any(feature = "op_delete_organization_conformance_pack", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_get_organization_conformance_pack_detailed_status"))]
 pub(crate) mod shape_no_such_organization_conformance_pack_exception;
 
-#[cfg(any(
-    feature = "op_delete_remediation_configuration",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_start_remediation_execution"
-))]
+#[cfg(any(feature = "op_delete_remediation_configuration", feature = "op_describe_remediation_execution_status", feature = "op_start_remediation_execution"))]
 pub(crate) mod shape_no_such_remediation_configuration_exception;
 
 #[cfg(feature = "op_delete_remediation_exceptions")]
 pub(crate) mod shape_no_such_remediation_exception_exception;
 
-#[cfg(any(
-    feature = "op_delete_retention_configuration",
-    feature = "op_describe_retention_configurations"
-))]
+#[cfg(any(feature = "op_delete_retention_configuration", feature = "op_describe_retention_configurations"))]
 pub(crate) mod shape_no_such_retention_configuration_exception;
 
-#[cfg(any(
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack"
-))]
+#[cfg(any(feature = "op_delete_organization_config_rule", feature = "op_delete_organization_conformance_pack", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_conformance_pack_detailed_status", feature = "op_get_organization_custom_rule_policy", feature = "op_put_configuration_aggregator", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack"))]
 pub(crate) mod shape_organization_access_denied_exception;
 
-#[cfg(any(
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack"
-))]
+#[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack"))]
 pub(crate) mod shape_organization_all_features_not_enabled_exception;
 
 #[cfg(feature = "op_put_organization_conformance_pack")]
@@ -1014,36 +766,13 @@ pub(crate) mod shape_remediation_in_progress_exception;
 #[cfg(feature = "op_put_stored_query")]
 pub(crate) mod shape_resource_concurrent_modification_exception;
 
-#[cfg(any(
-    feature = "op_delete_config_rule",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_put_config_rule",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_start_config_rules_evaluation"
-))]
+#[cfg(any(feature = "op_delete_config_rule", feature = "op_delete_conformance_pack", feature = "op_delete_evaluation_results", feature = "op_delete_organization_config_rule", feature = "op_delete_organization_conformance_pack", feature = "op_put_config_rule", feature = "op_put_conformance_pack", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack", feature = "op_start_config_rules_evaluation"))]
 pub(crate) mod shape_resource_in_use_exception;
 
-#[cfg(any(
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_resource_config_history"
-))]
+#[cfg(any(feature = "op_get_aggregate_resource_config", feature = "op_get_resource_config_history"))]
 pub(crate) mod shape_resource_not_discovered_exception;
 
-#[cfg(any(
-    feature = "op_delete_connector",
-    feature = "op_delete_stored_query",
-    feature = "op_get_connector",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_tags_for_resource",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_delete_connector", feature = "op_delete_stored_query", feature = "op_get_connector", feature = "op_get_resource_evaluation_summary", feature = "op_get_stored_query", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource"))]
 pub(crate) mod shape_resource_not_found_exception;
 
 #[cfg(feature = "op_select_aggregate_resource_config")]
@@ -1073,62 +802,16 @@ pub(crate) mod shape_tag_resource_input;
 #[cfg(any(feature = "op_put_stored_query", feature = "op_tag_resource"))]
 pub(crate) mod shape_too_many_tags_exception;
 
-#[cfg(any(
-    feature = "op_delete_configuration_recorder",
-    feature = "op_put_configuration_recorder",
-    feature = "op_start_configuration_recorder",
-    feature = "op_stop_configuration_recorder"
-))]
+#[cfg(any(feature = "op_delete_configuration_recorder", feature = "op_put_configuration_recorder", feature = "op_start_configuration_recorder", feature = "op_stop_configuration_recorder"))]
 pub(crate) mod shape_unmodifiable_entity_exception;
 
 #[cfg(feature = "op_untag_resource")]
 pub(crate) mod shape_untag_resource_input;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_connector",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_connector",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_connector",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_resource_config",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_associate_resource_types", feature = "op_batch_get_aggregate_resource_config", feature = "op_batch_get_resource_config", feature = "op_delete_connector", feature = "op_delete_resource_config", feature = "op_delete_service_linked_configuration_recorder", feature = "op_delete_stored_query", feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_configuration_recorder_status", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_aggregate_resource_config", feature = "op_get_connector", feature = "op_get_discovered_resource_counts", feature = "op_get_resource_config_history", feature = "op_get_stored_query", feature = "op_list_aggregate_discovered_resources", feature = "op_list_configuration_recorders", feature = "op_list_connectors", feature = "op_list_discovered_resources", feature = "op_list_stored_queries", feature = "op_list_tags_for_resource", feature = "op_put_configuration_recorder", feature = "op_put_connector", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack", feature = "op_put_resource_config", feature = "op_put_service_linked_configuration_recorder", feature = "op_put_stored_query", feature = "op_put_third_party_service_linked_configuration_recorder", feature = "op_tag_resource", feature = "op_untag_resource"))]
 pub(crate) mod shape_validation_exception;
 
-#[cfg(any(
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_put_configuration_aggregator"
-))]
+#[cfg(any(feature = "op_describe_configuration_aggregators", feature = "op_put_configuration_aggregator"))]
 pub(crate) mod shape_account_aggregation_source;
 
 #[cfg(feature = "op_describe_aggregate_compliance_by_config_rules")]
@@ -1152,35 +835,22 @@ pub(crate) mod shape_aggregate_conformance_pack_compliance_summary_list;
 #[cfg(feature = "op_get_aggregate_compliance_details_by_config_rule")]
 pub(crate) mod shape_aggregate_evaluation_result_list;
 
-#[cfg(any(
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_list_aggregate_discovered_resources"
-))]
+#[cfg(any(feature = "op_batch_get_aggregate_resource_config", feature = "op_get_aggregate_resource_config", feature = "op_list_aggregate_discovered_resources"))]
 pub(crate) mod shape_aggregate_resource_identifier;
 
 #[cfg(feature = "op_describe_configuration_aggregator_sources_status")]
 pub(crate) mod shape_aggregated_source_status_list;
 
-#[cfg(any(
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_put_aggregation_authorization"
-))]
+#[cfg(any(feature = "op_describe_aggregation_authorizations", feature = "op_put_aggregation_authorization"))]
 pub(crate) mod shape_aggregation_authorization;
 
 #[cfg(feature = "op_describe_aggregation_authorizations")]
 pub(crate) mod shape_aggregation_authorization_list;
 
-#[cfg(any(
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_put_configuration_aggregator"
-))]
+#[cfg(any(feature = "op_describe_configuration_aggregators", feature = "op_put_configuration_aggregator"))]
 pub(crate) mod shape_aggregator_filters;
 
-#[cfg(any(
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config"
-))]
+#[cfg(any(feature = "op_batch_get_aggregate_resource_config", feature = "op_batch_get_resource_config"))]
 pub(crate) mod shape_base_configuration_items;
 
 #[cfg(feature = "op_describe_compliance_by_config_rule")]
@@ -1192,11 +862,7 @@ pub(crate) mod shape_compliance_by_resources;
 #[cfg(feature = "op_get_compliance_summary_by_resource_type")]
 pub(crate) mod shape_compliance_summaries_by_resource_type;
 
-#[cfg(any(
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type"
-))]
+#[cfg(any(feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_compliance_summary_by_config_rule", feature = "op_get_compliance_summary_by_resource_type"))]
 pub(crate) mod shape_compliance_summary;
 
 #[cfg(any(feature = "op_describe_config_rules", feature = "op_put_config_rule"))]
@@ -1214,30 +880,19 @@ pub(crate) mod shape_config_rule_evaluation_status_list;
 #[cfg(feature = "op_describe_config_rules")]
 pub(crate) mod shape_config_rules;
 
-#[cfg(any(
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_put_configuration_aggregator"
-))]
+#[cfg(any(feature = "op_describe_configuration_aggregators", feature = "op_put_configuration_aggregator"))]
 pub(crate) mod shape_configuration_aggregator;
 
 #[cfg(feature = "op_describe_configuration_aggregators")]
 pub(crate) mod shape_configuration_aggregator_list;
 
-#[cfg(any(
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_resource_config_history"
-))]
+#[cfg(any(feature = "op_get_aggregate_resource_config", feature = "op_get_resource_config_history"))]
 pub(crate) mod shape_configuration_item;
 
 #[cfg(feature = "op_get_resource_config_history")]
 pub(crate) mod shape_configuration_item_list;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_disassociate_resource_types",
-    feature = "op_put_configuration_recorder"
-))]
+#[cfg(any(feature = "op_associate_resource_types", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_put_configuration_recorder"))]
 pub(crate) mod shape_configuration_recorder;
 
 #[cfg(feature = "op_list_configuration_recorders")]
@@ -1270,12 +925,7 @@ pub(crate) mod shape_conformance_pack_detail_list;
 #[cfg(feature = "op_get_conformance_pack_compliance_details")]
 pub(crate) mod shape_conformance_pack_evaluation_filters;
 
-#[cfg(any(
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_organization_conformance_pack"
-))]
+#[cfg(any(feature = "op_describe_conformance_packs", feature = "op_describe_organization_conformance_packs", feature = "op_put_conformance_pack", feature = "op_put_organization_conformance_pack"))]
 pub(crate) mod shape_conformance_pack_input_parameter;
 
 #[cfg(feature = "op_describe_conformance_pack_compliance")]
@@ -1299,10 +949,7 @@ pub(crate) mod shape_connector_filter;
 #[cfg(feature = "op_list_connectors")]
 pub(crate) mod shape_connector_summaries;
 
-#[cfg(any(
-    feature = "op_describe_delivery_channels",
-    feature = "op_put_delivery_channel"
-))]
+#[cfg(any(feature = "op_describe_delivery_channels", feature = "op_put_delivery_channel"))]
 pub(crate) mod shape_delivery_channel;
 
 #[cfg(feature = "op_describe_delivery_channels")]
@@ -1320,16 +967,10 @@ pub(crate) mod shape_discovered_resource_identifier_list;
 #[cfg(feature = "op_put_evaluations")]
 pub(crate) mod shape_evaluation;
 
-#[cfg(any(
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_start_resource_evaluation"
-))]
+#[cfg(any(feature = "op_get_resource_evaluation_summary", feature = "op_start_resource_evaluation"))]
 pub(crate) mod shape_evaluation_context;
 
-#[cfg(any(
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource"
-))]
+#[cfg(any(feature = "op_get_compliance_details_by_config_rule", feature = "op_get_compliance_details_by_resource"))]
 pub(crate) mod shape_evaluation_results;
 
 #[cfg(feature = "op_get_resource_evaluation_summary")]
@@ -1353,10 +994,7 @@ pub(crate) mod shape_failed_remediation_exception_batches;
 #[cfg(feature = "op_get_aggregate_discovered_resource_counts")]
 pub(crate) mod shape_grouped_resource_count_list;
 
-#[cfg(any(
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_put_configuration_aggregator"
-))]
+#[cfg(any(feature = "op_describe_configuration_aggregators", feature = "op_put_configuration_aggregator"))]
 pub(crate) mod shape_organization_aggregation_source;
 
 #[cfg(feature = "op_get_organization_config_rule_detailed_status")]
@@ -1380,16 +1018,10 @@ pub(crate) mod shape_organization_conformance_packs;
 #[cfg(feature = "op_put_organization_config_rule")]
 pub(crate) mod shape_organization_custom_policy_rule_metadata;
 
-#[cfg(any(
-    feature = "op_describe_organization_config_rules",
-    feature = "op_put_organization_config_rule"
-))]
+#[cfg(any(feature = "op_describe_organization_config_rules", feature = "op_put_organization_config_rule"))]
 pub(crate) mod shape_organization_custom_rule_metadata;
 
-#[cfg(any(
-    feature = "op_describe_organization_config_rules",
-    feature = "op_put_organization_config_rule"
-))]
+#[cfg(any(feature = "op_describe_organization_config_rules", feature = "op_put_organization_config_rule"))]
 pub(crate) mod shape_organization_managed_rule_metadata;
 
 #[cfg(feature = "op_get_organization_conformance_pack_detailed_status")]
@@ -1398,35 +1030,19 @@ pub(crate) mod shape_organization_resource_detailed_status_filters;
 #[cfg(feature = "op_describe_pending_aggregation_requests")]
 pub(crate) mod shape_pending_aggregation_request_list;
 
-#[cfg(any(
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config"
-))]
+#[cfg(any(feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
 pub(crate) mod shape_query_info;
 
-#[cfg(any(
-    feature = "op_describe_remediation_configurations",
-    feature = "op_put_remediation_configurations"
-))]
+#[cfg(any(feature = "op_describe_remediation_configurations", feature = "op_put_remediation_configurations"))]
 pub(crate) mod shape_remediation_configuration;
 
-#[cfg(any(
-    feature = "op_describe_remediation_configurations",
-    feature = "op_put_remediation_configurations"
-))]
+#[cfg(any(feature = "op_describe_remediation_configurations", feature = "op_put_remediation_configurations"))]
 pub(crate) mod shape_remediation_configurations;
 
-#[cfg(any(
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_put_remediation_exceptions"
-))]
+#[cfg(any(feature = "op_delete_remediation_exceptions", feature = "op_describe_remediation_exceptions", feature = "op_put_remediation_exceptions"))]
 pub(crate) mod shape_remediation_exception_resource_key;
 
-#[cfg(any(
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_put_remediation_exceptions"
-))]
+#[cfg(any(feature = "op_describe_remediation_exceptions", feature = "op_put_remediation_exceptions"))]
 pub(crate) mod shape_remediation_exceptions;
 
 #[cfg(feature = "op_describe_remediation_execution_status")]
@@ -1438,10 +1054,7 @@ pub(crate) mod shape_resource_count_filters;
 #[cfg(feature = "op_get_discovered_resource_counts")]
 pub(crate) mod shape_resource_counts;
 
-#[cfg(any(
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_start_resource_evaluation"
-))]
+#[cfg(any(feature = "op_get_resource_evaluation_summary", feature = "op_start_resource_evaluation"))]
 pub(crate) mod shape_resource_details;
 
 #[cfg(feature = "op_list_resource_evaluations")]
@@ -1456,41 +1069,22 @@ pub(crate) mod shape_resource_filters;
 #[cfg(feature = "op_list_discovered_resources")]
 pub(crate) mod shape_resource_identifier_list;
 
-#[cfg(any(
-    feature = "op_batch_get_resource_config",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_start_remediation_execution"
-))]
+#[cfg(any(feature = "op_batch_get_resource_config", feature = "op_describe_remediation_execution_status", feature = "op_start_remediation_execution"))]
 pub(crate) mod shape_resource_key;
 
-#[cfg(any(
-    feature = "op_batch_get_resource_config",
-    feature = "op_start_remediation_execution"
-))]
+#[cfg(any(feature = "op_batch_get_resource_config", feature = "op_start_remediation_execution"))]
 pub(crate) mod shape_resource_keys;
 
-#[cfg(any(
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config"
-))]
+#[cfg(any(feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
 pub(crate) mod shape_results;
 
-#[cfg(any(
-    feature = "op_describe_retention_configurations",
-    feature = "op_put_retention_configuration"
-))]
+#[cfg(any(feature = "op_describe_retention_configurations", feature = "op_put_retention_configuration"))]
 pub(crate) mod shape_retention_configuration;
 
 #[cfg(feature = "op_describe_retention_configurations")]
 pub(crate) mod shape_retention_configuration_list;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_disassociate_resource_types",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_third_party_service_linked_configuration_recorder"
-))]
+#[cfg(any(feature = "op_associate_resource_types", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_put_configuration_recorder", feature = "op_put_third_party_service_linked_configuration_recorder"))]
 pub(crate) mod shape_scope_configuration;
 
 #[cfg(feature = "op_get_organization_config_rule_detailed_status")]
@@ -1502,39 +1096,19 @@ pub(crate) mod shape_stored_query;
 #[cfg(feature = "op_list_stored_queries")]
 pub(crate) mod shape_stored_query_metadata_list;
 
-#[cfg(any(
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_tag_resource"
-))]
+#[cfg(any(feature = "op_list_tags_for_resource", feature = "op_put_aggregation_authorization", feature = "op_put_config_rule", feature = "op_put_configuration_aggregator", feature = "op_put_configuration_recorder", feature = "op_put_conformance_pack", feature = "op_put_connector", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack", feature = "op_put_service_linked_configuration_recorder", feature = "op_put_stored_query", feature = "op_put_third_party_service_linked_configuration_recorder", feature = "op_tag_resource"))]
 pub(crate) mod shape_tag;
 
 #[cfg(feature = "op_list_tags_for_resource")]
 pub(crate) mod shape_tag_list;
 
-#[cfg(any(
-    feature = "op_describe_conformance_packs",
-    feature = "op_put_conformance_pack"
-))]
+#[cfg(any(feature = "op_describe_conformance_packs", feature = "op_put_conformance_pack"))]
 pub(crate) mod shape_template_ssm_document_details;
 
 #[cfg(feature = "op_batch_get_aggregate_resource_config")]
 pub(crate) mod shape_unprocessed_resource_identifier_list;
 
-#[cfg(any(
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_put_configuration_aggregator"
-))]
+#[cfg(any(feature = "op_describe_configuration_aggregators", feature = "op_put_configuration_aggregator"))]
 pub(crate) mod shape_account_aggregation_source_list;
 
 #[cfg(feature = "op_describe_aggregate_compliance_by_config_rules")]
@@ -1555,25 +1129,16 @@ pub(crate) mod shape_aggregate_evaluation_result;
 #[cfg(feature = "op_describe_configuration_aggregator_sources_status")]
 pub(crate) mod shape_aggregated_source_status;
 
-#[cfg(any(
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_put_configuration_aggregator"
-))]
+#[cfg(any(feature = "op_describe_configuration_aggregators", feature = "op_put_configuration_aggregator"))]
 pub(crate) mod shape_aggregator_filter_resource_type;
 
-#[cfg(any(
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_put_configuration_aggregator"
-))]
+#[cfg(any(feature = "op_describe_configuration_aggregators", feature = "op_put_configuration_aggregator"))]
 pub(crate) mod shape_aggregator_filter_service_principal;
 
 #[cfg(any(feature = "op_get_connector", feature = "op_put_connector"))]
 pub(crate) mod shape_azure_connector_configuration;
 
-#[cfg(any(
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config"
-))]
+#[cfg(any(feature = "op_batch_get_aggregate_resource_config", feature = "op_batch_get_resource_config"))]
 pub(crate) mod shape_base_configuration_item;
 
 #[cfg(feature = "op_describe_compliance_by_config_rule")]
@@ -1582,18 +1147,7 @@ pub(crate) mod shape_compliance_by_config_rule;
 #[cfg(feature = "op_describe_compliance_by_resource")]
 pub(crate) mod shape_compliance_by_resource;
 
-#[cfg(any(
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_resource_evaluation_summary"
-))]
+#[cfg(any(feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_compliance_by_resource", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_compliance_summary_by_config_rule", feature = "op_get_compliance_summary_by_resource_type"))]
 pub(crate) mod shape_compliance_contributor_count;
 
 #[cfg(feature = "op_get_compliance_summary_by_resource_type")]
@@ -1602,10 +1156,7 @@ pub(crate) mod shape_compliance_summary_by_resource_type;
 #[cfg(feature = "op_describe_config_rule_evaluation_status")]
 pub(crate) mod shape_config_rule_evaluation_status;
 
-#[cfg(any(
-    feature = "op_describe_delivery_channels",
-    feature = "op_put_delivery_channel"
-))]
+#[cfg(any(feature = "op_describe_delivery_channels", feature = "op_put_delivery_channel"))]
 pub(crate) mod shape_config_snapshot_delivery_properties;
 
 #[cfg(feature = "op_describe_configuration_recorder_status")]
@@ -1638,122 +1189,13 @@ pub(crate) mod shape_connector_summary;
 #[cfg(feature = "op_describe_delivery_channel_status")]
 pub(crate) mod shape_delivery_channel_status;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_describe_config_rules", feature = "op_put_config_rule"))]
 pub(crate) mod shape_evaluation_mode_configuration;
 
-#[cfg(any(
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource"
-))]
+#[cfg(any(feature = "op_get_compliance_details_by_config_rule", feature = "op_get_compliance_details_by_resource"))]
 pub(crate) mod shape_evaluation_result;
 
-#[cfg(any(
-    feature = "op_describe_remediation_configurations",
-    feature = "op_put_remediation_configurations"
-))]
+#[cfg(any(feature = "op_describe_remediation_configurations", feature = "op_put_remediation_configurations"))]
 pub(crate) mod shape_execution_controls;
 
 #[cfg(feature = "op_delete_remediation_exceptions")]
@@ -1765,10 +1207,7 @@ pub(crate) mod shape_failed_remediation_batch;
 #[cfg(feature = "op_put_remediation_exceptions")]
 pub(crate) mod shape_failed_remediation_exception_batch;
 
-#[cfg(any(
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config"
-))]
+#[cfg(any(feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
 pub(crate) mod shape_field_info_list;
 
 #[cfg(feature = "op_get_aggregate_discovered_resource_counts")]
@@ -1795,147 +1234,25 @@ pub(crate) mod shape_organization_conformance_pack_status;
 #[cfg(feature = "op_describe_pending_aggregation_requests")]
 pub(crate) mod shape_pending_aggregation_request;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_disassociate_resource_types",
-    feature = "op_put_configuration_recorder"
-))]
+#[cfg(any(feature = "op_associate_resource_types", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_put_configuration_recorder"))]
 pub(crate) mod shape_recording_group;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_disassociate_resource_types",
-    feature = "op_put_configuration_recorder"
-))]
+#[cfg(any(feature = "op_associate_resource_types", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_put_configuration_recorder"))]
 pub(crate) mod shape_recording_mode;
 
-#[cfg(any(
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_resource_config_history"
-))]
+#[cfg(any(feature = "op_get_aggregate_resource_config", feature = "op_get_resource_config_history"))]
 pub(crate) mod shape_related_event_list;
 
-#[cfg(any(
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_resource_config_history"
-))]
+#[cfg(any(feature = "op_get_aggregate_resource_config", feature = "op_get_resource_config_history"))]
 pub(crate) mod shape_relationship_list;
 
-#[cfg(any(
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_put_remediation_exceptions"
-))]
+#[cfg(any(feature = "op_describe_remediation_exceptions", feature = "op_put_remediation_exceptions"))]
 pub(crate) mod shape_remediation_exception;
 
 #[cfg(feature = "op_describe_remediation_execution_status")]
 pub(crate) mod shape_remediation_execution_status;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_describe_remediation_configurations", feature = "op_put_remediation_configurations"))]
 pub(crate) mod shape_remediation_parameter_value;
 
 #[cfg(feature = "op_get_discovered_resource_counts")]
@@ -1956,18 +1273,10 @@ pub(crate) mod shape_source;
 #[cfg(feature = "op_list_stored_queries")]
 pub(crate) mod shape_stored_query_metadata;
 
-#[cfg(any(
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_resource_config_history"
-))]
+#[cfg(any(feature = "op_batch_get_aggregate_resource_config", feature = "op_batch_get_resource_config", feature = "op_get_aggregate_resource_config", feature = "op_get_resource_config_history"))]
 pub(crate) mod shape_supplementary_configuration;
 
-#[cfg(any(
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_resource_config_history"
-))]
+#[cfg(any(feature = "op_get_aggregate_resource_config", feature = "op_get_resource_config_history"))]
 pub(crate) mod shape_tags;
 
 #[cfg(feature = "op_list_resource_evaluations")]
@@ -1979,17 +1288,10 @@ pub(crate) mod shape_aggregate_conformance_pack_compliance;
 #[cfg(feature = "op_get_aggregate_conformance_pack_compliance_summary")]
 pub(crate) mod shape_aggregate_conformance_pack_compliance_count;
 
-#[cfg(any(
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_put_configuration_aggregator"
-))]
+#[cfg(any(feature = "op_describe_configuration_aggregators", feature = "op_put_configuration_aggregator"))]
 pub(crate) mod shape_aggregator_region_list;
 
-#[cfg(any(
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource"
-))]
+#[cfg(any(feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_compliance_by_resource"))]
 pub(crate) mod shape_compliance;
 
 #[cfg(feature = "op_describe_delivery_channel_status")]
@@ -1998,784 +1300,46 @@ pub(crate) mod shape_config_export_delivery_info;
 #[cfg(feature = "op_describe_delivery_channel_status")]
 pub(crate) mod shape_config_stream_delivery_info;
 
-#[cfg(any(
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_organization_conformance_packs"
-))]
+#[cfg(any(feature = "op_describe_conformance_packs", feature = "op_describe_organization_conformance_packs"))]
 pub(crate) mod shape_conformance_pack_input_parameters;
 
 #[cfg(feature = "op_describe_conformance_pack_compliance")]
 pub(crate) mod shape_controls_list;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_describe_config_rules", feature = "op_put_config_rule"))]
 pub(crate) mod shape_custom_policy_details;
 
 #[cfg(any(feature = "op_describe_config_rules", feature = "op_put_config_rule"))]
 pub(crate) mod shape_evaluation_modes;
 
-#[cfg(any(
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_conformance_pack_compliance_details"
-))]
+#[cfg(any(feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_compliance_details_by_resource", feature = "op_get_conformance_pack_compliance_details"))]
 pub(crate) mod shape_evaluation_result_identifier;
 
-#[cfg(any(
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_packs"
-))]
+#[cfg(any(feature = "op_describe_organization_config_rules", feature = "op_describe_organization_conformance_packs"))]
 pub(crate) mod shape_excluded_accounts;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_associate_resource_types", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_put_configuration_recorder"))]
 pub(crate) mod shape_exclusion_by_resource_types;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
 pub(crate) mod shape_field_info;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_disassociate_resource_types",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_third_party_service_linked_configuration_recorder"
-))]
+#[cfg(any(feature = "op_associate_resource_types", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_put_configuration_recorder", feature = "op_put_third_party_service_linked_configuration_recorder"))]
 pub(crate) mod shape_included_regions;
 
 #[cfg(feature = "op_describe_organization_config_rules")]
 pub(crate) mod shape_organization_custom_policy_rule_metadata_no_policy;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_associate_resource_types", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_put_configuration_recorder"))]
 pub(crate) mod shape_recording_mode_override;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_associate_resource_types", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_put_configuration_recorder"))]
 pub(crate) mod shape_recording_mode_overrides;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_associate_resource_types", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_put_configuration_recorder"))]
 pub(crate) mod shape_recording_strategy;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_get_aggregate_resource_config", feature = "op_get_resource_config_history"))]
 pub(crate) mod shape_relationship;
 
 #[cfg(feature = "op_delete_remediation_exceptions")]
@@ -2784,1831 +1348,65 @@ pub(crate) mod shape_remediation_exception_resource_keys;
 #[cfg(feature = "op_describe_remediation_execution_status")]
 pub(crate) mod shape_remediation_execution_steps;
 
-#[cfg(any(
-    feature = "op_describe_remediation_configurations",
-    feature = "op_put_remediation_configurations"
-))]
+#[cfg(any(feature = "op_describe_remediation_configurations", feature = "op_put_remediation_configurations"))]
 pub(crate) mod shape_remediation_parameters;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_associate_resource_types", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_put_configuration_recorder"))]
 pub(crate) mod shape_resource_type_list;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_describe_remediation_configurations", feature = "op_put_remediation_configurations"))]
 pub(crate) mod shape_resource_value;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_disassociate_resource_types",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_third_party_service_linked_configuration_recorder"
-))]
+#[cfg(any(feature = "op_associate_resource_types", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_put_configuration_recorder", feature = "op_put_third_party_service_linked_configuration_recorder"))]
 pub(crate) mod shape_scope_values;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_describe_config_rules", feature = "op_put_config_rule"))]
 pub(crate) mod shape_source_detail;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_describe_remediation_configurations", feature = "op_put_remediation_configurations"))]
 pub(crate) mod shape_ssm_controls;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_describe_remediation_configurations", feature = "op_put_remediation_configurations"))]
 pub(crate) mod shape_static_value;
 
-#[cfg(any(
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_put_configuration_aggregator"
-))]
+#[cfg(any(feature = "op_describe_configuration_aggregators", feature = "op_put_configuration_aggregator"))]
 pub(crate) mod shape_account_aggregation_source_account_list;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_describe_config_rules", feature = "op_put_config_rule"))]
 pub(crate) mod shape_compliance_resource_types;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(feature = "op_describe_organization_config_rules")]
 pub(crate) mod shape_debug_log_delivery_accounts;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_compliance_details_by_resource", feature = "op_get_conformance_pack_compliance_details"))]
 pub(crate) mod shape_evaluation_result_qualifier;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(feature = "op_describe_organization_config_rules")]
 pub(crate) mod shape_organization_config_rule_trigger_type_no_sns;
 
-#[cfg(any(
-    feature = "op_describe_organization_config_rules",
-    feature = "op_put_organization_config_rule"
-))]
+#[cfg(any(feature = "op_describe_organization_config_rules", feature = "op_put_organization_config_rule"))]
 pub(crate) mod shape_organization_config_rule_trigger_types;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(feature = "op_describe_remediation_execution_status")]
 pub(crate) mod shape_remediation_execution_step;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_describe_configuration_aggregators", feature = "op_put_configuration_aggregator"))]
 pub(crate) mod shape_resource_type_value_list;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_describe_organization_config_rules", feature = "op_put_organization_config_rule"))]
 pub(crate) mod shape_resource_types_scope;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_describe_configuration_aggregators", feature = "op_put_configuration_aggregator"))]
 pub(crate) mod shape_service_principal_value_list;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_describe_config_rules", feature = "op_put_config_rule"))]
 pub(crate) mod shape_service_principals;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_describe_config_rules", feature = "op_put_config_rule"))]
 pub(crate) mod shape_source_details;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_associate_resource_types", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_put_configuration_recorder"))]
 pub(crate) mod shape_recording_mode_resource_types_list;
 
-#[cfg(any(
-    feature = "op_associate_resource_types",
-    feature = "op_batch_get_aggregate_resource_config",
-    feature = "op_batch_get_resource_config",
-    feature = "op_delete_aggregation_authorization",
-    feature = "op_delete_config_rule",
-    feature = "op_delete_configuration_aggregator",
-    feature = "op_delete_configuration_recorder",
-    feature = "op_delete_conformance_pack",
-    feature = "op_delete_connector",
-    feature = "op_delete_delivery_channel",
-    feature = "op_delete_evaluation_results",
-    feature = "op_delete_organization_config_rule",
-    feature = "op_delete_organization_conformance_pack",
-    feature = "op_delete_pending_aggregation_request",
-    feature = "op_delete_remediation_configuration",
-    feature = "op_delete_remediation_exceptions",
-    feature = "op_delete_resource_config",
-    feature = "op_delete_retention_configuration",
-    feature = "op_delete_service_linked_configuration_recorder",
-    feature = "op_delete_stored_query",
-    feature = "op_deliver_config_snapshot",
-    feature = "op_describe_aggregate_compliance_by_config_rules",
-    feature = "op_describe_aggregate_compliance_by_conformance_packs",
-    feature = "op_describe_aggregation_authorizations",
-    feature = "op_describe_compliance_by_config_rule",
-    feature = "op_describe_compliance_by_resource",
-    feature = "op_describe_config_rule_evaluation_status",
-    feature = "op_describe_config_rules",
-    feature = "op_describe_configuration_aggregator_sources_status",
-    feature = "op_describe_configuration_aggregators",
-    feature = "op_describe_configuration_recorder_status",
-    feature = "op_describe_configuration_recorders",
-    feature = "op_describe_conformance_pack_compliance",
-    feature = "op_describe_conformance_pack_status",
-    feature = "op_describe_conformance_packs",
-    feature = "op_describe_delivery_channel_status",
-    feature = "op_describe_delivery_channels",
-    feature = "op_describe_organization_config_rule_statuses",
-    feature = "op_describe_organization_config_rules",
-    feature = "op_describe_organization_conformance_pack_statuses",
-    feature = "op_describe_organization_conformance_packs",
-    feature = "op_describe_pending_aggregation_requests",
-    feature = "op_describe_remediation_configurations",
-    feature = "op_describe_remediation_exceptions",
-    feature = "op_describe_remediation_execution_status",
-    feature = "op_describe_retention_configurations",
-    feature = "op_disassociate_resource_types",
-    feature = "op_get_aggregate_compliance_details_by_config_rule",
-    feature = "op_get_aggregate_config_rule_compliance_summary",
-    feature = "op_get_aggregate_conformance_pack_compliance_summary",
-    feature = "op_get_aggregate_discovered_resource_counts",
-    feature = "op_get_aggregate_resource_config",
-    feature = "op_get_compliance_details_by_config_rule",
-    feature = "op_get_compliance_details_by_resource",
-    feature = "op_get_compliance_summary_by_config_rule",
-    feature = "op_get_compliance_summary_by_resource_type",
-    feature = "op_get_conformance_pack_compliance_details",
-    feature = "op_get_conformance_pack_compliance_summary",
-    feature = "op_get_connector",
-    feature = "op_get_custom_rule_policy",
-    feature = "op_get_discovered_resource_counts",
-    feature = "op_get_organization_config_rule_detailed_status",
-    feature = "op_get_organization_conformance_pack_detailed_status",
-    feature = "op_get_organization_custom_rule_policy",
-    feature = "op_get_resource_config_history",
-    feature = "op_get_resource_evaluation_summary",
-    feature = "op_get_stored_query",
-    feature = "op_list_aggregate_discovered_resources",
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_conformance_pack_compliance_scores",
-    feature = "op_list_connectors",
-    feature = "op_list_discovered_resources",
-    feature = "op_list_resource_evaluations",
-    feature = "op_list_stored_queries",
-    feature = "op_list_tags_for_resource",
-    feature = "op_put_aggregation_authorization",
-    feature = "op_put_config_rule",
-    feature = "op_put_configuration_aggregator",
-    feature = "op_put_configuration_recorder",
-    feature = "op_put_conformance_pack",
-    feature = "op_put_connector",
-    feature = "op_put_delivery_channel",
-    feature = "op_put_evaluations",
-    feature = "op_put_external_evaluation",
-    feature = "op_put_organization_config_rule",
-    feature = "op_put_organization_conformance_pack",
-    feature = "op_put_remediation_configurations",
-    feature = "op_put_remediation_exceptions",
-    feature = "op_put_resource_config",
-    feature = "op_put_retention_configuration",
-    feature = "op_put_service_linked_configuration_recorder",
-    feature = "op_put_stored_query",
-    feature = "op_put_third_party_service_linked_configuration_recorder",
-    feature = "op_select_aggregate_resource_config",
-    feature = "op_select_resource_config",
-    feature = "op_start_config_rules_evaluation",
-    feature = "op_start_configuration_recorder",
-    feature = "op_start_remediation_execution",
-    feature = "op_start_resource_evaluation",
-    feature = "op_stop_configuration_recorder",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource"
-))]
+#[cfg(any(feature = "op_describe_remediation_configurations", feature = "op_put_remediation_configurations"))]
 pub(crate) mod shape_static_parameter_values;

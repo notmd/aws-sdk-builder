@@ -23,11 +23,9 @@ pub struct PutConformancePackInput {
     /// </note>
     pub delivery_s3_key_prefix: ::std::option::Option<::std::string::String>,
     /// <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-    pub conformance_pack_input_parameters:
-        ::std::option::Option<::std::vec::Vec<crate::types::ConformancePackInputParameter>>,
+    pub conformance_pack_input_parameters: ::std::option::Option<::std::vec::Vec<crate::types::ConformancePackInputParameter>>,
     /// <p>An object of type <code>TemplateSSMDocumentDetails</code>, which contains the name or the Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.</p>
-    pub template_ssm_document_details:
-        ::std::option::Option<crate::types::TemplateSsmDocumentDetails>,
+    pub template_ssm_document_details: ::std::option::Option<crate::types::TemplateSsmDocumentDetails>,
     /// <p>The tags for the conformance pack. Each tag consists of a key and an optional value, both of which you define.</p>
     pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 }
@@ -64,17 +62,11 @@ impl PutConformancePackInput {
     /// <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.conformance_pack_input_parameters.is_none()`.
-    pub fn conformance_pack_input_parameters(
-        &self,
-    ) -> &[crate::types::ConformancePackInputParameter] {
-        self.conformance_pack_input_parameters
-            .as_deref()
-            .unwrap_or_default()
+    pub fn conformance_pack_input_parameters(&self) -> &[crate::types::ConformancePackInputParameter] {
+        self.conformance_pack_input_parameters.as_deref().unwrap_or_default()
     }
     /// <p>An object of type <code>TemplateSSMDocumentDetails</code>, which contains the name or the Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.</p>
-    pub fn template_ssm_document_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::TemplateSsmDocumentDetails> {
+    pub fn template_ssm_document_details(&self) -> ::std::option::Option<&crate::types::TemplateSsmDocumentDetails> {
         self.template_ssm_document_details.as_ref()
     }
     /// <p>The tags for the conformance pack. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -87,17 +79,14 @@ impl PutConformancePackInput {
 #[cfg(feature = "op_put_conformance_pack")]
 impl PutConformancePackInput {
     /// Creates a new builder-style object to manufacture [`PutConformancePackInput`](crate::operation::put_conformance_pack::PutConformancePackInput).
-    pub fn builder(
-    ) -> crate::operation::put_conformance_pack::builders::PutConformancePackInputBuilder {
+    pub fn builder() -> crate::operation::put_conformance_pack::builders::PutConformancePackInputBuilder {
         crate::operation::put_conformance_pack::builders::PutConformancePackInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_conformance_pack")]
 /// A builder for [`PutConformancePackInput`](crate::operation::put_conformance_pack::PutConformancePackInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutConformancePackInputBuilder {
     pub(crate) conformance_pack_name: ::std::option::Option<::std::string::String>,
@@ -105,28 +94,20 @@ pub struct PutConformancePackInputBuilder {
     pub(crate) template_body: ::std::option::Option<::std::string::String>,
     pub(crate) delivery_s3_bucket: ::std::option::Option<::std::string::String>,
     pub(crate) delivery_s3_key_prefix: ::std::option::Option<::std::string::String>,
-    pub(crate) conformance_pack_input_parameters:
-        ::std::option::Option<::std::vec::Vec<crate::types::ConformancePackInputParameter>>,
-    pub(crate) template_ssm_document_details:
-        ::std::option::Option<crate::types::TemplateSsmDocumentDetails>,
+    pub(crate) conformance_pack_input_parameters: ::std::option::Option<::std::vec::Vec<crate::types::ConformancePackInputParameter>>,
+    pub(crate) template_ssm_document_details: ::std::option::Option<crate::types::TemplateSsmDocumentDetails>,
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 }
 #[cfg(feature = "op_put_conformance_pack")]
 impl PutConformancePackInputBuilder {
     /// <p>The unique name of the conformance pack you want to deploy.</p>
     /// This field is required.
-    pub fn conformance_pack_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn conformance_pack_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.conformance_pack_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique name of the conformance pack you want to deploy.</p>
-    pub fn set_conformance_pack_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_conformance_pack_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.conformance_pack_name = input;
         self
     }
@@ -137,20 +118,14 @@ impl PutConformancePackInputBuilder {
     /// <p>The location of the file containing the template body (<code>s3://bucketname/prefix</code>). The uri must point to a conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same Region as the conformance pack.</p><note>
     /// <p>You must have access to read Amazon S3 bucket. In addition, in order to ensure a successful deployment, the template object must not be in an <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">archived storage class</a> if this parameter is passed.</p>
     /// </note>
-    pub fn template_s3_uri(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn template_s3_uri(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.template_s3_uri = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The location of the file containing the template body (<code>s3://bucketname/prefix</code>). The uri must point to a conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same Region as the conformance pack.</p><note>
     /// <p>You must have access to read Amazon S3 bucket. In addition, in order to ensure a successful deployment, the template object must not be in an <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">archived storage class</a> if this parameter is passed.</p>
     /// </note>
-    pub fn set_template_s3_uri(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_template_s3_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.template_s3_uri = input;
         self
     }
@@ -163,20 +138,14 @@ impl PutConformancePackInputBuilder {
     /// <p>A string that contains the full conformance pack template body. The structure containing the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.</p><note>
     /// <p>You can use a YAML template with two resource types: Config rule (<code>AWS::Config::ConfigRule</code>) and remediation action (<code>AWS::Config::RemediationConfiguration</code>).</p>
     /// </note>
-    pub fn template_body(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn template_body(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.template_body = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A string that contains the full conformance pack template body. The structure containing the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.</p><note>
     /// <p>You can use a YAML template with two resource types: Config rule (<code>AWS::Config::ConfigRule</code>) and remediation action (<code>AWS::Config::RemediationConfiguration</code>).</p>
     /// </note>
-    pub fn set_template_body(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_template_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.template_body = input;
         self
     }
@@ -189,20 +158,14 @@ impl PutConformancePackInputBuilder {
     /// <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p><note>
     /// <p>This field is optional.</p>
     /// </note>
-    pub fn delivery_s3_bucket(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delivery_s3_bucket(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delivery_s3_bucket = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p><note>
     /// <p>This field is optional.</p>
     /// </note>
-    pub fn set_delivery_s3_bucket(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delivery_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delivery_s3_bucket = input;
         self
     }
@@ -215,20 +178,14 @@ impl PutConformancePackInputBuilder {
     /// <p>The prefix for the Amazon S3 bucket.</p><note>
     /// <p>This field is optional.</p>
     /// </note>
-    pub fn delivery_s3_key_prefix(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delivery_s3_key_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delivery_s3_key_prefix = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The prefix for the Amazon S3 bucket.</p><note>
     /// <p>This field is optional.</p>
     /// </note>
-    pub fn set_delivery_s3_key_prefix(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delivery_s3_key_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delivery_s3_key_prefix = input;
         self
     }
@@ -243,10 +200,7 @@ impl PutConformancePackInputBuilder {
     /// To override the contents of this collection use [`set_conformance_pack_input_parameters`](Self::set_conformance_pack_input_parameters).
     ///
     /// <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-    pub fn conformance_pack_input_parameters(
-        mut self,
-        input: crate::types::ConformancePackInputParameter,
-    ) -> Self {
+    pub fn conformance_pack_input_parameters(mut self, input: crate::types::ConformancePackInputParameter) -> Self {
         let mut v = self.conformance_pack_input_parameters.unwrap_or_default();
         v.push(input);
         self.conformance_pack_input_parameters = ::std::option::Option::Some(v);
@@ -261,31 +215,21 @@ impl PutConformancePackInputBuilder {
         self
     }
     /// <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-    pub fn get_conformance_pack_input_parameters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ConformancePackInputParameter>> {
+    pub fn get_conformance_pack_input_parameters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConformancePackInputParameter>> {
         &self.conformance_pack_input_parameters
     }
     /// <p>An object of type <code>TemplateSSMDocumentDetails</code>, which contains the name or the Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.</p>
-    pub fn template_ssm_document_details(
-        mut self,
-        input: crate::types::TemplateSsmDocumentDetails,
-    ) -> Self {
+    pub fn template_ssm_document_details(mut self, input: crate::types::TemplateSsmDocumentDetails) -> Self {
         self.template_ssm_document_details = ::std::option::Option::Some(input);
         self
     }
     /// <p>An object of type <code>TemplateSSMDocumentDetails</code>, which contains the name or the Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.</p>
-    pub fn set_template_ssm_document_details(
-        mut self,
-        input: ::std::option::Option<crate::types::TemplateSsmDocumentDetails>,
-    ) -> Self {
+    pub fn set_template_ssm_document_details(mut self, input: ::std::option::Option<crate::types::TemplateSsmDocumentDetails>) -> Self {
         self.template_ssm_document_details = input;
         self
     }
     /// <p>An object of type <code>TemplateSSMDocumentDetails</code>, which contains the name or the Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.</p>
-    pub fn get_template_ssm_document_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::TemplateSsmDocumentDetails> {
+    pub fn get_template_ssm_document_details(&self) -> &::std::option::Option<crate::types::TemplateSsmDocumentDetails> {
         &self.template_ssm_document_details
     }
     /// Appends an item to `tags`.
@@ -300,10 +244,7 @@ impl PutConformancePackInputBuilder {
         self
     }
     /// <p>The tags for the conformance pack. Each tag consists of a key and an optional value, both of which you define.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
@@ -314,21 +255,17 @@ impl PutConformancePackInputBuilder {
     /// Consumes the builder and constructs a [`PutConformancePackInput`](crate::operation::put_conformance_pack::PutConformancePackInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::put_conformance_pack::PutConformancePackInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::put_conformance_pack::PutConformancePackInput {
-                conformance_pack_name: self.conformance_pack_name,
-                template_s3_uri: self.template_s3_uri,
-                template_body: self.template_body,
-                delivery_s3_bucket: self.delivery_s3_bucket,
-                delivery_s3_key_prefix: self.delivery_s3_key_prefix,
-                conformance_pack_input_parameters: self.conformance_pack_input_parameters,
-                template_ssm_document_details: self.template_ssm_document_details,
-                tags: self.tags,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::put_conformance_pack::PutConformancePackInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::put_conformance_pack::PutConformancePackInput {
+            conformance_pack_name: self.conformance_pack_name,
+            template_s3_uri: self.template_s3_uri,
+            template_body: self.template_body,
+            delivery_s3_bucket: self.delivery_s3_bucket,
+            delivery_s3_key_prefix: self.delivery_s3_key_prefix,
+            conformance_pack_input_parameters: self.conformance_pack_input_parameters,
+            template_ssm_document_details: self.template_ssm_document_details,
+            tags: self.tags,
+        })
     }
 }

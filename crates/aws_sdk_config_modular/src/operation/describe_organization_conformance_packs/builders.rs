@@ -68,7 +68,7 @@ impl DescribeOrganizationConformancePacksFluentBuilder {
         }
     }
     /// Access the DescribeOrganizationConformancePacks as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,7 +87,7 @@ impl DescribeOrganizationConformancePacksFluentBuilder {
             crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -108,21 +108,15 @@ impl DescribeOrganizationConformancePacksFluentBuilder {
         crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksOutput,
         crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -131,7 +125,7 @@ impl DescribeOrganizationConformancePacksFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::describe_organization_conformance_packs::paginator::DescribeOrganizationConformancePacksPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::describe_organization_conformance_packs::paginator::DescribeOrganizationConformancePacksPaginator{
+    ) -> crate::operation::describe_organization_conformance_packs::paginator::DescribeOrganizationConformancePacksPaginator {
         crate::operation::describe_organization_conformance_packs::paginator::DescribeOrganizationConformancePacksPaginator::new(
             self.handle,
             self.inner,
@@ -143,25 +137,17 @@ impl DescribeOrganizationConformancePacksFluentBuilder {
     /// To override the contents of this collection use [`set_organization_conformance_pack_names`](Self::set_organization_conformance_pack_names).
     ///
     /// <p>The name that you assign to an organization conformance pack.</p>
-    pub fn organization_conformance_pack_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn organization_conformance_pack_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.organization_conformance_pack_names(input.into());
         self
     }
     /// <p>The name that you assign to an organization conformance pack.</p>
-    pub fn set_organization_conformance_pack_names(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_organization_conformance_pack_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_organization_conformance_pack_names(input);
         self
     }
     /// <p>The name that you assign to an organization conformance pack.</p>
-    pub fn get_organization_conformance_pack_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_organization_conformance_pack_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_organization_conformance_pack_names()
     }
     /// <p>The maximum number of organization config packs returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>

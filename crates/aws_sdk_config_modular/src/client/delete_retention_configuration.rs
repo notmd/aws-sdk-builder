@@ -8,7 +8,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteRetentionConfigurationError>`](crate::operation::delete_retention_configuration::DeleteRetentionConfigurationError)
     pub fn delete_retention_configuration(
         &self,
-    ) -> crate::operation::delete_retention_configuration::builders::DeleteRetentionConfigurationFluentBuilder{
+    ) -> crate::operation::delete_retention_configuration::builders::DeleteRetentionConfigurationFluentBuilder {
         crate::operation::delete_retention_configuration::builders::DeleteRetentionConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

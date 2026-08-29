@@ -41,16 +41,14 @@ impl ListAggregateDiscoveredResourcesInput {
 #[cfg(feature = "op_list_aggregate_discovered_resources")]
 impl ListAggregateDiscoveredResourcesInput {
     /// Creates a new builder-style object to manufacture [`ListAggregateDiscoveredResourcesInput`](crate::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesInput).
-    pub fn builder() -> crate::operation::list_aggregate_discovered_resources::builders::ListAggregateDiscoveredResourcesInputBuilder{
+    pub fn builder() -> crate::operation::list_aggregate_discovered_resources::builders::ListAggregateDiscoveredResourcesInputBuilder {
         crate::operation::list_aggregate_discovered_resources::builders::ListAggregateDiscoveredResourcesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_aggregate_discovered_resources")]
 /// A builder for [`ListAggregateDiscoveredResourcesInput`](crate::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListAggregateDiscoveredResourcesInputBuilder {
     pub(crate) configuration_aggregator_name: ::std::option::Option<::std::string::String>,
@@ -63,25 +61,17 @@ pub struct ListAggregateDiscoveredResourcesInputBuilder {
 impl ListAggregateDiscoveredResourcesInputBuilder {
     /// <p>The name of the configuration aggregator.</p>
     /// This field is required.
-    pub fn configuration_aggregator_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.configuration_aggregator_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.configuration_aggregator_name = input;
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.configuration_aggregator_name
     }
     /// <p>The type of resources that you want Config to list in the response.</p>
@@ -91,10 +81,7 @@ impl ListAggregateDiscoveredResourcesInputBuilder {
         self
     }
     /// <p>The type of resources that you want Config to list in the response.</p>
-    pub fn set_resource_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ResourceType>,
-    ) -> Self {
+    pub fn set_resource_type(mut self, input: ::std::option::Option<crate::types::ResourceType>) -> Self {
         self.resource_type = input;
         self
     }
@@ -108,10 +95,7 @@ impl ListAggregateDiscoveredResourcesInputBuilder {
         self
     }
     /// <p>Filters the results based on the <code>ResourceFilters</code> object.</p>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<crate::types::ResourceFilters>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<crate::types::ResourceFilters>) -> Self {
         self.filters = input;
         self
     }
@@ -153,7 +137,7 @@ impl ListAggregateDiscoveredResourcesInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesInput {
                 configuration_aggregator_name: self.configuration_aggregator_name,

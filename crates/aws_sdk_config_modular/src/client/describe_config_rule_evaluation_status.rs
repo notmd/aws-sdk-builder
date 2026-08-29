@@ -13,7 +13,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeConfigRuleEvaluationStatusError>`](crate::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusError)
     pub fn describe_config_rule_evaluation_status(
         &self,
-    ) -> crate::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusFluentBuilder{
+    ) -> crate::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusFluentBuilder {
         crate::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusFluentBuilder::new(self.handle.clone())
     }
 }
