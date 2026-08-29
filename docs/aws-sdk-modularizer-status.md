@@ -1,6 +1,6 @@
 # AWS SDK modularizer checkpoint log
 
-## 2026-08-29 — final verification checkpoint
+## 2026-08-29 — `ae81b21a5` — final verification checkpoint
 
 - Objective: complete the feature-gated modular SDK transformation and workspace validation.
 - Generic rule: keep operation ownership in the generator, gate shared protocol/type/error surfaces only when their AST ownership requires it, and commit generated SDK changes per service.
@@ -9,16 +9,17 @@
 - Remaining blocker: none.
 - Next action: review the per-service SDK commits and the generator checkpoints above.
 
-## 2026-08-29 — documentation regeneration checkpoint
+## 2026-08-29 — `57a460dac` — documentation regeneration checkpoint
 
 - Objective: regenerate all modular SDK snapshots after the generic doctest crate-name rewrite.
 - Generic rule: keep generated service output in one reviewable commit per service, including its tracked diff artifacts.
 - Changed files: `crates/aws_sdk_*_modular/**` and `conformance/summary.md`.
+- Service commits: Batch `2cff91ee0`, Bedrock Runtime `ce36b1c8f`, CloudWatch Logs `e0796e0fd`, CodeArtifact `bbf453e2d`, Cognito Identity Provider `5c14d8b28`, Config `940a54a04`, DynamoDB `2a23c7be5`, IAM `34ba7de0c`, KMS `356ceeca7`, Lambda `018cc0e1c`, S3 `431597672`, SESv2 `6980addc2`, SNS `33d960f76`, SQS `3a37d0e5e`, STS `00120fd9e`.
 - Commands: `AWS_SDK_MODULARIZER_ARCHIVE=/tmp/aws-sdk-rust.tar.gz RUSTFLAGS='-Awarnings' just conformance` passed for all 15 services; every service has zero missing and zero ambiguous operations, coverage delta `+0`.
 - Remaining blocker: complete workspace compile/test verification.
 - Next action: run `cargo check --workspace`, `cargo test --workspace`, `cargo fmt --all -- --check`, and `git diff --check`.
 
-## 2026-08-29 — documentation crate-name rewrite checkpoint
+## 2026-08-29 — `964bb1f47` — documentation crate-name rewrite checkpoint
 
 - Objective: keep generated doctests valid after renaming each library to its modular crate name.
 - Generic rule: use `syn` to visit Rust `doc` attributes and rewrite only exact old library identifiers at their source spans; leave executable code and runtime strings unchanged.
@@ -27,7 +28,7 @@
 - Remaining blocker: regenerate the SDK snapshots so the documentation rewrite is present in each service crate.
 - Next action: regenerate and commit each service output separately, then run conformance and workspace tests.
 
-## 2026-08-29 — formatting checkpoint
+## 2026-08-29 — `07e7db81b` — formatting checkpoint
 
 - Objective: make the required workspace formatting check pass without reformatting upstream-generated SDK snapshots.
 - Generic rule: ignore only the generated `crates/aws_sdk_*_modular` directories in the repository rustfmt configuration; keep hand-written and modularizer code checked normally.
