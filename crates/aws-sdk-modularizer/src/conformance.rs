@@ -587,13 +587,11 @@ fn check_public_api(
             source,
         },
     )?;
-    fs::write(
-        &enabled_source,
-        enabled_probe_source(&service.library_name, operations),
-    )
-    .map_err(|source| ConformanceError::Io {
-        path: enabled_source,
-        source,
+    fs::write(&enabled_source, enabled_probe_source(operations)).map_err(|source| {
+        ConformanceError::Io {
+            path: enabled_source,
+            source,
+        }
     })?;
     run_public_probe(
         service,
@@ -618,11 +616,8 @@ fn check_public_api(
     })?;
     for operation in operations {
         let path = bins.join(format!("{}.rs", operation.module));
-        fs::write(
-            &path,
-            disabled_probe_source(&service.library_name, &operation.module),
-        )
-        .map_err(|source| ConformanceError::Io { path, source })?;
+        fs::write(&path, disabled_probe_source(&operation.module))
+            .map_err(|source| ConformanceError::Io { path, source })?;
     }
     run_public_probe(
         service,
@@ -674,13 +669,13 @@ where
     fs::write(&path, document.to_string()).map_err(|source| ConformanceError::Io { path, source })
 }
 
-fn enabled_probe_source(library_name: &str, operations: &[Operation]) -> String {
+fn enabled_probe_source(operations: &[Operation]) -> String {
     let mut source = String::from("#![allow(unused_imports)]\n");
     for operation in operations {
         writeln!(source, "use service::operation::{};", operation.module)
             .expect("writing to a String cannot fail");
     }
-    writeln!(source, "\nfn probe(client: &{library_name}::Client) {{")
+    writeln!(source, "\nfn probe(client: &service::Client) {{")
         .expect("writing to a String cannot fail");
     for operation in operations {
         writeln!(source, "    let _ = client.{}();", operation.module)
@@ -690,9 +685,9 @@ fn enabled_probe_source(library_name: &str, operations: &[Operation]) -> String 
     source
 }
 
-fn disabled_probe_source(library_name: &str, module: &str) -> String {
+fn disabled_probe_source(module: &str) -> String {
     format!(
-        "use service::operation::{module};\n\nfn main() {{\n    let client: &{library_name}::Client = unreachable!();\n    let _ = client.{module}();\n}}\n"
+        "use service::operation::{module};\n\nfn main() {{\n    let client: &service::Client = unreachable!();\n    let _ = client.{module}();\n}}\n"
     )
 }
 
