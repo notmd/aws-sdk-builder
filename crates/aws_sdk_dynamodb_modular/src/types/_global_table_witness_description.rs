@@ -27,9 +27,7 @@ impl GlobalTableWitnessDescription {
 }
 
 /// A builder for [`GlobalTableWitnessDescription`](crate::types::GlobalTableWitnessDescription).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GlobalTableWitnessDescriptionBuilder {
     pub(crate) region_name: ::std::option::Option<::std::string::String>,
@@ -56,10 +54,7 @@ impl GlobalTableWitnessDescriptionBuilder {
         self
     }
     /// <p>The current status of the witness Region in the MRSC global table.</p>
-    pub fn set_witness_status(
-        mut self,
-        input: ::std::option::Option<crate::types::WitnessStatus>,
-    ) -> Self {
+    pub fn set_witness_status(mut self, input: ::std::option::Option<crate::types::WitnessStatus>) -> Self {
         self.witness_status = input;
         self
     }

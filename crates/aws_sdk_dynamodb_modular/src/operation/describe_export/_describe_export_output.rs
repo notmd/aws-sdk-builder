@@ -31,9 +31,7 @@ impl DescribeExportOutput {
 
 #[cfg(feature = "op_describe_export")]
 /// A builder for [`DescribeExportOutput`](crate::operation::describe_export::DescribeExportOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeExportOutputBuilder {
     pub(crate) export_description: ::std::option::Option<crate::types::ExportDescription>,
@@ -47,17 +45,12 @@ impl DescribeExportOutputBuilder {
         self
     }
     /// <p>Represents the properties of the export.</p>
-    pub fn set_export_description(
-        mut self,
-        input: ::std::option::Option<crate::types::ExportDescription>,
-    ) -> Self {
+    pub fn set_export_description(mut self, input: ::std::option::Option<crate::types::ExportDescription>) -> Self {
         self.export_description = input;
         self
     }
     /// <p>Represents the properties of the export.</p>
-    pub fn get_export_description(
-        &self,
-    ) -> &::std::option::Option<crate::types::ExportDescription> {
+    pub fn get_export_description(&self) -> &::std::option::Option<crate::types::ExportDescription> {
         &self.export_description
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

@@ -32,8 +32,7 @@ impl crate::operation::update_continuous_backups::builders::UpdateContinuousBack
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateContinuousBackupsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsInputBuilder,
+    inner: crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_update_continuous_backups")]
@@ -66,10 +65,7 @@ impl UpdateContinuousBackupsFluentBuilder {
         }
     }
     /// Access the UpdateContinuousBackups as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -98,11 +94,7 @@ impl UpdateContinuousBackupsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::update_continuous_backups::UpdateContinuousBackups::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::update_continuous_backups::UpdateContinuousBackups::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -115,18 +107,12 @@ impl UpdateContinuousBackupsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -145,25 +131,17 @@ impl UpdateContinuousBackupsFluentBuilder {
         self.inner.get_table_name()
     }
     /// <p>Represents the settings used to enable point in time recovery.</p>
-    pub fn point_in_time_recovery_specification(
-        mut self,
-        input: crate::types::PointInTimeRecoverySpecification,
-    ) -> Self {
+    pub fn point_in_time_recovery_specification(mut self, input: crate::types::PointInTimeRecoverySpecification) -> Self {
         self.inner = self.inner.point_in_time_recovery_specification(input);
         self
     }
     /// <p>Represents the settings used to enable point in time recovery.</p>
-    pub fn set_point_in_time_recovery_specification(
-        mut self,
-        input: ::std::option::Option<crate::types::PointInTimeRecoverySpecification>,
-    ) -> Self {
+    pub fn set_point_in_time_recovery_specification(mut self, input: ::std::option::Option<crate::types::PointInTimeRecoverySpecification>) -> Self {
         self.inner = self.inner.set_point_in_time_recovery_specification(input);
         self
     }
     /// <p>Represents the settings used to enable point in time recovery.</p>
-    pub fn get_point_in_time_recovery_specification(
-        &self,
-    ) -> &::std::option::Option<crate::types::PointInTimeRecoverySpecification> {
+    pub fn get_point_in_time_recovery_specification(&self) -> &::std::option::Option<crate::types::PointInTimeRecoverySpecification> {
         self.inner.get_point_in_time_recovery_specification()
     }
 }

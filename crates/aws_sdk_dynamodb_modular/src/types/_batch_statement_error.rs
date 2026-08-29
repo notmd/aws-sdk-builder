@@ -9,9 +9,7 @@ pub struct BatchStatementError {
     /// <p>The error message associated with the PartiQL batch response.</p>
     pub message: ::std::option::Option<::std::string::String>,
     /// <p>The item which caused the condition check to fail. This will be set if ReturnValuesOnConditionCheckFailure is specified as <code>ALL_OLD</code>.</p>
-    pub item: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    >,
+    pub item: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
 }
 impl BatchStatementError {
     /// <p>The error code associated with the failed PartiQL batch statement.</p>
@@ -23,11 +21,7 @@ impl BatchStatementError {
         self.message.as_deref()
     }
     /// <p>The item which caused the condition check to fail. This will be set if ReturnValuesOnConditionCheckFailure is specified as <code>ALL_OLD</code>.</p>
-    pub fn item(
-        &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    > {
+    pub fn item(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
         self.item.as_ref()
     }
 }
@@ -39,16 +33,12 @@ impl BatchStatementError {
 }
 
 /// A builder for [`BatchStatementError`](crate::types::BatchStatementError).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct BatchStatementErrorBuilder {
     pub(crate) code: ::std::option::Option<crate::types::BatchStatementErrorCodeEnum>,
     pub(crate) message: ::std::option::Option<::std::string::String>,
-    pub(crate) item: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    >,
+    pub(crate) item: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
 }
 impl BatchStatementErrorBuilder {
     /// <p>The error code associated with the failed PartiQL batch statement.</p>
@@ -57,10 +47,7 @@ impl BatchStatementErrorBuilder {
         self
     }
     /// <p>The error code associated with the failed PartiQL batch statement.</p>
-    pub fn set_code(
-        mut self,
-        input: ::std::option::Option<crate::types::BatchStatementErrorCodeEnum>,
-    ) -> Self {
+    pub fn set_code(mut self, input: ::std::option::Option<crate::types::BatchStatementErrorCodeEnum>) -> Self {
         self.code = input;
         self
     }
@@ -87,11 +74,7 @@ impl BatchStatementErrorBuilder {
     /// To override the contents of this collection use [`set_item`](Self::set_item).
     ///
     /// <p>The item which caused the condition check to fail. This will be set if ReturnValuesOnConditionCheckFailure is specified as <code>ALL_OLD</code>.</p>
-    pub fn item(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: crate::types::AttributeValue,
-    ) -> Self {
+    pub fn item(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         let mut hash_map = self.item.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.item = ::std::option::Option::Some(hash_map);
@@ -100,19 +83,13 @@ impl BatchStatementErrorBuilder {
     /// <p>The item which caused the condition check to fail. This will be set if ReturnValuesOnConditionCheckFailure is specified as <code>ALL_OLD</code>.</p>
     pub fn set_item(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     ) -> Self {
         self.item = input;
         self
     }
     /// <p>The item which caused the condition check to fail. This will be set if ReturnValuesOnConditionCheckFailure is specified as <code>ALL_OLD</code>.</p>
-    pub fn get_item(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    > {
+    pub fn get_item(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
         &self.item
     }
     /// Consumes the builder and constructs a [`BatchStatementError`](crate::types::BatchStatementError).

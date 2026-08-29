@@ -23,15 +23,11 @@ impl ContributorInsightsSummary {
         self.index_name.as_deref()
     }
     /// <p>Describes the current status for contributor insights for the given table and index, if applicable.</p>
-    pub fn contributor_insights_status(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ContributorInsightsStatus> {
+    pub fn contributor_insights_status(&self) -> ::std::option::Option<&crate::types::ContributorInsightsStatus> {
         self.contributor_insights_status.as_ref()
     }
     /// <p>Indicates the current mode of CloudWatch Contributor Insights, specifying whether it tracks all access and throttled events or throttled events only for the DynamoDB table or index.</p>
-    pub fn contributor_insights_mode(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ContributorInsightsMode> {
+    pub fn contributor_insights_mode(&self) -> ::std::option::Option<&crate::types::ContributorInsightsMode> {
         self.contributor_insights_mode.as_ref()
     }
 }
@@ -43,17 +39,13 @@ impl ContributorInsightsSummary {
 }
 
 /// A builder for [`ContributorInsightsSummary`](crate::types::ContributorInsightsSummary).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ContributorInsightsSummaryBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
     pub(crate) index_name: ::std::option::Option<::std::string::String>,
-    pub(crate) contributor_insights_status:
-        ::std::option::Option<crate::types::ContributorInsightsStatus>,
-    pub(crate) contributor_insights_mode:
-        ::std::option::Option<crate::types::ContributorInsightsMode>,
+    pub(crate) contributor_insights_status: ::std::option::Option<crate::types::ContributorInsightsStatus>,
+    pub(crate) contributor_insights_mode: ::std::option::Option<crate::types::ContributorInsightsMode>,
 }
 impl ContributorInsightsSummaryBuilder {
     /// <p>Name of the table associated with the summary.</p>
@@ -85,47 +77,31 @@ impl ContributorInsightsSummaryBuilder {
         &self.index_name
     }
     /// <p>Describes the current status for contributor insights for the given table and index, if applicable.</p>
-    pub fn contributor_insights_status(
-        mut self,
-        input: crate::types::ContributorInsightsStatus,
-    ) -> Self {
+    pub fn contributor_insights_status(mut self, input: crate::types::ContributorInsightsStatus) -> Self {
         self.contributor_insights_status = ::std::option::Option::Some(input);
         self
     }
     /// <p>Describes the current status for contributor insights for the given table and index, if applicable.</p>
-    pub fn set_contributor_insights_status(
-        mut self,
-        input: ::std::option::Option<crate::types::ContributorInsightsStatus>,
-    ) -> Self {
+    pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<crate::types::ContributorInsightsStatus>) -> Self {
         self.contributor_insights_status = input;
         self
     }
     /// <p>Describes the current status for contributor insights for the given table and index, if applicable.</p>
-    pub fn get_contributor_insights_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::ContributorInsightsStatus> {
+    pub fn get_contributor_insights_status(&self) -> &::std::option::Option<crate::types::ContributorInsightsStatus> {
         &self.contributor_insights_status
     }
     /// <p>Indicates the current mode of CloudWatch Contributor Insights, specifying whether it tracks all access and throttled events or throttled events only for the DynamoDB table or index.</p>
-    pub fn contributor_insights_mode(
-        mut self,
-        input: crate::types::ContributorInsightsMode,
-    ) -> Self {
+    pub fn contributor_insights_mode(mut self, input: crate::types::ContributorInsightsMode) -> Self {
         self.contributor_insights_mode = ::std::option::Option::Some(input);
         self
     }
     /// <p>Indicates the current mode of CloudWatch Contributor Insights, specifying whether it tracks all access and throttled events or throttled events only for the DynamoDB table or index.</p>
-    pub fn set_contributor_insights_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::ContributorInsightsMode>,
-    ) -> Self {
+    pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self {
         self.contributor_insights_mode = input;
         self
     }
     /// <p>Indicates the current mode of CloudWatch Contributor Insights, specifying whether it tracks all access and throttled events or throttled events only for the DynamoDB table or index.</p>
-    pub fn get_contributor_insights_mode(
-        &self,
-    ) -> &::std::option::Option<crate::types::ContributorInsightsMode> {
+    pub fn get_contributor_insights_mode(&self) -> &::std::option::Option<crate::types::ContributorInsightsMode> {
         &self.contributor_insights_mode
     }
     /// Consumes the builder and constructs a [`ContributorInsightsSummary`](crate::types::ContributorInsightsSummary).

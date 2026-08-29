@@ -25,9 +25,7 @@ impl DeleteTableInput {
 
 #[cfg(feature = "op_delete_table")]
 /// A builder for [`DeleteTableInput`](crate::operation::delete_table::DeleteTableInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteTableInputBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
@@ -50,14 +48,7 @@ impl DeleteTableInputBuilder {
         &self.table_name
     }
     /// Consumes the builder and constructs a [`DeleteTableInput`](crate::operation::delete_table::DeleteTableInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_table::DeleteTableInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::delete_table::DeleteTableInput {
-            table_name: self.table_name,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::delete_table::DeleteTableInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::delete_table::DeleteTableInput { table_name: self.table_name })
     }
 }

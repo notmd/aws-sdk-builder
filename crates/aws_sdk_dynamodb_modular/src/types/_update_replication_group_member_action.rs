@@ -9,14 +9,11 @@ pub struct UpdateReplicationGroupMemberAction {
     /// <p>The KMS key of the replica that should be used for KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS key <code>alias/aws/dynamodb</code>.</p>
     pub kms_master_key_id: ::std::option::Option<::std::string::String>,
     /// <p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>
-    pub provisioned_throughput_override:
-        ::std::option::Option<crate::types::ProvisionedThroughputOverride>,
+    pub provisioned_throughput_override: ::std::option::Option<crate::types::ProvisionedThroughputOverride>,
     /// <p>Overrides the maximum on-demand throughput for the replica table.</p>
-    pub on_demand_throughput_override:
-        ::std::option::Option<crate::types::OnDemandThroughputOverride>,
+    pub on_demand_throughput_override: ::std::option::Option<crate::types::OnDemandThroughputOverride>,
     /// <p>Replica-specific global secondary index settings.</p>
-    pub global_secondary_indexes:
-        ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndex>>,
+    pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndex>>,
     /// <p>Replica-specific table class. If not specified, uses the source table's table class.</p>
     pub table_class_override: ::std::option::Option<crate::types::TableClass>,
 }
@@ -31,15 +28,11 @@ impl UpdateReplicationGroupMemberAction {
         self.kms_master_key_id.as_deref()
     }
     /// <p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>
-    pub fn provisioned_throughput_override(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ProvisionedThroughputOverride> {
+    pub fn provisioned_throughput_override(&self) -> ::std::option::Option<&crate::types::ProvisionedThroughputOverride> {
         self.provisioned_throughput_override.as_ref()
     }
     /// <p>Overrides the maximum on-demand throughput for the replica table.</p>
-    pub fn on_demand_throughput_override(
-        &self,
-    ) -> ::std::option::Option<&crate::types::OnDemandThroughputOverride> {
+    pub fn on_demand_throughput_override(&self) -> ::std::option::Option<&crate::types::OnDemandThroughputOverride> {
         self.on_demand_throughput_override.as_ref()
     }
     /// <p>Replica-specific global secondary index settings.</p>
@@ -61,19 +54,14 @@ impl UpdateReplicationGroupMemberAction {
 }
 
 /// A builder for [`UpdateReplicationGroupMemberAction`](crate::types::UpdateReplicationGroupMemberAction).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateReplicationGroupMemberActionBuilder {
     pub(crate) region_name: ::std::option::Option<::std::string::String>,
     pub(crate) kms_master_key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) provisioned_throughput_override:
-        ::std::option::Option<crate::types::ProvisionedThroughputOverride>,
-    pub(crate) on_demand_throughput_override:
-        ::std::option::Option<crate::types::OnDemandThroughputOverride>,
-    pub(crate) global_secondary_indexes:
-        ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndex>>,
+    pub(crate) provisioned_throughput_override: ::std::option::Option<crate::types::ProvisionedThroughputOverride>,
+    pub(crate) on_demand_throughput_override: ::std::option::Option<crate::types::OnDemandThroughputOverride>,
+    pub(crate) global_secondary_indexes: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndex>>,
     pub(crate) table_class_override: ::std::option::Option<crate::types::TableClass>,
 }
 impl UpdateReplicationGroupMemberActionBuilder {
@@ -93,18 +81,12 @@ impl UpdateReplicationGroupMemberActionBuilder {
         &self.region_name
     }
     /// <p>The KMS key of the replica that should be used for KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS key <code>alias/aws/dynamodb</code>.</p>
-    pub fn kms_master_key_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn kms_master_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.kms_master_key_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The KMS key of the replica that should be used for KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS key <code>alias/aws/dynamodb</code>.</p>
-    pub fn set_kms_master_key_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_kms_master_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.kms_master_key_id = input;
         self
     }
@@ -113,47 +95,31 @@ impl UpdateReplicationGroupMemberActionBuilder {
         &self.kms_master_key_id
     }
     /// <p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>
-    pub fn provisioned_throughput_override(
-        mut self,
-        input: crate::types::ProvisionedThroughputOverride,
-    ) -> Self {
+    pub fn provisioned_throughput_override(mut self, input: crate::types::ProvisionedThroughputOverride) -> Self {
         self.provisioned_throughput_override = ::std::option::Option::Some(input);
         self
     }
     /// <p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>
-    pub fn set_provisioned_throughput_override(
-        mut self,
-        input: ::std::option::Option<crate::types::ProvisionedThroughputOverride>,
-    ) -> Self {
+    pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputOverride>) -> Self {
         self.provisioned_throughput_override = input;
         self
     }
     /// <p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>
-    pub fn get_provisioned_throughput_override(
-        &self,
-    ) -> &::std::option::Option<crate::types::ProvisionedThroughputOverride> {
+    pub fn get_provisioned_throughput_override(&self) -> &::std::option::Option<crate::types::ProvisionedThroughputOverride> {
         &self.provisioned_throughput_override
     }
     /// <p>Overrides the maximum on-demand throughput for the replica table.</p>
-    pub fn on_demand_throughput_override(
-        mut self,
-        input: crate::types::OnDemandThroughputOverride,
-    ) -> Self {
+    pub fn on_demand_throughput_override(mut self, input: crate::types::OnDemandThroughputOverride) -> Self {
         self.on_demand_throughput_override = ::std::option::Option::Some(input);
         self
     }
     /// <p>Overrides the maximum on-demand throughput for the replica table.</p>
-    pub fn set_on_demand_throughput_override(
-        mut self,
-        input: ::std::option::Option<crate::types::OnDemandThroughputOverride>,
-    ) -> Self {
+    pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<crate::types::OnDemandThroughputOverride>) -> Self {
         self.on_demand_throughput_override = input;
         self
     }
     /// <p>Overrides the maximum on-demand throughput for the replica table.</p>
-    pub fn get_on_demand_throughput_override(
-        &self,
-    ) -> &::std::option::Option<crate::types::OnDemandThroughputOverride> {
+    pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<crate::types::OnDemandThroughputOverride> {
         &self.on_demand_throughput_override
     }
     /// Appends an item to `global_secondary_indexes`.
@@ -161,27 +127,19 @@ impl UpdateReplicationGroupMemberActionBuilder {
     /// To override the contents of this collection use [`set_global_secondary_indexes`](Self::set_global_secondary_indexes).
     ///
     /// <p>Replica-specific global secondary index settings.</p>
-    pub fn global_secondary_indexes(
-        mut self,
-        input: crate::types::ReplicaGlobalSecondaryIndex,
-    ) -> Self {
+    pub fn global_secondary_indexes(mut self, input: crate::types::ReplicaGlobalSecondaryIndex) -> Self {
         let mut v = self.global_secondary_indexes.unwrap_or_default();
         v.push(input);
         self.global_secondary_indexes = ::std::option::Option::Some(v);
         self
     }
     /// <p>Replica-specific global secondary index settings.</p>
-    pub fn set_global_secondary_indexes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndex>>,
-    ) -> Self {
+    pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndex>>) -> Self {
         self.global_secondary_indexes = input;
         self
     }
     /// <p>Replica-specific global secondary index settings.</p>
-    pub fn get_global_secondary_indexes(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndex>> {
+    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndex>> {
         &self.global_secondary_indexes
     }
     /// <p>Replica-specific table class. If not specified, uses the source table's table class.</p>
@@ -190,10 +148,7 @@ impl UpdateReplicationGroupMemberActionBuilder {
         self
     }
     /// <p>Replica-specific table class. If not specified, uses the source table's table class.</p>
-    pub fn set_table_class_override(
-        mut self,
-        input: ::std::option::Option<crate::types::TableClass>,
-    ) -> Self {
+    pub fn set_table_class_override(mut self, input: ::std::option::Option<crate::types::TableClass>) -> Self {
         self.table_class_override = input;
         self
     }
@@ -204,12 +159,7 @@ impl UpdateReplicationGroupMemberActionBuilder {
     /// Consumes the builder and constructs a [`UpdateReplicationGroupMemberAction`](crate::types::UpdateReplicationGroupMemberAction).
     /// This method will fail if any of the following fields are not set:
     /// - [`region_name`](crate::types::builders::UpdateReplicationGroupMemberActionBuilder::region_name)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::UpdateReplicationGroupMemberAction,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::UpdateReplicationGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::UpdateReplicationGroupMemberAction {
             region_name: self.region_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

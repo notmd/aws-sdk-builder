@@ -28,9 +28,7 @@ impl Endpoint {
 }
 
 /// A builder for [`Endpoint`](crate::types::Endpoint).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EndpointBuilder {
     pub(crate) address: ::std::option::Option<::std::string::String>,
@@ -70,12 +68,7 @@ impl EndpointBuilder {
     /// Consumes the builder and constructs a [`Endpoint`](crate::types::Endpoint).
     /// This method will fail if any of the following fields are not set:
     /// - [`address`](crate::types::builders::EndpointBuilder::address)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::Endpoint,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::Endpoint, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Endpoint {
             address: self.address.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

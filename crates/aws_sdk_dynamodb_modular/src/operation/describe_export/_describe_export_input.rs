@@ -24,9 +24,7 @@ impl DescribeExportInput {
 
 #[cfg(feature = "op_describe_export")]
 /// A builder for [`DescribeExportInput`](crate::operation::describe_export::DescribeExportInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeExportInputBuilder {
     pub(crate) export_arn: ::std::option::Option<::std::string::String>,
@@ -51,12 +49,7 @@ impl DescribeExportInputBuilder {
     /// Consumes the builder and constructs a [`DescribeExportInput`](crate::operation::describe_export::DescribeExportInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_export::DescribeExportInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::describe_export::DescribeExportInput {
-            export_arn: self.export_arn,
-        })
+    ) -> ::std::result::Result<crate::operation::describe_export::DescribeExportInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::describe_export::DescribeExportInput { export_arn: self.export_arn })
     }
 }

@@ -19,16 +19,14 @@ impl DescribeContinuousBackupsInput {
 #[cfg(feature = "op_describe_continuous_backups")]
 impl DescribeContinuousBackupsInput {
     /// Creates a new builder-style object to manufacture [`DescribeContinuousBackupsInput`](crate::operation::describe_continuous_backups::DescribeContinuousBackupsInput).
-    pub fn builder() -> crate::operation::describe_continuous_backups::builders::DescribeContinuousBackupsInputBuilder{
+    pub fn builder() -> crate::operation::describe_continuous_backups::builders::DescribeContinuousBackupsInputBuilder {
         crate::operation::describe_continuous_backups::builders::DescribeContinuousBackupsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_continuous_backups")]
 /// A builder for [`DescribeContinuousBackupsInput`](crate::operation::describe_continuous_backups::DescribeContinuousBackupsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeContinuousBackupsInputBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
@@ -60,10 +58,6 @@ impl DescribeContinuousBackupsInputBuilder {
         crate::operation::describe_continuous_backups::DescribeContinuousBackupsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_continuous_backups::DescribeContinuousBackupsInput {
-                table_name: self.table_name,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::describe_continuous_backups::DescribeContinuousBackupsInput { table_name: self.table_name })
     }
 }

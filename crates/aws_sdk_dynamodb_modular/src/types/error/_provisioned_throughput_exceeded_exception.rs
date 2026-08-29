@@ -36,38 +36,30 @@ impl ::std::fmt::Display for ProvisionedThroughputExceededException {
     }
 }
 impl ::std::error::Error for ProvisionedThroughputExceededException {}
-impl ::aws_types::request_id::RequestId
-    for crate::types::error::ProvisionedThroughputExceededException
-{
+impl ::aws_types::request_id::RequestId for crate::types::error::ProvisionedThroughputExceededException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
-    for ProvisionedThroughputExceededException
-{
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ProvisionedThroughputExceededException {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         &self.meta
     }
 }
 impl ProvisionedThroughputExceededException {
     /// Creates a new builder-style object to manufacture [`ProvisionedThroughputExceededException`](crate::types::error::ProvisionedThroughputExceededException).
-    pub fn builder() -> crate::types::error::builders::ProvisionedThroughputExceededExceptionBuilder
-    {
+    pub fn builder() -> crate::types::error::builders::ProvisionedThroughputExceededExceptionBuilder {
         crate::types::error::builders::ProvisionedThroughputExceededExceptionBuilder::default()
     }
 }
 
 /// A builder for [`ProvisionedThroughputExceededException`](crate::types::error::ProvisionedThroughputExceededException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ProvisionedThroughputExceededExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
-    pub(crate) throttling_reasons:
-        ::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>>,
+    pub(crate) throttling_reasons: ::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>>,
     meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
 }
 impl ProvisionedThroughputExceededExceptionBuilder {
@@ -97,17 +89,12 @@ impl ProvisionedThroughputExceededExceptionBuilder {
         self
     }
     /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
-    pub fn set_throttling_reasons(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>>,
-    ) -> Self {
+    pub fn set_throttling_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>>) -> Self {
         self.throttling_reasons = input;
         self
     }
     /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
-    pub fn get_throttling_reasons(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>> {
+    pub fn get_throttling_reasons(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>> {
         &self.throttling_reasons
     }
     /// Sets error metadata
@@ -117,10 +104,7 @@ impl ProvisionedThroughputExceededExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }

@@ -38,9 +38,7 @@ impl CreateGlobalTableWitnessGroupMemberAction {
 }
 
 /// A builder for [`CreateGlobalTableWitnessGroupMemberAction`](crate::types::CreateGlobalTableWitnessGroupMemberAction).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateGlobalTableWitnessGroupMemberActionBuilder {
     pub(crate) region_name: ::std::option::Option<::std::string::String>,
@@ -90,10 +88,7 @@ impl CreateGlobalTableWitnessGroupMemberActionBuilder {
     /// - [`region_name`](crate::types::builders::CreateGlobalTableWitnessGroupMemberActionBuilder::region_name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::CreateGlobalTableWitnessGroupMemberAction,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::CreateGlobalTableWitnessGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CreateGlobalTableWitnessGroupMemberAction {
             region_name: self.region_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

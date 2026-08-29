@@ -27,9 +27,7 @@ impl VectorIndexUpdate {
 }
 
 /// A builder for [`VectorIndexUpdate`](crate::types::VectorIndexUpdate).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct VectorIndexUpdateBuilder {
     pub(crate) create: ::std::option::Option<crate::types::CreateVectorIndexAction>,
@@ -42,10 +40,7 @@ impl VectorIndexUpdateBuilder {
         self
     }
     /// <p>The configuration for creating a new vector index on the table.</p>
-    pub fn set_create(
-        mut self,
-        input: ::std::option::Option<crate::types::CreateVectorIndexAction>,
-    ) -> Self {
+    pub fn set_create(mut self, input: ::std::option::Option<crate::types::CreateVectorIndexAction>) -> Self {
         self.create = input;
         self
     }
@@ -59,10 +54,7 @@ impl VectorIndexUpdateBuilder {
         self
     }
     /// <p>The configuration for deleting an existing vector index from the table.</p>
-    pub fn set_delete(
-        mut self,
-        input: ::std::option::Option<crate::types::DeleteVectorIndexAction>,
-    ) -> Self {
+    pub fn set_delete(mut self, input: ::std::option::Option<crate::types::DeleteVectorIndexAction>) -> Self {
         self.delete = input;
         self
     }

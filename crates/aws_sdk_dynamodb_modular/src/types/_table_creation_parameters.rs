@@ -20,8 +20,7 @@ pub struct TableCreationParameters {
     /// <p>Represents the settings used to enable server-side encryption.</p>
     pub sse_specification: ::std::option::Option<crate::types::SseSpecification>,
     /// <p>The Global Secondary Indexes (GSI) of the table to be created as part of the import operation.</p>
-    pub global_secondary_indexes:
-        ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>,
+    pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>,
     /// <p>The vector indexes of the table to be created as part of the import operation.</p>
     pub vector_indexes: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>,
 }
@@ -47,9 +46,7 @@ impl TableCreationParameters {
     }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index. You must use <code>ProvisionedThroughput</code> or <code>OnDemandThroughput</code> based on your table’s capacity mode.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn provisioned_throughput(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ProvisionedThroughput> {
+    pub fn provisioned_throughput(&self) -> ::std::option::Option<&crate::types::ProvisionedThroughput> {
         self.provisioned_throughput.as_ref()
     }
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
@@ -81,21 +78,17 @@ impl TableCreationParameters {
 }
 
 /// A builder for [`TableCreationParameters`](crate::types::TableCreationParameters).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TableCreationParametersBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
-    pub(crate) attribute_definitions:
-        ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>,
+    pub(crate) attribute_definitions: ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>,
     pub(crate) key_schema: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>,
     pub(crate) billing_mode: ::std::option::Option<crate::types::BillingMode>,
     pub(crate) provisioned_throughput: ::std::option::Option<crate::types::ProvisionedThroughput>,
     pub(crate) on_demand_throughput: ::std::option::Option<crate::types::OnDemandThroughput>,
     pub(crate) sse_specification: ::std::option::Option<crate::types::SseSpecification>,
-    pub(crate) global_secondary_indexes:
-        ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>,
+    pub(crate) global_secondary_indexes: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>,
     pub(crate) vector_indexes: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>,
 }
 impl TableCreationParametersBuilder {
@@ -126,17 +119,12 @@ impl TableCreationParametersBuilder {
         self
     }
     /// <p>The attributes of the table created as part of the import operation.</p>
-    pub fn set_attribute_definitions(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>,
-    ) -> Self {
+    pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>) -> Self {
         self.attribute_definitions = input;
         self
     }
     /// <p>The attributes of the table created as part of the import operation.</p>
-    pub fn get_attribute_definitions(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>> {
+    pub fn get_attribute_definitions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>> {
         &self.attribute_definitions
     }
     /// Appends an item to `key_schema`.
@@ -151,17 +139,12 @@ impl TableCreationParametersBuilder {
         self
     }
     /// <p>The primary key and option sort key of the table created as part of the import operation.</p>
-    pub fn set_key_schema(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>,
-    ) -> Self {
+    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
         self.key_schema = input;
         self
     }
     /// <p>The primary key and option sort key of the table created as part of the import operation.</p>
-    pub fn get_key_schema(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> {
+    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> {
         &self.key_schema
     }
     /// <p>The billing mode for provisioning the table created as part of the import operation.</p>
@@ -170,10 +153,7 @@ impl TableCreationParametersBuilder {
         self
     }
     /// <p>The billing mode for provisioning the table created as part of the import operation.</p>
-    pub fn set_billing_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::BillingMode>,
-    ) -> Self {
+    pub fn set_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
         self.billing_mode = input;
         self
     }
@@ -189,18 +169,13 @@ impl TableCreationParametersBuilder {
     }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index. You must use <code>ProvisionedThroughput</code> or <code>OnDemandThroughput</code> based on your table’s capacity mode.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn set_provisioned_throughput(
-        mut self,
-        input: ::std::option::Option<crate::types::ProvisionedThroughput>,
-    ) -> Self {
+    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
         self.provisioned_throughput = input;
         self
     }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index. You must use <code>ProvisionedThroughput</code> or <code>OnDemandThroughput</code> based on your table’s capacity mode.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_provisioned_throughput(
-        &self,
-    ) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
+    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
         &self.provisioned_throughput
     }
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
@@ -209,17 +184,12 @@ impl TableCreationParametersBuilder {
         self
     }
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn set_on_demand_throughput(
-        mut self,
-        input: ::std::option::Option<crate::types::OnDemandThroughput>,
-    ) -> Self {
+    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
         self.on_demand_throughput = input;
         self
     }
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn get_on_demand_throughput(
-        &self,
-    ) -> &::std::option::Option<crate::types::OnDemandThroughput> {
+    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
         &self.on_demand_throughput
     }
     /// <p>Represents the settings used to enable server-side encryption.</p>
@@ -228,10 +198,7 @@ impl TableCreationParametersBuilder {
         self
     }
     /// <p>Represents the settings used to enable server-side encryption.</p>
-    pub fn set_sse_specification(
-        mut self,
-        input: ::std::option::Option<crate::types::SseSpecification>,
-    ) -> Self {
+    pub fn set_sse_specification(mut self, input: ::std::option::Option<crate::types::SseSpecification>) -> Self {
         self.sse_specification = input;
         self
     }
@@ -251,17 +218,12 @@ impl TableCreationParametersBuilder {
         self
     }
     /// <p>The Global Secondary Indexes (GSI) of the table to be created as part of the import operation.</p>
-    pub fn set_global_secondary_indexes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>,
-    ) -> Self {
+    pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>) -> Self {
         self.global_secondary_indexes = input;
         self
     }
     /// <p>The Global Secondary Indexes (GSI) of the table to be created as part of the import operation.</p>
-    pub fn get_global_secondary_indexes(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>> {
+    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>> {
         &self.global_secondary_indexes
     }
     /// Appends an item to `vector_indexes`.
@@ -276,17 +238,12 @@ impl TableCreationParametersBuilder {
         self
     }
     /// <p>The vector indexes of the table to be created as part of the import operation.</p>
-    pub fn set_vector_indexes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>,
-    ) -> Self {
+    pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>) -> Self {
         self.vector_indexes = input;
         self
     }
     /// <p>The vector indexes of the table to be created as part of the import operation.</p>
-    pub fn get_vector_indexes(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>> {
+    pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>> {
         &self.vector_indexes
     }
     /// Consumes the builder and constructs a [`TableCreationParameters`](crate::types::TableCreationParameters).
@@ -294,12 +251,7 @@ impl TableCreationParametersBuilder {
     /// - [`table_name`](crate::types::builders::TableCreationParametersBuilder::table_name)
     /// - [`attribute_definitions`](crate::types::builders::TableCreationParametersBuilder::attribute_definitions)
     /// - [`key_schema`](crate::types::builders::TableCreationParametersBuilder::key_schema)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::TableCreationParameters,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::TableCreationParameters, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TableCreationParameters {
             table_name: self.table_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

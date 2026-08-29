@@ -6,9 +6,7 @@ pub use crate::operation::update_contributor_insights::_update_contributor_insig
 pub use crate::operation::update_contributor_insights::_update_contributor_insights_output::UpdateContributorInsightsOutputBuilder;
 
 #[cfg(feature = "op_update_contributor_insights")]
-impl
-    crate::operation::update_contributor_insights::builders::UpdateContributorInsightsInputBuilder
-{
+impl crate::operation::update_contributor_insights::builders::UpdateContributorInsightsInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -65,7 +63,7 @@ impl UpdateContributorInsightsFluentBuilder {
         }
     }
     /// Access the UpdateContributorInsights as a reference.
-    pub fn as_input(&self) -> &crate::operation::update_contributor_insights::builders::UpdateContributorInsightsInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::update_contributor_insights::builders::UpdateContributorInsightsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -94,11 +92,7 @@ impl UpdateContributorInsightsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::update_contributor_insights::UpdateContributorInsights::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::update_contributor_insights::UpdateContributorInsights::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -111,18 +105,12 @@ impl UpdateContributorInsightsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -155,47 +143,31 @@ impl UpdateContributorInsightsFluentBuilder {
         self.inner.get_index_name()
     }
     /// <p>Represents the contributor insights action.</p>
-    pub fn contributor_insights_action(
-        mut self,
-        input: crate::types::ContributorInsightsAction,
-    ) -> Self {
+    pub fn contributor_insights_action(mut self, input: crate::types::ContributorInsightsAction) -> Self {
         self.inner = self.inner.contributor_insights_action(input);
         self
     }
     /// <p>Represents the contributor insights action.</p>
-    pub fn set_contributor_insights_action(
-        mut self,
-        input: ::std::option::Option<crate::types::ContributorInsightsAction>,
-    ) -> Self {
+    pub fn set_contributor_insights_action(mut self, input: ::std::option::Option<crate::types::ContributorInsightsAction>) -> Self {
         self.inner = self.inner.set_contributor_insights_action(input);
         self
     }
     /// <p>Represents the contributor insights action.</p>
-    pub fn get_contributor_insights_action(
-        &self,
-    ) -> &::std::option::Option<crate::types::ContributorInsightsAction> {
+    pub fn get_contributor_insights_action(&self) -> &::std::option::Option<crate::types::ContributorInsightsAction> {
         self.inner.get_contributor_insights_action()
     }
     /// <p>Specifies whether to track all access and throttled events or throttled events only for the DynamoDB table or index.</p>
-    pub fn contributor_insights_mode(
-        mut self,
-        input: crate::types::ContributorInsightsMode,
-    ) -> Self {
+    pub fn contributor_insights_mode(mut self, input: crate::types::ContributorInsightsMode) -> Self {
         self.inner = self.inner.contributor_insights_mode(input);
         self
     }
     /// <p>Specifies whether to track all access and throttled events or throttled events only for the DynamoDB table or index.</p>
-    pub fn set_contributor_insights_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::ContributorInsightsMode>,
-    ) -> Self {
+    pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self {
         self.inner = self.inner.set_contributor_insights_mode(input);
         self
     }
     /// <p>Specifies whether to track all access and throttled events or throttled events only for the DynamoDB table or index.</p>
-    pub fn get_contributor_insights_mode(
-        &self,
-    ) -> &::std::option::Option<crate::types::ContributorInsightsMode> {
+    pub fn get_contributor_insights_mode(&self) -> &::std::option::Option<crate::types::ContributorInsightsMode> {
         self.inner.get_contributor_insights_mode()
     }
 }

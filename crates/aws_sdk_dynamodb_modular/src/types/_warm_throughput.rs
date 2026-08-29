@@ -27,9 +27,7 @@ impl WarmThroughput {
 }
 
 /// A builder for [`WarmThroughput`](crate::types::WarmThroughput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct WarmThroughputBuilder {
     pub(crate) read_units_per_second: ::std::option::Option<i64>,

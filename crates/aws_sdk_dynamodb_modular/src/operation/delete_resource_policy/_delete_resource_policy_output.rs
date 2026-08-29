@@ -26,17 +26,14 @@ impl ::aws_types::request_id::RequestId for DeleteResourcePolicyOutput {
 #[cfg(feature = "op_delete_resource_policy")]
 impl DeleteResourcePolicyOutput {
     /// Creates a new builder-style object to manufacture [`DeleteResourcePolicyOutput`](crate::operation::delete_resource_policy::DeleteResourcePolicyOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_resource_policy::builders::DeleteResourcePolicyOutputBuilder {
+    pub fn builder() -> crate::operation::delete_resource_policy::builders::DeleteResourcePolicyOutputBuilder {
         crate::operation::delete_resource_policy::builders::DeleteResourcePolicyOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_resource_policy")]
 /// A builder for [`DeleteResourcePolicyOutput`](crate::operation::delete_resource_policy::DeleteResourcePolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteResourcePolicyOutputBuilder {
     pub(crate) revision_id: ::std::option::Option<::std::string::String>,

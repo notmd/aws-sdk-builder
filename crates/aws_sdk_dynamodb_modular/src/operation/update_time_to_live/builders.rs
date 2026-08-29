@@ -71,9 +71,7 @@ impl UpdateTimeToLiveFluentBuilder {
         }
     }
     /// Access the UpdateTimeToLive as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::update_time_to_live::builders::UpdateTimeToLiveInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::update_time_to_live::builders::UpdateTimeToLiveInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -97,17 +95,12 @@ impl UpdateTimeToLiveFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::update_time_to_live::UpdateTimeToLive::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::update_time_to_live::UpdateTimeToLive::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::update_time_to_live::UpdateTimeToLive::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::update_time_to_live::UpdateTimeToLive::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -120,18 +113,12 @@ impl UpdateTimeToLiveFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -150,25 +137,17 @@ impl UpdateTimeToLiveFluentBuilder {
         self.inner.get_table_name()
     }
     /// <p>Represents the settings used to enable or disable Time to Live for the specified table.</p>
-    pub fn time_to_live_specification(
-        mut self,
-        input: crate::types::TimeToLiveSpecification,
-    ) -> Self {
+    pub fn time_to_live_specification(mut self, input: crate::types::TimeToLiveSpecification) -> Self {
         self.inner = self.inner.time_to_live_specification(input);
         self
     }
     /// <p>Represents the settings used to enable or disable Time to Live for the specified table.</p>
-    pub fn set_time_to_live_specification(
-        mut self,
-        input: ::std::option::Option<crate::types::TimeToLiveSpecification>,
-    ) -> Self {
+    pub fn set_time_to_live_specification(mut self, input: ::std::option::Option<crate::types::TimeToLiveSpecification>) -> Self {
         self.inner = self.inner.set_time_to_live_specification(input);
         self
     }
     /// <p>Represents the settings used to enable or disable Time to Live for the specified table.</p>
-    pub fn get_time_to_live_specification(
-        &self,
-    ) -> &::std::option::Option<crate::types::TimeToLiveSpecification> {
+    pub fn get_time_to_live_specification(&self) -> &::std::option::Option<crate::types::TimeToLiveSpecification> {
         self.inner.get_time_to_live_specification()
     }
 }

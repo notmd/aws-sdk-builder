@@ -9,8 +9,7 @@ pub struct DescribeContributorInsightsOutput {
     /// <p>The name of the global secondary index being described.</p>
     pub index_name: ::std::option::Option<::std::string::String>,
     /// <p>List of names of the associated contributor insights rules.</p>
-    pub contributor_insights_rule_list:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub contributor_insights_rule_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>Current status of contributor insights.</p>
     pub contributor_insights_status: ::std::option::Option<crate::types::ContributorInsightsStatus>,
     /// <p>Timestamp of the last time the status was changed.</p>
@@ -46,14 +45,10 @@ impl DescribeContributorInsightsOutput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.contributor_insights_rule_list.is_none()`.
     pub fn contributor_insights_rule_list(&self) -> &[::std::string::String] {
-        self.contributor_insights_rule_list
-            .as_deref()
-            .unwrap_or_default()
+        self.contributor_insights_rule_list.as_deref().unwrap_or_default()
     }
     /// <p>Current status of contributor insights.</p>
-    pub fn contributor_insights_status(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ContributorInsightsStatus> {
+    pub fn contributor_insights_status(&self) -> ::std::option::Option<&crate::types::ContributorInsightsStatus> {
         self.contributor_insights_status.as_ref()
     }
     /// <p>Timestamp of the last time the status was changed.</p>
@@ -76,9 +71,7 @@ impl DescribeContributorInsightsOutput {
         self.failure_exception.as_ref()
     }
     /// <p>The mode of CloudWatch Contributor Insights for DynamoDB that determines which events are emitted. Can be set to track all access and throttled events or throttled events only.</p>
-    pub fn contributor_insights_mode(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ContributorInsightsMode> {
+    pub fn contributor_insights_mode(&self) -> ::std::option::Option<&crate::types::ContributorInsightsMode> {
         self.contributor_insights_mode.as_ref()
     }
 }
@@ -91,28 +84,23 @@ impl ::aws_types::request_id::RequestId for DescribeContributorInsightsOutput {
 #[cfg(feature = "op_describe_contributor_insights")]
 impl DescribeContributorInsightsOutput {
     /// Creates a new builder-style object to manufacture [`DescribeContributorInsightsOutput`](crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput).
-    pub fn builder() -> crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsOutputBuilder{
+    pub fn builder() -> crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsOutputBuilder {
         crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_contributor_insights")]
 /// A builder for [`DescribeContributorInsightsOutput`](crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeContributorInsightsOutputBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
     pub(crate) index_name: ::std::option::Option<::std::string::String>,
-    pub(crate) contributor_insights_rule_list:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) contributor_insights_status:
-        ::std::option::Option<crate::types::ContributorInsightsStatus>,
+    pub(crate) contributor_insights_rule_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) contributor_insights_status: ::std::option::Option<crate::types::ContributorInsightsStatus>,
     pub(crate) last_update_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) failure_exception: ::std::option::Option<crate::types::FailureException>,
-    pub(crate) contributor_insights_mode:
-        ::std::option::Option<crate::types::ContributorInsightsMode>,
+    pub(crate) contributor_insights_mode: ::std::option::Option<crate::types::ContributorInsightsMode>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_describe_contributor_insights")]
@@ -150,49 +138,33 @@ impl DescribeContributorInsightsOutputBuilder {
     /// To override the contents of this collection use [`set_contributor_insights_rule_list`](Self::set_contributor_insights_rule_list).
     ///
     /// <p>List of names of the associated contributor insights rules.</p>
-    pub fn contributor_insights_rule_list(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn contributor_insights_rule_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.contributor_insights_rule_list.unwrap_or_default();
         v.push(input.into());
         self.contributor_insights_rule_list = ::std::option::Option::Some(v);
         self
     }
     /// <p>List of names of the associated contributor insights rules.</p>
-    pub fn set_contributor_insights_rule_list(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_contributor_insights_rule_list(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.contributor_insights_rule_list = input;
         self
     }
     /// <p>List of names of the associated contributor insights rules.</p>
-    pub fn get_contributor_insights_rule_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_contributor_insights_rule_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.contributor_insights_rule_list
     }
     /// <p>Current status of contributor insights.</p>
-    pub fn contributor_insights_status(
-        mut self,
-        input: crate::types::ContributorInsightsStatus,
-    ) -> Self {
+    pub fn contributor_insights_status(mut self, input: crate::types::ContributorInsightsStatus) -> Self {
         self.contributor_insights_status = ::std::option::Option::Some(input);
         self
     }
     /// <p>Current status of contributor insights.</p>
-    pub fn set_contributor_insights_status(
-        mut self,
-        input: ::std::option::Option<crate::types::ContributorInsightsStatus>,
-    ) -> Self {
+    pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<crate::types::ContributorInsightsStatus>) -> Self {
         self.contributor_insights_status = input;
         self
     }
     /// <p>Current status of contributor insights.</p>
-    pub fn get_contributor_insights_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::ContributorInsightsStatus> {
+    pub fn get_contributor_insights_status(&self) -> &::std::option::Option<crate::types::ContributorInsightsStatus> {
         &self.contributor_insights_status
     }
     /// <p>Timestamp of the last time the status was changed.</p>
@@ -201,17 +173,12 @@ impl DescribeContributorInsightsOutputBuilder {
         self
     }
     /// <p>Timestamp of the last time the status was changed.</p>
-    pub fn set_last_update_date_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_update_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_update_date_time = input;
         self
     }
     /// <p>Timestamp of the last time the status was changed.</p>
-    pub fn get_last_update_date_time(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_last_update_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_update_date_time
     }
     /// <p>Returns information about the last failure that was encountered.</p>
@@ -242,10 +209,7 @@ impl DescribeContributorInsightsOutputBuilder {
     /// <li>
     /// <p>InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.</p></li>
     /// </ul>
-    pub fn set_failure_exception(
-        mut self,
-        input: ::std::option::Option<crate::types::FailureException>,
-    ) -> Self {
+    pub fn set_failure_exception(mut self, input: ::std::option::Option<crate::types::FailureException>) -> Self {
         self.failure_exception = input;
         self
     }
@@ -265,25 +229,17 @@ impl DescribeContributorInsightsOutputBuilder {
         &self.failure_exception
     }
     /// <p>The mode of CloudWatch Contributor Insights for DynamoDB that determines which events are emitted. Can be set to track all access and throttled events or throttled events only.</p>
-    pub fn contributor_insights_mode(
-        mut self,
-        input: crate::types::ContributorInsightsMode,
-    ) -> Self {
+    pub fn contributor_insights_mode(mut self, input: crate::types::ContributorInsightsMode) -> Self {
         self.contributor_insights_mode = ::std::option::Option::Some(input);
         self
     }
     /// <p>The mode of CloudWatch Contributor Insights for DynamoDB that determines which events are emitted. Can be set to track all access and throttled events or throttled events only.</p>
-    pub fn set_contributor_insights_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::ContributorInsightsMode>,
-    ) -> Self {
+    pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self {
         self.contributor_insights_mode = input;
         self
     }
     /// <p>The mode of CloudWatch Contributor Insights for DynamoDB that determines which events are emitted. Can be set to track all access and throttled events or throttled events only.</p>
-    pub fn get_contributor_insights_mode(
-        &self,
-    ) -> &::std::option::Option<crate::types::ContributorInsightsMode> {
+    pub fn get_contributor_insights_mode(&self) -> &::std::option::Option<crate::types::ContributorInsightsMode> {
         &self.contributor_insights_mode
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -296,9 +252,7 @@ impl DescribeContributorInsightsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeContributorInsightsOutput`](crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput {
+    pub fn build(self) -> crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput {
         crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput {
             table_name: self.table_name,
             index_name: self.index_name,

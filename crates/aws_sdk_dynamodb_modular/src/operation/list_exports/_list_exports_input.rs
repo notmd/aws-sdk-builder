@@ -36,9 +36,7 @@ impl ListExportsInput {
 
 #[cfg(feature = "op_list_exports")]
 /// A builder for [`ListExportsInput`](crate::operation::list_exports::ListExportsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListExportsInputBuilder {
     pub(crate) table_arn: ::std::option::Option<::std::string::String>,
@@ -90,12 +88,7 @@ impl ListExportsInputBuilder {
         &self.next_token
     }
     /// Consumes the builder and constructs a [`ListExportsInput`](crate::operation::list_exports::ListExportsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_exports::ListExportsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_exports::ListExportsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_exports::ListExportsInput {
             table_arn: self.table_arn,
             max_results: self.max_results,

@@ -7,12 +7,9 @@ pub struct ReplicaAutoScalingUpdate {
     /// <p>The Region where the replica exists.</p>
     pub region_name: ::std::string::String,
     /// <p>Represents the auto scaling settings of global secondary indexes that will be modified.</p>
-    pub replica_global_secondary_index_updates: ::std::option::Option<
-        ::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate>,
-    >,
+    pub replica_global_secondary_index_updates: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate>>,
     /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
-    pub replica_provisioned_read_capacity_auto_scaling_update:
-        ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
+    pub replica_provisioned_read_capacity_auto_scaling_update: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
 }
 impl ReplicaAutoScalingUpdate {
     /// <p>The Region where the replica exists.</p>
@@ -23,19 +20,12 @@ impl ReplicaAutoScalingUpdate {
     /// <p>Represents the auto scaling settings of global secondary indexes that will be modified.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.replica_global_secondary_index_updates.is_none()`.
-    pub fn replica_global_secondary_index_updates(
-        &self,
-    ) -> &[crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate] {
-        self.replica_global_secondary_index_updates
-            .as_deref()
-            .unwrap_or_default()
+    pub fn replica_global_secondary_index_updates(&self) -> &[crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate] {
+        self.replica_global_secondary_index_updates.as_deref().unwrap_or_default()
     }
     /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
-    pub fn replica_provisioned_read_capacity_auto_scaling_update(
-        &self,
-    ) -> ::std::option::Option<&crate::types::AutoScalingSettingsUpdate> {
-        self.replica_provisioned_read_capacity_auto_scaling_update
-            .as_ref()
+    pub fn replica_provisioned_read_capacity_auto_scaling_update(&self) -> ::std::option::Option<&crate::types::AutoScalingSettingsUpdate> {
+        self.replica_provisioned_read_capacity_auto_scaling_update.as_ref()
     }
 }
 impl ReplicaAutoScalingUpdate {
@@ -46,17 +36,13 @@ impl ReplicaAutoScalingUpdate {
 }
 
 /// A builder for [`ReplicaAutoScalingUpdate`](crate::types::ReplicaAutoScalingUpdate).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ReplicaAutoScalingUpdateBuilder {
     pub(crate) region_name: ::std::option::Option<::std::string::String>,
-    pub(crate) replica_global_secondary_index_updates: ::std::option::Option<
-        ::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate>,
-    >,
-    pub(crate) replica_provisioned_read_capacity_auto_scaling_update:
-        ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
+    pub(crate) replica_global_secondary_index_updates:
+        ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate>>,
+    pub(crate) replica_provisioned_read_capacity_auto_scaling_update: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
 }
 impl ReplicaAutoScalingUpdateBuilder {
     /// <p>The Region where the replica exists.</p>
@@ -79,13 +65,8 @@ impl ReplicaAutoScalingUpdateBuilder {
     /// To override the contents of this collection use [`set_replica_global_secondary_index_updates`](Self::set_replica_global_secondary_index_updates).
     ///
     /// <p>Represents the auto scaling settings of global secondary indexes that will be modified.</p>
-    pub fn replica_global_secondary_index_updates(
-        mut self,
-        input: crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate,
-    ) -> Self {
-        let mut v = self
-            .replica_global_secondary_index_updates
-            .unwrap_or_default();
+    pub fn replica_global_secondary_index_updates(mut self, input: crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate) -> Self {
+        let mut v = self.replica_global_secondary_index_updates.unwrap_or_default();
         v.push(input);
         self.replica_global_secondary_index_updates = ::std::option::Option::Some(v);
         self
@@ -93,9 +74,7 @@ impl ReplicaAutoScalingUpdateBuilder {
     /// <p>Represents the auto scaling settings of global secondary indexes that will be modified.</p>
     pub fn set_replica_global_secondary_index_updates(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate>>,
     ) -> Self {
         self.replica_global_secondary_index_updates = input;
         self
@@ -103,18 +82,12 @@ impl ReplicaAutoScalingUpdateBuilder {
     /// <p>Represents the auto scaling settings of global secondary indexes that will be modified.</p>
     pub fn get_replica_global_secondary_index_updates(
         &self,
-    ) -> &::std::option::Option<
-        ::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate>,
-    > {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate>> {
         &self.replica_global_secondary_index_updates
     }
     /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
-    pub fn replica_provisioned_read_capacity_auto_scaling_update(
-        mut self,
-        input: crate::types::AutoScalingSettingsUpdate,
-    ) -> Self {
-        self.replica_provisioned_read_capacity_auto_scaling_update =
-            ::std::option::Option::Some(input);
+    pub fn replica_provisioned_read_capacity_auto_scaling_update(mut self, input: crate::types::AutoScalingSettingsUpdate) -> Self {
+        self.replica_provisioned_read_capacity_auto_scaling_update = ::std::option::Option::Some(input);
         self
     }
     /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
@@ -126,20 +99,13 @@ impl ReplicaAutoScalingUpdateBuilder {
         self
     }
     /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
-    pub fn get_replica_provisioned_read_capacity_auto_scaling_update(
-        &self,
-    ) -> &::std::option::Option<crate::types::AutoScalingSettingsUpdate> {
+    pub fn get_replica_provisioned_read_capacity_auto_scaling_update(&self) -> &::std::option::Option<crate::types::AutoScalingSettingsUpdate> {
         &self.replica_provisioned_read_capacity_auto_scaling_update
     }
     /// Consumes the builder and constructs a [`ReplicaAutoScalingUpdate`](crate::types::ReplicaAutoScalingUpdate).
     /// This method will fail if any of the following fields are not set:
     /// - [`region_name`](crate::types::builders::ReplicaAutoScalingUpdateBuilder::region_name)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::ReplicaAutoScalingUpdate,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::ReplicaAutoScalingUpdate, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ReplicaAutoScalingUpdate {
             region_name: self.region_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

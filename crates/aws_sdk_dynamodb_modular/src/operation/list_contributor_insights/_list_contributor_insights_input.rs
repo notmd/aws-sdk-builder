@@ -29,18 +29,14 @@ impl ListContributorInsightsInput {
 #[cfg(feature = "op_list_contributor_insights")]
 impl ListContributorInsightsInput {
     /// Creates a new builder-style object to manufacture [`ListContributorInsightsInput`](crate::operation::list_contributor_insights::ListContributorInsightsInput).
-    pub fn builder(
-    ) -> crate::operation::list_contributor_insights::builders::ListContributorInsightsInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_contributor_insights::builders::ListContributorInsightsInputBuilder {
         crate::operation::list_contributor_insights::builders::ListContributorInsightsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_contributor_insights")]
 /// A builder for [`ListContributorInsightsInput`](crate::operation::list_contributor_insights::ListContributorInsightsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListContributorInsightsInputBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
@@ -98,12 +94,10 @@ impl ListContributorInsightsInputBuilder {
         crate::operation::list_contributor_insights::ListContributorInsightsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_contributor_insights::ListContributorInsightsInput {
-                table_name: self.table_name,
-                next_token: self.next_token,
-                max_results: self.max_results,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_contributor_insights::ListContributorInsightsInput {
+            table_name: self.table_name,
+            next_token: self.next_token,
+            max_results: self.max_results,
+        })
     }
 }

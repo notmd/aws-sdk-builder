@@ -17,16 +17,14 @@ impl DescribeTableReplicaAutoScalingInput {
 #[cfg(feature = "op_describe_table_replica_auto_scaling")]
 impl DescribeTableReplicaAutoScalingInput {
     /// Creates a new builder-style object to manufacture [`DescribeTableReplicaAutoScalingInput`](crate::operation::describe_table_replica_auto_scaling::DescribeTableReplicaAutoScalingInput).
-    pub fn builder() -> crate::operation::describe_table_replica_auto_scaling::builders::DescribeTableReplicaAutoScalingInputBuilder{
+    pub fn builder() -> crate::operation::describe_table_replica_auto_scaling::builders::DescribeTableReplicaAutoScalingInputBuilder {
         crate::operation::describe_table_replica_auto_scaling::builders::DescribeTableReplicaAutoScalingInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_table_replica_auto_scaling")]
 /// A builder for [`DescribeTableReplicaAutoScalingInput`](crate::operation::describe_table_replica_auto_scaling::DescribeTableReplicaAutoScalingInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeTableReplicaAutoScalingInputBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,

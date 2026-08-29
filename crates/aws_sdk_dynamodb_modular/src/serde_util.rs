@@ -35,6 +35,7 @@ pub(crate) fn import_table_output_output_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_create_backup", feature = "op_delete_backup", feature = "op_describe_backup"))]
 pub(crate) fn backup_details_correct_errors(
     mut builder: crate::types::builders::BackupDetailsBuilder,
 ) -> crate::types::builders::BackupDetailsBuilder {
@@ -45,31 +46,28 @@ pub(crate) fn backup_details_correct_errors(
         builder.backup_name = Some(Default::default())
     }
     if builder.backup_status.is_none() {
-        builder.backup_status = "no value was set"
-            .parse::<crate::types::BackupStatus>()
-            .ok()
+        builder.backup_status = "no value was set".parse::<crate::types::BackupStatus>().ok()
     }
     if builder.backup_type.is_none() {
         builder.backup_type = "no value was set".parse::<crate::types::BackupType>().ok()
     }
     if builder.backup_creation_date_time.is_none() {
-        builder.backup_creation_date_time =
-            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.backup_creation_date_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }
 
+#[cfg(any(feature = "op_describe_continuous_backups", feature = "op_update_continuous_backups"))]
 pub(crate) fn continuous_backups_description_correct_errors(
     mut builder: crate::types::builders::ContinuousBackupsDescriptionBuilder,
 ) -> crate::types::builders::ContinuousBackupsDescriptionBuilder {
     if builder.continuous_backups_status.is_none() {
-        builder.continuous_backups_status = "no value was set"
-            .parse::<crate::types::ContinuousBackupsStatus>()
-            .ok()
+        builder.continuous_backups_status = "no value was set".parse::<crate::types::ContinuousBackupsStatus>().ok()
     }
     builder
 }
 
+#[cfg(feature = "op_update_time_to_live")]
 pub(crate) fn time_to_live_specification_correct_errors(
     mut builder: crate::types::builders::TimeToLiveSpecificationBuilder,
 ) -> crate::types::builders::TimeToLiveSpecificationBuilder {
@@ -82,9 +80,8 @@ pub(crate) fn time_to_live_specification_correct_errors(
     builder
 }
 
-pub(crate) fn endpoint_correct_errors(
-    mut builder: crate::types::builders::EndpointBuilder,
-) -> crate::types::builders::EndpointBuilder {
+#[cfg(feature = "op_describe_endpoints")]
+pub(crate) fn endpoint_correct_errors(mut builder: crate::types::builders::EndpointBuilder) -> crate::types::builders::EndpointBuilder {
     if builder.address.is_none() {
         builder.address = Some(Default::default())
     }
@@ -94,6 +91,7 @@ pub(crate) fn endpoint_correct_errors(
     builder
 }
 
+#[cfg(feature = "op_batch_get_item")]
 pub(crate) fn keys_and_attributes_correct_errors(
     mut builder: crate::types::builders::KeysAndAttributesBuilder,
 ) -> crate::types::builders::KeysAndAttributesBuilder {
@@ -103,6 +101,7 @@ pub(crate) fn keys_and_attributes_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_describe_global_table_settings", feature = "op_update_global_table_settings"))]
 pub(crate) fn replica_settings_description_correct_errors(
     mut builder: crate::types::builders::ReplicaSettingsDescriptionBuilder,
 ) -> crate::types::builders::ReplicaSettingsDescriptionBuilder {
@@ -112,12 +111,12 @@ pub(crate) fn replica_settings_description_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) fn restore_summary_correct_errors(
     mut builder: crate::types::builders::RestoreSummaryBuilder,
 ) -> crate::types::builders::RestoreSummaryBuilder {
     if builder.restore_date_time.is_none() {
-        builder.restore_date_time =
-            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.restore_date_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     if builder.restore_in_progress.is_none() {
         builder.restore_in_progress = Some(Default::default())
@@ -125,6 +124,7 @@ pub(crate) fn restore_summary_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_describe_import", feature = "op_import_table", feature = "op_list_imports"))]
 pub(crate) fn s3_bucket_source_correct_errors(
     mut builder: crate::types::builders::S3BucketSourceBuilder,
 ) -> crate::types::builders::S3BucketSourceBuilder {
@@ -134,6 +134,7 @@ pub(crate) fn s3_bucket_source_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_delete_backup", feature = "op_describe_backup"))]
 pub(crate) fn source_table_details_correct_errors(
     mut builder: crate::types::builders::SourceTableDetailsBuilder,
 ) -> crate::types::builders::SourceTableDetailsBuilder {
@@ -147,20 +148,18 @@ pub(crate) fn source_table_details_correct_errors(
         builder.key_schema = Some(Default::default())
     }
     if builder.table_creation_date_time.is_none() {
-        builder.table_creation_date_time =
-            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.table_creation_date_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     if builder.provisioned_throughput.is_none() {
         builder.provisioned_throughput = {
             let builder = crate::types::builders::ProvisionedThroughputBuilder::default();
-            crate::serde_util::provisioned_throughput_correct_errors(builder)
-                .build()
-                .ok()
+            crate::serde_util::provisioned_throughput_correct_errors(builder).build().ok()
         }
     }
     builder
 }
 
+#[cfg(any(feature = "op_create_table", feature = "op_delete_backup", feature = "op_delete_table", feature = "op_describe_backup", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) fn stream_specification_correct_errors(
     mut builder: crate::types::builders::StreamSpecificationBuilder,
 ) -> crate::types::builders::StreamSpecificationBuilder {
@@ -170,6 +169,7 @@ pub(crate) fn stream_specification_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_describe_import", feature = "op_import_table"))]
 pub(crate) fn table_creation_parameters_correct_errors(
     mut builder: crate::types::builders::TableCreationParametersBuilder,
 ) -> crate::types::builders::TableCreationParametersBuilder {
@@ -185,9 +185,8 @@ pub(crate) fn table_creation_parameters_correct_errors(
     builder
 }
 
-pub(crate) fn tag_correct_errors(
-    mut builder: crate::types::builders::TagBuilder,
-) -> crate::types::builders::TagBuilder {
+#[cfg(any(feature = "op_create_table", feature = "op_list_tags_of_resource", feature = "op_tag_resource"))]
+pub(crate) fn tag_correct_errors(mut builder: crate::types::builders::TagBuilder) -> crate::types::builders::TagBuilder {
     if builder.key.is_none() {
         builder.key = Some(Default::default())
     }
@@ -197,6 +196,7 @@ pub(crate) fn tag_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_import", feature = "op_describe_table", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) fn attribute_definition_correct_errors(
     mut builder: crate::types::builders::AttributeDefinitionBuilder,
 ) -> crate::types::builders::AttributeDefinitionBuilder {
@@ -204,13 +204,12 @@ pub(crate) fn attribute_definition_correct_errors(
         builder.attribute_name = Some(Default::default())
     }
     if builder.attribute_type.is_none() {
-        builder.attribute_type = "no value was set"
-            .parse::<crate::types::ScalarAttributeType>()
-            .ok()
+        builder.attribute_type = "no value was set".parse::<crate::types::ScalarAttributeType>().ok()
     }
     builder
 }
 
+#[cfg(any(feature = "op_create_table", feature = "op_delete_backup", feature = "op_delete_table", feature = "op_describe_backup", feature = "op_describe_import", feature = "op_describe_table", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) fn key_schema_element_correct_errors(
     mut builder: crate::types::builders::KeySchemaElementBuilder,
 ) -> crate::types::builders::KeySchemaElementBuilder {
@@ -223,6 +222,7 @@ pub(crate) fn key_schema_element_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_create_table", feature = "op_delete_backup", feature = "op_describe_backup", feature = "op_describe_import", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) fn provisioned_throughput_correct_errors(
     mut builder: crate::types::builders::ProvisionedThroughputBuilder,
 ) -> crate::types::builders::ProvisionedThroughputBuilder {
@@ -235,6 +235,7 @@ pub(crate) fn provisioned_throughput_correct_errors(
     builder
 }
 
+#[cfg(feature = "op_batch_write_item")]
 pub(crate) fn delete_request_correct_errors(
     mut builder: crate::types::builders::DeleteRequestBuilder,
 ) -> crate::types::builders::DeleteRequestBuilder {
@@ -244,6 +245,7 @@ pub(crate) fn delete_request_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_create_table", feature = "op_describe_import", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time"))]
 pub(crate) fn global_secondary_index_correct_errors(
     mut builder: crate::types::builders::GlobalSecondaryIndexBuilder,
 ) -> crate::types::builders::GlobalSecondaryIndexBuilder {
@@ -262,15 +264,15 @@ pub(crate) fn global_secondary_index_correct_errors(
     builder
 }
 
-pub(crate) fn put_request_correct_errors(
-    mut builder: crate::types::builders::PutRequestBuilder,
-) -> crate::types::builders::PutRequestBuilder {
+#[cfg(feature = "op_batch_write_item")]
+pub(crate) fn put_request_correct_errors(mut builder: crate::types::builders::PutRequestBuilder) -> crate::types::builders::PutRequestBuilder {
     if builder.item.is_none() {
         builder.item = Some(Default::default())
     }
     builder
 }
 
+#[cfg(any(feature = "op_describe_global_table_settings", feature = "op_update_global_table_settings"))]
 pub(crate) fn replica_global_secondary_index_settings_description_correct_errors(
     mut builder: crate::types::builders::ReplicaGlobalSecondaryIndexSettingsDescriptionBuilder,
 ) -> crate::types::builders::ReplicaGlobalSecondaryIndexSettingsDescriptionBuilder {
@@ -280,6 +282,7 @@ pub(crate) fn replica_global_secondary_index_settings_description_correct_errors
     builder
 }
 
+#[cfg(any(feature = "op_create_table", feature = "op_delete_backup", feature = "op_delete_table", feature = "op_describe_backup", feature = "op_describe_import", feature = "op_describe_table", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) fn vector_attribute_definition_correct_errors(
     mut builder: crate::types::builders::VectorAttributeDefinitionBuilder,
 ) -> crate::types::builders::VectorAttributeDefinitionBuilder {
@@ -289,18 +292,15 @@ pub(crate) fn vector_attribute_definition_correct_errors(
     builder
 }
 
-pub(crate) fn vector_index_correct_errors(
-    mut builder: crate::types::builders::VectorIndexBuilder,
-) -> crate::types::builders::VectorIndexBuilder {
+#[cfg(any(feature = "op_create_table", feature = "op_describe_import", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time"))]
+pub(crate) fn vector_index_correct_errors(mut builder: crate::types::builders::VectorIndexBuilder) -> crate::types::builders::VectorIndexBuilder {
     if builder.index_name.is_none() {
         builder.index_name = Some(Default::default())
     }
     if builder.vector_attribute.is_none() {
         builder.vector_attribute = {
             let builder = crate::types::builders::VectorAttributeDefinitionBuilder::default();
-            crate::serde_util::vector_attribute_definition_correct_errors(builder)
-                .build()
-                .ok()
+            crate::serde_util::vector_attribute_definition_correct_errors(builder).build().ok()
         }
     }
     if builder.projection.is_none() {
@@ -313,13 +313,12 @@ pub(crate) fn vector_index_correct_errors(
         builder.dimensions = Some(Default::default())
     }
     if builder.distance_function.is_none() {
-        builder.distance_function = "no value was set"
-            .parse::<crate::types::VectorDistanceFunction>()
-            .ok()
+        builder.distance_function = "no value was set".parse::<crate::types::VectorDistanceFunction>().ok()
     }
     builder
 }
 
+#[cfg(any(feature = "op_create_table", feature = "op_delete_backup", feature = "op_delete_table", feature = "op_describe_backup", feature = "op_describe_import", feature = "op_describe_table", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) fn search_schema_element_correct_errors(
     mut builder: crate::types::builders::SearchSchemaElementBuilder,
 ) -> crate::types::builders::SearchSchemaElementBuilder {
@@ -327,13 +326,12 @@ pub(crate) fn search_schema_element_correct_errors(
         builder.attribute_name = Some(Default::default())
     }
     if builder.search_schema_element_type.is_none() {
-        builder.search_schema_element_type = "no value was set"
-            .parse::<crate::types::SearchSchemaElementType>()
-            .ok()
+        builder.search_schema_element_type = "no value was set".parse::<crate::types::SearchSchemaElementType>().ok()
     }
     builder
 }
 
+#[cfg(any(feature = "op_describe_global_table_settings", feature = "op_describe_table_replica_auto_scaling", feature = "op_update_global_table_settings", feature = "op_update_table_replica_auto_scaling"))]
 pub(crate) fn auto_scaling_target_tracking_scaling_policy_configuration_description_correct_errors(
     mut builder: crate::types::builders::AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilder,
 ) -> crate::types::builders::AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilder {

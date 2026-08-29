@@ -31,17 +31,14 @@ impl ListGlobalTablesInput {
 #[cfg(feature = "op_list_global_tables")]
 impl ListGlobalTablesInput {
     /// Creates a new builder-style object to manufacture [`ListGlobalTablesInput`](crate::operation::list_global_tables::ListGlobalTablesInput).
-    pub fn builder() -> crate::operation::list_global_tables::builders::ListGlobalTablesInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_global_tables::builders::ListGlobalTablesInputBuilder {
         crate::operation::list_global_tables::builders::ListGlobalTablesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_global_tables")]
 /// A builder for [`ListGlobalTablesInput`](crate::operation::list_global_tables::ListGlobalTablesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListGlobalTablesInputBuilder {
     pub(crate) exclusive_start_global_table_name: ::std::option::Option<::std::string::String>,
@@ -51,25 +48,17 @@ pub struct ListGlobalTablesInputBuilder {
 #[cfg(feature = "op_list_global_tables")]
 impl ListGlobalTablesInputBuilder {
     /// <p>The first global table name that this operation will evaluate.</p>
-    pub fn exclusive_start_global_table_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn exclusive_start_global_table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.exclusive_start_global_table_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The first global table name that this operation will evaluate.</p>
-    pub fn set_exclusive_start_global_table_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_exclusive_start_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.exclusive_start_global_table_name = input;
         self
     }
     /// <p>The first global table name that this operation will evaluate.</p>
-    pub fn get_exclusive_start_global_table_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_exclusive_start_global_table_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.exclusive_start_global_table_name
     }
     /// <p>The maximum number of table names to return, if the parameter is not specified DynamoDB defaults to 100.</p>
@@ -106,16 +95,11 @@ impl ListGlobalTablesInputBuilder {
     /// Consumes the builder and constructs a [`ListGlobalTablesInput`](crate::operation::list_global_tables::ListGlobalTablesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_global_tables::ListGlobalTablesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::list_global_tables::ListGlobalTablesInput {
-                exclusive_start_global_table_name: self.exclusive_start_global_table_name,
-                limit: self.limit,
-                region_name: self.region_name,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::list_global_tables::ListGlobalTablesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::list_global_tables::ListGlobalTablesInput {
+            exclusive_start_global_table_name: self.exclusive_start_global_table_name,
+            limit: self.limit,
+            region_name: self.region_name,
+        })
     }
 }

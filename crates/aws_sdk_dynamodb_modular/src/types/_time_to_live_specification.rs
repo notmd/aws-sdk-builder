@@ -28,9 +28,7 @@ impl TimeToLiveSpecification {
 }
 
 /// A builder for [`TimeToLiveSpecification`](crate::types::TimeToLiveSpecification).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TimeToLiveSpecificationBuilder {
     pub(crate) enabled: ::std::option::Option<bool>,
@@ -54,18 +52,12 @@ impl TimeToLiveSpecificationBuilder {
     }
     /// <p>The name of the TTL attribute used to store the expiration time for items in the table.</p>
     /// This field is required.
-    pub fn attribute_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn attribute_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.attribute_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the TTL attribute used to store the expiration time for items in the table.</p>
-    pub fn set_attribute_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.attribute_name = input;
         self
     }
@@ -77,12 +69,7 @@ impl TimeToLiveSpecificationBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`enabled`](crate::types::builders::TimeToLiveSpecificationBuilder::enabled)
     /// - [`attribute_name`](crate::types::builders::TimeToLiveSpecificationBuilder::attribute_name)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::TimeToLiveSpecification,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::TimeToLiveSpecification, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TimeToLiveSpecification {
             enabled: self.enabled.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

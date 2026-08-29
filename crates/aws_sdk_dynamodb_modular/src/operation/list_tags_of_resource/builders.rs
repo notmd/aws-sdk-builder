@@ -64,9 +64,7 @@ impl ListTagsOfResourceFluentBuilder {
         }
     }
     /// Access the ListTagsOfResource as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_tags_of_resource::builders::ListTagsOfResourceInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_tags_of_resource::builders::ListTagsOfResourceInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -90,17 +88,12 @@ impl ListTagsOfResourceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_tags_of_resource::ListTagsOfResource::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::list_tags_of_resource::ListTagsOfResource::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::list_tags_of_resource::ListTagsOfResource::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::list_tags_of_resource::ListTagsOfResource::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -113,18 +106,12 @@ impl ListTagsOfResourceFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }

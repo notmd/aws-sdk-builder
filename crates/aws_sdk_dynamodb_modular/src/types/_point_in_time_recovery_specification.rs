@@ -27,9 +27,7 @@ impl PointInTimeRecoverySpecification {
 }
 
 /// A builder for [`PointInTimeRecoverySpecification`](crate::types::PointInTimeRecoverySpecification).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PointInTimeRecoverySpecificationBuilder {
     pub(crate) point_in_time_recovery_enabled: ::std::option::Option<bool>,
@@ -43,10 +41,7 @@ impl PointInTimeRecoverySpecificationBuilder {
         self
     }
     /// <p>Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.</p>
-    pub fn set_point_in_time_recovery_enabled(
-        mut self,
-        input: ::std::option::Option<bool>,
-    ) -> Self {
+    pub fn set_point_in_time_recovery_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.point_in_time_recovery_enabled = input;
         self
     }
@@ -71,12 +66,7 @@ impl PointInTimeRecoverySpecificationBuilder {
     /// Consumes the builder and constructs a [`PointInTimeRecoverySpecification`](crate::types::PointInTimeRecoverySpecification).
     /// This method will fail if any of the following fields are not set:
     /// - [`point_in_time_recovery_enabled`](crate::types::builders::PointInTimeRecoverySpecificationBuilder::point_in_time_recovery_enabled)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::PointInTimeRecoverySpecification,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::PointInTimeRecoverySpecification, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::PointInTimeRecoverySpecification {
             point_in_time_recovery_enabled: self.point_in_time_recovery_enabled.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

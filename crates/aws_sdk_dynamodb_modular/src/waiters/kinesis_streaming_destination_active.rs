@@ -25,7 +25,7 @@ impl KinesisStreamingDestinationActiveFluentBuilder {
         }
     }
     /// Access the DescribeKinesisStreamingDestination as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_kinesis_streaming_destination::builders::DescribeKinesisStreamingDestinationInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::describe_kinesis_streaming_destination::builders::DescribeKinesisStreamingDestinationInputBuilder {
         &self.inner
     }
     /// Wait for `kinesis_streaming_destination_active`
@@ -35,10 +35,11 @@ impl KinesisStreamingDestinationActiveFluentBuilder {
     ) -> ::std::result::Result<
         crate::waiters::kinesis_streaming_destination_active::KinesisStreamingDestinationActiveFinalPoll,
         crate::waiters::kinesis_streaming_destination_active::WaitUntilKinesisStreamingDestinationActiveError,
-    >{
-        let input = self.inner.build().map_err(
-            ::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure,
-        )?;
+    > {
+        let input = self
+            .inner
+            .build()
+            .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
         let runtime_plugins =
             crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestination::operation_runtime_plugins(
                 self.handle.runtime_plugins.clone(),
@@ -49,16 +50,10 @@ impl KinesisStreamingDestinationActiveFluentBuilder {
         let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
         let runtime_components_builder = runtime_plugins
             .apply_client_configuration(&mut cfg)
-            .map_err(
-                ::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure,
-            )?;
+            .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
         let time_components = runtime_components_builder.into_time_components();
-        let sleep_impl = time_components
-            .sleep_impl()
-            .expect("a sleep impl is required by waiters");
-        let time_source = time_components
-            .time_source()
-            .expect("a time source is required by waiters");
+        let sleep_impl = time_components.sleep_impl().expect("a sleep impl is required by waiters");
+        let time_source = time_components.time_source().expect("a time source is required by waiters");
 
         let acceptor = move |result: ::std::result::Result<
             &crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationOutput,
@@ -91,10 +86,7 @@ impl KinesisStreamingDestinationActiveFluentBuilder {
             .acceptor(acceptor)
             .operation(operation)
             .build();
-        ::aws_smithy_runtime::client::waiters::attach_waiter_tracing_span(
-            orchestrator.orchestrate(),
-        )
-        .await
+        ::aws_smithy_runtime::client::waiters::attach_waiter_tracing_span(orchestrator.orchestrate()).await
     }
     /// <p>The name of the table being described. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     pub fn table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

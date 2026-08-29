@@ -7,8 +7,7 @@ pub struct ReplicaGlobalSecondaryIndexAutoScalingUpdate {
     /// <p>The name of the global secondary index.</p>
     pub index_name: ::std::option::Option<::std::string::String>,
     /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
-    pub provisioned_read_capacity_auto_scaling_update:
-        ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
+    pub provisioned_read_capacity_auto_scaling_update: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
 }
 impl ReplicaGlobalSecondaryIndexAutoScalingUpdate {
     /// <p>The name of the global secondary index.</p>
@@ -16,29 +15,23 @@ impl ReplicaGlobalSecondaryIndexAutoScalingUpdate {
         self.index_name.as_deref()
     }
     /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
-    pub fn provisioned_read_capacity_auto_scaling_update(
-        &self,
-    ) -> ::std::option::Option<&crate::types::AutoScalingSettingsUpdate> {
+    pub fn provisioned_read_capacity_auto_scaling_update(&self) -> ::std::option::Option<&crate::types::AutoScalingSettingsUpdate> {
         self.provisioned_read_capacity_auto_scaling_update.as_ref()
     }
 }
 impl ReplicaGlobalSecondaryIndexAutoScalingUpdate {
     /// Creates a new builder-style object to manufacture [`ReplicaGlobalSecondaryIndexAutoScalingUpdate`](crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate).
-    pub fn builder() -> crate::types::builders::ReplicaGlobalSecondaryIndexAutoScalingUpdateBuilder
-    {
+    pub fn builder() -> crate::types::builders::ReplicaGlobalSecondaryIndexAutoScalingUpdateBuilder {
         crate::types::builders::ReplicaGlobalSecondaryIndexAutoScalingUpdateBuilder::default()
     }
 }
 
 /// A builder for [`ReplicaGlobalSecondaryIndexAutoScalingUpdate`](crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ReplicaGlobalSecondaryIndexAutoScalingUpdateBuilder {
     pub(crate) index_name: ::std::option::Option<::std::string::String>,
-    pub(crate) provisioned_read_capacity_auto_scaling_update:
-        ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
+    pub(crate) provisioned_read_capacity_auto_scaling_update: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
 }
 impl ReplicaGlobalSecondaryIndexAutoScalingUpdateBuilder {
     /// <p>The name of the global secondary index.</p>
@@ -56,10 +49,7 @@ impl ReplicaGlobalSecondaryIndexAutoScalingUpdateBuilder {
         &self.index_name
     }
     /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
-    pub fn provisioned_read_capacity_auto_scaling_update(
-        mut self,
-        input: crate::types::AutoScalingSettingsUpdate,
-    ) -> Self {
+    pub fn provisioned_read_capacity_auto_scaling_update(mut self, input: crate::types::AutoScalingSettingsUpdate) -> Self {
         self.provisioned_read_capacity_auto_scaling_update = ::std::option::Option::Some(input);
         self
     }
@@ -72,17 +62,14 @@ impl ReplicaGlobalSecondaryIndexAutoScalingUpdateBuilder {
         self
     }
     /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
-    pub fn get_provisioned_read_capacity_auto_scaling_update(
-        &self,
-    ) -> &::std::option::Option<crate::types::AutoScalingSettingsUpdate> {
+    pub fn get_provisioned_read_capacity_auto_scaling_update(&self) -> &::std::option::Option<crate::types::AutoScalingSettingsUpdate> {
         &self.provisioned_read_capacity_auto_scaling_update
     }
     /// Consumes the builder and constructs a [`ReplicaGlobalSecondaryIndexAutoScalingUpdate`](crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate).
     pub fn build(self) -> crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate {
         crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate {
             index_name: self.index_name,
-            provisioned_read_capacity_auto_scaling_update: self
-                .provisioned_read_capacity_auto_scaling_update,
+            provisioned_read_capacity_auto_scaling_update: self.provisioned_read_capacity_auto_scaling_update,
         }
     }
 }

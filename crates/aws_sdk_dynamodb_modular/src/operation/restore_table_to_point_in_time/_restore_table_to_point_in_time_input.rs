@@ -18,11 +18,9 @@ pub struct RestoreTableToPointInTimeInput {
     pub billing_mode_override: ::std::option::Option<crate::types::BillingMode>,
     /// <p>List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
     /// <p>The <code>WarmThroughput</code> setting is not supported on global secondary indexes when you use <code>RestoreTableToPointInTime</code>. Although <code>WarmThroughput</code> appears in the shared index definition, including it in a <code>GlobalSecondaryIndexOverride</code> entry causes the request to fail with a validation error.</p>
-    pub global_secondary_index_override:
-        ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>,
+    pub global_secondary_index_override: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>,
     /// <p>List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
-    pub local_secondary_index_override:
-        ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>>,
+    pub local_secondary_index_override: ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>>,
     /// <p>Provisioned throughput settings for the restored table.</p>
     pub provisioned_throughput_override: ::std::option::Option<crate::types::ProvisionedThroughput>,
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
@@ -63,34 +61,24 @@ impl RestoreTableToPointInTimeInput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.global_secondary_index_override.is_none()`.
     pub fn global_secondary_index_override(&self) -> &[crate::types::GlobalSecondaryIndex] {
-        self.global_secondary_index_override
-            .as_deref()
-            .unwrap_or_default()
+        self.global_secondary_index_override.as_deref().unwrap_or_default()
     }
     /// <p>List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.local_secondary_index_override.is_none()`.
     pub fn local_secondary_index_override(&self) -> &[crate::types::LocalSecondaryIndex] {
-        self.local_secondary_index_override
-            .as_deref()
-            .unwrap_or_default()
+        self.local_secondary_index_override.as_deref().unwrap_or_default()
     }
     /// <p>Provisioned throughput settings for the restored table.</p>
-    pub fn provisioned_throughput_override(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ProvisionedThroughput> {
+    pub fn provisioned_throughput_override(&self) -> ::std::option::Option<&crate::types::ProvisionedThroughput> {
         self.provisioned_throughput_override.as_ref()
     }
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn on_demand_throughput_override(
-        &self,
-    ) -> ::std::option::Option<&crate::types::OnDemandThroughput> {
+    pub fn on_demand_throughput_override(&self) -> ::std::option::Option<&crate::types::OnDemandThroughput> {
         self.on_demand_throughput_override.as_ref()
     }
     /// <p>The new server-side encryption settings for the restored table.</p>
-    pub fn sse_specification_override(
-        &self,
-    ) -> ::std::option::Option<&crate::types::SseSpecification> {
+    pub fn sse_specification_override(&self) -> ::std::option::Option<&crate::types::SseSpecification> {
         self.sse_specification_override.as_ref()
     }
     /// <p>The vector indexes for the restored table. If not specified, all vector indexes from the source table are restored. The indexes provided must match existing vector indexes from the source table. You can choose to exclude some or all of the vector indexes at the time of restore.</p>
@@ -103,16 +91,14 @@ impl RestoreTableToPointInTimeInput {
 #[cfg(feature = "op_restore_table_to_point_in_time")]
 impl RestoreTableToPointInTimeInput {
     /// Creates a new builder-style object to manufacture [`RestoreTableToPointInTimeInput`](crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput).
-    pub fn builder() -> crate::operation::restore_table_to_point_in_time::builders::RestoreTableToPointInTimeInputBuilder{
+    pub fn builder() -> crate::operation::restore_table_to_point_in_time::builders::RestoreTableToPointInTimeInputBuilder {
         crate::operation::restore_table_to_point_in_time::builders::RestoreTableToPointInTimeInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_restore_table_to_point_in_time")]
 /// A builder for [`RestoreTableToPointInTimeInput`](crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RestoreTableToPointInTimeInputBuilder {
     pub(crate) source_table_arn: ::std::option::Option<::std::string::String>,
@@ -121,33 +107,22 @@ pub struct RestoreTableToPointInTimeInputBuilder {
     pub(crate) use_latest_restorable_time: ::std::option::Option<bool>,
     pub(crate) restore_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) billing_mode_override: ::std::option::Option<crate::types::BillingMode>,
-    pub(crate) global_secondary_index_override:
-        ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>,
-    pub(crate) local_secondary_index_override:
-        ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>>,
-    pub(crate) provisioned_throughput_override:
-        ::std::option::Option<crate::types::ProvisionedThroughput>,
-    pub(crate) on_demand_throughput_override:
-        ::std::option::Option<crate::types::OnDemandThroughput>,
+    pub(crate) global_secondary_index_override: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>,
+    pub(crate) local_secondary_index_override: ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>>,
+    pub(crate) provisioned_throughput_override: ::std::option::Option<crate::types::ProvisionedThroughput>,
+    pub(crate) on_demand_throughput_override: ::std::option::Option<crate::types::OnDemandThroughput>,
     pub(crate) sse_specification_override: ::std::option::Option<crate::types::SseSpecification>,
-    pub(crate) vector_index_override:
-        ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>,
+    pub(crate) vector_index_override: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>,
 }
 #[cfg(feature = "op_restore_table_to_point_in_time")]
 impl RestoreTableToPointInTimeInputBuilder {
     /// <p>The DynamoDB table that will be restored. This value is an Amazon Resource Name (ARN).</p>
-    pub fn source_table_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn source_table_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.source_table_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The DynamoDB table that will be restored. This value is an Amazon Resource Name (ARN).</p>
-    pub fn set_source_table_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_source_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.source_table_arn = input;
         self
     }
@@ -156,18 +131,12 @@ impl RestoreTableToPointInTimeInputBuilder {
         &self.source_table_arn
     }
     /// <p>Name of the source table that is being restored.</p>
-    pub fn source_table_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn source_table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.source_table_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Name of the source table that is being restored.</p>
-    pub fn set_source_table_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_source_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.source_table_name = input;
         self
     }
@@ -177,18 +146,12 @@ impl RestoreTableToPointInTimeInputBuilder {
     }
     /// <p>The name of the new table to which it must be restored to.</p>
     /// This field is required.
-    pub fn target_table_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn target_table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.target_table_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the new table to which it must be restored to.</p>
-    pub fn set_target_table_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_target_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.target_table_name = input;
         self
     }
@@ -216,10 +179,7 @@ impl RestoreTableToPointInTimeInputBuilder {
         self
     }
     /// <p>Time in the past to restore the table to.</p>
-    pub fn set_restore_date_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_restore_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.restore_date_time = input;
         self
     }
@@ -233,10 +193,7 @@ impl RestoreTableToPointInTimeInputBuilder {
         self
     }
     /// <p>The billing mode of the restored table.</p>
-    pub fn set_billing_mode_override(
-        mut self,
-        input: ::std::option::Option<crate::types::BillingMode>,
-    ) -> Self {
+    pub fn set_billing_mode_override(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
         self.billing_mode_override = input;
         self
     }
@@ -250,10 +207,7 @@ impl RestoreTableToPointInTimeInputBuilder {
     ///
     /// <p>List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
     /// <p>The <code>WarmThroughput</code> setting is not supported on global secondary indexes when you use <code>RestoreTableToPointInTime</code>. Although <code>WarmThroughput</code> appears in the shared index definition, including it in a <code>GlobalSecondaryIndexOverride</code> entry causes the request to fail with a validation error.</p>
-    pub fn global_secondary_index_override(
-        mut self,
-        input: crate::types::GlobalSecondaryIndex,
-    ) -> Self {
+    pub fn global_secondary_index_override(mut self, input: crate::types::GlobalSecondaryIndex) -> Self {
         let mut v = self.global_secondary_index_override.unwrap_or_default();
         v.push(input);
         self.global_secondary_index_override = ::std::option::Option::Some(v);
@@ -261,18 +215,13 @@ impl RestoreTableToPointInTimeInputBuilder {
     }
     /// <p>List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
     /// <p>The <code>WarmThroughput</code> setting is not supported on global secondary indexes when you use <code>RestoreTableToPointInTime</code>. Although <code>WarmThroughput</code> appears in the shared index definition, including it in a <code>GlobalSecondaryIndexOverride</code> entry causes the request to fail with a validation error.</p>
-    pub fn set_global_secondary_index_override(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>,
-    ) -> Self {
+    pub fn set_global_secondary_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>) -> Self {
         self.global_secondary_index_override = input;
         self
     }
     /// <p>List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
     /// <p>The <code>WarmThroughput</code> setting is not supported on global secondary indexes when you use <code>RestoreTableToPointInTime</code>. Although <code>WarmThroughput</code> appears in the shared index definition, including it in a <code>GlobalSecondaryIndexOverride</code> entry causes the request to fail with a validation error.</p>
-    pub fn get_global_secondary_index_override(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>> {
+    pub fn get_global_secondary_index_override(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>> {
         &self.global_secondary_index_override
     }
     /// Appends an item to `local_secondary_index_override`.
@@ -280,71 +229,47 @@ impl RestoreTableToPointInTimeInputBuilder {
     /// To override the contents of this collection use [`set_local_secondary_index_override`](Self::set_local_secondary_index_override).
     ///
     /// <p>List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
-    pub fn local_secondary_index_override(
-        mut self,
-        input: crate::types::LocalSecondaryIndex,
-    ) -> Self {
+    pub fn local_secondary_index_override(mut self, input: crate::types::LocalSecondaryIndex) -> Self {
         let mut v = self.local_secondary_index_override.unwrap_or_default();
         v.push(input);
         self.local_secondary_index_override = ::std::option::Option::Some(v);
         self
     }
     /// <p>List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
-    pub fn set_local_secondary_index_override(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>>,
-    ) -> Self {
+    pub fn set_local_secondary_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>>) -> Self {
         self.local_secondary_index_override = input;
         self
     }
     /// <p>List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
-    pub fn get_local_secondary_index_override(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>> {
+    pub fn get_local_secondary_index_override(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>> {
         &self.local_secondary_index_override
     }
     /// <p>Provisioned throughput settings for the restored table.</p>
-    pub fn provisioned_throughput_override(
-        mut self,
-        input: crate::types::ProvisionedThroughput,
-    ) -> Self {
+    pub fn provisioned_throughput_override(mut self, input: crate::types::ProvisionedThroughput) -> Self {
         self.provisioned_throughput_override = ::std::option::Option::Some(input);
         self
     }
     /// <p>Provisioned throughput settings for the restored table.</p>
-    pub fn set_provisioned_throughput_override(
-        mut self,
-        input: ::std::option::Option<crate::types::ProvisionedThroughput>,
-    ) -> Self {
+    pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
         self.provisioned_throughput_override = input;
         self
     }
     /// <p>Provisioned throughput settings for the restored table.</p>
-    pub fn get_provisioned_throughput_override(
-        &self,
-    ) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
+    pub fn get_provisioned_throughput_override(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
         &self.provisioned_throughput_override
     }
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn on_demand_throughput_override(
-        mut self,
-        input: crate::types::OnDemandThroughput,
-    ) -> Self {
+    pub fn on_demand_throughput_override(mut self, input: crate::types::OnDemandThroughput) -> Self {
         self.on_demand_throughput_override = ::std::option::Option::Some(input);
         self
     }
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn set_on_demand_throughput_override(
-        mut self,
-        input: ::std::option::Option<crate::types::OnDemandThroughput>,
-    ) -> Self {
+    pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
         self.on_demand_throughput_override = input;
         self
     }
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn get_on_demand_throughput_override(
-        &self,
-    ) -> &::std::option::Option<crate::types::OnDemandThroughput> {
+    pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
         &self.on_demand_throughput_override
     }
     /// <p>The new server-side encryption settings for the restored table.</p>
@@ -353,17 +278,12 @@ impl RestoreTableToPointInTimeInputBuilder {
         self
     }
     /// <p>The new server-side encryption settings for the restored table.</p>
-    pub fn set_sse_specification_override(
-        mut self,
-        input: ::std::option::Option<crate::types::SseSpecification>,
-    ) -> Self {
+    pub fn set_sse_specification_override(mut self, input: ::std::option::Option<crate::types::SseSpecification>) -> Self {
         self.sse_specification_override = input;
         self
     }
     /// <p>The new server-side encryption settings for the restored table.</p>
-    pub fn get_sse_specification_override(
-        &self,
-    ) -> &::std::option::Option<crate::types::SseSpecification> {
+    pub fn get_sse_specification_override(&self) -> &::std::option::Option<crate::types::SseSpecification> {
         &self.sse_specification_override
     }
     /// Appends an item to `vector_index_override`.
@@ -378,17 +298,12 @@ impl RestoreTableToPointInTimeInputBuilder {
         self
     }
     /// <p>The vector indexes for the restored table. If not specified, all vector indexes from the source table are restored. The indexes provided must match existing vector indexes from the source table. You can choose to exclude some or all of the vector indexes at the time of restore.</p>
-    pub fn set_vector_index_override(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>,
-    ) -> Self {
+    pub fn set_vector_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>) -> Self {
         self.vector_index_override = input;
         self
     }
     /// <p>The vector indexes for the restored table. If not specified, all vector indexes from the source table are restored. The indexes provided must match existing vector indexes from the source table. You can choose to exclude some or all of the vector indexes at the time of restore.</p>
-    pub fn get_vector_index_override(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>> {
+    pub fn get_vector_index_override(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>> {
         &self.vector_index_override
     }
     /// Consumes the builder and constructs a [`RestoreTableToPointInTimeInput`](crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput).
@@ -398,21 +313,19 @@ impl RestoreTableToPointInTimeInputBuilder {
         crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput {
-                source_table_arn: self.source_table_arn,
-                source_table_name: self.source_table_name,
-                target_table_name: self.target_table_name,
-                use_latest_restorable_time: self.use_latest_restorable_time,
-                restore_date_time: self.restore_date_time,
-                billing_mode_override: self.billing_mode_override,
-                global_secondary_index_override: self.global_secondary_index_override,
-                local_secondary_index_override: self.local_secondary_index_override,
-                provisioned_throughput_override: self.provisioned_throughput_override,
-                on_demand_throughput_override: self.on_demand_throughput_override,
-                sse_specification_override: self.sse_specification_override,
-                vector_index_override: self.vector_index_override,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput {
+            source_table_arn: self.source_table_arn,
+            source_table_name: self.source_table_name,
+            target_table_name: self.target_table_name,
+            use_latest_restorable_time: self.use_latest_restorable_time,
+            restore_date_time: self.restore_date_time,
+            billing_mode_override: self.billing_mode_override,
+            global_secondary_index_override: self.global_secondary_index_override,
+            local_secondary_index_override: self.local_secondary_index_override,
+            provisioned_throughput_override: self.provisioned_throughput_override,
+            on_demand_throughput_override: self.on_demand_throughput_override,
+            sse_specification_override: self.sse_specification_override,
+            vector_index_override: self.vector_index_override,
+        })
     }
 }

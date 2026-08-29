@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeGlobalTableSettingsError>`](crate::operation::describe_global_table_settings::DescribeGlobalTableSettingsError)
     pub fn describe_global_table_settings(
         &self,
-    ) -> crate::operation::describe_global_table_settings::builders::DescribeGlobalTableSettingsFluentBuilder{
+    ) -> crate::operation::describe_global_table_settings::builders::DescribeGlobalTableSettingsFluentBuilder {
         crate::operation::describe_global_table_settings::builders::DescribeGlobalTableSettingsFluentBuilder::new(self.handle.clone())
     }
 }

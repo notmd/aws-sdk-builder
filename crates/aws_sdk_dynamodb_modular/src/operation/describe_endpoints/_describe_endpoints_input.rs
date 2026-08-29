@@ -7,17 +7,14 @@ pub struct DescribeEndpointsInput {}
 #[cfg(feature = "op_describe_endpoints")]
 impl DescribeEndpointsInput {
     /// Creates a new builder-style object to manufacture [`DescribeEndpointsInput`](crate::operation::describe_endpoints::DescribeEndpointsInput).
-    pub fn builder() -> crate::operation::describe_endpoints::builders::DescribeEndpointsInputBuilder
-    {
+    pub fn builder() -> crate::operation::describe_endpoints::builders::DescribeEndpointsInputBuilder {
         crate::operation::describe_endpoints::builders::DescribeEndpointsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_endpoints")]
 /// A builder for [`DescribeEndpointsInput`](crate::operation::describe_endpoints::DescribeEndpointsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeEndpointsInputBuilder {}
 #[cfg(feature = "op_describe_endpoints")]
@@ -25,10 +22,7 @@ impl DescribeEndpointsInputBuilder {
     /// Consumes the builder and constructs a [`DescribeEndpointsInput`](crate::operation::describe_endpoints::DescribeEndpointsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_endpoints::DescribeEndpointsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::describe_endpoints::DescribeEndpointsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::describe_endpoints::DescribeEndpointsInput {})
     }
 }

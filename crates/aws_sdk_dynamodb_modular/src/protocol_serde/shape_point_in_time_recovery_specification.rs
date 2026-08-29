@@ -4,9 +4,7 @@ pub fn ser_point_in_time_recovery_specification(
     input: &crate::types::PointInTimeRecoverySpecification,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     {
-        object
-            .key("PointInTimeRecoveryEnabled")
-            .boolean(input.point_in_time_recovery_enabled);
+        object.key("PointInTimeRecoveryEnabled").boolean(input.point_in_time_recovery_enabled);
     }
     if let Some(var_1) = &input.recovery_period_in_days {
         object.key("RecoveryPeriodInDays").number(

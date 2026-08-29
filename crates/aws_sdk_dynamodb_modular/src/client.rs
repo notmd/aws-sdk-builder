@@ -124,9 +124,7 @@ impl Client {
         &self.handle.conf
     }
 
-    fn validate_config(
-        handle: &Handle,
-    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
+    fn validate_config(handle: &Handle) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
         let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
         handle
             .runtime_plugins
@@ -143,69 +141,51 @@ impl Client {
 ///
 pub trait Waiters {
     #[cfg(feature = "op_describe_contributor_insights")]
-    /// Wait for `contributor_insights_enabled`
-    fn wait_until_contributor_insights_enabled(
-        &self,
-    ) -> crate::waiters::contributor_insights_enabled::ContributorInsightsEnabledFluentBuilder;
+/// Wait for `contributor_insights_enabled`
+    fn wait_until_contributor_insights_enabled(&self) -> crate::waiters::contributor_insights_enabled::ContributorInsightsEnabledFluentBuilder;
     #[cfg(feature = "op_describe_export")]
-    /// Wait for `export_completed`
-    fn wait_until_export_completed(
-        &self,
-    ) -> crate::waiters::export_completed::ExportCompletedFluentBuilder;
+/// Wait for `export_completed`
+    fn wait_until_export_completed(&self) -> crate::waiters::export_completed::ExportCompletedFluentBuilder;
     #[cfg(feature = "op_describe_import")]
-    /// Wait for `import_completed`
-    fn wait_until_import_completed(
-        &self,
-    ) -> crate::waiters::import_completed::ImportCompletedFluentBuilder;
+/// Wait for `import_completed`
+    fn wait_until_import_completed(&self) -> crate::waiters::import_completed::ImportCompletedFluentBuilder;
     #[cfg(feature = "op_describe_kinesis_streaming_destination")]
-    /// Wait for `kinesis_streaming_destination_active`
+/// Wait for `kinesis_streaming_destination_active`
     fn wait_until_kinesis_streaming_destination_active(
         &self,
     ) -> crate::waiters::kinesis_streaming_destination_active::KinesisStreamingDestinationActiveFluentBuilder;
     #[cfg(feature = "op_describe_table")]
-    /// Wait for `table_exists`
+/// Wait for `table_exists`
     fn wait_until_table_exists(&self) -> crate::waiters::table_exists::TableExistsFluentBuilder;
     #[cfg(feature = "op_describe_table")]
-    /// Wait for `table_not_exists`
-    fn wait_until_table_not_exists(
-        &self,
-    ) -> crate::waiters::table_not_exists::TableNotExistsFluentBuilder;
+/// Wait for `table_not_exists`
+    fn wait_until_table_not_exists(&self) -> crate::waiters::table_not_exists::TableNotExistsFluentBuilder;
 }
 impl Waiters for Client {
     #[cfg(feature = "op_describe_contributor_insights")]
-    fn wait_until_contributor_insights_enabled(
-        &self,
-    ) -> crate::waiters::contributor_insights_enabled::ContributorInsightsEnabledFluentBuilder {
-        crate::waiters::contributor_insights_enabled::ContributorInsightsEnabledFluentBuilder::new(
-            self.handle.clone(),
-        )
+fn wait_until_contributor_insights_enabled(&self) -> crate::waiters::contributor_insights_enabled::ContributorInsightsEnabledFluentBuilder {
+        crate::waiters::contributor_insights_enabled::ContributorInsightsEnabledFluentBuilder::new(self.handle.clone())
     }
     #[cfg(feature = "op_describe_export")]
-    fn wait_until_export_completed(
-        &self,
-    ) -> crate::waiters::export_completed::ExportCompletedFluentBuilder {
+fn wait_until_export_completed(&self) -> crate::waiters::export_completed::ExportCompletedFluentBuilder {
         crate::waiters::export_completed::ExportCompletedFluentBuilder::new(self.handle.clone())
     }
     #[cfg(feature = "op_describe_import")]
-    fn wait_until_import_completed(
-        &self,
-    ) -> crate::waiters::import_completed::ImportCompletedFluentBuilder {
+fn wait_until_import_completed(&self) -> crate::waiters::import_completed::ImportCompletedFluentBuilder {
         crate::waiters::import_completed::ImportCompletedFluentBuilder::new(self.handle.clone())
     }
     #[cfg(feature = "op_describe_kinesis_streaming_destination")]
 fn wait_until_kinesis_streaming_destination_active(
         &self,
-    ) -> crate::waiters::kinesis_streaming_destination_active::KinesisStreamingDestinationActiveFluentBuilder{
+    ) -> crate::waiters::kinesis_streaming_destination_active::KinesisStreamingDestinationActiveFluentBuilder {
         crate::waiters::kinesis_streaming_destination_active::KinesisStreamingDestinationActiveFluentBuilder::new(self.handle.clone())
     }
     #[cfg(feature = "op_describe_table")]
-    fn wait_until_table_exists(&self) -> crate::waiters::table_exists::TableExistsFluentBuilder {
+fn wait_until_table_exists(&self) -> crate::waiters::table_exists::TableExistsFluentBuilder {
         crate::waiters::table_exists::TableExistsFluentBuilder::new(self.handle.clone())
     }
     #[cfg(feature = "op_describe_table")]
-    fn wait_until_table_not_exists(
-        &self,
-    ) -> crate::waiters::table_not_exists::TableNotExistsFluentBuilder {
+fn wait_until_table_not_exists(&self) -> crate::waiters::table_not_exists::TableNotExistsFluentBuilder {
         crate::waiters::table_not_exists::TableNotExistsFluentBuilder::new(self.handle.clone())
     }
 }

@@ -22,9 +22,7 @@ impl VectorAttributeDefinition {
 }
 
 /// A builder for [`VectorAttributeDefinition`](crate::types::VectorAttributeDefinition).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct VectorAttributeDefinitionBuilder {
     pub(crate) attribute_name: ::std::option::Option<::std::string::String>,
@@ -32,18 +30,12 @@ pub struct VectorAttributeDefinitionBuilder {
 impl VectorAttributeDefinitionBuilder {
     /// <p>The name of the vector attribute.</p>
     /// This field is required.
-    pub fn attribute_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn attribute_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.attribute_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the vector attribute.</p>
-    pub fn set_attribute_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.attribute_name = input;
         self
     }
@@ -54,12 +46,7 @@ impl VectorAttributeDefinitionBuilder {
     /// Consumes the builder and constructs a [`VectorAttributeDefinition`](crate::types::VectorAttributeDefinition).
     /// This method will fail if any of the following fields are not set:
     /// - [`attribute_name`](crate::types::builders::VectorAttributeDefinitionBuilder::attribute_name)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::VectorAttributeDefinition,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::VectorAttributeDefinition, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::VectorAttributeDefinition {
             attribute_name: self.attribute_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

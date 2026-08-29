@@ -50,9 +50,7 @@ impl DescribeLimitsOutput {
 
 #[cfg(feature = "op_describe_limits")]
 /// A builder for [`DescribeLimitsOutput`](crate::operation::describe_limits::DescribeLimitsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeLimitsOutputBuilder {
     pub(crate) account_max_read_capacity_units: ::std::option::Option<i64>,
@@ -69,10 +67,7 @@ impl DescribeLimitsOutputBuilder {
         self
     }
     /// <p>The maximum total read capacity units that your account allows you to provision across all of your tables in this Region.</p>
-    pub fn set_account_max_read_capacity_units(
-        mut self,
-        input: ::std::option::Option<i64>,
-    ) -> Self {
+    pub fn set_account_max_read_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
         self.account_max_read_capacity_units = input;
         self
     }
@@ -86,10 +81,7 @@ impl DescribeLimitsOutputBuilder {
         self
     }
     /// <p>The maximum total write capacity units that your account allows you to provision across all of your tables in this Region.</p>
-    pub fn set_account_max_write_capacity_units(
-        mut self,
-        input: ::std::option::Option<i64>,
-    ) -> Self {
+    pub fn set_account_max_write_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
         self.account_max_write_capacity_units = input;
         self
     }

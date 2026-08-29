@@ -27,9 +27,7 @@ impl FailureException {
 }
 
 /// A builder for [`FailureException`](crate::types::FailureException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct FailureExceptionBuilder {
     pub(crate) exception_name: ::std::option::Option<::std::string::String>,
@@ -37,18 +35,12 @@ pub struct FailureExceptionBuilder {
 }
 impl FailureExceptionBuilder {
     /// <p>Exception name.</p>
-    pub fn exception_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn exception_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.exception_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Exception name.</p>
-    pub fn set_exception_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_exception_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.exception_name = input;
         self
     }
@@ -57,18 +49,12 @@ impl FailureExceptionBuilder {
         &self.exception_name
     }
     /// <p>Description of the failure.</p>
-    pub fn exception_description(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn exception_description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.exception_description = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Description of the failure.</p>
-    pub fn set_exception_description(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_exception_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.exception_description = input;
         self
     }

@@ -14,7 +14,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateKinesisStreamingDestinationError>`](crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError)
     pub fn update_kinesis_streaming_destination(
         &self,
-    ) -> crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationFluentBuilder{
+    ) -> crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationFluentBuilder {
         crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationFluentBuilder::new(self.handle.clone())
     }
 }

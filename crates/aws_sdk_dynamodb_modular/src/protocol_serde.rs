@@ -3,21 +3,15 @@ pub(crate) fn type_erase_result<O, E>(
     result: ::std::result::Result<O, E>,
 ) -> ::std::result::Result<
     ::aws_smithy_runtime_api::client::interceptors::context::Output,
-    ::aws_smithy_runtime_api::client::orchestrator::OrchestratorError<
-        ::aws_smithy_runtime_api::client::interceptors::context::Error,
-    >,
+    ::aws_smithy_runtime_api::client::orchestrator::OrchestratorError<::aws_smithy_runtime_api::client::interceptors::context::Error>,
 >
 where
     O: ::std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
     E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
 {
     result
-        .map(|output| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output)
-        })
-        .map_err(|error| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error)
-        })
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
         .map_err(::std::convert::Into::into)
 }
 
@@ -25,10 +19,7 @@ pub fn parse_http_error_metadata(
     _response_status: u16,
     response_headers: &::aws_smithy_runtime_api::http::Headers,
     response_body: &[u8],
-) -> ::std::result::Result<
-    ::aws_smithy_types::error::metadata::Builder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {
     crate::json_errors::parse_error_metadata(response_body, response_headers)
 }
 
@@ -214,18 +205,10 @@ pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
     }
 }
 
-#[cfg(any(
-    feature = "op_create_backup",
-    feature = "op_delete_backup",
-    feature = "op_restore_table_from_backup"
-))]
+#[cfg(any(feature = "op_create_backup", feature = "op_delete_backup", feature = "op_restore_table_from_backup"))]
 pub(crate) mod shape_backup_in_use_exception;
 
-#[cfg(any(
-    feature = "op_delete_backup",
-    feature = "op_describe_backup",
-    feature = "op_restore_table_from_backup"
-))]
+#[cfg(any(feature = "op_delete_backup", feature = "op_describe_backup", feature = "op_restore_table_from_backup"))]
 pub(crate) mod shape_backup_not_found_exception;
 
 #[cfg(feature = "op_batch_execute_statement")]
@@ -237,12 +220,7 @@ pub(crate) mod shape_batch_get_item_input;
 #[cfg(feature = "op_batch_write_item")]
 pub(crate) mod shape_batch_write_item_input;
 
-#[cfg(any(
-    feature = "op_delete_item",
-    feature = "op_execute_statement",
-    feature = "op_put_item",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_delete_item", feature = "op_execute_statement", feature = "op_put_item", feature = "op_update_item"))]
 pub(crate) mod shape_conditional_check_failed_exception;
 
 #[cfg(any(feature = "op_create_backup", feature = "op_update_continuous_backups"))]
@@ -335,18 +313,10 @@ pub(crate) mod shape_get_resource_policy_input;
 #[cfg(feature = "op_create_global_table")]
 pub(crate) mod shape_global_table_already_exists_exception;
 
-#[cfg(any(
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings"
-))]
+#[cfg(any(feature = "op_describe_global_table", feature = "op_describe_global_table_settings", feature = "op_update_global_table", feature = "op_update_global_table_settings"))]
 pub(crate) mod shape_global_table_not_found_exception;
 
-#[cfg(any(
-    feature = "op_execute_transaction",
-    feature = "op_transact_write_items"
-))]
+#[cfg(any(feature = "op_execute_transaction", feature = "op_transact_write_items"))]
 pub(crate) mod shape_idempotent_parameter_mismatch_exception;
 
 #[cfg(feature = "op_import_table")]
@@ -361,108 +331,10 @@ pub(crate) mod shape_import_table_input;
 #[cfg(feature = "op_update_global_table_settings")]
 pub(crate) mod shape_index_not_found_exception;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_create_backup", feature = "op_create_global_table", feature = "op_create_table", feature = "op_delete_backup", feature = "op_delete_item", feature = "op_delete_resource_policy", feature = "op_delete_table", feature = "op_describe_backup", feature = "op_describe_continuous_backups", feature = "op_describe_contributor_insights", feature = "op_describe_export", feature = "op_describe_global_table", feature = "op_describe_global_table_settings", feature = "op_describe_kinesis_streaming_destination", feature = "op_describe_limits", feature = "op_describe_table", feature = "op_describe_table_replica_auto_scaling", feature = "op_describe_time_to_live", feature = "op_disable_kinesis_streaming_destination", feature = "op_enable_kinesis_streaming_destination", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_export_table_to_point_in_time", feature = "op_get_item", feature = "op_get_resource_policy", feature = "op_list_backups", feature = "op_list_contributor_insights", feature = "op_list_exports", feature = "op_list_global_tables", feature = "op_list_tables", feature = "op_list_tags_of_resource", feature = "op_put_item", feature = "op_put_resource_policy", feature = "op_query", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_scan", feature = "op_search_vectors", feature = "op_tag_resource", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_untag_resource", feature = "op_update_continuous_backups", feature = "op_update_contributor_insights", feature = "op_update_global_table", feature = "op_update_global_table_settings", feature = "op_update_item", feature = "op_update_kinesis_streaming_destination", feature = "op_update_table", feature = "op_update_table_replica_auto_scaling", feature = "op_update_time_to_live"))]
 pub(crate) mod shape_internal_server_error;
 
-#[cfg(any(
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_list_backups",
-    feature = "op_list_global_tables",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_create_backup", feature = "op_create_global_table", feature = "op_create_table", feature = "op_delete_backup", feature = "op_delete_item", feature = "op_delete_resource_policy", feature = "op_delete_table", feature = "op_describe_backup", feature = "op_describe_continuous_backups", feature = "op_describe_global_table", feature = "op_describe_global_table_settings", feature = "op_describe_kinesis_streaming_destination", feature = "op_describe_limits", feature = "op_describe_table", feature = "op_describe_time_to_live", feature = "op_disable_kinesis_streaming_destination", feature = "op_enable_kinesis_streaming_destination", feature = "op_get_item", feature = "op_get_resource_policy", feature = "op_list_backups", feature = "op_list_global_tables", feature = "op_list_tables", feature = "op_list_tags_of_resource", feature = "op_put_item", feature = "op_put_resource_policy", feature = "op_query", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_scan", feature = "op_tag_resource", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_untag_resource", feature = "op_update_continuous_backups", feature = "op_update_global_table", feature = "op_update_global_table_settings", feature = "op_update_item", feature = "op_update_kinesis_streaming_destination", feature = "op_update_table", feature = "op_update_time_to_live"))]
 pub(crate) mod shape_invalid_endpoint_exception;
 
 #[cfg(feature = "op_export_table_to_point_in_time")]
@@ -471,40 +343,10 @@ pub(crate) mod shape_invalid_export_time_exception;
 #[cfg(feature = "op_restore_table_to_point_in_time")]
 pub(crate) mod shape_invalid_restore_time_exception;
 
-#[cfg(any(
-    feature = "op_batch_write_item",
-    feature = "op_delete_item",
-    feature = "op_execute_statement",
-    feature = "op_put_item",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_put_item", feature = "op_update_item"))]
 pub(crate) mod shape_item_collection_size_limit_exceeded_exception;
 
-#[cfg(any(
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_export",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_import_table",
-    feature = "op_list_exports",
-    feature = "op_list_imports",
-    feature = "op_put_resource_policy",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_backup", feature = "op_create_global_table", feature = "op_create_table", feature = "op_delete_backup", feature = "op_delete_resource_policy", feature = "op_delete_table", feature = "op_describe_export", feature = "op_disable_kinesis_streaming_destination", feature = "op_enable_kinesis_streaming_destination", feature = "op_export_table_to_point_in_time", feature = "op_import_table", feature = "op_list_exports", feature = "op_list_imports", feature = "op_put_resource_policy", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_global_table_settings", feature = "op_update_kinesis_streaming_destination", feature = "op_update_table", feature = "op_update_table_replica_auto_scaling", feature = "op_update_time_to_live"))]
 pub(crate) mod shape_limit_exceeded_exception;
 
 #[cfg(feature = "op_list_backups")]
@@ -528,33 +370,13 @@ pub(crate) mod shape_list_tables_input;
 #[cfg(feature = "op_list_tags_of_resource")]
 pub(crate) mod shape_list_tags_of_resource_input;
 
-#[cfg(any(
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_restore_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_export_table_to_point_in_time", feature = "op_restore_table_to_point_in_time"))]
 pub(crate) mod shape_point_in_time_recovery_unavailable_exception;
 
-#[cfg(any(
-    feature = "op_delete_resource_policy",
-    feature = "op_get_resource_policy",
-    feature = "op_put_resource_policy"
-))]
+#[cfg(any(feature = "op_delete_resource_policy", feature = "op_get_resource_policy", feature = "op_put_resource_policy"))]
 pub(crate) mod shape_policy_not_found_exception;
 
-#[cfg(any(
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_delete_item",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_get_item",
-    feature = "op_put_item",
-    feature = "op_query",
-    feature = "op_scan",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_put_item", feature = "op_query", feature = "op_scan", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_provisioned_throughput_exceeded_exception;
 
 #[cfg(feature = "op_put_item")]
@@ -569,91 +391,19 @@ pub(crate) mod shape_query_input;
 #[cfg(feature = "op_update_global_table")]
 pub(crate) mod shape_replica_already_exists_exception;
 
-#[cfg(any(
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings"
-))]
+#[cfg(any(feature = "op_update_global_table", feature = "op_update_global_table_settings"))]
 pub(crate) mod shape_replica_not_found_exception;
 
-#[cfg(any(
-    feature = "op_batch_write_item",
-    feature = "op_delete_item",
-    feature = "op_put_item",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_put_item", feature = "op_update_item"))]
 pub(crate) mod shape_replicated_write_conflict_exception;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_delete_item",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_get_item",
-    feature = "op_put_item",
-    feature = "op_query",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_put_item", feature = "op_query", feature = "op_scan", feature = "op_search_vectors", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_request_limit_exceeded;
 
-#[cfg(any(
-    feature = "op_create_table",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_import_table",
-    feature = "op_put_resource_policy",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_resource_policy", feature = "op_delete_table", feature = "op_disable_kinesis_streaming_destination", feature = "op_enable_kinesis_streaming_destination", feature = "op_import_table", feature = "op_put_resource_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_global_table_settings", feature = "op_update_kinesis_streaming_destination", feature = "op_update_table", feature = "op_update_table_replica_auto_scaling", feature = "op_update_time_to_live"))]
 pub(crate) mod shape_resource_in_use_exception;
 
-#[cfg(any(
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_delete_resource_policy", feature = "op_delete_table", feature = "op_describe_contributor_insights", feature = "op_describe_kinesis_streaming_destination", feature = "op_describe_table", feature = "op_describe_table_replica_auto_scaling", feature = "op_describe_time_to_live", feature = "op_disable_kinesis_streaming_destination", feature = "op_enable_kinesis_streaming_destination", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_get_resource_policy", feature = "op_list_contributor_insights", feature = "op_list_tags_of_resource", feature = "op_put_item", feature = "op_put_resource_policy", feature = "op_query", feature = "op_scan", feature = "op_search_vectors", feature = "op_tag_resource", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_untag_resource", feature = "op_update_contributor_insights", feature = "op_update_item", feature = "op_update_kinesis_streaming_destination", feature = "op_update_table", feature = "op_update_table_replica_auto_scaling", feature = "op_update_time_to_live"))]
 pub(crate) mod shape_resource_not_found_exception;
 
 #[cfg(feature = "op_restore_table_from_backup")]
@@ -668,49 +418,19 @@ pub(crate) mod shape_scan_input;
 #[cfg(feature = "op_search_vectors")]
 pub(crate) mod shape_search_vectors_input;
 
-#[cfg(any(
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time"))]
 pub(crate) mod shape_table_already_exists_exception;
 
-#[cfg(any(
-    feature = "op_create_backup",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_create_backup", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time"))]
 pub(crate) mod shape_table_in_use_exception;
 
-#[cfg(any(
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_describe_continuous_backups",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_global_table"
-))]
+#[cfg(any(feature = "op_create_backup", feature = "op_create_global_table", feature = "op_describe_continuous_backups", feature = "op_export_table_to_point_in_time", feature = "op_restore_table_to_point_in_time", feature = "op_update_continuous_backups", feature = "op_update_global_table"))]
 pub(crate) mod shape_table_not_found_exception;
 
 #[cfg(feature = "op_tag_resource")]
 pub(crate) mod shape_tag_resource_input;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_delete_item",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_get_item",
-    feature = "op_put_item",
-    feature = "op_query",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_put_item", feature = "op_query", feature = "op_scan", feature = "op_search_vectors", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_throttling_exception;
 
 #[cfg(feature = "op_transact_get_items")]
@@ -719,25 +439,13 @@ pub(crate) mod shape_transact_get_items_input;
 #[cfg(feature = "op_transact_write_items")]
 pub(crate) mod shape_transact_write_items_input;
 
-#[cfg(any(
-    feature = "op_execute_transaction",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items"
-))]
+#[cfg(any(feature = "op_execute_transaction", feature = "op_transact_get_items", feature = "op_transact_write_items"))]
 pub(crate) mod shape_transaction_canceled_exception;
 
-#[cfg(any(
-    feature = "op_delete_item",
-    feature = "op_execute_statement",
-    feature = "op_put_item",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_delete_item", feature = "op_execute_statement", feature = "op_put_item", feature = "op_update_item"))]
 pub(crate) mod shape_transaction_conflict_exception;
 
-#[cfg(any(
-    feature = "op_execute_transaction",
-    feature = "op_transact_write_items"
-))]
+#[cfg(any(feature = "op_execute_transaction", feature = "op_transact_write_items"))]
 pub(crate) mod shape_transaction_in_progress_exception;
 
 #[cfg(feature = "op_untag_resource")]
@@ -770,215 +478,25 @@ pub(crate) mod shape_update_table_replica_auto_scaling_input;
 #[cfg(feature = "op_update_time_to_live")]
 pub(crate) mod shape_update_time_to_live_input;
 
-#[cfg(any(
-    feature = "op_create_table",
-    feature = "op_delete_table",
-    feature = "op_describe_import",
-    feature = "op_describe_table",
-    feature = "op_import_table",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_update_table"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_import", feature = "op_describe_table", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_attribute_definition;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_put_item", feature = "op_query", feature = "op_scan", feature = "op_search_vectors", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_attribute_map;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_put_item", feature = "op_query", feature = "op_scan", feature = "op_search_vectors", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_attribute_value;
 
 #[cfg(feature = "op_update_item")]
 pub(crate) mod shape_attribute_value_update;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_update_global_table_settings", feature = "op_update_table_replica_auto_scaling"))]
 pub(crate) mod shape_auto_scaling_settings_update;
 
 #[cfg(any(feature = "op_delete_backup", feature = "op_describe_backup"))]
 pub(crate) mod shape_backup_description;
 
-#[cfg(any(
-    feature = "op_create_backup",
-    feature = "op_delete_backup",
-    feature = "op_describe_backup"
-))]
+#[cfg(any(feature = "op_create_backup", feature = "op_delete_backup", feature = "op_describe_backup"))]
 pub(crate) mod shape_backup_details;
 
 #[cfg(feature = "op_list_backups")]
@@ -996,101 +514,19 @@ pub(crate) mod shape_batch_statement_request;
 #[cfg(feature = "op_batch_write_item")]
 pub(crate) mod shape_batch_write_item_request_map;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_execute_transaction", feature = "op_transact_get_items", feature = "op_transact_write_items"))]
 pub(crate) mod shape_cancellation_reason_list;
 
 #[cfg(any(feature = "op_query", feature = "op_scan"))]
 pub(crate) mod shape_condition;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_delete_item",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_get_item",
-    feature = "op_put_item",
-    feature = "op_query",
-    feature = "op_scan",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_put_item", feature = "op_query", feature = "op_scan", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_consumed_capacity;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_execute_transaction",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_execute_transaction", feature = "op_transact_get_items", feature = "op_transact_write_items"))]
 pub(crate) mod shape_consumed_capacity_multiple;
 
-#[cfg(any(
-    feature = "op_describe_continuous_backups",
-    feature = "op_update_continuous_backups"
-))]
+#[cfg(any(feature = "op_describe_continuous_backups", feature = "op_update_continuous_backups"))]
 pub(crate) mod shape_continuous_backups_description;
 
 #[cfg(feature = "op_describe_contributor_insights")]
@@ -1099,26 +535,16 @@ pub(crate) mod shape_contributor_insights_rule_list;
 #[cfg(feature = "op_list_contributor_insights")]
 pub(crate) mod shape_contributor_insights_summaries;
 
-#[cfg(any(
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination"
-))]
+#[cfg(any(feature = "op_disable_kinesis_streaming_destination", feature = "op_enable_kinesis_streaming_destination"))]
 pub(crate) mod shape_enable_kinesis_streaming_configuration;
 
 #[cfg(feature = "op_describe_endpoints")]
 pub(crate) mod shape_endpoints;
 
-#[cfg(any(
-    feature = "op_delete_item",
-    feature = "op_put_item",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_delete_item", feature = "op_put_item", feature = "op_update_item"))]
 pub(crate) mod shape_expected_attribute_value;
 
-#[cfg(any(
-    feature = "op_describe_export",
-    feature = "op_export_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_describe_export", feature = "op_export_table_to_point_in_time"))]
 pub(crate) mod shape_export_description;
 
 #[cfg(feature = "op_list_exports")]
@@ -1127,13 +553,7 @@ pub(crate) mod shape_export_summaries;
 #[cfg(feature = "op_describe_contributor_insights")]
 pub(crate) mod shape_failure_exception;
 
-#[cfg(any(
-    feature = "op_create_table",
-    feature = "op_describe_import",
-    feature = "op_import_table",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_describe_import", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time"))]
 pub(crate) mod shape_global_secondary_index;
 
 #[cfg(feature = "op_update_table_replica_auto_scaling")]
@@ -1142,11 +562,7 @@ pub(crate) mod shape_global_secondary_index_auto_scaling_update;
 #[cfg(feature = "op_update_table")]
 pub(crate) mod shape_global_secondary_index_update;
 
-#[cfg(any(
-    feature = "op_create_global_table",
-    feature = "op_describe_global_table",
-    feature = "op_update_global_table"
-))]
+#[cfg(any(feature = "op_create_global_table", feature = "op_describe_global_table", feature = "op_update_global_table"))]
 pub(crate) mod shape_global_table_description;
 
 #[cfg(feature = "op_update_global_table_settings")]
@@ -1164,165 +580,28 @@ pub(crate) mod shape_import_summary_list;
 #[cfg(any(feature = "op_describe_import", feature = "op_import_table"))]
 pub(crate) mod shape_import_table_description;
 
-#[cfg(any(
-    feature = "op_describe_export",
-    feature = "op_export_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_describe_export", feature = "op_export_table_to_point_in_time"))]
 pub(crate) mod shape_incremental_export_specification;
 
 #[cfg(any(feature = "op_describe_import", feature = "op_import_table"))]
 pub(crate) mod shape_input_format_options;
 
-#[cfg(any(
-    feature = "op_batch_write_item",
-    feature = "op_delete_item",
-    feature = "op_put_item",
-    feature = "op_transact_write_items",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_put_item", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_item_collection_metrics;
 
 #[cfg(any(feature = "op_batch_write_item", feature = "op_transact_write_items"))]
 pub(crate) mod shape_item_collection_metrics_per_table;
 
-#[cfg(any(
-    feature = "op_batch_get_item",
-    feature = "op_delete_item",
-    feature = "op_execute_statement",
-    feature = "op_get_item",
-    feature = "op_put_item",
-    feature = "op_query",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_put_item", feature = "op_query", feature = "op_scan", feature = "op_search_vectors", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_item_list;
 
 #[cfg(any(feature = "op_execute_transaction", feature = "op_transact_get_items"))]
 pub(crate) mod shape_item_response_list;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_put_item", feature = "op_query", feature = "op_scan", feature = "op_search_vectors", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_key;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_backup", feature = "op_delete_table", feature = "op_describe_backup", feature = "op_describe_import", feature = "op_describe_table", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_key_schema_element;
 
 #[cfg(feature = "op_batch_get_item")]
@@ -1331,73 +610,10 @@ pub(crate) mod shape_keys_and_attributes;
 #[cfg(feature = "op_describe_kinesis_streaming_destination")]
 pub(crate) mod shape_kinesis_data_stream_destinations;
 
-#[cfg(any(
-    feature = "op_create_table",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time"))]
 pub(crate) mod shape_local_secondary_index;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_backup", feature = "op_delete_table", feature = "op_describe_backup", feature = "op_describe_import", feature = "op_describe_table", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_on_demand_throughput;
 
 #[cfg(feature = "op_execute_transaction")]
@@ -1409,66 +625,7 @@ pub(crate) mod shape_parti_ql_batch_response;
 #[cfg(feature = "op_update_continuous_backups")]
 pub(crate) mod shape_point_in_time_recovery_specification;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_backup", feature = "op_describe_backup", feature = "op_describe_import", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_provisioned_throughput;
 
 #[cfg(any(feature = "op_create_global_table", feature = "op_list_global_tables"))]
@@ -1477,10 +634,7 @@ pub(crate) mod shape_replica;
 #[cfg(feature = "op_update_table_replica_auto_scaling")]
 pub(crate) mod shape_replica_auto_scaling_update;
 
-#[cfg(any(
-    feature = "op_describe_global_table_settings",
-    feature = "op_update_global_table_settings"
-))]
+#[cfg(any(feature = "op_describe_global_table_settings", feature = "op_update_global_table_settings"))]
 pub(crate) mod shape_replica_settings_description_list;
 
 #[cfg(feature = "op_update_global_table_settings")]
@@ -1492,241 +646,40 @@ pub(crate) mod shape_replica_update;
 #[cfg(feature = "op_update_table")]
 pub(crate) mod shape_replication_group_update;
 
-#[cfg(any(
-    feature = "op_describe_import",
-    feature = "op_import_table",
-    feature = "op_list_imports"
-))]
+#[cfg(any(feature = "op_describe_import", feature = "op_import_table", feature = "op_list_imports"))]
 pub(crate) mod shape_s3_bucket_source;
 
 #[cfg(feature = "op_search_vectors")]
 pub(crate) mod shape_search_result_list;
 
-#[cfg(any(
-    feature = "op_create_table",
-    feature = "op_describe_import",
-    feature = "op_import_table",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_update_table"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_describe_import", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_sse_specification;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_backup", feature = "op_delete_table", feature = "op_describe_backup", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_stream_specification;
 
-#[cfg(any(
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_update_table_replica_auto_scaling"
-))]
+#[cfg(any(feature = "op_describe_table_replica_auto_scaling", feature = "op_update_table_replica_auto_scaling"))]
 pub(crate) mod shape_table_auto_scaling_description;
 
 #[cfg(any(feature = "op_describe_import", feature = "op_import_table"))]
 pub(crate) mod shape_table_creation_parameters;
 
-#[cfg(any(
-    feature = "op_create_table",
-    feature = "op_delete_table",
-    feature = "op_describe_table",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_update_table"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_table_description;
 
 #[cfg(feature = "op_list_tables")]
 pub(crate) mod shape_table_name_list;
 
-#[cfg(any(
-    feature = "op_create_table",
-    feature = "op_list_tags_of_resource",
-    feature = "op_tag_resource"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_list_tags_of_resource", feature = "op_tag_resource"))]
 pub(crate) mod shape_tag;
 
 #[cfg(feature = "op_list_tags_of_resource")]
 pub(crate) mod shape_tag_list;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_put_item", feature = "op_query", feature = "op_scan", feature = "op_search_vectors", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_throttling_reason_list;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_delete_backup", feature = "op_describe_backup", feature = "op_describe_time_to_live"))]
 pub(crate) mod shape_time_to_live_description;
 
 #[cfg(feature = "op_update_time_to_live")]
@@ -1741,183 +694,28 @@ pub(crate) mod shape_transact_write_item;
 #[cfg(feature = "op_update_kinesis_streaming_destination")]
 pub(crate) mod shape_update_kinesis_streaming_configuration;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_delete_item",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_get_item",
-    feature = "op_put_item",
-    feature = "op_query",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_put_item", feature = "op_query", feature = "op_scan", feature = "op_search_vectors", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_vector_capacity;
 
-#[cfg(any(
-    feature = "op_create_table",
-    feature = "op_describe_import",
-    feature = "op_import_table",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_describe_import", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time"))]
 pub(crate) mod shape_vector_index;
 
 #[cfg(feature = "op_update_table")]
 pub(crate) mod shape_vector_index_update;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_describe_import", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_warm_throughput;
 
 #[cfg(feature = "op_batch_write_item")]
 pub(crate) mod shape_write_request;
 
-#[cfg(any(
-    feature = "op_create_table",
-    feature = "op_delete_table",
-    feature = "op_describe_table",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_update_table"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_archival_summary;
 
-#[cfg(any(
-    feature = "op_create_table",
-    feature = "op_delete_table",
-    feature = "op_describe_import",
-    feature = "op_describe_table",
-    feature = "op_import_table",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_update_table"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_import", feature = "op_describe_table", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_attribute_definitions;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_update_global_table_settings", feature = "op_update_table_replica_auto_scaling"))]
 pub(crate) mod shape_auto_scaling_policy_update;
 
 #[cfg(feature = "op_list_backups")]
@@ -1926,140 +724,13 @@ pub(crate) mod shape_backup_summary;
 #[cfg(feature = "op_batch_execute_statement")]
 pub(crate) mod shape_batch_statement_response;
 
-#[cfg(any(
-    feature = "op_create_table",
-    feature = "op_delete_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_table",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_table"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_global_table_settings", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_global_table_settings", feature = "op_update_table"))]
 pub(crate) mod shape_billing_mode_summary;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_execute_transaction", feature = "op_transact_get_items", feature = "op_transact_write_items"))]
 pub(crate) mod shape_cancellation_reason;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_put_item", feature = "op_query", feature = "op_scan", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_capacity;
 
 #[cfg(feature = "op_transact_write_items")]
@@ -2071,7 +742,7 @@ pub(crate) mod shape_contributor_insights_summary;
 #[cfg(feature = "op_update_table")]
 pub(crate) mod shape_create_global_secondary_index_action;
 
-#[cfg(any(feature = "op_create_global_table", feature = "op_update_table"))]
+#[cfg(feature = "op_update_table")]
 pub(crate) mod shape_create_global_table_witness_group_member_action;
 
 #[cfg(feature = "op_update_global_table")]
@@ -2116,265 +787,46 @@ pub(crate) mod shape_export_summary;
 #[cfg(feature = "op_transact_get_items")]
 pub(crate) mod shape_get;
 
-#[cfg(any(
-    feature = "op_create_table",
-    feature = "op_delete_table",
-    feature = "op_describe_table",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_update_table"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_global_secondary_index_description_list;
 
 #[cfg(feature = "op_list_global_tables")]
 pub(crate) mod shape_global_table;
 
-#[cfg(any(
-    feature = "op_create_table",
-    feature = "op_delete_table",
-    feature = "op_describe_table",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_update_table"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_global_table_witness_description_list;
 
 #[cfg(feature = "op_list_imports")]
 pub(crate) mod shape_import_summary;
 
-#[cfg(any(
-    feature = "op_batch_write_item",
-    feature = "op_delete_item",
-    feature = "op_put_item",
-    feature = "op_transact_write_items",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_put_item", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_item_collection_key_attribute_map;
 
-#[cfg(any(
-    feature = "op_batch_write_item",
-    feature = "op_delete_item",
-    feature = "op_put_item",
-    feature = "op_transact_write_items",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_put_item", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_item_collection_metrics_multiple;
 
-#[cfg(any(
-    feature = "op_batch_write_item",
-    feature = "op_delete_item",
-    feature = "op_put_item",
-    feature = "op_transact_write_items",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_put_item", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_item_collection_size_estimate_range;
 
 #[cfg(any(feature = "op_execute_transaction", feature = "op_transact_get_items"))]
 pub(crate) mod shape_item_response;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_backup", feature = "op_delete_table", feature = "op_describe_backup", feature = "op_describe_import", feature = "op_describe_table", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_key_schema;
 
 #[cfg(feature = "op_describe_kinesis_streaming_destination")]
 pub(crate) mod shape_kinesis_data_stream_destination;
 
-#[cfg(any(
-    feature = "op_create_table",
-    feature = "op_delete_table",
-    feature = "op_describe_table",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_update_table"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_local_secondary_index_description_list;
 
-#[cfg(any(
-    feature = "op_describe_continuous_backups",
-    feature = "op_update_continuous_backups"
-))]
+#[cfg(any(feature = "op_describe_continuous_backups", feature = "op_update_continuous_backups"))]
 pub(crate) mod shape_point_in_time_recovery_description;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_backup", feature = "op_delete_table", feature = "op_describe_backup", feature = "op_describe_import", feature = "op_describe_table", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_projection;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_provisioned_throughput_description;
 
 #[cfg(feature = "op_transact_write_items")]
@@ -2383,23 +835,10 @@ pub(crate) mod shape_put;
 #[cfg(feature = "op_batch_write_item")]
 pub(crate) mod shape_put_request;
 
-#[cfg(any(
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_update_table_replica_auto_scaling"
-))]
+#[cfg(any(feature = "op_describe_table_replica_auto_scaling", feature = "op_update_table_replica_auto_scaling"))]
 pub(crate) mod shape_replica_auto_scaling_description_list;
 
-#[cfg(any(
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_table",
-    feature = "op_describe_global_table",
-    feature = "op_describe_table",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_update_global_table",
-    feature = "op_update_table"
-))]
+#[cfg(any(feature = "op_create_global_table", feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_global_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_global_table", feature = "op_update_table"))]
 pub(crate) mod shape_replica_description_list;
 
 #[cfg(feature = "op_update_table_replica_auto_scaling")]
@@ -2408,102 +847,19 @@ pub(crate) mod shape_replica_global_secondary_index_auto_scaling_update;
 #[cfg(feature = "op_update_global_table_settings")]
 pub(crate) mod shape_replica_global_secondary_index_settings_update;
 
-#[cfg(any(
-    feature = "op_describe_global_table_settings",
-    feature = "op_update_global_table_settings"
-))]
+#[cfg(any(feature = "op_describe_global_table_settings", feature = "op_update_global_table_settings"))]
 pub(crate) mod shape_replica_settings_description;
 
-#[cfg(any(
-    feature = "op_create_table",
-    feature = "op_delete_table",
-    feature = "op_describe_table",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_update_table"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_restore_summary;
 
 #[cfg(feature = "op_search_vectors")]
 pub(crate) mod shape_search_result_item;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_backup", feature = "op_delete_table", feature = "op_describe_backup", feature = "op_describe_import", feature = "op_describe_table", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_search_schema_element;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_delete_item",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_get_item",
-    feature = "op_put_item",
-    feature = "op_query",
-    feature = "op_scan",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_put_item", feature = "op_query", feature = "op_scan", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_secondary_indexes_capacity_map;
 
 #[cfg(any(feature = "op_delete_backup", feature = "op_describe_backup"))]
@@ -2512,252 +868,16 @@ pub(crate) mod shape_source_table_details;
 #[cfg(any(feature = "op_delete_backup", feature = "op_describe_backup"))]
 pub(crate) mod shape_source_table_feature_details;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_backup", feature = "op_delete_table", feature = "op_describe_backup", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_sse_description;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_global_table", feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_global_table", feature = "op_describe_global_table_settings", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_global_table", feature = "op_update_global_table_settings", feature = "op_update_table"))]
 pub(crate) mod shape_table_class_summary;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_global_table", feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_global_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_global_table", feature = "op_update_table"))]
 pub(crate) mod shape_table_warm_throughput_description;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_put_item", feature = "op_query", feature = "op_scan", feature = "op_search_vectors", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_throttling_reason;
 
 #[cfg(feature = "op_transact_write_items")]
@@ -2769,93 +889,13 @@ pub(crate) mod shape_update_global_secondary_index_action;
 #[cfg(feature = "op_update_table")]
 pub(crate) mod shape_update_replication_group_member_action;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_backup", feature = "op_delete_table", feature = "op_describe_backup", feature = "op_describe_import", feature = "op_describe_table", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_vector_attribute_definition;
 
-#[cfg(any(
-    feature = "op_create_table",
-    feature = "op_delete_table",
-    feature = "op_describe_table",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_update_table"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_vector_index_description_list;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_delete_item",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_get_item",
-    feature = "op_put_item",
-    feature = "op_query",
-    feature = "op_scan",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_put_item", feature = "op_query", feature = "op_scan", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_vector_indexes_capacity_map;
 
 #[cfg(feature = "op_batch_write_item")]
@@ -2864,2196 +904,128 @@ pub(crate) mod shape_write_requests;
 #[cfg(feature = "op_batch_get_item")]
 pub(crate) mod shape_attribute_name_list;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_describe_global_table_settings", feature = "op_describe_table_replica_auto_scaling", feature = "op_update_global_table_settings", feature = "op_update_table_replica_auto_scaling"))]
 pub(crate) mod shape_auto_scaling_settings_description;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_update_global_table_settings", feature = "op_update_table_replica_auto_scaling"))]
 pub(crate) mod shape_auto_scaling_target_tracking_scaling_policy_configuration_update;
 
 #[cfg(feature = "op_batch_execute_statement")]
 pub(crate) mod shape_batch_statement_error;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_put_item", feature = "op_query", feature = "op_scan", feature = "op_search_vectors", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_binary_set_attribute_value;
 
 #[cfg(feature = "op_batch_get_item")]
 pub(crate) mod shape_expression_attribute_name_map;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_global_secondary_index_description;
 
 #[cfg(any(feature = "op_describe_import", feature = "op_import_table"))]
 pub(crate) mod shape_global_secondary_index_list;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_delete_backup", feature = "op_describe_backup"))]
 pub(crate) mod shape_global_secondary_indexes;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_global_table_witness_description;
 
 #[cfg(feature = "op_batch_get_item")]
 pub(crate) mod shape_key_list;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_put_item", feature = "op_query", feature = "op_scan", feature = "op_search_vectors", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_list_attribute_value;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_local_secondary_index_description;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_delete_backup", feature = "op_describe_backup"))]
 pub(crate) mod shape_local_secondary_indexes;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_put_item", feature = "op_query", feature = "op_scan", feature = "op_search_vectors", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_map_attribute_value;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_put_item", feature = "op_query", feature = "op_scan", feature = "op_search_vectors", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_number_set_attribute_value;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_global_table", feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_global_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_global_table", feature = "op_update_table"))]
 pub(crate) mod shape_on_demand_throughput_override;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_global_table", feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_global_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_global_table", feature = "op_update_table"))]
 pub(crate) mod shape_provisioned_throughput_override;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_describe_table_replica_auto_scaling", feature = "op_update_table_replica_auto_scaling"))]
 pub(crate) mod shape_replica_auto_scaling_description;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_global_table", feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_global_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_global_table", feature = "op_update_table"))]
 pub(crate) mod shape_replica_description;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(feature = "op_update_table")]
 pub(crate) mod shape_replica_global_secondary_index;
 
-#[cfg(any(
-    feature = "op_describe_global_table_settings",
-    feature = "op_update_global_table_settings"
-))]
+#[cfg(any(feature = "op_describe_global_table_settings", feature = "op_update_global_table_settings"))]
 pub(crate) mod shape_replica_global_secondary_index_settings_description_list;
 
 #[cfg(feature = "op_list_global_tables")]
 pub(crate) mod shape_replica_list;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_batch_execute_statement", feature = "op_batch_get_item", feature = "op_batch_write_item", feature = "op_delete_item", feature = "op_execute_statement", feature = "op_execute_transaction", feature = "op_get_item", feature = "op_put_item", feature = "op_query", feature = "op_scan", feature = "op_search_vectors", feature = "op_transact_get_items", feature = "op_transact_write_items", feature = "op_update_item"))]
 pub(crate) mod shape_string_set_attribute_value;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_vector_index_description;
 
 #[cfg(any(feature = "op_describe_import", feature = "op_import_table"))]
 pub(crate) mod shape_vector_index_list;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_delete_backup", feature = "op_describe_backup"))]
 pub(crate) mod shape_vector_indexes;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_describe_global_table_settings", feature = "op_describe_table_replica_auto_scaling", feature = "op_update_global_table_settings", feature = "op_update_table_replica_auto_scaling"))]
 pub(crate) mod shape_auto_scaling_policy_description_list;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_describe_import", feature = "op_import_table"))]
 pub(crate) mod shape_csv_header_list;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_delete_backup", feature = "op_describe_backup"))]
 pub(crate) mod shape_global_secondary_index_info;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_global_table", feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_global_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_global_table", feature = "op_update_table"))]
 pub(crate) mod shape_global_secondary_index_warm_throughput_description;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_delete_backup", feature = "op_describe_backup"))]
 pub(crate) mod shape_local_secondary_index_info;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_describe_table_replica_auto_scaling", feature = "op_update_table_replica_auto_scaling"))]
 pub(crate) mod shape_replica_global_secondary_index_auto_scaling_description_list;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_global_table", feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_global_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_global_table", feature = "op_update_table"))]
 pub(crate) mod shape_replica_global_secondary_index_description_list;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_describe_global_table_settings", feature = "op_update_global_table_settings"))]
 pub(crate) mod shape_replica_global_secondary_index_settings_description;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_backup", feature = "op_delete_table", feature = "op_describe_backup", feature = "op_describe_import", feature = "op_describe_table", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_search_schema;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_delete_backup", feature = "op_describe_backup"))]
 pub(crate) mod shape_vector_index_info;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_describe_global_table_settings", feature = "op_describe_table_replica_auto_scaling", feature = "op_update_global_table_settings", feature = "op_update_table_replica_auto_scaling"))]
 pub(crate) mod shape_auto_scaling_policy_description;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_table", feature = "op_delete_backup", feature = "op_delete_table", feature = "op_describe_backup", feature = "op_describe_import", feature = "op_describe_table", feature = "op_import_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_table"))]
 pub(crate) mod shape_non_key_attribute_name_list;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(feature = "op_batch_write_item")]
 pub(crate) mod shape_put_item_input_attribute_map;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_describe_table_replica_auto_scaling", feature = "op_update_table_replica_auto_scaling"))]
 pub(crate) mod shape_replica_global_secondary_index_auto_scaling_description;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_create_global_table", feature = "op_create_table", feature = "op_delete_table", feature = "op_describe_global_table", feature = "op_describe_table", feature = "op_restore_table_from_backup", feature = "op_restore_table_to_point_in_time", feature = "op_update_global_table", feature = "op_update_table"))]
 pub(crate) mod shape_replica_global_secondary_index_description;
 
-#[cfg(any(
-    feature = "op_batch_execute_statement",
-    feature = "op_batch_get_item",
-    feature = "op_batch_write_item",
-    feature = "op_create_backup",
-    feature = "op_create_global_table",
-    feature = "op_create_table",
-    feature = "op_delete_backup",
-    feature = "op_delete_item",
-    feature = "op_delete_resource_policy",
-    feature = "op_delete_table",
-    feature = "op_describe_backup",
-    feature = "op_describe_continuous_backups",
-    feature = "op_describe_contributor_insights",
-    feature = "op_describe_endpoints",
-    feature = "op_describe_export",
-    feature = "op_describe_global_table",
-    feature = "op_describe_global_table_settings",
-    feature = "op_describe_import",
-    feature = "op_describe_kinesis_streaming_destination",
-    feature = "op_describe_limits",
-    feature = "op_describe_table",
-    feature = "op_describe_table_replica_auto_scaling",
-    feature = "op_describe_time_to_live",
-    feature = "op_disable_kinesis_streaming_destination",
-    feature = "op_enable_kinesis_streaming_destination",
-    feature = "op_execute_statement",
-    feature = "op_execute_transaction",
-    feature = "op_export_table_to_point_in_time",
-    feature = "op_get_item",
-    feature = "op_get_resource_policy",
-    feature = "op_import_table",
-    feature = "op_list_backups",
-    feature = "op_list_contributor_insights",
-    feature = "op_list_exports",
-    feature = "op_list_global_tables",
-    feature = "op_list_imports",
-    feature = "op_list_tables",
-    feature = "op_list_tags_of_resource",
-    feature = "op_put_item",
-    feature = "op_put_resource_policy",
-    feature = "op_query",
-    feature = "op_restore_table_from_backup",
-    feature = "op_restore_table_to_point_in_time",
-    feature = "op_scan",
-    feature = "op_search_vectors",
-    feature = "op_tag_resource",
-    feature = "op_transact_get_items",
-    feature = "op_transact_write_items",
-    feature = "op_untag_resource",
-    feature = "op_update_continuous_backups",
-    feature = "op_update_contributor_insights",
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings",
-    feature = "op_update_item",
-    feature = "op_update_kinesis_streaming_destination",
-    feature = "op_update_table",
-    feature = "op_update_table_replica_auto_scaling",
-    feature = "op_update_time_to_live"
-))]
+#[cfg(any(feature = "op_describe_global_table_settings", feature = "op_describe_table_replica_auto_scaling", feature = "op_update_global_table_settings", feature = "op_update_table_replica_auto_scaling"))]
 pub(crate) mod shape_auto_scaling_target_tracking_scaling_policy_configuration_description;

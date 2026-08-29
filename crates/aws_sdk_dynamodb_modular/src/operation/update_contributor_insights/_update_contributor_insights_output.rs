@@ -25,15 +25,11 @@ impl UpdateContributorInsightsOutput {
         self.index_name.as_deref()
     }
     /// <p>The status of contributor insights</p>
-    pub fn contributor_insights_status(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ContributorInsightsStatus> {
+    pub fn contributor_insights_status(&self) -> ::std::option::Option<&crate::types::ContributorInsightsStatus> {
         self.contributor_insights_status.as_ref()
     }
     /// <p>The updated mode of CloudWatch Contributor Insights that determines whether to monitor all access and throttled events or to track throttled events exclusively.</p>
-    pub fn contributor_insights_mode(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ContributorInsightsMode> {
+    pub fn contributor_insights_mode(&self) -> ::std::option::Option<&crate::types::ContributorInsightsMode> {
         self.contributor_insights_mode.as_ref()
     }
 }
@@ -46,24 +42,20 @@ impl ::aws_types::request_id::RequestId for UpdateContributorInsightsOutput {
 #[cfg(feature = "op_update_contributor_insights")]
 impl UpdateContributorInsightsOutput {
     /// Creates a new builder-style object to manufacture [`UpdateContributorInsightsOutput`](crate::operation::update_contributor_insights::UpdateContributorInsightsOutput).
-    pub fn builder() -> crate::operation::update_contributor_insights::builders::UpdateContributorInsightsOutputBuilder{
+    pub fn builder() -> crate::operation::update_contributor_insights::builders::UpdateContributorInsightsOutputBuilder {
         crate::operation::update_contributor_insights::builders::UpdateContributorInsightsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_update_contributor_insights")]
 /// A builder for [`UpdateContributorInsightsOutput`](crate::operation::update_contributor_insights::UpdateContributorInsightsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateContributorInsightsOutputBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
     pub(crate) index_name: ::std::option::Option<::std::string::String>,
-    pub(crate) contributor_insights_status:
-        ::std::option::Option<crate::types::ContributorInsightsStatus>,
-    pub(crate) contributor_insights_mode:
-        ::std::option::Option<crate::types::ContributorInsightsMode>,
+    pub(crate) contributor_insights_status: ::std::option::Option<crate::types::ContributorInsightsStatus>,
+    pub(crate) contributor_insights_mode: ::std::option::Option<crate::types::ContributorInsightsMode>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_update_contributor_insights")]
@@ -97,47 +89,31 @@ impl UpdateContributorInsightsOutputBuilder {
         &self.index_name
     }
     /// <p>The status of contributor insights</p>
-    pub fn contributor_insights_status(
-        mut self,
-        input: crate::types::ContributorInsightsStatus,
-    ) -> Self {
+    pub fn contributor_insights_status(mut self, input: crate::types::ContributorInsightsStatus) -> Self {
         self.contributor_insights_status = ::std::option::Option::Some(input);
         self
     }
     /// <p>The status of contributor insights</p>
-    pub fn set_contributor_insights_status(
-        mut self,
-        input: ::std::option::Option<crate::types::ContributorInsightsStatus>,
-    ) -> Self {
+    pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<crate::types::ContributorInsightsStatus>) -> Self {
         self.contributor_insights_status = input;
         self
     }
     /// <p>The status of contributor insights</p>
-    pub fn get_contributor_insights_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::ContributorInsightsStatus> {
+    pub fn get_contributor_insights_status(&self) -> &::std::option::Option<crate::types::ContributorInsightsStatus> {
         &self.contributor_insights_status
     }
     /// <p>The updated mode of CloudWatch Contributor Insights that determines whether to monitor all access and throttled events or to track throttled events exclusively.</p>
-    pub fn contributor_insights_mode(
-        mut self,
-        input: crate::types::ContributorInsightsMode,
-    ) -> Self {
+    pub fn contributor_insights_mode(mut self, input: crate::types::ContributorInsightsMode) -> Self {
         self.contributor_insights_mode = ::std::option::Option::Some(input);
         self
     }
     /// <p>The updated mode of CloudWatch Contributor Insights that determines whether to monitor all access and throttled events or to track throttled events exclusively.</p>
-    pub fn set_contributor_insights_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::ContributorInsightsMode>,
-    ) -> Self {
+    pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self {
         self.contributor_insights_mode = input;
         self
     }
     /// <p>The updated mode of CloudWatch Contributor Insights that determines whether to monitor all access and throttled events or to track throttled events exclusively.</p>
-    pub fn get_contributor_insights_mode(
-        &self,
-    ) -> &::std::option::Option<crate::types::ContributorInsightsMode> {
+    pub fn get_contributor_insights_mode(&self) -> &::std::option::Option<crate::types::ContributorInsightsMode> {
         &self.contributor_insights_mode
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -150,9 +126,7 @@ impl UpdateContributorInsightsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateContributorInsightsOutput`](crate::operation::update_contributor_insights::UpdateContributorInsightsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::update_contributor_insights::UpdateContributorInsightsOutput {
+    pub fn build(self) -> crate::operation::update_contributor_insights::UpdateContributorInsightsOutput {
         crate::operation::update_contributor_insights::UpdateContributorInsightsOutput {
             table_name: self.table_name,
             index_name: self.index_name,

@@ -55,14 +55,11 @@ impl RequestLimitExceeded {
 }
 
 /// A builder for [`RequestLimitExceeded`](crate::types::error::RequestLimitExceeded).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RequestLimitExceededBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
-    pub(crate) throttling_reasons:
-        ::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>>,
+    pub(crate) throttling_reasons: ::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>>,
     meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
 }
 impl RequestLimitExceededBuilder {
@@ -92,17 +89,12 @@ impl RequestLimitExceededBuilder {
         self
     }
     /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
-    pub fn set_throttling_reasons(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>>,
-    ) -> Self {
+    pub fn set_throttling_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>>) -> Self {
         self.throttling_reasons = input;
         self
     }
     /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
-    pub fn get_throttling_reasons(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>> {
+    pub fn get_throttling_reasons(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>> {
         &self.throttling_reasons
     }
     /// Sets error metadata
@@ -112,10 +104,7 @@ impl RequestLimitExceededBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }

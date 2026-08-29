@@ -24,9 +24,7 @@ impl DeleteBackupInput {
 
 #[cfg(feature = "op_delete_backup")]
 /// A builder for [`DeleteBackupInput`](crate::operation::delete_backup::DeleteBackupInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteBackupInputBuilder {
     pub(crate) backup_arn: ::std::option::Option<::std::string::String>,
@@ -51,12 +49,7 @@ impl DeleteBackupInputBuilder {
     /// Consumes the builder and constructs a [`DeleteBackupInput`](crate::operation::delete_backup::DeleteBackupInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_backup::DeleteBackupInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::delete_backup::DeleteBackupInput {
-            backup_arn: self.backup_arn,
-        })
+    ) -> ::std::result::Result<crate::operation::delete_backup::DeleteBackupInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::delete_backup::DeleteBackupInput { backup_arn: self.backup_arn })
     }
 }

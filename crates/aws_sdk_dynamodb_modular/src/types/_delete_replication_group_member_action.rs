@@ -22,9 +22,7 @@ impl DeleteReplicationGroupMemberAction {
 }
 
 /// A builder for [`DeleteReplicationGroupMemberAction`](crate::types::DeleteReplicationGroupMemberAction).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteReplicationGroupMemberActionBuilder {
     pub(crate) region_name: ::std::option::Option<::std::string::String>,
@@ -48,12 +46,7 @@ impl DeleteReplicationGroupMemberActionBuilder {
     /// Consumes the builder and constructs a [`DeleteReplicationGroupMemberAction`](crate::types::DeleteReplicationGroupMemberAction).
     /// This method will fail if any of the following fields are not set:
     /// - [`region_name`](crate::types::builders::DeleteReplicationGroupMemberActionBuilder::region_name)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::DeleteReplicationGroupMemberAction,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::DeleteReplicationGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::DeleteReplicationGroupMemberAction {
             region_name: self.region_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

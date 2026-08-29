@@ -48,9 +48,7 @@ impl KeySchemaElement {
 }
 
 /// A builder for [`KeySchemaElement`](crate::types::KeySchemaElement).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct KeySchemaElementBuilder {
     pub(crate) attribute_name: ::std::option::Option<::std::string::String>,
@@ -59,18 +57,12 @@ pub struct KeySchemaElementBuilder {
 impl KeySchemaElementBuilder {
     /// <p>The name of a key attribute.</p>
     /// This field is required.
-    pub fn attribute_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn attribute_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.attribute_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of a key attribute.</p>
-    pub fn set_attribute_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.attribute_name = input;
         self
     }
@@ -124,12 +116,7 @@ impl KeySchemaElementBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`attribute_name`](crate::types::builders::KeySchemaElementBuilder::attribute_name)
     /// - [`key_type`](crate::types::builders::KeySchemaElementBuilder::key_type)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::KeySchemaElement,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::KeySchemaElement, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::KeySchemaElement {
             attribute_name: self.attribute_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

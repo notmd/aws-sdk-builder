@@ -7,8 +7,7 @@ pub struct ContinuousBackupsDescription {
     /// <p><code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED, DISABLED</p>
     pub continuous_backups_status: crate::types::ContinuousBackupsStatus,
     /// <p>The description of the point in time recovery settings applied to the table.</p>
-    pub point_in_time_recovery_description:
-        ::std::option::Option<crate::types::PointInTimeRecoveryDescription>,
+    pub point_in_time_recovery_description: ::std::option::Option<crate::types::PointInTimeRecoveryDescription>,
 }
 impl ContinuousBackupsDescription {
     /// <p><code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED, DISABLED</p>
@@ -16,9 +15,7 @@ impl ContinuousBackupsDescription {
         &self.continuous_backups_status
     }
     /// <p>The description of the point in time recovery settings applied to the table.</p>
-    pub fn point_in_time_recovery_description(
-        &self,
-    ) -> ::std::option::Option<&crate::types::PointInTimeRecoveryDescription> {
+    pub fn point_in_time_recovery_description(&self) -> ::std::option::Option<&crate::types::PointInTimeRecoveryDescription> {
         self.point_in_time_recovery_description.as_ref()
     }
 }
@@ -30,71 +27,46 @@ impl ContinuousBackupsDescription {
 }
 
 /// A builder for [`ContinuousBackupsDescription`](crate::types::ContinuousBackupsDescription).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ContinuousBackupsDescriptionBuilder {
-    pub(crate) continuous_backups_status:
-        ::std::option::Option<crate::types::ContinuousBackupsStatus>,
-    pub(crate) point_in_time_recovery_description:
-        ::std::option::Option<crate::types::PointInTimeRecoveryDescription>,
+    pub(crate) continuous_backups_status: ::std::option::Option<crate::types::ContinuousBackupsStatus>,
+    pub(crate) point_in_time_recovery_description: ::std::option::Option<crate::types::PointInTimeRecoveryDescription>,
 }
 impl ContinuousBackupsDescriptionBuilder {
     /// <p><code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED, DISABLED</p>
     /// This field is required.
-    pub fn continuous_backups_status(
-        mut self,
-        input: crate::types::ContinuousBackupsStatus,
-    ) -> Self {
+    pub fn continuous_backups_status(mut self, input: crate::types::ContinuousBackupsStatus) -> Self {
         self.continuous_backups_status = ::std::option::Option::Some(input);
         self
     }
     /// <p><code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED, DISABLED</p>
-    pub fn set_continuous_backups_status(
-        mut self,
-        input: ::std::option::Option<crate::types::ContinuousBackupsStatus>,
-    ) -> Self {
+    pub fn set_continuous_backups_status(mut self, input: ::std::option::Option<crate::types::ContinuousBackupsStatus>) -> Self {
         self.continuous_backups_status = input;
         self
     }
     /// <p><code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED, DISABLED</p>
-    pub fn get_continuous_backups_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::ContinuousBackupsStatus> {
+    pub fn get_continuous_backups_status(&self) -> &::std::option::Option<crate::types::ContinuousBackupsStatus> {
         &self.continuous_backups_status
     }
     /// <p>The description of the point in time recovery settings applied to the table.</p>
-    pub fn point_in_time_recovery_description(
-        mut self,
-        input: crate::types::PointInTimeRecoveryDescription,
-    ) -> Self {
+    pub fn point_in_time_recovery_description(mut self, input: crate::types::PointInTimeRecoveryDescription) -> Self {
         self.point_in_time_recovery_description = ::std::option::Option::Some(input);
         self
     }
     /// <p>The description of the point in time recovery settings applied to the table.</p>
-    pub fn set_point_in_time_recovery_description(
-        mut self,
-        input: ::std::option::Option<crate::types::PointInTimeRecoveryDescription>,
-    ) -> Self {
+    pub fn set_point_in_time_recovery_description(mut self, input: ::std::option::Option<crate::types::PointInTimeRecoveryDescription>) -> Self {
         self.point_in_time_recovery_description = input;
         self
     }
     /// <p>The description of the point in time recovery settings applied to the table.</p>
-    pub fn get_point_in_time_recovery_description(
-        &self,
-    ) -> &::std::option::Option<crate::types::PointInTimeRecoveryDescription> {
+    pub fn get_point_in_time_recovery_description(&self) -> &::std::option::Option<crate::types::PointInTimeRecoveryDescription> {
         &self.point_in_time_recovery_description
     }
     /// Consumes the builder and constructs a [`ContinuousBackupsDescription`](crate::types::ContinuousBackupsDescription).
     /// This method will fail if any of the following fields are not set:
     /// - [`continuous_backups_status`](crate::types::builders::ContinuousBackupsDescriptionBuilder::continuous_backups_status)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::ContinuousBackupsDescription,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::ContinuousBackupsDescription, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ContinuousBackupsDescription {
             continuous_backups_status: self.continuous_backups_status.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

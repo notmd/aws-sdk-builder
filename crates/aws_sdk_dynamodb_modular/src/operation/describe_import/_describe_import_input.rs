@@ -24,9 +24,7 @@ impl DescribeImportInput {
 
 #[cfg(feature = "op_describe_import")]
 /// A builder for [`DescribeImportInput`](crate::operation::describe_import::DescribeImportInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeImportInputBuilder {
     pub(crate) import_arn: ::std::option::Option<::std::string::String>,
@@ -51,12 +49,7 @@ impl DescribeImportInputBuilder {
     /// Consumes the builder and constructs a [`DescribeImportInput`](crate::operation::describe_import::DescribeImportInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_import::DescribeImportInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::describe_import::DescribeImportInput {
-            import_arn: self.import_arn,
-        })
+    ) -> ::std::result::Result<crate::operation::describe_import::DescribeImportInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::describe_import::DescribeImportInput { import_arn: self.import_arn })
     }
 }
