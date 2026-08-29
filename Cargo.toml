@@ -1,5 +1,5 @@
 [workspace]
-members = ["crates/*", "examples/my_aws_sdk", "examples/multi_service"]
+members = ["crates/*"]
 resolver = "2"
 
 [profile.dev]
@@ -10,10 +10,6 @@ opt-level = 3
 
 [profile.dev.package.diffy]
 opt-level = 3
-
-# Keep conformance in the debug profile while optimizing its CPU-heavy paths.
-[profile.dev.package.aws-sdk-conformance]
-opt-level = 1
 
 [profile.release]
 debug = 0
