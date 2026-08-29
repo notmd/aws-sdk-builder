@@ -1,5 +1,14 @@
 # AWS SDK modularizer checkpoint log
 
+## 2026-08-29 — `69ecdffb6` — public API probe checkpoint
+
+- Objective: verify the generated public operation surface from an external Cargo crate.
+- Generic rule: generate a temporary manifest-driven probe that imports and calls every enabled operation, then compile one disabled-operation bin per model operation with no operation features and require each bin to fail.
+- Changed files: `crates/aws-sdk-modularizer/src/conformance.rs`.
+- Commands: `cargo test -p aws-sdk-modularizer` passed (13 tests); operation coverage unchanged; full conformance and workspace verification are pending.
+- Remaining blocker: validate the new probes against all 15 staged services.
+- Next action: run `just conformance`, then the complete workspace checks.
+
 ## 2026-08-29 — `ae81b21a5` — final verification checkpoint
 
 - Objective: complete the feature-gated modular SDK transformation and workspace validation.
