@@ -44,12 +44,12 @@
 //! Then in code, a client can be created with the following:
 //!
 //! ```rust,no_run
-//! use aws_sdk_sesv2 as sesv2;
+//! use aws_sdk_sesv2_modular as sesv2;
 //!
 //! #[::tokio::main]
 //! async fn main() -> Result<(), sesv2::Error> {
 //!     let config = aws_config::load_from_env().await;
-//!     let client = aws_sdk_sesv2::Client::new(&config);
+//!     let client = aws_sdk_sesv2_modular::Client::new(&config);
 //!
 //!     // ... make some calls with the client
 //!
@@ -57,7 +57,7 @@
 //! }
 //! ```
 //!
-//! See the [client documentation](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html)
+//! See the [client documentation](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2_modular/client/struct.Client.html)
 //! for information on what calls can be made, and the inputs and outputs for each of those calls.
 //!
 //! ## Using the SDK
@@ -118,7 +118,7 @@ pub use config::Config;
 /// ```rust,no_run
 /// # async fn wrapper() {
 /// let config = aws_config::load_from_env().await;
-/// let client = aws_sdk_sesv2::Client::new(&config);
+/// let client = aws_sdk_sesv2_modular::Client::new(&config);
 /// # }
 /// ```
 ///
@@ -130,7 +130,7 @@ pub use config::Config;
 /// ```rust,no_run
 /// # async fn wrapper() {
 /// let sdk_config = ::aws_config::load_from_env().await;
-/// let config = aws_sdk_sesv2::config::Builder::from(&sdk_config)
+/// let config = aws_sdk_sesv2_modular::config::Builder::from(&sdk_config)
 /// # /*
 ///     .some_service_specific_setting("value")
 /// # */
