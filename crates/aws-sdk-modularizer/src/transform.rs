@@ -7,7 +7,7 @@ use std::{
     path::{Path, PathBuf},
 };
 use syn::{
-    Attribute, File, Item, Meta,
+    Attribute, File, Item, Meta, UseTree,
     spanned::Spanned,
     visit::{self, Visit},
 };
@@ -114,9 +114,29 @@ impl<'ast> Visit<'ast> for TypeReferenceVisitor {
             for end in (index + 1)..=segments.len() {
                 self.references.insert(segments[index..end].join("::"));
             }
+            if let Some(key) = normalized_type_key(&segments, index) {
+                self.references.insert(key);
+            }
         }
         visit::visit_path(self, path);
     }
+}
+
+fn normalized_type_key(segments: &[String], types_index: usize) -> Option<String> {
+    let suffix = segments.get(types_index + 1..)?;
+    let (namespace, name) = match suffix {
+        [module, name] if module.starts_with('_') => ("types", name.as_str()),
+        [module, name] if module == "builders" => ("types", name.as_str()),
+        [error, module, name] if error == "error" && module.starts_with('_') => {
+            ("types::error", name.as_str())
+        }
+        [error, module, name] if error == "error" && module == "builders" => {
+            ("types::error", name.as_str())
+        }
+        _ => return None,
+    };
+    let name = name.strip_suffix("Builder").unwrap_or(name);
+    (!name.is_empty()).then(|| format!("{namespace}::{name}"))
 }
 
 impl<'ast> Visit<'ast> for OperationModuleReferenceVisitor {
@@ -275,13 +295,15 @@ pub fn transform_tree(
     let waiter_owners = waiter_owners(&source_files, operations);
     let type_owners = build_type_owners(&source_files, operations);
     let operation_error_names = operation_error_names(&source_files);
+    let error_variant_owners = error_variant_owners(&source_files, &type_owners);
     let symbol_owners = operation_symbols(&source_files, operations, &waiter_owners, &type_owners);
     let local_module_roots = local_module_roots(&source_files);
     let mut edits = BTreeMap::<String, BTreeMap<usize, BTreeSet<String>>>::new();
     let mut statement_edits = StatementEdits::new();
     for source_file in &source_files {
         let child_of_parent_gated_module =
-            is_parent_gated_child_path(&source_file.relative, operations);
+            is_parent_gated_child_path(&source_file.relative, operations)
+                || is_type_definition_child_path(&source_file.relative);
         let mut direct_owners = path_owners(&source_file.relative, operations);
         if is_protocol_serde_path(&source_file.relative) {
             if let Some(module_owners) =
@@ -298,6 +320,14 @@ pub fn transform_tree(
         );
         for item in &source_file.syntax.items {
             let mut owners = direct_owners.clone();
+            if is_type_root_path(&source_file.relative) {
+                owners.extend(type_root_item_owners(
+                    &source_file.relative,
+                    item,
+                    &source_files,
+                    &type_owners,
+                ));
+            }
             let mut item_visitor = OperationPathVisitor {
                 operations,
                 waiter_owners: &waiter_owners,
@@ -331,6 +361,24 @@ pub fn transform_tree(
                         &item_visitor.references,
                         &symbol_owners,
                     ));
+                }
+            }
+            if source_file.relative == "src/error_meta.rs" {
+                collect_error_variant_edits(
+                    &source_file.relative,
+                    &source_file.source,
+                    item,
+                    &error_variant_owners,
+                    &mut edits,
+                )?;
+                if let Item::Impl(item_impl) = item {
+                    collect_error_match_arm_edits(
+                        &source_file.relative,
+                        &source_file.source,
+                        item_impl,
+                        &error_variant_owners,
+                        &mut edits,
+                    )?;
                 }
             }
             if !child_of_parent_gated_module {
@@ -1000,7 +1048,321 @@ fn build_type_owners(
                 .extend(file_owners.iter().cloned());
         }
     }
+    let type_modules = type_module_keys(files);
+    loop {
+        let previous = owners.clone();
+        for file in files {
+            let module = source_module_path(&file.relative);
+            let Some(type_keys) = type_modules.get(&module) else {
+                continue;
+            };
+            let type_owners = type_keys
+                .iter()
+                .filter_map(|key| owners.get(key))
+                .flat_map(|owners| owners.iter().cloned())
+                .collect::<BTreeSet<_>>();
+            if type_owners.is_empty() {
+                continue;
+            }
+            let mut visitor = TypeReferenceVisitor::default();
+            visitor.visit_file(&file.syntax);
+            for reference in visitor.references {
+                if reference.starts_with("types::") {
+                    owners
+                        .entry(reference)
+                        .or_default()
+                        .extend(type_owners.iter().cloned());
+                }
+            }
+        }
+        if owners == previous {
+            break;
+        }
+    }
     owners
+}
+
+fn type_module_keys(files: &[SourceFile]) -> BTreeMap<String, BTreeSet<String>> {
+    let mut modules = BTreeMap::new();
+    for relative in ["src/types.rs", "src/types/error.rs"] {
+        let Some(file) = files.iter().find(|file| file.relative == relative) else {
+            continue;
+        };
+        for item in &file.syntax.items {
+            let Item::Use(item_use) = item else {
+                continue;
+            };
+            let mut paths = Vec::new();
+            collect_use_paths(&item_use.tree, &mut Vec::new(), &mut paths);
+            for path in paths {
+                let Some((module, key)) = type_import_parts(&path, false) else {
+                    continue;
+                };
+                modules
+                    .entry(module)
+                    .or_insert_with(BTreeSet::new)
+                    .insert(key);
+            }
+        }
+    }
+    modules
+}
+
+fn collect_use_paths(tree: &UseTree, prefix: &mut Vec<String>, paths: &mut Vec<Vec<String>>) {
+    match tree {
+        UseTree::Path(path) => {
+            prefix.push(path.ident.to_string());
+            collect_use_paths(&path.tree, prefix, paths);
+            prefix.pop();
+        }
+        UseTree::Name(name) => {
+            prefix.push(name.ident.to_string());
+            paths.push(prefix.clone());
+            prefix.pop();
+        }
+        UseTree::Rename(rename) => {
+            prefix.push(rename.ident.to_string());
+            paths.push(prefix.clone());
+            prefix.pop();
+        }
+        UseTree::Group(group) => {
+            for tree in &group.items {
+                collect_use_paths(tree, prefix, paths);
+            }
+        }
+        UseTree::Glob(_) => {}
+    }
+}
+
+fn type_import_parts(path: &[String], builder: bool) -> Option<(String, String)> {
+    let types_index = path.iter().position(|segment| segment == "types")?;
+    let imported = path.last()?.as_str();
+    let imported = if builder {
+        imported.strip_suffix("Builder")?
+    } else {
+        imported
+    };
+    if imported.is_empty() || types_index + 2 >= path.len() {
+        return None;
+    }
+    let module = path[types_index..path.len() - 1].join("::");
+    let namespace = if path.get(types_index + 1).map(String::as_str) == Some("error") {
+        "types::error"
+    } else {
+        "types"
+    };
+    Some((module, format!("{namespace}::{imported}")))
+}
+
+fn type_root_item_owners(
+    relative: &str,
+    item: &Item,
+    files: &[SourceFile],
+    type_owners: &BTreeMap<String, BTreeSet<String>>,
+) -> BTreeSet<String> {
+    let builder = matches!(
+        relative,
+        "src/types/builders.rs" | "src/types/error/builders.rs"
+    );
+    match item {
+        Item::Use(item_use) => {
+            let mut paths = Vec::new();
+            collect_use_paths(&item_use.tree, &mut Vec::new(), &mut paths);
+            paths
+                .iter()
+                .filter_map(|path| type_import_parts(path, builder))
+                .filter_map(|(_, key)| type_owners.get(&key))
+                .flat_map(|owners| owners.iter().cloned())
+                .collect()
+        }
+        Item::Mod(module) => {
+            let namespace = match relative {
+                "src/types.rs" | "src/types/builders.rs" => "types",
+                "src/types/error.rs" | "src/types/error/builders.rs" => "types::error",
+                _ => return BTreeSet::new(),
+            };
+            let module = format!("{namespace}::{}", module.ident);
+            type_module_keys(files)
+                .get(&module)
+                .into_iter()
+                .flatten()
+                .filter_map(|key| type_owners.get(key))
+                .flat_map(|owners| owners.iter().cloned())
+                .collect()
+        }
+        _ => BTreeSet::new(),
+    }
+}
+
+fn error_variant_owners(
+    files: &[SourceFile],
+    type_owners: &BTreeMap<String, BTreeSet<String>>,
+) -> BTreeMap<String, BTreeSet<String>> {
+    let mut owners = BTreeMap::new();
+    let Some(file) = files
+        .iter()
+        .find(|file| file.relative == "src/error_meta.rs")
+    else {
+        return owners;
+    };
+    for item in &file.syntax.items {
+        let Item::Enum(item_enum) = item else {
+            continue;
+        };
+        if item_enum.ident != "Error" {
+            continue;
+        }
+        for variant in &item_enum.variants {
+            let mut visitor = TypeReferenceVisitor::default();
+            visitor.visit_variant(variant);
+            let variant_owners = type_reference_owner_set(&visitor.references, type_owners);
+            if !variant_owners.is_empty() {
+                owners.insert(variant.ident.to_string(), variant_owners);
+            }
+        }
+    }
+    owners
+}
+
+fn type_reference_owner_set(
+    references: &BTreeSet<String>,
+    type_owners: &BTreeMap<String, BTreeSet<String>>,
+) -> BTreeSet<String> {
+    intersect_owner_sets(
+        references
+            .iter()
+            .filter_map(|reference| type_owners.get(reference)),
+    )
+}
+
+fn collect_error_variant_edits(
+    relative: &str,
+    source: &str,
+    item: &Item,
+    variant_owners: &BTreeMap<String, BTreeSet<String>>,
+    edits: &mut BTreeMap<String, BTreeMap<usize, BTreeSet<String>>>,
+) -> Result<(), TransformError> {
+    let Item::Enum(item_enum) = item else {
+        return Ok(());
+    };
+    if item_enum.ident != "Error" {
+        return Ok(());
+    }
+    for variant in &item_enum.variants {
+        let Some(owners) = variant_owners.get(&variant.ident.to_string()) else {
+            continue;
+        };
+        if has_matching_cfg(&variant.attrs, owners) {
+            continue;
+        }
+        let first = variant
+            .to_token_stream()
+            .into_iter()
+            .next()
+            .ok_or_else(|| TransformError::Rust {
+                path: PathBuf::from(relative),
+                message: "empty Rust enum variant".to_owned(),
+            })?;
+        let start_span = variant
+            .attrs
+            .first()
+            .map(Spanned::span)
+            .unwrap_or_else(|| first.span());
+        add_edit(
+            edits,
+            relative,
+            source_offset(source, start_span.start())?,
+            owners.clone(),
+        );
+    }
+    Ok(())
+}
+
+struct ErrorMatchArmVisitor<'a> {
+    relative: &'a str,
+    source: &'a str,
+    variant_owners: &'a BTreeMap<String, BTreeSet<String>>,
+    edits: &'a mut BTreeMap<String, BTreeMap<usize, BTreeSet<String>>>,
+    error: Option<TransformError>,
+}
+
+impl<'ast> Visit<'ast> for ErrorMatchArmVisitor<'_> {
+    fn visit_expr_match(&mut self, expression: &'ast syn::ExprMatch) {
+        for arm in &expression.arms {
+            let Some(variant) = match_arm_variant(&arm.pat) else {
+                continue;
+            };
+            let Some(owners) = self.variant_owners.get(&variant) else {
+                continue;
+            };
+            if has_matching_cfg(&arm.attrs, owners) {
+                continue;
+            }
+            let Some(first) = arm.to_token_stream().into_iter().next() else {
+                self.error = Some(TransformError::Rust {
+                    path: PathBuf::from(self.relative),
+                    message: "empty Rust match arm".to_owned(),
+                });
+                return;
+            };
+            match source_offset(self.source, first.span().start()) {
+                Ok(offset) => add_edit(self.edits, self.relative, offset, owners.clone()),
+                Err(error) => {
+                    self.error = Some(error);
+                    return;
+                }
+            }
+        }
+        visit::visit_expr_match(self, expression);
+    }
+}
+
+fn match_arm_variant(pattern: &syn::Pat) -> Option<String> {
+    let path = match pattern {
+        syn::Pat::Path(path) => &path.path,
+        syn::Pat::Struct(pattern) => &pattern.path,
+        syn::Pat::TupleStruct(pattern) => &pattern.path,
+        syn::Pat::Reference(pattern) => return match_arm_variant(&pattern.pat),
+        _ => return None,
+    };
+    path.segments
+        .last()
+        .map(|segment| segment.ident.to_string())
+}
+
+fn collect_error_match_arm_edits(
+    relative: &str,
+    source: &str,
+    item_impl: &syn::ItemImpl,
+    variant_owners: &BTreeMap<String, BTreeSet<String>>,
+    edits: &mut BTreeMap<String, BTreeMap<usize, BTreeSet<String>>>,
+) -> Result<(), TransformError> {
+    let self_type = item_impl.self_ty.to_token_stream().to_string();
+    let trait_name = item_impl
+        .trait_
+        .as_ref()
+        .and_then(|(path, _)| path.segments.last())
+        .map(|segment| segment.ident.to_string());
+    if self_type != "Error"
+        || !matches!(
+            trait_name.as_deref(),
+            Some("Display" | "ProvideErrorMetadata" | "Error" | "RequestId" | "RequestIdExt")
+        )
+    {
+        return Ok(());
+    }
+    let mut visitor = ErrorMatchArmVisitor {
+        relative,
+        source,
+        variant_owners,
+        edits,
+        error: None,
+    };
+    visitor.visit_item_impl(item_impl);
+    if let Some(error) = visitor.error {
+        return Err(error);
+    }
+    Ok(())
 }
 
 fn inferred_item_owners(
@@ -1042,12 +1404,7 @@ fn type_reference_owners(
 ) -> BTreeSet<String> {
     let mut visitor = TypeReferenceVisitor::default();
     visitor.visit_item(item);
-    intersect_owner_sets(
-        visitor
-            .references
-            .iter()
-            .filter_map(|reference| type_owners.get(reference)),
-    )
+    type_reference_owner_set(&visitor.references, type_owners)
 }
 
 fn intersect_owner_sets<'a>(
@@ -1155,6 +1512,7 @@ fn item_type_name(item: &Item) -> Option<String> {
 
 fn is_type_ownership_path(relative: &str) -> bool {
     relative.strip_prefix("src/") == Some("event_stream_serde.rs")
+        || relative.strip_prefix("src/") == Some("serde_util.rs")
         || is_protocol_serde_path(relative)
 }
 
@@ -1258,6 +1616,21 @@ fn is_protocol_serde_path(relative: &str) -> bool {
     path == "protocol_serde.rs" || path.starts_with("protocol_serde/")
 }
 
+fn is_type_root_path(relative: &str) -> bool {
+    matches!(
+        relative,
+        "src/types.rs"
+            | "src/types/builders.rs"
+            | "src/types/error.rs"
+            | "src/types/error/builders.rs"
+    )
+}
+
+fn is_type_definition_child_path(relative: &str) -> bool {
+    let path = relative.strip_prefix("src/").unwrap_or(relative);
+    (path.starts_with("types/_") || path.starts_with("types/error/_")) && path.ends_with(".rs")
+}
+
 fn local_module_roots(files: &[SourceFile]) -> BTreeSet<String> {
     files
         .iter()
@@ -1317,15 +1690,7 @@ fn path_owners(relative: &str, operations: &[Operation]) -> BTreeSet<String> {
             .and_then(|filename| filename.strip_suffix(".rs"))
             .unwrap_or_default();
         if let Some(rest) = filename.strip_prefix("shape_") {
-            let operation = operations
-                .iter()
-                .find(|operation| rest == operation.module)
-                .or_else(|| {
-                    operations
-                        .iter()
-                        .filter(|operation| rest.starts_with(&format!("{}_", operation.module)))
-                        .max_by_key(|operation| operation.module.len())
-                });
+            let operation = operations.iter().find(|operation| rest == operation.module);
             if let Some(operation) = operation {
                 owners.insert(operation.feature.clone());
             }
@@ -2556,5 +2921,32 @@ mod tests {
             ),
             BTreeSet::from(["op_list_jobs_by_consumable_resource".to_owned()])
         );
+        assert!(
+            path_owners(
+                "src/protocol_serde/shape_list_jobs_by_consumable_resource_summary.rs",
+                &operations,
+            )
+            .is_empty()
+        );
+    }
+
+    #[test]
+    fn gates_error_match_arms_for_request_id_impl() {
+        let source = "impl crate::s3_request_id::RequestIdExt for Error {\n    fn extended_request_id(&self) -> Option<&str> {\n        match self {\n            Self::AccessDenied(e) => e.extended_request_id(),\n            Self::Unhandled(e) => e.meta.extended_request_id(),\n        }\n    }\n}\n";
+        let file = syn::parse_file(source).unwrap();
+        let Item::Impl(item_impl) = &file.items[0] else {
+            panic!("expected an impl item");
+        };
+        let owners = BTreeMap::from([(
+            "AccessDenied".to_owned(),
+            BTreeSet::from(["op_get_thing".to_owned()]),
+        )]);
+        let mut edits = BTreeMap::new();
+
+        collect_error_match_arm_edits("src/error_meta.rs", source, item_impl, &owners, &mut edits)
+            .unwrap();
+
+        assert_eq!(edits.len(), 1);
+        assert_eq!(edits["src/error_meta.rs"].len(), 1);
     }
 }
