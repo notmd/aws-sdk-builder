@@ -7,8 +7,9 @@
 - Changed files: `conformance/summary.md`.
 - Commands: `AWS_SDK_MODULARIZER_ARCHIVE=/tmp/aws-sdk-rust.tar.gz RUSTFLAGS='-Awarnings' just conformance` passed for all 15 services; coverage unchanged.
 - Operation coverage: 1,130/1,130 operations, zero missing, zero ambiguous, coverage delta `+0`.
-- Remaining blocker: complete the final workspace checks against the reporting change.
-- Next action: run `cargo check --workspace`, `cargo test --workspace`, `cargo fmt --all -- --check`, and `git diff --check`.
+- Commands after the checkpoint: `cargo check --workspace`, `cargo test --workspace`, `cargo fmt --all -- --check`, and `git diff --check` all passed.
+- Remaining blocker: none.
+- Next action: complete the final requirement-by-requirement audit.
 
 ## 2026-08-29 — `37fc5ed0d` — feature matrix reporting
 
@@ -17,8 +18,9 @@
 - Changed files: `crates/aws-sdk-modularizer/src/conformance.rs`.
 - Commands: `cargo fmt --package aws-sdk-modularizer` and `cargo test -p aws-sdk-modularizer` (15 tests) passed; full conformance passed for all 15 services.
 - Operation coverage: 1,130/1,130 operations, zero missing, zero ambiguous, coverage delta `+0`.
-- Remaining blocker: complete the final workspace checks against the reporting change.
-- Next action: commit the regenerated summary, then run the required workspace checks.
+- Commands after the checkpoint: the regenerated summary was committed as `405a97571`; the required workspace checks all passed.
+- Remaining blocker: none.
+- Next action: complete the final requirement-by-requirement audit.
 
 ## 2026-08-29 — `1e53eea12` — exact operation-feature verification
 
