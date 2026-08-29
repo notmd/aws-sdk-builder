@@ -143,3 +143,33 @@ passed for transform commits, and conformance was rerun at the milestone commits
 | 2026-08-29 — `aedf8789a` | Remove obsolete example members and the conformance profile from `Cargo.toml`. | `cargo metadata --no-deps` listed only retained packages after empty-dir cleanup. | Refresh `Cargo.lock` and run workspace checks. |
 | 2026-08-29 — `2669eae10` | Remove stale builder/conformance packages from `Cargo.lock`. | `cargo check --workspace` passed; coverage unchanged. | Remove remaining stale branding and finish verification. |
 | 2026-08-29 — `15f558034` | Rename stale builder branding in the retained Floci S3 smoke example. | Example-only change; coverage unchanged. | Run final conformance and workspace verification. |
+
+## 2026-08-29 — `4ea05b875`
+
+- Objective: record the retroactive modularizer checkpoints created during the per-service regeneration and cleanup series.
+- Generic rule: keep generator logic, generated SDK output, verification artifacts, and cleanup in reviewable commit boundaries.
+- Changed files: `docs/aws-sdk-modularizer-status.md`.
+- Commands: documentation-only checkpoint; coverage unchanged.
+- Operation coverage: 15 services, zero missing operations, zero ambiguous operations, and coverage delta `+0`.
+- Remaining blocker: complete final feature-gate verification after the cleanup series.
+- Next action: run the required conformance and workspace checks.
+
+## 2026-08-29 — `c698edb13`
+
+- Objective: record the conformance coverage summary after the generated SDK cleanup.
+- Generic rule: keep the manifest-driven operation coverage report as a separate verification artifact.
+- Changed files: `conformance/summary.md`.
+- Commands: `AWS_SDK_MODULARIZER_ARCHIVE=/tmp/aws-sdk-rust.tar.gz RUSTFLAGS='-Awarnings' just conformance` passed for all 15 services.
+- Operation coverage: every service had complete coverage with zero missing and zero ambiguous operations; the report records the per-service transformed totals.
+- Remaining blocker: verify the newly gated protocol helper functions and regenerate affected SDK output.
+- Next action: run the focused modularizer tests, then regenerate the SDK crates.
+
+## 2026-08-29 — `2409916df`
+
+- Objective: feature-gate root cross-operation helpers in generated `protocol_serde.rs` files when their call sites are operation-owned.
+- Generic rule: seed root protocol helper symbols from the AST, infer their operation owners from references, and apply cfg only to the owning root items while retaining parent module ownership for child modules.
+- Changed files: `crates/aws-sdk-modularizer/src/transform.rs`.
+- Commands: `cargo test -p aws-sdk-modularizer` passed (12 tests); modularizer-only formatting and `git diff --check` passed.
+- Operation coverage: unchanged; all 15 services remain mapped with zero missing and zero ambiguous operations.
+- Remaining blocker: generated SDK output still needs regeneration and conformance validation for these helper gates.
+- Next action: regenerate and commit each affected SDK service separately.
