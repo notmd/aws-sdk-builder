@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for SetTopicAttributesOutput {
 #[cfg(feature = "op_set_topic_attributes")]
 impl SetTopicAttributesOutput {
     /// Creates a new builder-style object to manufacture [`SetTopicAttributesOutput`](crate::operation::set_topic_attributes::SetTopicAttributesOutput).
-    pub fn builder(
-    ) -> crate::operation::set_topic_attributes::builders::SetTopicAttributesOutputBuilder {
+    pub fn builder() -> crate::operation::set_topic_attributes::builders::SetTopicAttributesOutputBuilder {
         crate::operation::set_topic_attributes::builders::SetTopicAttributesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_set_topic_attributes")]
 /// A builder for [`SetTopicAttributesOutput`](crate::operation::set_topic_attributes::SetTopicAttributesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SetTopicAttributesOutputBuilder {
     _request_id: Option<String>,

@@ -33,16 +33,14 @@ impl ::aws_types::request_id::RequestId for ListSubscriptionsByTopicOutput {
 #[cfg(feature = "op_list_subscriptions_by_topic")]
 impl ListSubscriptionsByTopicOutput {
     /// Creates a new builder-style object to manufacture [`ListSubscriptionsByTopicOutput`](crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicOutput).
-    pub fn builder() -> crate::operation::list_subscriptions_by_topic::builders::ListSubscriptionsByTopicOutputBuilder{
+    pub fn builder() -> crate::operation::list_subscriptions_by_topic::builders::ListSubscriptionsByTopicOutputBuilder {
         crate::operation::list_subscriptions_by_topic::builders::ListSubscriptionsByTopicOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_subscriptions_by_topic")]
 /// A builder for [`ListSubscriptionsByTopicOutput`](crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListSubscriptionsByTopicOutputBuilder {
     pub(crate) subscriptions: ::std::option::Option<::std::vec::Vec<crate::types::Subscription>>,
@@ -63,17 +61,12 @@ impl ListSubscriptionsByTopicOutputBuilder {
         self
     }
     /// <p>A list of subscriptions.</p>
-    pub fn set_subscriptions(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Subscription>>,
-    ) -> Self {
+    pub fn set_subscriptions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Subscription>>) -> Self {
         self.subscriptions = input;
         self
     }
     /// <p>A list of subscriptions.</p>
-    pub fn get_subscriptions(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Subscription>> {
+    pub fn get_subscriptions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Subscription>> {
         &self.subscriptions
     }
     /// <p>Token to pass along to the next <code>ListSubscriptionsByTopic</code> request. This element is returned if there are more subscriptions to retrieve.</p>
@@ -100,9 +93,7 @@ impl ListSubscriptionsByTopicOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListSubscriptionsByTopicOutput`](crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicOutput {
+    pub fn build(self) -> crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicOutput {
         crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicOutput {
             subscriptions: self.subscriptions,
             next_token: self.next_token,

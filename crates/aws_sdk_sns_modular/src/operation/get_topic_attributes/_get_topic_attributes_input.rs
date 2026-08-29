@@ -18,17 +18,14 @@ impl GetTopicAttributesInput {
 #[cfg(feature = "op_get_topic_attributes")]
 impl GetTopicAttributesInput {
     /// Creates a new builder-style object to manufacture [`GetTopicAttributesInput`](crate::operation::get_topic_attributes::GetTopicAttributesInput).
-    pub fn builder(
-    ) -> crate::operation::get_topic_attributes::builders::GetTopicAttributesInputBuilder {
+    pub fn builder() -> crate::operation::get_topic_attributes::builders::GetTopicAttributesInputBuilder {
         crate::operation::get_topic_attributes::builders::GetTopicAttributesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_topic_attributes")]
 /// A builder for [`GetTopicAttributesInput`](crate::operation::get_topic_attributes::GetTopicAttributesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetTopicAttributesInputBuilder {
     pub(crate) topic_arn: ::std::option::Option<::std::string::String>,
@@ -53,14 +50,8 @@ impl GetTopicAttributesInputBuilder {
     /// Consumes the builder and constructs a [`GetTopicAttributesInput`](crate::operation::get_topic_attributes::GetTopicAttributesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_topic_attributes::GetTopicAttributesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::get_topic_attributes::GetTopicAttributesInput {
-                topic_arn: self.topic_arn,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::get_topic_attributes::GetTopicAttributesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::get_topic_attributes::GetTopicAttributesInput { topic_arn: self.topic_arn })
     }
 }

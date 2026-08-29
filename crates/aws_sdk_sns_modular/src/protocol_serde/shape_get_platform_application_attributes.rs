@@ -103,9 +103,7 @@ pub fn de_get_platform_application_attributes_http_response(
         let mut output = crate::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesOutputBuilder::default();
         output = crate::protocol_serde::shape_get_platform_application_attributes::de_get_platform_application_attributes(_response_body, output)
             .map_err(crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -117,7 +115,7 @@ pub fn de_get_platform_application_attributes(
 ) -> std::result::Result<
     crate::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
->{
+> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

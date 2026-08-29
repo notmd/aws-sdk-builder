@@ -37,16 +37,14 @@ impl ::aws_types::request_id::RequestId for CheckIfPhoneNumberIsOptedOutOutput {
 #[cfg(feature = "op_check_if_phone_number_is_opted_out")]
 impl CheckIfPhoneNumberIsOptedOutOutput {
     /// Creates a new builder-style object to manufacture [`CheckIfPhoneNumberIsOptedOutOutput`](crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutOutput).
-    pub fn builder() -> crate::operation::check_if_phone_number_is_opted_out::builders::CheckIfPhoneNumberIsOptedOutOutputBuilder{
+    pub fn builder() -> crate::operation::check_if_phone_number_is_opted_out::builders::CheckIfPhoneNumberIsOptedOutOutputBuilder {
         crate::operation::check_if_phone_number_is_opted_out::builders::CheckIfPhoneNumberIsOptedOutOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_check_if_phone_number_is_opted_out")]
 /// A builder for [`CheckIfPhoneNumberIsOptedOutOutput`](crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CheckIfPhoneNumberIsOptedOutOutputBuilder {
     pub(crate) is_opted_out: ::std::option::Option<bool>,
@@ -96,10 +94,7 @@ impl CheckIfPhoneNumberIsOptedOutOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CheckIfPhoneNumberIsOptedOutOutput`](crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutOutput
-    {
+    pub fn build(self) -> crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutOutput {
         crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutOutput {
             is_opted_out: self.is_opted_out.unwrap_or_default(),
             _request_id: self._request_id,

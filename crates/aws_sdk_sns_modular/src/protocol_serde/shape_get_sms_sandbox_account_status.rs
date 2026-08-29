@@ -83,11 +83,8 @@ pub fn de_get_sms_sandbox_account_status_http_response(
         let mut output = crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder::default();
         output = crate::protocol_serde::shape_get_sms_sandbox_account_status::de_get_sms_sandbox_account_status(_response_body, output)
             .map_err(crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
-        crate::serde_util::get_sms_sandbox_account_status_output_output_correct_errors(output)
-            .build()
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        crate::serde_util::get_sms_sandbox_account_status_output_output_correct_errors(output).build()
     })
 }
 
@@ -98,7 +95,7 @@ pub fn de_get_sms_sandbox_account_status(
 ) -> std::result::Result<
     crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
->{
+> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

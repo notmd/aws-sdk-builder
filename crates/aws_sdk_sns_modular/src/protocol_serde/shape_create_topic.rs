@@ -4,121 +4,94 @@ pub fn de_create_topic_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::create_topic::CreateTopicOutput,
-    crate::operation::create_topic::CreateTopicError,
-> {
+) -> std::result::Result<crate::operation::create_topic::CreateTopicOutput, crate::operation::create_topic::CreateTopicError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::create_topic::CreateTopicError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(crate::operation::create_topic::CreateTopicError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::create_topic::CreateTopicError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(crate::operation::create_topic::CreateTopicError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AuthorizationError" => {
-            crate::operation::create_topic::CreateTopicError::AuthorizationErrorException({
+        "AuthorizationError" => crate::operation::create_topic::CreateTopicError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::AuthorizationErrorExceptionBuilder::default(
-                        );
-                    output = crate::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                let mut output = crate::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = crate::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::create_topic::CreateTopicError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ConcurrentAccess" => {
-            crate::operation::create_topic::CreateTopicError::ConcurrentAccessException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ConcurrentAccess" => crate::operation::create_topic::CreateTopicError::ConcurrentAccessException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ConcurrentAccessExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_concurrent_access_exception::de_concurrent_access_exception_xml_err(_response_body, output)
+                let mut output = crate::types::error::builders::ConcurrentAccessExceptionBuilder::default();
+                output = crate::protocol_serde::shape_concurrent_access_exception::de_concurrent_access_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::create_topic::CreateTopicError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "InternalError" => {
-            crate::operation::create_topic::CreateTopicError::InternalErrorException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => crate::operation::create_topic::CreateTopicError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InternalErrorExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::create_topic::CreateTopicError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "InvalidParameter" => {
-            crate::operation::create_topic::CreateTopicError::InvalidParameterException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => crate::operation::create_topic::CreateTopicError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidParameterExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::create_topic::CreateTopicError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "InvalidSecurity" => {
-            crate::operation::create_topic::CreateTopicError::InvalidSecurityException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidSecurity" => crate::operation::create_topic::CreateTopicError::InvalidSecurityException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidSecurityExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_invalid_security_exception::de_invalid_security_exception_xml_err(_response_body, output)
+                let mut output = crate::types::error::builders::InvalidSecurityExceptionBuilder::default();
+                output = crate::protocol_serde::shape_invalid_security_exception::de_invalid_security_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::create_topic::CreateTopicError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "StaleTag" => crate::operation::create_topic::CreateTopicError::StaleTagException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -134,30 +107,26 @@ pub fn de_create_topic_http_error(
             }
             tmp
         }),
-        "TagLimitExceeded" => {
-            crate::operation::create_topic::CreateTopicError::TagLimitExceededException({
+        "TagLimitExceeded" => crate::operation::create_topic::CreateTopicError::TagLimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::TagLimitExceededExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_tag_limit_exceeded_exception::de_tag_limit_exceeded_exception_xml_err(_response_body, output)
+                let mut output = crate::types::error::builders::TagLimitExceededExceptionBuilder::default();
+                output = crate::protocol_serde::shape_tag_limit_exceeded_exception::de_tag_limit_exceeded_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::create_topic::CreateTopicError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "TagPolicy" => crate::operation::create_topic::CreateTopicError::TagPolicyException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output =
-                    crate::types::error::builders::TagPolicyExceptionBuilder::default();
+                let mut output = crate::types::error::builders::TagPolicyExceptionBuilder::default();
                 output = crate::protocol_serde::shape_tag_policy_exception::de_tag_policy_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::create_topic::CreateTopicError::unhandled)?;
                 let output = output.meta(generic);
@@ -168,26 +137,22 @@ pub fn de_create_topic_http_error(
             }
             tmp
         }),
-        "TopicLimitExceeded" => {
-            crate::operation::create_topic::CreateTopicError::TopicLimitExceededException({
+        "TopicLimitExceeded" => crate::operation::create_topic::CreateTopicError::TopicLimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::TopicLimitExceededExceptionBuilder::default(
-                        );
-                    output =
+                let mut output = crate::types::error::builders::TopicLimitExceededExceptionBuilder::default();
+                output =
                     crate::protocol_serde::shape_topic_limit_exceeded_exception::de_topic_limit_exceeded_exception_xml_err(_response_body, output)
                         .map_err(crate::operation::create_topic::CreateTopicError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => crate::operation::create_topic::CreateTopicError::generic(generic),
     })
 }
@@ -197,19 +162,13 @@ pub fn de_create_topic_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::create_topic::CreateTopicOutput,
-    crate::operation::create_topic::CreateTopicError,
-> {
+) -> std::result::Result<crate::operation::create_topic::CreateTopicOutput, crate::operation::create_topic::CreateTopicError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::create_topic::builders::CreateTopicOutputBuilder::default();
+        let mut output = crate::operation::create_topic::builders::CreateTopicOutputBuilder::default();
         output = crate::protocol_serde::shape_create_topic::de_create_topic(_response_body, output)
             .map_err(crate::operation::create_topic::CreateTopicError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -218,10 +177,7 @@ pub fn de_create_topic_http_response(
 pub fn de_create_topic(
     inp: &[u8],
     mut builder: crate::operation::create_topic::builders::CreateTopicOutputBuilder,
-) -> std::result::Result<
-    crate::operation::create_topic::builders::CreateTopicOutputBuilder,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> std::result::Result<crate::operation::create_topic::builders::CreateTopicOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]
@@ -261,9 +217,7 @@ pub fn de_create_topic(
         }
         }
     } else {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
-            "expected CreateTopicResult tag",
-        ));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected CreateTopicResult tag"));
     };
     Ok(builder)
 }

@@ -63,7 +63,7 @@ impl GetPlatformApplicationAttributesFluentBuilder {
         }
     }
     /// Access the GetPlatformApplicationAttributes as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,7 +82,7 @@ impl GetPlatformApplicationAttributesFluentBuilder {
             crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -102,37 +102,25 @@ impl GetPlatformApplicationAttributesFluentBuilder {
         crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesOutput,
         crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p><code>PlatformApplicationArn</code> for GetPlatformApplicationAttributesInput.</p>
-    pub fn platform_application_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn platform_application_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.platform_application_arn(input.into());
         self
     }
     /// <p><code>PlatformApplicationArn</code> for GetPlatformApplicationAttributesInput.</p>
-    pub fn set_platform_application_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_platform_application_arn(input);
         self
     }

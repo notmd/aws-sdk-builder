@@ -125,9 +125,7 @@ pub fn de_verify_sms_sandbox_phone_number_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }

@@ -63,10 +63,7 @@ impl SetEndpointAttributesFluentBuilder {
         }
     }
     /// Access the SetEndpointAttributes as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::set_endpoint_attributes::builders::SetEndpointAttributesInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::set_endpoint_attributes::builders::SetEndpointAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -95,11 +92,7 @@ impl SetEndpointAttributesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::set_endpoint_attributes::SetEndpointAttributes::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::set_endpoint_attributes::SetEndpointAttributes::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -112,18 +105,12 @@ impl SetEndpointAttributesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -155,11 +142,7 @@ impl SetEndpointAttributesFluentBuilder {
     /// <li>
     /// <p><code>Token</code> – device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.</p></li>
     /// </ul>
-    pub fn attributes(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.attributes(k.into(), v.into());
         self
     }
@@ -172,12 +155,7 @@ impl SetEndpointAttributesFluentBuilder {
     /// <li>
     /// <p><code>Token</code> – device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.</p></li>
     /// </ul>
-    pub fn set_attributes(
-        mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
-    ) -> Self {
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.inner = self.inner.set_attributes(input);
         self
     }
@@ -190,11 +168,7 @@ impl SetEndpointAttributesFluentBuilder {
     /// <li>
     /// <p><code>Token</code> – device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.</p></li>
     /// </ul>
-    pub fn get_attributes(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_attributes()
     }
 }

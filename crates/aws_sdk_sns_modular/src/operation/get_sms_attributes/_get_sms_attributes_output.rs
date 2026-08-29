@@ -6,19 +6,13 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetSmsAttributesOutput {
     /// <p>The SMS attribute names and their values.</p>
-    pub attributes: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_get_sms_attributes")]
 impl GetSmsAttributesOutput {
     /// <p>The SMS attribute names and their values.</p>
-    pub fn attributes(
-        &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.attributes.as_ref()
     }
 }
@@ -31,22 +25,17 @@ impl ::aws_types::request_id::RequestId for GetSmsAttributesOutput {
 #[cfg(feature = "op_get_sms_attributes")]
 impl GetSmsAttributesOutput {
     /// Creates a new builder-style object to manufacture [`GetSmsAttributesOutput`](crate::operation::get_sms_attributes::GetSmsAttributesOutput).
-    pub fn builder() -> crate::operation::get_sms_attributes::builders::GetSmsAttributesOutputBuilder
-    {
+    pub fn builder() -> crate::operation::get_sms_attributes::builders::GetSmsAttributesOutputBuilder {
         crate::operation::get_sms_attributes::builders::GetSmsAttributesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_sms_attributes")]
 /// A builder for [`GetSmsAttributesOutput`](crate::operation::get_sms_attributes::GetSmsAttributesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetSmsAttributesOutputBuilder {
-    pub(crate) attributes: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_get_sms_attributes")]
@@ -56,32 +45,19 @@ impl GetSmsAttributesOutputBuilder {
     /// To override the contents of this collection use [`set_attributes`](Self::set_attributes).
     ///
     /// <p>The SMS attribute names and their values.</p>
-    pub fn attributes(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.attributes.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.attributes = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>The SMS attribute names and their values.</p>
-    pub fn set_attributes(
-        mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
-    ) -> Self {
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.attributes = input;
         self
     }
     /// <p>The SMS attribute names and their values.</p>
-    pub fn get_attributes(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.attributes
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

@@ -22,9 +22,7 @@ impl UnsubscribeOutput {
 
 #[cfg(feature = "op_unsubscribe")]
 /// A builder for [`UnsubscribeOutput`](crate::operation::unsubscribe::UnsubscribeOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UnsubscribeOutputBuilder {
     _request_id: Option<String>,

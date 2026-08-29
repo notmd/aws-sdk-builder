@@ -16,9 +16,7 @@ pub struct GetEndpointAttributesOutput {
     /// <p>The device token for the iOS platform is returned in lowercase.</p>
     /// </note></li>
     /// </ul>
-    pub attributes: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_get_endpoint_attributes")]
@@ -34,11 +32,7 @@ impl GetEndpointAttributesOutput {
     /// <p>The device token for the iOS platform is returned in lowercase.</p>
     /// </note></li>
     /// </ul>
-    pub fn attributes(
-        &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.attributes.as_ref()
     }
 }
@@ -51,23 +45,17 @@ impl ::aws_types::request_id::RequestId for GetEndpointAttributesOutput {
 #[cfg(feature = "op_get_endpoint_attributes")]
 impl GetEndpointAttributesOutput {
     /// Creates a new builder-style object to manufacture [`GetEndpointAttributesOutput`](crate::operation::get_endpoint_attributes::GetEndpointAttributesOutput).
-    pub fn builder(
-    ) -> crate::operation::get_endpoint_attributes::builders::GetEndpointAttributesOutputBuilder
-    {
+    pub fn builder() -> crate::operation::get_endpoint_attributes::builders::GetEndpointAttributesOutputBuilder {
         crate::operation::get_endpoint_attributes::builders::GetEndpointAttributesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_endpoint_attributes")]
 /// A builder for [`GetEndpointAttributesOutput`](crate::operation::get_endpoint_attributes::GetEndpointAttributesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetEndpointAttributesOutputBuilder {
-    pub(crate) attributes: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_get_endpoint_attributes")]
@@ -87,11 +75,7 @@ impl GetEndpointAttributesOutputBuilder {
     /// <p>The device token for the iOS platform is returned in lowercase.</p>
     /// </note></li>
     /// </ul>
-    pub fn attributes(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.attributes.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.attributes = ::std::option::Option::Some(hash_map);
@@ -108,12 +92,7 @@ impl GetEndpointAttributesOutputBuilder {
     /// <p>The device token for the iOS platform is returned in lowercase.</p>
     /// </note></li>
     /// </ul>
-    pub fn set_attributes(
-        mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
-    ) -> Self {
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.attributes = input;
         self
     }
@@ -128,11 +107,7 @@ impl GetEndpointAttributesOutputBuilder {
     /// <p>The device token for the iOS platform is returned in lowercase.</p>
     /// </note></li>
     /// </ul>
-    pub fn get_attributes(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.attributes
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

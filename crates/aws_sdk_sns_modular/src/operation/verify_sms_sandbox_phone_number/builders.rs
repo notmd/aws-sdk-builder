@@ -64,7 +64,7 @@ impl VerifySMSSandboxPhoneNumberFluentBuilder {
         }
     }
     /// Access the VerifySMSSandboxPhoneNumber as a reference.
-    pub fn as_input(&self) -> &crate::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -93,11 +93,7 @@ impl VerifySMSSandboxPhoneNumberFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumber::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumber::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -110,18 +106,12 @@ impl VerifySMSSandboxPhoneNumberFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -140,18 +130,12 @@ impl VerifySMSSandboxPhoneNumberFluentBuilder {
         self.inner.get_phone_number()
     }
     /// <p>The OTP sent to the destination number from the <code>CreateSMSSandBoxPhoneNumber</code> call.</p>
-    pub fn one_time_password(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn one_time_password(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.one_time_password(input.into());
         self
     }
     /// <p>The OTP sent to the destination number from the <code>CreateSMSSandBoxPhoneNumber</code> call.</p>
-    pub fn set_one_time_password(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_one_time_password(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_one_time_password(input);
         self
     }

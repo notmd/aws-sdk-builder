@@ -52,9 +52,7 @@ impl VerificationException {
 }
 
 /// A builder for [`VerificationException`](crate::types::error::VerificationException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct VerificationExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
@@ -99,10 +97,7 @@ impl VerificationExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }
@@ -110,12 +105,7 @@ impl VerificationExceptionBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`message`](crate::types::error::builders::VerificationExceptionBuilder::message)
     /// - [`status`](crate::types::error::builders::VerificationExceptionBuilder::status)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::error::VerificationException,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::error::VerificationException, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::error::VerificationException {
             message: self.message.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

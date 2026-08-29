@@ -2,13 +2,14 @@
 #[cfg(feature = "op_get_sms_sandbox_account_status")]
 pub(crate) fn get_sms_sandbox_account_status_output_output_correct_errors(
     mut builder: crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder,
-) -> crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder{
+) -> crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder {
     if builder.is_in_sandbox.is_none() {
         builder.is_in_sandbox = Some(Default::default())
     }
     builder
 }
 
+#[cfg(any(feature = "op_list_origination_numbers", feature = "op_publish", feature = "op_publish_batch"))]
 pub(crate) fn validation_exception_correct_errors(
     mut builder: crate::types::error::builders::ValidationExceptionBuilder,
 ) -> crate::types::error::builders::ValidationExceptionBuilder {
@@ -21,13 +22,14 @@ pub(crate) fn validation_exception_correct_errors(
 #[cfg(feature = "op_list_sms_sandbox_phone_numbers")]
 pub(crate) fn list_sms_sandbox_phone_numbers_output_output_correct_errors(
     mut builder: crate::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersOutputBuilder,
-) -> crate::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersOutputBuilder{
+) -> crate::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersOutputBuilder {
     if builder.phone_numbers.is_none() {
         builder.phone_numbers = Some(Default::default())
     }
     builder
 }
 
+#[cfg(feature = "op_verify_sms_sandbox_phone_number")]
 pub(crate) fn verification_exception_correct_errors(
     mut builder: crate::types::error::builders::VerificationExceptionBuilder,
 ) -> crate::types::error::builders::VerificationExceptionBuilder {
@@ -40,6 +42,7 @@ pub(crate) fn verification_exception_correct_errors(
     builder
 }
 
+#[cfg(feature = "op_publish_batch")]
 pub(crate) fn batch_result_error_entry_correct_errors(
     mut builder: crate::types::builders::BatchResultErrorEntryBuilder,
 ) -> crate::types::builders::BatchResultErrorEntryBuilder {
@@ -55,9 +58,8 @@ pub(crate) fn batch_result_error_entry_correct_errors(
     builder
 }
 
-pub(crate) fn tag_correct_errors(
-    mut builder: crate::types::builders::TagBuilder,
-) -> crate::types::builders::TagBuilder {
+#[cfg(any(feature = "op_create_topic", feature = "op_list_tags_for_resource", feature = "op_tag_resource"))]
+pub(crate) fn tag_correct_errors(mut builder: crate::types::builders::TagBuilder) -> crate::types::builders::TagBuilder {
     if builder.key.is_none() {
         builder.key = Some(Default::default())
     }

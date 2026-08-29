@@ -64,7 +64,7 @@ impl ListEndpointsByPlatformApplicationFluentBuilder {
         }
     }
     /// Access the ListEndpointsByPlatformApplication as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,7 +83,7 @@ impl ListEndpointsByPlatformApplicationFluentBuilder {
             crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -103,43 +103,31 @@ impl ListEndpointsByPlatformApplicationFluentBuilder {
         crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput,
         crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_endpoints_by_platform_application::paginator::ListEndpointsByPlatformApplicationPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_endpoints_by_platform_application::paginator::ListEndpointsByPlatformApplicationPaginator{
+    pub fn into_paginator(self) -> crate::operation::list_endpoints_by_platform_application::paginator::ListEndpointsByPlatformApplicationPaginator {
         crate::operation::list_endpoints_by_platform_application::paginator::ListEndpointsByPlatformApplicationPaginator::new(self.handle, self.inner)
     }
     /// <p><code>PlatformApplicationArn</code> for <code>ListEndpointsByPlatformApplicationInput</code> action.</p>
-    pub fn platform_application_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn platform_application_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.platform_application_arn(input.into());
         self
     }
     /// <p><code>PlatformApplicationArn</code> for <code>ListEndpointsByPlatformApplicationInput</code> action.</p>
-    pub fn set_platform_application_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_platform_application_arn(input);
         self
     }

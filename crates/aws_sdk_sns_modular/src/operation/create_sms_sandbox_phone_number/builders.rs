@@ -64,7 +64,7 @@ impl CreateSMSSandboxPhoneNumberFluentBuilder {
         }
     }
     /// Access the CreateSMSSandboxPhoneNumber as a reference.
-    pub fn as_input(&self) -> &crate::operation::create_sms_sandbox_phone_number::builders::CreateSmsSandboxPhoneNumberInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::create_sms_sandbox_phone_number::builders::CreateSmsSandboxPhoneNumberInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -93,11 +93,7 @@ impl CreateSMSSandboxPhoneNumberFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumber::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumber::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -110,18 +106,12 @@ impl CreateSMSSandboxPhoneNumberFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -145,10 +135,7 @@ impl CreateSMSSandboxPhoneNumberFluentBuilder {
         self
     }
     /// <p>The language to use for sending the OTP. The default value is <code>en-US</code>.</p>
-    pub fn set_language_code(
-        mut self,
-        input: ::std::option::Option<crate::types::LanguageCodeString>,
-    ) -> Self {
+    pub fn set_language_code(mut self, input: ::std::option::Option<crate::types::LanguageCodeString>) -> Self {
         self.inner = self.inner.set_language_code(input);
         self
     }

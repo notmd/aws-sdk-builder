@@ -6,9 +6,7 @@ pub use crate::operation::delete_platform_application::_delete_platform_applicat
 pub use crate::operation::delete_platform_application::_delete_platform_application_output::DeletePlatformApplicationOutputBuilder;
 
 #[cfg(feature = "op_delete_platform_application")]
-impl
-    crate::operation::delete_platform_application::builders::DeletePlatformApplicationInputBuilder
-{
+impl crate::operation::delete_platform_application::builders::DeletePlatformApplicationInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -65,7 +63,7 @@ impl DeletePlatformApplicationFluentBuilder {
         }
     }
     /// Access the DeletePlatformApplication as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_platform_application::builders::DeletePlatformApplicationInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::delete_platform_application::builders::DeletePlatformApplicationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -94,11 +92,7 @@ impl DeletePlatformApplicationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_platform_application::DeletePlatformApplication::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::delete_platform_application::DeletePlatformApplication::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -111,34 +105,22 @@ impl DeletePlatformApplicationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p><code>PlatformApplicationArn</code> of platform application object to delete.</p>
-    pub fn platform_application_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn platform_application_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.platform_application_arn(input.into());
         self
     }
     /// <p><code>PlatformApplicationArn</code> of platform application object to delete.</p>
-    pub fn set_platform_application_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_platform_application_arn(input);
         self
     }

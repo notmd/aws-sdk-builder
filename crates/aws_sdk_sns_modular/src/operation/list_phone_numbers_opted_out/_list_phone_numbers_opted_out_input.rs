@@ -18,16 +18,14 @@ impl ListPhoneNumbersOptedOutInput {
 #[cfg(feature = "op_list_phone_numbers_opted_out")]
 impl ListPhoneNumbersOptedOutInput {
     /// Creates a new builder-style object to manufacture [`ListPhoneNumbersOptedOutInput`](crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutInput).
-    pub fn builder() -> crate::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutInputBuilder{
+    pub fn builder() -> crate::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutInputBuilder {
         crate::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_phone_numbers_opted_out")]
 /// A builder for [`ListPhoneNumbersOptedOutInput`](crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListPhoneNumbersOptedOutInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
@@ -55,10 +53,6 @@ impl ListPhoneNumbersOptedOutInputBuilder {
         crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutInput {
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutInput { next_token: self.next_token })
     }
 }

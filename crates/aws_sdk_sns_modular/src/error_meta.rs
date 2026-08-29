@@ -3,128 +3,190 @@
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum Error {
-    /// <p>Indicates that the user has been denied access to the requested resource.</p>
+    #[cfg(any(feature = "op_add_permission", feature = "op_check_if_phone_number_is_opted_out", feature = "op_confirm_subscription", feature = "op_create_platform_application", feature = "op_create_platform_endpoint", feature = "op_create_sms_sandbox_phone_number", feature = "op_create_topic", feature = "op_delete_endpoint", feature = "op_delete_platform_application", feature = "op_delete_sms_sandbox_phone_number", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_sms_attributes", feature = "op_get_sms_sandbox_account_status", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_platform_applications", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic", feature = "op_list_tags_for_resource", feature = "op_list_topics", feature = "op_opt_in_phone_number", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_sms_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_tag_resource", feature = "op_unsubscribe", feature = "op_untag_resource", feature = "op_verify_sms_sandbox_phone_number"))]
+/// <p>Indicates that the user has been denied access to the requested resource.</p>
     AuthorizationErrorException(crate::types::error::AuthorizationErrorException),
-    /// <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
+    #[cfg(feature = "op_publish_batch")]
+/// <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
     BatchEntryIdsNotDistinctException(crate::types::error::BatchEntryIdsNotDistinctException),
-    /// <p>The length of all the batch messages put together is more than the limit.</p>
+    #[cfg(feature = "op_publish_batch")]
+/// <p>The length of all the batch messages put together is more than the limit.</p>
     BatchRequestTooLongException(crate::types::error::BatchRequestTooLongException),
-    /// <p>Can't perform multiple operations on a tag simultaneously. Perform the operations sequentially.</p>
+    #[cfg(any(feature = "op_create_topic", feature = "op_delete_topic", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource"))]
+/// <p>Can't perform multiple operations on a tag simultaneously. Perform the operations sequentially.</p>
     ConcurrentAccessException(crate::types::error::ConcurrentAccessException),
-    /// <p>The batch request doesn't contain any entries.</p>
+    #[cfg(feature = "op_publish_batch")]
+/// <p>The batch request doesn't contain any entries.</p>
     EmptyBatchRequestException(crate::types::error::EmptyBatchRequestException),
-    /// <p>Exception error indicating endpoint disabled.</p>
+    #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+/// <p>Exception error indicating endpoint disabled.</p>
     EndpointDisabledException(crate::types::error::EndpointDisabledException),
-    /// <p>Indicates that the number of filter polices in your Amazon Web Services account exceeds the limit. To add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support Center.</p>
+    #[cfg(any(feature = "op_confirm_subscription", feature = "op_set_subscription_attributes", feature = "op_subscribe"))]
+/// <p>Indicates that the number of filter polices in your Amazon Web Services account exceeds the limit. To add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support Center.</p>
     FilterPolicyLimitExceededException(crate::types::error::FilterPolicyLimitExceededException),
-    /// <p>Indicates an internal service error.</p>
+    #[cfg(any(feature = "op_add_permission", feature = "op_check_if_phone_number_is_opted_out", feature = "op_confirm_subscription", feature = "op_create_platform_application", feature = "op_create_platform_endpoint", feature = "op_create_sms_sandbox_phone_number", feature = "op_create_topic", feature = "op_delete_endpoint", feature = "op_delete_platform_application", feature = "op_delete_sms_sandbox_phone_number", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_sms_attributes", feature = "op_get_sms_sandbox_account_status", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_platform_applications", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic", feature = "op_list_topics", feature = "op_opt_in_phone_number", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_sms_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_unsubscribe", feature = "op_verify_sms_sandbox_phone_number"))]
+/// <p>Indicates an internal service error.</p>
     InternalErrorException(crate::types::error::InternalErrorException),
-    /// <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
+    #[cfg(feature = "op_publish_batch")]
+/// <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
     InvalidBatchEntryIdException(crate::types::error::InvalidBatchEntryIdException),
-    /// <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+    #[cfg(any(feature = "op_add_permission", feature = "op_check_if_phone_number_is_opted_out", feature = "op_confirm_subscription", feature = "op_create_platform_application", feature = "op_create_platform_endpoint", feature = "op_create_sms_sandbox_phone_number", feature = "op_create_topic", feature = "op_delete_endpoint", feature = "op_delete_platform_application", feature = "op_delete_sms_sandbox_phone_number", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_sms_attributes", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_platform_applications", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic", feature = "op_list_tags_for_resource", feature = "op_list_topics", feature = "op_opt_in_phone_number", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_sms_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_tag_resource", feature = "op_unsubscribe", feature = "op_untag_resource", feature = "op_verify_sms_sandbox_phone_number"))]
+/// <p>Indicates that a request parameter does not comply with the associated constraints.</p>
     InvalidParameterException(crate::types::error::InvalidParameterException),
-    /// <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+    #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+/// <p>Indicates that a request parameter does not comply with the associated constraints.</p>
     InvalidParameterValueException(crate::types::error::InvalidParameterValueException),
-    /// <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.</p>
+    #[cfg(any(feature = "op_create_topic", feature = "op_get_data_protection_policy", feature = "op_get_topic_attributes", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_unsubscribe"))]
+/// <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.</p>
     InvalidSecurityException(crate::types::error::InvalidSecurityException),
-    /// <p>Indicates that the specified state is not a valid state for an event source.</p>
+    #[cfg(feature = "op_delete_topic")]
+/// <p>Indicates that the specified state is not a valid state for an event source.</p>
     InvalidStateException(crate::types::error::InvalidStateException),
-    /// <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
+    #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+/// <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
     KmsAccessDeniedException(crate::types::error::KmsAccessDeniedException),
-    /// <p>The request was rejected because the specified Amazon Web Services KMS key isn't enabled.</p>
+    #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+/// <p>The request was rejected because the specified Amazon Web Services KMS key isn't enabled.</p>
     KmsDisabledException(crate::types::error::KmsDisabledException),
-    /// <p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of Amazon Web Services KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+    #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+/// <p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of Amazon Web Services KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
     KmsInvalidStateException(crate::types::error::KmsInvalidStateException),
-    /// <p>The request was rejected because the specified entity or resource can't be found.</p>
+    #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+/// <p>The request was rejected because the specified entity or resource can't be found.</p>
     KmsNotFoundException(crate::types::error::KmsNotFoundException),
-    /// <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
+    #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+/// <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
     KmsOptInRequired(crate::types::error::KmsOptInRequired),
-    /// <p>The request was denied due to request throttling. For more information about throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in the <i>Key Management Service Developer Guide.</i></p>
+    #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+/// <p>The request was denied due to request throttling. For more information about throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in the <i>Key Management Service Developer Guide.</i></p>
     KmsThrottlingException(crate::types::error::KmsThrottlingException),
-    /// <p>Indicates that the requested resource does not exist.</p>
+    #[cfg(any(feature = "op_add_permission", feature = "op_confirm_subscription", feature = "op_create_platform_endpoint", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_subscriptions_by_topic", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_unsubscribe"))]
+/// <p>Indicates that the requested resource does not exist.</p>
     NotFoundException(crate::types::error::NotFoundException),
-    /// <p>Indicates that the specified phone number opted out of receiving SMS messages from your Amazon Web Services account. You can't send SMS messages to phone numbers that opt out.</p>
+    #[cfg(feature = "op_create_sms_sandbox_phone_number")]
+/// <p>Indicates that the specified phone number opted out of receiving SMS messages from your Amazon Web Services account. You can't send SMS messages to phone numbers that opt out.</p>
     OptedOutException(crate::types::error::OptedOutException),
-    /// <p>Exception error indicating platform application disabled.</p>
+    #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+/// <p>Exception error indicating platform application disabled.</p>
     PlatformApplicationDisabledException(crate::types::error::PlatformApplicationDisabledException),
-    /// <p>Indicates that the request parameter has exceeded the maximum number of concurrent message replays.</p>
+    #[cfg(any(feature = "op_confirm_subscription", feature = "op_set_subscription_attributes", feature = "op_subscribe"))]
+/// <p>Indicates that the request parameter has exceeded the maximum number of concurrent message replays.</p>
     ReplayLimitExceededException(crate::types::error::ReplayLimitExceededException),
-    /// <p>Can’t perform the action on the specified resource. Make sure that the resource exists.</p>
+    #[cfg(any(feature = "op_delete_sms_sandbox_phone_number", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_verify_sms_sandbox_phone_number"))]
+/// <p>Can’t perform the action on the specified resource. Make sure that the resource exists.</p>
     ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
-    /// <p>A tag has been added to a resource with the same ARN as a deleted resource. Wait a short while and then retry the operation.</p>
+    #[cfg(any(feature = "op_create_topic", feature = "op_delete_topic", feature = "op_tag_resource", feature = "op_untag_resource"))]
+/// <p>A tag has been added to a resource with the same ARN as a deleted resource. Wait a short while and then retry the operation.</p>
     StaleTagException(crate::types::error::StaleTagException),
-    /// <p>Indicates that the customer already owns the maximum allowed number of subscriptions.</p>
+    #[cfg(any(feature = "op_confirm_subscription", feature = "op_subscribe"))]
+/// <p>Indicates that the customer already owns the maximum allowed number of subscriptions.</p>
     SubscriptionLimitExceededException(crate::types::error::SubscriptionLimitExceededException),
-    /// <p>Can't add more than 50 tags to a topic.</p>
+    #[cfg(any(feature = "op_create_topic", feature = "op_tag_resource", feature = "op_untag_resource"))]
+/// <p>Can't add more than 50 tags to a topic.</p>
     TagLimitExceededException(crate::types::error::TagLimitExceededException),
-    /// <p>The request doesn't comply with the IAM tag policy. Correct your request and then retry it.</p>
+    #[cfg(any(feature = "op_create_topic", feature = "op_delete_topic", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource"))]
+/// <p>The request doesn't comply with the IAM tag policy. Correct your request and then retry it.</p>
     TagPolicyException(crate::types::error::TagPolicyException),
-    /// <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+    #[cfg(any(feature = "op_check_if_phone_number_is_opted_out", feature = "op_create_sms_sandbox_phone_number", feature = "op_delete_sms_sandbox_phone_number", feature = "op_get_sms_attributes", feature = "op_get_sms_sandbox_account_status", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_opt_in_phone_number", feature = "op_set_sms_attributes", feature = "op_verify_sms_sandbox_phone_number"))]
+/// <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
     ThrottledException(crate::types::error::ThrottledException),
-    /// <p>The batch request contains more entries than permissible (more than 10).</p>
-    TooManyEntriesInBatchRequestException(
-        crate::types::error::TooManyEntriesInBatchRequestException,
-    ),
-    /// <p>Indicates that the customer already owns the maximum allowed number of topics.</p>
+    #[cfg(feature = "op_publish_batch")]
+/// <p>The batch request contains more entries than permissible (more than 10).</p>
+    TooManyEntriesInBatchRequestException(crate::types::error::TooManyEntriesInBatchRequestException),
+    #[cfg(feature = "op_create_topic")]
+/// <p>Indicates that the customer already owns the maximum allowed number of topics.</p>
     TopicLimitExceededException(crate::types::error::TopicLimitExceededException),
-    /// <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+    #[cfg(any(feature = "op_create_sms_sandbox_phone_number", feature = "op_delete_sms_sandbox_phone_number"))]
+/// <p>Indicates that a request parameter does not comply with the associated constraints.</p>
     UserErrorException(crate::types::error::UserErrorException),
-    /// <p>Indicates that a parameter in the request is invalid.</p>
+    #[cfg(any(feature = "op_list_origination_numbers", feature = "op_publish", feature = "op_publish_batch"))]
+/// <p>Indicates that a parameter in the request is invalid.</p>
     ValidationException(crate::types::error::ValidationException),
-    /// <p>Indicates that the one-time password (OTP) used for verification is invalid.</p>
+    #[cfg(feature = "op_verify_sms_sandbox_phone_number")]
+/// <p>Indicates that the one-time password (OTP) used for verification is invalid.</p>
     VerificationException(crate::types::error::VerificationException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(
-        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error."
-    )]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Error::AuthorizationErrorException(inner) => inner.fmt(f),
-            Error::BatchEntryIdsNotDistinctException(inner) => inner.fmt(f),
-            Error::BatchRequestTooLongException(inner) => inner.fmt(f),
-            Error::ConcurrentAccessException(inner) => inner.fmt(f),
-            Error::EmptyBatchRequestException(inner) => inner.fmt(f),
-            Error::EndpointDisabledException(inner) => inner.fmt(f),
-            Error::FilterPolicyLimitExceededException(inner) => inner.fmt(f),
-            Error::InternalErrorException(inner) => inner.fmt(f),
-            Error::InvalidBatchEntryIdException(inner) => inner.fmt(f),
-            Error::InvalidParameterException(inner) => inner.fmt(f),
-            Error::InvalidParameterValueException(inner) => inner.fmt(f),
-            Error::InvalidSecurityException(inner) => inner.fmt(f),
-            Error::InvalidStateException(inner) => inner.fmt(f),
-            Error::KmsAccessDeniedException(inner) => inner.fmt(f),
-            Error::KmsDisabledException(inner) => inner.fmt(f),
-            Error::KmsInvalidStateException(inner) => inner.fmt(f),
-            Error::KmsNotFoundException(inner) => inner.fmt(f),
-            Error::KmsOptInRequired(inner) => inner.fmt(f),
-            Error::KmsThrottlingException(inner) => inner.fmt(f),
-            Error::NotFoundException(inner) => inner.fmt(f),
-            Error::OptedOutException(inner) => inner.fmt(f),
-            Error::PlatformApplicationDisabledException(inner) => inner.fmt(f),
-            Error::ReplayLimitExceededException(inner) => inner.fmt(f),
-            Error::ResourceNotFoundException(inner) => inner.fmt(f),
-            Error::StaleTagException(inner) => inner.fmt(f),
-            Error::SubscriptionLimitExceededException(inner) => inner.fmt(f),
-            Error::TagLimitExceededException(inner) => inner.fmt(f),
-            Error::TagPolicyException(inner) => inner.fmt(f),
-            Error::ThrottledException(inner) => inner.fmt(f),
-            Error::TooManyEntriesInBatchRequestException(inner) => inner.fmt(f),
-            Error::TopicLimitExceededException(inner) => inner.fmt(f),
-            Error::UserErrorException(inner) => inner.fmt(f),
-            Error::ValidationException(inner) => inner.fmt(f),
-            Error::VerificationException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_add_permission", feature = "op_check_if_phone_number_is_opted_out", feature = "op_confirm_subscription", feature = "op_create_platform_application", feature = "op_create_platform_endpoint", feature = "op_create_sms_sandbox_phone_number", feature = "op_create_topic", feature = "op_delete_endpoint", feature = "op_delete_platform_application", feature = "op_delete_sms_sandbox_phone_number", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_sms_attributes", feature = "op_get_sms_sandbox_account_status", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_platform_applications", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic", feature = "op_list_tags_for_resource", feature = "op_list_topics", feature = "op_opt_in_phone_number", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_sms_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_tag_resource", feature = "op_unsubscribe", feature = "op_untag_resource", feature = "op_verify_sms_sandbox_phone_number"))]
+Error::AuthorizationErrorException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_publish_batch")]
+Error::BatchEntryIdsNotDistinctException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_publish_batch")]
+Error::BatchRequestTooLongException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_topic", feature = "op_delete_topic", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource"))]
+Error::ConcurrentAccessException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_publish_batch")]
+Error::EmptyBatchRequestException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Error::EndpointDisabledException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_confirm_subscription", feature = "op_set_subscription_attributes", feature = "op_subscribe"))]
+Error::FilterPolicyLimitExceededException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_add_permission", feature = "op_check_if_phone_number_is_opted_out", feature = "op_confirm_subscription", feature = "op_create_platform_application", feature = "op_create_platform_endpoint", feature = "op_create_sms_sandbox_phone_number", feature = "op_create_topic", feature = "op_delete_endpoint", feature = "op_delete_platform_application", feature = "op_delete_sms_sandbox_phone_number", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_sms_attributes", feature = "op_get_sms_sandbox_account_status", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_platform_applications", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic", feature = "op_list_topics", feature = "op_opt_in_phone_number", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_sms_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_unsubscribe", feature = "op_verify_sms_sandbox_phone_number"))]
+Error::InternalErrorException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_publish_batch")]
+Error::InvalidBatchEntryIdException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_add_permission", feature = "op_check_if_phone_number_is_opted_out", feature = "op_confirm_subscription", feature = "op_create_platform_application", feature = "op_create_platform_endpoint", feature = "op_create_sms_sandbox_phone_number", feature = "op_create_topic", feature = "op_delete_endpoint", feature = "op_delete_platform_application", feature = "op_delete_sms_sandbox_phone_number", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_sms_attributes", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_platform_applications", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic", feature = "op_list_tags_for_resource", feature = "op_list_topics", feature = "op_opt_in_phone_number", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_sms_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_tag_resource", feature = "op_unsubscribe", feature = "op_untag_resource", feature = "op_verify_sms_sandbox_phone_number"))]
+Error::InvalidParameterException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Error::InvalidParameterValueException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_topic", feature = "op_get_data_protection_policy", feature = "op_get_topic_attributes", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_unsubscribe"))]
+Error::InvalidSecurityException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_delete_topic")]
+Error::InvalidStateException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Error::KmsAccessDeniedException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Error::KmsDisabledException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Error::KmsInvalidStateException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Error::KmsNotFoundException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Error::KmsOptInRequired(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Error::KmsThrottlingException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_add_permission", feature = "op_confirm_subscription", feature = "op_create_platform_endpoint", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_subscriptions_by_topic", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_unsubscribe"))]
+Error::NotFoundException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_create_sms_sandbox_phone_number")]
+Error::OptedOutException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Error::PlatformApplicationDisabledException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_confirm_subscription", feature = "op_set_subscription_attributes", feature = "op_subscribe"))]
+Error::ReplayLimitExceededException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_delete_sms_sandbox_phone_number", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_verify_sms_sandbox_phone_number"))]
+Error::ResourceNotFoundException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_topic", feature = "op_delete_topic", feature = "op_tag_resource", feature = "op_untag_resource"))]
+Error::StaleTagException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_confirm_subscription", feature = "op_subscribe"))]
+Error::SubscriptionLimitExceededException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_topic", feature = "op_tag_resource", feature = "op_untag_resource"))]
+Error::TagLimitExceededException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_topic", feature = "op_delete_topic", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource"))]
+Error::TagPolicyException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_check_if_phone_number_is_opted_out", feature = "op_create_sms_sandbox_phone_number", feature = "op_delete_sms_sandbox_phone_number", feature = "op_get_sms_attributes", feature = "op_get_sms_sandbox_account_status", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_opt_in_phone_number", feature = "op_set_sms_attributes", feature = "op_verify_sms_sandbox_phone_number"))]
+Error::ThrottledException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_publish_batch")]
+Error::TooManyEntriesInBatchRequestException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_create_topic")]
+Error::TopicLimitExceededException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_sms_sandbox_phone_number", feature = "op_delete_sms_sandbox_phone_number"))]
+Error::UserErrorException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_list_origination_numbers", feature = "op_publish", feature = "op_publish_batch"))]
+Error::ValidationException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_verify_sms_sandbox_phone_number")]
+Error::VerificationException(inner) => inner.fmt(f),
             Error::Unhandled(_) => {
-                if let ::std::option::Option::Some(code) =
-                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
-                {
+                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -144,65 +206,86 @@ impl From<::aws_smithy_types::error::operation::BuildError> for Error {
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
     fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
         match self {
-            Self::AuthorizationErrorException(inner) => inner.meta(),
-            Self::BatchEntryIdsNotDistinctException(inner) => inner.meta(),
-            Self::BatchRequestTooLongException(inner) => inner.meta(),
-            Self::ConcurrentAccessException(inner) => inner.meta(),
-            Self::EmptyBatchRequestException(inner) => inner.meta(),
-            Self::EndpointDisabledException(inner) => inner.meta(),
-            Self::FilterPolicyLimitExceededException(inner) => inner.meta(),
-            Self::InternalErrorException(inner) => inner.meta(),
-            Self::InvalidBatchEntryIdException(inner) => inner.meta(),
-            Self::InvalidParameterException(inner) => inner.meta(),
-            Self::InvalidParameterValueException(inner) => inner.meta(),
-            Self::InvalidSecurityException(inner) => inner.meta(),
-            Self::InvalidStateException(inner) => inner.meta(),
-            Self::KmsAccessDeniedException(inner) => inner.meta(),
-            Self::KmsDisabledException(inner) => inner.meta(),
-            Self::KmsInvalidStateException(inner) => inner.meta(),
-            Self::KmsNotFoundException(inner) => inner.meta(),
-            Self::KmsOptInRequired(inner) => inner.meta(),
-            Self::KmsThrottlingException(inner) => inner.meta(),
-            Self::NotFoundException(inner) => inner.meta(),
-            Self::OptedOutException(inner) => inner.meta(),
-            Self::PlatformApplicationDisabledException(inner) => inner.meta(),
-            Self::ReplayLimitExceededException(inner) => inner.meta(),
-            Self::ResourceNotFoundException(inner) => inner.meta(),
-            Self::StaleTagException(inner) => inner.meta(),
-            Self::SubscriptionLimitExceededException(inner) => inner.meta(),
-            Self::TagLimitExceededException(inner) => inner.meta(),
-            Self::TagPolicyException(inner) => inner.meta(),
-            Self::ThrottledException(inner) => inner.meta(),
-            Self::TooManyEntriesInBatchRequestException(inner) => inner.meta(),
-            Self::TopicLimitExceededException(inner) => inner.meta(),
-            Self::UserErrorException(inner) => inner.meta(),
-            Self::ValidationException(inner) => inner.meta(),
-            Self::VerificationException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_check_if_phone_number_is_opted_out", feature = "op_confirm_subscription", feature = "op_create_platform_application", feature = "op_create_platform_endpoint", feature = "op_create_sms_sandbox_phone_number", feature = "op_create_topic", feature = "op_delete_endpoint", feature = "op_delete_platform_application", feature = "op_delete_sms_sandbox_phone_number", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_sms_attributes", feature = "op_get_sms_sandbox_account_status", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_platform_applications", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic", feature = "op_list_tags_for_resource", feature = "op_list_topics", feature = "op_opt_in_phone_number", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_sms_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_tag_resource", feature = "op_unsubscribe", feature = "op_untag_resource", feature = "op_verify_sms_sandbox_phone_number"))]
+Self::AuthorizationErrorException(inner) => inner.meta(),
+            #[cfg(feature = "op_publish_batch")]
+Self::BatchEntryIdsNotDistinctException(inner) => inner.meta(),
+            #[cfg(feature = "op_publish_batch")]
+Self::BatchRequestTooLongException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_topic", feature = "op_delete_topic", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource"))]
+Self::ConcurrentAccessException(inner) => inner.meta(),
+            #[cfg(feature = "op_publish_batch")]
+Self::EmptyBatchRequestException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Self::EndpointDisabledException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_confirm_subscription", feature = "op_set_subscription_attributes", feature = "op_subscribe"))]
+Self::FilterPolicyLimitExceededException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_check_if_phone_number_is_opted_out", feature = "op_confirm_subscription", feature = "op_create_platform_application", feature = "op_create_platform_endpoint", feature = "op_create_sms_sandbox_phone_number", feature = "op_create_topic", feature = "op_delete_endpoint", feature = "op_delete_platform_application", feature = "op_delete_sms_sandbox_phone_number", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_sms_attributes", feature = "op_get_sms_sandbox_account_status", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_platform_applications", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic", feature = "op_list_topics", feature = "op_opt_in_phone_number", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_sms_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_unsubscribe", feature = "op_verify_sms_sandbox_phone_number"))]
+Self::InternalErrorException(inner) => inner.meta(),
+            #[cfg(feature = "op_publish_batch")]
+Self::InvalidBatchEntryIdException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_check_if_phone_number_is_opted_out", feature = "op_confirm_subscription", feature = "op_create_platform_application", feature = "op_create_platform_endpoint", feature = "op_create_sms_sandbox_phone_number", feature = "op_create_topic", feature = "op_delete_endpoint", feature = "op_delete_platform_application", feature = "op_delete_sms_sandbox_phone_number", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_sms_attributes", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_platform_applications", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic", feature = "op_list_tags_for_resource", feature = "op_list_topics", feature = "op_opt_in_phone_number", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_sms_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_tag_resource", feature = "op_unsubscribe", feature = "op_untag_resource", feature = "op_verify_sms_sandbox_phone_number"))]
+Self::InvalidParameterException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Self::InvalidParameterValueException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_topic", feature = "op_get_data_protection_policy", feature = "op_get_topic_attributes", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_unsubscribe"))]
+Self::InvalidSecurityException(inner) => inner.meta(),
+            #[cfg(feature = "op_delete_topic")]
+Self::InvalidStateException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Self::KmsAccessDeniedException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Self::KmsDisabledException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Self::KmsInvalidStateException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Self::KmsNotFoundException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Self::KmsOptInRequired(inner) => inner.meta(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Self::KmsThrottlingException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_confirm_subscription", feature = "op_create_platform_endpoint", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_subscriptions_by_topic", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_unsubscribe"))]
+Self::NotFoundException(inner) => inner.meta(),
+            #[cfg(feature = "op_create_sms_sandbox_phone_number")]
+Self::OptedOutException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Self::PlatformApplicationDisabledException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_confirm_subscription", feature = "op_set_subscription_attributes", feature = "op_subscribe"))]
+Self::ReplayLimitExceededException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_delete_sms_sandbox_phone_number", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_verify_sms_sandbox_phone_number"))]
+Self::ResourceNotFoundException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_topic", feature = "op_delete_topic", feature = "op_tag_resource", feature = "op_untag_resource"))]
+Self::StaleTagException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_confirm_subscription", feature = "op_subscribe"))]
+Self::SubscriptionLimitExceededException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_topic", feature = "op_tag_resource", feature = "op_untag_resource"))]
+Self::TagLimitExceededException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_topic", feature = "op_delete_topic", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource"))]
+Self::TagPolicyException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_check_if_phone_number_is_opted_out", feature = "op_create_sms_sandbox_phone_number", feature = "op_delete_sms_sandbox_phone_number", feature = "op_get_sms_attributes", feature = "op_get_sms_sandbox_account_status", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_opt_in_phone_number", feature = "op_set_sms_attributes", feature = "op_verify_sms_sandbox_phone_number"))]
+Self::ThrottledException(inner) => inner.meta(),
+            #[cfg(feature = "op_publish_batch")]
+Self::TooManyEntriesInBatchRequestException(inner) => inner.meta(),
+            #[cfg(feature = "op_create_topic")]
+Self::TopicLimitExceededException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_sms_sandbox_phone_number", feature = "op_delete_sms_sandbox_phone_number"))]
+Self::UserErrorException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_list_origination_numbers", feature = "op_publish", feature = "op_publish_batch"))]
+Self::ValidationException(inner) => inner.meta(),
+            #[cfg(feature = "op_verify_sms_sandbox_phone_number")]
+Self::VerificationException(inner) => inner.meta(),
             Self::Unhandled(inner) => &inner.meta,
         }
     }
 }
 #[cfg(feature = "op_add_permission")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::add_permission::AddPermissionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_permission::AddPermissionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::add_permission::AddPermissionError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_permission::AddPermissionError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -214,21 +297,11 @@ where
 impl From<crate::operation::add_permission::AddPermissionError> for Error {
     fn from(err: crate::operation::add_permission::AddPermissionError) -> Self {
         match err {
-            crate::operation::add_permission::AddPermissionError::AuthorizationErrorException(
-                inner,
-            ) => Error::AuthorizationErrorException(inner),
-            crate::operation::add_permission::AddPermissionError::InternalErrorException(inner) => {
-                Error::InternalErrorException(inner)
-            }
-            crate::operation::add_permission::AddPermissionError::InvalidParameterException(
-                inner,
-            ) => Error::InvalidParameterException(inner),
-            crate::operation::add_permission::AddPermissionError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::add_permission::AddPermissionError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::add_permission::AddPermissionError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            crate::operation::add_permission::AddPermissionError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::add_permission::AddPermissionError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::add_permission::AddPermissionError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::add_permission::AddPermissionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -250,9 +323,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -261,12 +332,8 @@ where
     }
 }
 #[cfg(feature = "op_check_if_phone_number_is_opted_out")]
-impl From<crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError>
-    for Error
-{
-    fn from(
-        err: crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError,
-    ) -> Self {
+impl From<crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError> for Error {
+    fn from(err: crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError) -> Self {
         match err {
             crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
@@ -285,26 +352,13 @@ impl From<crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumb
     }
 }
 #[cfg(feature = "op_confirm_subscription")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::confirm_subscription::ConfirmSubscriptionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::confirm_subscription::ConfirmSubscriptionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::confirm_subscription::ConfirmSubscriptionError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::confirm_subscription::ConfirmSubscriptionError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -338,26 +392,16 @@ impl From<crate::operation::confirm_subscription::ConfirmSubscriptionError> for 
     }
 }
 #[cfg(feature = "op_create_platform_application")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_platform_application::CreatePlatformApplicationError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_platform_application::CreatePlatformApplicationError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_platform_application::CreatePlatformApplicationError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_platform_application::CreatePlatformApplicationError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -367,9 +411,7 @@ where
 }
 #[cfg(feature = "op_create_platform_application")]
 impl From<crate::operation::create_platform_application::CreatePlatformApplicationError> for Error {
-    fn from(
-        err: crate::operation::create_platform_application::CreatePlatformApplicationError,
-    ) -> Self {
+    fn from(err: crate::operation::create_platform_application::CreatePlatformApplicationError) -> Self {
         match err {
             crate::operation::create_platform_application::CreatePlatformApplicationError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
@@ -385,26 +427,15 @@ impl From<crate::operation::create_platform_application::CreatePlatformApplicati
     }
 }
 #[cfg(feature = "op_create_platform_endpoint")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_platform_endpoint::CreatePlatformEndpointError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_platform_endpoint::CreatePlatformEndpointError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_platform_endpoint::CreatePlatformEndpointError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_platform_endpoint::CreatePlatformEndpointError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -432,12 +463,8 @@ impl From<crate::operation::create_platform_endpoint::CreatePlatformEndpointErro
 }
 #[cfg(feature = "op_create_sms_sandbox_phone_number")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -448,9 +475,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -459,12 +484,8 @@ where
     }
 }
 #[cfg(feature = "op_create_sms_sandbox_phone_number")]
-impl From<crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError>
-    for Error
-{
-    fn from(
-        err: crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
-    ) -> Self {
+impl From<crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError> for Error {
+    fn from(err: crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError) -> Self {
         match err {
             crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
@@ -489,26 +510,13 @@ impl From<crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPho
     }
 }
 #[cfg(feature = "op_create_topic")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_topic::CreateTopicError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_topic::CreateTopicError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_topic::CreateTopicError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_topic::CreateTopicError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -520,60 +528,27 @@ where
 impl From<crate::operation::create_topic::CreateTopicError> for Error {
     fn from(err: crate::operation::create_topic::CreateTopicError) -> Self {
         match err {
-            crate::operation::create_topic::CreateTopicError::AuthorizationErrorException(
-                inner,
-            ) => Error::AuthorizationErrorException(inner),
-            crate::operation::create_topic::CreateTopicError::ConcurrentAccessException(inner) => {
-                Error::ConcurrentAccessException(inner)
-            }
-            crate::operation::create_topic::CreateTopicError::InternalErrorException(inner) => {
-                Error::InternalErrorException(inner)
-            }
-            crate::operation::create_topic::CreateTopicError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
-            crate::operation::create_topic::CreateTopicError::InvalidSecurityException(inner) => {
-                Error::InvalidSecurityException(inner)
-            }
-            crate::operation::create_topic::CreateTopicError::StaleTagException(inner) => {
-                Error::StaleTagException(inner)
-            }
-            crate::operation::create_topic::CreateTopicError::TagLimitExceededException(inner) => {
-                Error::TagLimitExceededException(inner)
-            }
-            crate::operation::create_topic::CreateTopicError::TagPolicyException(inner) => {
-                Error::TagPolicyException(inner)
-            }
-            crate::operation::create_topic::CreateTopicError::TopicLimitExceededException(
-                inner,
-            ) => Error::TopicLimitExceededException(inner),
-            crate::operation::create_topic::CreateTopicError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_topic::CreateTopicError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            crate::operation::create_topic::CreateTopicError::ConcurrentAccessException(inner) => Error::ConcurrentAccessException(inner),
+            crate::operation::create_topic::CreateTopicError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::create_topic::CreateTopicError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::create_topic::CreateTopicError::InvalidSecurityException(inner) => Error::InvalidSecurityException(inner),
+            crate::operation::create_topic::CreateTopicError::StaleTagException(inner) => Error::StaleTagException(inner),
+            crate::operation::create_topic::CreateTopicError::TagLimitExceededException(inner) => Error::TagLimitExceededException(inner),
+            crate::operation::create_topic::CreateTopicError::TagPolicyException(inner) => Error::TagPolicyException(inner),
+            crate::operation::create_topic::CreateTopicError::TopicLimitExceededException(inner) => Error::TopicLimitExceededException(inner),
+            crate::operation::create_topic::CreateTopicError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_delete_endpoint")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_endpoint::DeleteEndpointError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_endpoint::DeleteEndpointError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_endpoint::DeleteEndpointError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_endpoint::DeleteEndpointError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -585,42 +560,24 @@ where
 impl From<crate::operation::delete_endpoint::DeleteEndpointError> for Error {
     fn from(err: crate::operation::delete_endpoint::DeleteEndpointError) -> Self {
         match err {
-            crate::operation::delete_endpoint::DeleteEndpointError::AuthorizationErrorException(
-                inner,
-            ) => Error::AuthorizationErrorException(inner),
-            crate::operation::delete_endpoint::DeleteEndpointError::InternalErrorException(
-                inner,
-            ) => Error::InternalErrorException(inner),
-            crate::operation::delete_endpoint::DeleteEndpointError::InvalidParameterException(
-                inner,
-            ) => Error::InvalidParameterException(inner),
-            crate::operation::delete_endpoint::DeleteEndpointError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_endpoint::DeleteEndpointError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            crate::operation::delete_endpoint::DeleteEndpointError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::delete_endpoint::DeleteEndpointError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::delete_endpoint::DeleteEndpointError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_delete_platform_application")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_platform_application::DeletePlatformApplicationError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_platform_application::DeletePlatformApplicationError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_platform_application::DeletePlatformApplicationError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_platform_application::DeletePlatformApplicationError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -630,9 +587,7 @@ where
 }
 #[cfg(feature = "op_delete_platform_application")]
 impl From<crate::operation::delete_platform_application::DeletePlatformApplicationError> for Error {
-    fn from(
-        err: crate::operation::delete_platform_application::DeletePlatformApplicationError,
-    ) -> Self {
+    fn from(err: crate::operation::delete_platform_application::DeletePlatformApplicationError) -> Self {
         match err {
             crate::operation::delete_platform_application::DeletePlatformApplicationError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
@@ -649,12 +604,8 @@ impl From<crate::operation::delete_platform_application::DeletePlatformApplicati
 }
 #[cfg(feature = "op_delete_sms_sandbox_phone_number")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -665,9 +616,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -676,12 +625,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_sms_sandbox_phone_number")]
-impl From<crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError>
-    for Error
-{
-    fn from(
-        err: crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
-    ) -> Self {
+impl From<crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError> for Error {
+    fn from(err: crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError) -> Self {
         match err {
             crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
@@ -706,26 +651,13 @@ impl From<crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPho
     }
 }
 #[cfg(feature = "op_delete_topic")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_topic::DeleteTopicError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_topic::DeleteTopicError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_topic::DeleteTopicError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_topic::DeleteTopicError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -737,57 +669,29 @@ where
 impl From<crate::operation::delete_topic::DeleteTopicError> for Error {
     fn from(err: crate::operation::delete_topic::DeleteTopicError) -> Self {
         match err {
-            crate::operation::delete_topic::DeleteTopicError::AuthorizationErrorException(
-                inner,
-            ) => Error::AuthorizationErrorException(inner),
-            crate::operation::delete_topic::DeleteTopicError::ConcurrentAccessException(inner) => {
-                Error::ConcurrentAccessException(inner)
-            }
-            crate::operation::delete_topic::DeleteTopicError::InternalErrorException(inner) => {
-                Error::InternalErrorException(inner)
-            }
-            crate::operation::delete_topic::DeleteTopicError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
-            crate::operation::delete_topic::DeleteTopicError::InvalidStateException(inner) => {
-                Error::InvalidStateException(inner)
-            }
-            crate::operation::delete_topic::DeleteTopicError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::delete_topic::DeleteTopicError::StaleTagException(inner) => {
-                Error::StaleTagException(inner)
-            }
-            crate::operation::delete_topic::DeleteTopicError::TagPolicyException(inner) => {
-                Error::TagPolicyException(inner)
-            }
-            crate::operation::delete_topic::DeleteTopicError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_topic::DeleteTopicError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            crate::operation::delete_topic::DeleteTopicError::ConcurrentAccessException(inner) => Error::ConcurrentAccessException(inner),
+            crate::operation::delete_topic::DeleteTopicError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::delete_topic::DeleteTopicError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::delete_topic::DeleteTopicError::InvalidStateException(inner) => Error::InvalidStateException(inner),
+            crate::operation::delete_topic::DeleteTopicError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::delete_topic::DeleteTopicError::StaleTagException(inner) => Error::StaleTagException(inner),
+            crate::operation::delete_topic::DeleteTopicError::TagPolicyException(inner) => Error::TagPolicyException(inner),
+            crate::operation::delete_topic::DeleteTopicError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_data_protection_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_data_protection_policy::GetDataProtectionPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_data_protection_policy::GetDataProtectionPolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_data_protection_policy::GetDataProtectionPolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_data_protection_policy::GetDataProtectionPolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -797,9 +701,7 @@ where
 }
 #[cfg(feature = "op_get_data_protection_policy")]
 impl From<crate::operation::get_data_protection_policy::GetDataProtectionPolicyError> for Error {
-    fn from(
-        err: crate::operation::get_data_protection_policy::GetDataProtectionPolicyError,
-    ) -> Self {
+    fn from(err: crate::operation::get_data_protection_policy::GetDataProtectionPolicyError) -> Self {
         match err {
             crate::operation::get_data_protection_policy::GetDataProtectionPolicyError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
@@ -819,26 +721,15 @@ impl From<crate::operation::get_data_protection_policy::GetDataProtectionPolicyE
     }
 }
 #[cfg(feature = "op_get_endpoint_attributes")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_endpoint_attributes::GetEndpointAttributesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_endpoint_attributes::GetEndpointAttributesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_endpoint_attributes::GetEndpointAttributesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_endpoint_attributes::GetEndpointAttributesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -911,26 +802,13 @@ impl From<crate::operation::get_platform_application_attributes::GetPlatformAppl
     }
 }
 #[cfg(feature = "op_get_sms_attributes")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_sms_attributes::GetSMSAttributesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_sms_attributes::GetSMSAttributesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_sms_attributes::GetSMSAttributesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_sms_attributes::GetSMSAttributesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -953,26 +831,16 @@ impl From<crate::operation::get_sms_attributes::GetSMSAttributesError> for Error
     }
 }
 #[cfg(feature = "op_get_sms_sandbox_account_status")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -981,12 +849,8 @@ where
     }
 }
 #[cfg(feature = "op_get_sms_sandbox_account_status")]
-impl From<crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
-    ) -> Self {
+impl From<crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError> for Error {
+    fn from(err: crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError) -> Self {
         match err {
             crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
@@ -1002,26 +866,16 @@ impl From<crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccount
     }
 }
 #[cfg(feature = "op_get_subscription_attributes")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_subscription_attributes::GetSubscriptionAttributesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_subscription_attributes::GetSubscriptionAttributesError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_subscription_attributes::GetSubscriptionAttributesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_subscription_attributes::GetSubscriptionAttributesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1031,9 +885,7 @@ where
 }
 #[cfg(feature = "op_get_subscription_attributes")]
 impl From<crate::operation::get_subscription_attributes::GetSubscriptionAttributesError> for Error {
-    fn from(
-        err: crate::operation::get_subscription_attributes::GetSubscriptionAttributesError,
-    ) -> Self {
+    fn from(err: crate::operation::get_subscription_attributes::GetSubscriptionAttributesError) -> Self {
         match err {
             crate::operation::get_subscription_attributes::GetSubscriptionAttributesError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
@@ -1052,26 +904,13 @@ impl From<crate::operation::get_subscription_attributes::GetSubscriptionAttribut
     }
 }
 #[cfg(feature = "op_get_topic_attributes")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_topic_attributes::GetTopicAttributesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_topic_attributes::GetTopicAttributesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_topic_attributes::GetTopicAttributesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_topic_attributes::GetTopicAttributesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1147,26 +986,15 @@ impl From<crate::operation::list_endpoints_by_platform_application::ListEndpoint
     }
 }
 #[cfg(feature = "op_list_origination_numbers")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_origination_numbers::ListOriginationNumbersError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_origination_numbers::ListOriginationNumbersError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_origination_numbers::ListOriginationNumbersError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_origination_numbers::ListOriginationNumbersError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1194,26 +1022,16 @@ impl From<crate::operation::list_origination_numbers::ListOriginationNumbersErro
     }
 }
 #[cfg(feature = "op_list_phone_numbers_opted_out")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1223,9 +1041,7 @@ where
 }
 #[cfg(feature = "op_list_phone_numbers_opted_out")]
 impl From<crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError> for Error {
-    fn from(
-        err: crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError,
-    ) -> Self {
+    fn from(err: crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError) -> Self {
         match err {
             crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
@@ -1244,26 +1060,16 @@ impl From<crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedO
     }
 }
 #[cfg(feature = "op_list_platform_applications")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_platform_applications::ListPlatformApplicationsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_platform_applications::ListPlatformApplicationsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_platform_applications::ListPlatformApplicationsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_platform_applications::ListPlatformApplicationsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1273,9 +1079,7 @@ where
 }
 #[cfg(feature = "op_list_platform_applications")]
 impl From<crate::operation::list_platform_applications::ListPlatformApplicationsError> for Error {
-    fn from(
-        err: crate::operation::list_platform_applications::ListPlatformApplicationsError,
-    ) -> Self {
+    fn from(err: crate::operation::list_platform_applications::ListPlatformApplicationsError) -> Self {
         match err {
             crate::operation::list_platform_applications::ListPlatformApplicationsError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
@@ -1291,26 +1095,16 @@ impl From<crate::operation::list_platform_applications::ListPlatformApplications
     }
 }
 #[cfg(feature = "op_list_sms_sandbox_phone_numbers")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1319,12 +1113,8 @@ where
     }
 }
 #[cfg(feature = "op_list_sms_sandbox_phone_numbers")]
-impl From<crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
-    ) -> Self {
+impl From<crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError> for Error {
+    fn from(err: crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError) -> Self {
         match err {
             crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
@@ -1346,26 +1136,13 @@ impl From<crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneN
     }
 }
 #[cfg(feature = "op_list_subscriptions")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_subscriptions::ListSubscriptionsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_subscriptions::ListSubscriptionsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_subscriptions::ListSubscriptionsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_subscriptions::ListSubscriptionsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1387,26 +1164,16 @@ impl From<crate::operation::list_subscriptions::ListSubscriptionsError> for Erro
     }
 }
 #[cfg(feature = "op_list_subscriptions_by_topic")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1416,9 +1183,7 @@ where
 }
 #[cfg(feature = "op_list_subscriptions_by_topic")]
 impl From<crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError> for Error {
-    fn from(
-        err: crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError,
-    ) -> Self {
+    fn from(err: crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError) -> Self {
         match err {
             crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
@@ -1435,26 +1200,13 @@ impl From<crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopi
     }
 }
 #[cfg(feature = "op_list_tags_for_resource")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_tags_for_resource::ListTagsForResourceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags_for_resource::ListTagsForResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_tags_for_resource::ListTagsForResourceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags_for_resource::ListTagsForResourceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1484,26 +1236,13 @@ impl From<crate::operation::list_tags_for_resource::ListTagsForResourceError> fo
     }
 }
 #[cfg(feature = "op_list_topics")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_topics::ListTopicsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_topics::ListTopicsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_topics::ListTopicsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_topics::ListTopicsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1515,42 +1254,21 @@ where
 impl From<crate::operation::list_topics::ListTopicsError> for Error {
     fn from(err: crate::operation::list_topics::ListTopicsError) -> Self {
         match err {
-            crate::operation::list_topics::ListTopicsError::AuthorizationErrorException(inner) => {
-                Error::AuthorizationErrorException(inner)
-            }
-            crate::operation::list_topics::ListTopicsError::InternalErrorException(inner) => {
-                Error::InternalErrorException(inner)
-            }
-            crate::operation::list_topics::ListTopicsError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
-            crate::operation::list_topics::ListTopicsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_topics::ListTopicsError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            crate::operation::list_topics::ListTopicsError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::list_topics::ListTopicsError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::list_topics::ListTopicsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_opt_in_phone_number")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::opt_in_phone_number::OptInPhoneNumberError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::opt_in_phone_number::OptInPhoneNumberError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::opt_in_phone_number::OptInPhoneNumberError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::opt_in_phone_number::OptInPhoneNumberError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1573,26 +1291,13 @@ impl From<crate::operation::opt_in_phone_number::OptInPhoneNumberError> for Erro
     }
 }
 #[cfg(feature = "op_publish")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::publish::PublishError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::publish::PublishError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::publish::PublishError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::publish::PublishError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1604,76 +1309,35 @@ where
 impl From<crate::operation::publish::PublishError> for Error {
     fn from(err: crate::operation::publish::PublishError) -> Self {
         match err {
-            crate::operation::publish::PublishError::AuthorizationErrorException(inner) => {
-                Error::AuthorizationErrorException(inner)
+            crate::operation::publish::PublishError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            crate::operation::publish::PublishError::EndpointDisabledException(inner) => Error::EndpointDisabledException(inner),
+            crate::operation::publish::PublishError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::publish::PublishError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::publish::PublishError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::publish::PublishError::InvalidSecurityException(inner) => Error::InvalidSecurityException(inner),
+            crate::operation::publish::PublishError::KmsAccessDeniedException(inner) => Error::KmsAccessDeniedException(inner),
+            crate::operation::publish::PublishError::KmsDisabledException(inner) => Error::KmsDisabledException(inner),
+            crate::operation::publish::PublishError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
+            crate::operation::publish::PublishError::KmsNotFoundException(inner) => Error::KmsNotFoundException(inner),
+            crate::operation::publish::PublishError::KmsOptInRequired(inner) => Error::KmsOptInRequired(inner),
+            crate::operation::publish::PublishError::KmsThrottlingException(inner) => Error::KmsThrottlingException(inner),
+            crate::operation::publish::PublishError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::publish::PublishError::PlatformApplicationDisabledException(inner) => {
+                Error::PlatformApplicationDisabledException(inner)
             }
-            crate::operation::publish::PublishError::EndpointDisabledException(inner) => {
-                Error::EndpointDisabledException(inner)
-            }
-            crate::operation::publish::PublishError::InternalErrorException(inner) => {
-                Error::InternalErrorException(inner)
-            }
-            crate::operation::publish::PublishError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
-            crate::operation::publish::PublishError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::publish::PublishError::InvalidSecurityException(inner) => {
-                Error::InvalidSecurityException(inner)
-            }
-            crate::operation::publish::PublishError::KmsAccessDeniedException(inner) => {
-                Error::KmsAccessDeniedException(inner)
-            }
-            crate::operation::publish::PublishError::KmsDisabledException(inner) => {
-                Error::KmsDisabledException(inner)
-            }
-            crate::operation::publish::PublishError::KmsInvalidStateException(inner) => {
-                Error::KmsInvalidStateException(inner)
-            }
-            crate::operation::publish::PublishError::KmsNotFoundException(inner) => {
-                Error::KmsNotFoundException(inner)
-            }
-            crate::operation::publish::PublishError::KmsOptInRequired(inner) => {
-                Error::KmsOptInRequired(inner)
-            }
-            crate::operation::publish::PublishError::KmsThrottlingException(inner) => {
-                Error::KmsThrottlingException(inner)
-            }
-            crate::operation::publish::PublishError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::publish::PublishError::PlatformApplicationDisabledException(
-                inner,
-            ) => Error::PlatformApplicationDisabledException(inner),
-            crate::operation::publish::PublishError::ValidationException(inner) => {
-                Error::ValidationException(inner)
-            }
+            crate::operation::publish::PublishError::ValidationException(inner) => Error::ValidationException(inner),
             crate::operation::publish::PublishError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_publish_batch")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::publish_batch::PublishBatchError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::publish_batch::PublishBatchError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::publish_batch::PublishBatchError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::publish_batch::PublishBatchError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1716,26 +1380,16 @@ impl From<crate::operation::publish_batch::PublishBatchError> for Error {
     }
 }
 #[cfg(feature = "op_put_data_protection_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_data_protection_policy::PutDataProtectionPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_data_protection_policy::PutDataProtectionPolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_data_protection_policy::PutDataProtectionPolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_data_protection_policy::PutDataProtectionPolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1745,9 +1399,7 @@ where
 }
 #[cfg(feature = "op_put_data_protection_policy")]
 impl From<crate::operation::put_data_protection_policy::PutDataProtectionPolicyError> for Error {
-    fn from(
-        err: crate::operation::put_data_protection_policy::PutDataProtectionPolicyError,
-    ) -> Self {
+    fn from(err: crate::operation::put_data_protection_policy::PutDataProtectionPolicyError) -> Self {
         match err {
             crate::operation::put_data_protection_policy::PutDataProtectionPolicyError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
@@ -1767,26 +1419,13 @@ impl From<crate::operation::put_data_protection_policy::PutDataProtectionPolicyE
     }
 }
 #[cfg(feature = "op_remove_permission")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::remove_permission::RemovePermissionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::remove_permission::RemovePermissionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::remove_permission::RemovePermissionError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::remove_permission::RemovePermissionError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1809,26 +1448,15 @@ impl From<crate::operation::remove_permission::RemovePermissionError> for Error 
     }
 }
 #[cfg(feature = "op_set_endpoint_attributes")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::set_endpoint_attributes::SetEndpointAttributesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_endpoint_attributes::SetEndpointAttributesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::set_endpoint_attributes::SetEndpointAttributesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_endpoint_attributes::SetEndpointAttributesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1901,26 +1529,13 @@ impl From<crate::operation::set_platform_application_attributes::SetPlatformAppl
     }
 }
 #[cfg(feature = "op_set_sms_attributes")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::set_sms_attributes::SetSMSAttributesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_sms_attributes::SetSMSAttributesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::set_sms_attributes::SetSMSAttributesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_sms_attributes::SetSMSAttributesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1943,26 +1558,16 @@ impl From<crate::operation::set_sms_attributes::SetSMSAttributesError> for Error
     }
 }
 #[cfg(feature = "op_set_subscription_attributes")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::set_subscription_attributes::SetSubscriptionAttributesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_subscription_attributes::SetSubscriptionAttributesError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::set_subscription_attributes::SetSubscriptionAttributesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_subscription_attributes::SetSubscriptionAttributesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1972,9 +1577,7 @@ where
 }
 #[cfg(feature = "op_set_subscription_attributes")]
 impl From<crate::operation::set_subscription_attributes::SetSubscriptionAttributesError> for Error {
-    fn from(
-        err: crate::operation::set_subscription_attributes::SetSubscriptionAttributesError,
-    ) -> Self {
+    fn from(err: crate::operation::set_subscription_attributes::SetSubscriptionAttributesError) -> Self {
         match err {
             crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
@@ -1999,26 +1602,13 @@ impl From<crate::operation::set_subscription_attributes::SetSubscriptionAttribut
     }
 }
 #[cfg(feature = "op_set_topic_attributes")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::set_topic_attributes::SetTopicAttributesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_topic_attributes::SetTopicAttributesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::set_topic_attributes::SetTopicAttributesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_topic_attributes::SetTopicAttributesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2046,26 +1636,13 @@ impl From<crate::operation::set_topic_attributes::SetTopicAttributesError> for E
     }
 }
 #[cfg(feature = "op_subscribe")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::subscribe::SubscribeError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::subscribe::SubscribeError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::subscribe::SubscribeError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::subscribe::SubscribeError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2077,57 +1654,30 @@ where
 impl From<crate::operation::subscribe::SubscribeError> for Error {
     fn from(err: crate::operation::subscribe::SubscribeError) -> Self {
         match err {
-            crate::operation::subscribe::SubscribeError::AuthorizationErrorException(inner) => {
-                Error::AuthorizationErrorException(inner)
+            crate::operation::subscribe::SubscribeError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            crate::operation::subscribe::SubscribeError::FilterPolicyLimitExceededException(inner) => {
+                Error::FilterPolicyLimitExceededException(inner)
             }
-            crate::operation::subscribe::SubscribeError::FilterPolicyLimitExceededException(
-                inner,
-            ) => Error::FilterPolicyLimitExceededException(inner),
-            crate::operation::subscribe::SubscribeError::InternalErrorException(inner) => {
-                Error::InternalErrorException(inner)
+            crate::operation::subscribe::SubscribeError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::subscribe::SubscribeError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::subscribe::SubscribeError::InvalidSecurityException(inner) => Error::InvalidSecurityException(inner),
+            crate::operation::subscribe::SubscribeError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::subscribe::SubscribeError::ReplayLimitExceededException(inner) => Error::ReplayLimitExceededException(inner),
+            crate::operation::subscribe::SubscribeError::SubscriptionLimitExceededException(inner) => {
+                Error::SubscriptionLimitExceededException(inner)
             }
-            crate::operation::subscribe::SubscribeError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
-            crate::operation::subscribe::SubscribeError::InvalidSecurityException(inner) => {
-                Error::InvalidSecurityException(inner)
-            }
-            crate::operation::subscribe::SubscribeError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::subscribe::SubscribeError::ReplayLimitExceededException(inner) => {
-                Error::ReplayLimitExceededException(inner)
-            }
-            crate::operation::subscribe::SubscribeError::SubscriptionLimitExceededException(
-                inner,
-            ) => Error::SubscriptionLimitExceededException(inner),
-            crate::operation::subscribe::SubscribeError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::subscribe::SubscribeError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_tag_resource")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_resource::TagResourceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_resource::TagResourceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2139,54 +1689,25 @@ where
 impl From<crate::operation::tag_resource::TagResourceError> for Error {
     fn from(err: crate::operation::tag_resource::TagResourceError) -> Self {
         match err {
-            crate::operation::tag_resource::TagResourceError::AuthorizationErrorException(
-                inner,
-            ) => Error::AuthorizationErrorException(inner),
-            crate::operation::tag_resource::TagResourceError::ConcurrentAccessException(inner) => {
-                Error::ConcurrentAccessException(inner)
-            }
-            crate::operation::tag_resource::TagResourceError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
-            crate::operation::tag_resource::TagResourceError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::tag_resource::TagResourceError::StaleTagException(inner) => {
-                Error::StaleTagException(inner)
-            }
-            crate::operation::tag_resource::TagResourceError::TagLimitExceededException(inner) => {
-                Error::TagLimitExceededException(inner)
-            }
-            crate::operation::tag_resource::TagResourceError::TagPolicyException(inner) => {
-                Error::TagPolicyException(inner)
-            }
-            crate::operation::tag_resource::TagResourceError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::tag_resource::TagResourceError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            crate::operation::tag_resource::TagResourceError::ConcurrentAccessException(inner) => Error::ConcurrentAccessException(inner),
+            crate::operation::tag_resource::TagResourceError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::tag_resource::TagResourceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::tag_resource::TagResourceError::StaleTagException(inner) => Error::StaleTagException(inner),
+            crate::operation::tag_resource::TagResourceError::TagLimitExceededException(inner) => Error::TagLimitExceededException(inner),
+            crate::operation::tag_resource::TagResourceError::TagPolicyException(inner) => Error::TagPolicyException(inner),
+            crate::operation::tag_resource::TagResourceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_unsubscribe")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::unsubscribe::UnsubscribeError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::unsubscribe::UnsubscribeError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::unsubscribe::UnsubscribeError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::unsubscribe::UnsubscribeError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2198,48 +1719,23 @@ where
 impl From<crate::operation::unsubscribe::UnsubscribeError> for Error {
     fn from(err: crate::operation::unsubscribe::UnsubscribeError) -> Self {
         match err {
-            crate::operation::unsubscribe::UnsubscribeError::AuthorizationErrorException(inner) => {
-                Error::AuthorizationErrorException(inner)
-            }
-            crate::operation::unsubscribe::UnsubscribeError::InternalErrorException(inner) => {
-                Error::InternalErrorException(inner)
-            }
-            crate::operation::unsubscribe::UnsubscribeError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
-            crate::operation::unsubscribe::UnsubscribeError::InvalidSecurityException(inner) => {
-                Error::InvalidSecurityException(inner)
-            }
-            crate::operation::unsubscribe::UnsubscribeError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::unsubscribe::UnsubscribeError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::unsubscribe::UnsubscribeError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            crate::operation::unsubscribe::UnsubscribeError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::unsubscribe::UnsubscribeError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::unsubscribe::UnsubscribeError::InvalidSecurityException(inner) => Error::InvalidSecurityException(inner),
+            crate::operation::unsubscribe::UnsubscribeError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::unsubscribe::UnsubscribeError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_untag_resource")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_resource::UntagResourceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_resource::UntagResourceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2251,41 +1747,21 @@ where
 impl From<crate::operation::untag_resource::UntagResourceError> for Error {
     fn from(err: crate::operation::untag_resource::UntagResourceError) -> Self {
         match err {
-            crate::operation::untag_resource::UntagResourceError::AuthorizationErrorException(
-                inner,
-            ) => Error::AuthorizationErrorException(inner),
-            crate::operation::untag_resource::UntagResourceError::ConcurrentAccessException(
-                inner,
-            ) => Error::ConcurrentAccessException(inner),
-            crate::operation::untag_resource::UntagResourceError::InvalidParameterException(
-                inner,
-            ) => Error::InvalidParameterException(inner),
-            crate::operation::untag_resource::UntagResourceError::ResourceNotFoundException(
-                inner,
-            ) => Error::ResourceNotFoundException(inner),
-            crate::operation::untag_resource::UntagResourceError::StaleTagException(inner) => {
-                Error::StaleTagException(inner)
-            }
-            crate::operation::untag_resource::UntagResourceError::TagLimitExceededException(
-                inner,
-            ) => Error::TagLimitExceededException(inner),
-            crate::operation::untag_resource::UntagResourceError::TagPolicyException(inner) => {
-                Error::TagPolicyException(inner)
-            }
-            crate::operation::untag_resource::UntagResourceError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::untag_resource::UntagResourceError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            crate::operation::untag_resource::UntagResourceError::ConcurrentAccessException(inner) => Error::ConcurrentAccessException(inner),
+            crate::operation::untag_resource::UntagResourceError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::untag_resource::UntagResourceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::untag_resource::UntagResourceError::StaleTagException(inner) => Error::StaleTagException(inner),
+            crate::operation::untag_resource::UntagResourceError::TagLimitExceededException(inner) => Error::TagLimitExceededException(inner),
+            crate::operation::untag_resource::UntagResourceError::TagPolicyException(inner) => Error::TagPolicyException(inner),
+            crate::operation::untag_resource::UntagResourceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_verify_sms_sandbox_phone_number")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -2296,9 +1772,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2307,12 +1781,8 @@ where
     }
 }
 #[cfg(feature = "op_verify_sms_sandbox_phone_number")]
-impl From<crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError>
-    for Error
-{
-    fn from(
-        err: crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
-    ) -> Self {
+impl From<crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError> for Error {
+    fn from(err: crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError) -> Self {
         match err {
             crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
@@ -2339,40 +1809,74 @@ impl From<crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPho
 impl ::std::error::Error for Error {
     fn source(&self) -> std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            Error::AuthorizationErrorException(inner) => inner.source(),
-            Error::BatchEntryIdsNotDistinctException(inner) => inner.source(),
-            Error::BatchRequestTooLongException(inner) => inner.source(),
-            Error::ConcurrentAccessException(inner) => inner.source(),
-            Error::EmptyBatchRequestException(inner) => inner.source(),
-            Error::EndpointDisabledException(inner) => inner.source(),
-            Error::FilterPolicyLimitExceededException(inner) => inner.source(),
-            Error::InternalErrorException(inner) => inner.source(),
-            Error::InvalidBatchEntryIdException(inner) => inner.source(),
-            Error::InvalidParameterException(inner) => inner.source(),
-            Error::InvalidParameterValueException(inner) => inner.source(),
-            Error::InvalidSecurityException(inner) => inner.source(),
-            Error::InvalidStateException(inner) => inner.source(),
-            Error::KmsAccessDeniedException(inner) => inner.source(),
-            Error::KmsDisabledException(inner) => inner.source(),
-            Error::KmsInvalidStateException(inner) => inner.source(),
-            Error::KmsNotFoundException(inner) => inner.source(),
-            Error::KmsOptInRequired(inner) => inner.source(),
-            Error::KmsThrottlingException(inner) => inner.source(),
-            Error::NotFoundException(inner) => inner.source(),
-            Error::OptedOutException(inner) => inner.source(),
-            Error::PlatformApplicationDisabledException(inner) => inner.source(),
-            Error::ReplayLimitExceededException(inner) => inner.source(),
-            Error::ResourceNotFoundException(inner) => inner.source(),
-            Error::StaleTagException(inner) => inner.source(),
-            Error::SubscriptionLimitExceededException(inner) => inner.source(),
-            Error::TagLimitExceededException(inner) => inner.source(),
-            Error::TagPolicyException(inner) => inner.source(),
-            Error::ThrottledException(inner) => inner.source(),
-            Error::TooManyEntriesInBatchRequestException(inner) => inner.source(),
-            Error::TopicLimitExceededException(inner) => inner.source(),
-            Error::UserErrorException(inner) => inner.source(),
-            Error::ValidationException(inner) => inner.source(),
-            Error::VerificationException(inner) => inner.source(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_check_if_phone_number_is_opted_out", feature = "op_confirm_subscription", feature = "op_create_platform_application", feature = "op_create_platform_endpoint", feature = "op_create_sms_sandbox_phone_number", feature = "op_create_topic", feature = "op_delete_endpoint", feature = "op_delete_platform_application", feature = "op_delete_sms_sandbox_phone_number", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_sms_attributes", feature = "op_get_sms_sandbox_account_status", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_platform_applications", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic", feature = "op_list_tags_for_resource", feature = "op_list_topics", feature = "op_opt_in_phone_number", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_sms_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_tag_resource", feature = "op_unsubscribe", feature = "op_untag_resource", feature = "op_verify_sms_sandbox_phone_number"))]
+Error::AuthorizationErrorException(inner) => inner.source(),
+            #[cfg(feature = "op_publish_batch")]
+Error::BatchEntryIdsNotDistinctException(inner) => inner.source(),
+            #[cfg(feature = "op_publish_batch")]
+Error::BatchRequestTooLongException(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_topic", feature = "op_delete_topic", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource"))]
+Error::ConcurrentAccessException(inner) => inner.source(),
+            #[cfg(feature = "op_publish_batch")]
+Error::EmptyBatchRequestException(inner) => inner.source(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Error::EndpointDisabledException(inner) => inner.source(),
+            #[cfg(any(feature = "op_confirm_subscription", feature = "op_set_subscription_attributes", feature = "op_subscribe"))]
+Error::FilterPolicyLimitExceededException(inner) => inner.source(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_check_if_phone_number_is_opted_out", feature = "op_confirm_subscription", feature = "op_create_platform_application", feature = "op_create_platform_endpoint", feature = "op_create_sms_sandbox_phone_number", feature = "op_create_topic", feature = "op_delete_endpoint", feature = "op_delete_platform_application", feature = "op_delete_sms_sandbox_phone_number", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_sms_attributes", feature = "op_get_sms_sandbox_account_status", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_platform_applications", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic", feature = "op_list_topics", feature = "op_opt_in_phone_number", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_sms_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_unsubscribe", feature = "op_verify_sms_sandbox_phone_number"))]
+Error::InternalErrorException(inner) => inner.source(),
+            #[cfg(feature = "op_publish_batch")]
+Error::InvalidBatchEntryIdException(inner) => inner.source(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_check_if_phone_number_is_opted_out", feature = "op_confirm_subscription", feature = "op_create_platform_application", feature = "op_create_platform_endpoint", feature = "op_create_sms_sandbox_phone_number", feature = "op_create_topic", feature = "op_delete_endpoint", feature = "op_delete_platform_application", feature = "op_delete_sms_sandbox_phone_number", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_sms_attributes", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_platform_applications", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic", feature = "op_list_tags_for_resource", feature = "op_list_topics", feature = "op_opt_in_phone_number", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_sms_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_tag_resource", feature = "op_unsubscribe", feature = "op_untag_resource", feature = "op_verify_sms_sandbox_phone_number"))]
+Error::InvalidParameterException(inner) => inner.source(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Error::InvalidParameterValueException(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_topic", feature = "op_get_data_protection_policy", feature = "op_get_topic_attributes", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_unsubscribe"))]
+Error::InvalidSecurityException(inner) => inner.source(),
+            #[cfg(feature = "op_delete_topic")]
+Error::InvalidStateException(inner) => inner.source(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Error::KmsAccessDeniedException(inner) => inner.source(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Error::KmsDisabledException(inner) => inner.source(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Error::KmsInvalidStateException(inner) => inner.source(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Error::KmsNotFoundException(inner) => inner.source(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Error::KmsOptInRequired(inner) => inner.source(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Error::KmsThrottlingException(inner) => inner.source(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_confirm_subscription", feature = "op_create_platform_endpoint", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_subscriptions_by_topic", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_unsubscribe"))]
+Error::NotFoundException(inner) => inner.source(),
+            #[cfg(feature = "op_create_sms_sandbox_phone_number")]
+Error::OptedOutException(inner) => inner.source(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Error::PlatformApplicationDisabledException(inner) => inner.source(),
+            #[cfg(any(feature = "op_confirm_subscription", feature = "op_set_subscription_attributes", feature = "op_subscribe"))]
+Error::ReplayLimitExceededException(inner) => inner.source(),
+            #[cfg(any(feature = "op_delete_sms_sandbox_phone_number", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_verify_sms_sandbox_phone_number"))]
+Error::ResourceNotFoundException(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_topic", feature = "op_delete_topic", feature = "op_tag_resource", feature = "op_untag_resource"))]
+Error::StaleTagException(inner) => inner.source(),
+            #[cfg(any(feature = "op_confirm_subscription", feature = "op_subscribe"))]
+Error::SubscriptionLimitExceededException(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_topic", feature = "op_tag_resource", feature = "op_untag_resource"))]
+Error::TagLimitExceededException(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_topic", feature = "op_delete_topic", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource"))]
+Error::TagPolicyException(inner) => inner.source(),
+            #[cfg(any(feature = "op_check_if_phone_number_is_opted_out", feature = "op_create_sms_sandbox_phone_number", feature = "op_delete_sms_sandbox_phone_number", feature = "op_get_sms_attributes", feature = "op_get_sms_sandbox_account_status", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_opt_in_phone_number", feature = "op_set_sms_attributes", feature = "op_verify_sms_sandbox_phone_number"))]
+Error::ThrottledException(inner) => inner.source(),
+            #[cfg(feature = "op_publish_batch")]
+Error::TooManyEntriesInBatchRequestException(inner) => inner.source(),
+            #[cfg(feature = "op_create_topic")]
+Error::TopicLimitExceededException(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_sms_sandbox_phone_number", feature = "op_delete_sms_sandbox_phone_number"))]
+Error::UserErrorException(inner) => inner.source(),
+            #[cfg(any(feature = "op_list_origination_numbers", feature = "op_publish", feature = "op_publish_batch"))]
+Error::ValidationException(inner) => inner.source(),
+            #[cfg(feature = "op_verify_sms_sandbox_phone_number")]
+Error::VerificationException(inner) => inner.source(),
             Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source),
         }
     }
@@ -2380,40 +1884,74 @@ impl ::std::error::Error for Error {
 impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
-            Self::AuthorizationErrorException(e) => e.request_id(),
-            Self::BatchEntryIdsNotDistinctException(e) => e.request_id(),
-            Self::BatchRequestTooLongException(e) => e.request_id(),
-            Self::ConcurrentAccessException(e) => e.request_id(),
-            Self::EmptyBatchRequestException(e) => e.request_id(),
-            Self::EndpointDisabledException(e) => e.request_id(),
-            Self::FilterPolicyLimitExceededException(e) => e.request_id(),
-            Self::InternalErrorException(e) => e.request_id(),
-            Self::InvalidBatchEntryIdException(e) => e.request_id(),
-            Self::InvalidParameterException(e) => e.request_id(),
-            Self::InvalidParameterValueException(e) => e.request_id(),
-            Self::InvalidSecurityException(e) => e.request_id(),
-            Self::InvalidStateException(e) => e.request_id(),
-            Self::KmsAccessDeniedException(e) => e.request_id(),
-            Self::KmsDisabledException(e) => e.request_id(),
-            Self::KmsInvalidStateException(e) => e.request_id(),
-            Self::KmsNotFoundException(e) => e.request_id(),
-            Self::KmsOptInRequired(e) => e.request_id(),
-            Self::KmsThrottlingException(e) => e.request_id(),
-            Self::NotFoundException(e) => e.request_id(),
-            Self::OptedOutException(e) => e.request_id(),
-            Self::PlatformApplicationDisabledException(e) => e.request_id(),
-            Self::ReplayLimitExceededException(e) => e.request_id(),
-            Self::ResourceNotFoundException(e) => e.request_id(),
-            Self::StaleTagException(e) => e.request_id(),
-            Self::SubscriptionLimitExceededException(e) => e.request_id(),
-            Self::TagLimitExceededException(e) => e.request_id(),
-            Self::TagPolicyException(e) => e.request_id(),
-            Self::ThrottledException(e) => e.request_id(),
-            Self::TooManyEntriesInBatchRequestException(e) => e.request_id(),
-            Self::TopicLimitExceededException(e) => e.request_id(),
-            Self::UserErrorException(e) => e.request_id(),
-            Self::ValidationException(e) => e.request_id(),
-            Self::VerificationException(e) => e.request_id(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_check_if_phone_number_is_opted_out", feature = "op_confirm_subscription", feature = "op_create_platform_application", feature = "op_create_platform_endpoint", feature = "op_create_sms_sandbox_phone_number", feature = "op_create_topic", feature = "op_delete_endpoint", feature = "op_delete_platform_application", feature = "op_delete_sms_sandbox_phone_number", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_sms_attributes", feature = "op_get_sms_sandbox_account_status", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_platform_applications", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic", feature = "op_list_tags_for_resource", feature = "op_list_topics", feature = "op_opt_in_phone_number", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_sms_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_tag_resource", feature = "op_unsubscribe", feature = "op_untag_resource", feature = "op_verify_sms_sandbox_phone_number"))]
+Self::AuthorizationErrorException(e) => e.request_id(),
+            #[cfg(feature = "op_publish_batch")]
+Self::BatchEntryIdsNotDistinctException(e) => e.request_id(),
+            #[cfg(feature = "op_publish_batch")]
+Self::BatchRequestTooLongException(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_topic", feature = "op_delete_topic", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource"))]
+Self::ConcurrentAccessException(e) => e.request_id(),
+            #[cfg(feature = "op_publish_batch")]
+Self::EmptyBatchRequestException(e) => e.request_id(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Self::EndpointDisabledException(e) => e.request_id(),
+            #[cfg(any(feature = "op_confirm_subscription", feature = "op_set_subscription_attributes", feature = "op_subscribe"))]
+Self::FilterPolicyLimitExceededException(e) => e.request_id(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_check_if_phone_number_is_opted_out", feature = "op_confirm_subscription", feature = "op_create_platform_application", feature = "op_create_platform_endpoint", feature = "op_create_sms_sandbox_phone_number", feature = "op_create_topic", feature = "op_delete_endpoint", feature = "op_delete_platform_application", feature = "op_delete_sms_sandbox_phone_number", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_sms_attributes", feature = "op_get_sms_sandbox_account_status", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_platform_applications", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic", feature = "op_list_topics", feature = "op_opt_in_phone_number", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_sms_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_unsubscribe", feature = "op_verify_sms_sandbox_phone_number"))]
+Self::InternalErrorException(e) => e.request_id(),
+            #[cfg(feature = "op_publish_batch")]
+Self::InvalidBatchEntryIdException(e) => e.request_id(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_check_if_phone_number_is_opted_out", feature = "op_confirm_subscription", feature = "op_create_platform_application", feature = "op_create_platform_endpoint", feature = "op_create_sms_sandbox_phone_number", feature = "op_create_topic", feature = "op_delete_endpoint", feature = "op_delete_platform_application", feature = "op_delete_sms_sandbox_phone_number", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_sms_attributes", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_platform_applications", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic", feature = "op_list_tags_for_resource", feature = "op_list_topics", feature = "op_opt_in_phone_number", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_sms_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_tag_resource", feature = "op_unsubscribe", feature = "op_untag_resource", feature = "op_verify_sms_sandbox_phone_number"))]
+Self::InvalidParameterException(e) => e.request_id(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Self::InvalidParameterValueException(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_topic", feature = "op_get_data_protection_policy", feature = "op_get_topic_attributes", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_unsubscribe"))]
+Self::InvalidSecurityException(e) => e.request_id(),
+            #[cfg(feature = "op_delete_topic")]
+Self::InvalidStateException(e) => e.request_id(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Self::KmsAccessDeniedException(e) => e.request_id(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Self::KmsDisabledException(e) => e.request_id(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Self::KmsInvalidStateException(e) => e.request_id(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Self::KmsNotFoundException(e) => e.request_id(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Self::KmsOptInRequired(e) => e.request_id(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Self::KmsThrottlingException(e) => e.request_id(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_confirm_subscription", feature = "op_create_platform_endpoint", feature = "op_delete_topic", feature = "op_get_data_protection_policy", feature = "op_get_endpoint_attributes", feature = "op_get_platform_application_attributes", feature = "op_get_subscription_attributes", feature = "op_get_topic_attributes", feature = "op_list_endpoints_by_platform_application", feature = "op_list_subscriptions_by_topic", feature = "op_publish", feature = "op_publish_batch", feature = "op_put_data_protection_policy", feature = "op_remove_permission", feature = "op_set_endpoint_attributes", feature = "op_set_platform_application_attributes", feature = "op_set_subscription_attributes", feature = "op_set_topic_attributes", feature = "op_subscribe", feature = "op_unsubscribe"))]
+Self::NotFoundException(e) => e.request_id(),
+            #[cfg(feature = "op_create_sms_sandbox_phone_number")]
+Self::OptedOutException(e) => e.request_id(),
+            #[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
+Self::PlatformApplicationDisabledException(e) => e.request_id(),
+            #[cfg(any(feature = "op_confirm_subscription", feature = "op_set_subscription_attributes", feature = "op_subscribe"))]
+Self::ReplayLimitExceededException(e) => e.request_id(),
+            #[cfg(any(feature = "op_delete_sms_sandbox_phone_number", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_verify_sms_sandbox_phone_number"))]
+Self::ResourceNotFoundException(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_topic", feature = "op_delete_topic", feature = "op_tag_resource", feature = "op_untag_resource"))]
+Self::StaleTagException(e) => e.request_id(),
+            #[cfg(any(feature = "op_confirm_subscription", feature = "op_subscribe"))]
+Self::SubscriptionLimitExceededException(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_topic", feature = "op_tag_resource", feature = "op_untag_resource"))]
+Self::TagLimitExceededException(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_topic", feature = "op_delete_topic", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource"))]
+Self::TagPolicyException(e) => e.request_id(),
+            #[cfg(any(feature = "op_check_if_phone_number_is_opted_out", feature = "op_create_sms_sandbox_phone_number", feature = "op_delete_sms_sandbox_phone_number", feature = "op_get_sms_attributes", feature = "op_get_sms_sandbox_account_status", feature = "op_list_origination_numbers", feature = "op_list_phone_numbers_opted_out", feature = "op_list_sms_sandbox_phone_numbers", feature = "op_opt_in_phone_number", feature = "op_set_sms_attributes", feature = "op_verify_sms_sandbox_phone_number"))]
+Self::ThrottledException(e) => e.request_id(),
+            #[cfg(feature = "op_publish_batch")]
+Self::TooManyEntriesInBatchRequestException(e) => e.request_id(),
+            #[cfg(feature = "op_create_topic")]
+Self::TopicLimitExceededException(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_sms_sandbox_phone_number", feature = "op_delete_sms_sandbox_phone_number"))]
+Self::UserErrorException(e) => e.request_id(),
+            #[cfg(any(feature = "op_list_origination_numbers", feature = "op_publish", feature = "op_publish_batch"))]
+Self::ValidationException(e) => e.request_id(),
+            #[cfg(feature = "op_verify_sms_sandbox_phone_number")]
+Self::VerificationException(e) => e.request_id(),
             Self::Unhandled(e) => e.meta.request_id(),
         }
     }

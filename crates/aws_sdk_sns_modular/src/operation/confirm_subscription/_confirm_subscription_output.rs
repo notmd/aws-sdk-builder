@@ -25,18 +25,14 @@ impl ::aws_types::request_id::RequestId for ConfirmSubscriptionOutput {
 #[cfg(feature = "op_confirm_subscription")]
 impl ConfirmSubscriptionOutput {
     /// Creates a new builder-style object to manufacture [`ConfirmSubscriptionOutput`](crate::operation::confirm_subscription::ConfirmSubscriptionOutput).
-    pub fn builder(
-    ) -> crate::operation::confirm_subscription::builders::ConfirmSubscriptionOutputBuilder {
-        crate::operation::confirm_subscription::builders::ConfirmSubscriptionOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::confirm_subscription::builders::ConfirmSubscriptionOutputBuilder {
+        crate::operation::confirm_subscription::builders::ConfirmSubscriptionOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_confirm_subscription")]
 /// A builder for [`ConfirmSubscriptionOutput`](crate::operation::confirm_subscription::ConfirmSubscriptionOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ConfirmSubscriptionOutputBuilder {
     pub(crate) subscription_arn: ::std::option::Option<::std::string::String>,
@@ -45,18 +41,12 @@ pub struct ConfirmSubscriptionOutputBuilder {
 #[cfg(feature = "op_confirm_subscription")]
 impl ConfirmSubscriptionOutputBuilder {
     /// <p>The ARN of the created subscription.</p>
-    pub fn subscription_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn subscription_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.subscription_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the created subscription.</p>
-    pub fn set_subscription_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_subscription_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.subscription_arn = input;
         self
     }

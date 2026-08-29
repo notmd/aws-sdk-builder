@@ -16,9 +16,7 @@ pub struct SetEndpointAttributesInput {
     /// <li>
     /// <p><code>Token</code> – device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.</p></li>
     /// </ul>
-    pub attributes: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 #[cfg(feature = "op_set_endpoint_attributes")]
 impl SetEndpointAttributesInput {
@@ -35,35 +33,25 @@ impl SetEndpointAttributesInput {
     /// <li>
     /// <p><code>Token</code> – device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.</p></li>
     /// </ul>
-    pub fn attributes(
-        &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.attributes.as_ref()
     }
 }
 #[cfg(feature = "op_set_endpoint_attributes")]
 impl SetEndpointAttributesInput {
     /// Creates a new builder-style object to manufacture [`SetEndpointAttributesInput`](crate::operation::set_endpoint_attributes::SetEndpointAttributesInput).
-    pub fn builder(
-    ) -> crate::operation::set_endpoint_attributes::builders::SetEndpointAttributesInputBuilder
-    {
+    pub fn builder() -> crate::operation::set_endpoint_attributes::builders::SetEndpointAttributesInputBuilder {
         crate::operation::set_endpoint_attributes::builders::SetEndpointAttributesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_set_endpoint_attributes")]
 /// A builder for [`SetEndpointAttributesInput`](crate::operation::set_endpoint_attributes::SetEndpointAttributesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SetEndpointAttributesInputBuilder {
     pub(crate) endpoint_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) attributes: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 #[cfg(feature = "op_set_endpoint_attributes")]
 impl SetEndpointAttributesInputBuilder {
@@ -95,11 +83,7 @@ impl SetEndpointAttributesInputBuilder {
     /// <li>
     /// <p><code>Token</code> – device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.</p></li>
     /// </ul>
-    pub fn attributes(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.attributes.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.attributes = ::std::option::Option::Some(hash_map);
@@ -114,12 +98,7 @@ impl SetEndpointAttributesInputBuilder {
     /// <li>
     /// <p><code>Token</code> – device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.</p></li>
     /// </ul>
-    pub fn set_attributes(
-        mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
-    ) -> Self {
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.attributes = input;
         self
     }
@@ -132,25 +111,17 @@ impl SetEndpointAttributesInputBuilder {
     /// <li>
     /// <p><code>Token</code> – device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.</p></li>
     /// </ul>
-    pub fn get_attributes(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.attributes
     }
     /// Consumes the builder and constructs a [`SetEndpointAttributesInput`](crate::operation::set_endpoint_attributes::SetEndpointAttributesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::set_endpoint_attributes::SetEndpointAttributesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::set_endpoint_attributes::SetEndpointAttributesInput {
-                endpoint_arn: self.endpoint_arn,
-                attributes: self.attributes,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::set_endpoint_attributes::SetEndpointAttributesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::set_endpoint_attributes::SetEndpointAttributesInput {
+            endpoint_arn: self.endpoint_arn,
+            attributes: self.attributes,
+        })
     }
 }

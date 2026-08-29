@@ -24,9 +24,7 @@ impl ListTopicsInput {
 
 #[cfg(feature = "op_list_topics")]
 /// A builder for [`ListTopicsInput`](crate::operation::list_topics::ListTopicsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListTopicsInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
@@ -48,14 +46,7 @@ impl ListTopicsInputBuilder {
         &self.next_token
     }
     /// Consumes the builder and constructs a [`ListTopicsInput`](crate::operation::list_topics::ListTopicsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_topics::ListTopicsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::list_topics::ListTopicsInput {
-            next_token: self.next_token,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_topics::ListTopicsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::list_topics::ListTopicsInput { next_token: self.next_token })
     }
 }

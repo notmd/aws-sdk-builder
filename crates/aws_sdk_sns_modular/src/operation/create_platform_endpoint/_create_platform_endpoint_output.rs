@@ -25,18 +25,14 @@ impl ::aws_types::request_id::RequestId for CreatePlatformEndpointOutput {
 #[cfg(feature = "op_create_platform_endpoint")]
 impl CreatePlatformEndpointOutput {
     /// Creates a new builder-style object to manufacture [`CreatePlatformEndpointOutput`](crate::operation::create_platform_endpoint::CreatePlatformEndpointOutput).
-    pub fn builder(
-    ) -> crate::operation::create_platform_endpoint::builders::CreatePlatformEndpointOutputBuilder
-    {
+    pub fn builder() -> crate::operation::create_platform_endpoint::builders::CreatePlatformEndpointOutputBuilder {
         crate::operation::create_platform_endpoint::builders::CreatePlatformEndpointOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_create_platform_endpoint")]
 /// A builder for [`CreatePlatformEndpointOutput`](crate::operation::create_platform_endpoint::CreatePlatformEndpointOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreatePlatformEndpointOutputBuilder {
     pub(crate) endpoint_arn: ::std::option::Option<::std::string::String>,

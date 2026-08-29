@@ -7,7 +7,7 @@ pub fn de_list_endpoints_by_platform_application_http_error(
 ) -> std::result::Result<
     crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput,
     crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError,
->{
+> {
     #[allow(unused_mut)]
     let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
@@ -99,7 +99,7 @@ pub fn de_list_endpoints_by_platform_application_http_response(
 ) -> std::result::Result<
     crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput,
     crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError,
->{
+> {
     Ok({
         #[allow(unused_mut)]
         let mut output =
@@ -107,9 +107,7 @@ pub fn de_list_endpoints_by_platform_application_http_response(
         output =
             crate::protocol_serde::shape_list_endpoints_by_platform_application::de_list_endpoints_by_platform_application(_response_body, output)
                 .map_err(crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -121,7 +119,7 @@ pub fn de_list_endpoints_by_platform_application(
 ) -> std::result::Result<
     crate::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
->{
+> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

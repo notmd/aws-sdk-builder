@@ -18,17 +18,14 @@ impl ListSubscriptionsInput {
 #[cfg(feature = "op_list_subscriptions")]
 impl ListSubscriptionsInput {
     /// Creates a new builder-style object to manufacture [`ListSubscriptionsInput`](crate::operation::list_subscriptions::ListSubscriptionsInput).
-    pub fn builder() -> crate::operation::list_subscriptions::builders::ListSubscriptionsInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_subscriptions::builders::ListSubscriptionsInputBuilder {
         crate::operation::list_subscriptions::builders::ListSubscriptionsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_subscriptions")]
 /// A builder for [`ListSubscriptionsInput`](crate::operation::list_subscriptions::ListSubscriptionsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListSubscriptionsInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
@@ -52,14 +49,7 @@ impl ListSubscriptionsInputBuilder {
     /// Consumes the builder and constructs a [`ListSubscriptionsInput`](crate::operation::list_subscriptions::ListSubscriptionsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_subscriptions::ListSubscriptionsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::list_subscriptions::ListSubscriptionsInput {
-                next_token: self.next_token,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::list_subscriptions::ListSubscriptionsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::list_subscriptions::ListSubscriptionsInput { next_token: self.next_token })
     }
 }

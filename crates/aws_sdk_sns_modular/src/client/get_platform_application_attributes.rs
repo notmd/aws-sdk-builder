@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetPlatformApplicationAttributesError>`](crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError)
     pub fn get_platform_application_attributes(
         &self,
-    ) -> crate::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesFluentBuilder{
+    ) -> crate::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesFluentBuilder {
         crate::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesFluentBuilder::new(self.handle.clone())
     }
 }

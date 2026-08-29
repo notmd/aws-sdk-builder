@@ -63,7 +63,7 @@ impl SetPlatformApplicationAttributesFluentBuilder {
         }
     }
     /// Access the SetPlatformApplicationAttributes as a reference.
-    pub fn as_input(&self) -> &crate::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,7 +82,7 @@ impl SetPlatformApplicationAttributesFluentBuilder {
             crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -102,37 +102,25 @@ impl SetPlatformApplicationAttributesFluentBuilder {
         crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesOutput,
         crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p><code>PlatformApplicationArn</code> for <code>SetPlatformApplicationAttributes</code> action.</p>
-    pub fn platform_application_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn platform_application_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.platform_application_arn(input.into());
         self
     }
     /// <p><code>PlatformApplicationArn</code> for <code>SetPlatformApplicationAttributes</code> action.</p>
-    pub fn set_platform_application_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_platform_application_arn(input);
         self
     }
@@ -199,11 +187,7 @@ impl SetPlatformApplicationAttributesFluentBuilder {
     /// <li>
     /// <p><code>ApplePlatformBundleID</code> – The bundle identifier that's assigned to your iOS app.</p></li>
     /// </ul>
-    pub fn attributes(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.attributes(k.into(), v.into());
         self
     }
@@ -261,12 +245,7 @@ impl SetPlatformApplicationAttributesFluentBuilder {
     /// <li>
     /// <p><code>ApplePlatformBundleID</code> – The bundle identifier that's assigned to your iOS app.</p></li>
     /// </ul>
-    pub fn set_attributes(
-        mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
-    ) -> Self {
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.inner = self.inner.set_attributes(input);
         self
     }
@@ -324,11 +303,7 @@ impl SetPlatformApplicationAttributesFluentBuilder {
     /// <li>
     /// <p><code>ApplePlatformBundleID</code> – The bundle identifier that's assigned to your iOS app.</p></li>
     /// </ul>
-    pub fn get_attributes(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_attributes()
     }
 }

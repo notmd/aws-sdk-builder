@@ -26,8 +26,7 @@ impl ::std::fmt::Debug for OptInPhoneNumberInput {
 #[cfg(feature = "op_opt_in_phone_number")]
 impl OptInPhoneNumberInput {
     /// Creates a new builder-style object to manufacture [`OptInPhoneNumberInput`](crate::operation::opt_in_phone_number::OptInPhoneNumberInput).
-    pub fn builder() -> crate::operation::opt_in_phone_number::builders::OptInPhoneNumberInputBuilder
-    {
+    pub fn builder() -> crate::operation::opt_in_phone_number::builders::OptInPhoneNumberInputBuilder {
         crate::operation::opt_in_phone_number::builders::OptInPhoneNumberInputBuilder::default()
     }
 }
@@ -59,15 +58,10 @@ impl OptInPhoneNumberInputBuilder {
     /// Consumes the builder and constructs a [`OptInPhoneNumberInput`](crate::operation::opt_in_phone_number::OptInPhoneNumberInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::opt_in_phone_number::OptInPhoneNumberInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::opt_in_phone_number::OptInPhoneNumberInput {
-                phone_number: self.phone_number,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::opt_in_phone_number::OptInPhoneNumberInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::opt_in_phone_number::OptInPhoneNumberInput {
+            phone_number: self.phone_number,
+        })
     }
 }
 #[cfg(feature = "op_opt_in_phone_number")]

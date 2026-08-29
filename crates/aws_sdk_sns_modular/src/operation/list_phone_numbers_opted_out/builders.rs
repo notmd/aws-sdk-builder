@@ -6,9 +6,7 @@ pub use crate::operation::list_phone_numbers_opted_out::_list_phone_numbers_opte
 pub use crate::operation::list_phone_numbers_opted_out::_list_phone_numbers_opted_out_output::ListPhoneNumbersOptedOutOutputBuilder;
 
 #[cfg(feature = "op_list_phone_numbers_opted_out")]
-impl
-    crate::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutInputBuilder
-{
+impl crate::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -66,7 +64,7 @@ impl ListPhoneNumbersOptedOutFluentBuilder {
         }
     }
     /// Access the ListPhoneNumbersOptedOut as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -95,11 +93,7 @@ impl ListPhoneNumbersOptedOutFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOut::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOut::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -112,28 +106,19 @@ impl ListPhoneNumbersOptedOutFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_phone_numbers_opted_out::paginator::ListPhoneNumbersOptedOutPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_phone_numbers_opted_out::paginator::ListPhoneNumbersOptedOutPaginator
-    {
+    pub fn into_paginator(self) -> crate::operation::list_phone_numbers_opted_out::paginator::ListPhoneNumbersOptedOutPaginator {
         crate::operation::list_phone_numbers_opted_out::paginator::ListPhoneNumbersOptedOutPaginator::new(self.handle, self.inner)
     }
     /// <p>A <code>NextToken</code> string is used when you call the <code>ListPhoneNumbersOptedOut</code> action to retrieve additional records that are available after the first page of results.</p>
