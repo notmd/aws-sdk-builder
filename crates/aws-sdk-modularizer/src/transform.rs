@@ -879,8 +879,20 @@ fn operation_symbols(
     let mut symbols = BTreeMap::<String, BTreeSet<String>>::new();
     for file in files {
         let module_path = source_module_path(&file.relative);
-        if module_path.contains("::") {
+        if module_path.contains("::") || file.relative == "src/protocol_serde.rs" {
             symbols.entry(module_path.clone()).or_default();
+        }
+        if file.relative == "src/protocol_serde.rs" {
+            for item in &file.syntax.items {
+                if let Item::Fn(function) = item {
+                    symbols
+                        .entry(join_symbol_path(
+                            &module_path,
+                            &function.sig.ident.to_string(),
+                        ))
+                        .or_default();
+                }
+            }
         }
     }
     let mut super_module_references = SuperModuleReferenceVisitor::default();
@@ -1378,6 +1390,16 @@ fn inferred_item_owners(
     let declared_owners = operation_error_owners_for_parent(parent_path, item, type_owners);
     if !declared_owners.is_empty() {
         return declared_owners;
+    }
+    if parent_path == "protocol_serde"
+        && let Item::Fn(function) = item
+        && let Some(owners) = known_symbols.get(&join_symbol_path(
+            parent_path,
+            &function.sig.ident.to_string(),
+        ))
+        && !owners.is_empty()
+    {
+        return owners.clone();
     }
     if is_type_ownership_module(parent_path) {
         let type_reference_owners = type_reference_owners(item, type_owners);
@@ -2718,7 +2740,7 @@ mod tests {
         fs::write(directory.path().join("src/client.rs"), "mod get_thing;\n").unwrap();
         fs::write(
             directory.path().join("src/operation/get_thing.rs"),
-            "pub struct GetThing;\nfn serialize() { crate::protocol_serde::shape_get_thing::serialize(); }\n",
+            "pub struct GetThing;\nfn serialize() { crate::protocol_serde::type_erase_result(); crate::protocol_serde::shape_get_thing::serialize(); }\n",
         )
         .unwrap();
         fs::write(
@@ -2728,7 +2750,7 @@ mod tests {
         .unwrap();
         fs::write(
             directory.path().join("src/protocol_serde.rs"),
-            "pub(crate) mod shape_get_thing;\n",
+            "pub(crate) fn type_erase_result() {}\npub(crate) mod shape_get_thing;\n",
         )
         .unwrap();
         fs::write(
@@ -2751,6 +2773,11 @@ mod tests {
         assert!(
             protocol_source
                 .contains("#[cfg(feature = \"op_get_thing\")]\npub(crate) mod shape_get_thing;")
+        );
+        assert!(
+            protocol_source.contains(
+                "#[cfg(feature = \"op_get_thing\")]\npub(crate) fn type_erase_result() {}"
+            )
         );
         let child_source = fs::read_to_string(
             directory
