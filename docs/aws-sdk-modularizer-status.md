@@ -1,5 +1,15 @@
 # AWS SDK modularizer checkpoint log
 
+## 2026-08-29 — `2c7d6ff36` — modular `aws-config` provider
+
+- Objective: port the Smithy-RS `aws-config` provider and connect it to the local modular STS, SSO, SSO OIDC, and Sign-In crates with the smallest required operation-feature set.
+- Generic rule: preserve the pinned upstream provider implementation, structurally rename the package/library, and enable only provider-reachable `op_*` dependencies; omit `test-data/` and do not emit provider `DIFF.MD` or `DIFF.diff` artifacts.
+- Changed files: `crates/aws_config_modular/**` (without `test-data/`), `Cargo.lock`, and this checkpoint log.
+- Commands: `just conformance` passed for all 18 services; `cargo check --workspace` passed; `cargo test --workspace` passed; `cargo fmt --all -- --check` passed; `git diff --check` passed.
+- Operation coverage: 1,149 -> 1,149 operations, coverage delta `+0`, with zero missing and zero ambiguous mappings; the provider crate has no Smithy operation model of its own.
+- Remaining blocker: complete the final requirement-by-requirement audit of the modular `aws-config` port and its feature-gated public surface.
+- Next action: inspect the committed provider against the upstream Smithy-RS reference and verify every dependency feature and public API configuration.
+
 ## 2026-08-29 — working tree — modular `aws-config` provider
 
 - Objective: port the Smithy-RS `aws-config` provider crate onto the modular STS, SSO, SSO OIDC, and Sign-In service crates.
