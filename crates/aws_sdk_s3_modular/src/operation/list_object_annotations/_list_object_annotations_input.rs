@@ -63,18 +63,14 @@ impl ListObjectAnnotationsInput {
 #[cfg(feature = "op_list_object_annotations")]
 impl ListObjectAnnotationsInput {
     /// Creates a new builder-style object to manufacture [`ListObjectAnnotationsInput`](crate::operation::list_object_annotations::ListObjectAnnotationsInput).
-    pub fn builder(
-    ) -> crate::operation::list_object_annotations::builders::ListObjectAnnotationsInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_object_annotations::builders::ListObjectAnnotationsInputBuilder {
         crate::operation::list_object_annotations::builders::ListObjectAnnotationsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_object_annotations")]
 /// A builder for [`ListObjectAnnotationsInput`](crate::operation::list_object_annotations::ListObjectAnnotationsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListObjectAnnotationsInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -147,18 +143,12 @@ impl ListObjectAnnotationsInputBuilder {
         &self.max_annotation_results
     }
     /// <p>Filter results to annotations whose name begins with the specified prefix.</p>
-    pub fn annotation_prefix(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn annotation_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.annotation_prefix = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Filter results to annotations whose name begins with the specified prefix.</p>
-    pub fn set_annotation_prefix(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_annotation_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.annotation_prefix = input;
         self
     }
@@ -167,18 +157,12 @@ impl ListObjectAnnotationsInputBuilder {
         &self.annotation_prefix
     }
     /// <p>Continuation token returned by a previous request to retrieve the next page.</p>
-    pub fn continuation_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Continuation token returned by a previous request to retrieve the next page.</p>
-    pub fn set_continuation_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.continuation_token = input;
         self
     }
@@ -196,10 +180,7 @@ impl ListObjectAnnotationsInputBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(
-        mut self,
-        input: ::std::option::Option<crate::types::RequestPayer>,
-    ) -> Self {
+    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
         self.request_payer = input;
         self
     }
@@ -210,18 +191,12 @@ impl ListObjectAnnotationsInputBuilder {
         &self.request_payer
     }
     /// <p>The account ID of the expected bucket owner.</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner.</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -232,21 +207,17 @@ impl ListObjectAnnotationsInputBuilder {
     /// Consumes the builder and constructs a [`ListObjectAnnotationsInput`](crate::operation::list_object_annotations::ListObjectAnnotationsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_object_annotations::ListObjectAnnotationsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::list_object_annotations::ListObjectAnnotationsInput {
-                bucket: self.bucket,
-                key: self.key,
-                version_id: self.version_id,
-                max_annotation_results: self.max_annotation_results,
-                annotation_prefix: self.annotation_prefix,
-                continuation_token: self.continuation_token,
-                request_payer: self.request_payer,
-                expected_bucket_owner: self.expected_bucket_owner,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::list_object_annotations::ListObjectAnnotationsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::list_object_annotations::ListObjectAnnotationsInput {
+            bucket: self.bucket,
+            key: self.key,
+            version_id: self.version_id,
+            max_annotation_results: self.max_annotation_results,
+            annotation_prefix: self.annotation_prefix,
+            continuation_token: self.continuation_token,
+            request_payer: self.request_payer,
+            expected_bucket_owner: self.expected_bucket_owner,
+        })
     }
 }

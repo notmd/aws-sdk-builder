@@ -11,8 +11,7 @@ pub fn ser_inventory_table_configuration_http_payload(
 
 pub fn ser_inventory_table_configuration_payload(
     input: &crate::types::InventoryTableConfigurationUpdates,
-) -> std::result::Result<std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError>
-{
+) -> std::result::Result<std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     {
         let mut writer = ::aws_smithy_xml::encode::XmlWriter::new(&mut out);

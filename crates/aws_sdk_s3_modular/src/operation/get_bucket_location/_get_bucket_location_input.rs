@@ -27,17 +27,14 @@ impl GetBucketLocationInput {
 #[cfg(feature = "op_get_bucket_location")]
 impl GetBucketLocationInput {
     /// Creates a new builder-style object to manufacture [`GetBucketLocationInput`](crate::operation::get_bucket_location::GetBucketLocationInput).
-    pub fn builder(
-    ) -> crate::operation::get_bucket_location::builders::GetBucketLocationInputBuilder {
+    pub fn builder() -> crate::operation::get_bucket_location::builders::GetBucketLocationInputBuilder {
         crate::operation::get_bucket_location::builders::GetBucketLocationInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_bucket_location")]
 /// A builder for [`GetBucketLocationInput`](crate::operation::get_bucket_location::GetBucketLocationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketLocationInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -67,18 +64,12 @@ impl GetBucketLocationInputBuilder {
         &self.bucket
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -89,15 +80,10 @@ impl GetBucketLocationInputBuilder {
     /// Consumes the builder and constructs a [`GetBucketLocationInput`](crate::operation::get_bucket_location::GetBucketLocationInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_bucket_location::GetBucketLocationInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::get_bucket_location::GetBucketLocationInput {
-                bucket: self.bucket,
-                expected_bucket_owner: self.expected_bucket_owner,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::get_bucket_location::GetBucketLocationInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::get_bucket_location::GetBucketLocationInput {
+            bucket: self.bucket,
+            expected_bucket_owner: self.expected_bucket_owner,
+        })
     }
 }

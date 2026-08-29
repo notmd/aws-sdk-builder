@@ -27,9 +27,7 @@ impl RoutingRule {
 }
 
 /// A builder for [`RoutingRule`](crate::types::RoutingRule).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RoutingRuleBuilder {
     pub(crate) condition: ::std::option::Option<crate::types::Condition>,

@@ -27,9 +27,7 @@ impl RecordExpiration {
 }
 
 /// A builder for [`RecordExpiration`](crate::types::RecordExpiration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RecordExpirationBuilder {
     pub(crate) expiration: ::std::option::Option<crate::types::ExpirationState>,
@@ -43,10 +41,7 @@ impl RecordExpirationBuilder {
         self
     }
     /// <p>Specifies whether journal table record expiration is enabled or disabled.</p>
-    pub fn set_expiration(
-        mut self,
-        input: ::std::option::Option<crate::types::ExpirationState>,
-    ) -> Self {
+    pub fn set_expiration(mut self, input: ::std::option::Option<crate::types::ExpirationState>) -> Self {
         self.expiration = input;
         self
     }
@@ -71,12 +66,7 @@ impl RecordExpirationBuilder {
     /// Consumes the builder and constructs a [`RecordExpiration`](crate::types::RecordExpiration).
     /// This method will fail if any of the following fields are not set:
     /// - [`expiration`](crate::types::builders::RecordExpirationBuilder::expiration)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::RecordExpiration,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::RecordExpiration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::RecordExpiration {
             expiration: self.expiration.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

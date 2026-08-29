@@ -87,7 +87,7 @@ impl PutBucketAccelerateConfigurationFluentBuilder {
         }
     }
     /// Access the PutBucketAccelerateConfiguration as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_bucket_accelerate_configuration::builders::PutBucketAccelerateConfigurationInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::put_bucket_accelerate_configuration::builders::PutBucketAccelerateConfigurationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -106,7 +106,7 @@ impl PutBucketAccelerateConfigurationFluentBuilder {
             crate::operation::put_bucket_accelerate_configuration::PutBucketAccelerateConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -126,21 +126,15 @@ impl PutBucketAccelerateConfigurationFluentBuilder {
         crate::operation::put_bucket_accelerate_configuration::PutBucketAccelerateConfigurationOutput,
         crate::operation::put_bucket_accelerate_configuration::PutBucketAccelerateConfigurationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -159,40 +153,26 @@ impl PutBucketAccelerateConfigurationFluentBuilder {
         self.inner.get_bucket()
     }
     /// <p>Container for setting the transfer acceleration state.</p>
-    pub fn accelerate_configuration(
-        mut self,
-        input: crate::types::AccelerateConfiguration,
-    ) -> Self {
+    pub fn accelerate_configuration(mut self, input: crate::types::AccelerateConfiguration) -> Self {
         self.inner = self.inner.accelerate_configuration(input);
         self
     }
     /// <p>Container for setting the transfer acceleration state.</p>
-    pub fn set_accelerate_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::AccelerateConfiguration>,
-    ) -> Self {
+    pub fn set_accelerate_configuration(mut self, input: ::std::option::Option<crate::types::AccelerateConfiguration>) -> Self {
         self.inner = self.inner.set_accelerate_configuration(input);
         self
     }
     /// <p>Container for setting the transfer acceleration state.</p>
-    pub fn get_accelerate_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::AccelerateConfiguration> {
+    pub fn get_accelerate_configuration(&self) -> &::std::option::Option<crate::types::AccelerateConfiguration> {
         self.inner.get_accelerate_configuration()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }
@@ -208,18 +188,13 @@ impl PutBucketAccelerateConfigurationFluentBuilder {
     }
     /// <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn set_checksum_algorithm(
-        mut self,
-        input: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-    ) -> Self {
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
         self.inner = self.inner.set_checksum_algorithm(input);
         self
     }
     /// <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn get_checksum_algorithm(
-        &self,
-    ) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         self.inner.get_checksum_algorithm()
     }
 }

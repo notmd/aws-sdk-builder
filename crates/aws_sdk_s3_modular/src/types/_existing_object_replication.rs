@@ -23,9 +23,7 @@ impl ExistingObjectReplication {
 }
 
 /// A builder for [`ExistingObjectReplication`](crate::types::ExistingObjectReplication).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ExistingObjectReplicationBuilder {
     pub(crate) status: ::std::option::Option<crate::types::ExistingObjectReplicationStatus>,
@@ -38,28 +36,18 @@ impl ExistingObjectReplicationBuilder {
         self
     }
     /// <p>Specifies whether Amazon S3 replicates existing source bucket objects.</p>
-    pub fn set_status(
-        mut self,
-        input: ::std::option::Option<crate::types::ExistingObjectReplicationStatus>,
-    ) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExistingObjectReplicationStatus>) -> Self {
         self.status = input;
         self
     }
     /// <p>Specifies whether Amazon S3 replicates existing source bucket objects.</p>
-    pub fn get_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::ExistingObjectReplicationStatus> {
+    pub fn get_status(&self) -> &::std::option::Option<crate::types::ExistingObjectReplicationStatus> {
         &self.status
     }
     /// Consumes the builder and constructs a [`ExistingObjectReplication`](crate::types::ExistingObjectReplication).
     /// This method will fail if any of the following fields are not set:
     /// - [`status`](crate::types::builders::ExistingObjectReplicationBuilder::status)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::ExistingObjectReplication,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::ExistingObjectReplication, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ExistingObjectReplication {
             status: self.status.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

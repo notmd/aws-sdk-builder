@@ -31,17 +31,14 @@ impl ::aws_types::request_id::RequestId for GetObjectRetentionOutput {
 #[cfg(feature = "op_get_object_retention")]
 impl GetObjectRetentionOutput {
     /// Creates a new builder-style object to manufacture [`GetObjectRetentionOutput`](crate::operation::get_object_retention::GetObjectRetentionOutput).
-    pub fn builder(
-    ) -> crate::operation::get_object_retention::builders::GetObjectRetentionOutputBuilder {
+    pub fn builder() -> crate::operation::get_object_retention::builders::GetObjectRetentionOutputBuilder {
         crate::operation::get_object_retention::builders::GetObjectRetentionOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_object_retention")]
 /// A builder for [`GetObjectRetentionOutput`](crate::operation::get_object_retention::GetObjectRetentionOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetObjectRetentionOutputBuilder {
     pub(crate) retention: ::std::option::Option<crate::types::ObjectLockRetention>,
@@ -56,10 +53,7 @@ impl GetObjectRetentionOutputBuilder {
         self
     }
     /// <p>The container element for an object's retention settings.</p>
-    pub fn set_retention(
-        mut self,
-        input: ::std::option::Option<crate::types::ObjectLockRetention>,
-    ) -> Self {
+    pub fn set_retention(mut self, input: ::std::option::Option<crate::types::ObjectLockRetention>) -> Self {
         self.retention = input;
         self
     }
@@ -72,10 +66,7 @@ impl GetObjectRetentionOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

@@ -9,18 +9,14 @@ impl SelectObjectContentEventStreamUnmarshaller {
     }
 }
 #[cfg(feature = "op_select_object_content")]
-impl ::aws_smithy_eventstream::frame::UnmarshallMessage
-    for SelectObjectContentEventStreamUnmarshaller
-{
+impl ::aws_smithy_eventstream::frame::UnmarshallMessage for SelectObjectContentEventStreamUnmarshaller {
     type Output = crate::types::SelectObjectContentEventStream;
     type Error = crate::types::error::SelectObjectContentEventStreamError;
     fn unmarshall(
         &self,
         message: &::aws_smithy_types::event_stream::Message,
-    ) -> std::result::Result<
-        ::aws_smithy_eventstream::frame::UnmarshalledMessage<Self::Output, Self::Error>,
-        ::aws_smithy_eventstream::error::Error,
-    > {
+    ) -> std::result::Result<::aws_smithy_eventstream::frame::UnmarshalledMessage<Self::Output, Self::Error>, ::aws_smithy_eventstream::error::Error>
+    {
         let response_headers = ::aws_smithy_eventstream::smithy::parse_response_headers(message)?;
         match response_headers.message_type.as_str() {
             "event" => match response_headers.smithy_type.as_str() {
@@ -32,9 +28,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage
                             "expected :content-type to be 'application/octet-stream', but was '{content_type}'"
                         )));
                     }
-                    builder = builder.set_payload(Some(
-                        ::aws_smithy_types::Blob::from_maybe_shared(message.payload().clone()),
-                    ));
+                    builder = builder.set_payload(Some(::aws_smithy_types::Blob::from_maybe_shared(message.payload().clone())));
                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
                         crate::types::SelectObjectContentEventStream::Records(builder.build()),
                     ))
@@ -42,14 +36,8 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage
                 "Stats" => {
                     let mut builder = crate::types::builders::StatsEventBuilder::default();
                     builder = builder.set_details(Some(
-                        crate::protocol_serde::shape_stats_event::de_details(
-                            &message.payload()[..],
-                        )
-                        .map_err(|err| {
-                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
-                                "failed to unmarshall details: {err}"
-                            ))
-                        })?,
+                        crate::protocol_serde::shape_stats_event::de_details(&message.payload()[..])
+                            .map_err(|err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall details: {err}")))?,
                     ));
                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
                         crate::types::SelectObjectContentEventStream::Stats(builder.build()),
@@ -58,45 +46,29 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage
                 "Progress" => {
                     let mut builder = crate::types::builders::ProgressEventBuilder::default();
                     builder = builder.set_details(Some(
-                        crate::protocol_serde::shape_progress_event::de_details(
-                            &message.payload()[..],
-                        )
-                        .map_err(|err| {
-                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
-                                "failed to unmarshall details: {err}"
-                            ))
-                        })?,
+                        crate::protocol_serde::shape_progress_event::de_details(&message.payload()[..])
+                            .map_err(|err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall details: {err}")))?,
                     ));
                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
                         crate::types::SelectObjectContentEventStream::Progress(builder.build()),
                     ))
                 }
                 "Cont" => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                    crate::types::SelectObjectContentEventStream::Cont(
-                        crate::types::ContinuationEvent::builder().build(),
-                    ),
+                    crate::types::SelectObjectContentEventStream::Cont(crate::types::ContinuationEvent::builder().build()),
                 )),
                 "End" => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                    crate::types::SelectObjectContentEventStream::End(
-                        crate::types::EndEvent::builder().build(),
-                    ),
+                    crate::types::SelectObjectContentEventStream::End(crate::types::EndEvent::builder().build()),
                 )),
-                _unknown_variant => {
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        crate::types::SelectObjectContentEventStream::Unknown,
-                    ))
-                }
+                _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+                    crate::types::SelectObjectContentEventStream::Unknown,
+                )),
             },
             "exception" => {
-                let generic = match crate::protocol_serde::parse_event_stream_error_metadata(
-                    message.payload(),
-                ) {
+                let generic = match crate::protocol_serde::parse_event_stream_error_metadata(message.payload()) {
                     Ok(builder) => builder.build(),
                     Err(err) => {
                         return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                            crate::types::error::SelectObjectContentEventStreamError::unhandled(
-                                err,
-                            ),
+                            crate::types::error::SelectObjectContentEventStreamError::unhandled(err),
                         ))
                     }
                 };
@@ -105,9 +77,9 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage
                 ))
             }
             value => {
-                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(
-                    format!("unrecognized :message-type: {value}"),
-                ));
+                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(
+                    "unrecognized :message-type: {value}"
+                )));
             }
         }
     }

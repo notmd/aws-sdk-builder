@@ -39,9 +39,7 @@ impl InputSerialization {
 }
 
 /// A builder for [`InputSerialization`](crate::types::InputSerialization).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InputSerializationBuilder {
     pub(crate) csv: ::std::option::Option<crate::types::CsvInput>,
@@ -70,10 +68,7 @@ impl InputSerializationBuilder {
         self
     }
     /// <p>Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.</p>
-    pub fn set_compression_type(
-        mut self,
-        input: ::std::option::Option<crate::types::CompressionType>,
-    ) -> Self {
+    pub fn set_compression_type(mut self, input: ::std::option::Option<crate::types::CompressionType>) -> Self {
         self.compression_type = input;
         self
     }

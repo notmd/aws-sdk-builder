@@ -19,20 +19,14 @@ pub fn de_get_object_annotation_http_response(
             crate::protocol_serde::shape_get_object_annotation_output::de_annotation_payload_payload(_response_body)?,
         ));
         output = output.set_checksum_crc32(
-            crate::protocol_serde::shape_get_object_annotation_output::de_checksum_crc32_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_get_object_annotation_output::de_checksum_crc32_header(_response_headers).map_err(|_| {
                 crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled(
                     "Failed to parse ChecksumCRC32 from header `x-amz-checksum-crc32",
                 )
             })?,
         );
         output = output.set_checksum_crc32_c(
-            crate::protocol_serde::shape_get_object_annotation_output::de_checksum_crc32_c_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_get_object_annotation_output::de_checksum_crc32_c_header(_response_headers).map_err(|_| {
                 crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled(
                     "Failed to parse ChecksumCRC32C from header `x-amz-checksum-crc32c",
                 )
@@ -46,50 +40,35 @@ pub fn de_get_object_annotation_http_response(
             })?,
         );
         output = output.set_checksum_md5(
-            crate::protocol_serde::shape_get_object_annotation_output::de_checksum_md5_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_get_object_annotation_output::de_checksum_md5_header(_response_headers).map_err(|_| {
                 crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled(
                     "Failed to parse ChecksumMD5 from header `x-amz-checksum-md5",
                 )
             })?,
         );
         output = output.set_checksum_sha1(
-            crate::protocol_serde::shape_get_object_annotation_output::de_checksum_sha1_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_get_object_annotation_output::de_checksum_sha1_header(_response_headers).map_err(|_| {
                 crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled(
                     "Failed to parse ChecksumSHA1 from header `x-amz-checksum-sha1",
                 )
             })?,
         );
         output = output.set_checksum_sha256(
-            crate::protocol_serde::shape_get_object_annotation_output::de_checksum_sha256_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_get_object_annotation_output::de_checksum_sha256_header(_response_headers).map_err(|_| {
                 crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled(
                     "Failed to parse ChecksumSHA256 from header `x-amz-checksum-sha256",
                 )
             })?,
         );
         output = output.set_checksum_sha512(
-            crate::protocol_serde::shape_get_object_annotation_output::de_checksum_sha512_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_get_object_annotation_output::de_checksum_sha512_header(_response_headers).map_err(|_| {
                 crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled(
                     "Failed to parse ChecksumSHA512 from header `x-amz-checksum-sha512",
                 )
             })?,
         );
         output = output.set_checksum_type(
-            crate::protocol_serde::shape_get_object_annotation_output::de_checksum_type_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_get_object_annotation_output::de_checksum_type_header(_response_headers).map_err(|_| {
                 crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled(
                     "Failed to parse ChecksumType from header `x-amz-checksum-type",
                 )
@@ -103,60 +82,40 @@ pub fn de_get_object_annotation_http_response(
             })?,
         );
         output = output.set_checksum_xxhash3(
-            crate::protocol_serde::shape_get_object_annotation_output::de_checksum_xxhash3_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_get_object_annotation_output::de_checksum_xxhash3_header(_response_headers).map_err(|_| {
                 crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled(
                     "Failed to parse ChecksumXXHASH3 from header `x-amz-checksum-xxhash3",
                 )
             })?,
         );
         output = output.set_checksum_xxhash64(
-            crate::protocol_serde::shape_get_object_annotation_output::de_checksum_xxhash64_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_get_object_annotation_output::de_checksum_xxhash64_header(_response_headers).map_err(|_| {
                 crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled(
                     "Failed to parse ChecksumXXHASH64 from header `x-amz-checksum-xxhash64",
                 )
             })?,
         );
         output = output.set_content_length(
-            crate::protocol_serde::shape_get_object_annotation_output::de_content_length_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_get_object_annotation_output::de_content_length_header(_response_headers).map_err(|_| {
                 crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled(
                     "Failed to parse ContentLength from header `Content-Length",
                 )
             })?,
         );
         output = output.set_e_tag(
-            crate::protocol_serde::shape_get_object_annotation_output::de_e_tag_header(
-                _response_headers,
-            )
-            .map_err(|_| {
-                crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled(
-                    "Failed to parse ETag from header `ETag",
-                )
+            crate::protocol_serde::shape_get_object_annotation_output::de_e_tag_header(_response_headers).map_err(|_| {
+                crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled("Failed to parse ETag from header `ETag")
             })?,
         );
         output = output.set_last_modified(
-            crate::protocol_serde::shape_get_object_annotation_output::de_last_modified_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_get_object_annotation_output::de_last_modified_header(_response_headers).map_err(|_| {
                 crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled(
                     "Failed to parse LastModified from header `Last-Modified",
                 )
             })?,
         );
         output = output.set_object_version_id(
-            crate::protocol_serde::shape_get_object_annotation_output::de_object_version_id_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_get_object_annotation_output::de_object_version_id_header(_response_headers).map_err(|_| {
                 crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled(
                     "Failed to parse ObjectVersionId from header `x-amz-object-version-id",
                 )
@@ -170,10 +129,7 @@ pub fn de_get_object_annotation_http_response(
             })?,
         );
         output = output.set_request_charged(
-            crate::protocol_serde::shape_get_object_annotation_output::de_request_charged_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_get_object_annotation_output::de_request_charged_header(_response_headers).map_err(|_| {
                 crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled(
                     "Failed to parse RequestCharged from header `x-amz-request-charged",
                 )
@@ -186,13 +142,8 @@ pub fn de_get_object_annotation_http_response(
                 )
             })?,
         );
-        output._set_extended_request_id(
-            crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers)
-                .map(str::to_string),
-        );
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -207,81 +158,63 @@ pub fn de_get_object_annotation_http_error(
     crate::operation::get_object_annotation::GetObjectAnnotationError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled)?;
-    generic_builder =
-        crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled)?;
+    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(
-                crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled(
-                    generic,
-                ),
-            )
-        }
+        None => return Err(crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "NoSuchAnnotation" => {
-            crate::operation::get_object_annotation::GetObjectAnnotationError::NoSuchAnnotation({
+        "NoSuchAnnotation" => crate::operation::get_object_annotation::GetObjectAnnotationError::NoSuchAnnotation({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::NoSuchAnnotationBuilder::default();
-                    output = crate::protocol_serde::shape_no_such_annotation::de_no_such_annotation_xml_err(_response_body, output)
+                let mut output = crate::types::error::builders::NoSuchAnnotationBuilder::default();
+                output = crate::protocol_serde::shape_no_such_annotation::de_no_such_annotation_xml_err(_response_body, output)
                     .map_err(crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "NoSuchBucket" => {
-            crate::operation::get_object_annotation::GetObjectAnnotationError::NoSuchBucket({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NoSuchBucket" => crate::operation::get_object_annotation::GetObjectAnnotationError::NoSuchBucket({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::NoSuchBucketBuilder::default();
-                    output = crate::protocol_serde::shape_no_such_bucket::de_no_such_bucket_xml_err(_response_body, output)
+                let mut output = crate::types::error::builders::NoSuchBucketBuilder::default();
+                output = crate::protocol_serde::shape_no_such_bucket::de_no_such_bucket_xml_err(_response_body, output)
                     .map_err(crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "NoSuchKey" => {
-            crate::operation::get_object_annotation::GetObjectAnnotationError::NoSuchKey({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NoSuchKey" => crate::operation::get_object_annotation::GetObjectAnnotationError::NoSuchKey({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::NoSuchKeyBuilder::default();
-                    output = crate::protocol_serde::shape_no_such_key::de_no_such_key_xml_err(_response_body, output)
+                let mut output = crate::types::error::builders::NoSuchKeyBuilder::default();
+                output = crate::protocol_serde::shape_no_such_key::de_no_such_key_xml_err(_response_body, output)
                     .map_err(crate::operation::get_object_annotation::GetObjectAnnotationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => crate::operation::get_object_annotation::GetObjectAnnotationError::generic(generic),
     })
 }
@@ -289,20 +222,14 @@ pub fn de_get_object_annotation_http_error(
 pub fn ser_get_object_annotation_headers(
     input: &crate::operation::get_object_annotation::GetObjectAnnotationInput,
     mut builder: ::http_1x::request::Builder,
-) -> std::result::Result<
-    ::http_1x::request::Builder,
-    ::aws_smithy_types::error::operation::BuildError,
-> {
+) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.request_payer {
         let formatted_2 = inner_1.as_str();
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "request_payer",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-request-payer", header_value);
@@ -313,10 +240,7 @@ pub fn ser_get_object_annotation_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "expected_bucket_owner",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-expected-bucket-owner", header_value);
@@ -327,10 +251,7 @@ pub fn ser_get_object_annotation_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_mode",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-checksum-mode", header_value);

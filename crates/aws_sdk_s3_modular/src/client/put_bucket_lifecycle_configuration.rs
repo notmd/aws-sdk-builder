@@ -13,7 +13,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutBucketLifecycleConfigurationError>`](crate::operation::put_bucket_lifecycle_configuration::PutBucketLifecycleConfigurationError)
     pub fn put_bucket_lifecycle_configuration(
         &self,
-    ) -> crate::operation::put_bucket_lifecycle_configuration::builders::PutBucketLifecycleConfigurationFluentBuilder{
+    ) -> crate::operation::put_bucket_lifecycle_configuration::builders::PutBucketLifecycleConfigurationFluentBuilder {
         crate::operation::put_bucket_lifecycle_configuration::builders::PutBucketLifecycleConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

@@ -11,8 +11,7 @@ pub struct ListBucketMetricsConfigurationsOutput {
     /// <p>The marker used to continue a metrics configuration listing that has been truncated. Use the <code>NextContinuationToken</code> from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</p>
     pub next_continuation_token: ::std::option::Option<::std::string::String>,
     /// <p>The list of metrics configurations for a bucket.</p>
-    pub metrics_configuration_list:
-        ::std::option::Option<::std::vec::Vec<crate::types::MetricsConfiguration>>,
+    pub metrics_configuration_list: ::std::option::Option<::std::vec::Vec<crate::types::MetricsConfiguration>>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -34,9 +33,7 @@ impl ListBucketMetricsConfigurationsOutput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.metrics_configuration_list.is_none()`.
     pub fn metrics_configuration_list(&self) -> &[crate::types::MetricsConfiguration] {
-        self.metrics_configuration_list
-            .as_deref()
-            .unwrap_or_default()
+        self.metrics_configuration_list.as_deref().unwrap_or_default()
     }
 }
 #[cfg(feature = "op_list_bucket_metrics_configurations")]
@@ -54,23 +51,20 @@ impl ::aws_types::request_id::RequestId for ListBucketMetricsConfigurationsOutpu
 #[cfg(feature = "op_list_bucket_metrics_configurations")]
 impl ListBucketMetricsConfigurationsOutput {
     /// Creates a new builder-style object to manufacture [`ListBucketMetricsConfigurationsOutput`](crate::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsOutput).
-    pub fn builder() -> crate::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsOutputBuilder{
+    pub fn builder() -> crate::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsOutputBuilder {
         crate::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_bucket_metrics_configurations")]
 /// A builder for [`ListBucketMetricsConfigurationsOutput`](crate::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListBucketMetricsConfigurationsOutputBuilder {
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) continuation_token: ::std::option::Option<::std::string::String>,
     pub(crate) next_continuation_token: ::std::option::Option<::std::string::String>,
-    pub(crate) metrics_configuration_list:
-        ::std::option::Option<::std::vec::Vec<crate::types::MetricsConfiguration>>,
+    pub(crate) metrics_configuration_list: ::std::option::Option<::std::vec::Vec<crate::types::MetricsConfiguration>>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -91,18 +85,12 @@ impl ListBucketMetricsConfigurationsOutputBuilder {
         &self.is_truncated
     }
     /// <p>The marker that is used as a starting point for this metrics configuration list response. This value is present if it was sent in the request.</p>
-    pub fn continuation_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The marker that is used as a starting point for this metrics configuration list response. This value is present if it was sent in the request.</p>
-    pub fn set_continuation_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.continuation_token = input;
         self
     }
@@ -111,18 +99,12 @@ impl ListBucketMetricsConfigurationsOutputBuilder {
         &self.continuation_token
     }
     /// <p>The marker used to continue a metrics configuration listing that has been truncated. Use the <code>NextContinuationToken</code> from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</p>
-    pub fn next_continuation_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn next_continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_continuation_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The marker used to continue a metrics configuration listing that has been truncated. Use the <code>NextContinuationToken</code> from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</p>
-    pub fn set_next_continuation_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_next_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_continuation_token = input;
         self
     }
@@ -142,17 +124,12 @@ impl ListBucketMetricsConfigurationsOutputBuilder {
         self
     }
     /// <p>The list of metrics configurations for a bucket.</p>
-    pub fn set_metrics_configuration_list(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::MetricsConfiguration>>,
-    ) -> Self {
+    pub fn set_metrics_configuration_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MetricsConfiguration>>) -> Self {
         self.metrics_configuration_list = input;
         self
     }
     /// <p>The list of metrics configurations for a bucket.</p>
-    pub fn get_metrics_configuration_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MetricsConfiguration>> {
+    pub fn get_metrics_configuration_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MetricsConfiguration>> {
         &self.metrics_configuration_list
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -160,10 +137,7 @@ impl ListBucketMetricsConfigurationsOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -177,10 +151,7 @@ impl ListBucketMetricsConfigurationsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListBucketMetricsConfigurationsOutput`](crate::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsOutput
-    {
+    pub fn build(self) -> crate::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsOutput {
         crate::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsOutput {
             is_truncated: self.is_truncated,
             continuation_token: self.continuation_token,

@@ -7,10 +7,7 @@ pub fn ser_metadata_table_configuration(
     let mut scope = writer.finish();
     if let Some(var_1) = &input.s3_tables_destination {
         let inner_writer = scope.start_el("S3TablesDestination");
-        crate::protocol_serde::shape_s3_tables_destination::ser_s3_tables_destination(
-            var_1,
-            inner_writer,
-        )?
+        crate::protocol_serde::shape_s3_tables_destination::ser_s3_tables_destination(var_1, inner_writer)?
     }
     scope.finish();
     Ok(())

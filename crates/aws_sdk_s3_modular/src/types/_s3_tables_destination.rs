@@ -31,9 +31,7 @@ impl S3TablesDestination {
 }
 
 /// A builder for [`S3TablesDestination`](crate::types::S3TablesDestination).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct S3TablesDestinationBuilder {
     pub(crate) table_bucket_arn: ::std::option::Option<::std::string::String>,
@@ -42,18 +40,12 @@ pub struct S3TablesDestinationBuilder {
 impl S3TablesDestinationBuilder {
     /// <p>The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and Amazon Web Services account as the general purpose bucket.</p>
     /// This field is required.
-    pub fn table_bucket_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn table_bucket_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_bucket_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and Amazon Web Services account as the general purpose bucket.</p>
-    pub fn set_table_bucket_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_table_bucket_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_bucket_arn = input;
         self
     }
@@ -80,12 +72,7 @@ impl S3TablesDestinationBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`table_bucket_arn`](crate::types::builders::S3TablesDestinationBuilder::table_bucket_arn)
     /// - [`table_name`](crate::types::builders::S3TablesDestinationBuilder::table_name)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::S3TablesDestination,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::S3TablesDestination, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::S3TablesDestination {
             table_bucket_arn: self.table_bucket_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

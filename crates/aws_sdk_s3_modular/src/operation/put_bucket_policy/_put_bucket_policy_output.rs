@@ -22,17 +22,14 @@ impl ::aws_types::request_id::RequestId for PutBucketPolicyOutput {
 #[cfg(feature = "op_put_bucket_policy")]
 impl PutBucketPolicyOutput {
     /// Creates a new builder-style object to manufacture [`PutBucketPolicyOutput`](crate::operation::put_bucket_policy::PutBucketPolicyOutput).
-    pub fn builder() -> crate::operation::put_bucket_policy::builders::PutBucketPolicyOutputBuilder
-    {
+    pub fn builder() -> crate::operation::put_bucket_policy::builders::PutBucketPolicyOutputBuilder {
         crate::operation::put_bucket_policy::builders::PutBucketPolicyOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_bucket_policy")]
 /// A builder for [`PutBucketPolicyOutput`](crate::operation::put_bucket_policy::PutBucketPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutBucketPolicyOutputBuilder {
     _extended_request_id: Option<String>,
@@ -45,10 +42,7 @@ impl PutBucketPolicyOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

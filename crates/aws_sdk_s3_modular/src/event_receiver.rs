@@ -20,21 +20,13 @@ impl<T, E> EventReceiver<T, E> {
     }
 
     #[allow(dead_code)]
-    pub(crate) async fn try_recv_initial_request(
-        &mut self,
-    ) -> Result<Option<Message>, SdkError<E, RawMessage>> {
-        self.inner
-            .try_recv_initial(InitialMessageType::Request)
-            .await
+    pub(crate) async fn try_recv_initial_request(&mut self) -> Result<Option<Message>, SdkError<E, RawMessage>> {
+        self.inner.try_recv_initial(InitialMessageType::Request).await
     }
 
     #[allow(dead_code)]
-    pub(crate) async fn try_recv_initial_response(
-        &mut self,
-    ) -> Result<Option<Message>, SdkError<E, RawMessage>> {
-        self.inner
-            .try_recv_initial(InitialMessageType::Response)
-            .await
+    pub(crate) async fn try_recv_initial_response(&mut self) -> Result<Option<Message>, SdkError<E, RawMessage>> {
+        self.inner.try_recv_initial(InitialMessageType::Response).await
     }
 
     /// Asynchronously tries to receive an event from the stream. If the stream has ended, it

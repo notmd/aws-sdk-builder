@@ -13,7 +13,7 @@ impl super::Client {
     pub fn update_bucket_metadata_journal_table_configuration(
         &self,
     ) -> crate::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationFluentBuilder
-{
+    {
         crate::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

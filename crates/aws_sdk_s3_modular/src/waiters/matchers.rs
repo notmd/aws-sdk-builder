@@ -3,10 +3,7 @@
 #[cfg(feature = "op_head_bucket")]
 /// Matcher union: {"success":true}
 pub(crate) fn match_head_bucket_c955e57777ec0d736(
-    _result: ::std::result::Result<
-        &crate::operation::head_bucket::HeadBucketOutput,
-        &crate::operation::head_bucket::HeadBucketError,
-    >,
+    _result: ::std::result::Result<&crate::operation::head_bucket::HeadBucketOutput, &crate::operation::head_bucket::HeadBucketError>,
 ) -> bool {
     _result.is_ok()
 }
@@ -14,15 +11,10 @@ pub(crate) fn match_head_bucket_c955e57777ec0d736(
 #[cfg(feature = "op_head_bucket")]
 /// Matcher union: {"errorType":"NotFound"}
 pub(crate) fn match_head_bucket_01223db2f9ae15f05(
-    _result: ::std::result::Result<
-        &crate::operation::head_bucket::HeadBucketOutput,
-        &crate::operation::head_bucket::HeadBucketError,
-    >,
+    _result: ::std::result::Result<&crate::operation::head_bucket::HeadBucketOutput, &crate::operation::head_bucket::HeadBucketError>,
 ) -> bool {
     if let ::std::result::Result::Err(err) = _result {
-        if let ::std::option::Option::Some(code) =
-            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err)
-        {
+        if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err) {
             return code == "NotFound";
         }
     }
@@ -32,10 +24,7 @@ pub(crate) fn match_head_bucket_01223db2f9ae15f05(
 #[cfg(feature = "op_head_object")]
 /// Matcher union: {"success":true}
 pub(crate) fn match_head_object_c955e57777ec0d736(
-    _result: ::std::result::Result<
-        &crate::operation::head_object::HeadObjectOutput,
-        &crate::operation::head_object::HeadObjectError,
-    >,
+    _result: ::std::result::Result<&crate::operation::head_object::HeadObjectOutput, &crate::operation::head_object::HeadObjectError>,
 ) -> bool {
     _result.is_ok()
 }
@@ -43,15 +32,10 @@ pub(crate) fn match_head_object_c955e57777ec0d736(
 #[cfg(feature = "op_head_object")]
 /// Matcher union: {"errorType":"NotFound"}
 pub(crate) fn match_head_object_01223db2f9ae15f05(
-    _result: ::std::result::Result<
-        &crate::operation::head_object::HeadObjectOutput,
-        &crate::operation::head_object::HeadObjectError,
-    >,
+    _result: ::std::result::Result<&crate::operation::head_object::HeadObjectOutput, &crate::operation::head_object::HeadObjectError>,
 ) -> bool {
     if let ::std::result::Result::Err(err) = _result {
-        if let ::std::option::Option::Some(code) =
-            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err)
-        {
+        if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err) {
             return code == "NotFound";
         }
     }

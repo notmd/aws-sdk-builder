@@ -22,18 +22,14 @@ impl ::aws_types::request_id::RequestId for DeleteBucketWebsiteOutput {
 #[cfg(feature = "op_delete_bucket_website")]
 impl DeleteBucketWebsiteOutput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketWebsiteOutput`](crate::operation::delete_bucket_website::DeleteBucketWebsiteOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_bucket_website::builders::DeleteBucketWebsiteOutputBuilder {
-        crate::operation::delete_bucket_website::builders::DeleteBucketWebsiteOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::delete_bucket_website::builders::DeleteBucketWebsiteOutputBuilder {
+        crate::operation::delete_bucket_website::builders::DeleteBucketWebsiteOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_bucket_website")]
 /// A builder for [`DeleteBucketWebsiteOutput`](crate::operation::delete_bucket_website::DeleteBucketWebsiteOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteBucketWebsiteOutputBuilder {
     _extended_request_id: Option<String>,
@@ -46,10 +42,7 @@ impl DeleteBucketWebsiteOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

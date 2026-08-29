@@ -22,17 +22,14 @@ impl ::aws_types::request_id::RequestId for PutBucketLoggingOutput {
 #[cfg(feature = "op_put_bucket_logging")]
 impl PutBucketLoggingOutput {
     /// Creates a new builder-style object to manufacture [`PutBucketLoggingOutput`](crate::operation::put_bucket_logging::PutBucketLoggingOutput).
-    pub fn builder() -> crate::operation::put_bucket_logging::builders::PutBucketLoggingOutputBuilder
-    {
+    pub fn builder() -> crate::operation::put_bucket_logging::builders::PutBucketLoggingOutputBuilder {
         crate::operation::put_bucket_logging::builders::PutBucketLoggingOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_bucket_logging")]
 /// A builder for [`PutBucketLoggingOutput`](crate::operation::put_bucket_logging::PutBucketLoggingOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutBucketLoggingOutputBuilder {
     _extended_request_id: Option<String>,
@@ -45,10 +42,7 @@ impl PutBucketLoggingOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

@@ -21,14 +21,9 @@ pub fn ser_object_lock_configuration(
 pub fn de_object_lock_configuration(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    crate::types::ObjectLockConfiguration,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<crate::types::ObjectLockConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::ObjectLockConfiguration::builder();

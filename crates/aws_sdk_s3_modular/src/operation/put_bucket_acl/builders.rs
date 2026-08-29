@@ -194,9 +194,7 @@ impl PutBucketAclFluentBuilder {
         }
     }
     /// Access the PutBucketAcl as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_bucket_acl::builders::PutBucketAclInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_bucket_acl::builders::PutBucketAclInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -220,12 +218,11 @@ impl PutBucketAclFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::put_bucket_acl::PutBucketAcl::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::put_bucket_acl::PutBucketAcl::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::put_bucket_acl::PutBucketAcl::orchestrate(&runtime_plugins, input).await
     }
 
@@ -239,18 +236,12 @@ impl PutBucketAclFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -274,17 +265,12 @@ impl PutBucketAclFluentBuilder {
         self
     }
     /// <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
-    pub fn set_access_control_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::AccessControlPolicy>,
-    ) -> Self {
+    pub fn set_access_control_policy(mut self, input: ::std::option::Option<crate::types::AccessControlPolicy>) -> Self {
         self.inner = self.inner.set_access_control_policy(input);
         self
     }
     /// <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
-    pub fn get_access_control_policy(
-        &self,
-    ) -> &::std::option::Option<crate::types::AccessControlPolicy> {
+    pub fn get_access_control_policy(&self) -> &::std::option::Option<crate::types::AccessControlPolicy> {
         self.inner.get_access_control_policy()
     }
     /// <p>The bucket to which to apply the ACL.</p>
@@ -326,33 +312,22 @@ impl PutBucketAclFluentBuilder {
     }
     /// <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn set_checksum_algorithm(
-        mut self,
-        input: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-    ) -> Self {
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
         self.inner = self.inner.set_checksum_algorithm(input);
         self
     }
     /// <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn get_checksum_algorithm(
-        &self,
-    ) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         self.inner.get_checksum_algorithm()
     }
     /// <p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p>
-    pub fn grant_full_control(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn grant_full_control(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.grant_full_control(input.into());
         self
     }
     /// <p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p>
-    pub fn set_grant_full_control(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_grant_full_control(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_grant_full_control(input);
         self
     }
@@ -375,18 +350,12 @@ impl PutBucketAclFluentBuilder {
         self.inner.get_grant_read()
     }
     /// <p>Allows grantee to read the bucket ACL.</p>
-    pub fn grant_read_acp(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn grant_read_acp(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.grant_read_acp(input.into());
         self
     }
     /// <p>Allows grantee to read the bucket ACL.</p>
-    pub fn set_grant_read_acp(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_grant_read_acp(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_grant_read_acp(input);
         self
     }
@@ -412,18 +381,12 @@ impl PutBucketAclFluentBuilder {
         self.inner.get_grant_write()
     }
     /// <p>Allows grantee to write the ACL for the applicable bucket.</p>
-    pub fn grant_write_acp(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn grant_write_acp(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.grant_write_acp(input.into());
         self
     }
     /// <p>Allows grantee to write the ACL for the applicable bucket.</p>
-    pub fn set_grant_write_acp(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_grant_write_acp(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_grant_write_acp(input);
         self
     }
@@ -432,18 +395,12 @@ impl PutBucketAclFluentBuilder {
         self.inner.get_grant_write_acp()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

@@ -27,16 +27,14 @@ impl GetBucketLifecycleConfigurationInput {
 #[cfg(feature = "op_get_bucket_lifecycle_configuration")]
 impl GetBucketLifecycleConfigurationInput {
     /// Creates a new builder-style object to manufacture [`GetBucketLifecycleConfigurationInput`](crate::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationInput).
-    pub fn builder() -> crate::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationInputBuilder{
+    pub fn builder() -> crate::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationInputBuilder {
         crate::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_bucket_lifecycle_configuration")]
 /// A builder for [`GetBucketLifecycleConfigurationInput`](crate::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketLifecycleConfigurationInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -62,20 +60,14 @@ impl GetBucketLifecycleConfigurationInputBuilder {
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
     /// </note>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
     /// </note>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }

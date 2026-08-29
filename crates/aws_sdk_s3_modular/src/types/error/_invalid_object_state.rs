@@ -19,9 +19,7 @@ impl InvalidObjectState {
         self.storage_class.as_ref()
     }
     #[allow(missing_docs)] // documentation missing in model
-    pub fn access_tier(
-        &self,
-    ) -> ::std::option::Option<&crate::types::IntelligentTieringAccessTier> {
+    pub fn access_tier(&self) -> ::std::option::Option<&crate::types::IntelligentTieringAccessTier> {
         self.access_tier.as_ref()
     }
 }
@@ -68,9 +66,7 @@ impl InvalidObjectState {
 }
 
 /// A builder for [`InvalidObjectState`](crate::types::error::InvalidObjectState).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InvalidObjectStateBuilder {
     pub(crate) storage_class: ::std::option::Option<crate::types::StorageClass>,
@@ -85,10 +81,7 @@ impl InvalidObjectStateBuilder {
         self
     }
     #[allow(missing_docs)] // documentation missing in model
-    pub fn set_storage_class(
-        mut self,
-        input: ::std::option::Option<crate::types::StorageClass>,
-    ) -> Self {
+    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self {
         self.storage_class = input;
         self
     }
@@ -102,17 +95,12 @@ impl InvalidObjectStateBuilder {
         self
     }
     #[allow(missing_docs)] // documentation missing in model
-    pub fn set_access_tier(
-        mut self,
-        input: ::std::option::Option<crate::types::IntelligentTieringAccessTier>,
-    ) -> Self {
+    pub fn set_access_tier(mut self, input: ::std::option::Option<crate::types::IntelligentTieringAccessTier>) -> Self {
         self.access_tier = input;
         self
     }
     #[allow(missing_docs)] // documentation missing in model
-    pub fn get_access_tier(
-        &self,
-    ) -> &::std::option::Option<crate::types::IntelligentTieringAccessTier> {
+    pub fn get_access_tier(&self) -> &::std::option::Option<crate::types::IntelligentTieringAccessTier> {
         &self.access_tier
     }
     #[allow(missing_docs)] // documentation missing in model
@@ -136,10 +124,7 @@ impl InvalidObjectStateBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }

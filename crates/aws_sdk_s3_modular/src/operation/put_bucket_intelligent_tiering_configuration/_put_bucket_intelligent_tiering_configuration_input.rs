@@ -11,8 +11,7 @@ pub struct PutBucketIntelligentTieringConfigurationInput {
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
     /// <p>Container for S3 Intelligent-Tiering configuration.</p>
-    pub intelligent_tiering_configuration:
-        ::std::option::Option<crate::types::IntelligentTieringConfiguration>,
+    pub intelligent_tiering_configuration: ::std::option::Option<crate::types::IntelligentTieringConfiguration>,
 }
 #[cfg(feature = "op_put_bucket_intelligent_tiering_configuration")]
 impl PutBucketIntelligentTieringConfigurationInput {
@@ -29,9 +28,7 @@ impl PutBucketIntelligentTieringConfigurationInput {
         self.expected_bucket_owner.as_deref()
     }
     /// <p>Container for S3 Intelligent-Tiering configuration.</p>
-    pub fn intelligent_tiering_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::IntelligentTieringConfiguration> {
+    pub fn intelligent_tiering_configuration(&self) -> ::std::option::Option<&crate::types::IntelligentTieringConfiguration> {
         self.intelligent_tiering_configuration.as_ref()
     }
 }
@@ -39,23 +36,20 @@ impl PutBucketIntelligentTieringConfigurationInput {
 impl PutBucketIntelligentTieringConfigurationInput {
     /// Creates a new builder-style object to manufacture [`PutBucketIntelligentTieringConfigurationInput`](crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationInput).
     pub fn builder() -> crate::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationInputBuilder
-{
+    {
         crate::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_bucket_intelligent_tiering_configuration")]
 /// A builder for [`PutBucketIntelligentTieringConfigurationInput`](crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutBucketIntelligentTieringConfigurationInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
     pub(crate) id: ::std::option::Option<::std::string::String>,
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
-    pub(crate) intelligent_tiering_configuration:
-        ::std::option::Option<crate::types::IntelligentTieringConfiguration>,
+    pub(crate) intelligent_tiering_configuration: ::std::option::Option<crate::types::IntelligentTieringConfiguration>,
 }
 #[cfg(feature = "op_put_bucket_intelligent_tiering_configuration")]
 impl PutBucketIntelligentTieringConfigurationInputBuilder {
@@ -90,18 +84,12 @@ impl PutBucketIntelligentTieringConfigurationInputBuilder {
         &self.id
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -111,25 +99,17 @@ impl PutBucketIntelligentTieringConfigurationInputBuilder {
     }
     /// <p>Container for S3 Intelligent-Tiering configuration.</p>
     /// This field is required.
-    pub fn intelligent_tiering_configuration(
-        mut self,
-        input: crate::types::IntelligentTieringConfiguration,
-    ) -> Self {
+    pub fn intelligent_tiering_configuration(mut self, input: crate::types::IntelligentTieringConfiguration) -> Self {
         self.intelligent_tiering_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>Container for S3 Intelligent-Tiering configuration.</p>
-    pub fn set_intelligent_tiering_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::IntelligentTieringConfiguration>,
-    ) -> Self {
+    pub fn set_intelligent_tiering_configuration(mut self, input: ::std::option::Option<crate::types::IntelligentTieringConfiguration>) -> Self {
         self.intelligent_tiering_configuration = input;
         self
     }
     /// <p>Container for S3 Intelligent-Tiering configuration.</p>
-    pub fn get_intelligent_tiering_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::IntelligentTieringConfiguration> {
+    pub fn get_intelligent_tiering_configuration(&self) -> &::std::option::Option<crate::types::IntelligentTieringConfiguration> {
         &self.intelligent_tiering_configuration
     }
     /// Consumes the builder and constructs a [`PutBucketIntelligentTieringConfigurationInput`](crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationInput).
@@ -138,7 +118,7 @@ impl PutBucketIntelligentTieringConfigurationInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationInput {
                 bucket: self.bucket,

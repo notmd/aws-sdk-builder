@@ -7,14 +7,11 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct MetadataTableConfigurationResult {
     /// <p>The destination information for the metadata table configuration. The destination table bucket must be in the same Region and Amazon Web Services account as the general purpose bucket. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.</p>
-    pub s3_tables_destination_result:
-        ::std::option::Option<crate::types::S3TablesDestinationResult>,
+    pub s3_tables_destination_result: ::std::option::Option<crate::types::S3TablesDestinationResult>,
 }
 impl MetadataTableConfigurationResult {
     /// <p>The destination information for the metadata table configuration. The destination table bucket must be in the same Region and Amazon Web Services account as the general purpose bucket. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.</p>
-    pub fn s3_tables_destination_result(
-        &self,
-    ) -> ::std::option::Option<&crate::types::S3TablesDestinationResult> {
+    pub fn s3_tables_destination_result(&self) -> ::std::option::Option<&crate::types::S3TablesDestinationResult> {
         self.s3_tables_destination_result.as_ref()
     }
 }
@@ -26,36 +23,25 @@ impl MetadataTableConfigurationResult {
 }
 
 /// A builder for [`MetadataTableConfigurationResult`](crate::types::MetadataTableConfigurationResult).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MetadataTableConfigurationResultBuilder {
-    pub(crate) s3_tables_destination_result:
-        ::std::option::Option<crate::types::S3TablesDestinationResult>,
+    pub(crate) s3_tables_destination_result: ::std::option::Option<crate::types::S3TablesDestinationResult>,
 }
 impl MetadataTableConfigurationResultBuilder {
     /// <p>The destination information for the metadata table configuration. The destination table bucket must be in the same Region and Amazon Web Services account as the general purpose bucket. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.</p>
     /// This field is required.
-    pub fn s3_tables_destination_result(
-        mut self,
-        input: crate::types::S3TablesDestinationResult,
-    ) -> Self {
+    pub fn s3_tables_destination_result(mut self, input: crate::types::S3TablesDestinationResult) -> Self {
         self.s3_tables_destination_result = ::std::option::Option::Some(input);
         self
     }
     /// <p>The destination information for the metadata table configuration. The destination table bucket must be in the same Region and Amazon Web Services account as the general purpose bucket. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.</p>
-    pub fn set_s3_tables_destination_result(
-        mut self,
-        input: ::std::option::Option<crate::types::S3TablesDestinationResult>,
-    ) -> Self {
+    pub fn set_s3_tables_destination_result(mut self, input: ::std::option::Option<crate::types::S3TablesDestinationResult>) -> Self {
         self.s3_tables_destination_result = input;
         self
     }
     /// <p>The destination information for the metadata table configuration. The destination table bucket must be in the same Region and Amazon Web Services account as the general purpose bucket. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.</p>
-    pub fn get_s3_tables_destination_result(
-        &self,
-    ) -> &::std::option::Option<crate::types::S3TablesDestinationResult> {
+    pub fn get_s3_tables_destination_result(&self) -> &::std::option::Option<crate::types::S3TablesDestinationResult> {
         &self.s3_tables_destination_result
     }
     /// Consumes the builder and constructs a [`MetadataTableConfigurationResult`](crate::types::MetadataTableConfigurationResult).

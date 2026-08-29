@@ -14,10 +14,7 @@ impl super::Client {
     /// - On success, responds with [`UpdateObjectEncryptionOutput`](crate::operation::update_object_encryption::UpdateObjectEncryptionOutput) with field(s):
     ///   - [`request_charged(Option<RequestCharged>)`](crate::operation::update_object_encryption::UpdateObjectEncryptionOutput::request_charged): <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>  <p>This functionality is not supported for directory buckets.</p> </note>
     /// - On failure, responds with [`SdkError<UpdateObjectEncryptionError>`](crate::operation::update_object_encryption::UpdateObjectEncryptionError)
-    pub fn update_object_encryption(
-        &self,
-    ) -> crate::operation::update_object_encryption::builders::UpdateObjectEncryptionFluentBuilder
-    {
+    pub fn update_object_encryption(&self) -> crate::operation::update_object_encryption::builders::UpdateObjectEncryptionFluentBuilder {
         crate::operation::update_object_encryption::builders::UpdateObjectEncryptionFluentBuilder::new(self.handle.clone())
     }
 }

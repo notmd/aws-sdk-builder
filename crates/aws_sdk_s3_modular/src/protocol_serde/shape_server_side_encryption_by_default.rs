@@ -21,14 +21,9 @@ pub fn ser_server_side_encryption_by_default(
 pub fn de_server_side_encryption_by_default(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    crate::types::ServerSideEncryptionByDefault,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<crate::types::ServerSideEncryptionByDefault, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::ServerSideEncryptionByDefault::builder();
@@ -64,9 +59,7 @@ pub fn de_server_side_encryption_by_default(
             _ => {}
         }
     }
-    Ok(
-        crate::serde_util::server_side_encryption_by_default_correct_errors(builder)
-            .build()
-            .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?,
-    )
+    Ok(crate::serde_util::server_side_encryption_by_default_correct_errors(builder)
+        .build()
+        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
 }

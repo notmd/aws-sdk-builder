@@ -185,18 +185,12 @@ impl HeadObjectFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -228,12 +222,10 @@ impl HeadObjectFluentBuilder {
             &self.handle.conf,
             self.config_override,
         )
-        .with_client_plugin(
-            crate::presigning_interceptors::SigV4PresigningRuntimePlugin::new(
-                presigning_config,
-                ::aws_sigv4::http_request::SignableBody::UnsignedPayload,
-            ),
-        );
+        .with_client_plugin(crate::presigning_interceptors::SigV4PresigningRuntimePlugin::new(
+            presigning_config,
+            ::aws_sigv4::http_request::SignableBody::UnsignedPayload,
+        ));
 
         let input = self
             .inner
@@ -252,8 +244,7 @@ impl HeadObjectFluentBuilder {
             })
         })?;
         let request = context.take_request().expect("request set before transmit");
-        crate::presigning::PresignedRequest::new(request)
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)
+        crate::presigning::PresignedRequest::new(request).map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)
     }
     /// <p>The name of the bucket that contains the object.</p>
     /// <p><b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code> <i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>. Path-style requests are not supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must follow the format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code> <i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -349,10 +340,7 @@ impl HeadObjectFluentBuilder {
     /// </ul>
     /// <p>Then Amazon S3 returns the <code>304 Not Modified</code> response code.</p>
     /// <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
-    pub fn set_if_modified_since(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_if_modified_since(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.inner = self.inner.set_if_modified_since(input);
         self
     }
@@ -379,10 +367,7 @@ impl HeadObjectFluentBuilder {
     /// </ul>
     /// <p>Then Amazon S3 returns the <code>304 Not Modified</code> response code.</p>
     /// <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
-    pub fn if_none_match(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn if_none_match(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.if_none_match(input.into());
         self
     }
@@ -396,10 +381,7 @@ impl HeadObjectFluentBuilder {
     /// </ul>
     /// <p>Then Amazon S3 returns the <code>304 Not Modified</code> response code.</p>
     /// <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
-    pub fn set_if_none_match(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_if_none_match(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_if_none_match(input);
         self
     }
@@ -440,10 +422,7 @@ impl HeadObjectFluentBuilder {
     /// </ul>
     /// <p>Then Amazon S3 returns <code>200 OK</code> and the data requested.</p>
     /// <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
-    pub fn set_if_unmodified_since(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_if_unmodified_since(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.inner = self.inner.set_if_unmodified_since(input);
         self
     }
@@ -489,18 +468,12 @@ impl HeadObjectFluentBuilder {
         self.inner.get_range()
     }
     /// <p>Sets the <code>Cache-Control</code> header of the response.</p>
-    pub fn response_cache_control(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn response_cache_control(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.response_cache_control(input.into());
         self
     }
     /// <p>Sets the <code>Cache-Control</code> header of the response.</p>
-    pub fn set_response_cache_control(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_response_cache_control(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_response_cache_control(input);
         self
     }
@@ -509,40 +482,26 @@ impl HeadObjectFluentBuilder {
         self.inner.get_response_cache_control()
     }
     /// <p>Sets the <code>Content-Disposition</code> header of the response.</p>
-    pub fn response_content_disposition(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn response_content_disposition(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.response_content_disposition(input.into());
         self
     }
     /// <p>Sets the <code>Content-Disposition</code> header of the response.</p>
-    pub fn set_response_content_disposition(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_response_content_disposition(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_response_content_disposition(input);
         self
     }
     /// <p>Sets the <code>Content-Disposition</code> header of the response.</p>
-    pub fn get_response_content_disposition(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_response_content_disposition(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_response_content_disposition()
     }
     /// <p>Sets the <code>Content-Encoding</code> header of the response.</p>
-    pub fn response_content_encoding(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn response_content_encoding(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.response_content_encoding(input.into());
         self
     }
     /// <p>Sets the <code>Content-Encoding</code> header of the response.</p>
-    pub fn set_response_content_encoding(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_response_content_encoding(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_response_content_encoding(input);
         self
     }
@@ -551,18 +510,12 @@ impl HeadObjectFluentBuilder {
         self.inner.get_response_content_encoding()
     }
     /// <p>Sets the <code>Content-Language</code> header of the response.</p>
-    pub fn response_content_language(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn response_content_language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.response_content_language(input.into());
         self
     }
     /// <p>Sets the <code>Content-Language</code> header of the response.</p>
-    pub fn set_response_content_language(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_response_content_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_response_content_language(input);
         self
     }
@@ -571,18 +524,12 @@ impl HeadObjectFluentBuilder {
         self.inner.get_response_content_language()
     }
     /// <p>Sets the <code>Content-Type</code> header of the response.</p>
-    pub fn response_content_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn response_content_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.response_content_type(input.into());
         self
     }
     /// <p>Sets the <code>Content-Type</code> header of the response.</p>
-    pub fn set_response_content_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_response_content_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_response_content_type(input);
         self
     }
@@ -596,10 +543,7 @@ impl HeadObjectFluentBuilder {
         self
     }
     /// <p>Sets the <code>Expires</code> header of the response.</p>
-    pub fn set_response_expires(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_response_expires(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.inner = self.inner.set_response_expires(input);
         self
     }
@@ -630,20 +574,14 @@ impl HeadObjectFluentBuilder {
     /// <p>Specifies the algorithm to use when encrypting the object (for example, AES256).</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn sse_customer_algorithm(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn sse_customer_algorithm(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.sse_customer_algorithm(input.into());
         self
     }
     /// <p>Specifies the algorithm to use when encrypting the object (for example, AES256).</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_sse_customer_algorithm(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_sse_customer_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_sse_customer_algorithm(input);
         self
     }
@@ -656,20 +594,14 @@ impl HeadObjectFluentBuilder {
     /// <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the <code>x-amz-server-side-encryption-customer-algorithm</code> header.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn sse_customer_key(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn sse_customer_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.sse_customer_key(input.into());
         self
     }
     /// <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the <code>x-amz-server-side-encryption-customer-algorithm</code> header.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_sse_customer_key(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_sse_customer_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_sse_customer_key(input);
         self
     }
@@ -682,20 +614,14 @@ impl HeadObjectFluentBuilder {
     /// <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn sse_customer_key_md5(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn sse_customer_key_md5(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.sse_customer_key_md5(input.into());
         self
     }
     /// <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_sse_customer_key_md5(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_sse_customer_key_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_sse_customer_key_md5(input);
         self
     }
@@ -715,10 +641,7 @@ impl HeadObjectFluentBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(
-        mut self,
-        input: ::std::option::Option<crate::types::RequestPayer>,
-    ) -> Self {
+    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
         self.inner = self.inner.set_request_payer(input);
         self
     }
@@ -743,18 +666,12 @@ impl HeadObjectFluentBuilder {
         self.inner.get_part_number()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }
@@ -772,10 +689,7 @@ impl HeadObjectFluentBuilder {
     /// <p>To retrieve the checksum, this parameter must be enabled.</p>
     /// <p><b>General purpose buckets</b> - If you enable checksum mode and the object is uploaded with a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">checksum</a> and encrypted with an Key Management Service (KMS) key, you must have permission to use the <code>kms:Decrypt</code> action to retrieve the checksum.</p>
     /// <p><b>Directory buckets</b> - If you enable <code>ChecksumMode</code> and the object is encrypted with Amazon Web Services Key Management Service (Amazon Web Services KMS), you must also have the <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key to retrieve the checksum of the object.</p>
-    pub fn set_checksum_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::ChecksumMode>,
-    ) -> Self {
+    pub fn set_checksum_mode(mut self, input: ::std::option::Option<crate::types::ChecksumMode>) -> Self {
         self.inner = self.inner.set_checksum_mode(input);
         self
     }
@@ -788,25 +702,14 @@ impl HeadObjectFluentBuilder {
 }
 
 #[cfg(feature = "op_head_object")]
-impl
-    crate::client::customize::internal::CustomizablePresigned<
-        crate::operation::head_object::HeadObjectError,
-    > for HeadObjectFluentBuilder
-{
+impl crate::client::customize::internal::CustomizablePresigned<crate::operation::head_object::HeadObjectError> for HeadObjectFluentBuilder {
     fn presign(
         self,
         config_override: crate::config::Builder,
         presigning_config: crate::presigning::PresigningConfig,
     ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::presigning::PresignedRequest,
-            crate::operation::head_object::HeadObjectError,
-        >,
+        crate::client::customize::internal::SendResult<crate::presigning::PresignedRequest, crate::operation::head_object::HeadObjectError>,
     > {
-        ::std::boxed::Box::pin(async move {
-            self.config_override(config_override)
-                .presigned(presigning_config)
-                .await
-        })
+        ::std::boxed::Box::pin(async move { self.config_override(config_override).presigned(presigning_config).await })
     }
 }

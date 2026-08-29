@@ -135,17 +135,14 @@ impl ::aws_types::request_id::RequestId for ListMultipartUploadsOutput {
 #[cfg(feature = "op_list_multipart_uploads")]
 impl ListMultipartUploadsOutput {
     /// Creates a new builder-style object to manufacture [`ListMultipartUploadsOutput`](crate::operation::list_multipart_uploads::ListMultipartUploadsOutput).
-    pub fn builder(
-    ) -> crate::operation::list_multipart_uploads::builders::ListMultipartUploadsOutputBuilder {
+    pub fn builder() -> crate::operation::list_multipart_uploads::builders::ListMultipartUploadsOutputBuilder {
         crate::operation::list_multipart_uploads::builders::ListMultipartUploadsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_multipart_uploads")]
 /// A builder for [`ListMultipartUploadsOutput`](crate::operation::list_multipart_uploads::ListMultipartUploadsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListMultipartUploadsOutputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -197,20 +194,14 @@ impl ListMultipartUploadsOutputBuilder {
     /// <p>Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored. Otherwise, any multipart uploads for a key equal to the key-marker might be included in the list only if they have an upload ID lexicographically greater than the specified <code>upload-id-marker</code>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn upload_id_marker(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn upload_id_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.upload_id_marker = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored. Otherwise, any multipart uploads for a key equal to the key-marker might be included in the list only if they have an upload ID lexicographically greater than the specified <code>upload-id-marker</code>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_upload_id_marker(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_upload_id_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.upload_id_marker = input;
         self
     }
@@ -221,18 +212,12 @@ impl ListMultipartUploadsOutputBuilder {
         &self.upload_id_marker
     }
     /// <p>When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.</p>
-    pub fn next_key_marker(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn next_key_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_key_marker = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.</p>
-    pub fn set_next_key_marker(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_next_key_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_key_marker = input;
         self
     }
@@ -283,20 +268,14 @@ impl ListMultipartUploadsOutputBuilder {
     /// <p>When a list is truncated, this element specifies the value that should be used for the <code>upload-id-marker</code> request parameter in a subsequent request.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn next_upload_id_marker(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn next_upload_id_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_upload_id_marker = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>When a list is truncated, this element specifies the value that should be used for the <code>upload-id-marker</code> request parameter in a subsequent request.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_next_upload_id_marker(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_next_upload_id_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_upload_id_marker = input;
         self
     }
@@ -346,17 +325,12 @@ impl ListMultipartUploadsOutputBuilder {
         self
     }
     /// <p>Container for elements related to a particular multipart upload. A response can contain zero or more <code>Upload</code> elements.</p>
-    pub fn set_uploads(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::MultipartUpload>>,
-    ) -> Self {
+    pub fn set_uploads(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MultipartUpload>>) -> Self {
         self.uploads = input;
         self
     }
     /// <p>Container for elements related to a particular multipart upload. A response can contain zero or more <code>Upload</code> elements.</p>
-    pub fn get_uploads(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MultipartUpload>> {
+    pub fn get_uploads(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MultipartUpload>> {
         &self.uploads
     }
     /// Appends an item to `common_prefixes`.
@@ -375,19 +349,14 @@ impl ListMultipartUploadsOutputBuilder {
     /// <p>If you specify a delimiter in the request, then the result returns each distinct key prefix containing the delimiter in a <code>CommonPrefixes</code> element. The distinct key prefixes are returned in the <code>Prefix</code> child element.</p><note>
     /// <p><b>Directory buckets</b> - For directory buckets, only prefixes that end in a delimiter (<code>/</code>) are supported.</p>
     /// </note>
-    pub fn set_common_prefixes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::CommonPrefix>>,
-    ) -> Self {
+    pub fn set_common_prefixes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CommonPrefix>>) -> Self {
         self.common_prefixes = input;
         self
     }
     /// <p>If you specify a delimiter in the request, then the result returns each distinct key prefix containing the delimiter in a <code>CommonPrefixes</code> element. The distinct key prefixes are returned in the <code>Prefix</code> child element.</p><note>
     /// <p><b>Directory buckets</b> - For directory buckets, only prefixes that end in a delimiter (<code>/</code>) are supported.</p>
     /// </note>
-    pub fn get_common_prefixes(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::CommonPrefix>> {
+    pub fn get_common_prefixes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CommonPrefix>> {
         &self.common_prefixes
     }
     /// <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
@@ -400,10 +369,7 @@ impl ListMultipartUploadsOutputBuilder {
     /// <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
     /// <p>If you specify the <code>encoding-type</code> request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
     /// <p><code>Delimiter</code>, <code>KeyMarker</code>, <code>Prefix</code>, <code>NextKeyMarker</code>, <code>Key</code>.</p>
-    pub fn set_encoding_type(
-        mut self,
-        input: ::std::option::Option<crate::types::EncodingType>,
-    ) -> Self {
+    pub fn set_encoding_type(mut self, input: ::std::option::Option<crate::types::EncodingType>) -> Self {
         self.encoding_type = input;
         self
     }
@@ -423,10 +389,7 @@ impl ListMultipartUploadsOutputBuilder {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(
-        mut self,
-        input: ::std::option::Option<crate::types::RequestCharged>,
-    ) -> Self {
+    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
@@ -441,10 +404,7 @@ impl ListMultipartUploadsOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

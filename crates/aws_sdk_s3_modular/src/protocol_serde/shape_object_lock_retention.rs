@@ -11,11 +11,7 @@ pub fn ser_object_lock_retention(
     }
     if let Some(var_2) = &input.retain_until_date {
         let mut inner_writer = scope.start_el("RetainUntilDate").finish();
-        inner_writer.data(
-            var_2
-                .fmt(::aws_smithy_types::date_time::Format::DateTimeWithOffset)?
-                .as_ref(),
-        );
+        inner_writer.data(var_2.fmt(::aws_smithy_types::date_time::Format::DateTimeWithOffset)?.as_ref());
     }
     scope.finish();
     Ok(())
@@ -25,14 +21,9 @@ pub fn ser_object_lock_retention(
 pub fn de_object_lock_retention(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    crate::types::ObjectLockRetention,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<crate::types::ObjectLockRetention, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::ObjectLockRetention::builder();

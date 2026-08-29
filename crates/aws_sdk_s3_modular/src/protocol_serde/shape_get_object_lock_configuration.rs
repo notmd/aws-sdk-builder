@@ -9,23 +9,14 @@ pub fn de_get_object_lock_configuration_http_error(
     crate::operation::get_object_lock_configuration::GetObjectLockConfigurationError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(
-        crate::operation::get_object_lock_configuration::GetObjectLockConfigurationError::unhandled,
-    )?;
-    generic_builder =
-        crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(crate::operation::get_object_lock_configuration::GetObjectLockConfigurationError::unhandled)?;
+    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(
-        crate::operation::get_object_lock_configuration::GetObjectLockConfigurationError::generic(
-            generic,
-        ),
-    )
+    Err(crate::operation::get_object_lock_configuration::GetObjectLockConfigurationError::generic(
+        generic,
+    ))
 }
 
 #[allow(clippy::unnecessary_wraps)]
@@ -43,13 +34,8 @@ pub fn de_get_object_lock_configuration_http_response(
         output = output.set_object_lock_configuration(
             crate::protocol_serde::shape_get_object_lock_configuration_output::de_object_lock_configuration_payload(_response_body)?,
         );
-        output._set_extended_request_id(
-            crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers)
-                .map(str::to_string),
-        );
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -57,20 +43,14 @@ pub fn de_get_object_lock_configuration_http_response(
 pub fn ser_get_object_lock_configuration_headers(
     input: &crate::operation::get_object_lock_configuration::GetObjectLockConfigurationInput,
     mut builder: ::http_1x::request::Builder,
-) -> std::result::Result<
-    ::http_1x::request::Builder,
-    ::aws_smithy_types::error::operation::BuildError,
-> {
+) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.expected_bucket_owner {
         let formatted_2 = inner_1.as_str();
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "expected_bucket_owner",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-expected-bucket-owner", header_value);

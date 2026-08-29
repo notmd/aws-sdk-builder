@@ -95,12 +95,7 @@ impl SsekmsEncryptionBuilder {
     /// Consumes the builder and constructs a [`SsekmsEncryption`](crate::types::SsekmsEncryption).
     /// This method will fail if any of the following fields are not set:
     /// - [`kms_key_arn`](crate::types::builders::SsekmsEncryptionBuilder::kms_key_arn)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::SsekmsEncryption,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::SsekmsEncryption, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SsekmsEncryption {
             kms_key_arn: self.kms_key_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

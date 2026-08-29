@@ -3,14 +3,9 @@
 pub fn de_lifecycle_rule_and_operator(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    crate::types::LifecycleRuleAndOperator,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<crate::types::LifecycleRuleAndOperator, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::LifecycleRuleAndOperator::builder();

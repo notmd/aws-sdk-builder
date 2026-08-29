@@ -22,16 +22,14 @@ impl ::aws_types::request_id::RequestId for CreateBucketMetadataTableConfigurati
 #[cfg(feature = "op_create_bucket_metadata_table_configuration")]
 impl CreateBucketMetadataTableConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`CreateBucketMetadataTableConfigurationOutput`](crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationOutput).
-    pub fn builder() -> crate::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationOutputBuilder{
+    pub fn builder() -> crate::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationOutputBuilder {
         crate::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_create_bucket_metadata_table_configuration")]
 /// A builder for [`CreateBucketMetadataTableConfigurationOutput`](crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateBucketMetadataTableConfigurationOutputBuilder {
     _extended_request_id: Option<String>,
@@ -44,10 +42,7 @@ impl CreateBucketMetadataTableConfigurationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -61,7 +56,7 @@ impl CreateBucketMetadataTableConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateBucketMetadataTableConfigurationOutput`](crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationOutput).
-    pub fn build(self) -> crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationOutput{
+    pub fn build(self) -> crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationOutput {
         crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

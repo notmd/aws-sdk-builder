@@ -130,9 +130,7 @@ impl SelectObjectContentFluentBuilder {
         }
     }
     /// Access the SelectObjectContent as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::select_object_content::builders::SelectObjectContentInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::select_object_content::builders::SelectObjectContentInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -156,17 +154,12 @@ impl SelectObjectContentFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::select_object_content::SelectObjectContent::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::select_object_content::SelectObjectContent::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::select_object_content::SelectObjectContent::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::select_object_content::SelectObjectContent::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -179,18 +172,12 @@ impl SelectObjectContentFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -223,18 +210,12 @@ impl SelectObjectContentFluentBuilder {
         self.inner.get_key()
     }
     /// <p>The server-side encryption (SSE) algorithm used to encrypt the object. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn sse_customer_algorithm(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn sse_customer_algorithm(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.sse_customer_algorithm(input.into());
         self
     }
     /// <p>The server-side encryption (SSE) algorithm used to encrypt the object. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn set_sse_customer_algorithm(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_sse_customer_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_sse_customer_algorithm(input);
         self
     }
@@ -243,18 +224,12 @@ impl SelectObjectContentFluentBuilder {
         self.inner.get_sse_customer_algorithm()
     }
     /// <p>The server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn sse_customer_key(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn sse_customer_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.sse_customer_key(input.into());
         self
     }
     /// <p>The server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn set_sse_customer_key(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_sse_customer_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_sse_customer_key(input);
         self
     }
@@ -263,18 +238,12 @@ impl SelectObjectContentFluentBuilder {
         self.inner.get_sse_customer_key()
     }
     /// <p>The MD5 server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn sse_customer_key_md5(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn sse_customer_key_md5(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.sse_customer_key_md5(input.into());
         self
     }
     /// <p>The MD5 server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn set_sse_customer_key_md5(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_sse_customer_key_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_sse_customer_key_md5(input);
         self
     }
@@ -302,10 +271,7 @@ impl SelectObjectContentFluentBuilder {
         self
     }
     /// <p>The type of the provided expression (for example, SQL).</p>
-    pub fn set_expression_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ExpressionType>,
-    ) -> Self {
+    pub fn set_expression_type(mut self, input: ::std::option::Option<crate::types::ExpressionType>) -> Self {
         self.inner = self.inner.set_expression_type(input);
         self
     }
@@ -319,10 +285,7 @@ impl SelectObjectContentFluentBuilder {
         self
     }
     /// <p>Specifies if periodic request progress information should be enabled.</p>
-    pub fn set_request_progress(
-        mut self,
-        input: ::std::option::Option<crate::types::RequestProgress>,
-    ) -> Self {
+    pub fn set_request_progress(mut self, input: ::std::option::Option<crate::types::RequestProgress>) -> Self {
         self.inner = self.inner.set_request_progress(input);
         self
     }
@@ -336,17 +299,12 @@ impl SelectObjectContentFluentBuilder {
         self
     }
     /// <p>Describes the format of the data in the object that is being queried.</p>
-    pub fn set_input_serialization(
-        mut self,
-        input: ::std::option::Option<crate::types::InputSerialization>,
-    ) -> Self {
+    pub fn set_input_serialization(mut self, input: ::std::option::Option<crate::types::InputSerialization>) -> Self {
         self.inner = self.inner.set_input_serialization(input);
         self
     }
     /// <p>Describes the format of the data in the object that is being queried.</p>
-    pub fn get_input_serialization(
-        &self,
-    ) -> &::std::option::Option<crate::types::InputSerialization> {
+    pub fn get_input_serialization(&self) -> &::std::option::Option<crate::types::InputSerialization> {
         self.inner.get_input_serialization()
     }
     /// <p>Describes the format of the data that you want Amazon S3 to return in response.</p>
@@ -355,17 +313,12 @@ impl SelectObjectContentFluentBuilder {
         self
     }
     /// <p>Describes the format of the data that you want Amazon S3 to return in response.</p>
-    pub fn set_output_serialization(
-        mut self,
-        input: ::std::option::Option<crate::types::OutputSerialization>,
-    ) -> Self {
+    pub fn set_output_serialization(mut self, input: ::std::option::Option<crate::types::OutputSerialization>) -> Self {
         self.inner = self.inner.set_output_serialization(input);
         self
     }
     /// <p>Describes the format of the data that you want Amazon S3 to return in response.</p>
-    pub fn get_output_serialization(
-        &self,
-    ) -> &::std::option::Option<crate::types::OutputSerialization> {
+    pub fn get_output_serialization(&self) -> &::std::option::Option<crate::types::OutputSerialization> {
         self.inner.get_output_serialization()
     }
     /// <p>Specifies the byte range of the object to get the records from. A record is processed when its first byte is contained by the range. This parameter is optional, but when specified, it must not be empty. See RFC 2616, Section 14.35.1 about how to specify the start and end of the range.</p>
@@ -455,18 +408,12 @@ impl SelectObjectContentFluentBuilder {
         self.inner.get_scan_range()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

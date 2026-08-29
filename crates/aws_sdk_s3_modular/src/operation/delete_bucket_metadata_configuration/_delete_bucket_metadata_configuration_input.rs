@@ -23,16 +23,14 @@ impl DeleteBucketMetadataConfigurationInput {
 #[cfg(feature = "op_delete_bucket_metadata_configuration")]
 impl DeleteBucketMetadataConfigurationInput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketMetadataConfigurationInput`](crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationInput).
-    pub fn builder() -> crate::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationInputBuilder{
+    pub fn builder() -> crate::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationInputBuilder {
         crate::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_bucket_metadata_configuration")]
 /// A builder for [`DeleteBucketMetadataConfigurationInput`](crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteBucketMetadataConfigurationInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -56,18 +54,12 @@ impl DeleteBucketMetadataConfigurationInputBuilder {
         &self.bucket
     }
     /// <p>The expected bucket owner of the general purpose bucket that you want to remove the metadata table configuration from.</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The expected bucket owner of the general purpose bucket that you want to remove the metadata table configuration from.</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -81,7 +73,7 @@ impl DeleteBucketMetadataConfigurationInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationInput {
                 bucket: self.bucket,

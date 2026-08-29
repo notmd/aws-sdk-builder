@@ -4,7 +4,7 @@ pub(crate) fn de_get_bucket_metadata_table_configuration_result_payload(
 ) -> std::result::Result<
     ::std::option::Option<crate::types::GetBucketMetadataTableConfigurationResult>,
     crate::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationError,
->{
+> {
     (!body.is_empty())
         .then(|| {
             crate::protocol_serde::shape_get_bucket_metadata_table_configuration_output::de_get_bucket_metadata_table_configuration_result(body)
@@ -15,10 +15,7 @@ pub(crate) fn de_get_bucket_metadata_table_configuration_result_payload(
 
 pub fn de_get_bucket_metadata_table_configuration_result(
     inp: &[u8],
-) -> std::result::Result<
-    crate::types::GetBucketMetadataTableConfigurationResult,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> std::result::Result<crate::types::GetBucketMetadataTableConfigurationResult, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
     #[allow(unused_mut)]
     let mut decoder = doc.root_element()?;

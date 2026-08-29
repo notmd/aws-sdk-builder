@@ -4,26 +4,16 @@ pub fn de_create_session_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::create_session::CreateSessionOutput,
-    crate::operation::create_session::CreateSessionError,
-> {
+) -> std::result::Result<crate::operation::create_session::CreateSessionOutput, crate::operation::create_session::CreateSessionError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::create_session::CreateSessionError::unhandled)?;
-    generic_builder =
-        crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(crate::operation::create_session::CreateSessionError::unhandled)?;
+    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::create_session::CreateSessionError::unhandled(generic))
-        }
+        None => return Err(crate::operation::create_session::CreateSessionError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -33,11 +23,8 @@ pub fn de_create_session_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::NoSuchBucketBuilder::default();
-                output = crate::protocol_serde::shape_no_such_bucket::de_no_such_bucket_xml_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(crate::operation::create_session::CreateSessionError::unhandled)?;
+                output = crate::protocol_serde::shape_no_such_bucket::de_no_such_bucket_xml_err(_response_body, output)
+                    .map_err(crate::operation::create_session::CreateSessionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -55,17 +42,12 @@ pub fn de_create_session_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::create_session::CreateSessionOutput,
-    crate::operation::create_session::CreateSessionError,
-> {
+) -> std::result::Result<crate::operation::create_session::CreateSessionOutput, crate::operation::create_session::CreateSessionError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::create_session::builders::CreateSessionOutputBuilder::default();
-        output =
-            crate::protocol_serde::shape_create_session::de_create_session(_response_body, output)
-                .map_err(crate::operation::create_session::CreateSessionError::unhandled)?;
+        let mut output = crate::operation::create_session::builders::CreateSessionOutputBuilder::default();
+        output = crate::protocol_serde::shape_create_session::de_create_session(_response_body, output)
+            .map_err(crate::operation::create_session::CreateSessionError::unhandled)?;
         output = output.set_bucket_key_enabled(
             crate::protocol_serde::shape_create_session_output::de_bucket_key_enabled_header(_response_headers).map_err(|_| {
                 crate::operation::create_session::CreateSessionError::unhandled(
@@ -94,13 +76,8 @@ pub fn de_create_session_http_response(
                 )
             })?,
         );
-        output._set_extended_request_id(
-            crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers)
-                .map(str::to_string),
-        );
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::create_session_output_output_correct_errors(output).build()
     })
 }
@@ -108,20 +85,14 @@ pub fn de_create_session_http_response(
 pub fn ser_create_session_headers(
     input: &crate::operation::create_session::CreateSessionInput,
     mut builder: ::http_1x::request::Builder,
-) -> std::result::Result<
-    ::http_1x::request::Builder,
-    ::aws_smithy_types::error::operation::BuildError,
-> {
+) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.session_mode {
         let formatted_2 = inner_1.as_str();
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "session_mode",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-create-session-mode", header_value);
@@ -132,10 +103,7 @@ pub fn ser_create_session_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "server_side_encryption",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-server-side-encryption", header_value);
@@ -146,10 +114,7 @@ pub fn ser_create_session_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "ssekms_key_id",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &"*** Sensitive Data Redacted ***", err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
             )
         })?;
         builder = builder.header("x-amz-server-side-encryption-aws-kms-key-id", header_value);
@@ -160,10 +125,7 @@ pub fn ser_create_session_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "ssekms_encryption_context",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &"*** Sensitive Data Redacted ***", err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
             )
         })?;
         builder = builder.header("x-amz-server-side-encryption-context", header_value);
@@ -175,16 +137,10 @@ pub fn ser_create_session_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "bucket_key_enabled",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
-        builder = builder.header(
-            "x-amz-server-side-encryption-bucket-key-enabled",
-            header_value,
-        );
+        builder = builder.header("x-amz-server-side-encryption-bucket-key-enabled", header_value);
     }
     Ok(builder)
 }
@@ -193,10 +149,7 @@ pub fn ser_create_session_headers(
 pub fn de_create_session(
     inp: &[u8],
     mut builder: crate::operation::create_session::builders::CreateSessionOutputBuilder,
-) -> std::result::Result<
-    crate::operation::create_session::builders::CreateSessionOutputBuilder,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> std::result::Result<crate::operation::create_session::builders::CreateSessionOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

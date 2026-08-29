@@ -3,10 +3,7 @@
 pub fn de_idempotency_parameter_mismatch_xml_err(
     inp: &[u8],
     mut builder: crate::types::error::builders::IdempotencyParameterMismatchBuilder,
-) -> std::result::Result<
-    crate::types::error::builders::IdempotencyParameterMismatchBuilder,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> std::result::Result<crate::types::error::builders::IdempotencyParameterMismatchBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
     if inp.is_empty() {
         return Ok(builder);
     }

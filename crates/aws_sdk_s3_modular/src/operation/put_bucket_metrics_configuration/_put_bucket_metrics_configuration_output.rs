@@ -22,16 +22,14 @@ impl ::aws_types::request_id::RequestId for PutBucketMetricsConfigurationOutput 
 #[cfg(feature = "op_put_bucket_metrics_configuration")]
 impl PutBucketMetricsConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`PutBucketMetricsConfigurationOutput`](crate::operation::put_bucket_metrics_configuration::PutBucketMetricsConfigurationOutput).
-    pub fn builder() -> crate::operation::put_bucket_metrics_configuration::builders::PutBucketMetricsConfigurationOutputBuilder{
+    pub fn builder() -> crate::operation::put_bucket_metrics_configuration::builders::PutBucketMetricsConfigurationOutputBuilder {
         crate::operation::put_bucket_metrics_configuration::builders::PutBucketMetricsConfigurationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_bucket_metrics_configuration")]
 /// A builder for [`PutBucketMetricsConfigurationOutput`](crate::operation::put_bucket_metrics_configuration::PutBucketMetricsConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutBucketMetricsConfigurationOutputBuilder {
     _extended_request_id: Option<String>,
@@ -44,10 +42,7 @@ impl PutBucketMetricsConfigurationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -61,10 +56,7 @@ impl PutBucketMetricsConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutBucketMetricsConfigurationOutput`](crate::operation::put_bucket_metrics_configuration::PutBucketMetricsConfigurationOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::put_bucket_metrics_configuration::PutBucketMetricsConfigurationOutput
-    {
+    pub fn build(self) -> crate::operation::put_bucket_metrics_configuration::PutBucketMetricsConfigurationOutput {
         crate::operation::put_bucket_metrics_configuration::PutBucketMetricsConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

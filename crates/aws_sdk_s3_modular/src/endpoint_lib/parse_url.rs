@@ -55,10 +55,7 @@ pub(crate) fn parse_url<'a>(url: &'a str, e: &mut DiagnosticCollector) -> Option
         return None;
     }
     if !["http", "https"].contains(&url.scheme()) {
-        e.report_error(format!(
-            "URL scheme must be HTTP or HTTPS (found {})",
-            url.scheme()
-        ));
+        e.report_error(format!("URL scheme must be HTTP or HTTPS (found {})", url.scheme()));
         return None;
     }
     Some(Url { url, uri, raw })
@@ -78,10 +75,7 @@ mod test {
         assert_eq!(url.normalized_path(), "/");
         assert_eq!(url.is_ip(), false);
         assert_eq!(url.scheme(), "https");
-        assert_eq!(
-            url.authority(),
-            "control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com"
-        );
+        assert_eq!(url.authority(), "control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com");
     }
 
     #[test]

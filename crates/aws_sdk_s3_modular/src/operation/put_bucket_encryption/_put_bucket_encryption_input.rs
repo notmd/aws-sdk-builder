@@ -18,8 +18,7 @@ pub struct PutBucketEncryptionInput {
     /// </note>
     pub checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
     /// <p>Specifies the default server-side-encryption configuration.</p>
-    pub server_side_encryption_configuration:
-        ::std::option::Option<crate::types::ServerSideEncryptionConfiguration>,
+    pub server_side_encryption_configuration: ::std::option::Option<crate::types::ServerSideEncryptionConfiguration>,
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
@@ -47,9 +46,7 @@ impl PutBucketEncryptionInput {
         self.checksum_algorithm.as_ref()
     }
     /// <p>Specifies the default server-side-encryption configuration.</p>
-    pub fn server_side_encryption_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ServerSideEncryptionConfiguration> {
+    pub fn server_side_encryption_configuration(&self) -> ::std::option::Option<&crate::types::ServerSideEncryptionConfiguration> {
         self.server_side_encryption_configuration.as_ref()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
@@ -62,25 +59,20 @@ impl PutBucketEncryptionInput {
 #[cfg(feature = "op_put_bucket_encryption")]
 impl PutBucketEncryptionInput {
     /// Creates a new builder-style object to manufacture [`PutBucketEncryptionInput`](crate::operation::put_bucket_encryption::PutBucketEncryptionInput).
-    pub fn builder(
-    ) -> crate::operation::put_bucket_encryption::builders::PutBucketEncryptionInputBuilder {
-        crate::operation::put_bucket_encryption::builders::PutBucketEncryptionInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::put_bucket_encryption::builders::PutBucketEncryptionInputBuilder {
+        crate::operation::put_bucket_encryption::builders::PutBucketEncryptionInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_bucket_encryption")]
 /// A builder for [`PutBucketEncryptionInput`](crate::operation::put_bucket_encryption::PutBucketEncryptionInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutBucketEncryptionInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
     pub(crate) content_md5: ::std::option::Option<::std::string::String>,
     pub(crate) checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-    pub(crate) server_side_encryption_configuration:
-        ::std::option::Option<crate::types::ServerSideEncryptionConfiguration>,
+    pub(crate) server_side_encryption_configuration: ::std::option::Option<crate::types::ServerSideEncryptionConfiguration>,
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
 }
 #[cfg(feature = "op_put_bucket_encryption")]
@@ -138,10 +130,7 @@ impl PutBucketEncryptionInputBuilder {
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p><note>
     /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
     /// </note>
-    pub fn set_checksum_algorithm(
-        mut self,
-        input: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-    ) -> Self {
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
         self.checksum_algorithm = input;
         self
     }
@@ -149,51 +138,35 @@ impl PutBucketEncryptionInputBuilder {
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p><note>
     /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
     /// </note>
-    pub fn get_checksum_algorithm(
-        &self,
-    ) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         &self.checksum_algorithm
     }
     /// <p>Specifies the default server-side-encryption configuration.</p>
     /// This field is required.
-    pub fn server_side_encryption_configuration(
-        mut self,
-        input: crate::types::ServerSideEncryptionConfiguration,
-    ) -> Self {
+    pub fn server_side_encryption_configuration(mut self, input: crate::types::ServerSideEncryptionConfiguration) -> Self {
         self.server_side_encryption_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies the default server-side-encryption configuration.</p>
-    pub fn set_server_side_encryption_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::ServerSideEncryptionConfiguration>,
-    ) -> Self {
+    pub fn set_server_side_encryption_configuration(mut self, input: ::std::option::Option<crate::types::ServerSideEncryptionConfiguration>) -> Self {
         self.server_side_encryption_configuration = input;
         self
     }
     /// <p>Specifies the default server-side-encryption configuration.</p>
-    pub fn get_server_side_encryption_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::ServerSideEncryptionConfiguration> {
+    pub fn get_server_side_encryption_configuration(&self) -> &::std::option::Option<crate::types::ServerSideEncryptionConfiguration> {
         &self.server_side_encryption_configuration
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -206,18 +179,14 @@ impl PutBucketEncryptionInputBuilder {
     /// Consumes the builder and constructs a [`PutBucketEncryptionInput`](crate::operation::put_bucket_encryption::PutBucketEncryptionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::put_bucket_encryption::PutBucketEncryptionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::put_bucket_encryption::PutBucketEncryptionInput {
-                bucket: self.bucket,
-                content_md5: self.content_md5,
-                checksum_algorithm: self.checksum_algorithm,
-                server_side_encryption_configuration: self.server_side_encryption_configuration,
-                expected_bucket_owner: self.expected_bucket_owner,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::put_bucket_encryption::PutBucketEncryptionInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::put_bucket_encryption::PutBucketEncryptionInput {
+            bucket: self.bucket,
+            content_md5: self.content_md5,
+            checksum_algorithm: self.checksum_algorithm,
+            server_side_encryption_configuration: self.server_side_encryption_configuration,
+            expected_bucket_owner: self.expected_bucket_owner,
+        })
     }
 }

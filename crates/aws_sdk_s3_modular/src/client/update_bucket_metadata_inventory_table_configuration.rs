@@ -13,7 +13,7 @@ impl super::Client {
     pub fn update_bucket_metadata_inventory_table_configuration(
         &self,
     ) -> crate::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationFluentBuilder
-{
+    {
         crate::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

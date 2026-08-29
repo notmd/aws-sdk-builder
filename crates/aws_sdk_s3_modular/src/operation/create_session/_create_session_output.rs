@@ -24,9 +24,7 @@ impl CreateSessionOutput {
     /// <p>The server-side encryption algorithm used when you store objects in the directory bucket.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn server_side_encryption(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
+    pub fn server_side_encryption(&self) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
         self.server_side_encryption.as_ref()
     }
     /// <p>If you specify <code>x-amz-server-side-encryption</code> with <code>aws:kms</code>, this header indicates the ID of the KMS symmetric encryption customer managed key that was used for object encryption.</p>
@@ -52,10 +50,7 @@ impl ::std::fmt::Debug for CreateSessionOutput {
         let mut formatter = f.debug_struct("CreateSessionOutput");
         formatter.field("server_side_encryption", &self.server_side_encryption);
         formatter.field("ssekms_key_id", &"*** Sensitive Data Redacted ***");
-        formatter.field(
-            "ssekms_encryption_context",
-            &"*** Sensitive Data Redacted ***",
-        );
+        formatter.field("ssekms_encryption_context", &"*** Sensitive Data Redacted ***");
         formatter.field("bucket_key_enabled", &self.bucket_key_enabled);
         formatter.field("credentials", &self.credentials);
         formatter.field("_extended_request_id", &self._extended_request_id);
@@ -108,34 +103,23 @@ impl CreateSessionOutputBuilder {
     /// <p>The server-side encryption algorithm used when you store objects in the directory bucket.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn set_server_side_encryption(
-        mut self,
-        input: ::std::option::Option<crate::types::ServerSideEncryption>,
-    ) -> Self {
+    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
         self.server_side_encryption = input;
         self
     }
     /// <p>The server-side encryption algorithm used when you store objects in the directory bucket.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn get_server_side_encryption(
-        &self,
-    ) -> &::std::option::Option<crate::types::ServerSideEncryption> {
+    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
         &self.server_side_encryption
     }
     /// <p>If you specify <code>x-amz-server-side-encryption</code> with <code>aws:kms</code>, this header indicates the ID of the KMS symmetric encryption customer managed key that was used for object encryption.</p>
-    pub fn ssekms_key_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn ssekms_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.ssekms_key_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>If you specify <code>x-amz-server-side-encryption</code> with <code>aws:kms</code>, this header indicates the ID of the KMS symmetric encryption customer managed key that was used for object encryption.</p>
-    pub fn set_ssekms_key_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_ssekms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.ssekms_key_id = input;
         self
     }
@@ -144,18 +128,12 @@ impl CreateSessionOutputBuilder {
         &self.ssekms_key_id
     }
     /// <p>If present, indicates the Amazon Web Services KMS Encryption Context to use for object encryption. The value of this header is a Base64 encoded string of a UTF-8 encoded JSON, which contains the encryption context as key-value pairs. This value is stored as object metadata and automatically gets passed on to Amazon Web Services KMS for future <code>GetObject</code> operations on this object.</p>
-    pub fn ssekms_encryption_context(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn ssekms_encryption_context(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.ssekms_encryption_context = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>If present, indicates the Amazon Web Services KMS Encryption Context to use for object encryption. The value of this header is a Base64 encoded string of a UTF-8 encoded JSON, which contains the encryption context as key-value pairs. This value is stored as object metadata and automatically gets passed on to Amazon Web Services KMS for future <code>GetObject</code> operations on this object.</p>
-    pub fn set_ssekms_encryption_context(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_ssekms_encryption_context(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.ssekms_encryption_context = input;
         self
     }
@@ -184,10 +162,7 @@ impl CreateSessionOutputBuilder {
         self
     }
     /// <p>The established temporary security credentials for the created session.</p>
-    pub fn set_credentials(
-        mut self,
-        input: ::std::option::Option<crate::types::SessionCredentials>,
-    ) -> Self {
+    pub fn set_credentials(mut self, input: ::std::option::Option<crate::types::SessionCredentials>) -> Self {
         self.credentials = input;
         self
     }
@@ -200,10 +175,7 @@ impl CreateSessionOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -235,10 +207,7 @@ impl ::std::fmt::Debug for CreateSessionOutputBuilder {
         let mut formatter = f.debug_struct("CreateSessionOutputBuilder");
         formatter.field("server_side_encryption", &self.server_side_encryption);
         formatter.field("ssekms_key_id", &"*** Sensitive Data Redacted ***");
-        formatter.field(
-            "ssekms_encryption_context",
-            &"*** Sensitive Data Redacted ***",
-        );
+        formatter.field("ssekms_encryption_context", &"*** Sensitive Data Redacted ***");
         formatter.field("bucket_key_enabled", &self.bucket_key_enabled);
         formatter.field("credentials", &self.credentials);
         formatter.field("_extended_request_id", &self._extended_request_id);

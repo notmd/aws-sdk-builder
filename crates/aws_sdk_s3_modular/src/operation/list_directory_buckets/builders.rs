@@ -83,9 +83,7 @@ impl ListDirectoryBucketsFluentBuilder {
         }
     }
     /// Access the ListDirectoryBuckets as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_directory_buckets::builders::ListDirectoryBucketsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_directory_buckets::builders::ListDirectoryBucketsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -114,11 +112,7 @@ impl ListDirectoryBucketsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_directory_buckets::ListDirectoryBuckets::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::list_directory_buckets::ListDirectoryBuckets::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -131,45 +125,28 @@ impl ListDirectoryBucketsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_directory_buckets::paginator::ListDirectoryBucketsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_directory_buckets::paginator::ListDirectoryBucketsPaginator {
-        crate::operation::list_directory_buckets::paginator::ListDirectoryBucketsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_directory_buckets::paginator::ListDirectoryBucketsPaginator {
+        crate::operation::list_directory_buckets::paginator::ListDirectoryBucketsPaginator::new(self.handle, self.inner)
     }
     /// <p><code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on buckets in this account with a token. <code>ContinuationToken</code> is obfuscated and is not a real bucket name. You can use this <code>ContinuationToken</code> for the pagination of the list results.</p>
-    pub fn continuation_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.continuation_token(input.into());
         self
     }
     /// <p><code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on buckets in this account with a token. <code>ContinuationToken</code> is obfuscated and is not a real bucket name. You can use this <code>ContinuationToken</code> for the pagination of the list results.</p>
-    pub fn set_continuation_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_continuation_token(input);
         self
     }

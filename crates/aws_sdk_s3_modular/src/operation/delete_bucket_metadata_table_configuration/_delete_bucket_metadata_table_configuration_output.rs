@@ -22,16 +22,14 @@ impl ::aws_types::request_id::RequestId for DeleteBucketMetadataTableConfigurati
 #[cfg(feature = "op_delete_bucket_metadata_table_configuration")]
 impl DeleteBucketMetadataTableConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketMetadataTableConfigurationOutput`](crate::operation::delete_bucket_metadata_table_configuration::DeleteBucketMetadataTableConfigurationOutput).
-    pub fn builder() -> crate::operation::delete_bucket_metadata_table_configuration::builders::DeleteBucketMetadataTableConfigurationOutputBuilder{
+    pub fn builder() -> crate::operation::delete_bucket_metadata_table_configuration::builders::DeleteBucketMetadataTableConfigurationOutputBuilder {
         crate::operation::delete_bucket_metadata_table_configuration::builders::DeleteBucketMetadataTableConfigurationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_bucket_metadata_table_configuration")]
 /// A builder for [`DeleteBucketMetadataTableConfigurationOutput`](crate::operation::delete_bucket_metadata_table_configuration::DeleteBucketMetadataTableConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteBucketMetadataTableConfigurationOutputBuilder {
     _extended_request_id: Option<String>,
@@ -44,10 +42,7 @@ impl DeleteBucketMetadataTableConfigurationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -61,7 +56,7 @@ impl DeleteBucketMetadataTableConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteBucketMetadataTableConfigurationOutput`](crate::operation::delete_bucket_metadata_table_configuration::DeleteBucketMetadataTableConfigurationOutput).
-    pub fn build(self) -> crate::operation::delete_bucket_metadata_table_configuration::DeleteBucketMetadataTableConfigurationOutput{
+    pub fn build(self) -> crate::operation::delete_bucket_metadata_table_configuration::DeleteBucketMetadataTableConfigurationOutput {
         crate::operation::delete_bucket_metadata_table_configuration::DeleteBucketMetadataTableConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

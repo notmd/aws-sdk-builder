@@ -11,7 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutBucketAnalyticsConfigurationError>`](crate::operation::put_bucket_analytics_configuration::PutBucketAnalyticsConfigurationError)
     pub fn put_bucket_analytics_configuration(
         &self,
-    ) -> crate::operation::put_bucket_analytics_configuration::builders::PutBucketAnalyticsConfigurationFluentBuilder{
+    ) -> crate::operation::put_bucket_analytics_configuration::builders::PutBucketAnalyticsConfigurationFluentBuilder {
         crate::operation::put_bucket_analytics_configuration::builders::PutBucketAnalyticsConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

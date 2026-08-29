@@ -106,9 +106,7 @@ impl PutObjectAnnotationOutput {
         self.checksum_type.as_ref()
     }
     /// <p>The server-side encryption algorithm used to encrypt the annotation.</p>
-    pub fn server_side_encryption(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
+    pub fn server_side_encryption(&self) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
         self.server_side_encryption.as_ref()
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
@@ -133,18 +131,14 @@ impl ::aws_types::request_id::RequestId for PutObjectAnnotationOutput {
 #[cfg(feature = "op_put_object_annotation")]
 impl PutObjectAnnotationOutput {
     /// Creates a new builder-style object to manufacture [`PutObjectAnnotationOutput`](crate::operation::put_object_annotation::PutObjectAnnotationOutput).
-    pub fn builder(
-    ) -> crate::operation::put_object_annotation::builders::PutObjectAnnotationOutputBuilder {
-        crate::operation::put_object_annotation::builders::PutObjectAnnotationOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::put_object_annotation::builders::PutObjectAnnotationOutputBuilder {
+        crate::operation::put_object_annotation::builders::PutObjectAnnotationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_object_annotation")]
 /// A builder for [`PutObjectAnnotationOutput`](crate::operation::put_object_annotation::PutObjectAnnotationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutObjectAnnotationOutputBuilder {
     pub(crate) key: ::std::option::Option<::std::string::String>,
@@ -184,18 +178,12 @@ impl PutObjectAnnotationOutputBuilder {
         &self.key
     }
     /// <p>The name of the annotation.</p>
-    pub fn annotation_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn annotation_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.annotation_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the annotation.</p>
-    pub fn set_annotation_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_annotation_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.annotation_name = input;
         self
     }
@@ -204,18 +192,12 @@ impl PutObjectAnnotationOutputBuilder {
         &self.annotation_name
     }
     /// <p>The version ID of the object that the annotation was attached to.</p>
-    pub fn object_version_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn object_version_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.object_version_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The version ID of the object that the annotation was attached to.</p>
-    pub fn set_object_version_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_object_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.object_version_id = input;
         self
     }
@@ -238,18 +220,12 @@ impl PutObjectAnnotationOutputBuilder {
         &self.e_tag
     }
     /// <p>The CRC32 checksum of the stored annotation.</p>
-    pub fn checksum_crc32(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn checksum_crc32(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_crc32 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The CRC32 checksum of the stored annotation.</p>
-    pub fn set_checksum_crc32(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_checksum_crc32(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checksum_crc32 = input;
         self
     }
@@ -258,18 +234,12 @@ impl PutObjectAnnotationOutputBuilder {
         &self.checksum_crc32
     }
     /// <p>The CRC32C checksum of the stored annotation.</p>
-    pub fn checksum_crc32_c(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn checksum_crc32_c(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_crc32_c = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The CRC32C checksum of the stored annotation.</p>
-    pub fn set_checksum_crc32_c(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_checksum_crc32_c(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checksum_crc32_c = input;
         self
     }
@@ -278,18 +248,12 @@ impl PutObjectAnnotationOutputBuilder {
         &self.checksum_crc32_c
     }
     /// <p>The CRC64NVME checksum of the stored annotation.</p>
-    pub fn checksum_crc64_nvme(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn checksum_crc64_nvme(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_crc64_nvme = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The CRC64NVME checksum of the stored annotation.</p>
-    pub fn set_checksum_crc64_nvme(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_checksum_crc64_nvme(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checksum_crc64_nvme = input;
         self
     }
@@ -298,18 +262,12 @@ impl PutObjectAnnotationOutputBuilder {
         &self.checksum_crc64_nvme
     }
     /// <p>The SHA1 checksum of the stored annotation.</p>
-    pub fn checksum_sha1(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn checksum_sha1(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_sha1 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The SHA1 checksum of the stored annotation.</p>
-    pub fn set_checksum_sha1(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_checksum_sha1(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checksum_sha1 = input;
         self
     }
@@ -318,18 +276,12 @@ impl PutObjectAnnotationOutputBuilder {
         &self.checksum_sha1
     }
     /// <p>The SHA256 checksum of the stored annotation.</p>
-    pub fn checksum_sha256(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn checksum_sha256(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_sha256 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The SHA256 checksum of the stored annotation.</p>
-    pub fn set_checksum_sha256(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_checksum_sha256(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checksum_sha256 = input;
         self
     }
@@ -338,18 +290,12 @@ impl PutObjectAnnotationOutputBuilder {
         &self.checksum_sha256
     }
     /// <p>The SHA512 checksum of the stored annotation.</p>
-    pub fn checksum_sha512(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn checksum_sha512(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_sha512 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The SHA512 checksum of the stored annotation.</p>
-    pub fn set_checksum_sha512(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_checksum_sha512(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checksum_sha512 = input;
         self
     }
@@ -372,18 +318,12 @@ impl PutObjectAnnotationOutputBuilder {
         &self.checksum_md5
     }
     /// <p>The XXHASH64 checksum of the stored annotation.</p>
-    pub fn checksum_xxhash64(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn checksum_xxhash64(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_xxhash64 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The XXHASH64 checksum of the stored annotation.</p>
-    pub fn set_checksum_xxhash64(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_checksum_xxhash64(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checksum_xxhash64 = input;
         self
     }
@@ -392,18 +332,12 @@ impl PutObjectAnnotationOutputBuilder {
         &self.checksum_xxhash64
     }
     /// <p>The XXHASH3 checksum of the stored annotation.</p>
-    pub fn checksum_xxhash3(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn checksum_xxhash3(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_xxhash3 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The XXHASH3 checksum of the stored annotation.</p>
-    pub fn set_checksum_xxhash3(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_checksum_xxhash3(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checksum_xxhash3 = input;
         self
     }
@@ -412,18 +346,12 @@ impl PutObjectAnnotationOutputBuilder {
         &self.checksum_xxhash3
     }
     /// <p>The XXHASH128 checksum of the stored annotation.</p>
-    pub fn checksum_xxhash128(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn checksum_xxhash128(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_xxhash128 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The XXHASH128 checksum of the stored annotation.</p>
-    pub fn set_checksum_xxhash128(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_checksum_xxhash128(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checksum_xxhash128 = input;
         self
     }
@@ -437,10 +365,7 @@ impl PutObjectAnnotationOutputBuilder {
         self
     }
     /// <p>The type of checksum used.</p>
-    pub fn set_checksum_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ChecksumType>,
-    ) -> Self {
+    pub fn set_checksum_type(mut self, input: ::std::option::Option<crate::types::ChecksumType>) -> Self {
         self.checksum_type = input;
         self
     }
@@ -454,17 +379,12 @@ impl PutObjectAnnotationOutputBuilder {
         self
     }
     /// <p>The server-side encryption algorithm used to encrypt the annotation.</p>
-    pub fn set_server_side_encryption(
-        mut self,
-        input: ::std::option::Option<crate::types::ServerSideEncryption>,
-    ) -> Self {
+    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
         self.server_side_encryption = input;
         self
     }
     /// <p>The server-side encryption algorithm used to encrypt the annotation.</p>
-    pub fn get_server_side_encryption(
-        &self,
-    ) -> &::std::option::Option<crate::types::ServerSideEncryption> {
+    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
         &self.server_side_encryption
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
@@ -477,10 +397,7 @@ impl PutObjectAnnotationOutputBuilder {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(
-        mut self,
-        input: ::std::option::Option<crate::types::RequestCharged>,
-    ) -> Self {
+    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
@@ -495,10 +412,7 @@ impl PutObjectAnnotationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

@@ -40,9 +40,7 @@ impl GetBucketCorsOutput {
 
 #[cfg(feature = "op_get_bucket_cors")]
 /// A builder for [`GetBucketCorsOutput`](crate::operation::get_bucket_cors::GetBucketCorsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketCorsOutputBuilder {
     pub(crate) cors_rules: ::std::option::Option<::std::vec::Vec<crate::types::CorsRule>>,
@@ -63,17 +61,12 @@ impl GetBucketCorsOutputBuilder {
         self
     }
     /// <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>
-    pub fn set_cors_rules(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::CorsRule>>,
-    ) -> Self {
+    pub fn set_cors_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CorsRule>>) -> Self {
         self.cors_rules = input;
         self
     }
     /// <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>
-    pub fn get_cors_rules(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::CorsRule>> {
+    pub fn get_cors_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CorsRule>> {
         &self.cors_rules
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -81,10 +74,7 @@ impl GetBucketCorsOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

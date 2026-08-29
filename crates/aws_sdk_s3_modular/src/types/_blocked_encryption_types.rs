@@ -45,13 +45,10 @@ impl BlockedEncryptionTypes {
 }
 
 /// A builder for [`BlockedEncryptionTypes`](crate::types::BlockedEncryptionTypes).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct BlockedEncryptionTypesBuilder {
-    pub(crate) encryption_type:
-        ::std::option::Option<::std::vec::Vec<crate::types::EncryptionType>>,
+    pub(crate) encryption_type: ::std::option::Option<::std::vec::Vec<crate::types::EncryptionType>>,
 }
 impl BlockedEncryptionTypesBuilder {
     /// Appends an item to `encryption_type`.
@@ -70,19 +67,14 @@ impl BlockedEncryptionTypesBuilder {
     /// <p>The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.</p><note>
     /// <p>Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Using server-side encryption with customer-provided keys (SSE-C)</a>.</p>
     /// </note>
-    pub fn set_encryption_type(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::EncryptionType>>,
-    ) -> Self {
+    pub fn set_encryption_type(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EncryptionType>>) -> Self {
         self.encryption_type = input;
         self
     }
     /// <p>The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.</p><note>
     /// <p>Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Using server-side encryption with customer-provided keys (SSE-C)</a>.</p>
     /// </note>
-    pub fn get_encryption_type(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::EncryptionType>> {
+    pub fn get_encryption_type(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EncryptionType>> {
         &self.encryption_type
     }
     /// Consumes the builder and constructs a [`BlockedEncryptionTypes`](crate::types::BlockedEncryptionTypes).

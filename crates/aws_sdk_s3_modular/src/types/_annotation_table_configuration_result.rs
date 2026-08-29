@@ -55,13 +55,10 @@ impl AnnotationTableConfigurationResult {
 }
 
 /// A builder for [`AnnotationTableConfigurationResult`](crate::types::AnnotationTableConfigurationResult).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AnnotationTableConfigurationResultBuilder {
-    pub(crate) configuration_state:
-        ::std::option::Option<crate::types::AnnotationConfigurationState>,
+    pub(crate) configuration_state: ::std::option::Option<crate::types::AnnotationConfigurationState>,
     pub(crate) table_status: ::std::option::Option<::std::string::String>,
     pub(crate) error: ::std::option::Option<crate::types::ErrorDetails>,
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
@@ -71,25 +68,17 @@ pub struct AnnotationTableConfigurationResultBuilder {
 impl AnnotationTableConfigurationResultBuilder {
     /// <p>The current configuration state of the annotation table.</p>
     /// This field is required.
-    pub fn configuration_state(
-        mut self,
-        input: crate::types::AnnotationConfigurationState,
-    ) -> Self {
+    pub fn configuration_state(mut self, input: crate::types::AnnotationConfigurationState) -> Self {
         self.configuration_state = ::std::option::Option::Some(input);
         self
     }
     /// <p>The current configuration state of the annotation table.</p>
-    pub fn set_configuration_state(
-        mut self,
-        input: ::std::option::Option<crate::types::AnnotationConfigurationState>,
-    ) -> Self {
+    pub fn set_configuration_state(mut self, input: ::std::option::Option<crate::types::AnnotationConfigurationState>) -> Self {
         self.configuration_state = input;
         self
     }
     /// <p>The current configuration state of the annotation table.</p>
-    pub fn get_configuration_state(
-        &self,
-    ) -> &::std::option::Option<crate::types::AnnotationConfigurationState> {
+    pub fn get_configuration_state(&self) -> &::std::option::Option<crate::types::AnnotationConfigurationState> {
         &self.configuration_state
     }
     /// <p>The provisioning status of the annotation table. Possible values: <code>CREATING</code>, <code>BACKFILLING</code>, <code>ACTIVE</code>, <code>FAILED</code>.</p>
@@ -171,12 +160,7 @@ impl AnnotationTableConfigurationResultBuilder {
     /// Consumes the builder and constructs a [`AnnotationTableConfigurationResult`](crate::types::AnnotationTableConfigurationResult).
     /// This method will fail if any of the following fields are not set:
     /// - [`configuration_state`](crate::types::builders::AnnotationTableConfigurationResultBuilder::configuration_state)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::AnnotationTableConfigurationResult,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::AnnotationTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AnnotationTableConfigurationResult {
             configuration_state: self.configuration_state.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

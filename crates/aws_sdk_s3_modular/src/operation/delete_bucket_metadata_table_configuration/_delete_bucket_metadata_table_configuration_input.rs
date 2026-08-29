@@ -23,16 +23,14 @@ impl DeleteBucketMetadataTableConfigurationInput {
 #[cfg(feature = "op_delete_bucket_metadata_table_configuration")]
 impl DeleteBucketMetadataTableConfigurationInput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketMetadataTableConfigurationInput`](crate::operation::delete_bucket_metadata_table_configuration::DeleteBucketMetadataTableConfigurationInput).
-    pub fn builder() -> crate::operation::delete_bucket_metadata_table_configuration::builders::DeleteBucketMetadataTableConfigurationInputBuilder{
+    pub fn builder() -> crate::operation::delete_bucket_metadata_table_configuration::builders::DeleteBucketMetadataTableConfigurationInputBuilder {
         crate::operation::delete_bucket_metadata_table_configuration::builders::DeleteBucketMetadataTableConfigurationInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_bucket_metadata_table_configuration")]
 /// A builder for [`DeleteBucketMetadataTableConfigurationInput`](crate::operation::delete_bucket_metadata_table_configuration::DeleteBucketMetadataTableConfigurationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteBucketMetadataTableConfigurationInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -56,18 +54,12 @@ impl DeleteBucketMetadataTableConfigurationInputBuilder {
         &self.bucket
     }
     /// <p>The expected bucket owner of the general purpose bucket that you want to remove the metadata table configuration from.</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The expected bucket owner of the general purpose bucket that you want to remove the metadata table configuration from.</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -81,7 +73,7 @@ impl DeleteBucketMetadataTableConfigurationInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::delete_bucket_metadata_table_configuration::DeleteBucketMetadataTableConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::delete_bucket_metadata_table_configuration::DeleteBucketMetadataTableConfigurationInput {
                 bucket: self.bucket,

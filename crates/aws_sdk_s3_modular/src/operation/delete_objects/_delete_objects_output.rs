@@ -58,9 +58,7 @@ impl DeleteObjectsOutput {
 
 #[cfg(feature = "op_delete_objects")]
 /// A builder for [`DeleteObjectsOutput`](crate::operation::delete_objects::DeleteObjectsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteObjectsOutputBuilder {
     pub(crate) deleted: ::std::option::Option<::std::vec::Vec<crate::types::DeletedObject>>,
@@ -83,17 +81,12 @@ impl DeleteObjectsOutputBuilder {
         self
     }
     /// <p>Container element for a successful delete. It identifies the object that was successfully deleted.</p>
-    pub fn set_deleted(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::DeletedObject>>,
-    ) -> Self {
+    pub fn set_deleted(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeletedObject>>) -> Self {
         self.deleted = input;
         self
     }
     /// <p>Container element for a successful delete. It identifies the object that was successfully deleted.</p>
-    pub fn get_deleted(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DeletedObject>> {
+    pub fn get_deleted(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeletedObject>> {
         &self.deleted
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
@@ -106,10 +99,7 @@ impl DeleteObjectsOutputBuilder {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(
-        mut self,
-        input: ::std::option::Option<crate::types::RequestCharged>,
-    ) -> Self {
+    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
@@ -131,10 +121,7 @@ impl DeleteObjectsOutputBuilder {
         self
     }
     /// <p>Container for a failed delete action that describes the object that Amazon S3 attempted to delete and the error it encountered.</p>
-    pub fn set_errors(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Error>>,
-    ) -> Self {
+    pub fn set_errors(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Error>>) -> Self {
         self.errors = input;
         self
     }
@@ -147,10 +134,7 @@ impl DeleteObjectsOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

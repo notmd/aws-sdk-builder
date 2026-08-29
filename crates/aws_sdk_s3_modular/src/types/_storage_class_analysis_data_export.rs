@@ -27,37 +27,26 @@ impl StorageClassAnalysisDataExport {
 }
 
 /// A builder for [`StorageClassAnalysisDataExport`](crate::types::StorageClassAnalysisDataExport).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct StorageClassAnalysisDataExportBuilder {
-    pub(crate) output_schema_version:
-        ::std::option::Option<crate::types::StorageClassAnalysisSchemaVersion>,
+    pub(crate) output_schema_version: ::std::option::Option<crate::types::StorageClassAnalysisSchemaVersion>,
     pub(crate) destination: ::std::option::Option<crate::types::AnalyticsExportDestination>,
 }
 impl StorageClassAnalysisDataExportBuilder {
     /// <p>The version of the output schema to use when exporting data. Must be <code>V_1</code>.</p>
     /// This field is required.
-    pub fn output_schema_version(
-        mut self,
-        input: crate::types::StorageClassAnalysisSchemaVersion,
-    ) -> Self {
+    pub fn output_schema_version(mut self, input: crate::types::StorageClassAnalysisSchemaVersion) -> Self {
         self.output_schema_version = ::std::option::Option::Some(input);
         self
     }
     /// <p>The version of the output schema to use when exporting data. Must be <code>V_1</code>.</p>
-    pub fn set_output_schema_version(
-        mut self,
-        input: ::std::option::Option<crate::types::StorageClassAnalysisSchemaVersion>,
-    ) -> Self {
+    pub fn set_output_schema_version(mut self, input: ::std::option::Option<crate::types::StorageClassAnalysisSchemaVersion>) -> Self {
         self.output_schema_version = input;
         self
     }
     /// <p>The version of the output schema to use when exporting data. Must be <code>V_1</code>.</p>
-    pub fn get_output_schema_version(
-        &self,
-    ) -> &::std::option::Option<crate::types::StorageClassAnalysisSchemaVersion> {
+    pub fn get_output_schema_version(&self) -> &::std::option::Option<crate::types::StorageClassAnalysisSchemaVersion> {
         &self.output_schema_version
     }
     /// <p>The place to store the data for an analysis.</p>
@@ -67,28 +56,18 @@ impl StorageClassAnalysisDataExportBuilder {
         self
     }
     /// <p>The place to store the data for an analysis.</p>
-    pub fn set_destination(
-        mut self,
-        input: ::std::option::Option<crate::types::AnalyticsExportDestination>,
-    ) -> Self {
+    pub fn set_destination(mut self, input: ::std::option::Option<crate::types::AnalyticsExportDestination>) -> Self {
         self.destination = input;
         self
     }
     /// <p>The place to store the data for an analysis.</p>
-    pub fn get_destination(
-        &self,
-    ) -> &::std::option::Option<crate::types::AnalyticsExportDestination> {
+    pub fn get_destination(&self) -> &::std::option::Option<crate::types::AnalyticsExportDestination> {
         &self.destination
     }
     /// Consumes the builder and constructs a [`StorageClassAnalysisDataExport`](crate::types::StorageClassAnalysisDataExport).
     /// This method will fail if any of the following fields are not set:
     /// - [`output_schema_version`](crate::types::builders::StorageClassAnalysisDataExportBuilder::output_schema_version)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::StorageClassAnalysisDataExport,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::StorageClassAnalysisDataExport, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::StorageClassAnalysisDataExport {
             output_schema_version: self.output_schema_version.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

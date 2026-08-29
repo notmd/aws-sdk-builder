@@ -53,13 +53,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(
-    ::std::clone::Clone,
-    ::std::cmp::Eq,
-    ::std::cmp::Ord,
-    ::std::cmp::PartialEq,
-    ::std::cmp::PartialOrd,
-    ::std::fmt::Debug,
-    ::std::hash::Hash,
+    ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
 )]
 pub enum InventoryOptionalField {
     #[allow(missing_docs)] // documentation missing in model
@@ -95,9 +89,7 @@ pub enum InventoryOptionalField {
     #[allow(missing_docs)] // documentation missing in model
     StorageClass,
     /// `Unknown` contains new variants that have been added since this code was generated.
-    #[deprecated(
-        note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants."
-    )]
+    #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
 }
 impl ::std::convert::From<&str> for InventoryOptionalField {
@@ -119,9 +111,7 @@ impl ::std::convert::From<&str> for InventoryOptionalField {
             "ReplicationStatus" => InventoryOptionalField::ReplicationStatus,
             "Size" => InventoryOptionalField::Size,
             "StorageClass" => InventoryOptionalField::StorageClass,
-            other => InventoryOptionalField::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => InventoryOptionalField::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }
@@ -186,14 +176,10 @@ impl InventoryOptionalField {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -205,20 +191,14 @@ impl ::std::fmt::Display for InventoryOptionalField {
             InventoryOptionalField::ChecksumAlgorithm => write!(f, "ChecksumAlgorithm"),
             InventoryOptionalField::ETag => write!(f, "ETag"),
             InventoryOptionalField::EncryptionStatus => write!(f, "EncryptionStatus"),
-            InventoryOptionalField::IntelligentTieringAccessTier => {
-                write!(f, "IntelligentTieringAccessTier")
-            }
+            InventoryOptionalField::IntelligentTieringAccessTier => write!(f, "IntelligentTieringAccessTier"),
             InventoryOptionalField::IsMultipartUploaded => write!(f, "IsMultipartUploaded"),
             InventoryOptionalField::LastModifiedDate => write!(f, "LastModifiedDate"),
             InventoryOptionalField::LifecycleExpirationDate => write!(f, "LifecycleExpirationDate"),
             InventoryOptionalField::ObjectAccessControlList => write!(f, "ObjectAccessControlList"),
-            InventoryOptionalField::ObjectLockLegalHoldStatus => {
-                write!(f, "ObjectLockLegalHoldStatus")
-            }
+            InventoryOptionalField::ObjectLockLegalHoldStatus => write!(f, "ObjectLockLegalHoldStatus"),
             InventoryOptionalField::ObjectLockMode => write!(f, "ObjectLockMode"),
-            InventoryOptionalField::ObjectLockRetainUntilDate => {
-                write!(f, "ObjectLockRetainUntilDate")
-            }
+            InventoryOptionalField::ObjectLockRetainUntilDate => write!(f, "ObjectLockRetainUntilDate"),
             InventoryOptionalField::ObjectOwner => write!(f, "ObjectOwner"),
             InventoryOptionalField::ReplicationStatus => write!(f, "ReplicationStatus"),
             InventoryOptionalField::Size => write!(f, "Size"),

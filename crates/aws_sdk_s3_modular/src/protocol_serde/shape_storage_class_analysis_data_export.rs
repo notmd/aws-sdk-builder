@@ -3,14 +3,9 @@
 pub fn de_storage_class_analysis_data_export(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    crate::types::StorageClassAnalysisDataExport,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<crate::types::StorageClassAnalysisDataExport, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::StorageClassAnalysisDataExport::builder();
@@ -43,11 +38,9 @@ pub fn de_storage_class_analysis_data_export(
             _ => {}
         }
     }
-    Ok(
-        crate::serde_util::storage_class_analysis_data_export_correct_errors(builder)
-            .build()
-            .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?,
-    )
+    Ok(crate::serde_util::storage_class_analysis_data_export_correct_errors(builder)
+        .build()
+        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
 }
 
 pub fn ser_storage_class_analysis_data_export(
@@ -62,10 +55,7 @@ pub fn ser_storage_class_analysis_data_export(
     }
     if let Some(var_3) = &input.destination {
         let inner_writer = scope.start_el("Destination");
-        crate::protocol_serde::shape_analytics_export_destination::ser_analytics_export_destination(
-            var_3,
-            inner_writer,
-        )?
+        crate::protocol_serde::shape_analytics_export_destination::ser_analytics_export_destination(var_3, inner_writer)?
     }
     scope.finish();
     Ok(())

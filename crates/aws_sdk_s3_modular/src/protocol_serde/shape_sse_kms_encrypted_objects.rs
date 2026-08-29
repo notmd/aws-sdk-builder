@@ -17,14 +17,9 @@ pub fn ser_sse_kms_encrypted_objects(
 pub fn de_sse_kms_encrypted_objects(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    crate::types::SseKmsEncryptedObjects,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<crate::types::SseKmsEncryptedObjects, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::SseKmsEncryptedObjects::builder();
@@ -47,9 +42,7 @@ pub fn de_sse_kms_encrypted_objects(
             _ => {}
         }
     }
-    Ok(
-        crate::serde_util::sse_kms_encrypted_objects_correct_errors(builder)
-            .build()
-            .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?,
-    )
+    Ok(crate::serde_util::sse_kms_encrypted_objects_correct_errors(builder)
+        .build()
+        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
 }

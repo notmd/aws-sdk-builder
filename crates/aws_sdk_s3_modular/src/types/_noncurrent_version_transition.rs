@@ -33,9 +33,7 @@ impl NoncurrentVersionTransition {
 }
 
 /// A builder for [`NoncurrentVersionTransition`](crate::types::NoncurrentVersionTransition).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct NoncurrentVersionTransitionBuilder {
     pub(crate) noncurrent_days: ::std::option::Option<i32>,
@@ -63,17 +61,12 @@ impl NoncurrentVersionTransitionBuilder {
         self
     }
     /// <p>The class of storage used to store the object.</p>
-    pub fn set_storage_class(
-        mut self,
-        input: ::std::option::Option<crate::types::TransitionStorageClass>,
-    ) -> Self {
+    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::TransitionStorageClass>) -> Self {
         self.storage_class = input;
         self
     }
     /// <p>The class of storage used to store the object.</p>
-    pub fn get_storage_class(
-        &self,
-    ) -> &::std::option::Option<crate::types::TransitionStorageClass> {
+    pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::TransitionStorageClass> {
         &self.storage_class
     }
     /// <p>Specifies how many noncurrent versions Amazon S3 will retain in the same storage class before transitioning objects. You can specify up to 100 noncurrent versions to retain. Amazon S3 will transition any additional noncurrent versions beyond the specified number to retain. For more information about noncurrent versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration elements</a> in the <i>Amazon S3 User Guide</i>.</p>

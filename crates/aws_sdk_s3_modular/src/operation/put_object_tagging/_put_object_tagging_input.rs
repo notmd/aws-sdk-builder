@@ -67,17 +67,14 @@ impl PutObjectTaggingInput {
 #[cfg(feature = "op_put_object_tagging")]
 impl PutObjectTaggingInput {
     /// Creates a new builder-style object to manufacture [`PutObjectTaggingInput`](crate::operation::put_object_tagging::PutObjectTaggingInput).
-    pub fn builder() -> crate::operation::put_object_tagging::builders::PutObjectTaggingInputBuilder
-    {
+    pub fn builder() -> crate::operation::put_object_tagging::builders::PutObjectTaggingInputBuilder {
         crate::operation::put_object_tagging::builders::PutObjectTaggingInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_object_tagging")]
 /// A builder for [`PutObjectTaggingInput`](crate::operation::put_object_tagging::PutObjectTaggingInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutObjectTaggingInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -166,18 +163,13 @@ impl PutObjectTaggingInputBuilder {
     }
     /// <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn set_checksum_algorithm(
-        mut self,
-        input: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-    ) -> Self {
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
         self.checksum_algorithm = input;
         self
     }
     /// <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn get_checksum_algorithm(
-        &self,
-    ) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         &self.checksum_algorithm
     }
     /// <p>Container for the <code>TagSet</code> and <code>Tag</code> elements</p>
@@ -196,18 +188,12 @@ impl PutObjectTaggingInputBuilder {
         &self.tagging
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -221,10 +207,7 @@ impl PutObjectTaggingInputBuilder {
         self
     }
     /// <p>Confirms that the requester knows that she or he will be charged for the tagging object request. Bucket owners need not specify this parameter in their requests.</p>
-    pub fn set_request_payer(
-        mut self,
-        input: ::std::option::Option<crate::types::RequestPayer>,
-    ) -> Self {
+    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
         self.request_payer = input;
         self
     }
@@ -235,21 +218,16 @@ impl PutObjectTaggingInputBuilder {
     /// Consumes the builder and constructs a [`PutObjectTaggingInput`](crate::operation::put_object_tagging::PutObjectTaggingInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::put_object_tagging::PutObjectTaggingInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::put_object_tagging::PutObjectTaggingInput {
-                bucket: self.bucket,
-                key: self.key,
-                version_id: self.version_id,
-                content_md5: self.content_md5,
-                checksum_algorithm: self.checksum_algorithm,
-                tagging: self.tagging,
-                expected_bucket_owner: self.expected_bucket_owner,
-                request_payer: self.request_payer,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::put_object_tagging::PutObjectTaggingInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::put_object_tagging::PutObjectTaggingInput {
+            bucket: self.bucket,
+            key: self.key,
+            version_id: self.version_id,
+            content_md5: self.content_md5,
+            checksum_algorithm: self.checksum_algorithm,
+            tagging: self.tagging,
+            expected_bucket_owner: self.expected_bucket_owner,
+            request_payer: self.request_payer,
+        })
     }
 }

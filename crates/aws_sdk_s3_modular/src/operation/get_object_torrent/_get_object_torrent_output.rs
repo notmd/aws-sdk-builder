@@ -41,8 +41,7 @@ impl ::aws_types::request_id::RequestId for GetObjectTorrentOutput {
 #[cfg(feature = "op_get_object_torrent")]
 impl GetObjectTorrentOutput {
     /// Creates a new builder-style object to manufacture [`GetObjectTorrentOutput`](crate::operation::get_object_torrent::GetObjectTorrentOutput).
-    pub fn builder() -> crate::operation::get_object_torrent::builders::GetObjectTorrentOutputBuilder
-    {
+    pub fn builder() -> crate::operation::get_object_torrent::builders::GetObjectTorrentOutputBuilder {
         crate::operation::get_object_torrent::builders::GetObjectTorrentOutputBuilder::default()
     }
 }
@@ -65,10 +64,7 @@ impl GetObjectTorrentOutputBuilder {
         self
     }
     /// <p>A Bencoded dictionary as defined by the BitTorrent specification</p>
-    pub fn set_body(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
-    ) -> Self {
+    pub fn set_body(mut self, input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
         self.body = input;
         self
     }
@@ -86,10 +82,7 @@ impl GetObjectTorrentOutputBuilder {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(
-        mut self,
-        input: ::std::option::Option<crate::types::RequestCharged>,
-    ) -> Self {
+    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
@@ -104,10 +97,7 @@ impl GetObjectTorrentOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

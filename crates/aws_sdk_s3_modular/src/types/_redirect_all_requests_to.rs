@@ -28,9 +28,7 @@ impl RedirectAllRequestsTo {
 }
 
 /// A builder for [`RedirectAllRequestsTo`](crate::types::RedirectAllRequestsTo).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RedirectAllRequestsToBuilder {
     pub(crate) host_name: ::std::option::Option<::std::string::String>,
@@ -69,12 +67,7 @@ impl RedirectAllRequestsToBuilder {
     /// Consumes the builder and constructs a [`RedirectAllRequestsTo`](crate::types::RedirectAllRequestsTo).
     /// This method will fail if any of the following fields are not set:
     /// - [`host_name`](crate::types::builders::RedirectAllRequestsToBuilder::host_name)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::RedirectAllRequestsTo,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::RedirectAllRequestsTo, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::RedirectAllRequestsTo {
             host_name: self.host_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

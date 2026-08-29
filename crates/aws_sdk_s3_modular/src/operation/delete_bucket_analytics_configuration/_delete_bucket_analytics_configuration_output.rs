@@ -22,16 +22,14 @@ impl ::aws_types::request_id::RequestId for DeleteBucketAnalyticsConfigurationOu
 #[cfg(feature = "op_delete_bucket_analytics_configuration")]
 impl DeleteBucketAnalyticsConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketAnalyticsConfigurationOutput`](crate::operation::delete_bucket_analytics_configuration::DeleteBucketAnalyticsConfigurationOutput).
-    pub fn builder() -> crate::operation::delete_bucket_analytics_configuration::builders::DeleteBucketAnalyticsConfigurationOutputBuilder{
+    pub fn builder() -> crate::operation::delete_bucket_analytics_configuration::builders::DeleteBucketAnalyticsConfigurationOutputBuilder {
         crate::operation::delete_bucket_analytics_configuration::builders::DeleteBucketAnalyticsConfigurationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_bucket_analytics_configuration")]
 /// A builder for [`DeleteBucketAnalyticsConfigurationOutput`](crate::operation::delete_bucket_analytics_configuration::DeleteBucketAnalyticsConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteBucketAnalyticsConfigurationOutputBuilder {
     _extended_request_id: Option<String>,
@@ -44,10 +42,7 @@ impl DeleteBucketAnalyticsConfigurationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -61,7 +56,7 @@ impl DeleteBucketAnalyticsConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteBucketAnalyticsConfigurationOutput`](crate::operation::delete_bucket_analytics_configuration::DeleteBucketAnalyticsConfigurationOutput).
-    pub fn build(self) -> crate::operation::delete_bucket_analytics_configuration::DeleteBucketAnalyticsConfigurationOutput{
+    pub fn build(self) -> crate::operation::delete_bucket_analytics_configuration::DeleteBucketAnalyticsConfigurationOutput {
         crate::operation::delete_bucket_analytics_configuration::DeleteBucketAnalyticsConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

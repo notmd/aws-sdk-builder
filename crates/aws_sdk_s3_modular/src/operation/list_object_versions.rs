@@ -27,13 +27,9 @@ impl ListObjectVersions {
                     .expect("correct error type")
             })
         };
-        let context = Self::orchestrate_with_stop_point(
-            runtime_plugins,
-            input,
-            ::aws_smithy_runtime::client::orchestrator::StopPoint::None,
-        )
-        .await
-        .map_err(map_err)?;
+        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
+            .await
+            .map_err(map_err)?;
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
@@ -55,23 +51,17 @@ impl ListObjectVersions {
     > {
         let input = ::aws_smithy_runtime_api::client::interceptors::context::Input::erase(input);
         use ::tracing::Instrument;
-        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point(
-            "S3",
-            "ListObjectVersions",
-            input,
-            runtime_plugins,
-            stop_point,
-        )
-        // Create a parent span for the entire operation. Includes a random, internal-only,
-        // seven-digit ID for the operation orchestration so that it can be correlated in the logs.
-        .instrument(::tracing::debug_span!(
-            "S3.ListObjectVersions",
-            "rpc.service" = "S3",
-            "rpc.method" = "ListObjectVersions",
-            "sdk_invocation_id" = ::fastrand::u32(1_000_000..10_000_000),
-            "rpc.system" = "aws-api",
-        ))
-        .await
+        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point("S3", "ListObjectVersions", input, runtime_plugins, stop_point)
+            // Create a parent span for the entire operation. Includes a random, internal-only,
+            // seven-digit ID for the operation orchestration so that it can be correlated in the logs.
+            .instrument(::tracing::debug_span!(
+                "S3.ListObjectVersions",
+                "rpc.service" = "S3",
+                "rpc.method" = "ListObjectVersions",
+                "sdk_invocation_id" = ::fastrand::u32(1_000_000..10_000_000),
+                "rpc.system" = "aws-api",
+            ))
+            .await
     }
 
     pub(crate) fn operation_runtime_plugins(
@@ -85,13 +75,11 @@ impl ListObjectVersions {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
@@ -100,32 +88,21 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListObj
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("ListObjectVersions");
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                ListObjectVersionsRequestSerializer,
-            ),
-        );
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
-                ListObjectVersionsResponseDeserializer,
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            ListObjectVersionsRequestSerializer,
+        ));
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
+            ListObjectVersionsResponseDeserializer,
+        ));
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-                crate::config::auth::Params::builder()
-                    .operation_name("ListObjectVersions")
-                    .build()
-                    .expect("required fields set"),
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
+            crate::config::auth::Params::builder()
+                .operation_name("ListObjectVersions")
+                .build()
+                .expect("required fields set"),
+        ));
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "ListObjectVersions",
-                "S3",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListObjectVersions", "S3"));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = false;
         signing_options.content_sha256_header = true;
@@ -143,10 +120,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListObj
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListObjectVersions")
                             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListObjectVersionsTelemetryInputCaptureInterceptor))
@@ -168,9 +142,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListObj
 struct ListObjectVersionsTelemetryInputCaptureInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for ListObjectVersionsTelemetryInputCaptureInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListObjectVersionsTelemetryInputCaptureInterceptor {
     fn name(&self) -> &'static str {
         "ListObjectVersionsTelemetryInputCaptureInterceptor"
     }
@@ -193,9 +165,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) =
-            context.input().downcast_ref::<ListObjectVersionsInput>()
-        else {
+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<ListObjectVersionsInput>() else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -238,9 +208,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
 }
 #[derive(Debug)]
 struct ListObjectVersionsResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
-    for ListObjectVersionsResponseDeserializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ListObjectVersionsResponseDeserializer {
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -252,44 +220,27 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
         #[allow(unused_mut)]
         let mut force_error = false;
         ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
-        if matches!(
-            crate::rest_xml_unwrapped_errors::body_is_error(body),
-            Ok(true)
-        ) {
+        if matches!(crate::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
             force_error = true;
         }
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_list_object_versions::de_list_object_versions_http_error(
-                status, headers, body,
-            )
+            crate::protocol_serde::shape_list_object_versions::de_list_object_versions_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_list_object_versions::de_list_object_versions_http_response(
-                status, headers, body,
-            )
+            crate::protocol_serde::shape_list_object_versions::de_list_object_versions_http_response(status, headers, body)
         };
         crate::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
 struct ListObjectVersionsRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
-    for ListObjectVersionsRequestSerializer
-{
-    #[allow(
-        unused_mut,
-        clippy::let_and_return,
-        clippy::needless_borrow,
-        clippy::useless_conversion
-    )]
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListObjectVersionsRequestSerializer {
+    #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]
     fn serialize_input(
         &self,
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<
-        ::aws_smithy_runtime_api::client::orchestrator::HttpRequest,
-        ::aws_smithy_runtime_api::box_error::BoxError,
-    > {
+    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
             .downcast::<crate::operation::list_object_versions::ListObjectVersionsInput>()
             .expect("correct type");
@@ -302,8 +253,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_base(
                 _input: &crate::operation::list_object_versions::ListObjectVersionsInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -311,8 +261,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_query(
                 _input: &crate::operation::list_object_versions::ListObjectVersionsInput,
                 mut output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 query.push_v("versions");
                 if let ::std::option::Option::Some(inner_1) = &_input.delimiter {
@@ -322,10 +271,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.encoding_type {
                     {
-                        query.push_kv(
-                            "encoding-type",
-                            &::aws_smithy_http::query::fmt_string(inner_2.as_str()),
-                        );
+                        query.push_kv("encoding-type", &::aws_smithy_http::query::fmt_string(inner_2.as_str()));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.key_marker {
@@ -335,10 +281,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
                 }
                 if let ::std::option::Option::Some(inner_4) = &_input.max_keys {
                     {
-                        query.push_kv(
-                            "max-keys",
-                            ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode(),
-                        );
+                        query.push_kv("max-keys", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
                     }
                 }
                 if let ::std::option::Option::Some(inner_5) = &_input.prefix {
@@ -348,10 +291,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
                 }
                 if let ::std::option::Option::Some(inner_6) = &_input.version_id_marker {
                     {
-                        query.push_kv(
-                            "version-id-marker",
-                            &::aws_smithy_http::query::fmt_string(inner_6),
-                        );
+                        query.push_kv("version-id-marker", &::aws_smithy_http::query::fmt_string(inner_6));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -360,10 +300,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn update_http_builder(
                 input: &crate::operation::list_object_versions::ListObjectVersionsInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
@@ -375,22 +312,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
         };
         let body = ::aws_smithy_types::body::SdkBody::from("");
 
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
 struct ListObjectVersionsEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for ListObjectVersionsEndpointParamsInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListObjectVersionsEndpointParamsInterceptor {
     fn name(&self) -> &'static str {
         "ListObjectVersionsEndpointParamsInterceptor"
     }
@@ -411,56 +340,29 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to ListObjectVersionsInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
-            .set_endpoint(
-                cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
-                    .map(|ty| ty.0.clone()),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
             .set_force_path_style(cfg.load::<crate::config::ForcePathStyle>().map(|ty| ty.0))
             .set_use_arn_region(cfg.load::<crate::config::UseArnRegion>().map(|ty| ty.0))
-            .set_disable_multi_region_access_points(
-                cfg.load::<crate::config::DisableMultiRegionAccessPoints>()
-                    .map(|ty| ty.0),
-            )
+            .set_disable_multi_region_access_points(cfg.load::<crate::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0))
             .set_accelerate(cfg.load::<crate::config::Accelerate>().map(|ty| ty.0))
-            .set_disable_s3_express_session_auth(
-                cfg.load::<crate::config::DisableS3ExpressSessionAuth>()
-                    .map(|ty| ty.0),
-            )
+            .set_disable_s3_express_session_auth(cfg.load::<crate::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0))
             .set_bucket(Some(
                 _input
                     .bucket
                     .clone()
                     .filter(|f| !AsRef::<str>::as_ref(f).trim().is_empty())
-                    .ok_or_else(|| {
-                        ::aws_smithy_types::error::operation::BuildError::missing_field(
-                            "bucket",
-                            "A required field was not set",
-                        )
-                    })?,
+                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("bucket", "A required field was not set"))?,
             ))
             .set_prefix(_input.prefix.clone())
             .build()
             .map_err(|err| {
-                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(
-                    "endpoint params could not be built",
-                    err,
-                )
+                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));
         ::std::result::Result::Ok(())
     }
 }
@@ -588,12 +490,10 @@ mod list_object_versions_test {
         let parsed = de.deserialize_streaming(&mut http_response);
         let parsed = parsed.unwrap_or_else(|| {
             let http_response = http_response.map(|body| {
-                ::aws_smithy_types::body::SdkBody::from(::bytes::Bytes::copy_from_slice(
-                    &::aws_smithy_protocol_test::decode_body_data(
-                        body.bytes().unwrap(),
-                        ::aws_smithy_protocol_test::MediaType::from("application/xml"),
-                    ),
-                ))
+                ::aws_smithy_types::body::SdkBody::from(::bytes::Bytes::copy_from_slice(&::aws_smithy_protocol_test::decode_body_data(
+                    body.bytes().unwrap(),
+                    ::aws_smithy_protocol_test::MediaType::from("application/xml"),
+                )))
             });
             de.deserialize_nonstreaming_with_config(&http_response, &test_cfg)
         });
@@ -601,16 +501,8 @@ mod list_object_versions_test {
             .expect("should be successful response")
             .downcast::<crate::operation::list_object_versions::ListObjectVersionsOutput>()
             .unwrap();
-        ::pretty_assertions::assert_eq!(
-            parsed.is_truncated,
-            expected_output.is_truncated,
-            "Unexpected value for `is_truncated`"
-        );
-        ::pretty_assertions::assert_eq!(
-            parsed.key_marker,
-            expected_output.key_marker,
-            "Unexpected value for `key_marker`"
-        );
+        ::pretty_assertions::assert_eq!(parsed.is_truncated, expected_output.is_truncated, "Unexpected value for `is_truncated`");
+        ::pretty_assertions::assert_eq!(parsed.key_marker, expected_output.key_marker, "Unexpected value for `key_marker`");
         ::pretty_assertions::assert_eq!(
             parsed.version_id_marker,
             expected_output.version_id_marker,
@@ -626,36 +518,16 @@ mod list_object_versions_test {
             expected_output.next_version_id_marker,
             "Unexpected value for `next_version_id_marker`"
         );
-        ::pretty_assertions::assert_eq!(
-            parsed.versions,
-            expected_output.versions,
-            "Unexpected value for `versions`"
-        );
+        ::pretty_assertions::assert_eq!(parsed.versions, expected_output.versions, "Unexpected value for `versions`");
         ::pretty_assertions::assert_eq!(
             parsed.delete_markers,
             expected_output.delete_markers,
             "Unexpected value for `delete_markers`"
         );
-        ::pretty_assertions::assert_eq!(
-            parsed.name,
-            expected_output.name,
-            "Unexpected value for `name`"
-        );
-        ::pretty_assertions::assert_eq!(
-            parsed.prefix,
-            expected_output.prefix,
-            "Unexpected value for `prefix`"
-        );
-        ::pretty_assertions::assert_eq!(
-            parsed.delimiter,
-            expected_output.delimiter,
-            "Unexpected value for `delimiter`"
-        );
-        ::pretty_assertions::assert_eq!(
-            parsed.max_keys,
-            expected_output.max_keys,
-            "Unexpected value for `max_keys`"
-        );
+        ::pretty_assertions::assert_eq!(parsed.name, expected_output.name, "Unexpected value for `name`");
+        ::pretty_assertions::assert_eq!(parsed.prefix, expected_output.prefix, "Unexpected value for `prefix`");
+        ::pretty_assertions::assert_eq!(parsed.delimiter, expected_output.delimiter, "Unexpected value for `delimiter`");
+        ::pretty_assertions::assert_eq!(parsed.max_keys, expected_output.max_keys, "Unexpected value for `max_keys`");
         ::pretty_assertions::assert_eq!(
             parsed.common_prefixes,
             expected_output.common_prefixes,
@@ -679,24 +551,18 @@ mod list_object_versions_test {
 #[derive(::std::fmt::Debug)]
 pub enum ListObjectVersionsError {
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(
-        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ListObjectVersionsError) for what information is available for the error."
-    )]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ListObjectVersionsError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl ListObjectVersionsError {
     /// Creates the `ListObjectVersionsError::Unhandled` variant from any error type.
     pub fn unhandled(
-        err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
-        >,
+        err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.into(),
@@ -732,9 +598,7 @@ impl ::std::fmt::Display for ListObjectVersionsError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::Unhandled(_inner) => {
-                if let ::std::option::Option::Some(code) =
-                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
-                {
+                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -760,9 +624,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ListObjectVer
 }
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListObjectVersionsError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -771,16 +633,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListObje
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt
-    for crate::operation::list_object_versions::ListObjectVersionsError
-{
+impl crate::s3_request_id::RequestIdExt for crate::operation::list_object_versions::ListObjectVersionsError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId
-    for crate::operation::list_object_versions::ListObjectVersionsError
-{
+impl ::aws_types::request_id::RequestId for crate::operation::list_object_versions::ListObjectVersionsError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

@@ -3,10 +3,7 @@
 pub fn de_unsupported_media_type_xml_err(
     inp: &[u8],
     mut builder: crate::types::error::builders::UnsupportedMediaTypeBuilder,
-) -> std::result::Result<
-    crate::types::error::builders::UnsupportedMediaTypeBuilder,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> std::result::Result<crate::types::error::builders::UnsupportedMediaTypeBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
     if inp.is_empty() {
         return Ok(builder);
     }

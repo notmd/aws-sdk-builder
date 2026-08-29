@@ -41,18 +41,14 @@ impl ::aws_types::request_id::RequestId for DeleteObjectAnnotationOutput {
 #[cfg(feature = "op_delete_object_annotation")]
 impl DeleteObjectAnnotationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteObjectAnnotationOutput`](crate::operation::delete_object_annotation::DeleteObjectAnnotationOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_object_annotation::builders::DeleteObjectAnnotationOutputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_object_annotation::builders::DeleteObjectAnnotationOutputBuilder {
         crate::operation::delete_object_annotation::builders::DeleteObjectAnnotationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_object_annotation")]
 /// A builder for [`DeleteObjectAnnotationOutput`](crate::operation::delete_object_annotation::DeleteObjectAnnotationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteObjectAnnotationOutputBuilder {
     pub(crate) object_version_id: ::std::option::Option<::std::string::String>,
@@ -63,18 +59,12 @@ pub struct DeleteObjectAnnotationOutputBuilder {
 #[cfg(feature = "op_delete_object_annotation")]
 impl DeleteObjectAnnotationOutputBuilder {
     /// <p>The version ID of the object that the annotation was deleted from.</p>
-    pub fn object_version_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn object_version_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.object_version_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The version ID of the object that the annotation was deleted from.</p>
-    pub fn set_object_version_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_object_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.object_version_id = input;
         self
     }
@@ -92,10 +82,7 @@ impl DeleteObjectAnnotationOutputBuilder {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(
-        mut self,
-        input: ::std::option::Option<crate::types::RequestCharged>,
-    ) -> Self {
+    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
@@ -110,10 +97,7 @@ impl DeleteObjectAnnotationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

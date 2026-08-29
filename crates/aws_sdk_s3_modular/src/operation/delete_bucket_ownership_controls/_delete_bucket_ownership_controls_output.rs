@@ -22,16 +22,14 @@ impl ::aws_types::request_id::RequestId for DeleteBucketOwnershipControlsOutput 
 #[cfg(feature = "op_delete_bucket_ownership_controls")]
 impl DeleteBucketOwnershipControlsOutput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketOwnershipControlsOutput`](crate::operation::delete_bucket_ownership_controls::DeleteBucketOwnershipControlsOutput).
-    pub fn builder() -> crate::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsOutputBuilder{
+    pub fn builder() -> crate::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsOutputBuilder {
         crate::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_bucket_ownership_controls")]
 /// A builder for [`DeleteBucketOwnershipControlsOutput`](crate::operation::delete_bucket_ownership_controls::DeleteBucketOwnershipControlsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteBucketOwnershipControlsOutputBuilder {
     _extended_request_id: Option<String>,
@@ -44,10 +42,7 @@ impl DeleteBucketOwnershipControlsOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -61,10 +56,7 @@ impl DeleteBucketOwnershipControlsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteBucketOwnershipControlsOutput`](crate::operation::delete_bucket_ownership_controls::DeleteBucketOwnershipControlsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::delete_bucket_ownership_controls::DeleteBucketOwnershipControlsOutput
-    {
+    pub fn build(self) -> crate::operation::delete_bucket_ownership_controls::DeleteBucketOwnershipControlsOutput {
         crate::operation::delete_bucket_ownership_controls::DeleteBucketOwnershipControlsOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

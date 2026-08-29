@@ -22,18 +22,14 @@ impl ::aws_types::request_id::RequestId for WriteGetObjectResponseOutput {
 #[cfg(feature = "op_write_get_object_response")]
 impl WriteGetObjectResponseOutput {
     /// Creates a new builder-style object to manufacture [`WriteGetObjectResponseOutput`](crate::operation::write_get_object_response::WriteGetObjectResponseOutput).
-    pub fn builder(
-    ) -> crate::operation::write_get_object_response::builders::WriteGetObjectResponseOutputBuilder
-    {
+    pub fn builder() -> crate::operation::write_get_object_response::builders::WriteGetObjectResponseOutputBuilder {
         crate::operation::write_get_object_response::builders::WriteGetObjectResponseOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_write_get_object_response")]
 /// A builder for [`WriteGetObjectResponseOutput`](crate::operation::write_get_object_response::WriteGetObjectResponseOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct WriteGetObjectResponseOutputBuilder {
     _extended_request_id: Option<String>,
@@ -46,10 +42,7 @@ impl WriteGetObjectResponseOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -63,9 +56,7 @@ impl WriteGetObjectResponseOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`WriteGetObjectResponseOutput`](crate::operation::write_get_object_response::WriteGetObjectResponseOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::write_get_object_response::WriteGetObjectResponseOutput {
+    pub fn build(self) -> crate::operation::write_get_object_response::WriteGetObjectResponseOutput {
         crate::operation::write_get_object_response::WriteGetObjectResponseOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

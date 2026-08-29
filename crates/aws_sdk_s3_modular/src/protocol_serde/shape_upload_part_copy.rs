@@ -4,19 +4,11 @@ pub fn de_upload_part_copy_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::upload_part_copy::UploadPartCopyOutput,
-    crate::operation::upload_part_copy::UploadPartCopyError,
-> {
+) -> std::result::Result<crate::operation::upload_part_copy::UploadPartCopyOutput, crate::operation::upload_part_copy::UploadPartCopyError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::upload_part_copy::UploadPartCopyError::unhandled)?;
-    generic_builder =
-        crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(crate::operation::upload_part_copy::UploadPartCopyError::unhandled)?;
+    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     Err(crate::operation::upload_part_copy::UploadPartCopyError::generic(generic))
@@ -27,14 +19,10 @@ pub fn de_upload_part_copy_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::upload_part_copy::UploadPartCopyOutput,
-    crate::operation::upload_part_copy::UploadPartCopyError,
-> {
+) -> std::result::Result<crate::operation::upload_part_copy::UploadPartCopyOutput, crate::operation::upload_part_copy::UploadPartCopyError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::upload_part_copy::builders::UploadPartCopyOutputBuilder::default();
+        let mut output = crate::operation::upload_part_copy::builders::UploadPartCopyOutputBuilder::default();
         output = output.set_bucket_key_enabled(
             crate::protocol_serde::shape_upload_part_copy_output::de_bucket_key_enabled_header(_response_headers).map_err(|_| {
                 crate::operation::upload_part_copy::UploadPartCopyError::unhandled(
@@ -42,26 +30,18 @@ pub fn de_upload_part_copy_http_response(
                 )
             })?,
         );
-        output = output.set_copy_part_result(
-            crate::protocol_serde::shape_upload_part_copy_output::de_copy_part_result_payload(
-                _response_body,
-            )?,
-        );
+        output = output.set_copy_part_result(crate::protocol_serde::shape_upload_part_copy_output::de_copy_part_result_payload(
+            _response_body,
+        )?);
         output = output.set_copy_source_version_id(
-            crate::protocol_serde::shape_upload_part_copy_output::de_copy_source_version_id_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_upload_part_copy_output::de_copy_source_version_id_header(_response_headers).map_err(|_| {
                 crate::operation::upload_part_copy::UploadPartCopyError::unhandled(
                     "Failed to parse CopySourceVersionId from header `x-amz-copy-source-version-id",
                 )
             })?,
         );
         output = output.set_request_charged(
-            crate::protocol_serde::shape_upload_part_copy_output::de_request_charged_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_upload_part_copy_output::de_request_charged_header(_response_headers).map_err(|_| {
                 crate::operation::upload_part_copy::UploadPartCopyError::unhandled(
                     "Failed to parse RequestCharged from header `x-amz-request-charged",
                 )
@@ -95,13 +75,8 @@ pub fn de_upload_part_copy_http_response(
                 )
             })?,
         );
-        output._set_extended_request_id(
-            crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers)
-                .map(str::to_string),
-        );
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -109,20 +84,14 @@ pub fn de_upload_part_copy_http_response(
 pub fn ser_upload_part_copy_headers(
     input: &crate::operation::upload_part_copy::UploadPartCopyInput,
     mut builder: ::http_1x::request::Builder,
-) -> std::result::Result<
-    ::http_1x::request::Builder,
-    ::aws_smithy_types::error::operation::BuildError,
-> {
+) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.copy_source {
         let formatted_2 = inner_1.as_str();
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "copy_source",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-copy-source", header_value);
@@ -133,10 +102,7 @@ pub fn ser_upload_part_copy_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "copy_source_if_match",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-copy-source-if-match", header_value);
@@ -147,10 +113,7 @@ pub fn ser_upload_part_copy_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "copy_source_if_modified_since",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-copy-source-if-modified-since", header_value);
@@ -161,10 +124,7 @@ pub fn ser_upload_part_copy_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "copy_source_if_none_match",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-copy-source-if-none-match", header_value);
@@ -175,10 +135,7 @@ pub fn ser_upload_part_copy_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "copy_source_if_unmodified_since",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-copy-source-if-unmodified-since", header_value);
@@ -189,10 +146,7 @@ pub fn ser_upload_part_copy_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "copy_source_range",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-copy-source-range", header_value);
@@ -203,16 +157,10 @@ pub fn ser_upload_part_copy_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "sse_customer_algorithm",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
-        builder = builder.header(
-            "x-amz-server-side-encryption-customer-algorithm",
-            header_value,
-        );
+        builder = builder.header("x-amz-server-side-encryption-customer-algorithm", header_value);
     }
     if let ::std::option::Option::Some(inner_15) = &input.sse_customer_key {
         let formatted_16 = inner_15.as_str();
@@ -220,10 +168,7 @@ pub fn ser_upload_part_copy_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "sse_customer_key",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &"*** Sensitive Data Redacted ***", err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
             )
         })?;
         builder = builder.header("x-amz-server-side-encryption-customer-key", header_value);
@@ -234,16 +179,10 @@ pub fn ser_upload_part_copy_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "sse_customer_key_md5",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
-        builder = builder.header(
-            "x-amz-server-side-encryption-customer-key-MD5",
-            header_value,
-        );
+        builder = builder.header("x-amz-server-side-encryption-customer-key-MD5", header_value);
     }
     if let ::std::option::Option::Some(inner_19) = &input.copy_source_sse_customer_algorithm {
         let formatted_20 = inner_19.as_str();
@@ -251,16 +190,10 @@ pub fn ser_upload_part_copy_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "copy_source_sse_customer_algorithm",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
-        builder = builder.header(
-            "x-amz-copy-source-server-side-encryption-customer-algorithm",
-            header_value,
-        );
+        builder = builder.header("x-amz-copy-source-server-side-encryption-customer-algorithm", header_value);
     }
     if let ::std::option::Option::Some(inner_21) = &input.copy_source_sse_customer_key {
         let formatted_22 = inner_21.as_str();
@@ -268,16 +201,10 @@ pub fn ser_upload_part_copy_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "copy_source_sse_customer_key",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &"*** Sensitive Data Redacted ***", err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
             )
         })?;
-        builder = builder.header(
-            "x-amz-copy-source-server-side-encryption-customer-key",
-            header_value,
-        );
+        builder = builder.header("x-amz-copy-source-server-side-encryption-customer-key", header_value);
     }
     if let ::std::option::Option::Some(inner_23) = &input.copy_source_sse_customer_key_md5 {
         let formatted_24 = inner_23.as_str();
@@ -285,16 +212,10 @@ pub fn ser_upload_part_copy_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "copy_source_sse_customer_key_md5",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
-        builder = builder.header(
-            "x-amz-copy-source-server-side-encryption-customer-key-MD5",
-            header_value,
-        );
+        builder = builder.header("x-amz-copy-source-server-side-encryption-customer-key-MD5", header_value);
     }
     if let ::std::option::Option::Some(inner_25) = &input.request_payer {
         let formatted_26 = inner_25.as_str();
@@ -302,10 +223,7 @@ pub fn ser_upload_part_copy_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "request_payer",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-request-payer", header_value);
@@ -316,10 +234,7 @@ pub fn ser_upload_part_copy_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "expected_bucket_owner",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-expected-bucket-owner", header_value);
@@ -330,10 +245,7 @@ pub fn ser_upload_part_copy_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "expected_source_bucket_owner",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-source-expected-bucket-owner", header_value);

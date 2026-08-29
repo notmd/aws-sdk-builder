@@ -3,14 +3,9 @@
 pub fn de_target_object_key_format(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    crate::types::TargetObjectKeyFormat,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<crate::types::TargetObjectKeyFormat, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::TargetObjectKeyFormat::builder();
@@ -53,10 +48,7 @@ pub fn ser_target_object_key_format(
     }
     if let Some(var_4) = &input.partitioned_prefix {
         let inner_writer = scope.start_el("PartitionedPrefix");
-        crate::protocol_serde::shape_partitioned_prefix::ser_partitioned_prefix(
-            var_4,
-            inner_writer,
-        )?
+        crate::protocol_serde::shape_partitioned_prefix::ser_partitioned_prefix(var_4, inner_writer)?
     }
     scope.finish();
     Ok(())

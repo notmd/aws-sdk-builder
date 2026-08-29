@@ -276,10 +276,7 @@ impl ::std::fmt::Debug for GetObjectInput {
         formatter.field("key", &self.key);
         formatter.field("range", &self.range);
         formatter.field("response_cache_control", &self.response_cache_control);
-        formatter.field(
-            "response_content_disposition",
-            &self.response_content_disposition,
-        );
+        formatter.field("response_content_disposition", &self.response_content_disposition);
         formatter.field("response_content_encoding", &self.response_content_encoding);
         formatter.field("response_content_language", &self.response_content_language);
         formatter.field("response_content_type", &self.response_content_type);
@@ -395,10 +392,7 @@ impl GetObjectInputBuilder {
     /// <p>Return the object only if it has been modified since the specified time; otherwise, return a <code>304 Not Modified</code> error.</p>
     /// <p>If both of the <code>If-None-Match</code> and <code>If-Modified-Since</code> headers are present in the request as follows:<code> If-None-Match</code> condition evaluates to <code>false</code>, and; <code>If-Modified-Since</code> condition evaluates to <code>true</code>; then, S3 returns <code>304 Not Modified</code> status code.</p>
     /// <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
-    pub fn set_if_modified_since(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_if_modified_since(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.if_modified_since = input;
         self
     }
@@ -411,20 +405,14 @@ impl GetObjectInputBuilder {
     /// <p>Return the object only if its entity tag (ETag) is different from the one specified in this header; otherwise, return a <code>304 Not Modified</code> error.</p>
     /// <p>If both of the <code>If-None-Match</code> and <code>If-Modified-Since</code> headers are present in the request as follows:<code> If-None-Match</code> condition evaluates to <code>false</code>, and; <code>If-Modified-Since</code> condition evaluates to <code>true</code>; then, S3 returns <code>304 Not Modified</code> HTTP status code.</p>
     /// <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
-    pub fn if_none_match(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn if_none_match(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.if_none_match = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Return the object only if its entity tag (ETag) is different from the one specified in this header; otherwise, return a <code>304 Not Modified</code> error.</p>
     /// <p>If both of the <code>If-None-Match</code> and <code>If-Modified-Since</code> headers are present in the request as follows:<code> If-None-Match</code> condition evaluates to <code>false</code>, and; <code>If-Modified-Since</code> condition evaluates to <code>true</code>; then, S3 returns <code>304 Not Modified</code> HTTP status code.</p>
     /// <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
-    pub fn set_if_none_match(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_if_none_match(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.if_none_match = input;
         self
     }
@@ -444,10 +432,7 @@ impl GetObjectInputBuilder {
     /// <p>Return the object only if it has not been modified since the specified time; otherwise, return a <code>412 Precondition Failed</code> error.</p>
     /// <p>If both of the <code>If-Match</code> and <code>If-Unmodified-Since</code> headers are present in the request as follows: <code>If-Match</code> condition evaluates to <code>true</code>, and; <code>If-Unmodified-Since</code> condition evaluates to <code>false</code>; then, S3 returns <code>200 OK</code> and the data requested.</p>
     /// <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
-    pub fn set_if_unmodified_since(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_if_unmodified_since(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.if_unmodified_since = input;
         self
     }
@@ -493,18 +478,12 @@ impl GetObjectInputBuilder {
         &self.range
     }
     /// <p>Sets the <code>Cache-Control</code> header of the response.</p>
-    pub fn response_cache_control(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn response_cache_control(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.response_cache_control = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Sets the <code>Cache-Control</code> header of the response.</p>
-    pub fn set_response_cache_control(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_response_cache_control(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.response_cache_control = input;
         self
     }
@@ -513,40 +492,26 @@ impl GetObjectInputBuilder {
         &self.response_cache_control
     }
     /// <p>Sets the <code>Content-Disposition</code> header of the response.</p>
-    pub fn response_content_disposition(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn response_content_disposition(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.response_content_disposition = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Sets the <code>Content-Disposition</code> header of the response.</p>
-    pub fn set_response_content_disposition(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_response_content_disposition(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.response_content_disposition = input;
         self
     }
     /// <p>Sets the <code>Content-Disposition</code> header of the response.</p>
-    pub fn get_response_content_disposition(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_response_content_disposition(&self) -> &::std::option::Option<::std::string::String> {
         &self.response_content_disposition
     }
     /// <p>Sets the <code>Content-Encoding</code> header of the response.</p>
-    pub fn response_content_encoding(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn response_content_encoding(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.response_content_encoding = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Sets the <code>Content-Encoding</code> header of the response.</p>
-    pub fn set_response_content_encoding(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_response_content_encoding(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.response_content_encoding = input;
         self
     }
@@ -555,18 +520,12 @@ impl GetObjectInputBuilder {
         &self.response_content_encoding
     }
     /// <p>Sets the <code>Content-Language</code> header of the response.</p>
-    pub fn response_content_language(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn response_content_language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.response_content_language = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Sets the <code>Content-Language</code> header of the response.</p>
-    pub fn set_response_content_language(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_response_content_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.response_content_language = input;
         self
     }
@@ -575,18 +534,12 @@ impl GetObjectInputBuilder {
         &self.response_content_language
     }
     /// <p>Sets the <code>Content-Type</code> header of the response.</p>
-    pub fn response_content_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn response_content_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.response_content_type = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Sets the <code>Content-Type</code> header of the response.</p>
-    pub fn set_response_content_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_response_content_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.response_content_type = input;
         self
     }
@@ -600,10 +553,7 @@ impl GetObjectInputBuilder {
         self
     }
     /// <p>Sets the <code>Expires</code> header of the response.</p>
-    pub fn set_response_expires(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_response_expires(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.response_expires = input;
         self
     }
@@ -671,10 +621,7 @@ impl GetObjectInputBuilder {
     /// <p>For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys)</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn sse_customer_algorithm(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn sse_customer_algorithm(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.sse_customer_algorithm = ::std::option::Option::Some(input.into());
         self
     }
@@ -691,10 +638,7 @@ impl GetObjectInputBuilder {
     /// <p>For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys)</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_sse_customer_algorithm(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_sse_customer_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sse_customer_algorithm = input;
         self
     }
@@ -727,10 +671,7 @@ impl GetObjectInputBuilder {
     /// <p>For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys)</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn sse_customer_key(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn sse_customer_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.sse_customer_key = ::std::option::Option::Some(input.into());
         self
     }
@@ -747,10 +688,7 @@ impl GetObjectInputBuilder {
     /// <p>For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys)</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_sse_customer_key(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_sse_customer_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sse_customer_key = input;
         self
     }
@@ -783,10 +721,7 @@ impl GetObjectInputBuilder {
     /// <p>For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys)</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn sse_customer_key_md5(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn sse_customer_key_md5(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.sse_customer_key_md5 = ::std::option::Option::Some(input.into());
         self
     }
@@ -803,10 +738,7 @@ impl GetObjectInputBuilder {
     /// <p>For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys)</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_sse_customer_key_md5(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_sse_customer_key_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sse_customer_key_md5 = input;
         self
     }
@@ -836,10 +768,7 @@ impl GetObjectInputBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(
-        mut self,
-        input: ::std::option::Option<crate::types::RequestPayer>,
-    ) -> Self {
+    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
         self.request_payer = input;
         self
     }
@@ -864,18 +793,12 @@ impl GetObjectInputBuilder {
         &self.part_number
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -889,10 +812,7 @@ impl GetObjectInputBuilder {
         self
     }
     /// <p>To retrieve the checksum, this mode must be enabled.</p>
-    pub fn set_checksum_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::ChecksumMode>,
-    ) -> Self {
+    pub fn set_checksum_mode(mut self, input: ::std::option::Option<crate::types::ChecksumMode>) -> Self {
         self.checksum_mode = input;
         self
     }
@@ -901,12 +821,7 @@ impl GetObjectInputBuilder {
         &self.checksum_mode
     }
     /// Consumes the builder and constructs a [`GetObjectInput`](crate::operation::get_object::GetObjectInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::get_object::GetObjectInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_object::GetObjectInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::get_object::GetObjectInput {
             bucket: self.bucket,
             if_match: self.if_match,
@@ -944,10 +859,7 @@ impl ::std::fmt::Debug for GetObjectInputBuilder {
         formatter.field("key", &self.key);
         formatter.field("range", &self.range);
         formatter.field("response_cache_control", &self.response_cache_control);
-        formatter.field(
-            "response_content_disposition",
-            &self.response_content_disposition,
-        );
+        formatter.field("response_content_disposition", &self.response_content_disposition);
         formatter.field("response_content_encoding", &self.response_content_encoding);
         formatter.field("response_content_language", &self.response_content_language);
         formatter.field("response_content_type", &self.response_content_type);

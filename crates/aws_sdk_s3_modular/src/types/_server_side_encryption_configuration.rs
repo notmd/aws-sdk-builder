@@ -22,13 +22,10 @@ impl ServerSideEncryptionConfiguration {
 }
 
 /// A builder for [`ServerSideEncryptionConfiguration`](crate::types::ServerSideEncryptionConfiguration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ServerSideEncryptionConfigurationBuilder {
-    pub(crate) rules:
-        ::std::option::Option<::std::vec::Vec<crate::types::ServerSideEncryptionRule>>,
+    pub(crate) rules: ::std::option::Option<::std::vec::Vec<crate::types::ServerSideEncryptionRule>>,
 }
 impl ServerSideEncryptionConfigurationBuilder {
     /// Appends an item to `rules`.
@@ -43,28 +40,18 @@ impl ServerSideEncryptionConfigurationBuilder {
         self
     }
     /// <p>Container for information about a particular server-side encryption configuration rule.</p>
-    pub fn set_rules(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ServerSideEncryptionRule>>,
-    ) -> Self {
+    pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ServerSideEncryptionRule>>) -> Self {
         self.rules = input;
         self
     }
     /// <p>Container for information about a particular server-side encryption configuration rule.</p>
-    pub fn get_rules(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ServerSideEncryptionRule>> {
+    pub fn get_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ServerSideEncryptionRule>> {
         &self.rules
     }
     /// Consumes the builder and constructs a [`ServerSideEncryptionConfiguration`](crate::types::ServerSideEncryptionConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`rules`](crate::types::builders::ServerSideEncryptionConfigurationBuilder::rules)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::ServerSideEncryptionConfiguration,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::ServerSideEncryptionConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ServerSideEncryptionConfiguration {
             rules: self.rules.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

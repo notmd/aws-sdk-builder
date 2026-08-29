@@ -23,17 +23,14 @@ impl ListDirectoryBucketsInput {
 #[cfg(feature = "op_list_directory_buckets")]
 impl ListDirectoryBucketsInput {
     /// Creates a new builder-style object to manufacture [`ListDirectoryBucketsInput`](crate::operation::list_directory_buckets::ListDirectoryBucketsInput).
-    pub fn builder(
-    ) -> crate::operation::list_directory_buckets::builders::ListDirectoryBucketsInputBuilder {
+    pub fn builder() -> crate::operation::list_directory_buckets::builders::ListDirectoryBucketsInputBuilder {
         crate::operation::list_directory_buckets::builders::ListDirectoryBucketsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_directory_buckets")]
 /// A builder for [`ListDirectoryBucketsInput`](crate::operation::list_directory_buckets::ListDirectoryBucketsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListDirectoryBucketsInputBuilder {
     pub(crate) continuation_token: ::std::option::Option<::std::string::String>,
@@ -42,18 +39,12 @@ pub struct ListDirectoryBucketsInputBuilder {
 #[cfg(feature = "op_list_directory_buckets")]
 impl ListDirectoryBucketsInputBuilder {
     /// <p><code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on buckets in this account with a token. <code>ContinuationToken</code> is obfuscated and is not a real bucket name. You can use this <code>ContinuationToken</code> for the pagination of the list results.</p>
-    pub fn continuation_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p><code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on buckets in this account with a token. <code>ContinuationToken</code> is obfuscated and is not a real bucket name. You can use this <code>ContinuationToken</code> for the pagination of the list results.</p>
-    pub fn set_continuation_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.continuation_token = input;
         self
     }
@@ -78,15 +69,11 @@ impl ListDirectoryBucketsInputBuilder {
     /// Consumes the builder and constructs a [`ListDirectoryBucketsInput`](crate::operation::list_directory_buckets::ListDirectoryBucketsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_directory_buckets::ListDirectoryBucketsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::list_directory_buckets::ListDirectoryBucketsInput {
-                continuation_token: self.continuation_token,
-                max_directory_buckets: self.max_directory_buckets,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::list_directory_buckets::ListDirectoryBucketsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::list_directory_buckets::ListDirectoryBucketsInput {
+            continuation_token: self.continuation_token,
+            max_directory_buckets: self.max_directory_buckets,
+        })
     }
 }

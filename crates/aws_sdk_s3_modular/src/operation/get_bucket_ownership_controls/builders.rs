@@ -85,7 +85,7 @@ impl GetBucketOwnershipControlsFluentBuilder {
         }
     }
     /// Access the GetBucketOwnershipControls as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_bucket_ownership_controls::builders::GetBucketOwnershipControlsInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::get_bucket_ownership_controls::builders::GetBucketOwnershipControlsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -114,11 +114,7 @@ impl GetBucketOwnershipControlsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_bucket_ownership_controls::GetBucketOwnershipControls::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::get_bucket_ownership_controls::GetBucketOwnershipControls::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -131,18 +127,12 @@ impl GetBucketOwnershipControlsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -161,18 +151,12 @@ impl GetBucketOwnershipControlsFluentBuilder {
         self.inner.get_bucket()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

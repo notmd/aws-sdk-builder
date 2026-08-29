@@ -13,7 +13,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetBucketNotificationConfigurationError>`](crate::operation::get_bucket_notification_configuration::GetBucketNotificationConfigurationError)
     pub fn get_bucket_notification_configuration(
         &self,
-    ) -> crate::operation::get_bucket_notification_configuration::builders::GetBucketNotificationConfigurationFluentBuilder{
+    ) -> crate::operation::get_bucket_notification_configuration::builders::GetBucketNotificationConfigurationFluentBuilder {
         crate::operation::get_bucket_notification_configuration::builders::GetBucketNotificationConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

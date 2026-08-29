@@ -27,9 +27,7 @@ impl Grant {
 }
 
 /// A builder for [`Grant`](crate::types::Grant).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GrantBuilder {
     pub(crate) grantee: ::std::option::Option<crate::types::Grantee>,
@@ -56,10 +54,7 @@ impl GrantBuilder {
         self
     }
     /// <p>Specifies the permission given to the grantee.</p>
-    pub fn set_permission(
-        mut self,
-        input: ::std::option::Option<crate::types::Permission>,
-    ) -> Self {
+    pub fn set_permission(mut self, input: ::std::option::Option<crate::types::Permission>) -> Self {
         self.permission = input;
         self
     }

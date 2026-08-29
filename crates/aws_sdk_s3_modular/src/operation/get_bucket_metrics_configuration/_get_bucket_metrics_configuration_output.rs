@@ -12,9 +12,7 @@ pub struct GetBucketMetricsConfigurationOutput {
 #[cfg(feature = "op_get_bucket_metrics_configuration")]
 impl GetBucketMetricsConfigurationOutput {
     /// <p>Specifies the metrics configuration.</p>
-    pub fn metrics_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::MetricsConfiguration> {
+    pub fn metrics_configuration(&self) -> ::std::option::Option<&crate::types::MetricsConfiguration> {
         self.metrics_configuration.as_ref()
     }
 }
@@ -33,16 +31,14 @@ impl ::aws_types::request_id::RequestId for GetBucketMetricsConfigurationOutput 
 #[cfg(feature = "op_get_bucket_metrics_configuration")]
 impl GetBucketMetricsConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`GetBucketMetricsConfigurationOutput`](crate::operation::get_bucket_metrics_configuration::GetBucketMetricsConfigurationOutput).
-    pub fn builder() -> crate::operation::get_bucket_metrics_configuration::builders::GetBucketMetricsConfigurationOutputBuilder{
+    pub fn builder() -> crate::operation::get_bucket_metrics_configuration::builders::GetBucketMetricsConfigurationOutputBuilder {
         crate::operation::get_bucket_metrics_configuration::builders::GetBucketMetricsConfigurationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_bucket_metrics_configuration")]
 /// A builder for [`GetBucketMetricsConfigurationOutput`](crate::operation::get_bucket_metrics_configuration::GetBucketMetricsConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketMetricsConfigurationOutputBuilder {
     pub(crate) metrics_configuration: ::std::option::Option<crate::types::MetricsConfiguration>,
@@ -57,17 +53,12 @@ impl GetBucketMetricsConfigurationOutputBuilder {
         self
     }
     /// <p>Specifies the metrics configuration.</p>
-    pub fn set_metrics_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::MetricsConfiguration>,
-    ) -> Self {
+    pub fn set_metrics_configuration(mut self, input: ::std::option::Option<crate::types::MetricsConfiguration>) -> Self {
         self.metrics_configuration = input;
         self
     }
     /// <p>Specifies the metrics configuration.</p>
-    pub fn get_metrics_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::MetricsConfiguration> {
+    pub fn get_metrics_configuration(&self) -> &::std::option::Option<crate::types::MetricsConfiguration> {
         &self.metrics_configuration
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -75,10 +66,7 @@ impl GetBucketMetricsConfigurationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -92,10 +80,7 @@ impl GetBucketMetricsConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetBucketMetricsConfigurationOutput`](crate::operation::get_bucket_metrics_configuration::GetBucketMetricsConfigurationOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::get_bucket_metrics_configuration::GetBucketMetricsConfigurationOutput
-    {
+    pub fn build(self) -> crate::operation::get_bucket_metrics_configuration::GetBucketMetricsConfigurationOutput {
         crate::operation::get_bucket_metrics_configuration::GetBucketMetricsConfigurationOutput {
             metrics_configuration: self.metrics_configuration,
             _extended_request_id: self._extended_request_id,

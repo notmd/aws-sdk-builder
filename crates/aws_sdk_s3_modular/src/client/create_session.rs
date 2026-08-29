@@ -16,11 +16,7 @@ impl super::Client {
     ///   - [`bucket_key_enabled(Option<bool>)`](crate::operation::create_session::CreateSessionOutput::bucket_key_enabled): <p>Indicates whether to use an S3 Bucket Key for server-side encryption with KMS keys (SSE-KMS).</p>
     ///   - [`credentials(Option<SessionCredentials>)`](crate::operation::create_session::CreateSessionOutput::credentials): <p>The established temporary security credentials for the created session.</p>
     /// - On failure, responds with [`SdkError<CreateSessionError>`](crate::operation::create_session::CreateSessionError)
-    pub fn create_session(
-        &self,
-    ) -> crate::operation::create_session::builders::CreateSessionFluentBuilder {
-        crate::operation::create_session::builders::CreateSessionFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn create_session(&self) -> crate::operation::create_session::builders::CreateSessionFluentBuilder {
+        crate::operation::create_session::builders::CreateSessionFluentBuilder::new(self.handle.clone())
     }
 }

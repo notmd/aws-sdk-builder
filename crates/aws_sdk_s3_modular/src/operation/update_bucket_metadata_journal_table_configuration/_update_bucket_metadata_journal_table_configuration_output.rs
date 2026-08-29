@@ -24,16 +24,14 @@ impl UpdateBucketMetadataJournalTableConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`UpdateBucketMetadataJournalTableConfigurationOutput`](crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationOutput).
     pub fn builder(
     ) -> crate::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationOutputBuilder
-{
+    {
         crate::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_update_bucket_metadata_journal_table_configuration")]
 /// A builder for [`UpdateBucketMetadataJournalTableConfigurationOutput`](crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateBucketMetadataJournalTableConfigurationOutputBuilder {
     _extended_request_id: Option<String>,
@@ -46,10 +44,7 @@ impl UpdateBucketMetadataJournalTableConfigurationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -63,7 +58,7 @@ impl UpdateBucketMetadataJournalTableConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateBucketMetadataJournalTableConfigurationOutput`](crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationOutput).
-    pub fn build(self) -> crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationOutput{
+    pub fn build(self) -> crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationOutput {
         crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

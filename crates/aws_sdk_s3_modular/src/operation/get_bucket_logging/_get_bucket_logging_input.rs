@@ -23,17 +23,14 @@ impl GetBucketLoggingInput {
 #[cfg(feature = "op_get_bucket_logging")]
 impl GetBucketLoggingInput {
     /// Creates a new builder-style object to manufacture [`GetBucketLoggingInput`](crate::operation::get_bucket_logging::GetBucketLoggingInput).
-    pub fn builder() -> crate::operation::get_bucket_logging::builders::GetBucketLoggingInputBuilder
-    {
+    pub fn builder() -> crate::operation::get_bucket_logging::builders::GetBucketLoggingInputBuilder {
         crate::operation::get_bucket_logging::builders::GetBucketLoggingInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_bucket_logging")]
 /// A builder for [`GetBucketLoggingInput`](crate::operation::get_bucket_logging::GetBucketLoggingInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketLoggingInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -57,18 +54,12 @@ impl GetBucketLoggingInputBuilder {
         &self.bucket
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -79,15 +70,10 @@ impl GetBucketLoggingInputBuilder {
     /// Consumes the builder and constructs a [`GetBucketLoggingInput`](crate::operation::get_bucket_logging::GetBucketLoggingInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_bucket_logging::GetBucketLoggingInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::get_bucket_logging::GetBucketLoggingInput {
-                bucket: self.bucket,
-                expected_bucket_owner: self.expected_bucket_owner,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::get_bucket_logging::GetBucketLoggingInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::get_bucket_logging::GetBucketLoggingInput {
+            bucket: self.bucket,
+            expected_bucket_owner: self.expected_bucket_owner,
+        })
     }
 }

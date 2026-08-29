@@ -7,10 +7,7 @@ pub fn ser_metadata_configuration(
     let mut scope = writer.finish();
     if let Some(var_1) = &input.journal_table_configuration {
         let inner_writer = scope.start_el("JournalTableConfiguration");
-        crate::protocol_serde::shape_journal_table_configuration::ser_journal_table_configuration(
-            var_1,
-            inner_writer,
-        )?
+        crate::protocol_serde::shape_journal_table_configuration::ser_journal_table_configuration(var_1, inner_writer)?
     }
     if let Some(var_2) = &input.inventory_table_configuration {
         let inner_writer = scope.start_el("InventoryTableConfiguration");

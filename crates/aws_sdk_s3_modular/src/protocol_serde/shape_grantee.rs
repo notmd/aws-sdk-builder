@@ -35,9 +35,7 @@ pub fn de_grantee(
     depth: u32,
 ) -> ::std::result::Result<crate::types::Grantee, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::Grantee::builder();
@@ -45,10 +43,9 @@ pub fn de_grantee(
         let s = decoder.start_el().attr("xsi:type");
         match s {
             None => None,
-            Some(s) => Some(Result::<
-                crate::types::Type,
-                ::aws_smithy_xml::decode::XmlDecodeError,
-            >::Ok(crate::types::Type::from(s))?),
+            Some(s) => Some(Result::<crate::types::Type, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                crate::types::Type::from(s),
+            )?),
         }
     };
     builder.r#type = attrib_5;

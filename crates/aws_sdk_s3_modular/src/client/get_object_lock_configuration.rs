@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetObjectLockConfigurationError>`](crate::operation::get_object_lock_configuration::GetObjectLockConfigurationError)
     pub fn get_object_lock_configuration(
         &self,
-    ) -> crate::operation::get_object_lock_configuration::builders::GetObjectLockConfigurationFluentBuilder{
+    ) -> crate::operation::get_object_lock_configuration::builders::GetObjectLockConfigurationFluentBuilder {
         crate::operation::get_object_lock_configuration::builders::GetObjectLockConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

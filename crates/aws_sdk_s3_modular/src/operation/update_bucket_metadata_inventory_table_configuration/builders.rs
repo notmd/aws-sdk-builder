@@ -107,7 +107,7 @@ impl UpdateBucketMetadataInventoryTableConfigurationFluentBuilder {
     pub fn as_input(
         &self,
     ) -> &crate::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationInputBuilder
-{
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -126,7 +126,7 @@ impl UpdateBucketMetadataInventoryTableConfigurationFluentBuilder {
             crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -150,21 +150,15 @@ impl UpdateBucketMetadataInventoryTableConfigurationFluentBuilder {
         crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput,
         crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -202,54 +196,35 @@ impl UpdateBucketMetadataInventoryTableConfigurationFluentBuilder {
         self
     }
     /// <p>The checksum algorithm to use with your inventory table configuration.</p>
-    pub fn set_checksum_algorithm(
-        mut self,
-        input: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-    ) -> Self {
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
         self.inner = self.inner.set_checksum_algorithm(input);
         self
     }
     /// <p>The checksum algorithm to use with your inventory table configuration.</p>
-    pub fn get_checksum_algorithm(
-        &self,
-    ) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         self.inner.get_checksum_algorithm()
     }
     /// <p>The contents of your inventory table configuration.</p>
-    pub fn inventory_table_configuration(
-        mut self,
-        input: crate::types::InventoryTableConfigurationUpdates,
-    ) -> Self {
+    pub fn inventory_table_configuration(mut self, input: crate::types::InventoryTableConfigurationUpdates) -> Self {
         self.inner = self.inner.inventory_table_configuration(input);
         self
     }
     /// <p>The contents of your inventory table configuration.</p>
-    pub fn set_inventory_table_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::InventoryTableConfigurationUpdates>,
-    ) -> Self {
+    pub fn set_inventory_table_configuration(mut self, input: ::std::option::Option<crate::types::InventoryTableConfigurationUpdates>) -> Self {
         self.inner = self.inner.set_inventory_table_configuration(input);
         self
     }
     /// <p>The contents of your inventory table configuration.</p>
-    pub fn get_inventory_table_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::InventoryTableConfigurationUpdates> {
+    pub fn get_inventory_table_configuration(&self) -> &::std::option::Option<crate::types::InventoryTableConfigurationUpdates> {
         self.inner.get_inventory_table_configuration()
     }
     /// <p>The expected owner of the general purpose bucket that corresponds to the metadata table configuration that you want to enable or disable an inventory table for.</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The expected owner of the general purpose bucket that corresponds to the metadata table configuration that you want to enable or disable an inventory table for.</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

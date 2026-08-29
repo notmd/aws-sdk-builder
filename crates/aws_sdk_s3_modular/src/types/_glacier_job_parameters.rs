@@ -21,9 +21,7 @@ impl GlacierJobParameters {
 }
 
 /// A builder for [`GlacierJobParameters`](crate::types::GlacierJobParameters).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GlacierJobParametersBuilder {
     pub(crate) tier: ::std::option::Option<crate::types::Tier>,
@@ -47,12 +45,7 @@ impl GlacierJobParametersBuilder {
     /// Consumes the builder and constructs a [`GlacierJobParameters`](crate::types::GlacierJobParameters).
     /// This method will fail if any of the following fields are not set:
     /// - [`tier`](crate::types::builders::GlacierJobParametersBuilder::tier)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::GlacierJobParameters,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::GlacierJobParameters, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GlacierJobParameters {
             tier: self.tier.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

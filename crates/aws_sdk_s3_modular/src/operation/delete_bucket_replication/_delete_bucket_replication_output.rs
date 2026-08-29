@@ -22,18 +22,14 @@ impl ::aws_types::request_id::RequestId for DeleteBucketReplicationOutput {
 #[cfg(feature = "op_delete_bucket_replication")]
 impl DeleteBucketReplicationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketReplicationOutput`](crate::operation::delete_bucket_replication::DeleteBucketReplicationOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_bucket_replication::builders::DeleteBucketReplicationOutputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_bucket_replication::builders::DeleteBucketReplicationOutputBuilder {
         crate::operation::delete_bucket_replication::builders::DeleteBucketReplicationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_bucket_replication")]
 /// A builder for [`DeleteBucketReplicationOutput`](crate::operation::delete_bucket_replication::DeleteBucketReplicationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteBucketReplicationOutputBuilder {
     _extended_request_id: Option<String>,
@@ -46,10 +42,7 @@ impl DeleteBucketReplicationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -63,9 +56,7 @@ impl DeleteBucketReplicationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteBucketReplicationOutput`](crate::operation::delete_bucket_replication::DeleteBucketReplicationOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::delete_bucket_replication::DeleteBucketReplicationOutput {
+    pub fn build(self) -> crate::operation::delete_bucket_replication::DeleteBucketReplicationOutput {
         crate::operation::delete_bucket_replication::DeleteBucketReplicationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

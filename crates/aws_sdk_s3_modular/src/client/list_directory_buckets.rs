@@ -10,11 +10,7 @@ impl super::Client {
     ///   - [`buckets(Option<Vec::<Bucket>>)`](crate::operation::list_directory_buckets::ListDirectoryBucketsOutput::buckets): <p>The list of buckets owned by the requester.</p>
     ///   - [`continuation_token(Option<String>)`](crate::operation::list_directory_buckets::ListDirectoryBucketsOutput::continuation_token): <p>If <code>ContinuationToken</code> was sent with the request, it is included in the response. You can use the returned <code>ContinuationToken</code> for pagination of the list response.</p>
     /// - On failure, responds with [`SdkError<ListDirectoryBucketsError>`](crate::operation::list_directory_buckets::ListDirectoryBucketsError)
-    pub fn list_directory_buckets(
-        &self,
-    ) -> crate::operation::list_directory_buckets::builders::ListDirectoryBucketsFluentBuilder {
-        crate::operation::list_directory_buckets::builders::ListDirectoryBucketsFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn list_directory_buckets(&self) -> crate::operation::list_directory_buckets::builders::ListDirectoryBucketsFluentBuilder {
+        crate::operation::list_directory_buckets::builders::ListDirectoryBucketsFluentBuilder::new(self.handle.clone())
     }
 }

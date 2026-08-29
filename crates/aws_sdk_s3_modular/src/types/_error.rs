@@ -1988,9 +1988,7 @@ impl Error {
 }
 
 /// A builder for [`Error`](crate::types::Error).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ErrorBuilder {
     pub(crate) key: ::std::option::Option<::std::string::String>,

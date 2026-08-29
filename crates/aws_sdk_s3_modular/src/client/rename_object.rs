@@ -17,11 +17,7 @@ impl super::Client {
     ///   - [`client_token(impl Into<String>)`](crate::operation::rename_object::builders::RenameObjectFluentBuilder::client_token) / [`set_client_token(Option<String>)`](crate::operation::rename_object::builders::RenameObjectFluentBuilder::set_client_token):<br>required: **false**<br><p>A unique string with a max of 64 ASCII characters in the ASCII range of 33 - 126.</p><note>  <p><code>RenameObject</code> supports idempotency using a client token. To make an idempotent API request using <code>RenameObject</code>, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails and an <code>IdempotentParameterMismatch</code> error is returned.</p> </note><br>
     /// - On success, responds with [`RenameObjectOutput`](crate::operation::rename_object::RenameObjectOutput)
     /// - On failure, responds with [`SdkError<RenameObjectError>`](crate::operation::rename_object::RenameObjectError)
-    pub fn rename_object(
-        &self,
-    ) -> crate::operation::rename_object::builders::RenameObjectFluentBuilder {
-        crate::operation::rename_object::builders::RenameObjectFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn rename_object(&self) -> crate::operation::rename_object::builders::RenameObjectFluentBuilder {
+        crate::operation::rename_object::builders::RenameObjectFluentBuilder::new(self.handle.clone())
     }
 }

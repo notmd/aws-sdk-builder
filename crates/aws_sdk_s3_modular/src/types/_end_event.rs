@@ -12,9 +12,7 @@ impl EndEvent {
 }
 
 /// A builder for [`EndEvent`](crate::types::EndEvent).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EndEventBuilder {}
 impl EndEventBuilder {

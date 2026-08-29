@@ -27,18 +27,13 @@ impl CreateMultipartUpload {
                     .expect("correct error type")
             })
         };
-        let context = Self::orchestrate_with_stop_point(
-            runtime_plugins,
-            input,
-            ::aws_smithy_runtime::client::orchestrator::StopPoint::None,
-        )
-        .await
-        .map_err(map_err)?;
+        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
+            .await
+            .map_err(map_err)?;
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::create_multipart_upload::CreateMultipartUploadOutput>(
-                )
+                .downcast::<crate::operation::create_multipart_upload::CreateMultipartUploadOutput>()
                 .expect("correct output type"),
         )
     }
@@ -56,23 +51,17 @@ impl CreateMultipartUpload {
     > {
         let input = ::aws_smithy_runtime_api::client::interceptors::context::Input::erase(input);
         use ::tracing::Instrument;
-        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point(
-            "S3",
-            "CreateMultipartUpload",
-            input,
-            runtime_plugins,
-            stop_point,
-        )
-        // Create a parent span for the entire operation. Includes a random, internal-only,
-        // seven-digit ID for the operation orchestration so that it can be correlated in the logs.
-        .instrument(::tracing::debug_span!(
-            "S3.CreateMultipartUpload",
-            "rpc.service" = "S3",
-            "rpc.method" = "CreateMultipartUpload",
-            "sdk_invocation_id" = ::fastrand::u32(1_000_000..10_000_000),
-            "rpc.system" = "aws-api",
-        ))
-        .await
+        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point("S3", "CreateMultipartUpload", input, runtime_plugins, stop_point)
+            // Create a parent span for the entire operation. Includes a random, internal-only,
+            // seven-digit ID for the operation orchestration so that it can be correlated in the logs.
+            .instrument(::tracing::debug_span!(
+                "S3.CreateMultipartUpload",
+                "rpc.service" = "S3",
+                "rpc.method" = "CreateMultipartUpload",
+                "sdk_invocation_id" = ::fastrand::u32(1_000_000..10_000_000),
+                "rpc.system" = "aws-api",
+            ))
+            .await
     }
 
     pub(crate) fn operation_runtime_plugins(
@@ -86,13 +75,11 @@ impl CreateMultipartUpload {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
@@ -101,33 +88,25 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for CreateM
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("CreateMultipartUpload");
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                CreateMultipartUploadRequestSerializer,
-            ),
-        );
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
-                CreateMultipartUploadResponseDeserializer,
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            CreateMultipartUploadRequestSerializer,
+        ));
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
+            CreateMultipartUploadResponseDeserializer,
+        ));
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-                crate::config::auth::Params::builder()
-                    .operation_name("CreateMultipartUpload")
-                    .build()
-                    .expect("required fields set"),
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
+            crate::config::auth::Params::builder()
+                .operation_name("CreateMultipartUpload")
+                .build()
+                .expect("required fields set"),
+        ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "CreateMultipartUpload",
-                "S3",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "CreateMultipartUpload",
+            "S3",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = false;
         signing_options.content_sha256_header = true;
@@ -145,10 +124,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for CreateM
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
         let mut rcb =
             ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateMultipartUpload")
@@ -187,9 +163,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for CreateM
 struct CreateMultipartUploadTelemetryInputCaptureInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for CreateMultipartUploadTelemetryInputCaptureInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for CreateMultipartUploadTelemetryInputCaptureInterceptor {
     fn name(&self) -> &'static str {
         "CreateMultipartUploadTelemetryInputCaptureInterceptor"
     }
@@ -212,9 +186,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) =
-            context.input().downcast_ref::<CreateMultipartUploadInput>()
-        else {
+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<CreateMultipartUploadInput>() else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -307,9 +279,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
 }
 #[derive(Debug)]
 struct CreateMultipartUploadResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
-    for CreateMultipartUploadResponseDeserializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for CreateMultipartUploadResponseDeserializer {
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -321,10 +291,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
         #[allow(unused_mut)]
         let mut force_error = false;
         ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
-        if matches!(
-            crate::rest_xml_unwrapped_errors::body_is_error(body),
-            Ok(true)
-        ) {
+        if matches!(crate::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
             force_error = true;
         }
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
@@ -338,23 +305,13 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
 }
 #[derive(Debug)]
 struct CreateMultipartUploadRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
-    for CreateMultipartUploadRequestSerializer
-{
-    #[allow(
-        unused_mut,
-        clippy::let_and_return,
-        clippy::needless_borrow,
-        clippy::useless_conversion
-    )]
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CreateMultipartUploadRequestSerializer {
+    #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]
     fn serialize_input(
         &self,
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<
-        ::aws_smithy_runtime_api::client::orchestrator::HttpRequest,
-        ::aws_smithy_runtime_api::box_error::BoxError,
-    > {
+    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
             .downcast::<crate::operation::create_multipart_upload::CreateMultipartUploadInput>()
             .expect("correct type");
@@ -367,27 +324,18 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_base(
                 _input: &crate::operation::create_multipart_upload::CreateMultipartUploadInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 let input_1 = &_input.key;
-                let input_1 = input_1.as_ref().ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
+                let input_1 = input_1
+                    .as_ref()
+                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("key", "cannot be empty or unset"))?;
+                let key = ::aws_smithy_http::label::fmt_string(input_1, ::aws_smithy_http::label::EncodingStrategy::Greedy);
+                if key.is_empty() {
+                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
                         "key",
                         "cannot be empty or unset",
-                    )
-                })?;
-                let key = ::aws_smithy_http::label::fmt_string(
-                    input_1,
-                    ::aws_smithy_http::label::EncodingStrategy::Greedy,
-                );
-                if key.is_empty() {
-                    return ::std::result::Result::Err(
-                        ::aws_smithy_types::error::operation::BuildError::missing_field(
-                            "key",
-                            "cannot be empty or unset",
-                        ),
-                    );
+                    ));
                 }
                 ::std::write!(output, "/{Key}", Key = key).expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -395,8 +343,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_query(
                 _input: &crate::operation::create_multipart_upload::CreateMultipartUploadInput,
                 mut output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 query.push_v("uploads");
                 ::std::result::Result::Ok(())
@@ -405,10 +352,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn update_http_builder(
                 input: &crate::operation::create_multipart_upload::CreateMultipartUploadInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
@@ -420,22 +364,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
         };
         let body = ::aws_smithy_types::body::SdkBody::from("");
 
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
 struct CreateMultipartUploadEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for CreateMultipartUploadEndpointParamsInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for CreateMultipartUploadEndpointParamsInterceptor {
     fn name(&self) -> &'static str {
         "CreateMultipartUploadEndpointParamsInterceptor"
     }
@@ -456,67 +392,35 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to CreateMultipartUploadInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
-            .set_endpoint(
-                cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
-                    .map(|ty| ty.0.clone()),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
             .set_force_path_style(cfg.load::<crate::config::ForcePathStyle>().map(|ty| ty.0))
             .set_use_arn_region(cfg.load::<crate::config::UseArnRegion>().map(|ty| ty.0))
-            .set_disable_multi_region_access_points(
-                cfg.load::<crate::config::DisableMultiRegionAccessPoints>()
-                    .map(|ty| ty.0),
-            )
+            .set_disable_multi_region_access_points(cfg.load::<crate::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0))
             .set_accelerate(cfg.load::<crate::config::Accelerate>().map(|ty| ty.0))
-            .set_disable_s3_express_session_auth(
-                cfg.load::<crate::config::DisableS3ExpressSessionAuth>()
-                    .map(|ty| ty.0),
-            )
+            .set_disable_s3_express_session_auth(cfg.load::<crate::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0))
             .set_bucket(Some(
                 _input
                     .bucket
                     .clone()
                     .filter(|f| !AsRef::<str>::as_ref(f).trim().is_empty())
-                    .ok_or_else(|| {
-                        ::aws_smithy_types::error::operation::BuildError::missing_field(
-                            "bucket",
-                            "A required field was not set",
-                        )
-                    })?,
+                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("bucket", "A required field was not set"))?,
             ))
             .set_key(Some(
                 _input
                     .key
                     .clone()
                     .filter(|f| !AsRef::<str>::as_ref(f).trim().is_empty())
-                    .ok_or_else(|| {
-                        ::aws_smithy_types::error::operation::BuildError::missing_field(
-                            "key",
-                            "A required field was not set",
-                        )
-                    })?,
+                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("key", "A required field was not set"))?,
             ))
             .build()
             .map_err(|err| {
-                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(
-                    "endpoint params could not be built",
-                    err,
-                )
+                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));
         ::std::result::Result::Ok(())
     }
 }
@@ -533,8 +437,7 @@ mod create_multipart_upload_test {
     #[::tokio::test]
     #[::tracing_test::traced_test]
     async fn create_multipart_upload_uri_construction_request() {
-        let (http_client, request_receiver) =
-            ::aws_smithy_http_client::test_util::capture_request(None);
+        let (http_client, request_receiver) = ::aws_smithy_http_client::test_util::capture_request(None);
         let config_builder = crate::config::Config::builder()
             .with_test_defaults()
             // TODO(https://github.com/smithy-lang/smithy-rs/issues/4177):
@@ -556,10 +459,7 @@ mod create_multipart_upload_test {
         let _ = dbg!(result);
         let http_request = request_receiver.expect_request();
         let expected_query_params = &["uploads"];
-        ::aws_smithy_protocol_test::assert_ok(::aws_smithy_protocol_test::validate_query_string(
-            &http_request,
-            expected_query_params,
-        ));
+        ::aws_smithy_protocol_test::assert_ok(::aws_smithy_protocol_test::validate_query_string(&http_request, expected_query_params));
         let uri: ::http_1x::Uri = http_request.uri().parse().expect("invalid URI sent");
         ::pretty_assertions::assert_eq!(http_request.method(), "POST", "method was incorrect");
         ::pretty_assertions::assert_eq!(uri.path(), "/object.txt", "path was incorrect");
@@ -571,24 +471,18 @@ mod create_multipart_upload_test {
 #[derive(::std::fmt::Debug)]
 pub enum CreateMultipartUploadError {
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(
-        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-CreateMultipartUploadError) for what information is available for the error."
-    )]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-CreateMultipartUploadError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl CreateMultipartUploadError {
     /// Creates the `CreateMultipartUploadError::Unhandled` variant from any error type.
     pub fn unhandled(
-        err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
-        >,
+        err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.into(),
@@ -624,9 +518,7 @@ impl ::std::fmt::Display for CreateMultipartUploadError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::Unhandled(_inner) => {
-                if let ::std::option::Option::Some(code) =
-                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
-                {
+                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -652,9 +544,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CreateMultipa
 }
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for CreateMultipartUploadError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -663,16 +553,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for CreateMu
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt
-    for crate::operation::create_multipart_upload::CreateMultipartUploadError
-{
+impl crate::s3_request_id::RequestIdExt for crate::operation::create_multipart_upload::CreateMultipartUploadError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId
-    for crate::operation::create_multipart_upload::CreateMultipartUploadError
-{
+impl ::aws_types::request_id::RequestId for crate::operation::create_multipart_upload::CreateMultipartUploadError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

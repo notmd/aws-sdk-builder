@@ -3,14 +3,9 @@
 pub fn de_lifecycle_expiration(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    crate::types::LifecycleExpiration,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<crate::types::LifecycleExpiration, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::LifecycleExpiration::builder();
@@ -74,11 +69,7 @@ pub fn ser_lifecycle_expiration(
     let mut scope = writer.finish();
     if let Some(var_4) = &input.date {
         let mut inner_writer = scope.start_el("Date").finish();
-        inner_writer.data(
-            var_4
-                .fmt(::aws_smithy_types::date_time::Format::DateTimeWithOffset)?
-                .as_ref(),
-        );
+        inner_writer.data(var_4.fmt(::aws_smithy_types::date_time::Format::DateTimeWithOffset)?.as_ref());
     }
     if let Some(var_5) = &input.days {
         let mut inner_writer = scope.start_el("Days").finish();

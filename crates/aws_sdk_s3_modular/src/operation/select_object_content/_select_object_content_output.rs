@@ -5,10 +5,8 @@
 #[derive(::std::fmt::Debug)]
 pub struct SelectObjectContentOutput {
     /// <p>The array of results.</p>
-    pub payload: crate::event_receiver::EventReceiver<
-        crate::types::SelectObjectContentEventStream,
-        crate::types::error::SelectObjectContentEventStreamError,
-    >,
+    pub payload:
+        crate::event_receiver::EventReceiver<crate::types::SelectObjectContentEventStream, crate::types::error::SelectObjectContentEventStreamError>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -17,10 +15,8 @@ impl SelectObjectContentOutput {
     /// <p>The array of results.</p>
     pub fn payload(
         &self,
-    ) -> &crate::event_receiver::EventReceiver<
-        crate::types::SelectObjectContentEventStream,
-        crate::types::error::SelectObjectContentEventStreamError,
-    > {
+    ) -> &crate::event_receiver::EventReceiver<crate::types::SelectObjectContentEventStream, crate::types::error::SelectObjectContentEventStreamError>
+    {
         &self.payload
     }
 }
@@ -39,10 +35,8 @@ impl ::aws_types::request_id::RequestId for SelectObjectContentOutput {
 #[cfg(feature = "op_select_object_content")]
 impl SelectObjectContentOutput {
     /// Creates a new builder-style object to manufacture [`SelectObjectContentOutput`](crate::operation::select_object_content::SelectObjectContentOutput).
-    pub fn builder(
-    ) -> crate::operation::select_object_content::builders::SelectObjectContentOutputBuilder {
-        crate::operation::select_object_content::builders::SelectObjectContentOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::select_object_content::builders::SelectObjectContentOutputBuilder {
+        crate::operation::select_object_content::builders::SelectObjectContentOutputBuilder::default()
     }
 }
 
@@ -52,10 +46,7 @@ impl SelectObjectContentOutput {
 #[non_exhaustive]
 pub struct SelectObjectContentOutputBuilder {
     pub(crate) payload: ::std::option::Option<
-        crate::event_receiver::EventReceiver<
-            crate::types::SelectObjectContentEventStream,
-            crate::types::error::SelectObjectContentEventStreamError,
-        >,
+        crate::event_receiver::EventReceiver<crate::types::SelectObjectContentEventStream, crate::types::error::SelectObjectContentEventStreamError>,
     >,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
@@ -90,10 +81,7 @@ impl SelectObjectContentOutputBuilder {
     pub fn get_payload(
         &self,
     ) -> &::std::option::Option<
-        crate::event_receiver::EventReceiver<
-            crate::types::SelectObjectContentEventStream,
-            crate::types::error::SelectObjectContentEventStreamError,
-        >,
+        crate::event_receiver::EventReceiver<crate::types::SelectObjectContentEventStream, crate::types::error::SelectObjectContentEventStreamError>,
     > {
         &self.payload
     }
@@ -102,10 +90,7 @@ impl SelectObjectContentOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -123,10 +108,8 @@ impl SelectObjectContentOutputBuilder {
     /// - [`payload`](crate::operation::select_object_content::builders::SelectObjectContentOutputBuilder::payload)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::select_object_content::SelectObjectContentOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::select_object_content::SelectObjectContentOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::operation::select_object_content::SelectObjectContentOutput {
             payload: self.payload.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

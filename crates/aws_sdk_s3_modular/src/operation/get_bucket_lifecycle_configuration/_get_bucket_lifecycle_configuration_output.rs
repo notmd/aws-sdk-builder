@@ -16,8 +16,7 @@ pub struct GetBucketLifecycleConfigurationOutput {
     /// <p><code>varies_by_storage_class</code> - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.</p></li>
     /// </ul>
     /// <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule. Custom filters always take precedence over the default transition behavior.</p>
-    pub transition_default_minimum_object_size:
-        ::std::option::Option<crate::types::TransitionDefaultMinimumObjectSize>,
+    pub transition_default_minimum_object_size: ::std::option::Option<crate::types::TransitionDefaultMinimumObjectSize>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -39,9 +38,7 @@ impl GetBucketLifecycleConfigurationOutput {
     /// <p><code>varies_by_storage_class</code> - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.</p></li>
     /// </ul>
     /// <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule. Custom filters always take precedence over the default transition behavior.</p>
-    pub fn transition_default_minimum_object_size(
-        &self,
-    ) -> ::std::option::Option<&crate::types::TransitionDefaultMinimumObjectSize> {
+    pub fn transition_default_minimum_object_size(&self) -> ::std::option::Option<&crate::types::TransitionDefaultMinimumObjectSize> {
         self.transition_default_minimum_object_size.as_ref()
     }
 }
@@ -60,21 +57,18 @@ impl ::aws_types::request_id::RequestId for GetBucketLifecycleConfigurationOutpu
 #[cfg(feature = "op_get_bucket_lifecycle_configuration")]
 impl GetBucketLifecycleConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`GetBucketLifecycleConfigurationOutput`](crate::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationOutput).
-    pub fn builder() -> crate::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationOutputBuilder{
+    pub fn builder() -> crate::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationOutputBuilder {
         crate::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_bucket_lifecycle_configuration")]
 /// A builder for [`GetBucketLifecycleConfigurationOutput`](crate::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketLifecycleConfigurationOutputBuilder {
     pub(crate) rules: ::std::option::Option<::std::vec::Vec<crate::types::LifecycleRule>>,
-    pub(crate) transition_default_minimum_object_size:
-        ::std::option::Option<crate::types::TransitionDefaultMinimumObjectSize>,
+    pub(crate) transition_default_minimum_object_size: ::std::option::Option<crate::types::TransitionDefaultMinimumObjectSize>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -92,17 +86,12 @@ impl GetBucketLifecycleConfigurationOutputBuilder {
         self
     }
     /// <p>Container for a lifecycle rule.</p>
-    pub fn set_rules(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::LifecycleRule>>,
-    ) -> Self {
+    pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LifecycleRule>>) -> Self {
         self.rules = input;
         self
     }
     /// <p>Container for a lifecycle rule.</p>
-    pub fn get_rules(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::LifecycleRule>> {
+    pub fn get_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LifecycleRule>> {
         &self.rules
     }
     /// <p>Indicates which default minimum object size behavior is applied to the lifecycle configuration.</p><note>
@@ -115,10 +104,7 @@ impl GetBucketLifecycleConfigurationOutputBuilder {
     /// <p><code>varies_by_storage_class</code> - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.</p></li>
     /// </ul>
     /// <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule. Custom filters always take precedence over the default transition behavior.</p>
-    pub fn transition_default_minimum_object_size(
-        mut self,
-        input: crate::types::TransitionDefaultMinimumObjectSize,
-    ) -> Self {
+    pub fn transition_default_minimum_object_size(mut self, input: crate::types::TransitionDefaultMinimumObjectSize) -> Self {
         self.transition_default_minimum_object_size = ::std::option::Option::Some(input);
         self
     }
@@ -149,9 +135,7 @@ impl GetBucketLifecycleConfigurationOutputBuilder {
     /// <p><code>varies_by_storage_class</code> - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.</p></li>
     /// </ul>
     /// <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule. Custom filters always take precedence over the default transition behavior.</p>
-    pub fn get_transition_default_minimum_object_size(
-        &self,
-    ) -> &::std::option::Option<crate::types::TransitionDefaultMinimumObjectSize> {
+    pub fn get_transition_default_minimum_object_size(&self) -> &::std::option::Option<crate::types::TransitionDefaultMinimumObjectSize> {
         &self.transition_default_minimum_object_size
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -159,10 +143,7 @@ impl GetBucketLifecycleConfigurationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -176,10 +157,7 @@ impl GetBucketLifecycleConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetBucketLifecycleConfigurationOutput`](crate::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationOutput
-    {
+    pub fn build(self) -> crate::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationOutput {
         crate::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationOutput {
             rules: self.rules,
             transition_default_minimum_object_size: self.transition_default_minimum_object_size,

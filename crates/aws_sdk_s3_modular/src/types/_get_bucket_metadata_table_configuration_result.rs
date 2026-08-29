@@ -7,8 +7,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetBucketMetadataTableConfigurationResult {
     /// <p>The V1 S3 Metadata configuration for a general purpose bucket.</p>
-    pub metadata_table_configuration_result:
-        ::std::option::Option<crate::types::MetadataTableConfigurationResult>,
+    pub metadata_table_configuration_result: ::std::option::Option<crate::types::MetadataTableConfigurationResult>,
     /// <p>The status of the metadata table. The status values are:</p>
     /// <ul>
     /// <li>
@@ -24,9 +23,7 @@ pub struct GetBucketMetadataTableConfigurationResult {
 }
 impl GetBucketMetadataTableConfigurationResult {
     /// <p>The V1 S3 Metadata configuration for a general purpose bucket.</p>
-    pub fn metadata_table_configuration_result(
-        &self,
-    ) -> ::std::option::Option<&crate::types::MetadataTableConfigurationResult> {
+    pub fn metadata_table_configuration_result(&self) -> ::std::option::Option<&crate::types::MetadataTableConfigurationResult> {
         self.metadata_table_configuration_result.as_ref()
     }
     /// <p>The status of the metadata table. The status values are:</p>
@@ -55,38 +52,27 @@ impl GetBucketMetadataTableConfigurationResult {
 }
 
 /// A builder for [`GetBucketMetadataTableConfigurationResult`](crate::types::GetBucketMetadataTableConfigurationResult).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketMetadataTableConfigurationResultBuilder {
-    pub(crate) metadata_table_configuration_result:
-        ::std::option::Option<crate::types::MetadataTableConfigurationResult>,
+    pub(crate) metadata_table_configuration_result: ::std::option::Option<crate::types::MetadataTableConfigurationResult>,
     pub(crate) status: ::std::option::Option<::std::string::String>,
     pub(crate) error: ::std::option::Option<crate::types::ErrorDetails>,
 }
 impl GetBucketMetadataTableConfigurationResultBuilder {
     /// <p>The V1 S3 Metadata configuration for a general purpose bucket.</p>
     /// This field is required.
-    pub fn metadata_table_configuration_result(
-        mut self,
-        input: crate::types::MetadataTableConfigurationResult,
-    ) -> Self {
+    pub fn metadata_table_configuration_result(mut self, input: crate::types::MetadataTableConfigurationResult) -> Self {
         self.metadata_table_configuration_result = ::std::option::Option::Some(input);
         self
     }
     /// <p>The V1 S3 Metadata configuration for a general purpose bucket.</p>
-    pub fn set_metadata_table_configuration_result(
-        mut self,
-        input: ::std::option::Option<crate::types::MetadataTableConfigurationResult>,
-    ) -> Self {
+    pub fn set_metadata_table_configuration_result(mut self, input: ::std::option::Option<crate::types::MetadataTableConfigurationResult>) -> Self {
         self.metadata_table_configuration_result = input;
         self
     }
     /// <p>The V1 S3 Metadata configuration for a general purpose bucket.</p>
-    pub fn get_metadata_table_configuration_result(
-        &self,
-    ) -> &::std::option::Option<crate::types::MetadataTableConfigurationResult> {
+    pub fn get_metadata_table_configuration_result(&self) -> &::std::option::Option<crate::types::MetadataTableConfigurationResult> {
         &self.metadata_table_configuration_result
     }
     /// <p>The status of the metadata table. The status values are:</p>
@@ -147,10 +133,7 @@ impl GetBucketMetadataTableConfigurationResultBuilder {
     /// - [`status`](crate::types::builders::GetBucketMetadataTableConfigurationResultBuilder::status)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::GetBucketMetadataTableConfigurationResult,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::GetBucketMetadataTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetBucketMetadataTableConfigurationResult {
             metadata_table_configuration_result: self.metadata_table_configuration_result,
             status: self.status.ok_or_else(|| {

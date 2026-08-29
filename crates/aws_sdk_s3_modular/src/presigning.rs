@@ -186,9 +186,7 @@ impl Clone for PresignedRequest {
             http_request: match self.http_request.try_clone() {
                 Some(body) => body,
                 None => {
-                    unreachable!(
-                        "during construction, we replaced the body with `SdkBody::empty()`"
-                    )
+                    unreachable!("during construction, we replaced the body with `SdkBody::empty()`")
                 }
             },
         }
@@ -202,10 +200,7 @@ impl PresignedRequest {
         let http_request = inner.map(|_body| SdkBody::empty());
         // this should never fail, a presigned request should always be convertible, but better to
         // protect against this potential panic
-        let _ = http_request
-            .try_clone()
-            .expect("must be cloneable, body is empty")
-            .try_into_http1x()?;
+        let _ = http_request.try_clone().expect("must be cloneable, body is empty").try_into_http1x()?;
         Ok(Self { http_request })
     }
 

@@ -23,18 +23,14 @@ impl GetBucketRequestPaymentInput {
 #[cfg(feature = "op_get_bucket_request_payment")]
 impl GetBucketRequestPaymentInput {
     /// Creates a new builder-style object to manufacture [`GetBucketRequestPaymentInput`](crate::operation::get_bucket_request_payment::GetBucketRequestPaymentInput).
-    pub fn builder(
-    ) -> crate::operation::get_bucket_request_payment::builders::GetBucketRequestPaymentInputBuilder
-    {
+    pub fn builder() -> crate::operation::get_bucket_request_payment::builders::GetBucketRequestPaymentInputBuilder {
         crate::operation::get_bucket_request_payment::builders::GetBucketRequestPaymentInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_bucket_request_payment")]
 /// A builder for [`GetBucketRequestPaymentInput`](crate::operation::get_bucket_request_payment::GetBucketRequestPaymentInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketRequestPaymentInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -58,18 +54,12 @@ impl GetBucketRequestPaymentInputBuilder {
         &self.bucket
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -84,11 +74,9 @@ impl GetBucketRequestPaymentInputBuilder {
         crate::operation::get_bucket_request_payment::GetBucketRequestPaymentInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::get_bucket_request_payment::GetBucketRequestPaymentInput {
-                bucket: self.bucket,
-                expected_bucket_owner: self.expected_bucket_owner,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::get_bucket_request_payment::GetBucketRequestPaymentInput {
+            bucket: self.bucket,
+            expected_bucket_owner: self.expected_bucket_owner,
+        })
     }
 }

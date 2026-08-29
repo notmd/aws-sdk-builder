@@ -23,16 +23,14 @@ impl GetBucketMetadataTableConfigurationInput {
 #[cfg(feature = "op_get_bucket_metadata_table_configuration")]
 impl GetBucketMetadataTableConfigurationInput {
     /// Creates a new builder-style object to manufacture [`GetBucketMetadataTableConfigurationInput`](crate::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationInput).
-    pub fn builder() -> crate::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationInputBuilder{
+    pub fn builder() -> crate::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationInputBuilder {
         crate::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_bucket_metadata_table_configuration")]
 /// A builder for [`GetBucketMetadataTableConfigurationInput`](crate::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketMetadataTableConfigurationInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -56,18 +54,12 @@ impl GetBucketMetadataTableConfigurationInputBuilder {
         &self.bucket
     }
     /// <p>The expected owner of the general purpose bucket that you want to retrieve the metadata table configuration for.</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The expected owner of the general purpose bucket that you want to retrieve the metadata table configuration for.</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -81,7 +73,7 @@ impl GetBucketMetadataTableConfigurationInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationInput {
                 bucket: self.bucket,
