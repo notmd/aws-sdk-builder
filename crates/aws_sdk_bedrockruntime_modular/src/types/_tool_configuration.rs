@@ -28,9 +28,7 @@ impl ToolConfiguration {
 }
 
 /// A builder for [`ToolConfiguration`](crate::types::ToolConfiguration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ToolConfigurationBuilder {
     pub(crate) tools: ::std::option::Option<::std::vec::Vec<crate::types::Tool>>,
@@ -49,10 +47,7 @@ impl ToolConfigurationBuilder {
         self
     }
     /// <p>An array of tools that you want to pass to a model.</p>
-    pub fn set_tools(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tool>>,
-    ) -> Self {
+    pub fn set_tools(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tool>>) -> Self {
         self.tools = input;
         self
     }
@@ -66,10 +61,7 @@ impl ToolConfigurationBuilder {
         self
     }
     /// <p>If supported by model, forces the model to request a tool.</p>
-    pub fn set_tool_choice(
-        mut self,
-        input: ::std::option::Option<crate::types::ToolChoice>,
-    ) -> Self {
+    pub fn set_tool_choice(mut self, input: ::std::option::Option<crate::types::ToolChoice>) -> Self {
         self.tool_choice = input;
         self
     }
@@ -80,12 +72,7 @@ impl ToolConfigurationBuilder {
     /// Consumes the builder and constructs a [`ToolConfiguration`](crate::types::ToolConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`tools`](crate::types::builders::ToolConfigurationBuilder::tools)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::ToolConfiguration,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::ToolConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ToolConfiguration {
             tools: self.tools.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

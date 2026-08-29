@@ -27,9 +27,7 @@ impl WebLocation {
 }
 
 /// A builder for [`WebLocation`](crate::types::WebLocation).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct WebLocationBuilder {
     pub(crate) url: ::std::option::Option<::std::string::String>,

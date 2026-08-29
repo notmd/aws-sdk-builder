@@ -21,7 +21,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<InvokeModelWithResponseStreamError>`](crate::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError)
     pub fn invoke_model_with_response_stream(
         &self,
-    ) -> crate::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamFluentBuilder{
+    ) -> crate::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamFluentBuilder {
         crate::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamFluentBuilder::new(self.handle.clone())
     }
 }

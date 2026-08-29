@@ -21,9 +21,7 @@ impl GuardrailChecksSensitiveInformationUsage {
 }
 
 /// A builder for [`GuardrailChecksSensitiveInformationUsage`](crate::types::GuardrailChecksSensitiveInformationUsage).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailChecksSensitiveInformationUsageBuilder {
     pub(crate) text_units: ::std::option::Option<i32>,
@@ -49,10 +47,7 @@ impl GuardrailChecksSensitiveInformationUsageBuilder {
     /// - [`text_units`](crate::types::builders::GuardrailChecksSensitiveInformationUsageBuilder::text_units)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::GuardrailChecksSensitiveInformationUsage,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::GuardrailChecksSensitiveInformationUsage, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GuardrailChecksSensitiveInformationUsage {
             text_units: self.text_units.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

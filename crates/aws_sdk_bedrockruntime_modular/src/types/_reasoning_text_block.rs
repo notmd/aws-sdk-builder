@@ -75,12 +75,7 @@ impl ReasoningTextBlockBuilder {
     /// Consumes the builder and constructs a [`ReasoningTextBlock`](crate::types::ReasoningTextBlock).
     /// This method will fail if any of the following fields are not set:
     /// - [`text`](crate::types::builders::ReasoningTextBlockBuilder::text)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::ReasoningTextBlock,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::ReasoningTextBlock, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ReasoningTextBlock {
             text: self.text.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

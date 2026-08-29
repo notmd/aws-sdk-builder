@@ -20,9 +20,7 @@ impl OutputFormatStructure {
     #[allow(irrefutable_let_patterns)]
     /// Tries to convert the enum instance into [`JsonSchema`](crate::types::OutputFormatStructure::JsonSchema), extracting the inner [`JsonSchemaDefinition`](crate::types::JsonSchemaDefinition).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_json_schema(
-        &self,
-    ) -> ::std::result::Result<&crate::types::JsonSchemaDefinition, &Self> {
+    pub fn as_json_schema(&self) -> ::std::result::Result<&crate::types::JsonSchemaDefinition, &Self> {
         if let OutputFormatStructure::JsonSchema(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

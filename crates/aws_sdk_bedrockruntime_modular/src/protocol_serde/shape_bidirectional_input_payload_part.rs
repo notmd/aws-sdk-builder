@@ -4,9 +4,7 @@ pub fn ser_bidirectional_input_payload_part(
     input: &crate::types::BidirectionalInputPayloadPart,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     if let Some(var_1) = &input.bytes {
-        object
-            .key("bytes")
-            .string_unchecked(&::aws_smithy_types::base64::encode(var_1));
+        object.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(var_1));
     }
     Ok(())
 }

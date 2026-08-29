@@ -20,9 +20,7 @@ impl InvokeModelWithBidirectionalStreamOutput {
     #[allow(irrefutable_let_patterns)]
     /// Tries to convert the enum instance into [`Chunk`](crate::types::InvokeModelWithBidirectionalStreamOutput::Chunk), extracting the inner [`BidirectionalOutputPayloadPart`](crate::types::BidirectionalOutputPayloadPart).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_chunk(
-        &self,
-    ) -> ::std::result::Result<&crate::types::BidirectionalOutputPayloadPart, &Self> {
+    pub fn as_chunk(&self) -> ::std::result::Result<&crate::types::BidirectionalOutputPayloadPart, &Self> {
         if let InvokeModelWithBidirectionalStreamOutput::Chunk(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -41,9 +39,7 @@ impl InvokeModelWithBidirectionalStreamOutput {
 impl ::std::fmt::Debug for InvokeModelWithBidirectionalStreamOutput {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
-            InvokeModelWithBidirectionalStreamOutput::Chunk(_) => {
-                f.debug_tuple("*** Sensitive Data Redacted ***").finish()
-            }
+            InvokeModelWithBidirectionalStreamOutput::Chunk(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
             InvokeModelWithBidirectionalStreamOutput::Unknown => f.debug_tuple("Unknown").finish(),
         }
     }

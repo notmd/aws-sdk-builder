@@ -16,11 +16,7 @@ impl super::Client {
     ///   - [`assessments(Vec::<GuardrailAssessment>)`](crate::operation::apply_guardrail::ApplyGuardrailOutput::assessments): <p>The assessment details in the response from the guardrail.</p>
     ///   - [`guardrail_coverage(Option<GuardrailCoverage>)`](crate::operation::apply_guardrail::ApplyGuardrailOutput::guardrail_coverage): <p>The guardrail coverage details in the apply guardrail response.</p>
     /// - On failure, responds with [`SdkError<ApplyGuardrailError>`](crate::operation::apply_guardrail::ApplyGuardrailError)
-    pub fn apply_guardrail(
-        &self,
-    ) -> crate::operation::apply_guardrail::builders::ApplyGuardrailFluentBuilder {
-        crate::operation::apply_guardrail::builders::ApplyGuardrailFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn apply_guardrail(&self) -> crate::operation::apply_guardrail::builders::ApplyGuardrailFluentBuilder {
+        crate::operation::apply_guardrail::builders::ApplyGuardrailFluentBuilder::new(self.handle.clone())
     }
 }

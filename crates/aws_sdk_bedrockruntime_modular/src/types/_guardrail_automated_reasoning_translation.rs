@@ -5,19 +5,13 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GuardrailAutomatedReasoningTranslation {
     /// <p>The logical statements that serve as the foundation or assumptions for the claims.</p>
-    pub premises:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
+    pub premises: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
     /// <p>The logical statements that are being validated against the premises and policy rules.</p>
-    pub claims:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
+    pub claims: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
     /// <p>References to portions of the original input text that correspond to the premises but could not be fully translated.</p>
-    pub untranslated_premises: ::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningInputTextReference>,
-    >,
+    pub untranslated_premises: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningInputTextReference>>,
     /// <p>References to portions of the original input text that correspond to the claims but could not be fully translated.</p>
-    pub untranslated_claims: ::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningInputTextReference>,
-    >,
+    pub untranslated_claims: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningInputTextReference>>,
     /// <p>A confidence score between 0 and 1 indicating how certain the system is about the logical translation.</p>
     pub confidence: ::std::option::Option<f64>,
 }
@@ -37,17 +31,13 @@ impl GuardrailAutomatedReasoningTranslation {
     /// <p>References to portions of the original input text that correspond to the premises but could not be fully translated.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.untranslated_premises.is_none()`.
-    pub fn untranslated_premises(
-        &self,
-    ) -> &[crate::types::GuardrailAutomatedReasoningInputTextReference] {
+    pub fn untranslated_premises(&self) -> &[crate::types::GuardrailAutomatedReasoningInputTextReference] {
         self.untranslated_premises.as_deref().unwrap_or_default()
     }
     /// <p>References to portions of the original input text that correspond to the claims but could not be fully translated.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.untranslated_claims.is_none()`.
-    pub fn untranslated_claims(
-        &self,
-    ) -> &[crate::types::GuardrailAutomatedReasoningInputTextReference] {
+    pub fn untranslated_claims(&self) -> &[crate::types::GuardrailAutomatedReasoningInputTextReference] {
         self.untranslated_claims.as_deref().unwrap_or_default()
     }
     /// <p>A confidence score between 0 and 1 indicating how certain the system is about the logical translation.</p>
@@ -63,21 +53,13 @@ impl GuardrailAutomatedReasoningTranslation {
 }
 
 /// A builder for [`GuardrailAutomatedReasoningTranslation`](crate::types::GuardrailAutomatedReasoningTranslation).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailAutomatedReasoningTranslationBuilder {
-    pub(crate) premises:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
-    pub(crate) claims:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
-    pub(crate) untranslated_premises: ::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningInputTextReference>,
-    >,
-    pub(crate) untranslated_claims: ::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningInputTextReference>,
-    >,
+    pub(crate) premises: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
+    pub(crate) claims: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
+    pub(crate) untranslated_premises: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningInputTextReference>>,
+    pub(crate) untranslated_claims: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningInputTextReference>>,
     pub(crate) confidence: ::std::option::Option<f64>,
 }
 impl GuardrailAutomatedReasoningTranslationBuilder {
@@ -93,20 +75,12 @@ impl GuardrailAutomatedReasoningTranslationBuilder {
         self
     }
     /// <p>The logical statements that serve as the foundation or assumptions for the claims.</p>
-    pub fn set_premises(
-        mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>,
-        >,
-    ) -> Self {
+    pub fn set_premises(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>) -> Self {
         self.premises = input;
         self
     }
     /// <p>The logical statements that serve as the foundation or assumptions for the claims.</p>
-    pub fn get_premises(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>
-    {
+    pub fn get_premises(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>> {
         &self.premises
     }
     /// Appends an item to `claims`.
@@ -121,20 +95,12 @@ impl GuardrailAutomatedReasoningTranslationBuilder {
         self
     }
     /// <p>The logical statements that are being validated against the premises and policy rules.</p>
-    pub fn set_claims(
-        mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>,
-        >,
-    ) -> Self {
+    pub fn set_claims(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>) -> Self {
         self.claims = input;
         self
     }
     /// <p>The logical statements that are being validated against the premises and policy rules.</p>
-    pub fn get_claims(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>
-    {
+    pub fn get_claims(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>> {
         &self.claims
     }
     /// Appends an item to `untranslated_premises`.
@@ -142,10 +108,7 @@ impl GuardrailAutomatedReasoningTranslationBuilder {
     /// To override the contents of this collection use [`set_untranslated_premises`](Self::set_untranslated_premises).
     ///
     /// <p>References to portions of the original input text that correspond to the premises but could not be fully translated.</p>
-    pub fn untranslated_premises(
-        mut self,
-        input: crate::types::GuardrailAutomatedReasoningInputTextReference,
-    ) -> Self {
+    pub fn untranslated_premises(mut self, input: crate::types::GuardrailAutomatedReasoningInputTextReference) -> Self {
         let mut v = self.untranslated_premises.unwrap_or_default();
         v.push(input);
         self.untranslated_premises = ::std::option::Option::Some(v);
@@ -154,19 +117,13 @@ impl GuardrailAutomatedReasoningTranslationBuilder {
     /// <p>References to portions of the original input text that correspond to the premises but could not be fully translated.</p>
     pub fn set_untranslated_premises(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningInputTextReference>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningInputTextReference>>,
     ) -> Self {
         self.untranslated_premises = input;
         self
     }
     /// <p>References to portions of the original input text that correspond to the premises but could not be fully translated.</p>
-    pub fn get_untranslated_premises(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningInputTextReference>,
-    > {
+    pub fn get_untranslated_premises(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningInputTextReference>> {
         &self.untranslated_premises
     }
     /// Appends an item to `untranslated_claims`.
@@ -174,10 +131,7 @@ impl GuardrailAutomatedReasoningTranslationBuilder {
     /// To override the contents of this collection use [`set_untranslated_claims`](Self::set_untranslated_claims).
     ///
     /// <p>References to portions of the original input text that correspond to the claims but could not be fully translated.</p>
-    pub fn untranslated_claims(
-        mut self,
-        input: crate::types::GuardrailAutomatedReasoningInputTextReference,
-    ) -> Self {
+    pub fn untranslated_claims(mut self, input: crate::types::GuardrailAutomatedReasoningInputTextReference) -> Self {
         let mut v = self.untranslated_claims.unwrap_or_default();
         v.push(input);
         self.untranslated_claims = ::std::option::Option::Some(v);
@@ -186,19 +140,13 @@ impl GuardrailAutomatedReasoningTranslationBuilder {
     /// <p>References to portions of the original input text that correspond to the claims but could not be fully translated.</p>
     pub fn set_untranslated_claims(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningInputTextReference>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningInputTextReference>>,
     ) -> Self {
         self.untranslated_claims = input;
         self
     }
     /// <p>References to portions of the original input text that correspond to the claims but could not be fully translated.</p>
-    pub fn get_untranslated_claims(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningInputTextReference>,
-    > {
+    pub fn get_untranslated_claims(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningInputTextReference>> {
         &self.untranslated_claims
     }
     /// <p>A confidence score between 0 and 1 indicating how certain the system is about the logical translation.</p>

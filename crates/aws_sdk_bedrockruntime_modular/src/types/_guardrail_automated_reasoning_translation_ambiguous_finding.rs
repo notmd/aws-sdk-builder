@@ -5,12 +5,9 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GuardrailAutomatedReasoningTranslationAmbiguousFinding {
     /// <p>Different logical interpretations that were detected during translation of the input.</p>
-    pub options: ::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslationOption>,
-    >,
+    pub options: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslationOption>>,
     /// <p>Scenarios showing how the different translation options differ in meaning.</p>
-    pub difference_scenarios:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningScenario>>,
+    pub difference_scenarios: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningScenario>>,
 }
 impl GuardrailAutomatedReasoningTranslationAmbiguousFinding {
     /// <p>Different logical interpretations that were detected during translation of the input.</p>
@@ -28,23 +25,17 @@ impl GuardrailAutomatedReasoningTranslationAmbiguousFinding {
 }
 impl GuardrailAutomatedReasoningTranslationAmbiguousFinding {
     /// Creates a new builder-style object to manufacture [`GuardrailAutomatedReasoningTranslationAmbiguousFinding`](crate::types::GuardrailAutomatedReasoningTranslationAmbiguousFinding).
-    pub fn builder(
-    ) -> crate::types::builders::GuardrailAutomatedReasoningTranslationAmbiguousFindingBuilder {
+    pub fn builder() -> crate::types::builders::GuardrailAutomatedReasoningTranslationAmbiguousFindingBuilder {
         crate::types::builders::GuardrailAutomatedReasoningTranslationAmbiguousFindingBuilder::default()
     }
 }
 
 /// A builder for [`GuardrailAutomatedReasoningTranslationAmbiguousFinding`](crate::types::GuardrailAutomatedReasoningTranslationAmbiguousFinding).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailAutomatedReasoningTranslationAmbiguousFindingBuilder {
-    pub(crate) options: ::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslationOption>,
-    >,
-    pub(crate) difference_scenarios:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningScenario>>,
+    pub(crate) options: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslationOption>>,
+    pub(crate) difference_scenarios: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningScenario>>,
 }
 impl GuardrailAutomatedReasoningTranslationAmbiguousFindingBuilder {
     /// Appends an item to `options`.
@@ -52,31 +43,19 @@ impl GuardrailAutomatedReasoningTranslationAmbiguousFindingBuilder {
     /// To override the contents of this collection use [`set_options`](Self::set_options).
     ///
     /// <p>Different logical interpretations that were detected during translation of the input.</p>
-    pub fn options(
-        mut self,
-        input: crate::types::GuardrailAutomatedReasoningTranslationOption,
-    ) -> Self {
+    pub fn options(mut self, input: crate::types::GuardrailAutomatedReasoningTranslationOption) -> Self {
         let mut v = self.options.unwrap_or_default();
         v.push(input);
         self.options = ::std::option::Option::Some(v);
         self
     }
     /// <p>Different logical interpretations that were detected during translation of the input.</p>
-    pub fn set_options(
-        mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslationOption>,
-        >,
-    ) -> Self {
+    pub fn set_options(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslationOption>>) -> Self {
         self.options = input;
         self
     }
     /// <p>Different logical interpretations that were detected during translation of the input.</p>
-    pub fn get_options(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslationOption>,
-    > {
+    pub fn get_options(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslationOption>> {
         &self.options
     }
     /// Appends an item to `difference_scenarios`.
@@ -84,10 +63,7 @@ impl GuardrailAutomatedReasoningTranslationAmbiguousFindingBuilder {
     /// To override the contents of this collection use [`set_difference_scenarios`](Self::set_difference_scenarios).
     ///
     /// <p>Scenarios showing how the different translation options differ in meaning.</p>
-    pub fn difference_scenarios(
-        mut self,
-        input: crate::types::GuardrailAutomatedReasoningScenario,
-    ) -> Self {
+    pub fn difference_scenarios(mut self, input: crate::types::GuardrailAutomatedReasoningScenario) -> Self {
         let mut v = self.difference_scenarios.unwrap_or_default();
         v.push(input);
         self.difference_scenarios = ::std::option::Option::Some(v);
@@ -96,18 +72,13 @@ impl GuardrailAutomatedReasoningTranslationAmbiguousFindingBuilder {
     /// <p>Scenarios showing how the different translation options differ in meaning.</p>
     pub fn set_difference_scenarios(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningScenario>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningScenario>>,
     ) -> Self {
         self.difference_scenarios = input;
         self
     }
     /// <p>Scenarios showing how the different translation options differ in meaning.</p>
-    pub fn get_difference_scenarios(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningScenario>>
-    {
+    pub fn get_difference_scenarios(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningScenario>> {
         &self.difference_scenarios
     }
     /// Consumes the builder and constructs a [`GuardrailAutomatedReasoningTranslationAmbiguousFinding`](crate::types::GuardrailAutomatedReasoningTranslationAmbiguousFinding).

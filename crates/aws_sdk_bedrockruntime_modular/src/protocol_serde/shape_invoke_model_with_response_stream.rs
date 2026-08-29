@@ -16,9 +16,7 @@ pub fn de_invoke_model_with_response_stream_http_response(
         #[allow(unused_mut)]
         let mut output = crate::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder::default();
         output = output.set_body(Some(
-            crate::protocol_serde::shape_invoke_model_with_response_stream_output::de_body_payload(
-                _response_body,
-            )?,
+            crate::protocol_serde::shape_invoke_model_with_response_stream_output::de_body_payload(_response_body)?,
         ));
         output = output.set_content_type(
             crate::protocol_serde::shape_invoke_model_with_response_stream_output::de_content_type_header(_response_headers).map_err(|_| {
@@ -43,9 +41,7 @@ pub fn de_invoke_model_with_response_stream_http_response(
                 )
             })?,
         );
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::invoke_model_with_response_stream_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?
@@ -263,20 +259,14 @@ pub fn de_invoke_model_with_response_stream_http_error(
 pub fn ser_invoke_model_with_response_stream_headers(
     input: &crate::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput,
     mut builder: ::http_1x::request::Builder,
-) -> std::result::Result<
-    ::http_1x::request::Builder,
-    ::aws_smithy_types::error::operation::BuildError,
-> {
+) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.content_type {
         let formatted_2 = inner_1.as_str();
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "content_type",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("Content-Type", header_value);
@@ -287,10 +277,7 @@ pub fn ser_invoke_model_with_response_stream_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "accept",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("X-Amzn-Bedrock-Accept", header_value);
@@ -301,10 +288,7 @@ pub fn ser_invoke_model_with_response_stream_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "trace",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("X-Amzn-Bedrock-Trace", header_value);
@@ -315,10 +299,7 @@ pub fn ser_invoke_model_with_response_stream_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "guardrail_identifier",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("X-Amzn-Bedrock-GuardrailIdentifier", header_value);
@@ -329,10 +310,7 @@ pub fn ser_invoke_model_with_response_stream_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "guardrail_version",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("X-Amzn-Bedrock-GuardrailVersion", header_value);
@@ -343,10 +321,7 @@ pub fn ser_invoke_model_with_response_stream_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "performance_config_latency",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("X-Amzn-Bedrock-PerformanceConfig-Latency", header_value);
@@ -357,10 +332,7 @@ pub fn ser_invoke_model_with_response_stream_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "service_tier",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("X-Amzn-Bedrock-Service-Tier", header_value);
@@ -371,10 +343,7 @@ pub fn ser_invoke_model_with_response_stream_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "request_metadata",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &"*** Sensitive Data Redacted ***", err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
             )
         })?;
         builder = builder.header("X-Amzn-Bedrock-Request-Metadata", header_value);

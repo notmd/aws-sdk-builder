@@ -9,26 +9,19 @@ impl InvokeModelWithBidirectionalStreamInputErrorMarshaller {
     }
 }
 #[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
-impl ::aws_smithy_eventstream::frame::MarshallMessage
-    for InvokeModelWithBidirectionalStreamInputErrorMarshaller
-{
+impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputErrorMarshaller {
     type Input = crate::types::error::InvokeModelWithBidirectionalStreamInputError;
     fn marshall(
         &self,
         _input: Self::Input,
-    ) -> std::result::Result<
-        ::aws_smithy_types::event_stream::Message,
-        ::aws_smithy_eventstream::error::Error,
-    > {
+    ) -> std::result::Result<::aws_smithy_types::event_stream::Message, ::aws_smithy_eventstream::error::Error> {
         let mut headers = Vec::new();
         headers.push(::aws_smithy_types::event_stream::Header::new(
             ":message-type",
             ::aws_smithy_types::event_stream::HeaderValue::String("exception".into()),
         ));
         let payload = ::bytes::Bytes::new();
-        Ok(::aws_smithy_types::event_stream::Message::new_from_parts(
-            headers, payload,
-        ))
+        Ok(::aws_smithy_types::event_stream::Message::new_from_parts(headers, payload))
     }
 }
 
@@ -42,17 +35,9 @@ impl InvokeModelWithBidirectionalStreamInputMarshaller {
     }
 }
 #[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
-impl ::aws_smithy_eventstream::frame::MarshallMessage
-    for InvokeModelWithBidirectionalStreamInputMarshaller
-{
+impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputMarshaller {
     type Input = crate::types::InvokeModelWithBidirectionalStreamInput;
-    fn marshall(
-        &self,
-        input: Self::Input,
-    ) -> std::result::Result<
-        ::aws_smithy_types::event_stream::Message,
-        ::aws_smithy_eventstream::error::Error,
-    > {
+    fn marshall(&self, input: Self::Input) -> std::result::Result<::aws_smithy_types::event_stream::Message, ::aws_smithy_eventstream::error::Error> {
         let mut headers = Vec::new();
         headers.push(::aws_smithy_types::event_stream::Header::new(
             ":message-type",
@@ -72,9 +57,7 @@ impl ::aws_smithy_eventstream::frame::MarshallMessage
                                         )
         }
         ;
-        Ok(::aws_smithy_types::event_stream::Message::new_from_parts(
-            headers, payload,
-        ))
+        Ok(::aws_smithy_types::event_stream::Message::new_from_parts(headers, payload))
     }
 }
 
@@ -94,10 +77,8 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
     fn unmarshall(
         &self,
         message: &::aws_smithy_types::event_stream::Message,
-    ) -> std::result::Result<
-        ::aws_smithy_eventstream::frame::UnmarshalledMessage<Self::Output, Self::Error>,
-        ::aws_smithy_eventstream::error::Error,
-    > {
+    ) -> std::result::Result<::aws_smithy_eventstream::frame::UnmarshalledMessage<Self::Output, Self::Error>, ::aws_smithy_eventstream::error::Error>
+    {
         let response_headers = ::aws_smithy_eventstream::smithy::parse_response_headers(message)?;
         match response_headers.message_type.as_str() {
             "event" => match response_headers.smithy_type.as_str() {
@@ -151,16 +132,12 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
                         crate::types::ConverseStreamOutput::Metadata(parsed),
                     ))
                 }
-                _unknown_variant => {
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        crate::types::ConverseStreamOutput::Unknown,
-                    ))
-                }
+                _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+                    crate::types::ConverseStreamOutput::Unknown,
+                )),
             },
             "exception" => {
-                let generic = match crate::protocol_serde::parse_event_stream_error_metadata(
-                    message.payload(),
-                ) {
+                let generic = match crate::protocol_serde::parse_event_stream_error_metadata(message.payload()) {
                     Ok(builder) => builder.build(),
                     Err(err) => {
                         return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
@@ -170,9 +147,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
                 };
                 match response_headers.smithy_type.as_str() {
                     "internalServerException" => {
-                        let mut builder =
-                            crate::types::error::builders::InternalServerExceptionBuilder::default(
-                            );
+                        let mut builder = crate::types::error::builders::InternalServerExceptionBuilder::default();
                         builder = crate::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(
                             &message.payload()[..],
                             builder,
@@ -182,9 +157,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
                         })?;
                         builder.set_meta(Some(generic));
                         return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                            crate::types::error::ConverseStreamOutputError::InternalServerException(
-                                builder.build(),
-                            ),
+                            crate::types::error::ConverseStreamOutputError::InternalServerException(builder.build()),
                         ));
                     }
                     "modelStreamErrorException" => {
@@ -202,8 +175,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
                         ));
                     }
                     "validationException" => {
-                        let mut builder =
-                            crate::types::error::builders::ValidationExceptionBuilder::default();
+                        let mut builder = crate::types::error::builders::ValidationExceptionBuilder::default();
                         builder =
                             crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(&message.payload()[..], builder)
                                 .map_err(|err| {
@@ -211,14 +183,11 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
                                 })?;
                         builder.set_meta(Some(generic));
                         return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                            crate::types::error::ConverseStreamOutputError::ValidationException(
-                                builder.build(),
-                            ),
+                            crate::types::error::ConverseStreamOutputError::ValidationException(builder.build()),
                         ));
                     }
                     "throttlingException" => {
-                        let mut builder =
-                            crate::types::error::builders::ThrottlingExceptionBuilder::default();
+                        let mut builder = crate::types::error::builders::ThrottlingExceptionBuilder::default();
                         builder =
                             crate::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(&message.payload()[..], builder)
                                 .map_err(|err| {
@@ -226,9 +195,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
                                 })?;
                         builder.set_meta(Some(generic));
                         return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                            crate::types::error::ConverseStreamOutputError::ThrottlingException(
-                                builder.build(),
-                            ),
+                            crate::types::error::ConverseStreamOutputError::ThrottlingException(builder.build()),
                         ));
                     }
                     "serviceUnavailableException" => {
@@ -252,9 +219,9 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
                 ))
             }
             value => {
-                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(
-                    format!("unrecognized :message-type: {value}"),
-                ));
+                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(
+                    "unrecognized :message-type: {value}"
+                )));
             }
         }
     }
@@ -270,18 +237,14 @@ impl InvokeModelWithBidirectionalStreamOutputUnmarshaller {
     }
 }
 #[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
-impl ::aws_smithy_eventstream::frame::UnmarshallMessage
-    for InvokeModelWithBidirectionalStreamOutputUnmarshaller
-{
+impl ::aws_smithy_eventstream::frame::UnmarshallMessage for InvokeModelWithBidirectionalStreamOutputUnmarshaller {
     type Output = crate::types::InvokeModelWithBidirectionalStreamOutput;
     type Error = crate::types::error::InvokeModelWithBidirectionalStreamOutputError;
     fn unmarshall(
         &self,
         message: &::aws_smithy_types::event_stream::Message,
-    ) -> std::result::Result<
-        ::aws_smithy_eventstream::frame::UnmarshalledMessage<Self::Output, Self::Error>,
-        ::aws_smithy_eventstream::error::Error,
-    > {
+    ) -> std::result::Result<::aws_smithy_eventstream::frame::UnmarshalledMessage<Self::Output, Self::Error>, ::aws_smithy_eventstream::error::Error>
+    {
         let response_headers = ::aws_smithy_eventstream::smithy::parse_response_headers(message)?;
         match response_headers.message_type.as_str() {
             "event" => match response_headers.smithy_type.as_str() {
@@ -294,11 +257,9 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage
                         crate::types::InvokeModelWithBidirectionalStreamOutput::Chunk(parsed),
                     ))
                 }
-                _unknown_variant => {
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        crate::types::InvokeModelWithBidirectionalStreamOutput::Unknown,
-                    ))
-                }
+                _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+                    crate::types::InvokeModelWithBidirectionalStreamOutput::Unknown,
+                )),
             },
             "exception" => {
                 let generic = match crate::protocol_serde::parse_event_stream_error_metadata(message.payload()) {
@@ -311,9 +272,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage
                 };
                 match response_headers.smithy_type.as_str() {
                     "internalServerException" => {
-                        let mut builder =
-                            crate::types::error::builders::InternalServerExceptionBuilder::default(
-                            );
+                        let mut builder = crate::types::error::builders::InternalServerExceptionBuilder::default();
                         builder = crate::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(
                             &message.payload()[..],
                             builder,
@@ -341,8 +300,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage
                         ));
                     }
                     "validationException" => {
-                        let mut builder =
-                            crate::types::error::builders::ValidationExceptionBuilder::default();
+                        let mut builder = crate::types::error::builders::ValidationExceptionBuilder::default();
                         builder =
                             crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(&message.payload()[..], builder)
                                 .map_err(|err| {
@@ -354,8 +312,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage
                         ));
                     }
                     "throttlingException" => {
-                        let mut builder =
-                            crate::types::error::builders::ThrottlingExceptionBuilder::default();
+                        let mut builder = crate::types::error::builders::ThrottlingExceptionBuilder::default();
                         builder =
                             crate::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(&message.payload()[..], builder)
                                 .map_err(|err| {
@@ -367,8 +324,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage
                         ));
                     }
                     "modelTimeoutException" => {
-                        let mut builder =
-                            crate::types::error::builders::ModelTimeoutExceptionBuilder::default();
+                        let mut builder = crate::types::error::builders::ModelTimeoutExceptionBuilder::default();
                         builder = crate::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_json_err(
                             &message.payload()[..],
                             builder,
@@ -398,15 +354,13 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage
                     _ => {}
                 }
                 Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                    crate::types::error::InvokeModelWithBidirectionalStreamOutputError::generic(
-                        generic,
-                    ),
+                    crate::types::error::InvokeModelWithBidirectionalStreamOutputError::generic(generic),
                 ))
             }
             value => {
-                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(
-                    format!("unrecognized :message-type: {value}"),
-                ));
+                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(
+                    "unrecognized :message-type: {value}"
+                )));
             }
         }
     }
@@ -428,37 +382,24 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ResponseStreamUnmars
     fn unmarshall(
         &self,
         message: &::aws_smithy_types::event_stream::Message,
-    ) -> std::result::Result<
-        ::aws_smithy_eventstream::frame::UnmarshalledMessage<Self::Output, Self::Error>,
-        ::aws_smithy_eventstream::error::Error,
-    > {
+    ) -> std::result::Result<::aws_smithy_eventstream::frame::UnmarshalledMessage<Self::Output, Self::Error>, ::aws_smithy_eventstream::error::Error>
+    {
         let response_headers = ::aws_smithy_eventstream::smithy::parse_response_headers(message)?;
         match response_headers.message_type.as_str() {
             "event" => match response_headers.smithy_type.as_str() {
                 "chunk" => {
-                    let parsed =
-                        crate::protocol_serde::shape_payload_part::de_payload_part_payload(
-                            &message.payload()[..],
-                        )
-                        .map_err(|err| {
-                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
-                                "failed to unmarshall Chunk: {err}"
-                            ))
-                        })?;
+                    let parsed = crate::protocol_serde::shape_payload_part::de_payload_part_payload(&message.payload()[..])
+                        .map_err(|err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall Chunk: {err}")))?;
                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
                         crate::types::ResponseStream::Chunk(parsed),
                     ))
                 }
-                _unknown_variant => {
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        crate::types::ResponseStream::Unknown,
-                    ))
-                }
+                _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+                    crate::types::ResponseStream::Unknown,
+                )),
             },
             "exception" => {
-                let generic = match crate::protocol_serde::parse_event_stream_error_metadata(
-                    message.payload(),
-                ) {
+                let generic = match crate::protocol_serde::parse_event_stream_error_metadata(message.payload()) {
                     Ok(builder) => builder.build(),
                     Err(err) => {
                         return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
@@ -468,9 +409,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ResponseStreamUnmars
                 };
                 match response_headers.smithy_type.as_str() {
                     "internalServerException" => {
-                        let mut builder =
-                            crate::types::error::builders::InternalServerExceptionBuilder::default(
-                            );
+                        let mut builder = crate::types::error::builders::InternalServerExceptionBuilder::default();
                         builder = crate::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(
                             &message.payload()[..],
                             builder,
@@ -480,9 +419,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ResponseStreamUnmars
                         })?;
                         builder.set_meta(Some(generic));
                         return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                            crate::types::error::ResponseStreamError::InternalServerException(
-                                builder.build(),
-                            ),
+                            crate::types::error::ResponseStreamError::InternalServerException(builder.build()),
                         ));
                     }
                     "modelStreamErrorException" => {
@@ -496,14 +433,11 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ResponseStreamUnmars
                         })?;
                         builder.set_meta(Some(generic));
                         return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                            crate::types::error::ResponseStreamError::ModelStreamErrorException(
-                                builder.build(),
-                            ),
+                            crate::types::error::ResponseStreamError::ModelStreamErrorException(builder.build()),
                         ));
                     }
                     "validationException" => {
-                        let mut builder =
-                            crate::types::error::builders::ValidationExceptionBuilder::default();
+                        let mut builder = crate::types::error::builders::ValidationExceptionBuilder::default();
                         builder =
                             crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(&message.payload()[..], builder)
                                 .map_err(|err| {
@@ -511,14 +445,11 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ResponseStreamUnmars
                                 })?;
                         builder.set_meta(Some(generic));
                         return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                            crate::types::error::ResponseStreamError::ValidationException(
-                                builder.build(),
-                            ),
+                            crate::types::error::ResponseStreamError::ValidationException(builder.build()),
                         ));
                     }
                     "throttlingException" => {
-                        let mut builder =
-                            crate::types::error::builders::ThrottlingExceptionBuilder::default();
+                        let mut builder = crate::types::error::builders::ThrottlingExceptionBuilder::default();
                         builder =
                             crate::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(&message.payload()[..], builder)
                                 .map_err(|err| {
@@ -526,14 +457,11 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ResponseStreamUnmars
                                 })?;
                         builder.set_meta(Some(generic));
                         return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                            crate::types::error::ResponseStreamError::ThrottlingException(
-                                builder.build(),
-                            ),
+                            crate::types::error::ResponseStreamError::ThrottlingException(builder.build()),
                         ));
                     }
                     "modelTimeoutException" => {
-                        let mut builder =
-                            crate::types::error::builders::ModelTimeoutExceptionBuilder::default();
+                        let mut builder = crate::types::error::builders::ModelTimeoutExceptionBuilder::default();
                         builder = crate::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_json_err(
                             &message.payload()[..],
                             builder,
@@ -543,9 +471,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ResponseStreamUnmars
                         })?;
                         builder.set_meta(Some(generic));
                         return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                            crate::types::error::ResponseStreamError::ModelTimeoutException(
-                                builder.build(),
-                            ),
+                            crate::types::error::ResponseStreamError::ModelTimeoutException(builder.build()),
                         ));
                     }
                     "serviceUnavailableException" => {
@@ -559,9 +485,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ResponseStreamUnmars
                         })?;
                         builder.set_meta(Some(generic));
                         return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                            crate::types::error::ResponseStreamError::ServiceUnavailableException(
-                                builder.build(),
-                            ),
+                            crate::types::error::ResponseStreamError::ServiceUnavailableException(builder.build()),
                         ));
                     }
                     _ => {}
@@ -571,9 +495,9 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ResponseStreamUnmars
                 ))
             }
             value => {
-                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(
-                    format!("unrecognized :message-type: {value}"),
-                ));
+                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(
+                    "unrecognized :message-type: {value}"
+                )));
             }
         }
     }

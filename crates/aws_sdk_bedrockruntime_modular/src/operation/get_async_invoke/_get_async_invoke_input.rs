@@ -24,9 +24,7 @@ impl GetAsyncInvokeInput {
 
 #[cfg(feature = "op_get_async_invoke")]
 /// A builder for [`GetAsyncInvokeInput`](crate::operation::get_async_invoke::GetAsyncInvokeInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetAsyncInvokeInputBuilder {
     pub(crate) invocation_arn: ::std::option::Option<::std::string::String>,
@@ -35,18 +33,12 @@ pub struct GetAsyncInvokeInputBuilder {
 impl GetAsyncInvokeInputBuilder {
     /// <p>The invocation's ARN.</p>
     /// This field is required.
-    pub fn invocation_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn invocation_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.invocation_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The invocation's ARN.</p>
-    pub fn set_invocation_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_invocation_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.invocation_arn = input;
         self
     }
@@ -57,10 +49,7 @@ impl GetAsyncInvokeInputBuilder {
     /// Consumes the builder and constructs a [`GetAsyncInvokeInput`](crate::operation::get_async_invoke::GetAsyncInvokeInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_async_invoke::GetAsyncInvokeInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::get_async_invoke::GetAsyncInvokeInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::get_async_invoke::GetAsyncInvokeInput {
             invocation_arn: self.invocation_arn,
         })

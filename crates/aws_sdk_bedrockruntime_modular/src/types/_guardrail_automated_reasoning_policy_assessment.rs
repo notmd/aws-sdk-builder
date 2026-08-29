@@ -5,8 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GuardrailAutomatedReasoningPolicyAssessment {
     /// <p>List of logical validation results produced by evaluating the input content against automated reasoning policies.</p>
-    pub findings:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningFinding>>,
+    pub findings: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningFinding>>,
 }
 impl GuardrailAutomatedReasoningPolicyAssessment {
     /// <p>List of logical validation results produced by evaluating the input content against automated reasoning policies.</p>
@@ -24,13 +23,10 @@ impl GuardrailAutomatedReasoningPolicyAssessment {
 }
 
 /// A builder for [`GuardrailAutomatedReasoningPolicyAssessment`](crate::types::GuardrailAutomatedReasoningPolicyAssessment).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailAutomatedReasoningPolicyAssessmentBuilder {
-    pub(crate) findings:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningFinding>>,
+    pub(crate) findings: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningFinding>>,
 }
 impl GuardrailAutomatedReasoningPolicyAssessmentBuilder {
     /// Appends an item to `findings`.
@@ -45,26 +41,16 @@ impl GuardrailAutomatedReasoningPolicyAssessmentBuilder {
         self
     }
     /// <p>List of logical validation results produced by evaluating the input content against automated reasoning policies.</p>
-    pub fn set_findings(
-        mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningFinding>,
-        >,
-    ) -> Self {
+    pub fn set_findings(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningFinding>>) -> Self {
         self.findings = input;
         self
     }
     /// <p>List of logical validation results produced by evaluating the input content against automated reasoning policies.</p>
-    pub fn get_findings(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningFinding>>
-    {
+    pub fn get_findings(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningFinding>> {
         &self.findings
     }
     /// Consumes the builder and constructs a [`GuardrailAutomatedReasoningPolicyAssessment`](crate::types::GuardrailAutomatedReasoningPolicyAssessment).
     pub fn build(self) -> crate::types::GuardrailAutomatedReasoningPolicyAssessment {
-        crate::types::GuardrailAutomatedReasoningPolicyAssessment {
-            findings: self.findings,
-        }
+        crate::types::GuardrailAutomatedReasoningPolicyAssessment { findings: self.findings }
     }
 }

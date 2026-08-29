@@ -27,9 +27,7 @@ impl VideoBlock {
 }
 
 /// A builder for [`VideoBlock`](crate::types::VideoBlock).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct VideoBlockBuilder {
     pub(crate) format: ::std::option::Option<crate::types::VideoFormat>,
@@ -69,12 +67,7 @@ impl VideoBlockBuilder {
     /// Consumes the builder and constructs a [`VideoBlock`](crate::types::VideoBlock).
     /// This method will fail if any of the following fields are not set:
     /// - [`format`](crate::types::builders::VideoBlockBuilder::format)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::VideoBlock,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::VideoBlock, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::VideoBlock {
             format: self.format.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

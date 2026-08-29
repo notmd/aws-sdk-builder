@@ -15,11 +15,7 @@ impl super::Client {
     ///   - [`end_time(Option<DateTime>)`](crate::operation::get_async_invoke::GetAsyncInvokeOutput::end_time): <p>When the invocation ended.</p>
     ///   - [`output_data_config(Option<AsyncInvokeOutputDataConfig>)`](crate::operation::get_async_invoke::GetAsyncInvokeOutput::output_data_config): <p>Output data settings.</p>
     /// - On failure, responds with [`SdkError<GetAsyncInvokeError>`](crate::operation::get_async_invoke::GetAsyncInvokeError)
-    pub fn get_async_invoke(
-        &self,
-    ) -> crate::operation::get_async_invoke::builders::GetAsyncInvokeFluentBuilder {
-        crate::operation::get_async_invoke::builders::GetAsyncInvokeFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn get_async_invoke(&self) -> crate::operation::get_async_invoke::builders::GetAsyncInvokeFluentBuilder {
+        crate::operation::get_async_invoke::builders::GetAsyncInvokeFluentBuilder::new(self.handle.clone())
     }
 }

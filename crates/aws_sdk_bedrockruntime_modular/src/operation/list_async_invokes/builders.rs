@@ -63,9 +63,7 @@ impl ListAsyncInvokesFluentBuilder {
         }
     }
     /// Access the ListAsyncInvokes as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_async_invokes::builders::ListAsyncInvokesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_async_invokes::builders::ListAsyncInvokesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,14 +87,12 @@ impl ListAsyncInvokesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_async_invokes::ListAsyncInvokes::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::list_async_invokes::ListAsyncInvokes::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::list_async_invokes::ListAsyncInvokes::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::list_async_invokes::ListAsyncInvokes::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -109,31 +105,20 @@ impl ListAsyncInvokesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_async_invokes::paginator::ListAsyncInvokesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_async_invokes::paginator::ListAsyncInvokesPaginator {
-        crate::operation::list_async_invokes::paginator::ListAsyncInvokesPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_async_invokes::paginator::ListAsyncInvokesPaginator {
+        crate::operation::list_async_invokes::paginator::ListAsyncInvokesPaginator::new(self.handle, self.inner)
     }
     /// <p>Include invocations submitted after this time.</p>
     pub fn submit_time_after(mut self, input: ::aws_smithy_types::DateTime) -> Self {
@@ -141,10 +126,7 @@ impl ListAsyncInvokesFluentBuilder {
         self
     }
     /// <p>Include invocations submitted after this time.</p>
-    pub fn set_submit_time_after(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_submit_time_after(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.inner = self.inner.set_submit_time_after(input);
         self
     }
@@ -158,10 +140,7 @@ impl ListAsyncInvokesFluentBuilder {
         self
     }
     /// <p>Include invocations submitted before this time.</p>
-    pub fn set_submit_time_before(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_submit_time_before(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.inner = self.inner.set_submit_time_before(input);
         self
     }
@@ -175,10 +154,7 @@ impl ListAsyncInvokesFluentBuilder {
         self
     }
     /// <p>Filter invocations by status.</p>
-    pub fn set_status_equals(
-        mut self,
-        input: ::std::option::Option<crate::types::AsyncInvokeStatus>,
-    ) -> Self {
+    pub fn set_status_equals(mut self, input: ::std::option::Option<crate::types::AsyncInvokeStatus>) -> Self {
         self.inner = self.inner.set_status_equals(input);
         self
     }
@@ -220,10 +196,7 @@ impl ListAsyncInvokesFluentBuilder {
         self
     }
     /// <p>How to sort the response.</p>
-    pub fn set_sort_by(
-        mut self,
-        input: ::std::option::Option<crate::types::SortAsyncInvocationBy>,
-    ) -> Self {
+    pub fn set_sort_by(mut self, input: ::std::option::Option<crate::types::SortAsyncInvocationBy>) -> Self {
         self.inner = self.inner.set_sort_by(input);
         self
     }

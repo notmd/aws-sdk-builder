@@ -26,9 +26,7 @@ impl InvokeModelOutput {
         self.content_type.deref()
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn performance_config_latency(
-        &self,
-    ) -> ::std::option::Option<&crate::types::PerformanceConfigLatency> {
+    pub fn performance_config_latency(&self) -> ::std::option::Option<&crate::types::PerformanceConfigLatency> {
         self.performance_config_latency.as_ref()
     }
     /// <p>Specifies the processing tier type used for serving the request.</p>
@@ -42,10 +40,7 @@ impl ::std::fmt::Debug for InvokeModelOutput {
         let mut formatter = f.debug_struct("InvokeModelOutput");
         formatter.field("body", &"*** Sensitive Data Redacted ***");
         formatter.field("content_type", &self.content_type);
-        formatter.field(
-            "performance_config_latency",
-            &self.performance_config_latency,
-        );
+        formatter.field("performance_config_latency", &self.performance_config_latency);
         formatter.field("service_tier", &self.service_tier);
         formatter.field("_request_id", &self._request_id);
         formatter.finish()
@@ -72,8 +67,7 @@ impl InvokeModelOutput {
 pub struct InvokeModelOutputBuilder {
     pub(crate) body: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) content_type: ::std::option::Option<::std::string::String>,
-    pub(crate) performance_config_latency:
-        ::std::option::Option<crate::types::PerformanceConfigLatency>,
+    pub(crate) performance_config_latency: ::std::option::Option<crate::types::PerformanceConfigLatency>,
     pub(crate) service_tier: ::std::option::Option<crate::types::ServiceTierType>,
     _request_id: Option<String>,
 }
@@ -110,25 +104,17 @@ impl InvokeModelOutputBuilder {
         &self.content_type
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn performance_config_latency(
-        mut self,
-        input: crate::types::PerformanceConfigLatency,
-    ) -> Self {
+    pub fn performance_config_latency(mut self, input: crate::types::PerformanceConfigLatency) -> Self {
         self.performance_config_latency = ::std::option::Option::Some(input);
         self
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn set_performance_config_latency(
-        mut self,
-        input: ::std::option::Option<crate::types::PerformanceConfigLatency>,
-    ) -> Self {
+    pub fn set_performance_config_latency(mut self, input: ::std::option::Option<crate::types::PerformanceConfigLatency>) -> Self {
         self.performance_config_latency = input;
         self
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn get_performance_config_latency(
-        &self,
-    ) -> &::std::option::Option<crate::types::PerformanceConfigLatency> {
+    pub fn get_performance_config_latency(&self) -> &::std::option::Option<crate::types::PerformanceConfigLatency> {
         &self.performance_config_latency
     }
     /// <p>Specifies the processing tier type used for serving the request.</p>
@@ -137,10 +123,7 @@ impl InvokeModelOutputBuilder {
         self
     }
     /// <p>Specifies the processing tier type used for serving the request.</p>
-    pub fn set_service_tier(
-        mut self,
-        input: ::std::option::Option<crate::types::ServiceTierType>,
-    ) -> Self {
+    pub fn set_service_tier(mut self, input: ::std::option::Option<crate::types::ServiceTierType>) -> Self {
         self.service_tier = input;
         self
     }
@@ -161,12 +144,7 @@ impl InvokeModelOutputBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`body`](crate::operation::invoke_model::builders::InvokeModelOutputBuilder::body)
     /// - [`content_type`](crate::operation::invoke_model::builders::InvokeModelOutputBuilder::content_type)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::invoke_model::InvokeModelOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::invoke_model::InvokeModelOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::invoke_model::InvokeModelOutput {
             body: self.body.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
@@ -192,10 +170,7 @@ impl ::std::fmt::Debug for InvokeModelOutputBuilder {
         let mut formatter = f.debug_struct("InvokeModelOutputBuilder");
         formatter.field("body", &"*** Sensitive Data Redacted ***");
         formatter.field("content_type", &self.content_type);
-        formatter.field(
-            "performance_config_latency",
-            &self.performance_config_latency,
-        );
+        formatter.field("performance_config_latency", &self.performance_config_latency);
         formatter.field("service_tier", &self.service_tier);
         formatter.field("_request_id", &self._request_id);
         formatter.finish()

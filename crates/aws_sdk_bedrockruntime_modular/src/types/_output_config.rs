@@ -31,9 +31,7 @@ impl OutputConfig {
 }
 
 /// A builder for [`OutputConfig`](crate::types::OutputConfig).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct OutputConfigBuilder {
     pub(crate) text_format: ::std::option::Option<crate::types::OutputFormat>,
@@ -46,10 +44,7 @@ impl OutputConfigBuilder {
         self
     }
     /// <p>Structured output parameters to control the model's text response.</p>
-    pub fn set_text_format(
-        mut self,
-        input: ::std::option::Option<crate::types::OutputFormat>,
-    ) -> Self {
+    pub fn set_text_format(mut self, input: ::std::option::Option<crate::types::OutputFormat>) -> Self {
         self.text_format = input;
         self
     }

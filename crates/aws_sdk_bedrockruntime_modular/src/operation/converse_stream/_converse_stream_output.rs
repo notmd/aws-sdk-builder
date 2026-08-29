@@ -5,10 +5,7 @@
 #[derive(::std::fmt::Debug)]
 pub struct ConverseStreamOutput {
     /// <p>The output stream that the model generated.</p>
-    pub stream: crate::event_receiver::EventReceiver<
-        crate::types::ConverseStreamOutput,
-        crate::types::error::ConverseStreamOutputError,
-    >,
+    pub stream: crate::event_receiver::EventReceiver<crate::types::ConverseStreamOutput, crate::types::error::ConverseStreamOutputError>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_converse_stream")]
@@ -16,10 +13,7 @@ impl ConverseStreamOutput {
     /// <p>The output stream that the model generated.</p>
     pub fn stream(
         &self,
-    ) -> &crate::event_receiver::EventReceiver<
-        crate::types::ConverseStreamOutput,
-        crate::types::error::ConverseStreamOutputError,
-    > {
+    ) -> &crate::event_receiver::EventReceiver<crate::types::ConverseStreamOutput, crate::types::error::ConverseStreamOutputError> {
         &self.stream
     }
 }
@@ -43,10 +37,7 @@ impl ConverseStreamOutput {
 #[non_exhaustive]
 pub struct ConverseStreamOutputBuilder {
     pub(crate) stream: ::std::option::Option<
-        crate::event_receiver::EventReceiver<
-            crate::types::ConverseStreamOutput,
-            crate::types::error::ConverseStreamOutputError,
-        >,
+        crate::event_receiver::EventReceiver<crate::types::ConverseStreamOutput, crate::types::error::ConverseStreamOutputError>,
     >,
     _request_id: Option<String>,
 }
@@ -55,10 +46,7 @@ impl ConverseStreamOutputBuilder {
     /// <p>The output stream that the model generated.</p>
     pub fn stream(
         mut self,
-        input: crate::event_receiver::EventReceiver<
-            crate::types::ConverseStreamOutput,
-            crate::types::error::ConverseStreamOutputError,
-        >,
+        input: crate::event_receiver::EventReceiver<crate::types::ConverseStreamOutput, crate::types::error::ConverseStreamOutputError>,
     ) -> Self {
         self.stream = ::std::option::Option::Some(input);
         self
@@ -67,10 +55,7 @@ impl ConverseStreamOutputBuilder {
     pub fn set_stream(
         mut self,
         input: ::std::option::Option<
-            crate::event_receiver::EventReceiver<
-                crate::types::ConverseStreamOutput,
-                crate::types::error::ConverseStreamOutputError,
-            >,
+            crate::event_receiver::EventReceiver<crate::types::ConverseStreamOutput, crate::types::error::ConverseStreamOutputError>,
         >,
     ) -> Self {
         self.stream = input;
@@ -80,10 +65,7 @@ impl ConverseStreamOutputBuilder {
     pub fn get_stream(
         &self,
     ) -> &::std::option::Option<
-        crate::event_receiver::EventReceiver<
-            crate::types::ConverseStreamOutput,
-            crate::types::error::ConverseStreamOutputError,
-        >,
+        crate::event_receiver::EventReceiver<crate::types::ConverseStreamOutput, crate::types::error::ConverseStreamOutputError>,
     > {
         &self.stream
     }
@@ -101,10 +83,7 @@ impl ConverseStreamOutputBuilder {
     /// - [`stream`](crate::operation::converse_stream::builders::ConverseStreamOutputBuilder::stream)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::converse_stream::ConverseStreamOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::converse_stream::ConverseStreamOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::converse_stream::ConverseStreamOutput {
             stream: self.stream.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

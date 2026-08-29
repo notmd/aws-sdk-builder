@@ -31,9 +31,7 @@ impl CountTokensOutput {
 
 #[cfg(feature = "op_count_tokens")]
 /// A builder for [`CountTokensOutput`](crate::operation::count_tokens::CountTokensOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CountTokensOutputBuilder {
     pub(crate) input_tokens: ::std::option::Option<i32>,
@@ -68,12 +66,7 @@ impl CountTokensOutputBuilder {
     /// Consumes the builder and constructs a [`CountTokensOutput`](crate::operation::count_tokens::CountTokensOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`input_tokens`](crate::operation::count_tokens::builders::CountTokensOutputBuilder::input_tokens)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::count_tokens::CountTokensOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::count_tokens::CountTokensOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::count_tokens::CountTokensOutput {
             input_tokens: self.input_tokens.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

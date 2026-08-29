@@ -4,14 +4,10 @@ pub fn ser_guardrail_configuration(
     input: &crate::types::GuardrailConfiguration,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     {
-        object
-            .key("guardrailIdentifier")
-            .string(input.guardrail_identifier.as_str());
+        object.key("guardrailIdentifier").string(input.guardrail_identifier.as_str());
     }
     {
-        object
-            .key("guardrailVersion")
-            .string(input.guardrail_version.as_str());
+        object.key("guardrailVersion").string(input.guardrail_version.as_str());
     }
     {
         object.key("trace").string(input.trace.as_str());

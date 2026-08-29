@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<InvokeModelWithBidirectionalStreamError>`](crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError)
     pub fn invoke_model_with_bidirectional_stream(
         &self,
-    ) -> crate::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamFluentBuilder{
+    ) -> crate::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamFluentBuilder {
         crate::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamFluentBuilder::new(self.handle.clone())
     }
 }

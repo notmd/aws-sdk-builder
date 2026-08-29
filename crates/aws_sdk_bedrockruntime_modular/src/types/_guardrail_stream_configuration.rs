@@ -43,31 +43,22 @@ impl GuardrailStreamConfiguration {
 }
 
 /// A builder for [`GuardrailStreamConfiguration`](crate::types::GuardrailStreamConfiguration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailStreamConfigurationBuilder {
     pub(crate) guardrail_identifier: ::std::option::Option<::std::string::String>,
     pub(crate) guardrail_version: ::std::option::Option<::std::string::String>,
     pub(crate) trace: ::std::option::Option<crate::types::GuardrailTrace>,
-    pub(crate) stream_processing_mode:
-        ::std::option::Option<crate::types::GuardrailStreamProcessingMode>,
+    pub(crate) stream_processing_mode: ::std::option::Option<crate::types::GuardrailStreamProcessingMode>,
 }
 impl GuardrailStreamConfigurationBuilder {
     /// <p>The identifier for the guardrail.</p>
-    pub fn guardrail_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn guardrail_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.guardrail_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The identifier for the guardrail.</p>
-    pub fn set_guardrail_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_guardrail_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.guardrail_identifier = input;
         self
     }
@@ -76,18 +67,12 @@ impl GuardrailStreamConfigurationBuilder {
         &self.guardrail_identifier
     }
     /// <p>The version of the guardrail.</p>
-    pub fn guardrail_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn guardrail_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.guardrail_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The version of the guardrail.</p>
-    pub fn set_guardrail_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_guardrail_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.guardrail_version = input;
         self
     }
@@ -111,27 +96,19 @@ impl GuardrailStreamConfigurationBuilder {
     }
     /// <p>The processing mode.</p>
     /// <p>The processing mode. For more information, see <i>Configure streaming response behavior</i> in the <i>Amazon Bedrock User Guide</i>.</p>
-    pub fn stream_processing_mode(
-        mut self,
-        input: crate::types::GuardrailStreamProcessingMode,
-    ) -> Self {
+    pub fn stream_processing_mode(mut self, input: crate::types::GuardrailStreamProcessingMode) -> Self {
         self.stream_processing_mode = ::std::option::Option::Some(input);
         self
     }
     /// <p>The processing mode.</p>
     /// <p>The processing mode. For more information, see <i>Configure streaming response behavior</i> in the <i>Amazon Bedrock User Guide</i>.</p>
-    pub fn set_stream_processing_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::GuardrailStreamProcessingMode>,
-    ) -> Self {
+    pub fn set_stream_processing_mode(mut self, input: ::std::option::Option<crate::types::GuardrailStreamProcessingMode>) -> Self {
         self.stream_processing_mode = input;
         self
     }
     /// <p>The processing mode.</p>
     /// <p>The processing mode. For more information, see <i>Configure streaming response behavior</i> in the <i>Amazon Bedrock User Guide</i>.</p>
-    pub fn get_stream_processing_mode(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailStreamProcessingMode> {
+    pub fn get_stream_processing_mode(&self) -> &::std::option::Option<crate::types::GuardrailStreamProcessingMode> {
         &self.stream_processing_mode
     }
     /// Consumes the builder and constructs a [`GuardrailStreamConfiguration`](crate::types::GuardrailStreamConfiguration).

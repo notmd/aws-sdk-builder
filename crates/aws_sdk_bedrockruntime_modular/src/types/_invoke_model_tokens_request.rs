@@ -52,12 +52,7 @@ impl InvokeModelTokensRequestBuilder {
     /// Consumes the builder and constructs a [`InvokeModelTokensRequest`](crate::types::InvokeModelTokensRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`body`](crate::types::builders::InvokeModelTokensRequestBuilder::body)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::InvokeModelTokensRequest,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::InvokeModelTokensRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InvokeModelTokensRequest {
             body: self.body.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

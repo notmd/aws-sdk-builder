@@ -53,17 +53,14 @@ impl ListAsyncInvokesInput {
 #[cfg(feature = "op_list_async_invokes")]
 impl ListAsyncInvokesInput {
     /// Creates a new builder-style object to manufacture [`ListAsyncInvokesInput`](crate::operation::list_async_invokes::ListAsyncInvokesInput).
-    pub fn builder() -> crate::operation::list_async_invokes::builders::ListAsyncInvokesInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_async_invokes::builders::ListAsyncInvokesInputBuilder {
         crate::operation::list_async_invokes::builders::ListAsyncInvokesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_async_invokes")]
 /// A builder for [`ListAsyncInvokesInput`](crate::operation::list_async_invokes::ListAsyncInvokesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListAsyncInvokesInputBuilder {
     pub(crate) submit_time_after: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -82,10 +79,7 @@ impl ListAsyncInvokesInputBuilder {
         self
     }
     /// <p>Include invocations submitted after this time.</p>
-    pub fn set_submit_time_after(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_submit_time_after(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.submit_time_after = input;
         self
     }
@@ -99,10 +93,7 @@ impl ListAsyncInvokesInputBuilder {
         self
     }
     /// <p>Include invocations submitted before this time.</p>
-    pub fn set_submit_time_before(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_submit_time_before(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.submit_time_before = input;
         self
     }
@@ -116,10 +107,7 @@ impl ListAsyncInvokesInputBuilder {
         self
     }
     /// <p>Filter invocations by status.</p>
-    pub fn set_status_equals(
-        mut self,
-        input: ::std::option::Option<crate::types::AsyncInvokeStatus>,
-    ) -> Self {
+    pub fn set_status_equals(mut self, input: ::std::option::Option<crate::types::AsyncInvokeStatus>) -> Self {
         self.status_equals = input;
         self
     }
@@ -161,10 +149,7 @@ impl ListAsyncInvokesInputBuilder {
         self
     }
     /// <p>How to sort the response.</p>
-    pub fn set_sort_by(
-        mut self,
-        input: ::std::option::Option<crate::types::SortAsyncInvocationBy>,
-    ) -> Self {
+    pub fn set_sort_by(mut self, input: ::std::option::Option<crate::types::SortAsyncInvocationBy>) -> Self {
         self.sort_by = input;
         self
     }
@@ -189,20 +174,15 @@ impl ListAsyncInvokesInputBuilder {
     /// Consumes the builder and constructs a [`ListAsyncInvokesInput`](crate::operation::list_async_invokes::ListAsyncInvokesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_async_invokes::ListAsyncInvokesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::list_async_invokes::ListAsyncInvokesInput {
-                submit_time_after: self.submit_time_after,
-                submit_time_before: self.submit_time_before,
-                status_equals: self.status_equals,
-                max_results: self.max_results,
-                next_token: self.next_token,
-                sort_by: self.sort_by,
-                sort_order: self.sort_order,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::list_async_invokes::ListAsyncInvokesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::list_async_invokes::ListAsyncInvokesInput {
+            submit_time_after: self.submit_time_after,
+            submit_time_before: self.submit_time_before,
+            status_equals: self.status_equals,
+            max_results: self.max_results,
+            next_token: self.next_token,
+            sort_by: self.sort_by,
+            sort_order: self.sort_order,
+        })
     }
 }

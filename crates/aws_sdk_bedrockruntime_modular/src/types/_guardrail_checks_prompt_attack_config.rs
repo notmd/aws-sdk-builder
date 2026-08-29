@@ -22,14 +22,10 @@ impl GuardrailChecksPromptAttackConfig {
 }
 
 /// A builder for [`GuardrailChecksPromptAttackConfig`](crate::types::GuardrailChecksPromptAttackConfig).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailChecksPromptAttackConfigBuilder {
-    pub(crate) categories: ::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailChecksPromptAttackCategoryConfig>,
-    >,
+    pub(crate) categories: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksPromptAttackCategoryConfig>>,
 }
 impl GuardrailChecksPromptAttackConfigBuilder {
     /// Appends an item to `categories`.
@@ -37,42 +33,25 @@ impl GuardrailChecksPromptAttackConfigBuilder {
     /// To override the contents of this collection use [`set_categories`](Self::set_categories).
     ///
     /// <p>The prompt attack categories to evaluate.</p>
-    pub fn categories(
-        mut self,
-        input: crate::types::GuardrailChecksPromptAttackCategoryConfig,
-    ) -> Self {
+    pub fn categories(mut self, input: crate::types::GuardrailChecksPromptAttackCategoryConfig) -> Self {
         let mut v = self.categories.unwrap_or_default();
         v.push(input);
         self.categories = ::std::option::Option::Some(v);
         self
     }
     /// <p>The prompt attack categories to evaluate.</p>
-    pub fn set_categories(
-        mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GuardrailChecksPromptAttackCategoryConfig>,
-        >,
-    ) -> Self {
+    pub fn set_categories(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksPromptAttackCategoryConfig>>) -> Self {
         self.categories = input;
         self
     }
     /// <p>The prompt attack categories to evaluate.</p>
-    pub fn get_categories(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailChecksPromptAttackCategoryConfig>,
-    > {
+    pub fn get_categories(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksPromptAttackCategoryConfig>> {
         &self.categories
     }
     /// Consumes the builder and constructs a [`GuardrailChecksPromptAttackConfig`](crate::types::GuardrailChecksPromptAttackConfig).
     /// This method will fail if any of the following fields are not set:
     /// - [`categories`](crate::types::builders::GuardrailChecksPromptAttackConfigBuilder::categories)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::GuardrailChecksPromptAttackConfig,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailChecksPromptAttackConfig, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GuardrailChecksPromptAttackConfig {
             categories: self.categories.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

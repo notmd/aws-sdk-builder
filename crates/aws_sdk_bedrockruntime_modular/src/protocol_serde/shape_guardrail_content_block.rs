@@ -7,27 +7,19 @@ pub fn ser_guardrail_content_block(
         crate::types::GuardrailContentBlock::Text(inner) => {
             #[allow(unused_mut)]
             let mut object_1 = object_4.key("text").start_object();
-            crate::protocol_serde::shape_guardrail_text_block::ser_guardrail_text_block(
-                &mut object_1,
-                inner,
-            )?;
+            crate::protocol_serde::shape_guardrail_text_block::ser_guardrail_text_block(&mut object_1, inner)?;
             object_1.finish();
         }
         crate::types::GuardrailContentBlock::Image(inner) => {
             #[allow(unused_mut)]
             let mut object_2 = object_4.key("image").start_object();
-            crate::protocol_serde::shape_guardrail_image_block::ser_guardrail_image_block(
-                &mut object_2,
-                inner,
-            )?;
+            crate::protocol_serde::shape_guardrail_image_block::ser_guardrail_image_block(&mut object_2, inner)?;
             object_2.finish();
         }
         crate::types::GuardrailContentBlock::Unknown => {
-            return Err(
-                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                    "GuardrailContentBlock",
-                ),
-            )
+            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
+                "GuardrailContentBlock",
+            ))
         }
     }
     Ok(())

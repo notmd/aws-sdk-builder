@@ -41,15 +41,12 @@ impl Citation {
 }
 
 /// A builder for [`Citation`](crate::types::Citation).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CitationBuilder {
     pub(crate) title: ::std::option::Option<::std::string::String>,
     pub(crate) source: ::std::option::Option<::std::string::String>,
-    pub(crate) source_content:
-        ::std::option::Option<::std::vec::Vec<crate::types::CitationSourceContent>>,
+    pub(crate) source_content: ::std::option::Option<::std::vec::Vec<crate::types::CitationSourceContent>>,
     pub(crate) location: ::std::option::Option<crate::types::CitationLocation>,
 }
 impl CitationBuilder {
@@ -93,17 +90,12 @@ impl CitationBuilder {
         self
     }
     /// <p>The specific content from the source document that was referenced or cited in the generated response.</p>
-    pub fn set_source_content(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::CitationSourceContent>>,
-    ) -> Self {
+    pub fn set_source_content(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CitationSourceContent>>) -> Self {
         self.source_content = input;
         self
     }
     /// <p>The specific content from the source document that was referenced or cited in the generated response.</p>
-    pub fn get_source_content(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::CitationSourceContent>> {
+    pub fn get_source_content(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CitationSourceContent>> {
         &self.source_content
     }
     /// <p>The precise location within the source document where the cited content can be found, including character positions, page numbers, or chunk identifiers.</p>
@@ -112,10 +104,7 @@ impl CitationBuilder {
         self
     }
     /// <p>The precise location within the source document where the cited content can be found, including character positions, page numbers, or chunk identifiers.</p>
-    pub fn set_location(
-        mut self,
-        input: ::std::option::Option<crate::types::CitationLocation>,
-    ) -> Self {
+    pub fn set_location(mut self, input: ::std::option::Option<crate::types::CitationLocation>) -> Self {
         self.location = input;
         self
     }

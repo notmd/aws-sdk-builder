@@ -33,19 +33,14 @@ pub struct ConverseInput {
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
     pub additional_model_request_fields: ::std::option::Option<::aws_smithy_types::Document>,
     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
-    pub prompt_variables: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::PromptVariableValues>,
-    >,
+    pub prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PromptVariableValues>>,
     /// <p>Additional model parameters field paths to return in the response. <code>Converse</code> and <code>ConverseStream</code> return the requested fields as a JSON Pointer object in the <code>additionalModelResponseFields</code> field. The following is example JSON for <code>additionalModelResponseFieldPaths</code>.</p>
     /// <p><code>\[ "/stop_sequence" \]</code></p>
     /// <p>For information about the JSON Pointer syntax, see the <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet Engineering Task Force (IETF)</a> documentation.</p>
     /// <p><code>Converse</code> and <code>ConverseStream</code> reject an empty JSON Pointer or incorrectly structured JSON Pointer with a <code>400</code> error code. if the JSON Pointer is valid, but the requested field is not in the model response, it is ignored by <code>Converse</code>.</p>
-    pub additional_model_response_field_paths:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub additional_model_response_field_paths: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>Key-value pairs that you can use to filter invocation logs.</p>
-    pub request_metadata: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub request_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>Model performance settings for the request.</p>
     pub performance_config: ::std::option::Option<crate::types::PerformanceConfiguration>,
     /// <p>Specifies the processing tier configuration used for serving the request.</p>
@@ -98,17 +93,11 @@ impl ConverseInput {
         self.guardrail_config.as_ref()
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn additional_model_request_fields(
-        &self,
-    ) -> ::std::option::Option<&::aws_smithy_types::Document> {
+    pub fn additional_model_request_fields(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.additional_model_request_fields.as_ref()
     }
     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
-    pub fn prompt_variables(
-        &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, crate::types::PromptVariableValues>,
-    > {
+    pub fn prompt_variables(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::PromptVariableValues>> {
         self.prompt_variables.as_ref()
     }
     /// <p>Additional model parameters field paths to return in the response. <code>Converse</code> and <code>ConverseStream</code> return the requested fields as a JSON Pointer object in the <code>additionalModelResponseFields</code> field. The following is example JSON for <code>additionalModelResponseFieldPaths</code>.</p>
@@ -118,22 +107,14 @@ impl ConverseInput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.additional_model_response_field_paths.is_none()`.
     pub fn additional_model_response_field_paths(&self) -> &[::std::string::String] {
-        self.additional_model_response_field_paths
-            .as_deref()
-            .unwrap_or_default()
+        self.additional_model_response_field_paths.as_deref().unwrap_or_default()
     }
     /// <p>Key-value pairs that you can use to filter invocation logs.</p>
-    pub fn request_metadata(
-        &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn request_metadata(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.request_metadata.as_ref()
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn performance_config(
-        &self,
-    ) -> ::std::option::Option<&crate::types::PerformanceConfiguration> {
+    pub fn performance_config(&self) -> ::std::option::Option<&crate::types::PerformanceConfiguration> {
         self.performance_config.as_ref()
     }
     /// <p>Specifies the processing tier configuration used for serving the request.</p>
@@ -155,15 +136,9 @@ impl ::std::fmt::Debug for ConverseInput {
         formatter.field("inference_config", &self.inference_config);
         formatter.field("tool_config", &self.tool_config);
         formatter.field("guardrail_config", &self.guardrail_config);
-        formatter.field(
-            "additional_model_request_fields",
-            &self.additional_model_request_fields,
-        );
+        formatter.field("additional_model_request_fields", &self.additional_model_request_fields);
         formatter.field("prompt_variables", &"*** Sensitive Data Redacted ***");
-        formatter.field(
-            "additional_model_response_field_paths",
-            &self.additional_model_response_field_paths,
-        );
+        formatter.field("additional_model_response_field_paths", &self.additional_model_response_field_paths);
         formatter.field("request_metadata", &"*** Sensitive Data Redacted ***");
         formatter.field("performance_config", &self.performance_config);
         formatter.field("service_tier", &self.service_tier);
@@ -191,14 +166,9 @@ pub struct ConverseInputBuilder {
     pub(crate) tool_config: ::std::option::Option<crate::types::ToolConfiguration>,
     pub(crate) guardrail_config: ::std::option::Option<crate::types::GuardrailConfiguration>,
     pub(crate) additional_model_request_fields: ::std::option::Option<::aws_smithy_types::Document>,
-    pub(crate) prompt_variables: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::PromptVariableValues>,
-    >,
-    pub(crate) additional_model_response_field_paths:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) request_metadata: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PromptVariableValues>>,
+    pub(crate) additional_model_response_field_paths: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) request_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) performance_config: ::std::option::Option<crate::types::PerformanceConfiguration>,
     pub(crate) service_tier: ::std::option::Option<crate::types::ServiceTier>,
     pub(crate) output_config: ::std::option::Option<crate::types::OutputConfig>,
@@ -271,10 +241,7 @@ impl ConverseInputBuilder {
         self
     }
     /// <p>The messages that you want to send to the model.</p>
-    pub fn set_messages(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Message>>,
-    ) -> Self {
+    pub fn set_messages(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Message>>) -> Self {
         self.messages = input;
         self
     }
@@ -294,17 +261,12 @@ impl ConverseInputBuilder {
         self
     }
     /// <p>A prompt that provides instructions or context to the model about the task it should perform, or the persona it should adopt during the conversation.</p>
-    pub fn set_system(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::SystemContentBlock>>,
-    ) -> Self {
+    pub fn set_system(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SystemContentBlock>>) -> Self {
         self.system = input;
         self
     }
     /// <p>A prompt that provides instructions or context to the model about the task it should perform, or the persona it should adopt during the conversation.</p>
-    pub fn get_system(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::SystemContentBlock>> {
+    pub fn get_system(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SystemContentBlock>> {
         &self.system
     }
     /// <p>Inference parameters to pass to the model. <code>Converse</code> and <code>ConverseStream</code> support a base set of inference parameters. If you need to pass additional parameters that the model supports, use the <code>additionalModelRequestFields</code> request field.</p>
@@ -313,17 +275,12 @@ impl ConverseInputBuilder {
         self
     }
     /// <p>Inference parameters to pass to the model. <code>Converse</code> and <code>ConverseStream</code> support a base set of inference parameters. If you need to pass additional parameters that the model supports, use the <code>additionalModelRequestFields</code> request field.</p>
-    pub fn set_inference_config(
-        mut self,
-        input: ::std::option::Option<crate::types::InferenceConfiguration>,
-    ) -> Self {
+    pub fn set_inference_config(mut self, input: ::std::option::Option<crate::types::InferenceConfiguration>) -> Self {
         self.inference_config = input;
         self
     }
     /// <p>Inference parameters to pass to the model. <code>Converse</code> and <code>ConverseStream</code> support a base set of inference parameters. If you need to pass additional parameters that the model supports, use the <code>additionalModelRequestFields</code> request field.</p>
-    pub fn get_inference_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::InferenceConfiguration> {
+    pub fn get_inference_config(&self) -> &::std::option::Option<crate::types::InferenceConfiguration> {
         &self.inference_config
     }
     /// <p>Configuration information for the tools that the model can use when generating a response.</p>
@@ -334,10 +291,7 @@ impl ConverseInputBuilder {
     }
     /// <p>Configuration information for the tools that the model can use when generating a response.</p>
     /// <p>For information about models that support tool use, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference.html#conversation-inference-supported-models-features">Supported models and model features</a>.</p>
-    pub fn set_tool_config(
-        mut self,
-        input: ::std::option::Option<crate::types::ToolConfiguration>,
-    ) -> Self {
+    pub fn set_tool_config(mut self, input: ::std::option::Option<crate::types::ToolConfiguration>) -> Self {
         self.tool_config = input;
         self
     }
@@ -352,17 +306,12 @@ impl ConverseInputBuilder {
         self
     }
     /// <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
-    pub fn set_guardrail_config(
-        mut self,
-        input: ::std::option::Option<crate::types::GuardrailConfiguration>,
-    ) -> Self {
+    pub fn set_guardrail_config(mut self, input: ::std::option::Option<crate::types::GuardrailConfiguration>) -> Self {
         self.guardrail_config = input;
         self
     }
     /// <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
-    pub fn get_guardrail_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailConfiguration> {
+    pub fn get_guardrail_config(&self) -> &::std::option::Option<crate::types::GuardrailConfiguration> {
         &self.guardrail_config
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
@@ -371,17 +320,12 @@ impl ConverseInputBuilder {
         self
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn set_additional_model_request_fields(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::Document>,
-    ) -> Self {
+    pub fn set_additional_model_request_fields(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.additional_model_request_fields = input;
         self
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn get_additional_model_request_fields(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::Document> {
+    pub fn get_additional_model_request_fields(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         &self.additional_model_request_fields
     }
     /// Adds a key-value pair to `prompt_variables`.
@@ -389,11 +333,7 @@ impl ConverseInputBuilder {
     /// To override the contents of this collection use [`set_prompt_variables`](Self::set_prompt_variables).
     ///
     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
-    pub fn prompt_variables(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: crate::types::PromptVariableValues,
-    ) -> Self {
+    pub fn prompt_variables(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::PromptVariableValues) -> Self {
         let mut hash_map = self.prompt_variables.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.prompt_variables = ::std::option::Option::Some(hash_map);
@@ -402,9 +342,7 @@ impl ConverseInputBuilder {
     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
     pub fn set_prompt_variables(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, crate::types::PromptVariableValues>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PromptVariableValues>>,
     ) -> Self {
         self.prompt_variables = input;
         self
@@ -412,9 +350,7 @@ impl ConverseInputBuilder {
     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
     pub fn get_prompt_variables(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::PromptVariableValues>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PromptVariableValues>> {
         &self.prompt_variables
     }
     /// Appends an item to `additional_model_response_field_paths`.
@@ -425,13 +361,8 @@ impl ConverseInputBuilder {
     /// <p><code>\[ "/stop_sequence" \]</code></p>
     /// <p>For information about the JSON Pointer syntax, see the <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet Engineering Task Force (IETF)</a> documentation.</p>
     /// <p><code>Converse</code> and <code>ConverseStream</code> reject an empty JSON Pointer or incorrectly structured JSON Pointer with a <code>400</code> error code. if the JSON Pointer is valid, but the requested field is not in the model response, it is ignored by <code>Converse</code>.</p>
-    pub fn additional_model_response_field_paths(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
-        let mut v = self
-            .additional_model_response_field_paths
-            .unwrap_or_default();
+    pub fn additional_model_response_field_paths(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        let mut v = self.additional_model_response_field_paths.unwrap_or_default();
         v.push(input.into());
         self.additional_model_response_field_paths = ::std::option::Option::Some(v);
         self
@@ -440,10 +371,7 @@ impl ConverseInputBuilder {
     /// <p><code>\[ "/stop_sequence" \]</code></p>
     /// <p>For information about the JSON Pointer syntax, see the <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet Engineering Task Force (IETF)</a> documentation.</p>
     /// <p><code>Converse</code> and <code>ConverseStream</code> reject an empty JSON Pointer or incorrectly structured JSON Pointer with a <code>400</code> error code. if the JSON Pointer is valid, but the requested field is not in the model response, it is ignored by <code>Converse</code>.</p>
-    pub fn set_additional_model_response_field_paths(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_additional_model_response_field_paths(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.additional_model_response_field_paths = input;
         self
     }
@@ -451,9 +379,7 @@ impl ConverseInputBuilder {
     /// <p><code>\[ "/stop_sequence" \]</code></p>
     /// <p>For information about the JSON Pointer syntax, see the <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet Engineering Task Force (IETF)</a> documentation.</p>
     /// <p><code>Converse</code> and <code>ConverseStream</code> reject an empty JSON Pointer or incorrectly structured JSON Pointer with a <code>400</code> error code. if the JSON Pointer is valid, but the requested field is not in the model response, it is ignored by <code>Converse</code>.</p>
-    pub fn get_additional_model_response_field_paths(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_additional_model_response_field_paths(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.additional_model_response_field_paths
     }
     /// Adds a key-value pair to `request_metadata`.
@@ -474,19 +400,13 @@ impl ConverseInputBuilder {
     /// <p>Key-value pairs that you can use to filter invocation logs.</p>
     pub fn set_request_metadata(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.request_metadata = input;
         self
     }
     /// <p>Key-value pairs that you can use to filter invocation logs.</p>
-    pub fn get_request_metadata(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn get_request_metadata(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.request_metadata
     }
     /// <p>Model performance settings for the request.</p>
@@ -495,17 +415,12 @@ impl ConverseInputBuilder {
         self
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn set_performance_config(
-        mut self,
-        input: ::std::option::Option<crate::types::PerformanceConfiguration>,
-    ) -> Self {
+    pub fn set_performance_config(mut self, input: ::std::option::Option<crate::types::PerformanceConfiguration>) -> Self {
         self.performance_config = input;
         self
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn get_performance_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::PerformanceConfiguration> {
+    pub fn get_performance_config(&self) -> &::std::option::Option<crate::types::PerformanceConfiguration> {
         &self.performance_config
     }
     /// <p>Specifies the processing tier configuration used for serving the request.</p>
@@ -514,10 +429,7 @@ impl ConverseInputBuilder {
         self
     }
     /// <p>Specifies the processing tier configuration used for serving the request.</p>
-    pub fn set_service_tier(
-        mut self,
-        input: ::std::option::Option<crate::types::ServiceTier>,
-    ) -> Self {
+    pub fn set_service_tier(mut self, input: ::std::option::Option<crate::types::ServiceTier>) -> Self {
         self.service_tier = input;
         self
     }
@@ -531,10 +443,7 @@ impl ConverseInputBuilder {
         self
     }
     /// <p>Output configuration for a model response.</p>
-    pub fn set_output_config(
-        mut self,
-        input: ::std::option::Option<crate::types::OutputConfig>,
-    ) -> Self {
+    pub fn set_output_config(mut self, input: ::std::option::Option<crate::types::OutputConfig>) -> Self {
         self.output_config = input;
         self
     }
@@ -543,12 +452,7 @@ impl ConverseInputBuilder {
         &self.output_config
     }
     /// Consumes the builder and constructs a [`ConverseInput`](crate::operation::converse::ConverseInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::converse::ConverseInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::converse::ConverseInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::converse::ConverseInput {
             model_id: self.model_id,
             messages: self.messages,
@@ -576,15 +480,9 @@ impl ::std::fmt::Debug for ConverseInputBuilder {
         formatter.field("inference_config", &self.inference_config);
         formatter.field("tool_config", &self.tool_config);
         formatter.field("guardrail_config", &self.guardrail_config);
-        formatter.field(
-            "additional_model_request_fields",
-            &self.additional_model_request_fields,
-        );
+        formatter.field("additional_model_request_fields", &self.additional_model_request_fields);
         formatter.field("prompt_variables", &"*** Sensitive Data Redacted ***");
-        formatter.field(
-            "additional_model_response_field_paths",
-            &self.additional_model_response_field_paths,
-        );
+        formatter.field("additional_model_response_field_paths", &self.additional_model_response_field_paths);
         formatter.field("request_metadata", &"*** Sensitive Data Redacted ***");
         formatter.field("performance_config", &self.performance_config);
         formatter.field("service_tier", &self.service_tier);

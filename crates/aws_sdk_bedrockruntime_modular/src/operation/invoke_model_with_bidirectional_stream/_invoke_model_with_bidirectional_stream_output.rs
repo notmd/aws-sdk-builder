@@ -32,7 +32,7 @@ impl ::aws_types::request_id::RequestId for InvokeModelWithBidirectionalStreamOu
 #[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl InvokeModelWithBidirectionalStreamOutput {
     /// Creates a new builder-style object to manufacture [`InvokeModelWithBidirectionalStreamOutput`](crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput).
-    pub fn builder() -> crate::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder{
+    pub fn builder() -> crate::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder {
         crate::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder::default()
     }
 }
@@ -105,7 +105,7 @@ impl InvokeModelWithBidirectionalStreamOutputBuilder {
     ) -> ::std::result::Result<
         crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput {
                 body: self.body.ok_or_else(|| {

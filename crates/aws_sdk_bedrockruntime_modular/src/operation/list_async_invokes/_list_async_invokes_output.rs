@@ -7,8 +7,7 @@ pub struct ListAsyncInvokesOutput {
     /// <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     /// <p>A list of invocation summaries.</p>
-    pub async_invoke_summaries:
-        ::std::option::Option<::std::vec::Vec<crate::types::AsyncInvokeSummary>>,
+    pub async_invoke_summaries: ::std::option::Option<::std::vec::Vec<crate::types::AsyncInvokeSummary>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_list_async_invokes")]
@@ -33,22 +32,18 @@ impl ::aws_types::request_id::RequestId for ListAsyncInvokesOutput {
 #[cfg(feature = "op_list_async_invokes")]
 impl ListAsyncInvokesOutput {
     /// Creates a new builder-style object to manufacture [`ListAsyncInvokesOutput`](crate::operation::list_async_invokes::ListAsyncInvokesOutput).
-    pub fn builder() -> crate::operation::list_async_invokes::builders::ListAsyncInvokesOutputBuilder
-    {
+    pub fn builder() -> crate::operation::list_async_invokes::builders::ListAsyncInvokesOutputBuilder {
         crate::operation::list_async_invokes::builders::ListAsyncInvokesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_async_invokes")]
 /// A builder for [`ListAsyncInvokesOutput`](crate::operation::list_async_invokes::ListAsyncInvokesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListAsyncInvokesOutputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
-    pub(crate) async_invoke_summaries:
-        ::std::option::Option<::std::vec::Vec<crate::types::AsyncInvokeSummary>>,
+    pub(crate) async_invoke_summaries: ::std::option::Option<::std::vec::Vec<crate::types::AsyncInvokeSummary>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_list_async_invokes")]
@@ -79,17 +74,12 @@ impl ListAsyncInvokesOutputBuilder {
         self
     }
     /// <p>A list of invocation summaries.</p>
-    pub fn set_async_invoke_summaries(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::AsyncInvokeSummary>>,
-    ) -> Self {
+    pub fn set_async_invoke_summaries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AsyncInvokeSummary>>) -> Self {
         self.async_invoke_summaries = input;
         self
     }
     /// <p>A list of invocation summaries.</p>
-    pub fn get_async_invoke_summaries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AsyncInvokeSummary>> {
+    pub fn get_async_invoke_summaries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AsyncInvokeSummary>> {
         &self.async_invoke_summaries
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

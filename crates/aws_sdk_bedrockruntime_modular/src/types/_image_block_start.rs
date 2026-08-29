@@ -21,9 +21,7 @@ impl ImageBlockStart {
 }
 
 /// A builder for [`ImageBlockStart`](crate::types::ImageBlockStart).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ImageBlockStartBuilder {
     pub(crate) format: ::std::option::Option<crate::types::ImageFormat>,
@@ -47,12 +45,7 @@ impl ImageBlockStartBuilder {
     /// Consumes the builder and constructs a [`ImageBlockStart`](crate::types::ImageBlockStart).
     /// This method will fail if any of the following fields are not set:
     /// - [`format`](crate::types::builders::ImageBlockStartBuilder::format)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::ImageBlockStart,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::ImageBlockStart, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ImageBlockStart {
             format: self.format.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

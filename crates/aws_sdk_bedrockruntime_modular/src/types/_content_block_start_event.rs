@@ -27,9 +27,7 @@ impl ContentBlockStartEvent {
 }
 
 /// A builder for [`ContentBlockStartEvent`](crate::types::ContentBlockStartEvent).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ContentBlockStartEventBuilder {
     pub(crate) start: ::std::option::Option<crate::types::ContentBlockStart>,
@@ -43,10 +41,7 @@ impl ContentBlockStartEventBuilder {
         self
     }
     /// <p>Start information about a content block start event.</p>
-    pub fn set_start(
-        mut self,
-        input: ::std::option::Option<crate::types::ContentBlockStart>,
-    ) -> Self {
+    pub fn set_start(mut self, input: ::std::option::Option<crate::types::ContentBlockStart>) -> Self {
         self.start = input;
         self
     }
@@ -72,12 +67,7 @@ impl ContentBlockStartEventBuilder {
     /// Consumes the builder and constructs a [`ContentBlockStartEvent`](crate::types::ContentBlockStartEvent).
     /// This method will fail if any of the following fields are not set:
     /// - [`content_block_index`](crate::types::builders::ContentBlockStartEventBuilder::content_block_index)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::ContentBlockStartEvent,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::ContentBlockStartEvent, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ContentBlockStartEvent {
             start: self.start,
             content_block_index: self.content_block_index.ok_or_else(|| {

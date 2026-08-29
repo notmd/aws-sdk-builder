@@ -29,9 +29,7 @@ pub enum ConverseStreamOutput {
 impl ConverseStreamOutput {
     /// Tries to convert the enum instance into [`ContentBlockDelta`](crate::types::ConverseStreamOutput::ContentBlockDelta), extracting the inner [`ContentBlockDeltaEvent`](crate::types::ContentBlockDeltaEvent).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_content_block_delta(
-        &self,
-    ) -> ::std::result::Result<&crate::types::ContentBlockDeltaEvent, &Self> {
+    pub fn as_content_block_delta(&self) -> ::std::result::Result<&crate::types::ContentBlockDeltaEvent, &Self> {
         if let ConverseStreamOutput::ContentBlockDelta(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -44,9 +42,7 @@ impl ConverseStreamOutput {
     }
     /// Tries to convert the enum instance into [`ContentBlockStart`](crate::types::ConverseStreamOutput::ContentBlockStart), extracting the inner [`ContentBlockStartEvent`](crate::types::ContentBlockStartEvent).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_content_block_start(
-        &self,
-    ) -> ::std::result::Result<&crate::types::ContentBlockStartEvent, &Self> {
+    pub fn as_content_block_start(&self) -> ::std::result::Result<&crate::types::ContentBlockStartEvent, &Self> {
         if let ConverseStreamOutput::ContentBlockStart(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -59,9 +55,7 @@ impl ConverseStreamOutput {
     }
     /// Tries to convert the enum instance into [`ContentBlockStop`](crate::types::ConverseStreamOutput::ContentBlockStop), extracting the inner [`ContentBlockStopEvent`](crate::types::ContentBlockStopEvent).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_content_block_stop(
-        &self,
-    ) -> ::std::result::Result<&crate::types::ContentBlockStopEvent, &Self> {
+    pub fn as_content_block_stop(&self) -> ::std::result::Result<&crate::types::ContentBlockStopEvent, &Self> {
         if let ConverseStreamOutput::ContentBlockStop(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -74,9 +68,7 @@ impl ConverseStreamOutput {
     }
     /// Tries to convert the enum instance into [`MessageStart`](crate::types::ConverseStreamOutput::MessageStart), extracting the inner [`MessageStartEvent`](crate::types::MessageStartEvent).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_message_start(
-        &self,
-    ) -> ::std::result::Result<&crate::types::MessageStartEvent, &Self> {
+    pub fn as_message_start(&self) -> ::std::result::Result<&crate::types::MessageStartEvent, &Self> {
         if let ConverseStreamOutput::MessageStart(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -102,9 +94,7 @@ impl ConverseStreamOutput {
     }
     /// Tries to convert the enum instance into [`Metadata`](crate::types::ConverseStreamOutput::Metadata), extracting the inner [`ConverseStreamMetadataEvent`](crate::types::ConverseStreamMetadataEvent).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_metadata(
-        &self,
-    ) -> ::std::result::Result<&crate::types::ConverseStreamMetadataEvent, &Self> {
+    pub fn as_metadata(&self) -> ::std::result::Result<&crate::types::ConverseStreamMetadataEvent, &Self> {
         if let ConverseStreamOutput::Metadata(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

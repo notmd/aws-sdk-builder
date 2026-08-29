@@ -34,9 +34,7 @@ impl ToolResultBlockStart {
 }
 
 /// A builder for [`ToolResultBlockStart`](crate::types::ToolResultBlockStart).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ToolResultBlockStartBuilder {
     pub(crate) tool_use_id: ::std::option::Option<::std::string::String>,
@@ -79,10 +77,7 @@ impl ToolResultBlockStartBuilder {
         self
     }
     /// <p>The status of the tool result block.</p>
-    pub fn set_status(
-        mut self,
-        input: ::std::option::Option<crate::types::ToolResultStatus>,
-    ) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ToolResultStatus>) -> Self {
         self.status = input;
         self
     }
@@ -93,12 +88,7 @@ impl ToolResultBlockStartBuilder {
     /// Consumes the builder and constructs a [`ToolResultBlockStart`](crate::types::ToolResultBlockStart).
     /// This method will fail if any of the following fields are not set:
     /// - [`tool_use_id`](crate::types::builders::ToolResultBlockStartBuilder::tool_use_id)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::ToolResultBlockStart,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::ToolResultBlockStart, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ToolResultBlockStart {
             tool_use_id: self.tool_use_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

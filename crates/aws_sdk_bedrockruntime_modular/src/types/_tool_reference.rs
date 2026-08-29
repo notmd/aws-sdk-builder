@@ -33,9 +33,7 @@ impl ToolReference {
 }
 
 /// A builder for [`ToolReference`](crate::types::ToolReference).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ToolReferenceBuilder {
     pub(crate) r#type: ::std::option::Option<::std::string::String>,

@@ -20,9 +20,7 @@ impl AsyncInvokeOutputDataConfig {
     #[allow(irrefutable_let_patterns)]
     /// Tries to convert the enum instance into [`S3OutputDataConfig`](crate::types::AsyncInvokeOutputDataConfig::S3OutputDataConfig), extracting the inner [`AsyncInvokeS3OutputDataConfig`](crate::types::AsyncInvokeS3OutputDataConfig).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_s3_output_data_config(
-        &self,
-    ) -> ::std::result::Result<&crate::types::AsyncInvokeS3OutputDataConfig, &Self> {
+    pub fn as_s3_output_data_config(&self) -> ::std::result::Result<&crate::types::AsyncInvokeS3OutputDataConfig, &Self> {
         if let AsyncInvokeOutputDataConfig::S3OutputDataConfig(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

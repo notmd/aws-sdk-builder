@@ -30,18 +30,14 @@ impl ::aws_types::request_id::RequestId for InvokeGuardrailChecksOutput {
 #[cfg(feature = "op_invoke_guardrail_checks")]
 impl InvokeGuardrailChecksOutput {
     /// Creates a new builder-style object to manufacture [`InvokeGuardrailChecksOutput`](crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksOutput).
-    pub fn builder(
-    ) -> crate::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksOutputBuilder
-    {
+    pub fn builder() -> crate::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksOutputBuilder {
         crate::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_invoke_guardrail_checks")]
 /// A builder for [`InvokeGuardrailChecksOutput`](crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InvokeGuardrailChecksOutputBuilder {
     pub(crate) results: ::std::option::Option<crate::types::GuardrailChecksResults>,
@@ -57,10 +53,7 @@ impl InvokeGuardrailChecksOutputBuilder {
         self
     }
     /// <p>The per-check results containing findings from the guardrail evaluation.</p>
-    pub fn set_results(
-        mut self,
-        input: ::std::option::Option<crate::types::GuardrailChecksResults>,
-    ) -> Self {
+    pub fn set_results(mut self, input: ::std::option::Option<crate::types::GuardrailChecksResults>) -> Self {
         self.results = input;
         self
     }
@@ -75,10 +68,7 @@ impl InvokeGuardrailChecksOutputBuilder {
         self
     }
     /// <p>The per-check text unit consumption for the guardrail evaluation.</p>
-    pub fn set_usage(
-        mut self,
-        input: ::std::option::Option<crate::types::GuardrailChecksUsageResults>,
-    ) -> Self {
+    pub fn set_usage(mut self, input: ::std::option::Option<crate::types::GuardrailChecksUsageResults>) -> Self {
         self.usage = input;
         self
     }

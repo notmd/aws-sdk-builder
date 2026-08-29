@@ -5,10 +5,7 @@
 #[derive(::std::fmt::Debug)]
 pub struct InvokeModelWithResponseStreamOutput {
     /// <p>Inference response from the model in the format specified by the <code>contentType</code> header. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
-    pub body: crate::event_receiver::EventReceiver<
-        crate::types::ResponseStream,
-        crate::types::error::ResponseStreamError,
-    >,
+    pub body: crate::event_receiver::EventReceiver<crate::types::ResponseStream, crate::types::error::ResponseStreamError>,
     /// <p>The MIME type of the inference result.</p>
     pub content_type: ::std::string::String,
     /// <p>Model performance settings for the request.</p>
@@ -20,12 +17,7 @@ pub struct InvokeModelWithResponseStreamOutput {
 #[cfg(feature = "op_invoke_model_with_response_stream")]
 impl InvokeModelWithResponseStreamOutput {
     /// <p>Inference response from the model in the format specified by the <code>contentType</code> header. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
-    pub fn body(
-        &self,
-    ) -> &crate::event_receiver::EventReceiver<
-        crate::types::ResponseStream,
-        crate::types::error::ResponseStreamError,
-    > {
+    pub fn body(&self) -> &crate::event_receiver::EventReceiver<crate::types::ResponseStream, crate::types::error::ResponseStreamError> {
         &self.body
     }
     /// <p>The MIME type of the inference result.</p>
@@ -34,9 +26,7 @@ impl InvokeModelWithResponseStreamOutput {
         self.content_type.deref()
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn performance_config_latency(
-        &self,
-    ) -> ::std::option::Option<&crate::types::PerformanceConfigLatency> {
+    pub fn performance_config_latency(&self) -> ::std::option::Option<&crate::types::PerformanceConfigLatency> {
         self.performance_config_latency.as_ref()
     }
     /// <p>Specifies the processing tier type used for serving the request.</p>
@@ -53,7 +43,7 @@ impl ::aws_types::request_id::RequestId for InvokeModelWithResponseStreamOutput 
 #[cfg(feature = "op_invoke_model_with_response_stream")]
 impl InvokeModelWithResponseStreamOutput {
     /// Creates a new builder-style object to manufacture [`InvokeModelWithResponseStreamOutput`](crate::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamOutput).
-    pub fn builder() -> crate::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder{
+    pub fn builder() -> crate::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder {
         crate::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder::default()
     }
 }
@@ -63,15 +53,10 @@ impl InvokeModelWithResponseStreamOutput {
 #[derive(::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InvokeModelWithResponseStreamOutputBuilder {
-    pub(crate) body: ::std::option::Option<
-        crate::event_receiver::EventReceiver<
-            crate::types::ResponseStream,
-            crate::types::error::ResponseStreamError,
-        >,
-    >,
+    pub(crate) body:
+        ::std::option::Option<crate::event_receiver::EventReceiver<crate::types::ResponseStream, crate::types::error::ResponseStreamError>>,
     pub(crate) content_type: ::std::option::Option<::std::string::String>,
-    pub(crate) performance_config_latency:
-        ::std::option::Option<crate::types::PerformanceConfigLatency>,
+    pub(crate) performance_config_latency: ::std::option::Option<crate::types::PerformanceConfigLatency>,
     pub(crate) service_tier: ::std::option::Option<crate::types::ServiceTierType>,
     _request_id: Option<String>,
 }
@@ -81,10 +66,7 @@ impl InvokeModelWithResponseStreamOutputBuilder {
     /// This field is required.
     pub fn body(
         mut self,
-        input: crate::event_receiver::EventReceiver<
-            crate::types::ResponseStream,
-            crate::types::error::ResponseStreamError,
-        >,
+        input: crate::event_receiver::EventReceiver<crate::types::ResponseStream, crate::types::error::ResponseStreamError>,
     ) -> Self {
         self.body = ::std::option::Option::Some(input);
         self
@@ -92,12 +74,7 @@ impl InvokeModelWithResponseStreamOutputBuilder {
     /// <p>Inference response from the model in the format specified by the <code>contentType</code> header. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
     pub fn set_body(
         mut self,
-        input: ::std::option::Option<
-            crate::event_receiver::EventReceiver<
-                crate::types::ResponseStream,
-                crate::types::error::ResponseStreamError,
-            >,
-        >,
+        input: ::std::option::Option<crate::event_receiver::EventReceiver<crate::types::ResponseStream, crate::types::error::ResponseStreamError>>,
     ) -> Self {
         self.body = input;
         self
@@ -105,12 +82,7 @@ impl InvokeModelWithResponseStreamOutputBuilder {
     /// <p>Inference response from the model in the format specified by the <code>contentType</code> header. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
     pub fn get_body(
         &self,
-    ) -> &::std::option::Option<
-        crate::event_receiver::EventReceiver<
-            crate::types::ResponseStream,
-            crate::types::error::ResponseStreamError,
-        >,
-    > {
+    ) -> &::std::option::Option<crate::event_receiver::EventReceiver<crate::types::ResponseStream, crate::types::error::ResponseStreamError>> {
         &self.body
     }
     /// <p>The MIME type of the inference result.</p>
@@ -129,25 +101,17 @@ impl InvokeModelWithResponseStreamOutputBuilder {
         &self.content_type
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn performance_config_latency(
-        mut self,
-        input: crate::types::PerformanceConfigLatency,
-    ) -> Self {
+    pub fn performance_config_latency(mut self, input: crate::types::PerformanceConfigLatency) -> Self {
         self.performance_config_latency = ::std::option::Option::Some(input);
         self
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn set_performance_config_latency(
-        mut self,
-        input: ::std::option::Option<crate::types::PerformanceConfigLatency>,
-    ) -> Self {
+    pub fn set_performance_config_latency(mut self, input: ::std::option::Option<crate::types::PerformanceConfigLatency>) -> Self {
         self.performance_config_latency = input;
         self
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn get_performance_config_latency(
-        &self,
-    ) -> &::std::option::Option<crate::types::PerformanceConfigLatency> {
+    pub fn get_performance_config_latency(&self) -> &::std::option::Option<crate::types::PerformanceConfigLatency> {
         &self.performance_config_latency
     }
     /// <p>Specifies the processing tier type used for serving the request.</p>
@@ -156,10 +120,7 @@ impl InvokeModelWithResponseStreamOutputBuilder {
         self
     }
     /// <p>Specifies the processing tier type used for serving the request.</p>
-    pub fn set_service_tier(
-        mut self,
-        input: ::std::option::Option<crate::types::ServiceTierType>,
-    ) -> Self {
+    pub fn set_service_tier(mut self, input: ::std::option::Option<crate::types::ServiceTierType>) -> Self {
         self.service_tier = input;
         self
     }

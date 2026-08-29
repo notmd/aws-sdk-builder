@@ -44,9 +44,7 @@ impl CountTokensInput {
 
 #[cfg(feature = "op_count_tokens")]
 /// A builder for [`CountTokensInput`](crate::operation::count_tokens::CountTokensInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CountTokensInputBuilder {
     pub(crate) model_id: ::std::option::Option<::std::string::String>,
@@ -90,10 +88,7 @@ impl CountTokensInputBuilder {
     /// <p>For <code>Converse</code> requests, provide the messages and system content in the <code>converse</code> field</p></li>
     /// </ul>
     /// <p>The input format must be compatible with the model specified in the <code>modelId</code> parameter.</p>
-    pub fn set_input(
-        mut self,
-        input: ::std::option::Option<crate::types::CountTokensInput>,
-    ) -> Self {
+    pub fn set_input(mut self, input: ::std::option::Option<crate::types::CountTokensInput>) -> Self {
         self.input = input;
         self
     }
@@ -109,12 +104,7 @@ impl CountTokensInputBuilder {
         &self.input
     }
     /// Consumes the builder and constructs a [`CountTokensInput`](crate::operation::count_tokens::CountTokensInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::count_tokens::CountTokensInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::count_tokens::CountTokensInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::count_tokens::CountTokensInput {
             model_id: self.model_id,
             input: self.input,

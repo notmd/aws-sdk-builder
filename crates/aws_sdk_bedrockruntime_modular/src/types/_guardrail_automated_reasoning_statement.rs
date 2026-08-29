@@ -57,18 +57,12 @@ impl GuardrailAutomatedReasoningStatementBuilder {
         &self.logic
     }
     /// <p>The natural language explanation of the logical statement.</p>
-    pub fn natural_language(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn natural_language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.natural_language = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The natural language explanation of the logical statement.</p>
-    pub fn set_natural_language(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_natural_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.natural_language = input;
         self
     }

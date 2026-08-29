@@ -35,9 +35,7 @@ impl GuardrailConfiguration {
 }
 
 /// A builder for [`GuardrailConfiguration`](crate::types::GuardrailConfiguration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailConfigurationBuilder {
     pub(crate) guardrail_identifier: ::std::option::Option<::std::string::String>,
@@ -46,18 +44,12 @@ pub struct GuardrailConfigurationBuilder {
 }
 impl GuardrailConfigurationBuilder {
     /// <p>The identifier for the guardrail.</p>
-    pub fn guardrail_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn guardrail_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.guardrail_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The identifier for the guardrail.</p>
-    pub fn set_guardrail_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_guardrail_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.guardrail_identifier = input;
         self
     }
@@ -66,18 +58,12 @@ impl GuardrailConfigurationBuilder {
         &self.guardrail_identifier
     }
     /// <p>The version of the guardrail.</p>
-    pub fn guardrail_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn guardrail_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.guardrail_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The version of the guardrail.</p>
-    pub fn set_guardrail_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_guardrail_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.guardrail_version = input;
         self
     }

@@ -7,18 +7,13 @@ pub fn ser_output_format_structure(
         crate::types::OutputFormatStructure::JsonSchema(inner) => {
             #[allow(unused_mut)]
             let mut object_1 = object_2.key("jsonSchema").start_object();
-            crate::protocol_serde::shape_json_schema_definition::ser_json_schema_definition(
-                &mut object_1,
-                inner,
-            )?;
+            crate::protocol_serde::shape_json_schema_definition::ser_json_schema_definition(&mut object_1, inner)?;
             object_1.finish();
         }
         crate::types::OutputFormatStructure::Unknown => {
-            return Err(
-                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                    "OutputFormatStructure",
-                ),
-            )
+            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
+                "OutputFormatStructure",
+            ))
         }
     }
     Ok(())

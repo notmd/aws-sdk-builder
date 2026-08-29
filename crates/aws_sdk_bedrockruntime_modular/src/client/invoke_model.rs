@@ -19,9 +19,7 @@ impl super::Client {
     ///   - [`performance_config_latency(Option<PerformanceConfigLatency>)`](crate::operation::invoke_model::InvokeModelOutput::performance_config_latency): <p>Model performance settings for the request.</p>
     ///   - [`service_tier(Option<ServiceTierType>)`](crate::operation::invoke_model::InvokeModelOutput::service_tier): <p>Specifies the processing tier type used for serving the request.</p>
     /// - On failure, responds with [`SdkError<InvokeModelError>`](crate::operation::invoke_model::InvokeModelError)
-    pub fn invoke_model(
-        &self,
-    ) -> crate::operation::invoke_model::builders::InvokeModelFluentBuilder {
+    pub fn invoke_model(&self) -> crate::operation::invoke_model::builders::InvokeModelFluentBuilder {
         crate::operation::invoke_model::builders::InvokeModelFluentBuilder::new(self.handle.clone())
     }
 }

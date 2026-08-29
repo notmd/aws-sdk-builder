@@ -66,9 +66,7 @@ impl StartAsyncInvokeFluentBuilder {
         }
     }
     /// Access the StartAsyncInvoke as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::start_async_invoke::builders::StartAsyncInvokeInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::start_async_invoke::builders::StartAsyncInvokeInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,14 +90,12 @@ impl StartAsyncInvokeFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::start_async_invoke::StartAsyncInvoke::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::start_async_invoke::StartAsyncInvoke::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::start_async_invoke::StartAsyncInvoke::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::start_async_invoke::StartAsyncInvoke::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -112,34 +108,22 @@ impl StartAsyncInvokeFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>Specify idempotency token to ensure that requests are not duplicated.</p>
-    pub fn client_request_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn client_request_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.client_request_token(input.into());
         self
     }
     /// <p>Specify idempotency token to ensure that requests are not duplicated.</p>
-    pub fn set_client_request_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_client_request_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_client_request_token(input);
         self
     }
@@ -167,10 +151,7 @@ impl StartAsyncInvokeFluentBuilder {
         self
     }
     /// <p>Input to send to the model.</p>
-    pub fn set_model_input(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::Document>,
-    ) -> Self {
+    pub fn set_model_input(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.inner = self.inner.set_model_input(input);
         self
     }
@@ -184,17 +165,12 @@ impl StartAsyncInvokeFluentBuilder {
         self
     }
     /// <p>Where to store the output.</p>
-    pub fn set_output_data_config(
-        mut self,
-        input: ::std::option::Option<crate::types::AsyncInvokeOutputDataConfig>,
-    ) -> Self {
+    pub fn set_output_data_config(mut self, input: ::std::option::Option<crate::types::AsyncInvokeOutputDataConfig>) -> Self {
         self.inner = self.inner.set_output_data_config(input);
         self
     }
     /// <p>Where to store the output.</p>
-    pub fn get_output_data_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::AsyncInvokeOutputDataConfig> {
+    pub fn get_output_data_config(&self) -> &::std::option::Option<crate::types::AsyncInvokeOutputDataConfig> {
         self.inner.get_output_data_config()
     }
     ///
@@ -208,10 +184,7 @@ impl StartAsyncInvokeFluentBuilder {
         self
     }
     /// <p>Tags to apply to the invocation.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
