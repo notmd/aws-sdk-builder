@@ -1,5 +1,14 @@
 # AWS SDK modularizer checkpoint log
 
+## 2026-08-29 — `7b722c889` — public probe alias fix
+
+- Objective: correct the temporary external probe to reference its declared dependency alias.
+- Generic rule: keep probe source independent of the manifest library spelling by using the structural dependency alias declared in the generated probe manifest.
+- Changed files: `crates/aws-sdk-modularizer/src/conformance.rs`.
+- Commands: `cargo test -p aws-sdk-modularizer` passed (13 tests); the first conformance attempt correctly reached the probe and exposed only this alias mismatch; coverage unchanged.
+- Remaining blocker: rerun the complete conformance matrix with the corrected probe.
+- Next action: run `just conformance`, then all workspace verification commands.
+
 ## 2026-08-29 — `69ecdffb6` — public API probe checkpoint
 
 - Objective: verify the generated public operation surface from an external Cargo crate.
