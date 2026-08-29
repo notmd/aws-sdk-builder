@@ -6,7 +6,7 @@
 - transformed: 45
 - missing: 0
 - ambiguous: 0
-- coverage delta: +45 (no previous report)
+- coverage delta: +0
 - changed files: 11
 
 ## bedrockruntime
@@ -15,7 +15,7 @@
 - transformed: 11
 - missing: 0
 - ambiguous: 0
-- coverage delta: +11 (no previous report)
+- coverage delta: +0
 - changed files: 12
 
 ## cloudwatchlogs
@@ -24,7 +24,7 @@
 - transformed: 118
 - missing: 0
 - ambiguous: 0
-- coverage delta: +118 (no previous report)
+- coverage delta: +0
 - changed files: 12
 
 ## codeartifact
@@ -33,7 +33,7 @@
 - transformed: 48
 - missing: 0
 - ambiguous: 0
-- coverage delta: +48 (no previous report)
+- coverage delta: +0
 - changed files: 11
 
 ## cognitoidentityprovider
@@ -42,7 +42,7 @@
 - transformed: 129
 - missing: 0
 - ambiguous: 0
-- coverage delta: +129 (no previous report)
+- coverage delta: +0
 - changed files: 11
 
 ## config
@@ -51,7 +51,7 @@
 - transformed: 102
 - missing: 0
 - ambiguous: 0
-- coverage delta: +102 (no previous report)
+- coverage delta: +0
 - changed files: 11
 
 ## dynamodb
@@ -60,7 +60,7 @@
 - transformed: 58
 - missing: 0
 - ambiguous: 0
-- coverage delta: +58 (no previous report)
+- coverage delta: +0
 - changed files: 13
 
 ## iam
@@ -69,7 +69,7 @@
 - transformed: 180
 - missing: 0
 - ambiguous: 0
-- coverage delta: +180 (no previous report)
+- coverage delta: +0
 - changed files: 13
 
 ## kms
@@ -78,7 +78,7 @@
 - transformed: 54
 - missing: 0
 - ambiguous: 0
-- coverage delta: +54 (no previous report)
+- coverage delta: +0
 - changed files: 11
 
 ## lambda
@@ -87,7 +87,7 @@
 - transformed: 85
 - missing: 0
 - ambiguous: 0
-- coverage delta: +85 (no previous report)
+- coverage delta: +0
 - changed files: 35
 
 ## s3
@@ -96,7 +96,7 @@
 - transformed: 112
 - missing: 0
 - ambiguous: 0
-- coverage delta: +112 (no previous report)
+- coverage delta: +0
 - changed files: 17
 
 ## sesv2
@@ -105,7 +105,7 @@
 - transformed: 112
 - missing: 0
 - ambiguous: 0
-- coverage delta: +112 (no previous report)
+- coverage delta: +0
 - changed files: 11
 
 ## sns
@@ -114,7 +114,7 @@
 - transformed: 42
 - missing: 0
 - ambiguous: 0
-- coverage delta: +42 (no previous report)
+- coverage delta: +0
 - changed files: 11
 
 ## sqs
@@ -123,7 +123,7 @@
 - transformed: 23
 - missing: 0
 - ambiguous: 0
-- coverage delta: +23 (no previous report)
+- coverage delta: +0
 - changed files: 11
 
 ## sts
@@ -132,6 +132,6 @@
 - transformed: 11
 - missing: 0
 - ambiguous: 0
-- coverage delta: +11 (no previous report)
+- coverage delta: +0
 - changed files: 10
 
