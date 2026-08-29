@@ -46,12 +46,12 @@
 //! Then in code, a client can be created with the following:
 //!
 //! ```rust,no_run
-//! use aws_sdk_dynamodb as dynamodb;
+//! use aws_sdk_dynamodb_modular as dynamodb;
 //!
 //! #[::tokio::main]
 //! async fn main() -> Result<(), dynamodb::Error> {
 //!     let config = aws_config::load_from_env().await;
-//!     let client = aws_sdk_dynamodb::Client::new(&config);
+//!     let client = aws_sdk_dynamodb_modular::Client::new(&config);
 //!
 //!     // ... make some calls with the client
 //!
@@ -59,7 +59,7 @@
 //! }
 //! ```
 //!
-//! See the [client documentation](https://docs.rs/aws-sdk-dynamodb/latest/aws_sdk_dynamodb/client/struct.Client.html)
+//! See the [client documentation](https://docs.rs/aws-sdk-dynamodb/latest/aws_sdk_dynamodb_modular/client/struct.Client.html)
 //! for information on what calls can be made, and the inputs and outputs for each of those calls.
 //!
 //! ## Using the SDK
@@ -120,7 +120,7 @@ pub use config::Config;
 /// ```rust,no_run
 /// # async fn wrapper() {
 /// let config = aws_config::load_from_env().await;
-/// let client = aws_sdk_dynamodb::Client::new(&config);
+/// let client = aws_sdk_dynamodb_modular::Client::new(&config);
 /// # }
 /// ```
 ///
@@ -132,7 +132,7 @@ pub use config::Config;
 /// ```rust,no_run
 /// # async fn wrapper() {
 /// let sdk_config = ::aws_config::load_from_env().await;
-/// let config = aws_sdk_dynamodb::config::Builder::from(&sdk_config)
+/// let config = aws_sdk_dynamodb_modular::config::Builder::from(&sdk_config)
 /// # /*
 ///     .some_service_specific_setting("value")
 /// # */
