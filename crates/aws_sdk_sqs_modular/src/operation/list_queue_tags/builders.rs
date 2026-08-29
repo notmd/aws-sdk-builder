@@ -54,7 +54,7 @@ impl
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-#[cfg(any(feature = "op_get_queue_url", feature = "op_list_queue_tags"))]
+#[cfg(feature = "op_list_queue_tags")]
 impl ListQueueTagsFluentBuilder {
     /// Creates a new `ListQueueTagsFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {

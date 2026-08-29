@@ -4450,6 +4450,7 @@ where
         })
     }
 }
+#[cfg(feature = "op_select_object_content")]
 impl<R>
     From<
         ::aws_smithy_runtime_api::client::result::SdkError<
@@ -4477,6 +4478,7 @@ where
         }
     }
 }
+#[cfg(feature = "op_select_object_content")]
 impl From<crate::types::error::SelectObjectContentEventStreamError> for Error {
     fn from(err: crate::types::error::SelectObjectContentEventStreamError) -> Self {
         match err {

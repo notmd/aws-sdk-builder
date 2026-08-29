@@ -88,7 +88,7 @@ impl
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-#[cfg(any(feature = "op_derive_shared_secret", feature = "op_get_public_key"))]
+#[cfg(feature = "op_derive_shared_secret")]
 impl DeriveSharedSecretFluentBuilder {
     /// Creates a new `DeriveSharedSecretFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {

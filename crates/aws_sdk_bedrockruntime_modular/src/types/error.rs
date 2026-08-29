@@ -23,6 +23,7 @@ pub use crate::types::error::_model_timeout_exception::ModelTimeoutException;
 
 pub use crate::types::error::_model_stream_error_exception::ModelStreamErrorException;
 
+#[cfg(feature = "op_converse_stream")]
 /// Error type for the `ConverseStreamOutputError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -48,6 +49,7 @@ pub enum ConverseStreamOutputError {
     )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
+#[cfg(feature = "op_converse_stream")]
 impl ConverseStreamOutputError {
     /// Creates the `ConverseStreamOutputError::Unhandled` variant from any error type.
     pub fn unhandled(
@@ -115,6 +117,7 @@ impl ConverseStreamOutputError {
         matches!(self, Self::ServiceUnavailableException(_))
     }
 }
+#[cfg(feature = "op_converse_stream")]
 impl ::std::error::Error for ConverseStreamOutputError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
@@ -127,6 +130,7 @@ impl ::std::error::Error for ConverseStreamOutputError {
         }
     }
 }
+#[cfg(feature = "op_converse_stream")]
 impl ::std::fmt::Display for ConverseStreamOutputError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
@@ -147,6 +151,7 @@ impl ::std::fmt::Display for ConverseStreamOutputError {
         }
     }
 }
+#[cfg(feature = "op_converse_stream")]
 impl ::aws_smithy_types::retry::ProvideErrorKind for ConverseStreamOutputError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
@@ -155,6 +160,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for ConverseStreamOutputError {
         ::std::option::Option::None
     }
 }
+#[cfg(feature = "op_converse_stream")]
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ConverseStreamOutputError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
@@ -177,6 +183,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ConverseStrea
         }
     }
 }
+#[cfg(feature = "op_converse_stream")]
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ConverseStreamOutputError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<
@@ -190,12 +197,14 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for Converse
         })
     }
 }
+#[cfg(feature = "op_converse_stream")]
 impl ::aws_types::request_id::RequestId for crate::types::error::ConverseStreamOutputError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 /// Error type for the `InvokeModelWithBidirectionalStreamInputError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -211,6 +220,7 @@ pub enum InvokeModelWithBidirectionalStreamInputError {
     )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl InvokeModelWithBidirectionalStreamInputError {
     /// Creates the `InvokeModelWithBidirectionalStreamInputError::Unhandled` variant from any error type.
     pub fn unhandled(
@@ -243,6 +253,7 @@ impl InvokeModelWithBidirectionalStreamInputError {
         }
     }
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl ::std::error::Error for InvokeModelWithBidirectionalStreamInputError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
@@ -250,6 +261,7 @@ impl ::std::error::Error for InvokeModelWithBidirectionalStreamInputError {
         }
     }
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl ::std::fmt::Display for InvokeModelWithBidirectionalStreamInputError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
@@ -265,6 +277,7 @@ impl ::std::fmt::Display for InvokeModelWithBidirectionalStreamInputError {
         }
     }
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl ::aws_smithy_types::retry::ProvideErrorKind for InvokeModelWithBidirectionalStreamInputError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
@@ -273,6 +286,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for InvokeModelWithBidirectiona
         ::std::option::Option::None
     }
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
     for InvokeModelWithBidirectionalStreamInputError
 {
@@ -282,6 +296,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
         }
     }
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
     for InvokeModelWithBidirectionalStreamInputError
 {
@@ -297,6 +312,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
         })
     }
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl ::aws_types::request_id::RequestId
     for crate::types::error::InvokeModelWithBidirectionalStreamInputError
 {
@@ -305,6 +321,7 @@ impl ::aws_types::request_id::RequestId
     }
 }
 
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 /// Error type for the `InvokeModelWithBidirectionalStreamOutputError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -332,6 +349,7 @@ pub enum InvokeModelWithBidirectionalStreamOutputError {
     )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl InvokeModelWithBidirectionalStreamOutputError {
     /// Creates the `InvokeModelWithBidirectionalStreamOutputError::Unhandled` variant from any error type.
     pub fn unhandled(
@@ -406,6 +424,7 @@ impl InvokeModelWithBidirectionalStreamOutputError {
         matches!(self, Self::ServiceUnavailableException(_))
     }
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl ::std::error::Error for InvokeModelWithBidirectionalStreamOutputError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
@@ -419,6 +438,7 @@ impl ::std::error::Error for InvokeModelWithBidirectionalStreamOutputError {
         }
     }
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl ::std::fmt::Display for InvokeModelWithBidirectionalStreamOutputError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
@@ -440,6 +460,7 @@ impl ::std::fmt::Display for InvokeModelWithBidirectionalStreamOutputError {
         }
     }
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl ::aws_smithy_types::retry::ProvideErrorKind for InvokeModelWithBidirectionalStreamOutputError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
@@ -448,6 +469,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for InvokeModelWithBidirectiona
         ::std::option::Option::None
     }
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
     for InvokeModelWithBidirectionalStreamOutputError
 {
@@ -475,6 +497,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
         }
     }
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
     for InvokeModelWithBidirectionalStreamOutputError
 {
@@ -490,6 +513,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
         })
     }
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl ::aws_types::request_id::RequestId
     for crate::types::error::InvokeModelWithBidirectionalStreamOutputError
 {
@@ -498,6 +522,7 @@ impl ::aws_types::request_id::RequestId
     }
 }
 
+#[cfg(feature = "op_invoke_model_with_response_stream")]
 /// Error type for the `ResponseStreamError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -525,6 +550,7 @@ pub enum ResponseStreamError {
     )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
+#[cfg(feature = "op_invoke_model_with_response_stream")]
 impl ResponseStreamError {
     /// Creates the `ResponseStreamError::Unhandled` variant from any error type.
     pub fn unhandled(
@@ -599,6 +625,7 @@ impl ResponseStreamError {
         matches!(self, Self::ServiceUnavailableException(_))
     }
 }
+#[cfg(feature = "op_invoke_model_with_response_stream")]
 impl ::std::error::Error for ResponseStreamError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
@@ -612,6 +639,7 @@ impl ::std::error::Error for ResponseStreamError {
         }
     }
 }
+#[cfg(feature = "op_invoke_model_with_response_stream")]
 impl ::std::fmt::Display for ResponseStreamError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
@@ -633,6 +661,7 @@ impl ::std::fmt::Display for ResponseStreamError {
         }
     }
 }
+#[cfg(feature = "op_invoke_model_with_response_stream")]
 impl ::aws_smithy_types::retry::ProvideErrorKind for ResponseStreamError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
@@ -641,6 +670,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for ResponseStreamError {
         ::std::option::Option::None
     }
 }
+#[cfg(feature = "op_invoke_model_with_response_stream")]
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ResponseStreamError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
@@ -666,6 +696,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ResponseStrea
         }
     }
 }
+#[cfg(feature = "op_invoke_model_with_response_stream")]
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ResponseStreamError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<
@@ -679,6 +710,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for Response
         })
     }
 }
+#[cfg(feature = "op_invoke_model_with_response_stream")]
 impl ::aws_types::request_id::RequestId for crate::types::error::ResponseStreamError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()

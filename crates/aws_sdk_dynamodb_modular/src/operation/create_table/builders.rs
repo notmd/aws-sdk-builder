@@ -55,7 +55,7 @@ impl
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-#[cfg(any(feature = "op_create_table", feature = "op_get_resource_policy"))]
+#[cfg(feature = "op_create_table")]
 impl CreateTableFluentBuilder {
     /// Creates a new `CreateTableFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {

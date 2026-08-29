@@ -66,7 +66,7 @@ impl
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-#[cfg(any(feature = "op_add_permission", feature = "op_get_queue_url"))]
+#[cfg(feature = "op_add_permission")]
 impl AddPermissionFluentBuilder {
     /// Creates a new `AddPermissionFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {

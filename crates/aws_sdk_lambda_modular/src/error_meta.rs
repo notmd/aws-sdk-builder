@@ -557,95 +557,6 @@ impl From<crate::operation::create_capacity_provider::CreateCapacityProviderErro
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_code_signing_config::CreateCodeSigningConfigError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_code_signing_config::CreateCodeSigningConfigError,
-            R,
-        >,
-    ) -> Self {
-        match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
-                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
-                source: err.into(),
-            }),
-        }
-    }
-}
-impl From<crate::operation::create_code_signing_config::CreateCodeSigningConfigError> for Error {
-    fn from(
-        err: crate::operation::create_code_signing_config::CreateCodeSigningConfigError,
-    ) -> Self {
-        match err {
-            crate::operation::create_code_signing_config::CreateCodeSigningConfigError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::create_code_signing_config::CreateCodeSigningConfigError::ServiceException(inner) => Error::ServiceException(inner),
-            crate::operation::create_code_signing_config::CreateCodeSigningConfigError::Unhandled(inner) => Error::Unhandled(inner),
-        }
-    }
-}
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_event_source_mapping::CreateEventSourceMappingError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_event_source_mapping::CreateEventSourceMappingError,
-            R,
-        >,
-    ) -> Self {
-        match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
-                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
-                source: err.into(),
-            }),
-        }
-    }
-}
-impl From<crate::operation::create_event_source_mapping::CreateEventSourceMappingError> for Error {
-    fn from(
-        err: crate::operation::create_event_source_mapping::CreateEventSourceMappingError,
-    ) -> Self {
-        match err {
-            crate::operation::create_event_source_mapping::CreateEventSourceMappingError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::create_event_source_mapping::CreateEventSourceMappingError::ResourceConflictException(inner) => {
-                Error::ResourceConflictException(inner)
-            }
-            crate::operation::create_event_source_mapping::CreateEventSourceMappingError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::create_event_source_mapping::CreateEventSourceMappingError::ServiceException(inner) => Error::ServiceException(inner),
-            crate::operation::create_event_source_mapping::CreateEventSourceMappingError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::create_event_source_mapping::CreateEventSourceMappingError::Unhandled(inner) => Error::Unhandled(inner),
-        }
-    }
-}
 #[cfg(feature = "op_create_function")]
 impl<R>
     From<
@@ -3599,52 +3510,6 @@ impl From<crate::operation::publish_layer_version::PublishLayerVersionError> for
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::publish_version::PublishVersionError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::publish_version::PublishVersionError,
-            R,
-        >,
-    ) -> Self {
-        match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
-                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
-                source: err.into(),
-            }),
-        }
-    }
-}
-impl From<crate::operation::publish_version::PublishVersionError> for Error {
-    fn from(err: crate::operation::publish_version::PublishVersionError) -> Self {
-        match err {
-            crate::operation::publish_version::PublishVersionError::CodeStorageExceededException(inner) => Error::CodeStorageExceededException(inner),
-            crate::operation::publish_version::PublishVersionError::FunctionVersionsPerCapacityProviderLimitExceededException(inner) => {
-                Error::FunctionVersionsPerCapacityProviderLimitExceededException(inner)
-            }
-            crate::operation::publish_version::PublishVersionError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::publish_version::PublishVersionError::PreconditionFailedException(inner) => Error::PreconditionFailedException(inner),
-            crate::operation::publish_version::PublishVersionError::ResourceConflictException(inner) => Error::ResourceConflictException(inner),
-            crate::operation::publish_version::PublishVersionError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::publish_version::PublishVersionError::ServiceException(inner) => Error::ServiceException(inner),
-            crate::operation::publish_version::PublishVersionError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::publish_version::PublishVersionError::Unhandled(inner) => Error::Unhandled(inner),
-        }
-    }
-}
 #[cfg(feature = "op_put_function_code_signing_config")]
 impl<R>
     From<
@@ -4946,6 +4811,7 @@ where
         })
     }
 }
+#[cfg(feature = "op_invoke_with_response_stream")]
 impl<R>
     From<
         ::aws_smithy_runtime_api::client::result::SdkError<
@@ -4973,6 +4839,7 @@ where
         }
     }
 }
+#[cfg(feature = "op_invoke_with_response_stream")]
 impl From<crate::types::error::InvokeWithResponseStreamResponseEventError> for Error {
     fn from(err: crate::types::error::InvokeWithResponseStreamResponseEventError) -> Self {
         match err {

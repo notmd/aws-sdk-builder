@@ -8,6 +8,7 @@ impl GetLogObjectResponseStreamUnmarshaller {
         GetLogObjectResponseStreamUnmarshaller
     }
 }
+#[cfg(feature = "op_get_log_object")]
 impl ::aws_smithy_eventstream::frame::UnmarshallMessage for GetLogObjectResponseStreamUnmarshaller {
     type Output = crate::types::GetLogObjectResponseStream;
     type Error = crate::types::error::GetLogObjectResponseStreamError;

@@ -52,10 +52,7 @@ impl
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-#[cfg(any(
-    feature = "op_get_email_identity",
-    feature = "op_put_email_identity_dkim_attributes"
-))]
+#[cfg(feature = "op_put_email_identity_dkim_attributes")]
 impl PutEmailIdentityDkimAttributesFluentBuilder {
     /// Creates a new `PutEmailIdentityDkimAttributesFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {

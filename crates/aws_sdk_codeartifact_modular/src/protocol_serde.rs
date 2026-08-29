@@ -32,111 +32,151 @@ pub fn parse_http_error_metadata(
     crate::json_errors::parse_error_metadata(response_body, response_headers)
 }
 
+#[cfg(feature = "op_associate_external_connection")]
 pub(crate) mod shape_associate_external_connection;
 
+#[cfg(feature = "op_copy_package_versions")]
 pub(crate) mod shape_copy_package_versions;
 
+#[cfg(feature = "op_create_domain")]
 pub(crate) mod shape_create_domain;
 
+#[cfg(feature = "op_create_package_group")]
 pub(crate) mod shape_create_package_group;
 
+#[cfg(feature = "op_create_repository")]
 pub(crate) mod shape_create_repository;
 
+#[cfg(feature = "op_delete_domain")]
 pub(crate) mod shape_delete_domain;
 
-#[cfg(feature = "op_delete_domain")]
+#[cfg(feature = "op_delete_domain_permissions_policy")]
 pub(crate) mod shape_delete_domain_permissions_policy;
 
+#[cfg(feature = "op_delete_package")]
 pub(crate) mod shape_delete_package;
 
-#[cfg(feature = "op_delete_package")]
+#[cfg(feature = "op_delete_package_group")]
 pub(crate) mod shape_delete_package_group;
 
-#[cfg(feature = "op_delete_package")]
+#[cfg(feature = "op_delete_package_versions")]
 pub(crate) mod shape_delete_package_versions;
 
+#[cfg(feature = "op_delete_repository")]
 pub(crate) mod shape_delete_repository;
 
-#[cfg(feature = "op_delete_repository")]
+#[cfg(feature = "op_delete_repository_permissions_policy")]
 pub(crate) mod shape_delete_repository_permissions_policy;
 
+#[cfg(feature = "op_describe_domain")]
 pub(crate) mod shape_describe_domain;
 
+#[cfg(feature = "op_describe_package")]
 pub(crate) mod shape_describe_package;
 
-#[cfg(feature = "op_describe_package")]
+#[cfg(feature = "op_describe_package_group")]
 pub(crate) mod shape_describe_package_group;
 
-#[cfg(feature = "op_describe_package")]
+#[cfg(feature = "op_describe_package_version")]
 pub(crate) mod shape_describe_package_version;
 
+#[cfg(feature = "op_describe_repository")]
 pub(crate) mod shape_describe_repository;
 
+#[cfg(feature = "op_disassociate_external_connection")]
 pub(crate) mod shape_disassociate_external_connection;
 
+#[cfg(feature = "op_dispose_package_versions")]
 pub(crate) mod shape_dispose_package_versions;
 
+#[cfg(feature = "op_get_associated_package_group")]
 pub(crate) mod shape_get_associated_package_group;
 
+#[cfg(feature = "op_get_authorization_token")]
 pub(crate) mod shape_get_authorization_token;
 
+#[cfg(feature = "op_get_domain_permissions_policy")]
 pub(crate) mod shape_get_domain_permissions_policy;
 
+#[cfg(feature = "op_get_package_version_asset")]
 pub(crate) mod shape_get_package_version_asset;
 
+#[cfg(feature = "op_get_package_version_readme")]
 pub(crate) mod shape_get_package_version_readme;
 
+#[cfg(feature = "op_get_repository_endpoint")]
 pub(crate) mod shape_get_repository_endpoint;
 
+#[cfg(feature = "op_get_repository_permissions_policy")]
 pub(crate) mod shape_get_repository_permissions_policy;
 
+#[cfg(feature = "op_list_allowed_repositories_for_group")]
 pub(crate) mod shape_list_allowed_repositories_for_group;
 
+#[cfg(feature = "op_list_associated_packages")]
 pub(crate) mod shape_list_associated_packages;
 
+#[cfg(feature = "op_list_domains")]
 pub(crate) mod shape_list_domains;
 
+#[cfg(feature = "op_list_package_groups")]
 pub(crate) mod shape_list_package_groups;
 
+#[cfg(feature = "op_list_package_version_assets")]
 pub(crate) mod shape_list_package_version_assets;
 
+#[cfg(feature = "op_list_package_version_dependencies")]
 pub(crate) mod shape_list_package_version_dependencies;
 
+#[cfg(feature = "op_list_package_versions")]
 pub(crate) mod shape_list_package_versions;
 
+#[cfg(feature = "op_list_packages")]
 pub(crate) mod shape_list_packages;
 
+#[cfg(feature = "op_list_repositories")]
 pub(crate) mod shape_list_repositories;
 
-#[cfg(feature = "op_list_repositories")]
+#[cfg(feature = "op_list_repositories_in_domain")]
 pub(crate) mod shape_list_repositories_in_domain;
 
+#[cfg(feature = "op_list_sub_package_groups")]
 pub(crate) mod shape_list_sub_package_groups;
 
+#[cfg(feature = "op_list_tags_for_resource")]
 pub(crate) mod shape_list_tags_for_resource;
 
+#[cfg(feature = "op_publish_package_version")]
 pub(crate) mod shape_publish_package_version;
 
 #[cfg(feature = "op_publish_package_version")]
 pub(crate) mod shape_publish_package_version_input;
 
+#[cfg(feature = "op_put_domain_permissions_policy")]
 pub(crate) mod shape_put_domain_permissions_policy;
 
+#[cfg(feature = "op_put_package_origin_configuration")]
 pub(crate) mod shape_put_package_origin_configuration;
 
+#[cfg(feature = "op_put_repository_permissions_policy")]
 pub(crate) mod shape_put_repository_permissions_policy;
 
+#[cfg(feature = "op_tag_resource")]
 pub(crate) mod shape_tag_resource;
 
+#[cfg(feature = "op_untag_resource")]
 pub(crate) mod shape_untag_resource;
 
+#[cfg(feature = "op_update_package_group")]
 pub(crate) mod shape_update_package_group;
 
-#[cfg(feature = "op_update_package_group")]
+#[cfg(feature = "op_update_package_group_origin_configuration")]
 pub(crate) mod shape_update_package_group_origin_configuration;
 
+#[cfg(feature = "op_update_package_versions_status")]
 pub(crate) mod shape_update_package_versions_status;
 
+#[cfg(feature = "op_update_repository")]
 pub(crate) mod shape_update_repository;
 
 pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
@@ -147,8 +187,81 @@ pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
     }
 }
 
+#[cfg(any(
+    feature = "op_associate_external_connection",
+    feature = "op_copy_package_versions",
+    feature = "op_create_domain",
+    feature = "op_create_package_group",
+    feature = "op_create_repository",
+    feature = "op_delete_domain",
+    feature = "op_delete_domain_permissions_policy",
+    feature = "op_delete_package",
+    feature = "op_delete_package_group",
+    feature = "op_delete_package_versions",
+    feature = "op_delete_repository",
+    feature = "op_delete_repository_permissions_policy",
+    feature = "op_describe_domain",
+    feature = "op_describe_package",
+    feature = "op_describe_package_group",
+    feature = "op_describe_package_version",
+    feature = "op_describe_repository",
+    feature = "op_disassociate_external_connection",
+    feature = "op_dispose_package_versions",
+    feature = "op_get_associated_package_group",
+    feature = "op_get_authorization_token",
+    feature = "op_get_domain_permissions_policy",
+    feature = "op_get_package_version_asset",
+    feature = "op_get_package_version_readme",
+    feature = "op_get_repository_endpoint",
+    feature = "op_get_repository_permissions_policy",
+    feature = "op_list_allowed_repositories_for_group",
+    feature = "op_list_associated_packages",
+    feature = "op_list_domains",
+    feature = "op_list_package_groups",
+    feature = "op_list_package_version_assets",
+    feature = "op_list_package_version_dependencies",
+    feature = "op_list_package_versions",
+    feature = "op_list_packages",
+    feature = "op_list_repositories",
+    feature = "op_list_repositories_in_domain",
+    feature = "op_list_sub_package_groups",
+    feature = "op_list_tags_for_resource",
+    feature = "op_publish_package_version",
+    feature = "op_put_domain_permissions_policy",
+    feature = "op_put_package_origin_configuration",
+    feature = "op_put_repository_permissions_policy",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource",
+    feature = "op_update_package_group",
+    feature = "op_update_package_group_origin_configuration",
+    feature = "op_update_package_versions_status",
+    feature = "op_update_repository"
+))]
 pub(crate) mod shape_access_denied_exception;
 
+#[cfg(any(
+    feature = "op_associate_external_connection",
+    feature = "op_copy_package_versions",
+    feature = "op_create_domain",
+    feature = "op_create_package_group",
+    feature = "op_create_repository",
+    feature = "op_delete_domain",
+    feature = "op_delete_domain_permissions_policy",
+    feature = "op_delete_package",
+    feature = "op_delete_package_group",
+    feature = "op_delete_package_versions",
+    feature = "op_delete_repository",
+    feature = "op_delete_repository_permissions_policy",
+    feature = "op_describe_package_version",
+    feature = "op_disassociate_external_connection",
+    feature = "op_dispose_package_versions",
+    feature = "op_get_package_version_asset",
+    feature = "op_publish_package_version",
+    feature = "op_put_domain_permissions_policy",
+    feature = "op_put_repository_permissions_policy",
+    feature = "op_update_package_versions_status",
+    feature = "op_update_repository"
+))]
 pub(crate) mod shape_conflict_exception;
 
 #[cfg(feature = "op_copy_package_versions")]
@@ -172,6 +285,53 @@ pub(crate) mod shape_dispose_package_versions_input;
 #[cfg(feature = "op_get_package_version_asset")]
 pub(crate) mod shape_get_package_version_asset_output;
 
+#[cfg(any(
+    feature = "op_associate_external_connection",
+    feature = "op_copy_package_versions",
+    feature = "op_create_domain",
+    feature = "op_create_package_group",
+    feature = "op_create_repository",
+    feature = "op_delete_domain",
+    feature = "op_delete_domain_permissions_policy",
+    feature = "op_delete_package",
+    feature = "op_delete_package_group",
+    feature = "op_delete_package_versions",
+    feature = "op_delete_repository",
+    feature = "op_delete_repository_permissions_policy",
+    feature = "op_describe_domain",
+    feature = "op_describe_package",
+    feature = "op_describe_package_group",
+    feature = "op_describe_package_version",
+    feature = "op_describe_repository",
+    feature = "op_disassociate_external_connection",
+    feature = "op_dispose_package_versions",
+    feature = "op_get_associated_package_group",
+    feature = "op_get_authorization_token",
+    feature = "op_get_domain_permissions_policy",
+    feature = "op_get_package_version_asset",
+    feature = "op_get_package_version_readme",
+    feature = "op_get_repository_endpoint",
+    feature = "op_get_repository_permissions_policy",
+    feature = "op_list_allowed_repositories_for_group",
+    feature = "op_list_associated_packages",
+    feature = "op_list_domains",
+    feature = "op_list_package_groups",
+    feature = "op_list_package_version_assets",
+    feature = "op_list_package_version_dependencies",
+    feature = "op_list_package_versions",
+    feature = "op_list_packages",
+    feature = "op_list_repositories",
+    feature = "op_list_repositories_in_domain",
+    feature = "op_list_sub_package_groups",
+    feature = "op_publish_package_version",
+    feature = "op_put_domain_permissions_policy",
+    feature = "op_put_package_origin_configuration",
+    feature = "op_put_repository_permissions_policy",
+    feature = "op_update_package_group",
+    feature = "op_update_package_group_origin_configuration",
+    feature = "op_update_package_versions_status",
+    feature = "op_update_repository"
+))]
 pub(crate) mod shape_internal_server_exception;
 
 #[cfg(feature = "op_list_domains")]
@@ -186,13 +346,125 @@ pub(crate) mod shape_put_package_origin_configuration_input;
 #[cfg(feature = "op_put_repository_permissions_policy")]
 pub(crate) mod shape_put_repository_permissions_policy_input;
 
+#[cfg(any(
+    feature = "op_associate_external_connection",
+    feature = "op_copy_package_versions",
+    feature = "op_create_domain",
+    feature = "op_create_package_group",
+    feature = "op_create_repository",
+    feature = "op_delete_domain_permissions_policy",
+    feature = "op_delete_package",
+    feature = "op_delete_package_group",
+    feature = "op_delete_package_versions",
+    feature = "op_delete_repository",
+    feature = "op_delete_repository_permissions_policy",
+    feature = "op_describe_domain",
+    feature = "op_describe_package",
+    feature = "op_describe_package_group",
+    feature = "op_describe_package_version",
+    feature = "op_describe_repository",
+    feature = "op_disassociate_external_connection",
+    feature = "op_dispose_package_versions",
+    feature = "op_get_associated_package_group",
+    feature = "op_get_authorization_token",
+    feature = "op_get_domain_permissions_policy",
+    feature = "op_get_package_version_asset",
+    feature = "op_get_package_version_readme",
+    feature = "op_get_repository_endpoint",
+    feature = "op_get_repository_permissions_policy",
+    feature = "op_list_allowed_repositories_for_group",
+    feature = "op_list_associated_packages",
+    feature = "op_list_package_groups",
+    feature = "op_list_package_version_assets",
+    feature = "op_list_package_version_dependencies",
+    feature = "op_list_package_versions",
+    feature = "op_list_packages",
+    feature = "op_list_repositories_in_domain",
+    feature = "op_list_sub_package_groups",
+    feature = "op_list_tags_for_resource",
+    feature = "op_publish_package_version",
+    feature = "op_put_domain_permissions_policy",
+    feature = "op_put_package_origin_configuration",
+    feature = "op_put_repository_permissions_policy",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource",
+    feature = "op_update_package_group",
+    feature = "op_update_package_group_origin_configuration",
+    feature = "op_update_package_versions_status",
+    feature = "op_update_repository"
+))]
 pub(crate) mod shape_resource_not_found_exception;
 
+#[cfg(any(
+    feature = "op_associate_external_connection",
+    feature = "op_copy_package_versions",
+    feature = "op_create_domain",
+    feature = "op_create_package_group",
+    feature = "op_create_repository",
+    feature = "op_delete_package_group",
+    feature = "op_disassociate_external_connection",
+    feature = "op_list_allowed_repositories_for_group",
+    feature = "op_publish_package_version",
+    feature = "op_put_domain_permissions_policy",
+    feature = "op_put_repository_permissions_policy",
+    feature = "op_tag_resource",
+    feature = "op_update_package_group",
+    feature = "op_update_package_group_origin_configuration",
+    feature = "op_update_repository"
+))]
 pub(crate) mod shape_service_quota_exceeded_exception;
 
 #[cfg(feature = "op_tag_resource")]
 pub(crate) mod shape_tag_resource_input;
 
+#[cfg(any(
+    feature = "op_associate_external_connection",
+    feature = "op_copy_package_versions",
+    feature = "op_create_domain",
+    feature = "op_create_package_group",
+    feature = "op_create_repository",
+    feature = "op_delete_domain",
+    feature = "op_delete_domain_permissions_policy",
+    feature = "op_delete_package",
+    feature = "op_delete_package_group",
+    feature = "op_delete_package_versions",
+    feature = "op_delete_repository",
+    feature = "op_delete_repository_permissions_policy",
+    feature = "op_describe_domain",
+    feature = "op_describe_package",
+    feature = "op_describe_package_group",
+    feature = "op_describe_package_version",
+    feature = "op_describe_repository",
+    feature = "op_disassociate_external_connection",
+    feature = "op_dispose_package_versions",
+    feature = "op_get_authorization_token",
+    feature = "op_get_domain_permissions_policy",
+    feature = "op_get_package_version_asset",
+    feature = "op_get_package_version_readme",
+    feature = "op_get_repository_endpoint",
+    feature = "op_get_repository_permissions_policy",
+    feature = "op_list_allowed_repositories_for_group",
+    feature = "op_list_domains",
+    feature = "op_list_package_groups",
+    feature = "op_list_package_version_assets",
+    feature = "op_list_package_version_dependencies",
+    feature = "op_list_package_versions",
+    feature = "op_list_packages",
+    feature = "op_list_repositories",
+    feature = "op_list_repositories_in_domain",
+    feature = "op_list_sub_package_groups",
+    feature = "op_list_tags_for_resource",
+    feature = "op_publish_package_version",
+    feature = "op_put_domain_permissions_policy",
+    feature = "op_put_package_origin_configuration",
+    feature = "op_put_repository_permissions_policy",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource",
+    feature = "op_update_package_group",
+    feature = "op_update_package_group_origin_configuration",
+    feature = "op_update_package_versions_status",
+    feature = "op_update_repository"
+))]
 pub(crate) mod shape_throttling_exception;
 
 #[cfg(feature = "op_untag_resource")]
@@ -210,100 +482,603 @@ pub(crate) mod shape_update_package_versions_status_input;
 #[cfg(feature = "op_update_repository")]
 pub(crate) mod shape_update_repository_input;
 
+#[cfg(any(
+    feature = "op_associate_external_connection",
+    feature = "op_copy_package_versions",
+    feature = "op_create_domain",
+    feature = "op_create_package_group",
+    feature = "op_create_repository",
+    feature = "op_delete_domain",
+    feature = "op_delete_domain_permissions_policy",
+    feature = "op_delete_package",
+    feature = "op_delete_package_group",
+    feature = "op_delete_package_versions",
+    feature = "op_delete_repository",
+    feature = "op_delete_repository_permissions_policy",
+    feature = "op_describe_domain",
+    feature = "op_describe_package",
+    feature = "op_describe_package_group",
+    feature = "op_describe_package_version",
+    feature = "op_describe_repository",
+    feature = "op_disassociate_external_connection",
+    feature = "op_dispose_package_versions",
+    feature = "op_get_associated_package_group",
+    feature = "op_get_authorization_token",
+    feature = "op_get_domain_permissions_policy",
+    feature = "op_get_package_version_asset",
+    feature = "op_get_package_version_readme",
+    feature = "op_get_repository_endpoint",
+    feature = "op_get_repository_permissions_policy",
+    feature = "op_list_allowed_repositories_for_group",
+    feature = "op_list_associated_packages",
+    feature = "op_list_domains",
+    feature = "op_list_package_groups",
+    feature = "op_list_package_version_assets",
+    feature = "op_list_package_version_dependencies",
+    feature = "op_list_package_versions",
+    feature = "op_list_packages",
+    feature = "op_list_repositories",
+    feature = "op_list_repositories_in_domain",
+    feature = "op_list_sub_package_groups",
+    feature = "op_list_tags_for_resource",
+    feature = "op_publish_package_version",
+    feature = "op_put_domain_permissions_policy",
+    feature = "op_put_package_origin_configuration",
+    feature = "op_put_repository_permissions_policy",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource",
+    feature = "op_update_package_group",
+    feature = "op_update_package_group_origin_configuration",
+    feature = "op_update_package_versions_status",
+    feature = "op_update_repository"
+))]
 pub(crate) mod shape_validation_exception;
 
+#[cfg(any(
+    feature = "op_list_package_version_assets",
+    feature = "op_publish_package_version"
+))]
 pub(crate) mod shape_asset_summary;
 
+#[cfg(feature = "op_list_package_version_assets")]
 pub(crate) mod shape_asset_summary_list;
 
+#[cfg(feature = "op_list_associated_packages")]
 pub(crate) mod shape_associated_package_list;
 
+#[cfg(any(
+    feature = "op_create_domain",
+    feature = "op_delete_domain",
+    feature = "op_describe_domain"
+))]
 pub(crate) mod shape_domain_description;
 
+#[cfg(feature = "op_list_domains")]
 pub(crate) mod shape_domain_summary_list;
 
+#[cfg(feature = "op_list_package_version_dependencies")]
 pub(crate) mod shape_package_dependency_list;
 
+#[cfg(feature = "op_describe_package")]
 pub(crate) mod shape_package_description;
 
+#[cfg(feature = "op_update_package_group_origin_configuration")]
 pub(crate) mod shape_package_group_allowed_repository;
 
+#[cfg(feature = "op_update_package_group_origin_configuration")]
 pub(crate) mod shape_package_group_allowed_repository_updates;
 
+#[cfg(any(
+    feature = "op_create_package_group",
+    feature = "op_delete_package_group",
+    feature = "op_describe_package_group",
+    feature = "op_get_associated_package_group",
+    feature = "op_update_package_group",
+    feature = "op_update_package_group_origin_configuration"
+))]
 pub(crate) mod shape_package_group_description;
 
+#[cfg(any(
+    feature = "op_list_package_groups",
+    feature = "op_list_sub_package_groups"
+))]
 pub(crate) mod shape_package_group_summary_list;
 
+#[cfg(any(
+    feature = "op_delete_package",
+    feature = "op_describe_package",
+    feature = "op_list_packages",
+    feature = "op_put_package_origin_configuration"
+))]
 pub(crate) mod shape_package_origin_configuration;
 
+#[cfg(any(
+    feature = "op_delete_package",
+    feature = "op_describe_package",
+    feature = "op_list_packages",
+    feature = "op_put_package_origin_configuration"
+))]
 pub(crate) mod shape_package_origin_restrictions;
 
+#[cfg(any(feature = "op_delete_package", feature = "op_list_packages"))]
 pub(crate) mod shape_package_summary;
 
+#[cfg(feature = "op_list_packages")]
 pub(crate) mod shape_package_summary_list;
 
+#[cfg(feature = "op_describe_package_version")]
 pub(crate) mod shape_package_version_description;
 
+#[cfg(any(
+    feature = "op_copy_package_versions",
+    feature = "op_delete_package_versions",
+    feature = "op_dispose_package_versions",
+    feature = "op_update_package_versions_status"
+))]
 pub(crate) mod shape_package_version_error_map;
 
+#[cfg(feature = "op_list_package_versions")]
 pub(crate) mod shape_package_version_summary_list;
 
+#[cfg(any(
+    feature = "op_associate_external_connection",
+    feature = "op_create_repository",
+    feature = "op_delete_repository",
+    feature = "op_describe_repository",
+    feature = "op_disassociate_external_connection",
+    feature = "op_update_repository"
+))]
 pub(crate) mod shape_repository_description;
 
+#[cfg(any(
+    feature = "op_list_allowed_repositories_for_group",
+    feature = "op_update_package_group_origin_configuration"
+))]
 pub(crate) mod shape_repository_name_list;
 
+#[cfg(any(
+    feature = "op_list_repositories",
+    feature = "op_list_repositories_in_domain"
+))]
 pub(crate) mod shape_repository_summary_list;
 
+#[cfg(any(
+    feature = "op_delete_domain_permissions_policy",
+    feature = "op_delete_repository_permissions_policy",
+    feature = "op_get_domain_permissions_policy",
+    feature = "op_get_repository_permissions_policy",
+    feature = "op_put_domain_permissions_policy",
+    feature = "op_put_repository_permissions_policy"
+))]
 pub(crate) mod shape_resource_policy;
 
+#[cfg(any(
+    feature = "op_copy_package_versions",
+    feature = "op_delete_package_versions",
+    feature = "op_dispose_package_versions",
+    feature = "op_update_package_versions_status"
+))]
 pub(crate) mod shape_successful_package_version_info_map;
 
+#[cfg(any(
+    feature = "op_create_domain",
+    feature = "op_create_package_group",
+    feature = "op_create_repository",
+    feature = "op_list_tags_for_resource",
+    feature = "op_tag_resource"
+))]
 pub(crate) mod shape_tag;
 
+#[cfg(feature = "op_list_tags_for_resource")]
 pub(crate) mod shape_tag_list;
 
+#[cfg(any(feature = "op_create_repository", feature = "op_update_repository"))]
 pub(crate) mod shape_upstream_repository;
 
+#[cfg(any(
+    feature = "op_list_package_version_assets",
+    feature = "op_publish_package_version"
+))]
 pub(crate) mod shape_asset_hashes;
 
+#[cfg(feature = "op_list_associated_packages")]
 pub(crate) mod shape_associated_package;
 
+#[cfg(feature = "op_list_domains")]
 pub(crate) mod shape_domain_summary;
 
+#[cfg(feature = "op_describe_package_version")]
 pub(crate) mod shape_license_info_list;
 
+#[cfg(feature = "op_list_package_version_dependencies")]
 pub(crate) mod shape_package_dependency;
 
+#[cfg(feature = "op_update_package_group_origin_configuration")]
 pub(crate) mod shape_package_group_allowed_repository_update;
 
+#[cfg(any(
+    feature = "op_create_package_group",
+    feature = "op_delete_package_group",
+    feature = "op_describe_package_group",
+    feature = "op_get_associated_package_group",
+    feature = "op_list_package_groups",
+    feature = "op_list_sub_package_groups",
+    feature = "op_update_package_group",
+    feature = "op_update_package_group_origin_configuration"
+))]
 pub(crate) mod shape_package_group_origin_configuration;
 
+#[cfg(any(
+    feature = "op_associate_external_connection",
+    feature = "op_copy_package_versions",
+    feature = "op_create_domain",
+    feature = "op_create_package_group",
+    feature = "op_create_repository",
+    feature = "op_delete_domain",
+    feature = "op_delete_domain_permissions_policy",
+    feature = "op_delete_package",
+    feature = "op_delete_package_group",
+    feature = "op_delete_package_versions",
+    feature = "op_delete_repository",
+    feature = "op_delete_repository_permissions_policy",
+    feature = "op_describe_domain",
+    feature = "op_describe_package",
+    feature = "op_describe_package_group",
+    feature = "op_describe_package_version",
+    feature = "op_describe_repository",
+    feature = "op_disassociate_external_connection",
+    feature = "op_dispose_package_versions",
+    feature = "op_get_associated_package_group",
+    feature = "op_get_authorization_token",
+    feature = "op_get_domain_permissions_policy",
+    feature = "op_get_package_version_asset",
+    feature = "op_get_package_version_readme",
+    feature = "op_get_repository_endpoint",
+    feature = "op_get_repository_permissions_policy",
+    feature = "op_list_allowed_repositories_for_group",
+    feature = "op_list_associated_packages",
+    feature = "op_list_domains",
+    feature = "op_list_package_groups",
+    feature = "op_list_package_version_assets",
+    feature = "op_list_package_version_dependencies",
+    feature = "op_list_package_versions",
+    feature = "op_list_packages",
+    feature = "op_list_repositories",
+    feature = "op_list_repositories_in_domain",
+    feature = "op_list_sub_package_groups",
+    feature = "op_list_tags_for_resource",
+    feature = "op_publish_package_version",
+    feature = "op_put_domain_permissions_policy",
+    feature = "op_put_package_origin_configuration",
+    feature = "op_put_repository_permissions_policy",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource",
+    feature = "op_update_package_group",
+    feature = "op_update_package_group_origin_configuration",
+    feature = "op_update_package_versions_status",
+    feature = "op_update_repository"
+))]
 pub(crate) mod shape_package_group_reference;
 
+#[cfg(any(
+    feature = "op_list_package_groups",
+    feature = "op_list_sub_package_groups"
+))]
 pub(crate) mod shape_package_group_summary;
 
+#[cfg(any(
+    feature = "op_copy_package_versions",
+    feature = "op_delete_package_versions",
+    feature = "op_dispose_package_versions",
+    feature = "op_update_package_versions_status"
+))]
 pub(crate) mod shape_package_version_error;
 
+#[cfg(any(
+    feature = "op_describe_package_version",
+    feature = "op_list_package_versions"
+))]
 pub(crate) mod shape_package_version_origin;
 
+#[cfg(feature = "op_list_package_versions")]
 pub(crate) mod shape_package_version_summary;
 
+#[cfg(any(
+    feature = "op_associate_external_connection",
+    feature = "op_create_repository",
+    feature = "op_delete_repository",
+    feature = "op_describe_repository",
+    feature = "op_disassociate_external_connection",
+    feature = "op_update_repository"
+))]
 pub(crate) mod shape_repository_external_connection_info_list;
 
+#[cfg(any(
+    feature = "op_list_repositories",
+    feature = "op_list_repositories_in_domain"
+))]
 pub(crate) mod shape_repository_summary;
 
+#[cfg(any(
+    feature = "op_copy_package_versions",
+    feature = "op_delete_package_versions",
+    feature = "op_dispose_package_versions",
+    feature = "op_update_package_versions_status"
+))]
 pub(crate) mod shape_successful_package_version_info;
 
+#[cfg(any(
+    feature = "op_associate_external_connection",
+    feature = "op_create_repository",
+    feature = "op_delete_repository",
+    feature = "op_describe_repository",
+    feature = "op_disassociate_external_connection",
+    feature = "op_update_repository"
+))]
 pub(crate) mod shape_upstream_repository_info_list;
 
+#[cfg(any(
+    feature = "op_describe_package_version",
+    feature = "op_list_package_versions"
+))]
 pub(crate) mod shape_domain_entry_point;
 
+#[cfg(any(
+    feature = "op_associate_external_connection",
+    feature = "op_copy_package_versions",
+    feature = "op_create_domain",
+    feature = "op_create_package_group",
+    feature = "op_create_repository",
+    feature = "op_delete_domain",
+    feature = "op_delete_domain_permissions_policy",
+    feature = "op_delete_package",
+    feature = "op_delete_package_group",
+    feature = "op_delete_package_versions",
+    feature = "op_delete_repository",
+    feature = "op_delete_repository_permissions_policy",
+    feature = "op_describe_domain",
+    feature = "op_describe_package",
+    feature = "op_describe_package_group",
+    feature = "op_describe_package_version",
+    feature = "op_describe_repository",
+    feature = "op_disassociate_external_connection",
+    feature = "op_dispose_package_versions",
+    feature = "op_get_associated_package_group",
+    feature = "op_get_authorization_token",
+    feature = "op_get_domain_permissions_policy",
+    feature = "op_get_package_version_asset",
+    feature = "op_get_package_version_readme",
+    feature = "op_get_repository_endpoint",
+    feature = "op_get_repository_permissions_policy",
+    feature = "op_list_allowed_repositories_for_group",
+    feature = "op_list_associated_packages",
+    feature = "op_list_domains",
+    feature = "op_list_package_groups",
+    feature = "op_list_package_version_assets",
+    feature = "op_list_package_version_dependencies",
+    feature = "op_list_package_versions",
+    feature = "op_list_packages",
+    feature = "op_list_repositories",
+    feature = "op_list_repositories_in_domain",
+    feature = "op_list_sub_package_groups",
+    feature = "op_list_tags_for_resource",
+    feature = "op_publish_package_version",
+    feature = "op_put_domain_permissions_policy",
+    feature = "op_put_package_origin_configuration",
+    feature = "op_put_repository_permissions_policy",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource",
+    feature = "op_update_package_group",
+    feature = "op_update_package_group_origin_configuration",
+    feature = "op_update_package_versions_status",
+    feature = "op_update_repository"
+))]
 pub(crate) mod shape_license_info;
 
+#[cfg(any(
+    feature = "op_associate_external_connection",
+    feature = "op_copy_package_versions",
+    feature = "op_create_domain",
+    feature = "op_create_package_group",
+    feature = "op_create_repository",
+    feature = "op_delete_domain",
+    feature = "op_delete_domain_permissions_policy",
+    feature = "op_delete_package",
+    feature = "op_delete_package_group",
+    feature = "op_delete_package_versions",
+    feature = "op_delete_repository",
+    feature = "op_delete_repository_permissions_policy",
+    feature = "op_describe_domain",
+    feature = "op_describe_package",
+    feature = "op_describe_package_group",
+    feature = "op_describe_package_version",
+    feature = "op_describe_repository",
+    feature = "op_disassociate_external_connection",
+    feature = "op_dispose_package_versions",
+    feature = "op_get_associated_package_group",
+    feature = "op_get_authorization_token",
+    feature = "op_get_domain_permissions_policy",
+    feature = "op_get_package_version_asset",
+    feature = "op_get_package_version_readme",
+    feature = "op_get_repository_endpoint",
+    feature = "op_get_repository_permissions_policy",
+    feature = "op_list_allowed_repositories_for_group",
+    feature = "op_list_associated_packages",
+    feature = "op_list_domains",
+    feature = "op_list_package_groups",
+    feature = "op_list_package_version_assets",
+    feature = "op_list_package_version_dependencies",
+    feature = "op_list_package_versions",
+    feature = "op_list_packages",
+    feature = "op_list_repositories",
+    feature = "op_list_repositories_in_domain",
+    feature = "op_list_sub_package_groups",
+    feature = "op_list_tags_for_resource",
+    feature = "op_publish_package_version",
+    feature = "op_put_domain_permissions_policy",
+    feature = "op_put_package_origin_configuration",
+    feature = "op_put_repository_permissions_policy",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource",
+    feature = "op_update_package_group",
+    feature = "op_update_package_group_origin_configuration",
+    feature = "op_update_package_versions_status",
+    feature = "op_update_repository"
+))]
 pub(crate) mod shape_package_group_origin_restrictions;
 
+#[cfg(any(
+    feature = "op_associate_external_connection",
+    feature = "op_copy_package_versions",
+    feature = "op_create_domain",
+    feature = "op_create_package_group",
+    feature = "op_create_repository",
+    feature = "op_delete_domain",
+    feature = "op_delete_domain_permissions_policy",
+    feature = "op_delete_package",
+    feature = "op_delete_package_group",
+    feature = "op_delete_package_versions",
+    feature = "op_delete_repository",
+    feature = "op_delete_repository_permissions_policy",
+    feature = "op_describe_domain",
+    feature = "op_describe_package",
+    feature = "op_describe_package_group",
+    feature = "op_describe_package_version",
+    feature = "op_describe_repository",
+    feature = "op_disassociate_external_connection",
+    feature = "op_dispose_package_versions",
+    feature = "op_get_associated_package_group",
+    feature = "op_get_authorization_token",
+    feature = "op_get_domain_permissions_policy",
+    feature = "op_get_package_version_asset",
+    feature = "op_get_package_version_readme",
+    feature = "op_get_repository_endpoint",
+    feature = "op_get_repository_permissions_policy",
+    feature = "op_list_allowed_repositories_for_group",
+    feature = "op_list_associated_packages",
+    feature = "op_list_domains",
+    feature = "op_list_package_groups",
+    feature = "op_list_package_version_assets",
+    feature = "op_list_package_version_dependencies",
+    feature = "op_list_package_versions",
+    feature = "op_list_packages",
+    feature = "op_list_repositories",
+    feature = "op_list_repositories_in_domain",
+    feature = "op_list_sub_package_groups",
+    feature = "op_list_tags_for_resource",
+    feature = "op_publish_package_version",
+    feature = "op_put_domain_permissions_policy",
+    feature = "op_put_package_origin_configuration",
+    feature = "op_put_repository_permissions_policy",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource",
+    feature = "op_update_package_group",
+    feature = "op_update_package_group_origin_configuration",
+    feature = "op_update_package_versions_status",
+    feature = "op_update_repository"
+))]
 pub(crate) mod shape_repository_external_connection_info;
 
+#[cfg(any(
+    feature = "op_associate_external_connection",
+    feature = "op_copy_package_versions",
+    feature = "op_create_domain",
+    feature = "op_create_package_group",
+    feature = "op_create_repository",
+    feature = "op_delete_domain",
+    feature = "op_delete_domain_permissions_policy",
+    feature = "op_delete_package",
+    feature = "op_delete_package_group",
+    feature = "op_delete_package_versions",
+    feature = "op_delete_repository",
+    feature = "op_delete_repository_permissions_policy",
+    feature = "op_describe_domain",
+    feature = "op_describe_package",
+    feature = "op_describe_package_group",
+    feature = "op_describe_package_version",
+    feature = "op_describe_repository",
+    feature = "op_disassociate_external_connection",
+    feature = "op_dispose_package_versions",
+    feature = "op_get_associated_package_group",
+    feature = "op_get_authorization_token",
+    feature = "op_get_domain_permissions_policy",
+    feature = "op_get_package_version_asset",
+    feature = "op_get_package_version_readme",
+    feature = "op_get_repository_endpoint",
+    feature = "op_get_repository_permissions_policy",
+    feature = "op_list_allowed_repositories_for_group",
+    feature = "op_list_associated_packages",
+    feature = "op_list_domains",
+    feature = "op_list_package_groups",
+    feature = "op_list_package_version_assets",
+    feature = "op_list_package_version_dependencies",
+    feature = "op_list_package_versions",
+    feature = "op_list_packages",
+    feature = "op_list_repositories",
+    feature = "op_list_repositories_in_domain",
+    feature = "op_list_sub_package_groups",
+    feature = "op_list_tags_for_resource",
+    feature = "op_publish_package_version",
+    feature = "op_put_domain_permissions_policy",
+    feature = "op_put_package_origin_configuration",
+    feature = "op_put_repository_permissions_policy",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource",
+    feature = "op_update_package_group",
+    feature = "op_update_package_group_origin_configuration",
+    feature = "op_update_package_versions_status",
+    feature = "op_update_repository"
+))]
 pub(crate) mod shape_upstream_repository_info;
 
+#[cfg(any(
+    feature = "op_associate_external_connection",
+    feature = "op_copy_package_versions",
+    feature = "op_create_domain",
+    feature = "op_create_package_group",
+    feature = "op_create_repository",
+    feature = "op_delete_domain",
+    feature = "op_delete_domain_permissions_policy",
+    feature = "op_delete_package",
+    feature = "op_delete_package_group",
+    feature = "op_delete_package_versions",
+    feature = "op_delete_repository",
+    feature = "op_delete_repository_permissions_policy",
+    feature = "op_describe_domain",
+    feature = "op_describe_package",
+    feature = "op_describe_package_group",
+    feature = "op_describe_package_version",
+    feature = "op_describe_repository",
+    feature = "op_disassociate_external_connection",
+    feature = "op_dispose_package_versions",
+    feature = "op_get_associated_package_group",
+    feature = "op_get_authorization_token",
+    feature = "op_get_domain_permissions_policy",
+    feature = "op_get_package_version_asset",
+    feature = "op_get_package_version_readme",
+    feature = "op_get_repository_endpoint",
+    feature = "op_get_repository_permissions_policy",
+    feature = "op_list_allowed_repositories_for_group",
+    feature = "op_list_associated_packages",
+    feature = "op_list_domains",
+    feature = "op_list_package_groups",
+    feature = "op_list_package_version_assets",
+    feature = "op_list_package_version_dependencies",
+    feature = "op_list_package_versions",
+    feature = "op_list_packages",
+    feature = "op_list_repositories",
+    feature = "op_list_repositories_in_domain",
+    feature = "op_list_sub_package_groups",
+    feature = "op_list_tags_for_resource",
+    feature = "op_publish_package_version",
+    feature = "op_put_domain_permissions_policy",
+    feature = "op_put_package_origin_configuration",
+    feature = "op_put_repository_permissions_policy",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource",
+    feature = "op_update_package_group",
+    feature = "op_update_package_group_origin_configuration",
+    feature = "op_update_package_versions_status",
+    feature = "op_update_repository"
+))]
 pub(crate) mod shape_package_group_origin_restriction;

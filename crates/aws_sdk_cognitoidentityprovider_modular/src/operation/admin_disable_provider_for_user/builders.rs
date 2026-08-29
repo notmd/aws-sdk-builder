@@ -65,10 +65,7 @@ impl
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-#[cfg(any(
-    feature = "op_admin_disable_provider_for_user",
-    feature = "op_get_user"
-))]
+#[cfg(feature = "op_admin_disable_provider_for_user")]
 impl AdminDisableProviderForUserFluentBuilder {
     /// Creates a new `AdminDisableProviderForUserFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {

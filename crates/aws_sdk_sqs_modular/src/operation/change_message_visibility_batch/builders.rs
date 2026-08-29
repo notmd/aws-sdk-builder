@@ -54,10 +54,7 @@ impl
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-#[cfg(any(
-    feature = "op_change_message_visibility_batch",
-    feature = "op_get_queue_url"
-))]
+#[cfg(feature = "op_change_message_visibility_batch")]
 impl ChangeMessageVisibilityBatchFluentBuilder {
     /// Creates a new `ChangeMessageVisibilityBatchFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {

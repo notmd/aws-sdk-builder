@@ -41,6 +41,7 @@ pub use crate::types::error::_object_already_in_active_tier_error::ObjectAlready
 
 pub use crate::types::error::_access_denied::AccessDenied;
 
+#[cfg(feature = "op_select_object_content")]
 /// Error type for the `SelectObjectContentEventStreamError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -56,6 +57,7 @@ pub enum SelectObjectContentEventStreamError {
     )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
+#[cfg(feature = "op_select_object_content")]
 impl SelectObjectContentEventStreamError {
     /// Creates the `SelectObjectContentEventStreamError::Unhandled` variant from any error type.
     pub fn unhandled(
@@ -88,6 +90,7 @@ impl SelectObjectContentEventStreamError {
         }
     }
 }
+#[cfg(feature = "op_select_object_content")]
 impl ::std::error::Error for SelectObjectContentEventStreamError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
@@ -95,6 +98,7 @@ impl ::std::error::Error for SelectObjectContentEventStreamError {
         }
     }
 }
+#[cfg(feature = "op_select_object_content")]
 impl ::std::fmt::Display for SelectObjectContentEventStreamError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
@@ -110,6 +114,7 @@ impl ::std::fmt::Display for SelectObjectContentEventStreamError {
         }
     }
 }
+#[cfg(feature = "op_select_object_content")]
 impl ::aws_smithy_types::retry::ProvideErrorKind for SelectObjectContentEventStreamError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
@@ -118,6 +123,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for SelectObjectContentEventStr
         ::std::option::Option::None
     }
 }
+#[cfg(feature = "op_select_object_content")]
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
     for SelectObjectContentEventStreamError
 {
@@ -127,6 +133,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
         }
     }
 }
+#[cfg(feature = "op_select_object_content")]
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
     for SelectObjectContentEventStreamError
 {
@@ -142,6 +149,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
         })
     }
 }
+#[cfg(feature = "op_select_object_content")]
 impl crate::s3_request_id::RequestIdExt
     for crate::types::error::SelectObjectContentEventStreamError
 {
@@ -149,6 +157,7 @@ impl crate::s3_request_id::RequestIdExt
         self.meta().extended_request_id()
     }
 }
+#[cfg(feature = "op_select_object_content")]
 impl ::aws_types::request_id::RequestId
     for crate::types::error::SelectObjectContentEventStreamError
 {

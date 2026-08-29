@@ -8,6 +8,7 @@ impl SelectObjectContentEventStreamUnmarshaller {
         SelectObjectContentEventStreamUnmarshaller
     }
 }
+#[cfg(feature = "op_select_object_content")]
 impl ::aws_smithy_eventstream::frame::UnmarshallMessage
     for SelectObjectContentEventStreamUnmarshaller
 {

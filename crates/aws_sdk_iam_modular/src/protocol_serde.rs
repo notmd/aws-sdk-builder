@@ -32,527 +32,616 @@ pub fn parse_http_error_metadata(
     crate::rest_xml_wrapped_errors::parse_error_metadata(response_body)
 }
 
+#[cfg(feature = "op_accept_delegation_request")]
 pub(crate) mod shape_accept_delegation_request;
 
 #[cfg(feature = "op_accept_delegation_request")]
 pub(crate) mod shape_accept_delegation_request_input;
 
+#[cfg(feature = "op_acquire_role")]
 pub(crate) mod shape_acquire_role;
 
 #[cfg(feature = "op_acquire_role")]
 pub(crate) mod shape_acquire_role_input;
 
+#[cfg(feature = "op_add_client_id_to_open_id_connect_provider")]
 pub(crate) mod shape_add_client_id_to_open_id_connect_provider;
 
 #[cfg(feature = "op_add_client_id_to_open_id_connect_provider")]
 pub(crate) mod shape_add_client_id_to_open_id_connect_provider_input;
 
+#[cfg(feature = "op_add_role_to_instance_profile")]
 pub(crate) mod shape_add_role_to_instance_profile;
 
 #[cfg(feature = "op_add_role_to_instance_profile")]
 pub(crate) mod shape_add_role_to_instance_profile_input;
 
+#[cfg(feature = "op_add_user_to_group")]
 pub(crate) mod shape_add_user_to_group;
 
 #[cfg(feature = "op_add_user_to_group")]
 pub(crate) mod shape_add_user_to_group_input;
 
+#[cfg(feature = "op_associate_delegation_request")]
 pub(crate) mod shape_associate_delegation_request;
 
 #[cfg(feature = "op_associate_delegation_request")]
 pub(crate) mod shape_associate_delegation_request_input;
 
+#[cfg(feature = "op_attach_group_policy")]
 pub(crate) mod shape_attach_group_policy;
 
 #[cfg(feature = "op_attach_group_policy")]
 pub(crate) mod shape_attach_group_policy_input;
 
+#[cfg(feature = "op_attach_role_policy")]
 pub(crate) mod shape_attach_role_policy;
 
 #[cfg(feature = "op_attach_role_policy")]
 pub(crate) mod shape_attach_role_policy_input;
 
+#[cfg(feature = "op_attach_user_policy")]
 pub(crate) mod shape_attach_user_policy;
 
 #[cfg(feature = "op_attach_user_policy")]
 pub(crate) mod shape_attach_user_policy_input;
 
+#[cfg(feature = "op_change_password")]
 pub(crate) mod shape_change_password;
 
 #[cfg(feature = "op_change_password")]
 pub(crate) mod shape_change_password_input;
 
+#[cfg(feature = "op_create_access_key")]
 pub(crate) mod shape_create_access_key;
 
 #[cfg(feature = "op_create_access_key")]
 pub(crate) mod shape_create_access_key_input;
 
+#[cfg(feature = "op_create_account_alias")]
 pub(crate) mod shape_create_account_alias;
 
 #[cfg(feature = "op_create_account_alias")]
 pub(crate) mod shape_create_account_alias_input;
 
+#[cfg(feature = "op_create_delegation_request")]
 pub(crate) mod shape_create_delegation_request;
 
 #[cfg(feature = "op_create_delegation_request")]
 pub(crate) mod shape_create_delegation_request_input;
 
+#[cfg(feature = "op_create_group")]
 pub(crate) mod shape_create_group;
 
 #[cfg(feature = "op_create_group")]
 pub(crate) mod shape_create_group_input;
 
+#[cfg(feature = "op_create_instance_profile")]
 pub(crate) mod shape_create_instance_profile;
 
 #[cfg(feature = "op_create_instance_profile")]
 pub(crate) mod shape_create_instance_profile_input;
 
+#[cfg(feature = "op_create_login_profile")]
 pub(crate) mod shape_create_login_profile;
 
 #[cfg(feature = "op_create_login_profile")]
 pub(crate) mod shape_create_login_profile_input;
 
+#[cfg(feature = "op_create_open_id_connect_provider")]
 pub(crate) mod shape_create_open_id_connect_provider;
 
 #[cfg(feature = "op_create_open_id_connect_provider")]
 pub(crate) mod shape_create_open_id_connect_provider_input;
 
+#[cfg(feature = "op_create_policy")]
 pub(crate) mod shape_create_policy;
 
 #[cfg(feature = "op_create_policy")]
 pub(crate) mod shape_create_policy_input;
 
-#[cfg(feature = "op_create_policy")]
+#[cfg(feature = "op_create_policy_version")]
 pub(crate) mod shape_create_policy_version;
 
 #[cfg(feature = "op_create_policy_version")]
 pub(crate) mod shape_create_policy_version_input;
 
+#[cfg(feature = "op_create_role")]
 pub(crate) mod shape_create_role;
 
 #[cfg(feature = "op_create_role")]
 pub(crate) mod shape_create_role_input;
 
+#[cfg(feature = "op_create_saml_provider")]
 pub(crate) mod shape_create_saml_provider;
 
 #[cfg(feature = "op_create_saml_provider")]
 pub(crate) mod shape_create_saml_provider_input;
 
+#[cfg(feature = "op_create_service_linked_role")]
 pub(crate) mod shape_create_service_linked_role;
 
 #[cfg(feature = "op_create_service_linked_role")]
 pub(crate) mod shape_create_service_linked_role_input;
 
+#[cfg(feature = "op_create_service_specific_credential")]
 pub(crate) mod shape_create_service_specific_credential;
 
 #[cfg(feature = "op_create_service_specific_credential")]
 pub(crate) mod shape_create_service_specific_credential_input;
 
+#[cfg(feature = "op_create_user")]
 pub(crate) mod shape_create_user;
 
 #[cfg(feature = "op_create_user")]
 pub(crate) mod shape_create_user_input;
 
+#[cfg(feature = "op_create_virtual_mfa_device")]
 pub(crate) mod shape_create_virtual_mfa_device;
 
 #[cfg(feature = "op_create_virtual_mfa_device")]
 pub(crate) mod shape_create_virtual_mfa_device_input;
 
+#[cfg(feature = "op_deactivate_mfa_device")]
 pub(crate) mod shape_deactivate_mfa_device;
 
 #[cfg(feature = "op_deactivate_mfa_device")]
 pub(crate) mod shape_deactivate_mfa_device_input;
 
+#[cfg(feature = "op_delete_access_key")]
 pub(crate) mod shape_delete_access_key;
 
 #[cfg(feature = "op_delete_access_key")]
 pub(crate) mod shape_delete_access_key_input;
 
+#[cfg(feature = "op_delete_account_alias")]
 pub(crate) mod shape_delete_account_alias;
 
 #[cfg(feature = "op_delete_account_alias")]
 pub(crate) mod shape_delete_account_alias_input;
 
+#[cfg(feature = "op_delete_account_password_policy")]
 pub(crate) mod shape_delete_account_password_policy;
 
 #[cfg(feature = "op_delete_account_password_policy")]
 pub(crate) mod shape_delete_account_password_policy_input;
 
+#[cfg(feature = "op_delete_group")]
 pub(crate) mod shape_delete_group;
 
 #[cfg(feature = "op_delete_group")]
 pub(crate) mod shape_delete_group_input;
 
-#[cfg(feature = "op_delete_group")]
+#[cfg(feature = "op_delete_group_policy")]
 pub(crate) mod shape_delete_group_policy;
 
 #[cfg(feature = "op_delete_group_policy")]
 pub(crate) mod shape_delete_group_policy_input;
 
+#[cfg(feature = "op_delete_instance_profile")]
 pub(crate) mod shape_delete_instance_profile;
 
 #[cfg(feature = "op_delete_instance_profile")]
 pub(crate) mod shape_delete_instance_profile_input;
 
+#[cfg(feature = "op_delete_login_profile")]
 pub(crate) mod shape_delete_login_profile;
 
 #[cfg(feature = "op_delete_login_profile")]
 pub(crate) mod shape_delete_login_profile_input;
 
+#[cfg(feature = "op_delete_open_id_connect_provider")]
 pub(crate) mod shape_delete_open_id_connect_provider;
 
 #[cfg(feature = "op_delete_open_id_connect_provider")]
 pub(crate) mod shape_delete_open_id_connect_provider_input;
 
+#[cfg(feature = "op_delete_policy")]
 pub(crate) mod shape_delete_policy;
 
 #[cfg(feature = "op_delete_policy")]
 pub(crate) mod shape_delete_policy_input;
 
-#[cfg(feature = "op_delete_policy")]
+#[cfg(feature = "op_delete_policy_version")]
 pub(crate) mod shape_delete_policy_version;
 
 #[cfg(feature = "op_delete_policy_version")]
 pub(crate) mod shape_delete_policy_version_input;
 
+#[cfg(feature = "op_delete_role")]
 pub(crate) mod shape_delete_role;
 
 #[cfg(feature = "op_delete_role")]
 pub(crate) mod shape_delete_role_input;
 
-#[cfg(feature = "op_delete_role")]
+#[cfg(feature = "op_delete_role_permissions_boundary")]
 pub(crate) mod shape_delete_role_permissions_boundary;
 
 #[cfg(feature = "op_delete_role_permissions_boundary")]
 pub(crate) mod shape_delete_role_permissions_boundary_input;
 
-#[cfg(feature = "op_delete_role")]
+#[cfg(feature = "op_delete_role_policy")]
 pub(crate) mod shape_delete_role_policy;
 
 #[cfg(feature = "op_delete_role_policy")]
 pub(crate) mod shape_delete_role_policy_input;
 
+#[cfg(feature = "op_delete_saml_provider")]
 pub(crate) mod shape_delete_saml_provider;
 
 #[cfg(feature = "op_delete_saml_provider")]
 pub(crate) mod shape_delete_saml_provider_input;
 
+#[cfg(feature = "op_delete_server_certificate")]
 pub(crate) mod shape_delete_server_certificate;
 
 #[cfg(feature = "op_delete_server_certificate")]
 pub(crate) mod shape_delete_server_certificate_input;
 
+#[cfg(feature = "op_delete_service_linked_role")]
 pub(crate) mod shape_delete_service_linked_role;
 
 #[cfg(feature = "op_delete_service_linked_role")]
 pub(crate) mod shape_delete_service_linked_role_input;
 
+#[cfg(feature = "op_delete_service_specific_credential")]
 pub(crate) mod shape_delete_service_specific_credential;
 
 #[cfg(feature = "op_delete_service_specific_credential")]
 pub(crate) mod shape_delete_service_specific_credential_input;
 
+#[cfg(feature = "op_delete_signing_certificate")]
 pub(crate) mod shape_delete_signing_certificate;
 
 #[cfg(feature = "op_delete_signing_certificate")]
 pub(crate) mod shape_delete_signing_certificate_input;
 
+#[cfg(feature = "op_delete_ssh_public_key")]
 pub(crate) mod shape_delete_ssh_public_key;
 
 #[cfg(feature = "op_delete_ssh_public_key")]
 pub(crate) mod shape_delete_ssh_public_key_input;
 
+#[cfg(feature = "op_delete_user")]
 pub(crate) mod shape_delete_user;
 
 #[cfg(feature = "op_delete_user")]
 pub(crate) mod shape_delete_user_input;
 
-#[cfg(feature = "op_delete_user")]
+#[cfg(feature = "op_delete_user_permissions_boundary")]
 pub(crate) mod shape_delete_user_permissions_boundary;
 
 #[cfg(feature = "op_delete_user_permissions_boundary")]
 pub(crate) mod shape_delete_user_permissions_boundary_input;
 
-#[cfg(feature = "op_delete_user")]
+#[cfg(feature = "op_delete_user_policy")]
 pub(crate) mod shape_delete_user_policy;
 
 #[cfg(feature = "op_delete_user_policy")]
 pub(crate) mod shape_delete_user_policy_input;
 
+#[cfg(feature = "op_delete_virtual_mfa_device")]
 pub(crate) mod shape_delete_virtual_mfa_device;
 
 #[cfg(feature = "op_delete_virtual_mfa_device")]
 pub(crate) mod shape_delete_virtual_mfa_device_input;
 
+#[cfg(feature = "op_detach_group_policy")]
 pub(crate) mod shape_detach_group_policy;
 
 #[cfg(feature = "op_detach_group_policy")]
 pub(crate) mod shape_detach_group_policy_input;
 
+#[cfg(feature = "op_detach_role_policy")]
 pub(crate) mod shape_detach_role_policy;
 
 #[cfg(feature = "op_detach_role_policy")]
 pub(crate) mod shape_detach_role_policy_input;
 
+#[cfg(feature = "op_detach_user_policy")]
 pub(crate) mod shape_detach_user_policy;
 
 #[cfg(feature = "op_detach_user_policy")]
 pub(crate) mod shape_detach_user_policy_input;
 
+#[cfg(feature = "op_disable_organizations_root_credentials_management")]
 pub(crate) mod shape_disable_organizations_root_credentials_management;
 
 #[cfg(feature = "op_disable_organizations_root_credentials_management")]
 pub(crate) mod shape_disable_organizations_root_credentials_management_input;
 
+#[cfg(feature = "op_disable_organizations_root_sessions")]
 pub(crate) mod shape_disable_organizations_root_sessions;
 
 #[cfg(feature = "op_disable_organizations_root_sessions")]
 pub(crate) mod shape_disable_organizations_root_sessions_input;
 
+#[cfg(feature = "op_disable_outbound_web_identity_federation")]
 pub(crate) mod shape_disable_outbound_web_identity_federation;
 
 #[cfg(feature = "op_disable_outbound_web_identity_federation")]
 pub(crate) mod shape_disable_outbound_web_identity_federation_input;
 
+#[cfg(feature = "op_enable_mfa_device")]
 pub(crate) mod shape_enable_mfa_device;
 
 #[cfg(feature = "op_enable_mfa_device")]
 pub(crate) mod shape_enable_mfa_device_input;
 
+#[cfg(feature = "op_enable_organizations_root_credentials_management")]
 pub(crate) mod shape_enable_organizations_root_credentials_management;
 
 #[cfg(feature = "op_enable_organizations_root_credentials_management")]
 pub(crate) mod shape_enable_organizations_root_credentials_management_input;
 
+#[cfg(feature = "op_enable_organizations_root_sessions")]
 pub(crate) mod shape_enable_organizations_root_sessions;
 
 #[cfg(feature = "op_enable_organizations_root_sessions")]
 pub(crate) mod shape_enable_organizations_root_sessions_input;
 
+#[cfg(feature = "op_enable_outbound_web_identity_federation")]
 pub(crate) mod shape_enable_outbound_web_identity_federation;
 
 #[cfg(feature = "op_enable_outbound_web_identity_federation")]
 pub(crate) mod shape_enable_outbound_web_identity_federation_input;
 
+#[cfg(feature = "op_generate_credential_report")]
 pub(crate) mod shape_generate_credential_report;
 
 #[cfg(feature = "op_generate_credential_report")]
 pub(crate) mod shape_generate_credential_report_input;
 
+#[cfg(feature = "op_generate_organizations_access_report")]
 pub(crate) mod shape_generate_organizations_access_report;
 
 #[cfg(feature = "op_generate_organizations_access_report")]
 pub(crate) mod shape_generate_organizations_access_report_input;
 
+#[cfg(feature = "op_generate_service_last_accessed_details")]
 pub(crate) mod shape_generate_service_last_accessed_details;
 
 #[cfg(feature = "op_generate_service_last_accessed_details")]
 pub(crate) mod shape_generate_service_last_accessed_details_input;
 
+#[cfg(feature = "op_get_access_key_last_used")]
 pub(crate) mod shape_get_access_key_last_used;
 
 #[cfg(feature = "op_get_access_key_last_used")]
 pub(crate) mod shape_get_access_key_last_used_input;
 
+#[cfg(feature = "op_get_account_authorization_details")]
 pub(crate) mod shape_get_account_authorization_details;
 
 #[cfg(feature = "op_get_account_authorization_details")]
 pub(crate) mod shape_get_account_authorization_details_input;
 
+#[cfg(feature = "op_get_account_password_policy")]
 pub(crate) mod shape_get_account_password_policy;
 
 #[cfg(feature = "op_get_account_password_policy")]
 pub(crate) mod shape_get_account_password_policy_input;
 
+#[cfg(feature = "op_get_account_properties")]
 pub(crate) mod shape_get_account_properties;
 
 #[cfg(feature = "op_get_account_properties")]
 pub(crate) mod shape_get_account_properties_input;
 
+#[cfg(feature = "op_get_account_summary")]
 pub(crate) mod shape_get_account_summary;
 
 #[cfg(feature = "op_get_account_summary")]
 pub(crate) mod shape_get_account_summary_input;
 
+#[cfg(feature = "op_get_context_keys_for_custom_policy")]
 pub(crate) mod shape_get_context_keys_for_custom_policy;
 
 #[cfg(feature = "op_get_context_keys_for_custom_policy")]
 pub(crate) mod shape_get_context_keys_for_custom_policy_input;
 
+#[cfg(feature = "op_get_context_keys_for_principal_policy")]
 pub(crate) mod shape_get_context_keys_for_principal_policy;
 
 #[cfg(feature = "op_get_context_keys_for_principal_policy")]
 pub(crate) mod shape_get_context_keys_for_principal_policy_input;
 
+#[cfg(feature = "op_get_credential_report")]
 pub(crate) mod shape_get_credential_report;
 
 #[cfg(feature = "op_get_credential_report")]
 pub(crate) mod shape_get_credential_report_input;
 
+#[cfg(feature = "op_get_delegation_request")]
 pub(crate) mod shape_get_delegation_request;
 
 #[cfg(feature = "op_get_delegation_request")]
 pub(crate) mod shape_get_delegation_request_input;
 
+#[cfg(feature = "op_get_group")]
 pub(crate) mod shape_get_group;
 
 #[cfg(feature = "op_get_group")]
 pub(crate) mod shape_get_group_input;
 
-#[cfg(feature = "op_get_group")]
+#[cfg(feature = "op_get_group_policy")]
 pub(crate) mod shape_get_group_policy;
 
 #[cfg(feature = "op_get_group_policy")]
 pub(crate) mod shape_get_group_policy_input;
 
+#[cfg(feature = "op_get_human_readable_summary")]
 pub(crate) mod shape_get_human_readable_summary;
 
 #[cfg(feature = "op_get_human_readable_summary")]
 pub(crate) mod shape_get_human_readable_summary_input;
 
+#[cfg(feature = "op_get_instance_profile")]
 pub(crate) mod shape_get_instance_profile;
 
 #[cfg(feature = "op_get_instance_profile")]
 pub(crate) mod shape_get_instance_profile_input;
 
+#[cfg(feature = "op_get_login_profile")]
 pub(crate) mod shape_get_login_profile;
 
 #[cfg(feature = "op_get_login_profile")]
 pub(crate) mod shape_get_login_profile_input;
 
+#[cfg(feature = "op_get_mfa_device")]
 pub(crate) mod shape_get_mfa_device;
 
 #[cfg(feature = "op_get_mfa_device")]
 pub(crate) mod shape_get_mfa_device_input;
 
+#[cfg(feature = "op_get_open_id_connect_provider")]
 pub(crate) mod shape_get_open_id_connect_provider;
 
 #[cfg(feature = "op_get_open_id_connect_provider")]
 pub(crate) mod shape_get_open_id_connect_provider_input;
 
+#[cfg(feature = "op_get_organizations_access_report")]
 pub(crate) mod shape_get_organizations_access_report;
 
 #[cfg(feature = "op_get_organizations_access_report")]
 pub(crate) mod shape_get_organizations_access_report_input;
 
+#[cfg(feature = "op_get_outbound_web_identity_federation_info")]
 pub(crate) mod shape_get_outbound_web_identity_federation_info;
 
 #[cfg(feature = "op_get_outbound_web_identity_federation_info")]
 pub(crate) mod shape_get_outbound_web_identity_federation_info_input;
 
+#[cfg(feature = "op_get_policy")]
 pub(crate) mod shape_get_policy;
 
 #[cfg(feature = "op_get_policy")]
 pub(crate) mod shape_get_policy_input;
 
-#[cfg(feature = "op_get_policy")]
+#[cfg(feature = "op_get_policy_version")]
 pub(crate) mod shape_get_policy_version;
 
 #[cfg(feature = "op_get_policy_version")]
 pub(crate) mod shape_get_policy_version_input;
 
+#[cfg(feature = "op_get_role")]
 pub(crate) mod shape_get_role;
 
 #[cfg(feature = "op_get_role")]
 pub(crate) mod shape_get_role_input;
 
-#[cfg(feature = "op_get_role")]
+#[cfg(feature = "op_get_role_policy")]
 pub(crate) mod shape_get_role_policy;
 
 #[cfg(feature = "op_get_role_policy")]
 pub(crate) mod shape_get_role_policy_input;
 
-#[cfg(feature = "op_get_role")]
+#[cfg(feature = "op_get_role_template_version")]
 pub(crate) mod shape_get_role_template_version;
 
 #[cfg(feature = "op_get_role_template_version")]
 pub(crate) mod shape_get_role_template_version_input;
 
+#[cfg(feature = "op_get_saml_provider")]
 pub(crate) mod shape_get_saml_provider;
 
 #[cfg(feature = "op_get_saml_provider")]
 pub(crate) mod shape_get_saml_provider_input;
 
+#[cfg(feature = "op_get_server_certificate")]
 pub(crate) mod shape_get_server_certificate;
 
 #[cfg(feature = "op_get_server_certificate")]
 pub(crate) mod shape_get_server_certificate_input;
 
+#[cfg(feature = "op_get_service_last_accessed_details")]
 pub(crate) mod shape_get_service_last_accessed_details;
 
 #[cfg(feature = "op_get_service_last_accessed_details")]
 pub(crate) mod shape_get_service_last_accessed_details_input;
 
-#[cfg(feature = "op_get_service_last_accessed_details")]
+#[cfg(feature = "op_get_service_last_accessed_details_with_entities")]
 pub(crate) mod shape_get_service_last_accessed_details_with_entities;
 
 #[cfg(feature = "op_get_service_last_accessed_details_with_entities")]
 pub(crate) mod shape_get_service_last_accessed_details_with_entities_input;
 
+#[cfg(feature = "op_get_service_linked_role_deletion_status")]
 pub(crate) mod shape_get_service_linked_role_deletion_status;
 
 #[cfg(feature = "op_get_service_linked_role_deletion_status")]
 pub(crate) mod shape_get_service_linked_role_deletion_status_input;
 
+#[cfg(feature = "op_get_ssh_public_key")]
 pub(crate) mod shape_get_ssh_public_key;
 
 #[cfg(feature = "op_get_ssh_public_key")]
 pub(crate) mod shape_get_ssh_public_key_input;
 
+#[cfg(feature = "op_get_user")]
 pub(crate) mod shape_get_user;
 
 #[cfg(feature = "op_get_user")]
 pub(crate) mod shape_get_user_input;
 
-#[cfg(feature = "op_get_user")]
+#[cfg(feature = "op_get_user_policy")]
 pub(crate) mod shape_get_user_policy;
 
 #[cfg(feature = "op_get_user_policy")]
 pub(crate) mod shape_get_user_policy_input;
 
+#[cfg(feature = "op_list_access_keys")]
 pub(crate) mod shape_list_access_keys;
 
 #[cfg(feature = "op_list_access_keys")]
 pub(crate) mod shape_list_access_keys_input;
 
+#[cfg(feature = "op_list_account_aliases")]
 pub(crate) mod shape_list_account_aliases;
 
 #[cfg(feature = "op_list_account_aliases")]
 pub(crate) mod shape_list_account_aliases_input;
 
+#[cfg(feature = "op_list_attached_group_policies")]
 pub(crate) mod shape_list_attached_group_policies;
 
 #[cfg(feature = "op_list_attached_group_policies")]
 pub(crate) mod shape_list_attached_group_policies_input;
 
+#[cfg(feature = "op_list_attached_role_policies")]
 pub(crate) mod shape_list_attached_role_policies;
 
 #[cfg(feature = "op_list_attached_role_policies")]
 pub(crate) mod shape_list_attached_role_policies_input;
 
+#[cfg(feature = "op_list_attached_user_policies")]
 pub(crate) mod shape_list_attached_user_policies;
 
 #[cfg(feature = "op_list_attached_user_policies")]
 pub(crate) mod shape_list_attached_user_policies_input;
 
+#[cfg(feature = "op_list_delegation_requests")]
 pub(crate) mod shape_list_delegation_requests;
 
 #[cfg(feature = "op_list_delegation_requests")]
 pub(crate) mod shape_list_delegation_requests_input;
 
+#[cfg(feature = "op_list_entities_for_policy")]
 pub(crate) mod shape_list_entities_for_policy;
 
 #[cfg(feature = "op_list_entities_for_policy")]
 pub(crate) mod shape_list_entities_for_policy_input;
 
+#[cfg(feature = "op_list_group_policies")]
 pub(crate) mod shape_list_group_policies;
 
 #[cfg(feature = "op_list_group_policies")]
 pub(crate) mod shape_list_group_policies_input;
 
+#[cfg(feature = "op_list_groups")]
 pub(crate) mod shape_list_groups;
 
-#[cfg(feature = "op_list_groups")]
+#[cfg(feature = "op_list_groups_for_user")]
 pub(crate) mod shape_list_groups_for_user;
 
 #[cfg(feature = "op_list_groups_for_user")]
@@ -561,14 +650,16 @@ pub(crate) mod shape_list_groups_for_user_input;
 #[cfg(feature = "op_list_groups")]
 pub(crate) mod shape_list_groups_input;
 
+#[cfg(feature = "op_list_instance_profile_tags")]
 pub(crate) mod shape_list_instance_profile_tags;
 
 #[cfg(feature = "op_list_instance_profile_tags")]
 pub(crate) mod shape_list_instance_profile_tags_input;
 
+#[cfg(feature = "op_list_instance_profiles")]
 pub(crate) mod shape_list_instance_profiles;
 
-#[cfg(feature = "op_list_instance_profiles")]
+#[cfg(feature = "op_list_instance_profiles_for_role")]
 pub(crate) mod shape_list_instance_profiles_for_role;
 
 #[cfg(feature = "op_list_instance_profiles_for_role")]
@@ -577,34 +668,40 @@ pub(crate) mod shape_list_instance_profiles_for_role_input;
 #[cfg(feature = "op_list_instance_profiles")]
 pub(crate) mod shape_list_instance_profiles_input;
 
+#[cfg(feature = "op_list_mfa_device_tags")]
 pub(crate) mod shape_list_mfa_device_tags;
 
 #[cfg(feature = "op_list_mfa_device_tags")]
 pub(crate) mod shape_list_mfa_device_tags_input;
 
+#[cfg(feature = "op_list_mfa_devices")]
 pub(crate) mod shape_list_mfa_devices;
 
 #[cfg(feature = "op_list_mfa_devices")]
 pub(crate) mod shape_list_mfa_devices_input;
 
+#[cfg(feature = "op_list_open_id_connect_provider_tags")]
 pub(crate) mod shape_list_open_id_connect_provider_tags;
 
 #[cfg(feature = "op_list_open_id_connect_provider_tags")]
 pub(crate) mod shape_list_open_id_connect_provider_tags_input;
 
+#[cfg(feature = "op_list_open_id_connect_providers")]
 pub(crate) mod shape_list_open_id_connect_providers;
 
 #[cfg(feature = "op_list_open_id_connect_providers")]
 pub(crate) mod shape_list_open_id_connect_providers_input;
 
+#[cfg(feature = "op_list_organizations_features")]
 pub(crate) mod shape_list_organizations_features;
 
 #[cfg(feature = "op_list_organizations_features")]
 pub(crate) mod shape_list_organizations_features_input;
 
+#[cfg(feature = "op_list_policies")]
 pub(crate) mod shape_list_policies;
 
-#[cfg(feature = "op_list_policies")]
+#[cfg(feature = "op_list_policies_granting_service_access")]
 pub(crate) mod shape_list_policies_granting_service_access;
 
 #[cfg(feature = "op_list_policies_granting_service_access")]
@@ -613,289 +710,346 @@ pub(crate) mod shape_list_policies_granting_service_access_input;
 #[cfg(feature = "op_list_policies")]
 pub(crate) mod shape_list_policies_input;
 
+#[cfg(feature = "op_list_policy_tags")]
 pub(crate) mod shape_list_policy_tags;
 
 #[cfg(feature = "op_list_policy_tags")]
 pub(crate) mod shape_list_policy_tags_input;
 
+#[cfg(feature = "op_list_policy_versions")]
 pub(crate) mod shape_list_policy_versions;
 
 #[cfg(feature = "op_list_policy_versions")]
 pub(crate) mod shape_list_policy_versions_input;
 
+#[cfg(feature = "op_list_role_policies")]
 pub(crate) mod shape_list_role_policies;
 
 #[cfg(feature = "op_list_role_policies")]
 pub(crate) mod shape_list_role_policies_input;
 
+#[cfg(feature = "op_list_role_tags")]
 pub(crate) mod shape_list_role_tags;
 
 #[cfg(feature = "op_list_role_tags")]
 pub(crate) mod shape_list_role_tags_input;
 
+#[cfg(feature = "op_list_roles")]
 pub(crate) mod shape_list_roles;
 
 #[cfg(feature = "op_list_roles")]
 pub(crate) mod shape_list_roles_input;
 
+#[cfg(feature = "op_list_saml_provider_tags")]
 pub(crate) mod shape_list_saml_provider_tags;
 
 #[cfg(feature = "op_list_saml_provider_tags")]
 pub(crate) mod shape_list_saml_provider_tags_input;
 
+#[cfg(feature = "op_list_saml_providers")]
 pub(crate) mod shape_list_saml_providers;
 
 #[cfg(feature = "op_list_saml_providers")]
 pub(crate) mod shape_list_saml_providers_input;
 
+#[cfg(feature = "op_list_server_certificate_tags")]
 pub(crate) mod shape_list_server_certificate_tags;
 
 #[cfg(feature = "op_list_server_certificate_tags")]
 pub(crate) mod shape_list_server_certificate_tags_input;
 
+#[cfg(feature = "op_list_server_certificates")]
 pub(crate) mod shape_list_server_certificates;
 
 #[cfg(feature = "op_list_server_certificates")]
 pub(crate) mod shape_list_server_certificates_input;
 
+#[cfg(feature = "op_list_service_specific_credentials")]
 pub(crate) mod shape_list_service_specific_credentials;
 
 #[cfg(feature = "op_list_service_specific_credentials")]
 pub(crate) mod shape_list_service_specific_credentials_input;
 
+#[cfg(feature = "op_list_signing_certificates")]
 pub(crate) mod shape_list_signing_certificates;
 
 #[cfg(feature = "op_list_signing_certificates")]
 pub(crate) mod shape_list_signing_certificates_input;
 
+#[cfg(feature = "op_list_ssh_public_keys")]
 pub(crate) mod shape_list_ssh_public_keys;
 
 #[cfg(feature = "op_list_ssh_public_keys")]
 pub(crate) mod shape_list_ssh_public_keys_input;
 
+#[cfg(feature = "op_list_user_policies")]
 pub(crate) mod shape_list_user_policies;
 
 #[cfg(feature = "op_list_user_policies")]
 pub(crate) mod shape_list_user_policies_input;
 
+#[cfg(feature = "op_list_user_tags")]
 pub(crate) mod shape_list_user_tags;
 
 #[cfg(feature = "op_list_user_tags")]
 pub(crate) mod shape_list_user_tags_input;
 
+#[cfg(feature = "op_list_users")]
 pub(crate) mod shape_list_users;
 
 #[cfg(feature = "op_list_users")]
 pub(crate) mod shape_list_users_input;
 
+#[cfg(feature = "op_list_virtual_mfa_devices")]
 pub(crate) mod shape_list_virtual_mfa_devices;
 
 #[cfg(feature = "op_list_virtual_mfa_devices")]
 pub(crate) mod shape_list_virtual_mfa_devices_input;
 
+#[cfg(feature = "op_put_account_properties")]
 pub(crate) mod shape_put_account_properties;
 
 #[cfg(feature = "op_put_account_properties")]
 pub(crate) mod shape_put_account_properties_input;
 
+#[cfg(feature = "op_put_group_policy")]
 pub(crate) mod shape_put_group_policy;
 
 #[cfg(feature = "op_put_group_policy")]
 pub(crate) mod shape_put_group_policy_input;
 
+#[cfg(feature = "op_put_role_permissions_boundary")]
 pub(crate) mod shape_put_role_permissions_boundary;
 
 #[cfg(feature = "op_put_role_permissions_boundary")]
 pub(crate) mod shape_put_role_permissions_boundary_input;
 
+#[cfg(feature = "op_put_role_policy")]
 pub(crate) mod shape_put_role_policy;
 
 #[cfg(feature = "op_put_role_policy")]
 pub(crate) mod shape_put_role_policy_input;
 
+#[cfg(feature = "op_put_user_permissions_boundary")]
 pub(crate) mod shape_put_user_permissions_boundary;
 
 #[cfg(feature = "op_put_user_permissions_boundary")]
 pub(crate) mod shape_put_user_permissions_boundary_input;
 
+#[cfg(feature = "op_put_user_policy")]
 pub(crate) mod shape_put_user_policy;
 
 #[cfg(feature = "op_put_user_policy")]
 pub(crate) mod shape_put_user_policy_input;
 
+#[cfg(feature = "op_reject_delegation_request")]
 pub(crate) mod shape_reject_delegation_request;
 
 #[cfg(feature = "op_reject_delegation_request")]
 pub(crate) mod shape_reject_delegation_request_input;
 
+#[cfg(feature = "op_remove_client_id_from_open_id_connect_provider")]
 pub(crate) mod shape_remove_client_id_from_open_id_connect_provider;
 
 #[cfg(feature = "op_remove_client_id_from_open_id_connect_provider")]
 pub(crate) mod shape_remove_client_id_from_open_id_connect_provider_input;
 
+#[cfg(feature = "op_remove_role_from_instance_profile")]
 pub(crate) mod shape_remove_role_from_instance_profile;
 
 #[cfg(feature = "op_remove_role_from_instance_profile")]
 pub(crate) mod shape_remove_role_from_instance_profile_input;
 
+#[cfg(feature = "op_remove_user_from_group")]
 pub(crate) mod shape_remove_user_from_group;
 
 #[cfg(feature = "op_remove_user_from_group")]
 pub(crate) mod shape_remove_user_from_group_input;
 
+#[cfg(feature = "op_reset_service_specific_credential")]
 pub(crate) mod shape_reset_service_specific_credential;
 
 #[cfg(feature = "op_reset_service_specific_credential")]
 pub(crate) mod shape_reset_service_specific_credential_input;
 
+#[cfg(feature = "op_resync_mfa_device")]
 pub(crate) mod shape_resync_mfa_device;
 
 #[cfg(feature = "op_resync_mfa_device")]
 pub(crate) mod shape_resync_mfa_device_input;
 
+#[cfg(feature = "op_send_delegation_token")]
 pub(crate) mod shape_send_delegation_token;
 
 #[cfg(feature = "op_send_delegation_token")]
 pub(crate) mod shape_send_delegation_token_input;
 
+#[cfg(feature = "op_set_default_policy_version")]
 pub(crate) mod shape_set_default_policy_version;
 
 #[cfg(feature = "op_set_default_policy_version")]
 pub(crate) mod shape_set_default_policy_version_input;
 
+#[cfg(feature = "op_set_security_token_service_preferences")]
 pub(crate) mod shape_set_security_token_service_preferences;
 
 #[cfg(feature = "op_set_security_token_service_preferences")]
 pub(crate) mod shape_set_security_token_service_preferences_input;
 
+#[cfg(feature = "op_simulate_custom_policy")]
 pub(crate) mod shape_simulate_custom_policy;
 
 #[cfg(feature = "op_simulate_custom_policy")]
 pub(crate) mod shape_simulate_custom_policy_input;
 
+#[cfg(feature = "op_simulate_principal_policy")]
 pub(crate) mod shape_simulate_principal_policy;
 
 #[cfg(feature = "op_simulate_principal_policy")]
 pub(crate) mod shape_simulate_principal_policy_input;
 
+#[cfg(feature = "op_tag_instance_profile")]
 pub(crate) mod shape_tag_instance_profile;
 
 #[cfg(feature = "op_tag_instance_profile")]
 pub(crate) mod shape_tag_instance_profile_input;
 
+#[cfg(feature = "op_tag_mfa_device")]
 pub(crate) mod shape_tag_mfa_device;
 
 #[cfg(feature = "op_tag_mfa_device")]
 pub(crate) mod shape_tag_mfa_device_input;
 
+#[cfg(feature = "op_tag_open_id_connect_provider")]
 pub(crate) mod shape_tag_open_id_connect_provider;
 
 #[cfg(feature = "op_tag_open_id_connect_provider")]
 pub(crate) mod shape_tag_open_id_connect_provider_input;
 
+#[cfg(feature = "op_tag_policy")]
 pub(crate) mod shape_tag_policy;
 
 #[cfg(feature = "op_tag_policy")]
 pub(crate) mod shape_tag_policy_input;
 
+#[cfg(feature = "op_tag_role")]
 pub(crate) mod shape_tag_role;
 
 #[cfg(feature = "op_tag_role")]
 pub(crate) mod shape_tag_role_input;
 
+#[cfg(feature = "op_tag_saml_provider")]
 pub(crate) mod shape_tag_saml_provider;
 
 #[cfg(feature = "op_tag_saml_provider")]
 pub(crate) mod shape_tag_saml_provider_input;
 
+#[cfg(feature = "op_tag_server_certificate")]
 pub(crate) mod shape_tag_server_certificate;
 
 #[cfg(feature = "op_tag_server_certificate")]
 pub(crate) mod shape_tag_server_certificate_input;
 
+#[cfg(feature = "op_tag_user")]
 pub(crate) mod shape_tag_user;
 
 #[cfg(feature = "op_tag_user")]
 pub(crate) mod shape_tag_user_input;
 
+#[cfg(feature = "op_untag_instance_profile")]
 pub(crate) mod shape_untag_instance_profile;
 
 #[cfg(feature = "op_untag_instance_profile")]
 pub(crate) mod shape_untag_instance_profile_input;
 
+#[cfg(feature = "op_untag_mfa_device")]
 pub(crate) mod shape_untag_mfa_device;
 
 #[cfg(feature = "op_untag_mfa_device")]
 pub(crate) mod shape_untag_mfa_device_input;
 
+#[cfg(feature = "op_untag_open_id_connect_provider")]
 pub(crate) mod shape_untag_open_id_connect_provider;
 
 #[cfg(feature = "op_untag_open_id_connect_provider")]
 pub(crate) mod shape_untag_open_id_connect_provider_input;
 
+#[cfg(feature = "op_untag_policy")]
 pub(crate) mod shape_untag_policy;
 
 #[cfg(feature = "op_untag_policy")]
 pub(crate) mod shape_untag_policy_input;
 
+#[cfg(feature = "op_untag_role")]
 pub(crate) mod shape_untag_role;
 
 #[cfg(feature = "op_untag_role")]
 pub(crate) mod shape_untag_role_input;
 
+#[cfg(feature = "op_untag_saml_provider")]
 pub(crate) mod shape_untag_saml_provider;
 
 #[cfg(feature = "op_untag_saml_provider")]
 pub(crate) mod shape_untag_saml_provider_input;
 
+#[cfg(feature = "op_untag_server_certificate")]
 pub(crate) mod shape_untag_server_certificate;
 
 #[cfg(feature = "op_untag_server_certificate")]
 pub(crate) mod shape_untag_server_certificate_input;
 
+#[cfg(feature = "op_untag_user")]
 pub(crate) mod shape_untag_user;
 
 #[cfg(feature = "op_untag_user")]
 pub(crate) mod shape_untag_user_input;
 
+#[cfg(feature = "op_update_access_key")]
 pub(crate) mod shape_update_access_key;
 
 #[cfg(feature = "op_update_access_key")]
 pub(crate) mod shape_update_access_key_input;
 
+#[cfg(feature = "op_update_account_password_policy")]
 pub(crate) mod shape_update_account_password_policy;
 
 #[cfg(feature = "op_update_account_password_policy")]
 pub(crate) mod shape_update_account_password_policy_input;
 
+#[cfg(feature = "op_update_assume_role_policy")]
 pub(crate) mod shape_update_assume_role_policy;
 
 #[cfg(feature = "op_update_assume_role_policy")]
 pub(crate) mod shape_update_assume_role_policy_input;
 
+#[cfg(feature = "op_update_delegation_request")]
 pub(crate) mod shape_update_delegation_request;
 
 #[cfg(feature = "op_update_delegation_request")]
 pub(crate) mod shape_update_delegation_request_input;
 
+#[cfg(feature = "op_update_group")]
 pub(crate) mod shape_update_group;
 
 #[cfg(feature = "op_update_group")]
 pub(crate) mod shape_update_group_input;
 
+#[cfg(feature = "op_update_login_profile")]
 pub(crate) mod shape_update_login_profile;
 
 #[cfg(feature = "op_update_login_profile")]
 pub(crate) mod shape_update_login_profile_input;
 
+#[cfg(feature = "op_update_open_id_connect_provider_thumbprint")]
 pub(crate) mod shape_update_open_id_connect_provider_thumbprint;
 
 #[cfg(feature = "op_update_open_id_connect_provider_thumbprint")]
 pub(crate) mod shape_update_open_id_connect_provider_thumbprint_input;
 
+#[cfg(feature = "op_update_role")]
 pub(crate) mod shape_update_role;
 
-#[cfg(feature = "op_update_role")]
+#[cfg(feature = "op_update_role_description")]
 pub(crate) mod shape_update_role_description;
 
 #[cfg(feature = "op_update_role_description")]
@@ -904,364 +1058,4455 @@ pub(crate) mod shape_update_role_description_input;
 #[cfg(feature = "op_update_role")]
 pub(crate) mod shape_update_role_input;
 
+#[cfg(feature = "op_update_saml_provider")]
 pub(crate) mod shape_update_saml_provider;
 
 #[cfg(feature = "op_update_saml_provider")]
 pub(crate) mod shape_update_saml_provider_input;
 
+#[cfg(feature = "op_update_server_certificate")]
 pub(crate) mod shape_update_server_certificate;
 
 #[cfg(feature = "op_update_server_certificate")]
 pub(crate) mod shape_update_server_certificate_input;
 
+#[cfg(feature = "op_update_service_specific_credential")]
 pub(crate) mod shape_update_service_specific_credential;
 
 #[cfg(feature = "op_update_service_specific_credential")]
 pub(crate) mod shape_update_service_specific_credential_input;
 
+#[cfg(feature = "op_update_signing_certificate")]
 pub(crate) mod shape_update_signing_certificate;
 
 #[cfg(feature = "op_update_signing_certificate")]
 pub(crate) mod shape_update_signing_certificate_input;
 
+#[cfg(feature = "op_update_ssh_public_key")]
 pub(crate) mod shape_update_ssh_public_key;
 
 #[cfg(feature = "op_update_ssh_public_key")]
 pub(crate) mod shape_update_ssh_public_key_input;
 
+#[cfg(feature = "op_update_user")]
 pub(crate) mod shape_update_user;
 
 #[cfg(feature = "op_update_user")]
 pub(crate) mod shape_update_user_input;
 
+#[cfg(feature = "op_upload_server_certificate")]
 pub(crate) mod shape_upload_server_certificate;
 
 #[cfg(feature = "op_upload_server_certificate")]
 pub(crate) mod shape_upload_server_certificate_input;
 
+#[cfg(feature = "op_upload_signing_certificate")]
 pub(crate) mod shape_upload_signing_certificate;
 
 #[cfg(feature = "op_upload_signing_certificate")]
 pub(crate) mod shape_upload_signing_certificate_input;
 
+#[cfg(feature = "op_upload_ssh_public_key")]
 pub(crate) mod shape_upload_ssh_public_key;
 
 #[cfg(feature = "op_upload_ssh_public_key")]
 pub(crate) mod shape_upload_ssh_public_key_input;
 
+#[cfg(any(
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_list_organizations_features"
+))]
 pub(crate) mod shape_account_not_management_or_delegated_administrator_exception;
 
+#[cfg(any(
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions"
+))]
 pub(crate) mod shape_caller_is_not_management_account_exception;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_associate_delegation_request",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_instance_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_role",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_user",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_enable_mfa_device",
+    feature = "op_put_account_properties",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_delegation_request",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_saml_provider",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate"
+))]
 pub(crate) mod shape_concurrent_modification_exception;
 
+#[cfg(any(
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy"
+))]
 pub(crate) mod shape_context_entry;
 
+#[cfg(feature = "op_get_credential_report")]
 pub(crate) mod shape_credential_report_expired_exception;
 
+#[cfg(feature = "op_get_credential_report")]
 pub(crate) mod shape_credential_report_not_present_exception;
 
+#[cfg(feature = "op_get_credential_report")]
 pub(crate) mod shape_credential_report_not_ready_exception;
 
+#[cfg(any(
+    feature = "op_create_delegation_request",
+    feature = "op_get_delegation_request",
+    feature = "op_list_delegation_requests"
+))]
 pub(crate) mod shape_delegation_permission;
 
+#[cfg(any(
+    feature = "op_delete_group",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_user",
+    feature = "op_delete_virtual_mfa_device"
+))]
 pub(crate) mod shape_delete_conflict_exception;
 
+#[cfg(feature = "op_upload_signing_certificate")]
 pub(crate) mod shape_duplicate_certificate_exception;
 
+#[cfg(feature = "op_upload_ssh_public_key")]
 pub(crate) mod shape_duplicate_ssh_public_key_exception;
 
+#[cfg(any(
+    feature = "op_acquire_role",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_enable_mfa_device",
+    feature = "op_update_group",
+    feature = "op_update_server_certificate",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate"
+))]
 pub(crate) mod shape_entity_already_exists_exception;
 
+#[cfg(any(
+    feature = "op_change_password",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_login_profile",
+    feature = "op_enable_mfa_device",
+    feature = "op_update_login_profile",
+    feature = "op_update_user"
+))]
 pub(crate) mod shape_entity_temporarily_unmodifiable_exception;
 
+#[cfg(any(
+    feature = "op_disable_outbound_web_identity_federation",
+    feature = "op_get_outbound_web_identity_federation_info"
+))]
 pub(crate) mod shape_feature_disabled_exception;
 
+#[cfg(feature = "op_enable_outbound_web_identity_federation")]
 pub(crate) mod shape_feature_enabled_exception;
 
+#[cfg(any(feature = "op_enable_mfa_device", feature = "op_resync_mfa_device"))]
 pub(crate) mod shape_invalid_authentication_code_exception;
 
+#[cfg(feature = "op_upload_signing_certificate")]
 pub(crate) mod shape_invalid_certificate_exception;
 
+#[cfg(any(
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_create_delegation_request",
+    feature = "op_create_instance_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_saml_provider",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_generate_service_last_accessed_details",
+    feature = "op_get_account_properties",
+    feature = "op_get_context_keys_for_custom_policy",
+    feature = "op_get_context_keys_for_principal_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_policies_granting_service_access",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_put_account_properties",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_update_access_key",
+    feature = "op_update_delegation_request",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_saml_provider",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_ssh_public_key",
+    feature = "op_upload_server_certificate"
+))]
 pub(crate) mod shape_invalid_input_exception;
 
+#[cfg(feature = "op_upload_ssh_public_key")]
 pub(crate) mod shape_invalid_public_key_exception;
 
+#[cfg(feature = "op_change_password")]
 pub(crate) mod shape_invalid_user_type_exception;
 
+#[cfg(feature = "op_upload_server_certificate")]
 pub(crate) mod shape_key_pair_mismatch_exception;
 
+#[cfg(any(
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_service_specific_credential",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_user",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_enable_mfa_device",
+    feature = "op_generate_credential_report",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_policy",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_resync_mfa_device",
+    feature = "op_set_default_policy_version",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_limit_exceeded_exception;
 
+#[cfg(any(
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate"
+))]
 pub(crate) mod shape_malformed_certificate_exception;
 
+#[cfg(any(
+    feature = "op_acquire_role",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_policy",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy"
+))]
 pub(crate) mod shape_malformed_policy_document_exception;
 
+#[cfg(feature = "op_acquire_role")]
 pub(crate) mod shape_name_conflict_exception;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_group",
+    feature = "op_create_login_profile",
+    feature = "op_create_policy_version",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_service_specific_credential",
+    feature = "op_create_user",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_service_specific_credential",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_ssh_public_key",
+    feature = "op_delete_user",
+    feature = "op_delete_user_permissions_boundary",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_enable_mfa_device",
+    feature = "op_generate_service_last_accessed_details",
+    feature = "op_get_account_password_policy",
+    feature = "op_get_context_keys_for_principal_policy",
+    feature = "op_get_delegation_request",
+    feature = "op_get_group",
+    feature = "op_get_group_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_instance_profile",
+    feature = "op_get_login_profile",
+    feature = "op_get_mfa_device",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_organizations_access_report",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role",
+    feature = "op_get_role_policy",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_get_ssh_public_key",
+    feature = "op_get_user",
+    feature = "op_get_user_policy",
+    feature = "op_list_access_keys",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_group_policies",
+    feature = "op_list_groups_for_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_mfa_devices",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_policies_granting_service_access",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_role_policies",
+    feature = "op_list_role_tags",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_service_specific_credentials",
+    feature = "op_list_signing_certificates",
+    feature = "op_list_ssh_public_keys",
+    feature = "op_list_user_policies",
+    feature = "op_list_user_tags",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_put_user_policy",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_reset_service_specific_credential",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_simulate_principal_policy",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_delegation_request",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_role",
+    feature = "op_update_role_description",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_service_specific_credential",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_ssh_public_key",
+    feature = "op_update_user",
+    feature = "op_upload_signing_certificate",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_no_such_entity_exception;
 
+#[cfg(feature = "op_create_open_id_connect_provider")]
 pub(crate) mod shape_open_id_idp_communication_error_exception;
 
+#[cfg(feature = "op_simulate_custom_policy")]
 pub(crate) mod shape_ordered_organization_policy_type;
 
+#[cfg(any(
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_list_organizations_features"
+))]
 pub(crate) mod shape_organization_not_found_exception;
 
+#[cfg(any(
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_list_organizations_features"
+))]
 pub(crate) mod shape_organization_not_in_all_features_mode_exception;
 
+#[cfg(any(
+    feature = "op_change_password",
+    feature = "op_create_login_profile",
+    feature = "op_update_login_profile"
+))]
 pub(crate) mod shape_password_policy_violation_exception;
 
+#[cfg(any(
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy"
+))]
 pub(crate) mod shape_policy_evaluation_exception;
 
+#[cfg(feature = "op_simulate_principal_policy")]
 pub(crate) mod shape_policy_identifier;
 
+#[cfg(any(
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_user_permissions_boundary"
+))]
 pub(crate) mod shape_policy_not_attachable_exception;
 
+#[cfg(feature = "op_acquire_role")]
 pub(crate) mod shape_replacement_value_entry;
 
+#[cfg(feature = "op_generate_organizations_access_report")]
 pub(crate) mod shape_report_generation_limit_exceeded_exception;
 
+#[cfg(feature = "op_acquire_role")]
 pub(crate) mod shape_role_modified_exception;
 
+#[cfg(feature = "op_acquire_role")]
 pub(crate) mod shape_role_template_disabled_exception;
 
+#[cfg(any(
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_list_organizations_features"
+))]
 pub(crate) mod shape_service_access_not_enabled_exception;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_user",
+    feature = "op_delete_user_permissions_boundary",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_enable_mfa_device",
+    feature = "op_generate_credential_report",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_account_password_policy",
+    feature = "op_get_account_properties",
+    feature = "op_get_account_summary",
+    feature = "op_get_credential_report",
+    feature = "op_get_delegation_request",
+    feature = "op_get_group",
+    feature = "op_get_group_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_instance_profile",
+    feature = "op_get_login_profile",
+    feature = "op_get_mfa_device",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role",
+    feature = "op_get_role_policy",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_get_user",
+    feature = "op_get_user_policy",
+    feature = "op_list_access_keys",
+    feature = "op_list_account_aliases",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_group_policies",
+    feature = "op_list_groups",
+    feature = "op_list_groups_for_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_mfa_devices",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_open_id_connect_providers",
+    feature = "op_list_policies",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_role_policies",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_saml_providers",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_server_certificates",
+    feature = "op_list_signing_certificates",
+    feature = "op_list_user_policies",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_put_account_properties",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_put_user_policy",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_set_security_token_service_preferences",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_delegation_request",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_role",
+    feature = "op_update_role_description",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate"
+))]
 pub(crate) mod shape_service_failure_exception;
 
+#[cfg(any(
+    feature = "op_create_service_specific_credential",
+    feature = "op_list_service_specific_credentials"
+))]
 pub(crate) mod shape_service_not_supported_exception;
 
+#[cfg(any(
+    feature = "op_acquire_role",
+    feature = "op_create_instance_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_group",
+    feature = "op_get_instance_profile",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_policy",
+    feature = "op_get_role",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_policies",
+    feature = "op_list_policy_tags",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_update_role_description",
+    feature = "op_upload_server_certificate"
+))]
 pub(crate) mod shape_tag;
 
+#[cfg(any(
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_attach_role_policy",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_role",
+    feature = "op_update_role_description"
+))]
 pub(crate) mod shape_unmodifiable_entity_exception;
 
+#[cfg(any(
+    feature = "op_get_ssh_public_key",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_unrecognized_public_key_encoding_exception;
 
+#[cfg(feature = "op_get_organizations_access_report")]
 pub(crate) mod shape_access_details;
 
+#[cfg(feature = "op_create_access_key")]
 pub(crate) mod shape_access_key;
 
+#[cfg(feature = "op_get_access_key_last_used")]
 pub(crate) mod shape_access_key_last_used;
 
+#[cfg(feature = "op_list_access_keys")]
 pub(crate) mod shape_access_key_metadata_list_type;
 
+#[cfg(feature = "op_list_account_aliases")]
 pub(crate) mod shape_account_alias_list_type;
 
+#[cfg(feature = "op_get_account_properties")]
 pub(crate) mod shape_account_properties_map_type;
 
+#[cfg(any(
+    feature = "op_get_account_authorization_details",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies"
+))]
 pub(crate) mod shape_attached_policies_list_type;
 
+#[cfg(feature = "op_list_signing_certificates")]
 pub(crate) mod shape_certificate_list_type;
 
+#[cfg(feature = "op_get_mfa_device")]
 pub(crate) mod shape_certification_map_type;
 
+#[cfg(feature = "op_get_open_id_connect_provider")]
 pub(crate) mod shape_client_id_list_type;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_service_specific_credential",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_service_specific_credential",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_ssh_public_key",
+    feature = "op_delete_user",
+    feature = "op_delete_user_permissions_boundary",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_disable_outbound_web_identity_federation",
+    feature = "op_enable_mfa_device",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_enable_outbound_web_identity_federation",
+    feature = "op_generate_credential_report",
+    feature = "op_generate_organizations_access_report",
+    feature = "op_generate_service_last_accessed_details",
+    feature = "op_get_access_key_last_used",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_account_password_policy",
+    feature = "op_get_account_properties",
+    feature = "op_get_account_summary",
+    feature = "op_get_context_keys_for_custom_policy",
+    feature = "op_get_context_keys_for_principal_policy",
+    feature = "op_get_credential_report",
+    feature = "op_get_delegation_request",
+    feature = "op_get_group",
+    feature = "op_get_group_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_instance_profile",
+    feature = "op_get_login_profile",
+    feature = "op_get_mfa_device",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_organizations_access_report",
+    feature = "op_get_outbound_web_identity_federation_info",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role",
+    feature = "op_get_role_policy",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_get_ssh_public_key",
+    feature = "op_get_user",
+    feature = "op_get_user_policy",
+    feature = "op_list_access_keys",
+    feature = "op_list_account_aliases",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_group_policies",
+    feature = "op_list_groups",
+    feature = "op_list_groups_for_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_mfa_devices",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_open_id_connect_providers",
+    feature = "op_list_organizations_features",
+    feature = "op_list_policies",
+    feature = "op_list_policies_granting_service_access",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_role_policies",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_saml_providers",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_server_certificates",
+    feature = "op_list_service_specific_credentials",
+    feature = "op_list_signing_certificates",
+    feature = "op_list_ssh_public_keys",
+    feature = "op_list_user_policies",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_put_account_properties",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_put_user_policy",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_reset_service_specific_credential",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_set_security_token_service_preferences",
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_delegation_request",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_role",
+    feature = "op_update_role_description",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_service_specific_credential",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_ssh_public_key",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_context_key_names_result_list_type;
 
+#[cfg(any(
+    feature = "op_get_delegation_request",
+    feature = "op_list_delegation_requests"
+))]
 pub(crate) mod shape_delegation_request;
 
+#[cfg(feature = "op_list_delegation_requests")]
 pub(crate) mod shape_delegation_requests_list_type;
 
+#[cfg(feature = "op_get_service_linked_role_deletion_status")]
 pub(crate) mod shape_deletion_task_failure_reason_type;
 
+#[cfg(feature = "op_get_service_last_accessed_details_with_entities")]
 pub(crate) mod shape_entity_details_list_type;
 
+#[cfg(any(
+    feature = "op_get_organizations_access_report",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities"
+))]
 pub(crate) mod shape_error_details;
 
+#[cfg(any(
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy"
+))]
 pub(crate) mod shape_evaluation_results_list_type;
 
+#[cfg(any(
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_list_organizations_features"
+))]
 pub(crate) mod shape_features_list_type;
 
+#[cfg(any(
+    feature = "op_create_group",
+    feature = "op_get_group",
+    feature = "op_list_groups",
+    feature = "op_list_groups_for_user"
+))]
 pub(crate) mod shape_group;
 
+#[cfg(feature = "op_get_account_authorization_details")]
 pub(crate) mod shape_group_detail_list_type;
 
+#[cfg(any(feature = "op_list_groups", feature = "op_list_groups_for_user"))]
 pub(crate) mod shape_group_list_type;
 
+#[cfg(feature = "op_simulate_principal_policy")]
 pub(crate) mod shape_inline_policy_identifier_type;
 
+#[cfg(any(
+    feature = "op_create_instance_profile",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_instance_profile",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role"
+))]
 pub(crate) mod shape_instance_profile;
 
+#[cfg(any(
+    feature = "op_get_account_authorization_details",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role"
+))]
 pub(crate) mod shape_instance_profile_list_type;
 
+#[cfg(feature = "op_list_policies_granting_service_access")]
 pub(crate) mod shape_list_policy_granting_service_access_response_list_type;
 
+#[cfg(any(feature = "op_create_login_profile", feature = "op_get_login_profile"))]
 pub(crate) mod shape_login_profile;
 
+#[cfg(feature = "op_get_account_authorization_details")]
 pub(crate) mod shape_managed_policy_detail_list_type;
 
+#[cfg(feature = "op_list_mfa_devices")]
 pub(crate) mod shape_mfa_device_list_type;
 
+#[cfg(feature = "op_list_open_id_connect_providers")]
 pub(crate) mod shape_open_id_connect_provider_list_type;
 
+#[cfg(feature = "op_get_account_password_policy")]
 pub(crate) mod shape_password_policy;
 
+#[cfg(any(
+    feature = "op_create_policy",
+    feature = "op_get_policy",
+    feature = "op_list_policies"
+))]
 pub(crate) mod shape_policy;
 
+#[cfg(any(
+    feature = "op_get_account_authorization_details",
+    feature = "op_list_policy_versions"
+))]
 pub(crate) mod shape_policy_document_version_list_type;
 
+#[cfg(feature = "op_list_entities_for_policy")]
 pub(crate) mod shape_policy_group_list_type;
 
+#[cfg(feature = "op_list_policies")]
 pub(crate) mod shape_policy_list_type;
 
+#[cfg(any(
+    feature = "op_list_group_policies",
+    feature = "op_list_role_policies",
+    feature = "op_list_user_policies"
+))]
 pub(crate) mod shape_policy_name_list_type;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_service_specific_credential",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_service_specific_credential",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_ssh_public_key",
+    feature = "op_delete_user",
+    feature = "op_delete_user_permissions_boundary",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_disable_outbound_web_identity_federation",
+    feature = "op_enable_mfa_device",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_enable_outbound_web_identity_federation",
+    feature = "op_generate_credential_report",
+    feature = "op_generate_organizations_access_report",
+    feature = "op_generate_service_last_accessed_details",
+    feature = "op_get_access_key_last_used",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_account_password_policy",
+    feature = "op_get_account_properties",
+    feature = "op_get_account_summary",
+    feature = "op_get_context_keys_for_custom_policy",
+    feature = "op_get_context_keys_for_principal_policy",
+    feature = "op_get_credential_report",
+    feature = "op_get_delegation_request",
+    feature = "op_get_group",
+    feature = "op_get_group_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_instance_profile",
+    feature = "op_get_login_profile",
+    feature = "op_get_mfa_device",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_organizations_access_report",
+    feature = "op_get_outbound_web_identity_federation_info",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role",
+    feature = "op_get_role_policy",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_get_ssh_public_key",
+    feature = "op_get_user",
+    feature = "op_get_user_policy",
+    feature = "op_list_access_keys",
+    feature = "op_list_account_aliases",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_group_policies",
+    feature = "op_list_groups",
+    feature = "op_list_groups_for_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_mfa_devices",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_open_id_connect_providers",
+    feature = "op_list_organizations_features",
+    feature = "op_list_policies",
+    feature = "op_list_policies_granting_service_access",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_role_policies",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_saml_providers",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_server_certificates",
+    feature = "op_list_service_specific_credentials",
+    feature = "op_list_signing_certificates",
+    feature = "op_list_ssh_public_keys",
+    feature = "op_list_user_policies",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_put_account_properties",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_put_user_policy",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_reset_service_specific_credential",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_set_security_token_service_preferences",
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_delegation_request",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_role",
+    feature = "op_update_role_description",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_service_specific_credential",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_ssh_public_key",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_policy_parameter;
 
+#[cfg(feature = "op_list_entities_for_policy")]
 pub(crate) mod shape_policy_role_list_type;
 
+#[cfg(feature = "op_list_entities_for_policy")]
 pub(crate) mod shape_policy_user_list_type;
 
+#[cfg(any(
+    feature = "op_create_policy_version",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_policy_version",
+    feature = "op_list_policy_versions"
+))]
 pub(crate) mod shape_policy_version;
 
+#[cfg(feature = "op_get_saml_provider")]
 pub(crate) mod shape_private_key_list;
 
+#[cfg(any(
+    feature = "op_acquire_role",
+    feature = "op_create_instance_profile",
+    feature = "op_create_role",
+    feature = "op_create_service_linked_role",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_instance_profile",
+    feature = "op_get_role",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_roles",
+    feature = "op_update_role_description"
+))]
 pub(crate) mod shape_role;
 
+#[cfg(feature = "op_get_account_authorization_details")]
 pub(crate) mod shape_role_detail_list_type;
 
+#[cfg(any(
+    feature = "op_create_instance_profile",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_instance_profile",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_roles"
+))]
 pub(crate) mod shape_role_list_type;
 
+#[cfg(feature = "op_get_role_template_version")]
 pub(crate) mod shape_role_template_version;
 
+#[cfg(feature = "op_list_saml_providers")]
 pub(crate) mod shape_saml_provider_list_type;
 
+#[cfg(feature = "op_get_server_certificate")]
 pub(crate) mod shape_server_certificate;
 
+#[cfg(any(
+    feature = "op_get_server_certificate",
+    feature = "op_list_server_certificates",
+    feature = "op_upload_server_certificate"
+))]
 pub(crate) mod shape_server_certificate_metadata;
 
+#[cfg(feature = "op_list_server_certificates")]
 pub(crate) mod shape_server_certificate_metadata_list_type;
 
+#[cfg(any(
+    feature = "op_create_service_specific_credential",
+    feature = "op_reset_service_specific_credential"
+))]
 pub(crate) mod shape_service_specific_credential;
 
+#[cfg(feature = "op_list_service_specific_credentials")]
 pub(crate) mod shape_service_specific_credentials_list_type;
 
+#[cfg(feature = "op_get_service_last_accessed_details")]
 pub(crate) mod shape_services_last_accessed;
 
+#[cfg(any(
+    feature = "op_list_signing_certificates",
+    feature = "op_upload_signing_certificate"
+))]
 pub(crate) mod shape_signing_certificate;
 
+#[cfg(any(
+    feature = "op_get_ssh_public_key",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_ssh_public_key;
 
+#[cfg(feature = "op_list_ssh_public_keys")]
 pub(crate) mod shape_ssh_public_key_list_type;
 
+#[cfg(feature = "op_get_account_summary")]
 pub(crate) mod shape_summary_map_type;
 
+#[cfg(any(
+    feature = "op_acquire_role",
+    feature = "op_create_instance_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_group",
+    feature = "op_get_instance_profile",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_policy",
+    feature = "op_get_role",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_policies",
+    feature = "op_list_policy_tags",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_update_role_description",
+    feature = "op_upload_server_certificate"
+))]
 pub(crate) mod shape_tag_list_type;
 
+#[cfg(feature = "op_get_open_id_connect_provider")]
 pub(crate) mod shape_thumbprint_list_type;
 
+#[cfg(any(
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_get_group",
+    feature = "op_get_user",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices"
+))]
 pub(crate) mod shape_user;
 
+#[cfg(feature = "op_get_account_authorization_details")]
 pub(crate) mod shape_user_detail_list_type;
 
+#[cfg(any(feature = "op_get_group", feature = "op_list_users"))]
 pub(crate) mod shape_user_list_type;
 
+#[cfg(any(
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_list_virtual_mfa_devices"
+))]
 pub(crate) mod shape_virtual_mfa_device;
 
+#[cfg(feature = "op_list_virtual_mfa_devices")]
 pub(crate) mod shape_virtual_mfa_device_list_type;
 
+#[cfg(feature = "op_get_organizations_access_report")]
 pub(crate) mod shape_access_detail;
 
+#[cfg(feature = "op_list_access_keys")]
 pub(crate) mod shape_access_key_metadata;
 
+#[cfg(any(
+    feature = "op_acquire_role",
+    feature = "op_create_instance_profile",
+    feature = "op_create_role",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_group",
+    feature = "op_get_instance_profile",
+    feature = "op_get_role",
+    feature = "op_get_user",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_roles",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_update_role_description"
+))]
 pub(crate) mod shape_attached_permissions_boundary;
 
+#[cfg(any(
+    feature = "op_get_account_authorization_details",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies"
+))]
 pub(crate) mod shape_attached_policy;
 
+#[cfg(feature = "op_get_service_last_accessed_details_with_entities")]
 pub(crate) mod shape_entity_details;
 
+#[cfg(any(
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy"
+))]
 pub(crate) mod shape_evaluation_result;
 
+#[cfg(feature = "op_get_account_authorization_details")]
 pub(crate) mod shape_group_detail;
 
+#[cfg(feature = "op_get_role_template_version")]
 pub(crate) mod shape_inline_policy_template_list_type;
 
 #[cfg(feature = "op_list_policies_granting_service_access")]
 pub(crate) mod shape_list_policies_granting_service_access_entry;
 
+#[cfg(feature = "op_get_role_template_version")]
 pub(crate) mod shape_managed_policy_arn_list_type;
 
+#[cfg(feature = "op_get_account_authorization_details")]
 pub(crate) mod shape_managed_policy_detail;
 
+#[cfg(feature = "op_list_mfa_devices")]
 pub(crate) mod shape_mfa_device;
 
+#[cfg(feature = "op_list_open_id_connect_providers")]
 pub(crate) mod shape_open_id_connect_provider_list_entry;
 
+#[cfg(feature = "op_get_role_template_version")]
 pub(crate) mod shape_parameters_definition_list_type;
 
+#[cfg(feature = "op_list_entities_for_policy")]
 pub(crate) mod shape_policy_group;
 
+#[cfg(feature = "op_list_entities_for_policy")]
 pub(crate) mod shape_policy_role;
 
+#[cfg(feature = "op_list_entities_for_policy")]
 pub(crate) mod shape_policy_user;
 
+#[cfg(feature = "op_get_account_authorization_details")]
 pub(crate) mod shape_role_detail;
 
+#[cfg(any(
+    feature = "op_acquire_role",
+    feature = "op_create_instance_profile",
+    feature = "op_create_role",
+    feature = "op_create_service_linked_role",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_instance_profile",
+    feature = "op_get_role",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_roles",
+    feature = "op_update_role_description"
+))]
 pub(crate) mod shape_role_last_used;
 
+#[cfg(any(
+    feature = "op_get_delegation_request",
+    feature = "op_list_delegation_requests"
+))]
 pub(crate) mod shape_role_permission_restriction_arn_list_type;
 
+#[cfg(feature = "op_get_service_linked_role_deletion_status")]
 pub(crate) mod shape_role_usage_list_type;
 
+#[cfg(feature = "op_get_saml_provider")]
 pub(crate) mod shape_saml_private_key;
 
+#[cfg(feature = "op_list_saml_providers")]
 pub(crate) mod shape_saml_provider_list_entry;
 
+#[cfg(feature = "op_get_service_last_accessed_details")]
 pub(crate) mod shape_service_last_accessed;
 
+#[cfg(feature = "op_list_service_specific_credentials")]
 pub(crate) mod shape_service_specific_credential_metadata;
 
+#[cfg(any(
+    feature = "op_acquire_role",
+    feature = "op_create_instance_profile",
+    feature = "op_create_role",
+    feature = "op_create_service_linked_role",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_instance_profile",
+    feature = "op_get_role",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_roles",
+    feature = "op_update_role_description"
+))]
 pub(crate) mod shape_source_role_template;
 
+#[cfg(feature = "op_list_ssh_public_keys")]
 pub(crate) mod shape_ssh_public_key_metadata;
 
+#[cfg(feature = "op_get_role_template_version")]
 pub(crate) mod shape_tag_template_list_type;
 
+#[cfg(feature = "op_get_account_authorization_details")]
 pub(crate) mod shape_user_detail;
 
+#[cfg(feature = "op_get_service_last_accessed_details_with_entities")]
 pub(crate) mod shape_entity_info;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_service_specific_credential",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_service_specific_credential",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_ssh_public_key",
+    feature = "op_delete_user",
+    feature = "op_delete_user_permissions_boundary",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_disable_outbound_web_identity_federation",
+    feature = "op_enable_mfa_device",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_enable_outbound_web_identity_federation",
+    feature = "op_generate_credential_report",
+    feature = "op_generate_organizations_access_report",
+    feature = "op_generate_service_last_accessed_details",
+    feature = "op_get_access_key_last_used",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_account_password_policy",
+    feature = "op_get_account_properties",
+    feature = "op_get_account_summary",
+    feature = "op_get_context_keys_for_custom_policy",
+    feature = "op_get_context_keys_for_principal_policy",
+    feature = "op_get_credential_report",
+    feature = "op_get_delegation_request",
+    feature = "op_get_group",
+    feature = "op_get_group_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_instance_profile",
+    feature = "op_get_login_profile",
+    feature = "op_get_mfa_device",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_organizations_access_report",
+    feature = "op_get_outbound_web_identity_federation_info",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role",
+    feature = "op_get_role_policy",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_get_ssh_public_key",
+    feature = "op_get_user",
+    feature = "op_get_user_policy",
+    feature = "op_list_access_keys",
+    feature = "op_list_account_aliases",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_group_policies",
+    feature = "op_list_groups",
+    feature = "op_list_groups_for_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_mfa_devices",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_open_id_connect_providers",
+    feature = "op_list_organizations_features",
+    feature = "op_list_policies",
+    feature = "op_list_policies_granting_service_access",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_role_policies",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_saml_providers",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_server_certificates",
+    feature = "op_list_service_specific_credentials",
+    feature = "op_list_signing_certificates",
+    feature = "op_list_ssh_public_keys",
+    feature = "op_list_user_policies",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_put_account_properties",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_put_user_policy",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_reset_service_specific_credential",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_set_security_token_service_preferences",
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_delegation_request",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_role",
+    feature = "op_update_role_description",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_service_specific_credential",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_ssh_public_key",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_eval_decision_details_type;
 
+#[cfg(feature = "op_get_account_authorization_details")]
 pub(crate) mod shape_group_name_list_type;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_service_specific_credential",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_service_specific_credential",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_ssh_public_key",
+    feature = "op_delete_user",
+    feature = "op_delete_user_permissions_boundary",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_disable_outbound_web_identity_federation",
+    feature = "op_enable_mfa_device",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_enable_outbound_web_identity_federation",
+    feature = "op_generate_credential_report",
+    feature = "op_generate_organizations_access_report",
+    feature = "op_generate_service_last_accessed_details",
+    feature = "op_get_access_key_last_used",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_account_password_policy",
+    feature = "op_get_account_properties",
+    feature = "op_get_account_summary",
+    feature = "op_get_context_keys_for_custom_policy",
+    feature = "op_get_context_keys_for_principal_policy",
+    feature = "op_get_credential_report",
+    feature = "op_get_delegation_request",
+    feature = "op_get_group",
+    feature = "op_get_group_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_instance_profile",
+    feature = "op_get_login_profile",
+    feature = "op_get_mfa_device",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_organizations_access_report",
+    feature = "op_get_outbound_web_identity_federation_info",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role",
+    feature = "op_get_role_policy",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_get_ssh_public_key",
+    feature = "op_get_user",
+    feature = "op_get_user_policy",
+    feature = "op_list_access_keys",
+    feature = "op_list_account_aliases",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_group_policies",
+    feature = "op_list_groups",
+    feature = "op_list_groups_for_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_mfa_devices",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_open_id_connect_providers",
+    feature = "op_list_organizations_features",
+    feature = "op_list_policies",
+    feature = "op_list_policies_granting_service_access",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_role_policies",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_saml_providers",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_server_certificates",
+    feature = "op_list_service_specific_credentials",
+    feature = "op_list_signing_certificates",
+    feature = "op_list_ssh_public_keys",
+    feature = "op_list_user_policies",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_put_account_properties",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_put_user_policy",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_reset_service_specific_credential",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_set_security_token_service_preferences",
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_delegation_request",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_role",
+    feature = "op_update_role_description",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_service_specific_credential",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_ssh_public_key",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_inline_policy;
 
+#[cfg(any(
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy"
+))]
 pub(crate) mod shape_organizations_decision_detail;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_service_specific_credential",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_service_specific_credential",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_ssh_public_key",
+    feature = "op_delete_user",
+    feature = "op_delete_user_permissions_boundary",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_disable_outbound_web_identity_federation",
+    feature = "op_enable_mfa_device",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_enable_outbound_web_identity_federation",
+    feature = "op_generate_credential_report",
+    feature = "op_generate_organizations_access_report",
+    feature = "op_generate_service_last_accessed_details",
+    feature = "op_get_access_key_last_used",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_account_password_policy",
+    feature = "op_get_account_properties",
+    feature = "op_get_account_summary",
+    feature = "op_get_context_keys_for_custom_policy",
+    feature = "op_get_context_keys_for_principal_policy",
+    feature = "op_get_credential_report",
+    feature = "op_get_delegation_request",
+    feature = "op_get_group",
+    feature = "op_get_group_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_instance_profile",
+    feature = "op_get_login_profile",
+    feature = "op_get_mfa_device",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_organizations_access_report",
+    feature = "op_get_outbound_web_identity_federation_info",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role",
+    feature = "op_get_role_policy",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_get_ssh_public_key",
+    feature = "op_get_user",
+    feature = "op_get_user_policy",
+    feature = "op_list_access_keys",
+    feature = "op_list_account_aliases",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_group_policies",
+    feature = "op_list_groups",
+    feature = "op_list_groups_for_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_mfa_devices",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_open_id_connect_providers",
+    feature = "op_list_organizations_features",
+    feature = "op_list_policies",
+    feature = "op_list_policies_granting_service_access",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_role_policies",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_saml_providers",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_server_certificates",
+    feature = "op_list_service_specific_credentials",
+    feature = "op_list_signing_certificates",
+    feature = "op_list_ssh_public_keys",
+    feature = "op_list_user_policies",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_put_account_properties",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_put_user_policy",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_reset_service_specific_credential",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_set_security_token_service_preferences",
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_delegation_request",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_role",
+    feature = "op_update_role_description",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_service_specific_credential",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_ssh_public_key",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_parameter_definition;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_service_specific_credential",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_service_specific_credential",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_ssh_public_key",
+    feature = "op_delete_user",
+    feature = "op_delete_user_permissions_boundary",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_disable_outbound_web_identity_federation",
+    feature = "op_enable_mfa_device",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_enable_outbound_web_identity_federation",
+    feature = "op_generate_credential_report",
+    feature = "op_generate_organizations_access_report",
+    feature = "op_generate_service_last_accessed_details",
+    feature = "op_get_access_key_last_used",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_account_password_policy",
+    feature = "op_get_account_properties",
+    feature = "op_get_account_summary",
+    feature = "op_get_context_keys_for_custom_policy",
+    feature = "op_get_context_keys_for_principal_policy",
+    feature = "op_get_credential_report",
+    feature = "op_get_delegation_request",
+    feature = "op_get_group",
+    feature = "op_get_group_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_instance_profile",
+    feature = "op_get_login_profile",
+    feature = "op_get_mfa_device",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_organizations_access_report",
+    feature = "op_get_outbound_web_identity_federation_info",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role",
+    feature = "op_get_role_policy",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_get_ssh_public_key",
+    feature = "op_get_user",
+    feature = "op_get_user_policy",
+    feature = "op_list_access_keys",
+    feature = "op_list_account_aliases",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_group_policies",
+    feature = "op_list_groups",
+    feature = "op_list_groups_for_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_mfa_devices",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_open_id_connect_providers",
+    feature = "op_list_organizations_features",
+    feature = "op_list_policies",
+    feature = "op_list_policies_granting_service_access",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_role_policies",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_saml_providers",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_server_certificates",
+    feature = "op_list_service_specific_credentials",
+    feature = "op_list_signing_certificates",
+    feature = "op_list_ssh_public_keys",
+    feature = "op_list_user_policies",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_put_account_properties",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_put_user_policy",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_reset_service_specific_credential",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_set_security_token_service_preferences",
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_delegation_request",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_role",
+    feature = "op_update_role_description",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_service_specific_credential",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_ssh_public_key",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_permissions_boundary_decision_detail;
 
+#[cfg(feature = "op_get_account_authorization_details")]
 pub(crate) mod shape_policy_detail_list_type;
 
+#[cfg(feature = "op_list_policies_granting_service_access")]
 pub(crate) mod shape_policy_granting_service_access_list_type;
 
+#[cfg(any(
+    feature = "op_create_delegation_request",
+    feature = "op_get_delegation_request",
+    feature = "op_list_delegation_requests"
+))]
 pub(crate) mod shape_policy_parameter_list_type;
 
+#[cfg(any(
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy"
+))]
 pub(crate) mod shape_resource_specific_result_list_type;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_service_specific_credential",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_service_specific_credential",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_ssh_public_key",
+    feature = "op_delete_user",
+    feature = "op_delete_user_permissions_boundary",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_disable_outbound_web_identity_federation",
+    feature = "op_enable_mfa_device",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_enable_outbound_web_identity_federation",
+    feature = "op_generate_credential_report",
+    feature = "op_generate_organizations_access_report",
+    feature = "op_generate_service_last_accessed_details",
+    feature = "op_get_access_key_last_used",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_account_password_policy",
+    feature = "op_get_account_properties",
+    feature = "op_get_account_summary",
+    feature = "op_get_context_keys_for_custom_policy",
+    feature = "op_get_context_keys_for_principal_policy",
+    feature = "op_get_credential_report",
+    feature = "op_get_delegation_request",
+    feature = "op_get_group",
+    feature = "op_get_group_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_instance_profile",
+    feature = "op_get_login_profile",
+    feature = "op_get_mfa_device",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_organizations_access_report",
+    feature = "op_get_outbound_web_identity_federation_info",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role",
+    feature = "op_get_role_policy",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_get_ssh_public_key",
+    feature = "op_get_user",
+    feature = "op_get_user_policy",
+    feature = "op_list_access_keys",
+    feature = "op_list_account_aliases",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_group_policies",
+    feature = "op_list_groups",
+    feature = "op_list_groups_for_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_mfa_devices",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_open_id_connect_providers",
+    feature = "op_list_organizations_features",
+    feature = "op_list_policies",
+    feature = "op_list_policies_granting_service_access",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_role_policies",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_saml_providers",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_server_certificates",
+    feature = "op_list_service_specific_credentials",
+    feature = "op_list_signing_certificates",
+    feature = "op_list_ssh_public_keys",
+    feature = "op_list_user_policies",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_put_account_properties",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_put_user_policy",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_reset_service_specific_credential",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_set_security_token_service_preferences",
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_delegation_request",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_role",
+    feature = "op_update_role_description",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_service_specific_credential",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_ssh_public_key",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_role_usage_type;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_service_specific_credential",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_service_specific_credential",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_ssh_public_key",
+    feature = "op_delete_user",
+    feature = "op_delete_user_permissions_boundary",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_disable_outbound_web_identity_federation",
+    feature = "op_enable_mfa_device",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_enable_outbound_web_identity_federation",
+    feature = "op_generate_credential_report",
+    feature = "op_generate_organizations_access_report",
+    feature = "op_generate_service_last_accessed_details",
+    feature = "op_get_access_key_last_used",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_account_password_policy",
+    feature = "op_get_account_properties",
+    feature = "op_get_account_summary",
+    feature = "op_get_context_keys_for_custom_policy",
+    feature = "op_get_context_keys_for_principal_policy",
+    feature = "op_get_credential_report",
+    feature = "op_get_delegation_request",
+    feature = "op_get_group",
+    feature = "op_get_group_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_instance_profile",
+    feature = "op_get_login_profile",
+    feature = "op_get_mfa_device",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_organizations_access_report",
+    feature = "op_get_outbound_web_identity_federation_info",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role",
+    feature = "op_get_role_policy",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_get_ssh_public_key",
+    feature = "op_get_user",
+    feature = "op_get_user_policy",
+    feature = "op_list_access_keys",
+    feature = "op_list_account_aliases",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_group_policies",
+    feature = "op_list_groups",
+    feature = "op_list_groups_for_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_mfa_devices",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_open_id_connect_providers",
+    feature = "op_list_organizations_features",
+    feature = "op_list_policies",
+    feature = "op_list_policies_granting_service_access",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_role_policies",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_saml_providers",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_server_certificates",
+    feature = "op_list_service_specific_credentials",
+    feature = "op_list_signing_certificates",
+    feature = "op_list_ssh_public_keys",
+    feature = "op_list_user_policies",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_put_account_properties",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_put_user_policy",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_reset_service_specific_credential",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_set_security_token_service_preferences",
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_delegation_request",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_role",
+    feature = "op_update_role_description",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_service_specific_credential",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_ssh_public_key",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_statement_list_type;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_service_specific_credential",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_service_specific_credential",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_ssh_public_key",
+    feature = "op_delete_user",
+    feature = "op_delete_user_permissions_boundary",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_disable_outbound_web_identity_federation",
+    feature = "op_enable_mfa_device",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_enable_outbound_web_identity_federation",
+    feature = "op_generate_credential_report",
+    feature = "op_generate_organizations_access_report",
+    feature = "op_generate_service_last_accessed_details",
+    feature = "op_get_access_key_last_used",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_account_password_policy",
+    feature = "op_get_account_properties",
+    feature = "op_get_account_summary",
+    feature = "op_get_context_keys_for_custom_policy",
+    feature = "op_get_context_keys_for_principal_policy",
+    feature = "op_get_credential_report",
+    feature = "op_get_delegation_request",
+    feature = "op_get_group",
+    feature = "op_get_group_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_instance_profile",
+    feature = "op_get_login_profile",
+    feature = "op_get_mfa_device",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_organizations_access_report",
+    feature = "op_get_outbound_web_identity_federation_info",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role",
+    feature = "op_get_role_policy",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_get_ssh_public_key",
+    feature = "op_get_user",
+    feature = "op_get_user_policy",
+    feature = "op_list_access_keys",
+    feature = "op_list_account_aliases",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_group_policies",
+    feature = "op_list_groups",
+    feature = "op_list_groups_for_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_mfa_devices",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_open_id_connect_providers",
+    feature = "op_list_organizations_features",
+    feature = "op_list_policies",
+    feature = "op_list_policies_granting_service_access",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_role_policies",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_saml_providers",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_server_certificates",
+    feature = "op_list_service_specific_credentials",
+    feature = "op_list_signing_certificates",
+    feature = "op_list_ssh_public_keys",
+    feature = "op_list_user_policies",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_put_account_properties",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_put_user_policy",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_reset_service_specific_credential",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_set_security_token_service_preferences",
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_delegation_request",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_role",
+    feature = "op_update_role_description",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_service_specific_credential",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_ssh_public_key",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_tag_template;
 
+#[cfg(feature = "op_get_service_last_accessed_details")]
 pub(crate) mod shape_tracked_actions_last_accessed;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_service_specific_credential",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_service_specific_credential",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_ssh_public_key",
+    feature = "op_delete_user",
+    feature = "op_delete_user_permissions_boundary",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_disable_outbound_web_identity_federation",
+    feature = "op_enable_mfa_device",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_enable_outbound_web_identity_federation",
+    feature = "op_generate_credential_report",
+    feature = "op_generate_organizations_access_report",
+    feature = "op_generate_service_last_accessed_details",
+    feature = "op_get_access_key_last_used",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_account_password_policy",
+    feature = "op_get_account_properties",
+    feature = "op_get_account_summary",
+    feature = "op_get_context_keys_for_custom_policy",
+    feature = "op_get_context_keys_for_principal_policy",
+    feature = "op_get_credential_report",
+    feature = "op_get_delegation_request",
+    feature = "op_get_group",
+    feature = "op_get_group_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_instance_profile",
+    feature = "op_get_login_profile",
+    feature = "op_get_mfa_device",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_organizations_access_report",
+    feature = "op_get_outbound_web_identity_federation_info",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role",
+    feature = "op_get_role_policy",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_get_ssh_public_key",
+    feature = "op_get_user",
+    feature = "op_get_user_policy",
+    feature = "op_list_access_keys",
+    feature = "op_list_account_aliases",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_group_policies",
+    feature = "op_list_groups",
+    feature = "op_list_groups_for_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_mfa_devices",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_open_id_connect_providers",
+    feature = "op_list_organizations_features",
+    feature = "op_list_policies",
+    feature = "op_list_policies_granting_service_access",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_role_policies",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_saml_providers",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_server_certificates",
+    feature = "op_list_service_specific_credentials",
+    feature = "op_list_signing_certificates",
+    feature = "op_list_ssh_public_keys",
+    feature = "op_list_user_policies",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_put_account_properties",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_put_user_policy",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_reset_service_specific_credential",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_set_security_token_service_preferences",
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_delegation_request",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_role",
+    feature = "op_update_role_description",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_service_specific_credential",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_ssh_public_key",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_arn_list_type;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_service_specific_credential",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_service_specific_credential",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_ssh_public_key",
+    feature = "op_delete_user",
+    feature = "op_delete_user_permissions_boundary",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_disable_outbound_web_identity_federation",
+    feature = "op_enable_mfa_device",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_enable_outbound_web_identity_federation",
+    feature = "op_generate_credential_report",
+    feature = "op_generate_organizations_access_report",
+    feature = "op_generate_service_last_accessed_details",
+    feature = "op_get_access_key_last_used",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_account_password_policy",
+    feature = "op_get_account_properties",
+    feature = "op_get_account_summary",
+    feature = "op_get_context_keys_for_custom_policy",
+    feature = "op_get_context_keys_for_principal_policy",
+    feature = "op_get_credential_report",
+    feature = "op_get_delegation_request",
+    feature = "op_get_group",
+    feature = "op_get_group_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_instance_profile",
+    feature = "op_get_login_profile",
+    feature = "op_get_mfa_device",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_organizations_access_report",
+    feature = "op_get_outbound_web_identity_federation_info",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role",
+    feature = "op_get_role_policy",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_get_ssh_public_key",
+    feature = "op_get_user",
+    feature = "op_get_user_policy",
+    feature = "op_list_access_keys",
+    feature = "op_list_account_aliases",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_group_policies",
+    feature = "op_list_groups",
+    feature = "op_list_groups_for_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_mfa_devices",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_open_id_connect_providers",
+    feature = "op_list_organizations_features",
+    feature = "op_list_policies",
+    feature = "op_list_policies_granting_service_access",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_role_policies",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_saml_providers",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_server_certificates",
+    feature = "op_list_service_specific_credentials",
+    feature = "op_list_signing_certificates",
+    feature = "op_list_ssh_public_keys",
+    feature = "op_list_user_policies",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_put_account_properties",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_put_user_policy",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_reset_service_specific_credential",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_set_security_token_service_preferences",
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_delegation_request",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_role",
+    feature = "op_update_role_description",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_service_specific_credential",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_ssh_public_key",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_policy_detail;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_service_specific_credential",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_service_specific_credential",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_ssh_public_key",
+    feature = "op_delete_user",
+    feature = "op_delete_user_permissions_boundary",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_disable_outbound_web_identity_federation",
+    feature = "op_enable_mfa_device",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_enable_outbound_web_identity_federation",
+    feature = "op_generate_credential_report",
+    feature = "op_generate_organizations_access_report",
+    feature = "op_generate_service_last_accessed_details",
+    feature = "op_get_access_key_last_used",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_account_password_policy",
+    feature = "op_get_account_properties",
+    feature = "op_get_account_summary",
+    feature = "op_get_context_keys_for_custom_policy",
+    feature = "op_get_context_keys_for_principal_policy",
+    feature = "op_get_credential_report",
+    feature = "op_get_delegation_request",
+    feature = "op_get_group",
+    feature = "op_get_group_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_instance_profile",
+    feature = "op_get_login_profile",
+    feature = "op_get_mfa_device",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_organizations_access_report",
+    feature = "op_get_outbound_web_identity_federation_info",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role",
+    feature = "op_get_role_policy",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_get_ssh_public_key",
+    feature = "op_get_user",
+    feature = "op_get_user_policy",
+    feature = "op_list_access_keys",
+    feature = "op_list_account_aliases",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_group_policies",
+    feature = "op_list_groups",
+    feature = "op_list_groups_for_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_mfa_devices",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_open_id_connect_providers",
+    feature = "op_list_organizations_features",
+    feature = "op_list_policies",
+    feature = "op_list_policies_granting_service_access",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_role_policies",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_saml_providers",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_server_certificates",
+    feature = "op_list_service_specific_credentials",
+    feature = "op_list_signing_certificates",
+    feature = "op_list_ssh_public_keys",
+    feature = "op_list_user_policies",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_put_account_properties",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_put_user_policy",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_reset_service_specific_credential",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_set_security_token_service_preferences",
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_delegation_request",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_role",
+    feature = "op_update_role_description",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_service_specific_credential",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_ssh_public_key",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_policy_granting_service_access;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_service_specific_credential",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_service_specific_credential",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_ssh_public_key",
+    feature = "op_delete_user",
+    feature = "op_delete_user_permissions_boundary",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_disable_outbound_web_identity_federation",
+    feature = "op_enable_mfa_device",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_enable_outbound_web_identity_federation",
+    feature = "op_generate_credential_report",
+    feature = "op_generate_organizations_access_report",
+    feature = "op_generate_service_last_accessed_details",
+    feature = "op_get_access_key_last_used",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_account_password_policy",
+    feature = "op_get_account_properties",
+    feature = "op_get_account_summary",
+    feature = "op_get_context_keys_for_custom_policy",
+    feature = "op_get_context_keys_for_principal_policy",
+    feature = "op_get_credential_report",
+    feature = "op_get_delegation_request",
+    feature = "op_get_group",
+    feature = "op_get_group_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_instance_profile",
+    feature = "op_get_login_profile",
+    feature = "op_get_mfa_device",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_organizations_access_report",
+    feature = "op_get_outbound_web_identity_federation_info",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role",
+    feature = "op_get_role_policy",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_get_ssh_public_key",
+    feature = "op_get_user",
+    feature = "op_get_user_policy",
+    feature = "op_list_access_keys",
+    feature = "op_list_account_aliases",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_group_policies",
+    feature = "op_list_groups",
+    feature = "op_list_groups_for_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_mfa_devices",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_open_id_connect_providers",
+    feature = "op_list_organizations_features",
+    feature = "op_list_policies",
+    feature = "op_list_policies_granting_service_access",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_role_policies",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_saml_providers",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_server_certificates",
+    feature = "op_list_service_specific_credentials",
+    feature = "op_list_signing_certificates",
+    feature = "op_list_ssh_public_keys",
+    feature = "op_list_user_policies",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_put_account_properties",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_put_user_policy",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_reset_service_specific_credential",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_set_security_token_service_preferences",
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_delegation_request",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_role",
+    feature = "op_update_role_description",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_service_specific_credential",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_ssh_public_key",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_resource_specific_result;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_service_specific_credential",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_service_specific_credential",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_ssh_public_key",
+    feature = "op_delete_user",
+    feature = "op_delete_user_permissions_boundary",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_disable_outbound_web_identity_federation",
+    feature = "op_enable_mfa_device",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_enable_outbound_web_identity_federation",
+    feature = "op_generate_credential_report",
+    feature = "op_generate_organizations_access_report",
+    feature = "op_generate_service_last_accessed_details",
+    feature = "op_get_access_key_last_used",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_account_password_policy",
+    feature = "op_get_account_properties",
+    feature = "op_get_account_summary",
+    feature = "op_get_context_keys_for_custom_policy",
+    feature = "op_get_context_keys_for_principal_policy",
+    feature = "op_get_credential_report",
+    feature = "op_get_delegation_request",
+    feature = "op_get_group",
+    feature = "op_get_group_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_instance_profile",
+    feature = "op_get_login_profile",
+    feature = "op_get_mfa_device",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_organizations_access_report",
+    feature = "op_get_outbound_web_identity_federation_info",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role",
+    feature = "op_get_role_policy",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_get_ssh_public_key",
+    feature = "op_get_user",
+    feature = "op_get_user_policy",
+    feature = "op_list_access_keys",
+    feature = "op_list_account_aliases",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_group_policies",
+    feature = "op_list_groups",
+    feature = "op_list_groups_for_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_mfa_devices",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_open_id_connect_providers",
+    feature = "op_list_organizations_features",
+    feature = "op_list_policies",
+    feature = "op_list_policies_granting_service_access",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_role_policies",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_saml_providers",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_server_certificates",
+    feature = "op_list_service_specific_credentials",
+    feature = "op_list_signing_certificates",
+    feature = "op_list_ssh_public_keys",
+    feature = "op_list_user_policies",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_put_account_properties",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_put_user_policy",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_reset_service_specific_credential",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_set_security_token_service_preferences",
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_delegation_request",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_role",
+    feature = "op_update_role_description",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_service_specific_credential",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_ssh_public_key",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_statement;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_service_specific_credential",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_service_specific_credential",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_ssh_public_key",
+    feature = "op_delete_user",
+    feature = "op_delete_user_permissions_boundary",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_disable_outbound_web_identity_federation",
+    feature = "op_enable_mfa_device",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_enable_outbound_web_identity_federation",
+    feature = "op_generate_credential_report",
+    feature = "op_generate_organizations_access_report",
+    feature = "op_generate_service_last_accessed_details",
+    feature = "op_get_access_key_last_used",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_account_password_policy",
+    feature = "op_get_account_properties",
+    feature = "op_get_account_summary",
+    feature = "op_get_context_keys_for_custom_policy",
+    feature = "op_get_context_keys_for_principal_policy",
+    feature = "op_get_credential_report",
+    feature = "op_get_delegation_request",
+    feature = "op_get_group",
+    feature = "op_get_group_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_instance_profile",
+    feature = "op_get_login_profile",
+    feature = "op_get_mfa_device",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_organizations_access_report",
+    feature = "op_get_outbound_web_identity_federation_info",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role",
+    feature = "op_get_role_policy",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_get_ssh_public_key",
+    feature = "op_get_user",
+    feature = "op_get_user_policy",
+    feature = "op_list_access_keys",
+    feature = "op_list_account_aliases",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_group_policies",
+    feature = "op_list_groups",
+    feature = "op_list_groups_for_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_mfa_devices",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_open_id_connect_providers",
+    feature = "op_list_organizations_features",
+    feature = "op_list_policies",
+    feature = "op_list_policies_granting_service_access",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_role_policies",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_saml_providers",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_server_certificates",
+    feature = "op_list_service_specific_credentials",
+    feature = "op_list_signing_certificates",
+    feature = "op_list_ssh_public_keys",
+    feature = "op_list_user_policies",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_put_account_properties",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_put_user_policy",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_reset_service_specific_credential",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_set_security_token_service_preferences",
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_delegation_request",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_role",
+    feature = "op_update_role_description",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_service_specific_credential",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_ssh_public_key",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_tracked_action_last_accessed;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_service_specific_credential",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_service_specific_credential",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_ssh_public_key",
+    feature = "op_delete_user",
+    feature = "op_delete_user_permissions_boundary",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_disable_outbound_web_identity_federation",
+    feature = "op_enable_mfa_device",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_enable_outbound_web_identity_federation",
+    feature = "op_generate_credential_report",
+    feature = "op_generate_organizations_access_report",
+    feature = "op_generate_service_last_accessed_details",
+    feature = "op_get_access_key_last_used",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_account_password_policy",
+    feature = "op_get_account_properties",
+    feature = "op_get_account_summary",
+    feature = "op_get_context_keys_for_custom_policy",
+    feature = "op_get_context_keys_for_principal_policy",
+    feature = "op_get_credential_report",
+    feature = "op_get_delegation_request",
+    feature = "op_get_group",
+    feature = "op_get_group_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_instance_profile",
+    feature = "op_get_login_profile",
+    feature = "op_get_mfa_device",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_organizations_access_report",
+    feature = "op_get_outbound_web_identity_federation_info",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role",
+    feature = "op_get_role_policy",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_get_ssh_public_key",
+    feature = "op_get_user",
+    feature = "op_get_user_policy",
+    feature = "op_list_access_keys",
+    feature = "op_list_account_aliases",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_group_policies",
+    feature = "op_list_groups",
+    feature = "op_list_groups_for_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_mfa_devices",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_open_id_connect_providers",
+    feature = "op_list_organizations_features",
+    feature = "op_list_policies",
+    feature = "op_list_policies_granting_service_access",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_role_policies",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_saml_providers",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_server_certificates",
+    feature = "op_list_service_specific_credentials",
+    feature = "op_list_signing_certificates",
+    feature = "op_list_ssh_public_keys",
+    feature = "op_list_user_policies",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_put_account_properties",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_put_user_policy",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_reset_service_specific_credential",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_set_security_token_service_preferences",
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_delegation_request",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_role",
+    feature = "op_update_role_description",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_service_specific_credential",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_ssh_public_key",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_policy_parameter_values_list_type;
 
+#[cfg(any(
+    feature = "op_accept_delegation_request",
+    feature = "op_acquire_role",
+    feature = "op_add_client_id_to_open_id_connect_provider",
+    feature = "op_add_role_to_instance_profile",
+    feature = "op_add_user_to_group",
+    feature = "op_associate_delegation_request",
+    feature = "op_attach_group_policy",
+    feature = "op_attach_role_policy",
+    feature = "op_attach_user_policy",
+    feature = "op_change_password",
+    feature = "op_create_access_key",
+    feature = "op_create_account_alias",
+    feature = "op_create_delegation_request",
+    feature = "op_create_group",
+    feature = "op_create_instance_profile",
+    feature = "op_create_login_profile",
+    feature = "op_create_open_id_connect_provider",
+    feature = "op_create_policy",
+    feature = "op_create_policy_version",
+    feature = "op_create_role",
+    feature = "op_create_saml_provider",
+    feature = "op_create_service_linked_role",
+    feature = "op_create_service_specific_credential",
+    feature = "op_create_user",
+    feature = "op_create_virtual_mfa_device",
+    feature = "op_deactivate_mfa_device",
+    feature = "op_delete_access_key",
+    feature = "op_delete_account_alias",
+    feature = "op_delete_account_password_policy",
+    feature = "op_delete_group",
+    feature = "op_delete_group_policy",
+    feature = "op_delete_instance_profile",
+    feature = "op_delete_login_profile",
+    feature = "op_delete_open_id_connect_provider",
+    feature = "op_delete_policy",
+    feature = "op_delete_policy_version",
+    feature = "op_delete_role",
+    feature = "op_delete_role_permissions_boundary",
+    feature = "op_delete_role_policy",
+    feature = "op_delete_saml_provider",
+    feature = "op_delete_server_certificate",
+    feature = "op_delete_service_linked_role",
+    feature = "op_delete_service_specific_credential",
+    feature = "op_delete_signing_certificate",
+    feature = "op_delete_ssh_public_key",
+    feature = "op_delete_user",
+    feature = "op_delete_user_permissions_boundary",
+    feature = "op_delete_user_policy",
+    feature = "op_delete_virtual_mfa_device",
+    feature = "op_detach_group_policy",
+    feature = "op_detach_role_policy",
+    feature = "op_detach_user_policy",
+    feature = "op_disable_organizations_root_credentials_management",
+    feature = "op_disable_organizations_root_sessions",
+    feature = "op_disable_outbound_web_identity_federation",
+    feature = "op_enable_mfa_device",
+    feature = "op_enable_organizations_root_credentials_management",
+    feature = "op_enable_organizations_root_sessions",
+    feature = "op_enable_outbound_web_identity_federation",
+    feature = "op_generate_credential_report",
+    feature = "op_generate_organizations_access_report",
+    feature = "op_generate_service_last_accessed_details",
+    feature = "op_get_access_key_last_used",
+    feature = "op_get_account_authorization_details",
+    feature = "op_get_account_password_policy",
+    feature = "op_get_account_properties",
+    feature = "op_get_account_summary",
+    feature = "op_get_context_keys_for_custom_policy",
+    feature = "op_get_context_keys_for_principal_policy",
+    feature = "op_get_credential_report",
+    feature = "op_get_delegation_request",
+    feature = "op_get_group",
+    feature = "op_get_group_policy",
+    feature = "op_get_human_readable_summary",
+    feature = "op_get_instance_profile",
+    feature = "op_get_login_profile",
+    feature = "op_get_mfa_device",
+    feature = "op_get_open_id_connect_provider",
+    feature = "op_get_organizations_access_report",
+    feature = "op_get_outbound_web_identity_federation_info",
+    feature = "op_get_policy",
+    feature = "op_get_policy_version",
+    feature = "op_get_role",
+    feature = "op_get_role_policy",
+    feature = "op_get_role_template_version",
+    feature = "op_get_saml_provider",
+    feature = "op_get_server_certificate",
+    feature = "op_get_service_last_accessed_details",
+    feature = "op_get_service_last_accessed_details_with_entities",
+    feature = "op_get_service_linked_role_deletion_status",
+    feature = "op_get_ssh_public_key",
+    feature = "op_get_user",
+    feature = "op_get_user_policy",
+    feature = "op_list_access_keys",
+    feature = "op_list_account_aliases",
+    feature = "op_list_attached_group_policies",
+    feature = "op_list_attached_role_policies",
+    feature = "op_list_attached_user_policies",
+    feature = "op_list_delegation_requests",
+    feature = "op_list_entities_for_policy",
+    feature = "op_list_group_policies",
+    feature = "op_list_groups",
+    feature = "op_list_groups_for_user",
+    feature = "op_list_instance_profile_tags",
+    feature = "op_list_instance_profiles",
+    feature = "op_list_instance_profiles_for_role",
+    feature = "op_list_mfa_device_tags",
+    feature = "op_list_mfa_devices",
+    feature = "op_list_open_id_connect_provider_tags",
+    feature = "op_list_open_id_connect_providers",
+    feature = "op_list_organizations_features",
+    feature = "op_list_policies",
+    feature = "op_list_policies_granting_service_access",
+    feature = "op_list_policy_tags",
+    feature = "op_list_policy_versions",
+    feature = "op_list_role_policies",
+    feature = "op_list_role_tags",
+    feature = "op_list_roles",
+    feature = "op_list_saml_provider_tags",
+    feature = "op_list_saml_providers",
+    feature = "op_list_server_certificate_tags",
+    feature = "op_list_server_certificates",
+    feature = "op_list_service_specific_credentials",
+    feature = "op_list_signing_certificates",
+    feature = "op_list_ssh_public_keys",
+    feature = "op_list_user_policies",
+    feature = "op_list_user_tags",
+    feature = "op_list_users",
+    feature = "op_list_virtual_mfa_devices",
+    feature = "op_put_account_properties",
+    feature = "op_put_group_policy",
+    feature = "op_put_role_permissions_boundary",
+    feature = "op_put_role_policy",
+    feature = "op_put_user_permissions_boundary",
+    feature = "op_put_user_policy",
+    feature = "op_reject_delegation_request",
+    feature = "op_remove_client_id_from_open_id_connect_provider",
+    feature = "op_remove_role_from_instance_profile",
+    feature = "op_remove_user_from_group",
+    feature = "op_reset_service_specific_credential",
+    feature = "op_resync_mfa_device",
+    feature = "op_send_delegation_token",
+    feature = "op_set_default_policy_version",
+    feature = "op_set_security_token_service_preferences",
+    feature = "op_simulate_custom_policy",
+    feature = "op_simulate_principal_policy",
+    feature = "op_tag_instance_profile",
+    feature = "op_tag_mfa_device",
+    feature = "op_tag_open_id_connect_provider",
+    feature = "op_tag_policy",
+    feature = "op_tag_role",
+    feature = "op_tag_saml_provider",
+    feature = "op_tag_server_certificate",
+    feature = "op_tag_user",
+    feature = "op_untag_instance_profile",
+    feature = "op_untag_mfa_device",
+    feature = "op_untag_open_id_connect_provider",
+    feature = "op_untag_policy",
+    feature = "op_untag_role",
+    feature = "op_untag_saml_provider",
+    feature = "op_untag_server_certificate",
+    feature = "op_untag_user",
+    feature = "op_update_access_key",
+    feature = "op_update_account_password_policy",
+    feature = "op_update_assume_role_policy",
+    feature = "op_update_delegation_request",
+    feature = "op_update_group",
+    feature = "op_update_login_profile",
+    feature = "op_update_open_id_connect_provider_thumbprint",
+    feature = "op_update_role",
+    feature = "op_update_role_description",
+    feature = "op_update_saml_provider",
+    feature = "op_update_server_certificate",
+    feature = "op_update_service_specific_credential",
+    feature = "op_update_signing_certificate",
+    feature = "op_update_ssh_public_key",
+    feature = "op_update_user",
+    feature = "op_upload_server_certificate",
+    feature = "op_upload_signing_certificate",
+    feature = "op_upload_ssh_public_key"
+))]
 pub(crate) mod shape_position;

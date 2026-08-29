@@ -76,7 +76,7 @@ impl
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-#[cfg(any(feature = "op_get_log_events", feature = "op_put_log_events"))]
+#[cfg(feature = "op_put_log_events")]
 impl PutLogEventsFluentBuilder {
     /// Creates a new `PutLogEventsFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {

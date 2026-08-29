@@ -54,7 +54,7 @@ impl
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-#[cfg(any(feature = "op_delete_message_batch", feature = "op_get_queue_url"))]
+#[cfg(feature = "op_delete_message_batch")]
 impl DeleteMessageBatchFluentBuilder {
     /// Creates a new `DeleteMessageBatchFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {

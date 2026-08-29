@@ -32,241 +32,340 @@ pub fn parse_http_error_metadata(
     crate::json_errors::parse_error_metadata(response_body, response_headers)
 }
 
+#[cfg(feature = "op_batch_get_metric_data")]
 pub(crate) mod shape_batch_get_metric_data;
 
+#[cfg(feature = "op_cancel_export_job")]
 pub(crate) mod shape_cancel_export_job;
 
+#[cfg(feature = "op_create_configuration_set")]
 pub(crate) mod shape_create_configuration_set;
 
-#[cfg(feature = "op_create_configuration_set")]
+#[cfg(feature = "op_create_configuration_set_event_destination")]
 pub(crate) mod shape_create_configuration_set_event_destination;
 
+#[cfg(feature = "op_create_contact")]
 pub(crate) mod shape_create_contact;
 
-#[cfg(feature = "op_create_contact")]
+#[cfg(feature = "op_create_contact_list")]
 pub(crate) mod shape_create_contact_list;
 
+#[cfg(feature = "op_create_custom_verification_email_template")]
 pub(crate) mod shape_create_custom_verification_email_template;
 
+#[cfg(feature = "op_create_dedicated_ip_pool")]
 pub(crate) mod shape_create_dedicated_ip_pool;
 
+#[cfg(feature = "op_create_deliverability_test_report")]
 pub(crate) mod shape_create_deliverability_test_report;
 
+#[cfg(feature = "op_create_email_identity")]
 pub(crate) mod shape_create_email_identity;
 
-#[cfg(feature = "op_create_email_identity")]
+#[cfg(feature = "op_create_email_identity_policy")]
 pub(crate) mod shape_create_email_identity_policy;
 
+#[cfg(feature = "op_create_email_template")]
 pub(crate) mod shape_create_email_template;
 
+#[cfg(feature = "op_create_export_job")]
 pub(crate) mod shape_create_export_job;
 
+#[cfg(feature = "op_create_import_job")]
 pub(crate) mod shape_create_import_job;
 
+#[cfg(feature = "op_create_multi_region_endpoint")]
 pub(crate) mod shape_create_multi_region_endpoint;
 
+#[cfg(feature = "op_create_tenant")]
 pub(crate) mod shape_create_tenant;
 
-#[cfg(feature = "op_create_tenant")]
+#[cfg(feature = "op_create_tenant_resource_association")]
 pub(crate) mod shape_create_tenant_resource_association;
 
+#[cfg(feature = "op_delete_configuration_set")]
 pub(crate) mod shape_delete_configuration_set;
 
-#[cfg(feature = "op_delete_configuration_set")]
+#[cfg(feature = "op_delete_configuration_set_event_destination")]
 pub(crate) mod shape_delete_configuration_set_event_destination;
 
+#[cfg(feature = "op_delete_contact")]
 pub(crate) mod shape_delete_contact;
 
-#[cfg(feature = "op_delete_contact")]
+#[cfg(feature = "op_delete_contact_list")]
 pub(crate) mod shape_delete_contact_list;
 
+#[cfg(feature = "op_delete_custom_verification_email_template")]
 pub(crate) mod shape_delete_custom_verification_email_template;
 
+#[cfg(feature = "op_delete_dedicated_ip_pool")]
 pub(crate) mod shape_delete_dedicated_ip_pool;
 
+#[cfg(feature = "op_delete_email_identity")]
 pub(crate) mod shape_delete_email_identity;
 
-#[cfg(feature = "op_delete_email_identity")]
+#[cfg(feature = "op_delete_email_identity_policy")]
 pub(crate) mod shape_delete_email_identity_policy;
 
+#[cfg(feature = "op_delete_email_template")]
 pub(crate) mod shape_delete_email_template;
 
+#[cfg(feature = "op_delete_multi_region_endpoint")]
 pub(crate) mod shape_delete_multi_region_endpoint;
 
+#[cfg(feature = "op_delete_suppressed_destination")]
 pub(crate) mod shape_delete_suppressed_destination;
 
+#[cfg(feature = "op_delete_tenant")]
 pub(crate) mod shape_delete_tenant;
 
-#[cfg(feature = "op_delete_tenant")]
+#[cfg(feature = "op_delete_tenant_resource_association")]
 pub(crate) mod shape_delete_tenant_resource_association;
 
+#[cfg(feature = "op_get_account")]
 pub(crate) mod shape_get_account;
 
+#[cfg(feature = "op_get_blacklist_reports")]
 pub(crate) mod shape_get_blacklist_reports;
 
+#[cfg(feature = "op_get_configuration_set")]
 pub(crate) mod shape_get_configuration_set;
 
-#[cfg(feature = "op_get_configuration_set")]
+#[cfg(feature = "op_get_configuration_set_event_destinations")]
 pub(crate) mod shape_get_configuration_set_event_destinations;
 
+#[cfg(feature = "op_get_contact")]
 pub(crate) mod shape_get_contact;
 
-#[cfg(feature = "op_get_contact")]
+#[cfg(feature = "op_get_contact_list")]
 pub(crate) mod shape_get_contact_list;
 
+#[cfg(feature = "op_get_custom_verification_email_template")]
 pub(crate) mod shape_get_custom_verification_email_template;
 
+#[cfg(feature = "op_get_dedicated_ip")]
 pub(crate) mod shape_get_dedicated_ip;
 
-#[cfg(feature = "op_get_dedicated_ip")]
+#[cfg(feature = "op_get_dedicated_ip_pool")]
 pub(crate) mod shape_get_dedicated_ip_pool;
 
+#[cfg(feature = "op_get_dedicated_ips")]
 pub(crate) mod shape_get_dedicated_ips;
 
+#[cfg(feature = "op_get_deliverability_dashboard_options")]
 pub(crate) mod shape_get_deliverability_dashboard_options;
 
+#[cfg(feature = "op_get_deliverability_test_report")]
 pub(crate) mod shape_get_deliverability_test_report;
 
+#[cfg(feature = "op_get_domain_deliverability_campaign")]
 pub(crate) mod shape_get_domain_deliverability_campaign;
 
+#[cfg(feature = "op_get_domain_statistics_report")]
 pub(crate) mod shape_get_domain_statistics_report;
 
+#[cfg(feature = "op_get_email_address_insights")]
 pub(crate) mod shape_get_email_address_insights;
 
+#[cfg(feature = "op_get_email_identity")]
 pub(crate) mod shape_get_email_identity;
 
-#[cfg(feature = "op_get_email_identity")]
+#[cfg(feature = "op_get_email_identity_policies")]
 pub(crate) mod shape_get_email_identity_policies;
 
+#[cfg(feature = "op_get_email_template")]
 pub(crate) mod shape_get_email_template;
 
+#[cfg(feature = "op_get_export_job")]
 pub(crate) mod shape_get_export_job;
 
+#[cfg(feature = "op_get_import_job")]
 pub(crate) mod shape_get_import_job;
 
+#[cfg(feature = "op_get_message_insights")]
 pub(crate) mod shape_get_message_insights;
 
+#[cfg(feature = "op_get_multi_region_endpoint")]
 pub(crate) mod shape_get_multi_region_endpoint;
 
+#[cfg(feature = "op_get_reputation_entity")]
 pub(crate) mod shape_get_reputation_entity;
 
+#[cfg(feature = "op_get_suppressed_destination")]
 pub(crate) mod shape_get_suppressed_destination;
 
+#[cfg(feature = "op_get_tenant")]
 pub(crate) mod shape_get_tenant;
 
+#[cfg(feature = "op_list_configuration_sets")]
 pub(crate) mod shape_list_configuration_sets;
 
+#[cfg(feature = "op_list_contact_lists")]
 pub(crate) mod shape_list_contact_lists;
 
+#[cfg(feature = "op_list_contacts")]
 pub(crate) mod shape_list_contacts;
 
+#[cfg(feature = "op_list_custom_verification_email_templates")]
 pub(crate) mod shape_list_custom_verification_email_templates;
 
+#[cfg(feature = "op_list_dedicated_ip_pools")]
 pub(crate) mod shape_list_dedicated_ip_pools;
 
+#[cfg(feature = "op_list_deliverability_test_reports")]
 pub(crate) mod shape_list_deliverability_test_reports;
 
+#[cfg(feature = "op_list_domain_deliverability_campaigns")]
 pub(crate) mod shape_list_domain_deliverability_campaigns;
 
+#[cfg(feature = "op_list_email_identities")]
 pub(crate) mod shape_list_email_identities;
 
+#[cfg(feature = "op_list_email_templates")]
 pub(crate) mod shape_list_email_templates;
 
+#[cfg(feature = "op_list_export_jobs")]
 pub(crate) mod shape_list_export_jobs;
 
+#[cfg(feature = "op_list_import_jobs")]
 pub(crate) mod shape_list_import_jobs;
 
+#[cfg(feature = "op_list_multi_region_endpoints")]
 pub(crate) mod shape_list_multi_region_endpoints;
 
+#[cfg(feature = "op_list_recommendations")]
 pub(crate) mod shape_list_recommendations;
 
+#[cfg(feature = "op_list_reputation_entities")]
 pub(crate) mod shape_list_reputation_entities;
 
+#[cfg(feature = "op_list_resource_tenants")]
 pub(crate) mod shape_list_resource_tenants;
 
+#[cfg(feature = "op_list_suppressed_destinations")]
 pub(crate) mod shape_list_suppressed_destinations;
 
+#[cfg(feature = "op_list_tags_for_resource")]
 pub(crate) mod shape_list_tags_for_resource;
 
+#[cfg(feature = "op_list_tenant_resources")]
 pub(crate) mod shape_list_tenant_resources;
 
+#[cfg(feature = "op_list_tenants")]
 pub(crate) mod shape_list_tenants;
 
+#[cfg(feature = "op_put_account_dedicated_ip_warmup_attributes")]
 pub(crate) mod shape_put_account_dedicated_ip_warmup_attributes;
 
+#[cfg(feature = "op_put_account_details")]
 pub(crate) mod shape_put_account_details;
 
+#[cfg(feature = "op_put_account_pricing_attributes")]
 pub(crate) mod shape_put_account_pricing_attributes;
 
+#[cfg(feature = "op_put_account_sending_attributes")]
 pub(crate) mod shape_put_account_sending_attributes;
 
+#[cfg(feature = "op_put_account_suppression_attributes")]
 pub(crate) mod shape_put_account_suppression_attributes;
 
+#[cfg(feature = "op_put_account_vdm_attributes")]
 pub(crate) mod shape_put_account_vdm_attributes;
 
+#[cfg(feature = "op_put_configuration_set_archiving_options")]
 pub(crate) mod shape_put_configuration_set_archiving_options;
 
+#[cfg(feature = "op_put_configuration_set_delivery_options")]
 pub(crate) mod shape_put_configuration_set_delivery_options;
 
+#[cfg(feature = "op_put_configuration_set_reputation_options")]
 pub(crate) mod shape_put_configuration_set_reputation_options;
 
+#[cfg(feature = "op_put_configuration_set_sending_options")]
 pub(crate) mod shape_put_configuration_set_sending_options;
 
+#[cfg(feature = "op_put_configuration_set_suppression_options")]
 pub(crate) mod shape_put_configuration_set_suppression_options;
 
+#[cfg(feature = "op_put_configuration_set_tracking_options")]
 pub(crate) mod shape_put_configuration_set_tracking_options;
 
+#[cfg(feature = "op_put_configuration_set_vdm_options")]
 pub(crate) mod shape_put_configuration_set_vdm_options;
 
+#[cfg(feature = "op_put_dedicated_ip_in_pool")]
 pub(crate) mod shape_put_dedicated_ip_in_pool;
 
+#[cfg(feature = "op_put_dedicated_ip_pool_scaling_attributes")]
 pub(crate) mod shape_put_dedicated_ip_pool_scaling_attributes;
 
+#[cfg(feature = "op_put_dedicated_ip_warmup_attributes")]
 pub(crate) mod shape_put_dedicated_ip_warmup_attributes;
 
+#[cfg(feature = "op_put_deliverability_dashboard_option")]
 pub(crate) mod shape_put_deliverability_dashboard_option;
 
+#[cfg(feature = "op_put_email_identity_configuration_set_attributes")]
 pub(crate) mod shape_put_email_identity_configuration_set_attributes;
 
+#[cfg(feature = "op_put_email_identity_dkim_attributes")]
 pub(crate) mod shape_put_email_identity_dkim_attributes;
 
+#[cfg(feature = "op_put_email_identity_dkim_signing_attributes")]
 pub(crate) mod shape_put_email_identity_dkim_signing_attributes;
 
+#[cfg(feature = "op_put_email_identity_feedback_attributes")]
 pub(crate) mod shape_put_email_identity_feedback_attributes;
 
+#[cfg(feature = "op_put_email_identity_mail_from_attributes")]
 pub(crate) mod shape_put_email_identity_mail_from_attributes;
 
+#[cfg(feature = "op_put_suppressed_destination")]
 pub(crate) mod shape_put_suppressed_destination;
 
+#[cfg(feature = "op_put_tenant_suppression_attributes")]
 pub(crate) mod shape_put_tenant_suppression_attributes;
 
+#[cfg(feature = "op_send_bulk_email")]
 pub(crate) mod shape_send_bulk_email;
 
+#[cfg(feature = "op_send_custom_verification_email")]
 pub(crate) mod shape_send_custom_verification_email;
 
+#[cfg(feature = "op_send_email")]
 pub(crate) mod shape_send_email;
 
+#[cfg(feature = "op_tag_resource")]
 pub(crate) mod shape_tag_resource;
 
+#[cfg(feature = "op_test_render_email_template")]
 pub(crate) mod shape_test_render_email_template;
 
+#[cfg(feature = "op_untag_resource")]
 pub(crate) mod shape_untag_resource;
 
+#[cfg(feature = "op_update_configuration_set_event_destination")]
 pub(crate) mod shape_update_configuration_set_event_destination;
 
+#[cfg(feature = "op_update_contact")]
 pub(crate) mod shape_update_contact;
 
-#[cfg(feature = "op_update_contact")]
+#[cfg(feature = "op_update_contact_list")]
 pub(crate) mod shape_update_contact_list;
 
+#[cfg(feature = "op_update_custom_verification_email_template")]
 pub(crate) mod shape_update_custom_verification_email_template;
 
+#[cfg(feature = "op_update_email_identity_policy")]
 pub(crate) mod shape_update_email_identity_policy;
 
+#[cfg(feature = "op_update_email_template")]
 pub(crate) mod shape_update_email_template;
 
+#[cfg(feature = "op_update_reputation_entity_customer_managed_status")]
 pub(crate) mod shape_update_reputation_entity_customer_managed_status;
 
+#[cfg(feature = "op_update_reputation_entity_policy")]
 pub(crate) mod shape_update_reputation_entity_policy;
 
 pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
@@ -277,17 +376,173 @@ pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
     }
 }
 
+#[cfg(any(
+    feature = "op_create_deliverability_test_report",
+    feature = "op_send_bulk_email",
+    feature = "op_send_email"
+))]
 pub(crate) mod shape_account_suspended_exception;
 
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_put_deliverability_dashboard_option"
+))]
 pub(crate) mod shape_already_exists_exception;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_bad_request_exception;
 
 #[cfg(feature = "op_batch_get_metric_data")]
 pub(crate) mod shape_batch_get_metric_data_input;
 
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list"
+))]
 pub(crate) mod shape_concurrent_modification_exception;
 
+#[cfg(any(
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_conflict_exception;
 
 #[cfg(feature = "op_create_configuration_set_event_destination")]
@@ -347,10 +602,32 @@ pub(crate) mod shape_get_email_address_insights_input;
 #[cfg(feature = "op_get_tenant")]
 pub(crate) mod shape_get_tenant_input;
 
+#[cfg(feature = "op_batch_get_metric_data")]
 pub(crate) mod shape_internal_service_error_exception;
 
+#[cfg(feature = "op_list_suppressed_destinations")]
 pub(crate) mod shape_invalid_next_token_exception;
 
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email"
+))]
 pub(crate) mod shape_limit_exceeded_exception;
 
 #[cfg(feature = "op_list_contacts")]
@@ -377,10 +654,108 @@ pub(crate) mod shape_list_tenant_resources_input;
 #[cfg(feature = "op_list_tenants")]
 pub(crate) mod shape_list_tenants_input;
 
+#[cfg(any(
+    feature = "op_create_deliverability_test_report",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email"
+))]
 pub(crate) mod shape_mail_from_domain_not_verified_exception;
 
+#[cfg(any(
+    feature = "op_create_deliverability_test_report",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email"
+))]
 pub(crate) mod shape_message_rejected;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_export_job",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_contacts",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_recommendations",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template"
+))]
 pub(crate) mod shape_not_found_exception;
 
 #[cfg(feature = "op_put_account_dedicated_ip_warmup_attributes")]
@@ -464,6 +839,12 @@ pub(crate) mod shape_send_custom_verification_email_input;
 #[cfg(feature = "op_send_email")]
 pub(crate) mod shape_send_email_input;
 
+#[cfg(any(
+    feature = "op_create_deliverability_test_report",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email"
+))]
 pub(crate) mod shape_sending_paused_exception;
 
 #[cfg(feature = "op_tag_resource")]
@@ -472,6 +853,120 @@ pub(crate) mod shape_tag_resource_input;
 #[cfg(feature = "op_test_render_email_template")]
 pub(crate) mod shape_test_render_email_template_input;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_too_many_requests_exception;
 
 #[cfg(feature = "op_update_configuration_set_event_destination")]
@@ -498,348 +993,3632 @@ pub(crate) mod shape_update_reputation_entity_customer_managed_status_input;
 #[cfg(feature = "op_update_reputation_entity_policy")]
 pub(crate) mod shape_update_reputation_entity_policy_input;
 
+#[cfg(feature = "op_get_account")]
 pub(crate) mod shape_account_details;
 
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_get_configuration_set"
+))]
 pub(crate) mod shape_archiving_options;
 
 #[cfg(feature = "op_batch_get_metric_data")]
 pub(crate) mod shape_batch_get_metric_data_query;
 
+#[cfg(feature = "op_get_blacklist_reports")]
 pub(crate) mod shape_blacklist_report;
 
+#[cfg(feature = "op_send_bulk_email")]
 pub(crate) mod shape_bulk_email_content;
 
+#[cfg(feature = "op_send_bulk_email")]
 pub(crate) mod shape_bulk_email_entry;
 
+#[cfg(feature = "op_send_bulk_email")]
 pub(crate) mod shape_bulk_email_entry_result_list;
 
+#[cfg(any(feature = "op_send_bulk_email", feature = "op_send_email"))]
 pub(crate) mod shape_configuration_overrides;
 
+#[cfg(feature = "op_list_configuration_sets")]
 pub(crate) mod shape_configuration_set_name_list;
 
+#[cfg(feature = "op_list_custom_verification_email_templates")]
 pub(crate) mod shape_custom_verification_email_templates_list;
 
+#[cfg(feature = "op_get_domain_statistics_report")]
 pub(crate) mod shape_daily_volumes;
 
+#[cfg(any(feature = "op_get_dedicated_ip", feature = "op_get_dedicated_ips"))]
 pub(crate) mod shape_dedicated_ip;
 
+#[cfg(feature = "op_get_dedicated_ips")]
 pub(crate) mod shape_dedicated_ip_list;
 
+#[cfg(feature = "op_get_dedicated_ip_pool")]
 pub(crate) mod shape_dedicated_ip_pool;
 
+#[cfg(any(
+    feature = "op_get_deliverability_test_report",
+    feature = "op_list_deliverability_test_reports"
+))]
 pub(crate) mod shape_deliverability_test_report;
 
+#[cfg(feature = "op_list_deliverability_test_reports")]
 pub(crate) mod shape_deliverability_test_reports;
 
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_get_configuration_set"
+))]
 pub(crate) mod shape_delivery_options;
 
+#[cfg(any(feature = "op_send_bulk_email", feature = "op_send_email"))]
 pub(crate) mod shape_destination;
 
+#[cfg(feature = "op_create_multi_region_endpoint")]
 pub(crate) mod shape_details;
 
+#[cfg(any(
+    feature = "op_create_email_identity",
+    feature = "op_get_email_identity"
+))]
 pub(crate) mod shape_dkim_attributes;
 
+#[cfg(any(
+    feature = "op_create_email_identity",
+    feature = "op_put_email_identity_dkim_signing_attributes"
+))]
 pub(crate) mod shape_dkim_signing_attributes;
 
+#[cfg(any(
+    feature = "op_create_email_identity",
+    feature = "op_get_email_identity",
+    feature = "op_put_email_identity_dkim_signing_attributes"
+))]
 pub(crate) mod shape_dns_token_list;
 
+#[cfg(any(
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_list_domain_deliverability_campaigns"
+))]
 pub(crate) mod shape_domain_deliverability_campaign;
 
+#[cfg(feature = "op_list_domain_deliverability_campaigns")]
 pub(crate) mod shape_domain_deliverability_campaign_list;
 
+#[cfg(any(
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_put_deliverability_dashboard_option"
+))]
 pub(crate) mod shape_domain_deliverability_tracking_option;
 
+#[cfg(feature = "op_get_deliverability_dashboard_options")]
 pub(crate) mod shape_domain_deliverability_tracking_options;
 
+#[cfg(any(
+    feature = "op_create_deliverability_test_report",
+    feature = "op_send_email"
+))]
 pub(crate) mod shape_email_content;
 
+#[cfg(feature = "op_get_message_insights")]
 pub(crate) mod shape_email_insights_list;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_email_template_content;
 
+#[cfg(feature = "op_list_email_templates")]
 pub(crate) mod shape_email_template_metadata_list;
 
+#[cfg(any(
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_update_configuration_set_event_destination"
+))]
 pub(crate) mod shape_event_destination_definition;
 
+#[cfg(feature = "op_get_configuration_set_event_destinations")]
 pub(crate) mod shape_event_destinations;
 
+#[cfg(any(feature = "op_create_export_job", feature = "op_get_export_job"))]
 pub(crate) mod shape_export_data_source;
 
+#[cfg(any(feature = "op_create_export_job", feature = "op_get_export_job"))]
 pub(crate) mod shape_export_destination;
 
+#[cfg(feature = "op_list_export_jobs")]
 pub(crate) mod shape_export_job_summary_list;
 
+#[cfg(feature = "op_get_export_job")]
 pub(crate) mod shape_export_statistics;
 
+#[cfg(any(feature = "op_get_export_job", feature = "op_get_import_job"))]
 pub(crate) mod shape_failure_info;
 
+#[cfg(feature = "op_list_email_identities")]
 pub(crate) mod shape_identity_info_list;
 
+#[cfg(any(feature = "op_create_import_job", feature = "op_get_import_job"))]
 pub(crate) mod shape_import_data_source;
 
+#[cfg(any(
+    feature = "op_create_import_job",
+    feature = "op_get_import_job",
+    feature = "op_list_import_jobs"
+))]
 pub(crate) mod shape_import_destination;
 
+#[cfg(feature = "op_list_import_jobs")]
 pub(crate) mod shape_import_job_summary_list;
 
+#[cfg(feature = "op_get_deliverability_test_report")]
 pub(crate) mod shape_isp_placements;
 
 #[cfg(feature = "op_list_contacts")]
 pub(crate) mod shape_list_contacts_filter;
 
+#[cfg(feature = "op_send_email")]
 pub(crate) mod shape_list_management_options;
 
+#[cfg(feature = "op_list_contact_lists")]
 pub(crate) mod shape_list_of_contact_lists;
 
+#[cfg(feature = "op_list_contacts")]
 pub(crate) mod shape_list_of_contacts;
 
+#[cfg(feature = "op_list_dedicated_ip_pools")]
 pub(crate) mod shape_list_of_dedicated_ip_pools;
 
+#[cfg(feature = "op_get_email_identity")]
 pub(crate) mod shape_mail_from_attributes;
 
+#[cfg(feature = "op_get_email_address_insights")]
 pub(crate) mod shape_mailbox_validation;
 
+#[cfg(any(
+    feature = "op_get_message_insights",
+    feature = "op_send_bulk_email",
+    feature = "op_send_email"
+))]
 pub(crate) mod shape_message_tag;
 
+#[cfg(feature = "op_get_message_insights")]
 pub(crate) mod shape_message_tag_list;
 
+#[cfg(feature = "op_batch_get_metric_data")]
 pub(crate) mod shape_metric_data_error_list;
 
+#[cfg(feature = "op_batch_get_metric_data")]
 pub(crate) mod shape_metric_data_result_list;
 
+#[cfg(feature = "op_list_multi_region_endpoints")]
 pub(crate) mod shape_multi_region_endpoints;
 
+#[cfg(feature = "op_get_domain_statistics_report")]
 pub(crate) mod shape_overall_volume;
 
+#[cfg(feature = "op_get_deliverability_test_report")]
 pub(crate) mod shape_placement_statistics;
 
+#[cfg(any(
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies"
+))]
 pub(crate) mod shape_policy_map;
 
+#[cfg(feature = "op_get_account")]
 pub(crate) mod shape_pricing_attributes;
 
+#[cfg(feature = "op_list_recommendations")]
 pub(crate) mod shape_recommendations_list;
 
+#[cfg(feature = "op_list_reputation_entities")]
 pub(crate) mod shape_reputation_entities_list;
 
+#[cfg(any(
+    feature = "op_get_reputation_entity",
+    feature = "op_list_reputation_entities"
+))]
 pub(crate) mod shape_reputation_entity;
 
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_get_configuration_set"
+))]
 pub(crate) mod shape_reputation_options;
 
+#[cfg(feature = "op_list_resource_tenants")]
 pub(crate) mod shape_resource_tenant_metadata_list;
 
+#[cfg(feature = "op_get_multi_region_endpoint")]
 pub(crate) mod shape_routes;
 
+#[cfg(feature = "op_get_account")]
 pub(crate) mod shape_send_quota;
 
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_get_configuration_set"
+))]
 pub(crate) mod shape_sending_options;
 
+#[cfg(feature = "op_get_suppressed_destination")]
 pub(crate) mod shape_suppressed_destination;
 
+#[cfg(feature = "op_list_suppressed_destinations")]
 pub(crate) mod shape_suppressed_destination_summaries;
 
+#[cfg(feature = "op_get_account")]
 pub(crate) mod shape_suppression_attributes;
 
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_get_configuration_set"
+))]
 pub(crate) mod shape_suppression_options;
 
+#[cfg(any(
+    feature = "op_get_account",
+    feature = "op_put_account_suppression_attributes"
+))]
 pub(crate) mod shape_suppression_validation_attributes;
 
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_get_configuration_set",
+    feature = "op_put_configuration_set_suppression_options"
+))]
 pub(crate) mod shape_suppression_validation_options;
 
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_template",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_get_configuration_set",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_template",
+    feature = "op_get_tenant",
+    feature = "op_list_tags_for_resource",
+    feature = "op_tag_resource"
+))]
 pub(crate) mod shape_tag;
 
+#[cfg(any(
+    feature = "op_create_tenant",
+    feature = "op_get_configuration_set",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_template",
+    feature = "op_get_tenant",
+    feature = "op_list_tags_for_resource"
+))]
 pub(crate) mod shape_tag_list;
 
+#[cfg(feature = "op_get_tenant")]
 pub(crate) mod shape_tenant;
 
+#[cfg(feature = "op_list_tenants")]
 pub(crate) mod shape_tenant_info_list;
 
+#[cfg(feature = "op_list_tenant_resources")]
 pub(crate) mod shape_tenant_resource_list;
 
+#[cfg(any(feature = "op_create_tenant", feature = "op_get_tenant"))]
 pub(crate) mod shape_tenant_suppression_attributes;
 
+#[cfg(any(
+    feature = "op_create_contact_list",
+    feature = "op_get_contact_list",
+    feature = "op_update_contact_list"
+))]
 pub(crate) mod shape_topic;
 
+#[cfg(any(
+    feature = "op_create_contact",
+    feature = "op_get_contact",
+    feature = "op_list_contacts",
+    feature = "op_update_contact"
+))]
 pub(crate) mod shape_topic_preference;
 
+#[cfg(any(feature = "op_get_contact", feature = "op_list_contacts"))]
 pub(crate) mod shape_topic_preference_list;
 
+#[cfg(feature = "op_get_contact_list")]
 pub(crate) mod shape_topics;
 
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_get_configuration_set"
+))]
 pub(crate) mod shape_tracking_options;
 
+#[cfg(any(feature = "op_get_account", feature = "op_put_account_vdm_attributes"))]
 pub(crate) mod shape_vdm_attributes;
 
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_get_configuration_set",
+    feature = "op_put_configuration_set_vdm_options"
+))]
 pub(crate) mod shape_vdm_options;
 
+#[cfg(feature = "op_get_email_identity")]
 pub(crate) mod shape_verification_info;
 
+#[cfg(feature = "op_get_account")]
 pub(crate) mod shape_additional_contact_email_addresses;
 
+#[cfg(feature = "op_get_blacklist_reports")]
 pub(crate) mod shape_blacklist_entries;
 
+#[cfg(feature = "op_send_bulk_email")]
 pub(crate) mod shape_bulk_email_entry_result;
 
+#[cfg(any(
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_update_configuration_set_event_destination"
+))]
 pub(crate) mod shape_cloud_watch_destination;
 
+#[cfg(feature = "op_list_contacts")]
 pub(crate) mod shape_contact;
 
+#[cfg(feature = "op_list_contact_lists")]
 pub(crate) mod shape_contact_list;
 
+#[cfg(any(
+    feature = "op_create_import_job",
+    feature = "op_get_import_job",
+    feature = "op_list_import_jobs"
+))]
 pub(crate) mod shape_contact_list_destination;
 
+#[cfg(feature = "op_list_custom_verification_email_templates")]
 pub(crate) mod shape_custom_verification_email_template_metadata;
 
+#[cfg(feature = "op_get_domain_statistics_report")]
 pub(crate) mod shape_daily_volume;
 
+#[cfg(any(feature = "op_get_account", feature = "op_put_account_vdm_attributes"))]
 pub(crate) mod shape_dashboard_attributes;
 
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_get_configuration_set",
+    feature = "op_put_configuration_set_vdm_options"
+))]
 pub(crate) mod shape_dashboard_options;
 
+#[cfg(feature = "op_get_domain_statistics_report")]
 pub(crate) mod shape_domain_isp_placements;
 
+#[cfg(feature = "op_get_email_address_insights")]
 pub(crate) mod shape_email_address_insights_mailbox_evaluations;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_email_address_insights_verdict;
 
+#[cfg(feature = "op_get_message_insights")]
 pub(crate) mod shape_email_insights;
 
+#[cfg(feature = "op_list_email_templates")]
 pub(crate) mod shape_email_template_metadata;
 
+#[cfg(any(
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_list_domain_deliverability_campaigns"
+))]
 pub(crate) mod shape_esps;
 
+#[cfg(any(
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_update_configuration_set_event_destination"
+))]
 pub(crate) mod shape_event_bridge_destination;
 
+#[cfg(feature = "op_get_configuration_set_event_destinations")]
 pub(crate) mod shape_event_destination;
 
+#[cfg(feature = "op_list_export_jobs")]
 pub(crate) mod shape_export_job_summary;
 
+#[cfg(any(feature = "op_get_account", feature = "op_put_account_vdm_attributes"))]
 pub(crate) mod shape_guardian_attributes;
 
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_get_configuration_set",
+    feature = "op_put_configuration_set_vdm_options"
+))]
 pub(crate) mod shape_guardian_options;
 
+#[cfg(feature = "op_list_email_identities")]
 pub(crate) mod shape_identity_info;
 
+#[cfg(feature = "op_list_import_jobs")]
 pub(crate) mod shape_import_job_summary;
 
+#[cfg(any(
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_put_deliverability_dashboard_option"
+))]
 pub(crate) mod shape_inbox_placement_tracking_option;
 
+#[cfg(any(
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_list_domain_deliverability_campaigns"
+))]
 pub(crate) mod shape_ip_list;
 
+#[cfg(feature = "op_get_deliverability_test_report")]
 pub(crate) mod shape_isp_placement;
 
+#[cfg(any(
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_update_configuration_set_event_destination"
+))]
 pub(crate) mod shape_kinesis_firehose_destination;
 
+#[cfg(any(
+    feature = "op_create_deliverability_test_report",
+    feature = "op_send_email"
+))]
 pub(crate) mod shape_message;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_message_header;
 
+#[cfg(any(feature = "op_create_export_job", feature = "op_get_export_job"))]
 pub(crate) mod shape_message_insights_data_source;
 
+#[cfg(feature = "op_batch_get_metric_data")]
 pub(crate) mod shape_metric_data_error;
 
+#[cfg(feature = "op_batch_get_metric_data")]
 pub(crate) mod shape_metric_data_result;
 
+#[cfg(any(feature = "op_create_export_job", feature = "op_get_export_job"))]
 pub(crate) mod shape_metrics_data_source;
 
+#[cfg(feature = "op_list_multi_region_endpoints")]
 pub(crate) mod shape_multi_region_endpoint;
 
+#[cfg(any(
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_update_configuration_set_event_destination"
+))]
 pub(crate) mod shape_pinpoint_destination;
 
+#[cfg(any(
+    feature = "op_create_deliverability_test_report",
+    feature = "op_send_email"
+))]
 pub(crate) mod shape_raw_message;
 
+#[cfg(feature = "op_list_recommendations")]
 pub(crate) mod shape_recommendation;
 
+#[cfg(feature = "op_send_bulk_email")]
 pub(crate) mod shape_replacement_email_content;
 
+#[cfg(feature = "op_list_resource_tenants")]
 pub(crate) mod shape_resource_tenant_metadata;
 
+#[cfg(feature = "op_get_account")]
 pub(crate) mod shape_review_details;
 
+#[cfg(feature = "op_get_multi_region_endpoint")]
 pub(crate) mod shape_route;
 
+#[cfg(feature = "op_create_multi_region_endpoint")]
 pub(crate) mod shape_route_details;
 
+#[cfg(any(
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_update_configuration_set_event_destination"
+))]
 pub(crate) mod shape_sns_destination;
 
+#[cfg(feature = "op_get_email_identity")]
 pub(crate) mod shape_soa_record;
 
+#[cfg(any(
+    feature = "op_get_reputation_entity",
+    feature = "op_list_reputation_entities"
+))]
 pub(crate) mod shape_status_record;
 
+#[cfg(feature = "op_get_suppressed_destination")]
 pub(crate) mod shape_suppressed_destination_attributes;
 
+#[cfg(feature = "op_list_suppressed_destinations")]
 pub(crate) mod shape_suppressed_destination_summary;
 
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_get_account",
+    feature = "op_get_configuration_set",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_configuration_set_suppression_options"
+))]
 pub(crate) mod shape_suppression_condition_threshold;
 
+#[cfg(any(
+    feature = "op_create_import_job",
+    feature = "op_get_import_job",
+    feature = "op_list_import_jobs"
+))]
 pub(crate) mod shape_suppression_list_destination;
 
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_create_tenant",
+    feature = "op_get_account",
+    feature = "op_get_configuration_set",
+    feature = "op_get_tenant"
+))]
 pub(crate) mod shape_suppression_list_reasons;
 
+#[cfg(any(
+    feature = "op_create_deliverability_test_report",
+    feature = "op_send_bulk_email",
+    feature = "op_send_email"
+))]
 pub(crate) mod shape_template;
 
+#[cfg(feature = "op_list_tenants")]
 pub(crate) mod shape_tenant_info;
 
+#[cfg(feature = "op_list_tenant_resources")]
 pub(crate) mod shape_tenant_resource;
 
+#[cfg(feature = "op_list_contacts")]
 pub(crate) mod shape_topic_filter;
 
+#[cfg(any(feature = "op_send_bulk_email", feature = "op_send_email"))]
 pub(crate) mod shape_tracking_configuration_overrides;
 
+#[cfg(feature = "op_get_domain_statistics_report")]
 pub(crate) mod shape_volume_statistics;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_attachment;
 
+#[cfg(feature = "op_get_blacklist_reports")]
 pub(crate) mod shape_blacklist_entry;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_body;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_cloud_watch_dimension_configuration;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_content;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_domain_isp_placement;
 
+#[cfg(feature = "op_get_configuration_set_event_destinations")]
 pub(crate) mod shape_event_types;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_export_dimensions;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_export_metric;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_export_metrics;
 
+#[cfg(feature = "op_get_message_insights")]
 pub(crate) mod shape_insights_events;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_message_insights_filters;
 
+#[cfg(feature = "op_batch_get_metric_data")]
 pub(crate) mod shape_metric_value_list;
 
+#[cfg(feature = "op_list_multi_region_endpoints")]
 pub(crate) mod shape_regions;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_replacement_template;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_suppression_confidence_threshold;
 
+#[cfg(feature = "op_batch_get_metric_data")]
 pub(crate) mod shape_timestamp_list;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_cloud_watch_dimension_configurations;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_email_address_filter_list;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_email_subject_filter_list;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_export_dimension_value;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_insights_event;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_isp_filter_list;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_isp_name_list;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_last_delivery_event_list;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_last_engagement_event_list;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_event_details;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_bounce;
 
+#[cfg(any(
+    feature = "op_batch_get_metric_data",
+    feature = "op_cancel_export_job",
+    feature = "op_create_configuration_set",
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_create_contact",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_identity_policy",
+    feature = "op_create_email_template",
+    feature = "op_create_export_job",
+    feature = "op_create_import_job",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_create_tenant_resource_association",
+    feature = "op_delete_configuration_set",
+    feature = "op_delete_configuration_set_event_destination",
+    feature = "op_delete_contact",
+    feature = "op_delete_contact_list",
+    feature = "op_delete_custom_verification_email_template",
+    feature = "op_delete_dedicated_ip_pool",
+    feature = "op_delete_email_identity",
+    feature = "op_delete_email_identity_policy",
+    feature = "op_delete_email_template",
+    feature = "op_delete_multi_region_endpoint",
+    feature = "op_delete_suppressed_destination",
+    feature = "op_delete_tenant",
+    feature = "op_delete_tenant_resource_association",
+    feature = "op_get_account",
+    feature = "op_get_blacklist_reports",
+    feature = "op_get_configuration_set",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_get_contact",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_dedicated_ip",
+    feature = "op_get_dedicated_ip_pool",
+    feature = "op_get_dedicated_ips",
+    feature = "op_get_deliverability_dashboard_options",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_domain_deliverability_campaign",
+    feature = "op_get_domain_statistics_report",
+    feature = "op_get_email_address_insights",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_identity_policies",
+    feature = "op_get_email_template",
+    feature = "op_get_export_job",
+    feature = "op_get_import_job",
+    feature = "op_get_message_insights",
+    feature = "op_get_multi_region_endpoint",
+    feature = "op_get_reputation_entity",
+    feature = "op_get_suppressed_destination",
+    feature = "op_get_tenant",
+    feature = "op_list_configuration_sets",
+    feature = "op_list_contact_lists",
+    feature = "op_list_contacts",
+    feature = "op_list_custom_verification_email_templates",
+    feature = "op_list_dedicated_ip_pools",
+    feature = "op_list_deliverability_test_reports",
+    feature = "op_list_domain_deliverability_campaigns",
+    feature = "op_list_email_identities",
+    feature = "op_list_email_templates",
+    feature = "op_list_export_jobs",
+    feature = "op_list_import_jobs",
+    feature = "op_list_multi_region_endpoints",
+    feature = "op_list_recommendations",
+    feature = "op_list_reputation_entities",
+    feature = "op_list_resource_tenants",
+    feature = "op_list_suppressed_destinations",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_tenant_resources",
+    feature = "op_list_tenants",
+    feature = "op_put_account_dedicated_ip_warmup_attributes",
+    feature = "op_put_account_details",
+    feature = "op_put_account_pricing_attributes",
+    feature = "op_put_account_sending_attributes",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_account_vdm_attributes",
+    feature = "op_put_configuration_set_archiving_options",
+    feature = "op_put_configuration_set_delivery_options",
+    feature = "op_put_configuration_set_reputation_options",
+    feature = "op_put_configuration_set_sending_options",
+    feature = "op_put_configuration_set_suppression_options",
+    feature = "op_put_configuration_set_tracking_options",
+    feature = "op_put_configuration_set_vdm_options",
+    feature = "op_put_dedicated_ip_in_pool",
+    feature = "op_put_dedicated_ip_pool_scaling_attributes",
+    feature = "op_put_dedicated_ip_warmup_attributes",
+    feature = "op_put_deliverability_dashboard_option",
+    feature = "op_put_email_identity_configuration_set_attributes",
+    feature = "op_put_email_identity_dkim_attributes",
+    feature = "op_put_email_identity_dkim_signing_attributes",
+    feature = "op_put_email_identity_feedback_attributes",
+    feature = "op_put_email_identity_mail_from_attributes",
+    feature = "op_put_suppressed_destination",
+    feature = "op_put_tenant_suppression_attributes",
+    feature = "op_send_bulk_email",
+    feature = "op_send_custom_verification_email",
+    feature = "op_send_email",
+    feature = "op_tag_resource",
+    feature = "op_test_render_email_template",
+    feature = "op_untag_resource",
+    feature = "op_update_configuration_set_event_destination",
+    feature = "op_update_contact",
+    feature = "op_update_contact_list",
+    feature = "op_update_custom_verification_email_template",
+    feature = "op_update_email_identity_policy",
+    feature = "op_update_email_template",
+    feature = "op_update_reputation_entity_customer_managed_status",
+    feature = "op_update_reputation_entity_policy"
+))]
 pub(crate) mod shape_complaint;

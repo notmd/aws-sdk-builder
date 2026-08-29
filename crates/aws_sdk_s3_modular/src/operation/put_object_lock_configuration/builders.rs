@@ -66,10 +66,7 @@ impl
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-#[cfg(any(
-    feature = "op_get_object_lock_configuration",
-    feature = "op_put_object_lock_configuration"
-))]
+#[cfg(feature = "op_put_object_lock_configuration")]
 impl PutObjectLockConfigurationFluentBuilder {
     /// Creates a new `PutObjectLockConfigurationFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {

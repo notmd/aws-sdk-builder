@@ -5745,6 +5745,7 @@ impl From<crate::operation::update_scheduled_query::UpdateScheduledQueryError> f
         }
     }
 }
+#[cfg(feature = "op_get_log_object")]
 impl<R>
     From<
         ::aws_smithy_runtime_api::client::result::SdkError<
@@ -5772,6 +5773,7 @@ where
         }
     }
 }
+#[cfg(feature = "op_get_log_object")]
 impl From<crate::types::error::GetLogObjectResponseStreamError> for Error {
     fn from(err: crate::types::error::GetLogObjectResponseStreamError) -> Self {
         match err {
@@ -5784,6 +5786,7 @@ impl From<crate::types::error::GetLogObjectResponseStreamError> for Error {
         }
     }
 }
+#[cfg(feature = "op_start_live_tail")]
 impl<R>
     From<
         ::aws_smithy_runtime_api::client::result::SdkError<
@@ -5811,6 +5814,7 @@ where
         }
     }
 }
+#[cfg(feature = "op_start_live_tail")]
 impl From<crate::types::error::StartLiveTailResponseStreamError> for Error {
     fn from(err: crate::types::error::StartLiveTailResponseStreamError) -> Self {
         match err {

@@ -72,7 +72,7 @@ impl
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-#[cfg(any(feature = "op_get_queue_url", feature = "op_receive_message"))]
+#[cfg(feature = "op_receive_message")]
 impl ReceiveMessageFluentBuilder {
     /// Creates a new `ReceiveMessageFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {

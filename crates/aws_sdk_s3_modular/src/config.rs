@@ -2204,7 +2204,6 @@ fn service_config_key<'a>(
 
 pub use ::aws_smithy_async::rt::sleep::Sleep;
 
-#[cfg(feature = "op_create_session")]
 pub(crate) fn base_client_runtime_plugins(
     mut config: crate::Config,
 ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
@@ -2252,9 +2251,12 @@ pub(crate) fn base_client_runtime_plugins(
                                 .expect("All required fields have been set")
                         );
 
-    plugins = plugins.with_client_plugin(
-        crate::s3_express::runtime_plugin::S3ExpressRuntimePlugin::new(config.clone()),
-    );
+    #[cfg(feature = "op_create_session")]
+    {
+        plugins = plugins.with_client_plugin(
+            crate::s3_express::runtime_plugin::S3ExpressRuntimePlugin::new(config.clone()),
+        );
+    }
 
     for plugin in configured_plugins {
         plugins = plugins.with_client_plugin(plugin);

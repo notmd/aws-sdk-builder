@@ -32,124 +32,148 @@ pub fn parse_http_error_metadata(
     crate::rest_xml_wrapped_errors::parse_error_metadata(response_body)
 }
 
+#[cfg(feature = "op_add_permission")]
 pub(crate) mod shape_add_permission;
 
 #[cfg(feature = "op_add_permission")]
 pub(crate) mod shape_add_permission_input;
 
+#[cfg(feature = "op_check_if_phone_number_is_opted_out")]
 pub(crate) mod shape_check_if_phone_number_is_opted_out;
 
 #[cfg(feature = "op_check_if_phone_number_is_opted_out")]
 pub(crate) mod shape_check_if_phone_number_is_opted_out_input;
 
+#[cfg(feature = "op_confirm_subscription")]
 pub(crate) mod shape_confirm_subscription;
 
 #[cfg(feature = "op_confirm_subscription")]
 pub(crate) mod shape_confirm_subscription_input;
 
+#[cfg(feature = "op_create_platform_application")]
 pub(crate) mod shape_create_platform_application;
 
 #[cfg(feature = "op_create_platform_application")]
 pub(crate) mod shape_create_platform_application_input;
 
+#[cfg(feature = "op_create_platform_endpoint")]
 pub(crate) mod shape_create_platform_endpoint;
 
 #[cfg(feature = "op_create_platform_endpoint")]
 pub(crate) mod shape_create_platform_endpoint_input;
 
+#[cfg(feature = "op_create_sms_sandbox_phone_number")]
 pub(crate) mod shape_create_sms_sandbox_phone_number;
 
 #[cfg(feature = "op_create_sms_sandbox_phone_number")]
 pub(crate) mod shape_create_sms_sandbox_phone_number_input;
 
+#[cfg(feature = "op_create_topic")]
 pub(crate) mod shape_create_topic;
 
 #[cfg(feature = "op_create_topic")]
 pub(crate) mod shape_create_topic_input;
 
+#[cfg(feature = "op_delete_endpoint")]
 pub(crate) mod shape_delete_endpoint;
 
 #[cfg(feature = "op_delete_endpoint")]
 pub(crate) mod shape_delete_endpoint_input;
 
+#[cfg(feature = "op_delete_platform_application")]
 pub(crate) mod shape_delete_platform_application;
 
 #[cfg(feature = "op_delete_platform_application")]
 pub(crate) mod shape_delete_platform_application_input;
 
+#[cfg(feature = "op_delete_sms_sandbox_phone_number")]
 pub(crate) mod shape_delete_sms_sandbox_phone_number;
 
 #[cfg(feature = "op_delete_sms_sandbox_phone_number")]
 pub(crate) mod shape_delete_sms_sandbox_phone_number_input;
 
+#[cfg(feature = "op_delete_topic")]
 pub(crate) mod shape_delete_topic;
 
 #[cfg(feature = "op_delete_topic")]
 pub(crate) mod shape_delete_topic_input;
 
+#[cfg(feature = "op_get_data_protection_policy")]
 pub(crate) mod shape_get_data_protection_policy;
 
 #[cfg(feature = "op_get_data_protection_policy")]
 pub(crate) mod shape_get_data_protection_policy_input;
 
+#[cfg(feature = "op_get_endpoint_attributes")]
 pub(crate) mod shape_get_endpoint_attributes;
 
 #[cfg(feature = "op_get_endpoint_attributes")]
 pub(crate) mod shape_get_endpoint_attributes_input;
 
+#[cfg(feature = "op_get_platform_application_attributes")]
 pub(crate) mod shape_get_platform_application_attributes;
 
 #[cfg(feature = "op_get_platform_application_attributes")]
 pub(crate) mod shape_get_platform_application_attributes_input;
 
+#[cfg(feature = "op_get_sms_attributes")]
 pub(crate) mod shape_get_sms_attributes;
 
 #[cfg(feature = "op_get_sms_attributes")]
 pub(crate) mod shape_get_sms_attributes_input;
 
+#[cfg(feature = "op_get_sms_sandbox_account_status")]
 pub(crate) mod shape_get_sms_sandbox_account_status;
 
 #[cfg(feature = "op_get_sms_sandbox_account_status")]
 pub(crate) mod shape_get_sms_sandbox_account_status_input;
 
+#[cfg(feature = "op_get_subscription_attributes")]
 pub(crate) mod shape_get_subscription_attributes;
 
 #[cfg(feature = "op_get_subscription_attributes")]
 pub(crate) mod shape_get_subscription_attributes_input;
 
+#[cfg(feature = "op_get_topic_attributes")]
 pub(crate) mod shape_get_topic_attributes;
 
 #[cfg(feature = "op_get_topic_attributes")]
 pub(crate) mod shape_get_topic_attributes_input;
 
+#[cfg(feature = "op_list_endpoints_by_platform_application")]
 pub(crate) mod shape_list_endpoints_by_platform_application;
 
 #[cfg(feature = "op_list_endpoints_by_platform_application")]
 pub(crate) mod shape_list_endpoints_by_platform_application_input;
 
+#[cfg(feature = "op_list_origination_numbers")]
 pub(crate) mod shape_list_origination_numbers;
 
 #[cfg(feature = "op_list_origination_numbers")]
 pub(crate) mod shape_list_origination_numbers_input;
 
+#[cfg(feature = "op_list_phone_numbers_opted_out")]
 pub(crate) mod shape_list_phone_numbers_opted_out;
 
 #[cfg(feature = "op_list_phone_numbers_opted_out")]
 pub(crate) mod shape_list_phone_numbers_opted_out_input;
 
+#[cfg(feature = "op_list_platform_applications")]
 pub(crate) mod shape_list_platform_applications;
 
 #[cfg(feature = "op_list_platform_applications")]
 pub(crate) mod shape_list_platform_applications_input;
 
+#[cfg(feature = "op_list_sms_sandbox_phone_numbers")]
 pub(crate) mod shape_list_sms_sandbox_phone_numbers;
 
 #[cfg(feature = "op_list_sms_sandbox_phone_numbers")]
 pub(crate) mod shape_list_sms_sandbox_phone_numbers_input;
 
+#[cfg(feature = "op_list_subscriptions")]
 pub(crate) mod shape_list_subscriptions;
 
-#[cfg(feature = "op_list_subscriptions")]
+#[cfg(feature = "op_list_subscriptions_by_topic")]
 pub(crate) mod shape_list_subscriptions_by_topic;
 
 #[cfg(feature = "op_list_subscriptions_by_topic")]
@@ -158,24 +182,28 @@ pub(crate) mod shape_list_subscriptions_by_topic_input;
 #[cfg(feature = "op_list_subscriptions")]
 pub(crate) mod shape_list_subscriptions_input;
 
+#[cfg(feature = "op_list_tags_for_resource")]
 pub(crate) mod shape_list_tags_for_resource;
 
 #[cfg(feature = "op_list_tags_for_resource")]
 pub(crate) mod shape_list_tags_for_resource_input;
 
+#[cfg(feature = "op_list_topics")]
 pub(crate) mod shape_list_topics;
 
 #[cfg(feature = "op_list_topics")]
 pub(crate) mod shape_list_topics_input;
 
+#[cfg(feature = "op_opt_in_phone_number")]
 pub(crate) mod shape_opt_in_phone_number;
 
 #[cfg(feature = "op_opt_in_phone_number")]
 pub(crate) mod shape_opt_in_phone_number_input;
 
+#[cfg(feature = "op_publish")]
 pub(crate) mod shape_publish;
 
-#[cfg(feature = "op_publish")]
+#[cfg(feature = "op_publish_batch")]
 pub(crate) mod shape_publish_batch;
 
 #[cfg(feature = "op_publish_batch")]
@@ -184,183 +212,479 @@ pub(crate) mod shape_publish_batch_input;
 #[cfg(feature = "op_publish")]
 pub(crate) mod shape_publish_input;
 
+#[cfg(feature = "op_put_data_protection_policy")]
 pub(crate) mod shape_put_data_protection_policy;
 
 #[cfg(feature = "op_put_data_protection_policy")]
 pub(crate) mod shape_put_data_protection_policy_input;
 
+#[cfg(feature = "op_remove_permission")]
 pub(crate) mod shape_remove_permission;
 
 #[cfg(feature = "op_remove_permission")]
 pub(crate) mod shape_remove_permission_input;
 
+#[cfg(feature = "op_set_endpoint_attributes")]
 pub(crate) mod shape_set_endpoint_attributes;
 
 #[cfg(feature = "op_set_endpoint_attributes")]
 pub(crate) mod shape_set_endpoint_attributes_input;
 
+#[cfg(feature = "op_set_platform_application_attributes")]
 pub(crate) mod shape_set_platform_application_attributes;
 
 #[cfg(feature = "op_set_platform_application_attributes")]
 pub(crate) mod shape_set_platform_application_attributes_input;
 
+#[cfg(feature = "op_set_sms_attributes")]
 pub(crate) mod shape_set_sms_attributes;
 
 #[cfg(feature = "op_set_sms_attributes")]
 pub(crate) mod shape_set_sms_attributes_input;
 
+#[cfg(feature = "op_set_subscription_attributes")]
 pub(crate) mod shape_set_subscription_attributes;
 
 #[cfg(feature = "op_set_subscription_attributes")]
 pub(crate) mod shape_set_subscription_attributes_input;
 
+#[cfg(feature = "op_set_topic_attributes")]
 pub(crate) mod shape_set_topic_attributes;
 
 #[cfg(feature = "op_set_topic_attributes")]
 pub(crate) mod shape_set_topic_attributes_input;
 
+#[cfg(feature = "op_subscribe")]
 pub(crate) mod shape_subscribe;
 
 #[cfg(feature = "op_subscribe")]
 pub(crate) mod shape_subscribe_input;
 
+#[cfg(feature = "op_tag_resource")]
 pub(crate) mod shape_tag_resource;
 
 #[cfg(feature = "op_tag_resource")]
 pub(crate) mod shape_tag_resource_input;
 
+#[cfg(feature = "op_unsubscribe")]
 pub(crate) mod shape_unsubscribe;
 
 #[cfg(feature = "op_unsubscribe")]
 pub(crate) mod shape_unsubscribe_input;
 
+#[cfg(feature = "op_untag_resource")]
 pub(crate) mod shape_untag_resource;
 
 #[cfg(feature = "op_untag_resource")]
 pub(crate) mod shape_untag_resource_input;
 
+#[cfg(feature = "op_verify_sms_sandbox_phone_number")]
 pub(crate) mod shape_verify_sms_sandbox_phone_number;
 
 #[cfg(feature = "op_verify_sms_sandbox_phone_number")]
 pub(crate) mod shape_verify_sms_sandbox_phone_number_input;
 
+#[cfg(any(
+    feature = "op_add_permission",
+    feature = "op_check_if_phone_number_is_opted_out",
+    feature = "op_confirm_subscription",
+    feature = "op_create_platform_application",
+    feature = "op_create_platform_endpoint",
+    feature = "op_create_sms_sandbox_phone_number",
+    feature = "op_create_topic",
+    feature = "op_delete_endpoint",
+    feature = "op_delete_platform_application",
+    feature = "op_delete_sms_sandbox_phone_number",
+    feature = "op_delete_topic",
+    feature = "op_get_data_protection_policy",
+    feature = "op_get_endpoint_attributes",
+    feature = "op_get_platform_application_attributes",
+    feature = "op_get_sms_attributes",
+    feature = "op_get_sms_sandbox_account_status",
+    feature = "op_get_subscription_attributes",
+    feature = "op_get_topic_attributes",
+    feature = "op_list_endpoints_by_platform_application",
+    feature = "op_list_origination_numbers",
+    feature = "op_list_phone_numbers_opted_out",
+    feature = "op_list_platform_applications",
+    feature = "op_list_sms_sandbox_phone_numbers",
+    feature = "op_list_subscriptions",
+    feature = "op_list_subscriptions_by_topic",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_topics",
+    feature = "op_opt_in_phone_number",
+    feature = "op_publish",
+    feature = "op_publish_batch",
+    feature = "op_put_data_protection_policy",
+    feature = "op_remove_permission",
+    feature = "op_set_endpoint_attributes",
+    feature = "op_set_platform_application_attributes",
+    feature = "op_set_sms_attributes",
+    feature = "op_set_subscription_attributes",
+    feature = "op_set_topic_attributes",
+    feature = "op_subscribe",
+    feature = "op_tag_resource",
+    feature = "op_unsubscribe",
+    feature = "op_untag_resource",
+    feature = "op_verify_sms_sandbox_phone_number"
+))]
 pub(crate) mod shape_authorization_error_exception;
 
+#[cfg(feature = "op_publish_batch")]
 pub(crate) mod shape_batch_entry_ids_not_distinct_exception;
 
+#[cfg(feature = "op_publish_batch")]
 pub(crate) mod shape_batch_request_too_long_exception;
 
+#[cfg(any(
+    feature = "op_create_topic",
+    feature = "op_delete_topic",
+    feature = "op_list_tags_for_resource",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource"
+))]
 pub(crate) mod shape_concurrent_access_exception;
 
+#[cfg(feature = "op_publish_batch")]
 pub(crate) mod shape_empty_batch_request_exception;
 
+#[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
 pub(crate) mod shape_endpoint_disabled_exception;
 
+#[cfg(any(
+    feature = "op_confirm_subscription",
+    feature = "op_set_subscription_attributes",
+    feature = "op_subscribe"
+))]
 pub(crate) mod shape_filter_policy_limit_exceeded_exception;
 
+#[cfg(any(
+    feature = "op_add_permission",
+    feature = "op_check_if_phone_number_is_opted_out",
+    feature = "op_confirm_subscription",
+    feature = "op_create_platform_application",
+    feature = "op_create_platform_endpoint",
+    feature = "op_create_sms_sandbox_phone_number",
+    feature = "op_create_topic",
+    feature = "op_delete_endpoint",
+    feature = "op_delete_platform_application",
+    feature = "op_delete_sms_sandbox_phone_number",
+    feature = "op_delete_topic",
+    feature = "op_get_data_protection_policy",
+    feature = "op_get_endpoint_attributes",
+    feature = "op_get_platform_application_attributes",
+    feature = "op_get_sms_attributes",
+    feature = "op_get_sms_sandbox_account_status",
+    feature = "op_get_subscription_attributes",
+    feature = "op_get_topic_attributes",
+    feature = "op_list_endpoints_by_platform_application",
+    feature = "op_list_origination_numbers",
+    feature = "op_list_phone_numbers_opted_out",
+    feature = "op_list_platform_applications",
+    feature = "op_list_sms_sandbox_phone_numbers",
+    feature = "op_list_subscriptions",
+    feature = "op_list_subscriptions_by_topic",
+    feature = "op_list_topics",
+    feature = "op_opt_in_phone_number",
+    feature = "op_publish",
+    feature = "op_publish_batch",
+    feature = "op_put_data_protection_policy",
+    feature = "op_remove_permission",
+    feature = "op_set_endpoint_attributes",
+    feature = "op_set_platform_application_attributes",
+    feature = "op_set_sms_attributes",
+    feature = "op_set_subscription_attributes",
+    feature = "op_set_topic_attributes",
+    feature = "op_subscribe",
+    feature = "op_unsubscribe",
+    feature = "op_verify_sms_sandbox_phone_number"
+))]
 pub(crate) mod shape_internal_error_exception;
 
+#[cfg(feature = "op_publish_batch")]
 pub(crate) mod shape_invalid_batch_entry_id_exception;
 
+#[cfg(any(
+    feature = "op_add_permission",
+    feature = "op_check_if_phone_number_is_opted_out",
+    feature = "op_confirm_subscription",
+    feature = "op_create_platform_application",
+    feature = "op_create_platform_endpoint",
+    feature = "op_create_sms_sandbox_phone_number",
+    feature = "op_create_topic",
+    feature = "op_delete_endpoint",
+    feature = "op_delete_platform_application",
+    feature = "op_delete_sms_sandbox_phone_number",
+    feature = "op_delete_topic",
+    feature = "op_get_data_protection_policy",
+    feature = "op_get_endpoint_attributes",
+    feature = "op_get_platform_application_attributes",
+    feature = "op_get_sms_attributes",
+    feature = "op_get_subscription_attributes",
+    feature = "op_get_topic_attributes",
+    feature = "op_list_endpoints_by_platform_application",
+    feature = "op_list_origination_numbers",
+    feature = "op_list_phone_numbers_opted_out",
+    feature = "op_list_platform_applications",
+    feature = "op_list_sms_sandbox_phone_numbers",
+    feature = "op_list_subscriptions",
+    feature = "op_list_subscriptions_by_topic",
+    feature = "op_list_tags_for_resource",
+    feature = "op_list_topics",
+    feature = "op_opt_in_phone_number",
+    feature = "op_publish",
+    feature = "op_publish_batch",
+    feature = "op_put_data_protection_policy",
+    feature = "op_remove_permission",
+    feature = "op_set_endpoint_attributes",
+    feature = "op_set_platform_application_attributes",
+    feature = "op_set_sms_attributes",
+    feature = "op_set_subscription_attributes",
+    feature = "op_set_topic_attributes",
+    feature = "op_subscribe",
+    feature = "op_tag_resource",
+    feature = "op_unsubscribe",
+    feature = "op_untag_resource",
+    feature = "op_verify_sms_sandbox_phone_number"
+))]
 pub(crate) mod shape_invalid_parameter_exception;
 
+#[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
 pub(crate) mod shape_invalid_parameter_value_exception;
 
+#[cfg(any(
+    feature = "op_create_topic",
+    feature = "op_get_data_protection_policy",
+    feature = "op_get_topic_attributes",
+    feature = "op_publish",
+    feature = "op_publish_batch",
+    feature = "op_put_data_protection_policy",
+    feature = "op_set_topic_attributes",
+    feature = "op_subscribe",
+    feature = "op_unsubscribe"
+))]
 pub(crate) mod shape_invalid_security_exception;
 
+#[cfg(feature = "op_delete_topic")]
 pub(crate) mod shape_invalid_state_exception;
 
+#[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
 pub(crate) mod shape_kms_access_denied_exception;
 
+#[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
 pub(crate) mod shape_kms_disabled_exception;
 
+#[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
 pub(crate) mod shape_kms_invalid_state_exception;
 
+#[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
 pub(crate) mod shape_kms_not_found_exception;
 
+#[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
 pub(crate) mod shape_kms_opt_in_required;
 
+#[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
 pub(crate) mod shape_kms_throttling_exception;
 
+#[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
 pub(crate) mod shape_message_attribute_value;
 
+#[cfg(any(
+    feature = "op_add_permission",
+    feature = "op_confirm_subscription",
+    feature = "op_create_platform_endpoint",
+    feature = "op_delete_topic",
+    feature = "op_get_data_protection_policy",
+    feature = "op_get_endpoint_attributes",
+    feature = "op_get_platform_application_attributes",
+    feature = "op_get_subscription_attributes",
+    feature = "op_get_topic_attributes",
+    feature = "op_list_endpoints_by_platform_application",
+    feature = "op_list_subscriptions_by_topic",
+    feature = "op_publish",
+    feature = "op_publish_batch",
+    feature = "op_put_data_protection_policy",
+    feature = "op_remove_permission",
+    feature = "op_set_endpoint_attributes",
+    feature = "op_set_platform_application_attributes",
+    feature = "op_set_subscription_attributes",
+    feature = "op_set_topic_attributes",
+    feature = "op_subscribe",
+    feature = "op_unsubscribe"
+))]
 pub(crate) mod shape_not_found_exception;
 
+#[cfg(feature = "op_create_sms_sandbox_phone_number")]
 pub(crate) mod shape_opted_out_exception;
 
+#[cfg(any(feature = "op_publish", feature = "op_publish_batch"))]
 pub(crate) mod shape_platform_application_disabled_exception;
 
 #[cfg(feature = "op_publish_batch")]
 pub(crate) mod shape_publish_batch_request_entry;
 
+#[cfg(any(
+    feature = "op_confirm_subscription",
+    feature = "op_set_subscription_attributes",
+    feature = "op_subscribe"
+))]
 pub(crate) mod shape_replay_limit_exceeded_exception;
 
+#[cfg(any(
+    feature = "op_delete_sms_sandbox_phone_number",
+    feature = "op_list_sms_sandbox_phone_numbers",
+    feature = "op_list_tags_for_resource",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource",
+    feature = "op_verify_sms_sandbox_phone_number"
+))]
 pub(crate) mod shape_resource_not_found_exception;
 
+#[cfg(any(
+    feature = "op_create_topic",
+    feature = "op_delete_topic",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource"
+))]
 pub(crate) mod shape_stale_tag_exception;
 
+#[cfg(any(feature = "op_confirm_subscription", feature = "op_subscribe"))]
 pub(crate) mod shape_subscription_limit_exceeded_exception;
 
+#[cfg(any(
+    feature = "op_create_topic",
+    feature = "op_list_tags_for_resource",
+    feature = "op_tag_resource"
+))]
 pub(crate) mod shape_tag;
 
+#[cfg(any(
+    feature = "op_create_topic",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource"
+))]
 pub(crate) mod shape_tag_limit_exceeded_exception;
 
+#[cfg(any(
+    feature = "op_create_topic",
+    feature = "op_delete_topic",
+    feature = "op_list_tags_for_resource",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource"
+))]
 pub(crate) mod shape_tag_policy_exception;
 
+#[cfg(any(
+    feature = "op_check_if_phone_number_is_opted_out",
+    feature = "op_create_sms_sandbox_phone_number",
+    feature = "op_delete_sms_sandbox_phone_number",
+    feature = "op_get_sms_attributes",
+    feature = "op_get_sms_sandbox_account_status",
+    feature = "op_list_origination_numbers",
+    feature = "op_list_phone_numbers_opted_out",
+    feature = "op_list_sms_sandbox_phone_numbers",
+    feature = "op_opt_in_phone_number",
+    feature = "op_set_sms_attributes",
+    feature = "op_verify_sms_sandbox_phone_number"
+))]
 pub(crate) mod shape_throttled_exception;
 
+#[cfg(feature = "op_publish_batch")]
 pub(crate) mod shape_too_many_entries_in_batch_request_exception;
 
+#[cfg(feature = "op_create_topic")]
 pub(crate) mod shape_topic_limit_exceeded_exception;
 
+#[cfg(any(
+    feature = "op_create_sms_sandbox_phone_number",
+    feature = "op_delete_sms_sandbox_phone_number"
+))]
 pub(crate) mod shape_user_error_exception;
 
+#[cfg(any(
+    feature = "op_list_origination_numbers",
+    feature = "op_publish",
+    feature = "op_publish_batch"
+))]
 pub(crate) mod shape_validation_exception;
 
+#[cfg(feature = "op_verify_sms_sandbox_phone_number")]
 pub(crate) mod shape_verification_exception;
 
+#[cfg(feature = "op_publish_batch")]
 pub(crate) mod shape_batch_result_error_entry_list;
 
+#[cfg(feature = "op_list_endpoints_by_platform_application")]
 pub(crate) mod shape_list_of_endpoints;
 
+#[cfg(feature = "op_list_platform_applications")]
 pub(crate) mod shape_list_of_platform_applications;
 
+#[cfg(any(
+    feature = "op_get_endpoint_attributes",
+    feature = "op_get_platform_application_attributes",
+    feature = "op_get_sms_attributes",
+    feature = "op_list_endpoints_by_platform_application",
+    feature = "op_list_platform_applications"
+))]
 pub(crate) mod shape_map_string_to_string;
 
+#[cfg(feature = "op_list_origination_numbers")]
 pub(crate) mod shape_phone_number_information_list;
 
+#[cfg(feature = "op_list_phone_numbers_opted_out")]
 pub(crate) mod shape_phone_number_list;
 
 #[cfg(feature = "op_publish_batch")]
 pub(crate) mod shape_publish_batch_result_entry_list;
 
+#[cfg(feature = "op_list_sms_sandbox_phone_numbers")]
 pub(crate) mod shape_sms_sandbox_phone_number_list;
 
+#[cfg(feature = "op_get_subscription_attributes")]
 pub(crate) mod shape_subscription_attributes_map;
 
+#[cfg(any(
+    feature = "op_list_subscriptions",
+    feature = "op_list_subscriptions_by_topic"
+))]
 pub(crate) mod shape_subscriptions_list;
 
+#[cfg(feature = "op_list_tags_for_resource")]
 pub(crate) mod shape_tag_list;
 
+#[cfg(feature = "op_get_topic_attributes")]
 pub(crate) mod shape_topic_attributes_map;
 
+#[cfg(feature = "op_list_topics")]
 pub(crate) mod shape_topics_list;
 
+#[cfg(feature = "op_publish_batch")]
 pub(crate) mod shape_batch_result_error_entry;
 
+#[cfg(feature = "op_list_endpoints_by_platform_application")]
 pub(crate) mod shape_endpoint;
 
+#[cfg(feature = "op_list_origination_numbers")]
 pub(crate) mod shape_phone_number_information;
 
+#[cfg(feature = "op_list_platform_applications")]
 pub(crate) mod shape_platform_application;
 
 #[cfg(feature = "op_publish_batch")]
 pub(crate) mod shape_publish_batch_result_entry;
 
+#[cfg(feature = "op_list_sms_sandbox_phone_numbers")]
 pub(crate) mod shape_sms_sandbox_phone_number;
 
+#[cfg(any(
+    feature = "op_list_subscriptions",
+    feature = "op_list_subscriptions_by_topic"
+))]
 pub(crate) mod shape_subscription;
 
+#[cfg(feature = "op_list_topics")]
 pub(crate) mod shape_topic;
 
+#[cfg(feature = "op_list_origination_numbers")]
 pub(crate) mod shape_number_capability_list;

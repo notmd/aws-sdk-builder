@@ -795,6 +795,7 @@ pub(crate) mod runtime_plugin {
     use aws_smithy_types::config_bag::{ConfigBag, FrozenLayer, Layer};
     use aws_types::os_shim_internal::Env;
 
+    #[cfg(feature = "op_create_session")]
     mod env {
         pub(super) const S3_DISABLE_EXPRESS_SESSION_AUTH: &str =
             "AWS_S3_DISABLE_EXPRESS_SESSION_AUTH";
@@ -883,7 +884,6 @@ pub(crate) mod runtime_plugin {
         layer.freeze()
     }
 
-    #[cfg(feature = "op_create_session")]
     fn runtime_components_builder(
         service_config: crate::config::Config,
     ) -> RuntimeComponentsBuilder {

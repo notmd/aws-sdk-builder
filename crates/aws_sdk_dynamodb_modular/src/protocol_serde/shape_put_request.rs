@@ -22,7 +22,6 @@ pub fn ser_put_request(
     Ok(())
 }
 
-#[cfg(feature = "op_put_item")]
 pub(crate) fn de_put_request<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],

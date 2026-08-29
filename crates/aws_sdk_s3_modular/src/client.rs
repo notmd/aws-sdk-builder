@@ -94,7 +94,6 @@ pub struct Client {
 }
 
 impl Client {
-    #[cfg(feature = "op_create_session")]
     /// Creates a new client from the service [`Config`](crate::Config).
     ///
     /// # Panics
@@ -137,43 +136,45 @@ impl Client {
     }
 }
 
-#[cfg(any(feature = "op_head_bucket", feature = "op_head_object"))]
 ///
 /// Waiter functions for the client.
 ///
 /// Import this trait to get `wait_until` methods on the client.
 ///
 pub trait Waiters {
+    #[cfg(feature = "op_head_bucket")]
     /// Wait for `bucket_exists`
     fn wait_until_bucket_exists(&self) -> crate::waiters::bucket_exists::BucketExistsFluentBuilder;
+    #[cfg(feature = "op_head_bucket")]
     /// Wait for `bucket_not_exists`
     fn wait_until_bucket_not_exists(
         &self,
     ) -> crate::waiters::bucket_not_exists::BucketNotExistsFluentBuilder;
+    #[cfg(feature = "op_head_object")]
     /// Wait for `object_exists`
     fn wait_until_object_exists(&self) -> crate::waiters::object_exists::ObjectExistsFluentBuilder;
+    #[cfg(feature = "op_head_object")]
     /// Wait for `object_not_exists`
     fn wait_until_object_not_exists(
         &self,
     ) -> crate::waiters::object_not_exists::ObjectNotExistsFluentBuilder;
 }
-#[cfg(any(
-    feature = "op_create_session",
-    feature = "op_head_bucket",
-    feature = "op_head_object"
-))]
 impl Waiters for Client {
+    #[cfg(feature = "op_head_bucket")]
     fn wait_until_bucket_exists(&self) -> crate::waiters::bucket_exists::BucketExistsFluentBuilder {
         crate::waiters::bucket_exists::BucketExistsFluentBuilder::new(self.handle.clone())
     }
+    #[cfg(feature = "op_head_bucket")]
     fn wait_until_bucket_not_exists(
         &self,
     ) -> crate::waiters::bucket_not_exists::BucketNotExistsFluentBuilder {
         crate::waiters::bucket_not_exists::BucketNotExistsFluentBuilder::new(self.handle.clone())
     }
+    #[cfg(feature = "op_head_object")]
     fn wait_until_object_exists(&self) -> crate::waiters::object_exists::ObjectExistsFluentBuilder {
         crate::waiters::object_exists::ObjectExistsFluentBuilder::new(self.handle.clone())
     }
+    #[cfg(feature = "op_head_object")]
     fn wait_until_object_not_exists(
         &self,
     ) -> crate::waiters::object_not_exists::ObjectNotExistsFluentBuilder {
@@ -182,7 +183,6 @@ impl Waiters for Client {
 }
 
 impl Client {
-    #[cfg(feature = "op_create_session")]
     /// Creates a new client from an [SDK Config](::aws_types::sdk_config::SdkConfig).
     ///
     /// # Panics

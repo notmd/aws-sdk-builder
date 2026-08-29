@@ -18,7 +18,6 @@ pub fn ser_write_request(
     Ok(())
 }
 
-#[cfg(feature = "op_put_item")]
 pub(crate) fn de_write_request<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],

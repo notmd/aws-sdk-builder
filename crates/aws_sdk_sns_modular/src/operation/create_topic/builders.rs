@@ -52,7 +52,7 @@ impl
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-#[cfg(any(feature = "op_create_topic", feature = "op_get_data_protection_policy"))]
+#[cfg(feature = "op_create_topic")]
 impl CreateTopicFluentBuilder {
     /// Creates a new `CreateTopicFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {

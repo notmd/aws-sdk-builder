@@ -55,7 +55,7 @@ impl
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-#[cfg(any(feature = "op_get_stored_query", feature = "op_put_stored_query"))]
+#[cfg(feature = "op_put_stored_query")]
 impl PutStoredQueryFluentBuilder {
     /// Creates a new `PutStoredQueryFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {

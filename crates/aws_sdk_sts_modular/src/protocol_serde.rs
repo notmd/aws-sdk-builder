@@ -32,95 +32,174 @@ pub fn parse_http_error_metadata(
     crate::rest_xml_wrapped_errors::parse_error_metadata(response_body)
 }
 
+#[cfg(feature = "op_assume_role")]
 pub(crate) mod shape_assume_role;
 
 #[cfg(feature = "op_assume_role")]
 pub(crate) mod shape_assume_role_input;
 
-#[cfg(feature = "op_assume_role")]
+#[cfg(feature = "op_assume_role_with_saml")]
 pub(crate) mod shape_assume_role_with_saml;
 
 #[cfg(feature = "op_assume_role_with_saml")]
 pub(crate) mod shape_assume_role_with_saml_input;
 
-#[cfg(feature = "op_assume_role")]
+#[cfg(feature = "op_assume_role_with_web_identity")]
 pub(crate) mod shape_assume_role_with_web_identity;
 
 #[cfg(feature = "op_assume_role_with_web_identity")]
 pub(crate) mod shape_assume_role_with_web_identity_input;
 
+#[cfg(feature = "op_assume_root")]
 pub(crate) mod shape_assume_root;
 
 #[cfg(feature = "op_assume_root")]
 pub(crate) mod shape_assume_root_input;
 
+#[cfg(feature = "op_decode_authorization_message")]
 pub(crate) mod shape_decode_authorization_message;
 
 #[cfg(feature = "op_decode_authorization_message")]
 pub(crate) mod shape_decode_authorization_message_input;
 
+#[cfg(feature = "op_get_access_key_info")]
 pub(crate) mod shape_get_access_key_info;
 
 #[cfg(feature = "op_get_access_key_info")]
 pub(crate) mod shape_get_access_key_info_input;
 
+#[cfg(feature = "op_get_caller_identity")]
 pub(crate) mod shape_get_caller_identity;
 
 #[cfg(feature = "op_get_caller_identity")]
 pub(crate) mod shape_get_caller_identity_input;
 
+#[cfg(feature = "op_get_delegated_access_token")]
 pub(crate) mod shape_get_delegated_access_token;
 
 #[cfg(feature = "op_get_delegated_access_token")]
 pub(crate) mod shape_get_delegated_access_token_input;
 
+#[cfg(feature = "op_get_federation_token")]
 pub(crate) mod shape_get_federation_token;
 
 #[cfg(feature = "op_get_federation_token")]
 pub(crate) mod shape_get_federation_token_input;
 
+#[cfg(feature = "op_get_session_token")]
 pub(crate) mod shape_get_session_token;
 
 #[cfg(feature = "op_get_session_token")]
 pub(crate) mod shape_get_session_token_input;
 
+#[cfg(feature = "op_get_web_identity_token")]
 pub(crate) mod shape_get_web_identity_token;
 
 #[cfg(feature = "op_get_web_identity_token")]
 pub(crate) mod shape_get_web_identity_token_input;
 
+#[cfg(any(
+    feature = "op_assume_role",
+    feature = "op_assume_role_with_saml",
+    feature = "op_assume_role_with_web_identity",
+    feature = "op_assume_root"
+))]
 pub(crate) mod shape_expired_token_exception;
 
+#[cfg(feature = "op_get_delegated_access_token")]
 pub(crate) mod shape_expired_trade_in_token_exception;
 
+#[cfg(feature = "op_assume_role_with_web_identity")]
 pub(crate) mod shape_idp_communication_error_exception;
 
+#[cfg(any(
+    feature = "op_assume_role_with_saml",
+    feature = "op_assume_role_with_web_identity"
+))]
 pub(crate) mod shape_idp_rejected_claim_exception;
 
+#[cfg(feature = "op_decode_authorization_message")]
 pub(crate) mod shape_invalid_authorization_message_exception;
 
+#[cfg(any(
+    feature = "op_assume_role_with_saml",
+    feature = "op_assume_role_with_web_identity"
+))]
 pub(crate) mod shape_invalid_identity_token_exception;
 
+#[cfg(feature = "op_get_web_identity_token")]
 pub(crate) mod shape_jwt_payload_size_exceeded_exception;
 
+#[cfg(any(
+    feature = "op_assume_role",
+    feature = "op_assume_role_with_saml",
+    feature = "op_assume_role_with_web_identity",
+    feature = "op_get_federation_token"
+))]
 pub(crate) mod shape_malformed_policy_document_exception;
 
+#[cfg(feature = "op_get_web_identity_token")]
 pub(crate) mod shape_outbound_web_identity_federation_disabled_exception;
 
+#[cfg(any(
+    feature = "op_assume_role",
+    feature = "op_assume_role_with_saml",
+    feature = "op_assume_role_with_web_identity",
+    feature = "op_get_delegated_access_token",
+    feature = "op_get_federation_token"
+))]
 pub(crate) mod shape_packed_policy_too_large_exception;
 
+#[cfg(any(
+    feature = "op_assume_role",
+    feature = "op_assume_role_with_saml",
+    feature = "op_assume_role_with_web_identity",
+    feature = "op_assume_root",
+    feature = "op_get_federation_token"
+))]
 pub(crate) mod shape_policy_descriptor_type;
 
+#[cfg(feature = "op_assume_role")]
 pub(crate) mod shape_provided_context;
 
+#[cfg(any(
+    feature = "op_assume_role",
+    feature = "op_assume_role_with_saml",
+    feature = "op_assume_role_with_web_identity",
+    feature = "op_assume_root",
+    feature = "op_get_delegated_access_token",
+    feature = "op_get_federation_token",
+    feature = "op_get_session_token"
+))]
 pub(crate) mod shape_region_disabled_exception;
 
+#[cfg(feature = "op_get_web_identity_token")]
 pub(crate) mod shape_session_duration_escalation_exception;
 
+#[cfg(any(
+    feature = "op_assume_role",
+    feature = "op_get_federation_token",
+    feature = "op_get_web_identity_token"
+))]
 pub(crate) mod shape_tag;
 
+#[cfg(any(
+    feature = "op_assume_role",
+    feature = "op_assume_role_with_saml",
+    feature = "op_assume_role_with_web_identity"
+))]
 pub(crate) mod shape_assumed_role_user;
 
+#[cfg(any(
+    feature = "op_assume_role",
+    feature = "op_assume_role_with_saml",
+    feature = "op_assume_role_with_web_identity",
+    feature = "op_assume_root",
+    feature = "op_get_delegated_access_token",
+    feature = "op_get_federation_token",
+    feature = "op_get_session_token"
+))]
 pub(crate) mod shape_credentials;
 
+#[cfg(feature = "op_get_federation_token")]
 pub(crate) mod shape_federated_user;

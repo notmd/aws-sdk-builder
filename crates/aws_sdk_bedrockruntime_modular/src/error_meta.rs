@@ -719,6 +719,7 @@ impl From<crate::operation::start_async_invoke::StartAsyncInvokeError> for Error
         }
     }
 }
+#[cfg(feature = "op_converse_stream")]
 impl<R>
     From<
         ::aws_smithy_runtime_api::client::result::SdkError<
@@ -746,6 +747,7 @@ where
         }
     }
 }
+#[cfg(feature = "op_converse_stream")]
 impl From<crate::types::error::ConverseStreamOutputError> for Error {
     fn from(err: crate::types::error::ConverseStreamOutputError) -> Self {
         match err {
@@ -770,6 +772,7 @@ impl From<crate::types::error::ConverseStreamOutputError> for Error {
         }
     }
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl<R>
     From<
         ::aws_smithy_runtime_api::client::result::SdkError<
@@ -797,6 +800,7 @@ where
         }
     }
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl From<crate::types::error::InvokeModelWithBidirectionalStreamInputError> for Error {
     fn from(err: crate::types::error::InvokeModelWithBidirectionalStreamInputError) -> Self {
         match err {
@@ -806,6 +810,7 @@ impl From<crate::types::error::InvokeModelWithBidirectionalStreamInputError> for
         }
     }
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl<R>
     From<
         ::aws_smithy_runtime_api::client::result::SdkError<
@@ -833,6 +838,7 @@ where
         }
     }
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl From<crate::types::error::InvokeModelWithBidirectionalStreamOutputError> for Error {
     fn from(err: crate::types::error::InvokeModelWithBidirectionalStreamOutputError) -> Self {
         match err {
@@ -852,6 +858,7 @@ impl From<crate::types::error::InvokeModelWithBidirectionalStreamOutputError> fo
         }
     }
 }
+#[cfg(feature = "op_invoke_model_with_response_stream")]
 impl<R>
     From<
         ::aws_smithy_runtime_api::client::result::SdkError<
@@ -879,6 +886,7 @@ where
         }
     }
 }
+#[cfg(feature = "op_invoke_model_with_response_stream")]
 impl From<crate::types::error::ResponseStreamError> for Error {
     fn from(err: crate::types::error::ResponseStreamError) -> Self {
         match err {

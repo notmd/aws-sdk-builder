@@ -111,6 +111,7 @@ pub use crate::types::error::_alias_limit_exceeded_exception::AliasLimitExceeded
 
 pub use crate::types::error::_provisioned_concurrency_config_not_found_exception::ProvisionedConcurrencyConfigNotFoundException;
 
+#[cfg(feature = "op_invoke_with_response_stream")]
 /// Error type for the `InvokeWithResponseStreamResponseEventError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -126,6 +127,7 @@ pub enum InvokeWithResponseStreamResponseEventError {
     )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
+#[cfg(feature = "op_invoke_with_response_stream")]
 impl InvokeWithResponseStreamResponseEventError {
     /// Creates the `InvokeWithResponseStreamResponseEventError::Unhandled` variant from any error type.
     pub fn unhandled(
@@ -158,6 +160,7 @@ impl InvokeWithResponseStreamResponseEventError {
         }
     }
 }
+#[cfg(feature = "op_invoke_with_response_stream")]
 impl ::std::error::Error for InvokeWithResponseStreamResponseEventError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
@@ -165,6 +168,7 @@ impl ::std::error::Error for InvokeWithResponseStreamResponseEventError {
         }
     }
 }
+#[cfg(feature = "op_invoke_with_response_stream")]
 impl ::std::fmt::Display for InvokeWithResponseStreamResponseEventError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
@@ -180,6 +184,7 @@ impl ::std::fmt::Display for InvokeWithResponseStreamResponseEventError {
         }
     }
 }
+#[cfg(feature = "op_invoke_with_response_stream")]
 impl ::aws_smithy_types::retry::ProvideErrorKind for InvokeWithResponseStreamResponseEventError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
@@ -188,6 +193,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for InvokeWithResponseStreamRes
         ::std::option::Option::None
     }
 }
+#[cfg(feature = "op_invoke_with_response_stream")]
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
     for InvokeWithResponseStreamResponseEventError
 {
@@ -197,6 +203,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
         }
     }
 }
+#[cfg(feature = "op_invoke_with_response_stream")]
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
     for InvokeWithResponseStreamResponseEventError
 {
@@ -212,6 +219,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
         })
     }
 }
+#[cfg(feature = "op_invoke_with_response_stream")]
 impl ::aws_types::request_id::RequestId
     for crate::types::error::InvokeWithResponseStreamResponseEventError
 {

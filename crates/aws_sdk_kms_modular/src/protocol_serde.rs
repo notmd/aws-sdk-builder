@@ -32,118 +32,166 @@ pub fn parse_http_error_metadata(
     crate::json_errors::parse_error_metadata(response_body, response_headers)
 }
 
+#[cfg(feature = "op_cancel_key_deletion")]
 pub(crate) mod shape_cancel_key_deletion;
 
+#[cfg(feature = "op_connect_custom_key_store")]
 pub(crate) mod shape_connect_custom_key_store;
 
+#[cfg(feature = "op_create_alias")]
 pub(crate) mod shape_create_alias;
 
+#[cfg(feature = "op_create_custom_key_store")]
 pub(crate) mod shape_create_custom_key_store;
 
+#[cfg(feature = "op_create_grant")]
 pub(crate) mod shape_create_grant;
 
+#[cfg(feature = "op_create_key")]
 pub(crate) mod shape_create_key;
 
+#[cfg(feature = "op_decrypt")]
 pub(crate) mod shape_decrypt;
 
+#[cfg(feature = "op_delete_alias")]
 pub(crate) mod shape_delete_alias;
 
+#[cfg(feature = "op_delete_custom_key_store")]
 pub(crate) mod shape_delete_custom_key_store;
 
+#[cfg(feature = "op_delete_imported_key_material")]
 pub(crate) mod shape_delete_imported_key_material;
 
+#[cfg(feature = "op_derive_shared_secret")]
 pub(crate) mod shape_derive_shared_secret;
 
+#[cfg(feature = "op_describe_custom_key_stores")]
 pub(crate) mod shape_describe_custom_key_stores;
 
+#[cfg(feature = "op_describe_key")]
 pub(crate) mod shape_describe_key;
 
+#[cfg(feature = "op_disable_key")]
 pub(crate) mod shape_disable_key;
 
-#[cfg(feature = "op_disable_key")]
+#[cfg(feature = "op_disable_key_rotation")]
 pub(crate) mod shape_disable_key_rotation;
 
+#[cfg(feature = "op_disconnect_custom_key_store")]
 pub(crate) mod shape_disconnect_custom_key_store;
 
+#[cfg(feature = "op_enable_key")]
 pub(crate) mod shape_enable_key;
 
-#[cfg(feature = "op_enable_key")]
+#[cfg(feature = "op_enable_key_rotation")]
 pub(crate) mod shape_enable_key_rotation;
 
+#[cfg(feature = "op_encrypt")]
 pub(crate) mod shape_encrypt;
 
+#[cfg(feature = "op_generate_data_key")]
 pub(crate) mod shape_generate_data_key;
 
-#[cfg(feature = "op_generate_data_key")]
+#[cfg(feature = "op_generate_data_key_pair")]
 pub(crate) mod shape_generate_data_key_pair;
 
-#[cfg(feature = "op_generate_data_key_pair")]
+#[cfg(feature = "op_generate_data_key_pair_without_plaintext")]
 pub(crate) mod shape_generate_data_key_pair_without_plaintext;
 
-#[cfg(feature = "op_generate_data_key")]
+#[cfg(feature = "op_generate_data_key_without_plaintext")]
 pub(crate) mod shape_generate_data_key_without_plaintext;
 
+#[cfg(feature = "op_generate_mac")]
 pub(crate) mod shape_generate_mac;
 
+#[cfg(feature = "op_generate_random")]
 pub(crate) mod shape_generate_random;
 
+#[cfg(feature = "op_get_key_last_usage")]
 pub(crate) mod shape_get_key_last_usage;
 
+#[cfg(feature = "op_get_key_policy")]
 pub(crate) mod shape_get_key_policy;
 
+#[cfg(feature = "op_get_key_rotation_status")]
 pub(crate) mod shape_get_key_rotation_status;
 
+#[cfg(feature = "op_get_parameters_for_import")]
 pub(crate) mod shape_get_parameters_for_import;
 
+#[cfg(feature = "op_get_public_key")]
 pub(crate) mod shape_get_public_key;
 
+#[cfg(feature = "op_import_key_material")]
 pub(crate) mod shape_import_key_material;
 
+#[cfg(feature = "op_list_aliases")]
 pub(crate) mod shape_list_aliases;
 
+#[cfg(feature = "op_list_grants")]
 pub(crate) mod shape_list_grants;
 
+#[cfg(feature = "op_list_key_policies")]
 pub(crate) mod shape_list_key_policies;
 
+#[cfg(feature = "op_list_key_rotations")]
 pub(crate) mod shape_list_key_rotations;
 
+#[cfg(feature = "op_list_keys")]
 pub(crate) mod shape_list_keys;
 
+#[cfg(feature = "op_list_resource_tags")]
 pub(crate) mod shape_list_resource_tags;
 
+#[cfg(feature = "op_list_retirable_grants")]
 pub(crate) mod shape_list_retirable_grants;
 
+#[cfg(feature = "op_put_key_policy")]
 pub(crate) mod shape_put_key_policy;
 
+#[cfg(feature = "op_re_encrypt")]
 pub(crate) mod shape_re_encrypt;
 
+#[cfg(feature = "op_replicate_key")]
 pub(crate) mod shape_replicate_key;
 
+#[cfg(feature = "op_retire_grant")]
 pub(crate) mod shape_retire_grant;
 
+#[cfg(feature = "op_revoke_grant")]
 pub(crate) mod shape_revoke_grant;
 
+#[cfg(feature = "op_rotate_key_on_demand")]
 pub(crate) mod shape_rotate_key_on_demand;
 
+#[cfg(feature = "op_schedule_key_deletion")]
 pub(crate) mod shape_schedule_key_deletion;
 
+#[cfg(feature = "op_sign")]
 pub(crate) mod shape_sign;
 
+#[cfg(feature = "op_tag_resource")]
 pub(crate) mod shape_tag_resource;
 
+#[cfg(feature = "op_untag_resource")]
 pub(crate) mod shape_untag_resource;
 
+#[cfg(feature = "op_update_alias")]
 pub(crate) mod shape_update_alias;
 
+#[cfg(feature = "op_update_custom_key_store")]
 pub(crate) mod shape_update_custom_key_store;
 
+#[cfg(feature = "op_update_key_description")]
 pub(crate) mod shape_update_key_description;
 
+#[cfg(feature = "op_update_primary_region")]
 pub(crate) mod shape_update_primary_region;
 
+#[cfg(feature = "op_verify")]
 pub(crate) mod shape_verify;
 
-#[cfg(feature = "op_verify")]
+#[cfg(feature = "op_verify_mac")]
 pub(crate) mod shape_verify_mac;
 
 pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
@@ -154,21 +202,40 @@ pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
     }
 }
 
+#[cfg(any(feature = "op_create_alias", feature = "op_replicate_key"))]
 pub(crate) mod shape_already_exists_exception;
 
 #[cfg(feature = "op_cancel_key_deletion")]
 pub(crate) mod shape_cancel_key_deletion_input;
 
+#[cfg(feature = "op_create_custom_key_store")]
 pub(crate) mod shape_cloud_hsm_cluster_in_use_exception;
 
+#[cfg(any(
+    feature = "op_connect_custom_key_store",
+    feature = "op_create_custom_key_store",
+    feature = "op_create_key",
+    feature = "op_update_custom_key_store"
+))]
 pub(crate) mod shape_cloud_hsm_cluster_invalid_configuration_exception;
 
+#[cfg(any(
+    feature = "op_connect_custom_key_store",
+    feature = "op_create_custom_key_store",
+    feature = "op_update_custom_key_store"
+))]
 pub(crate) mod shape_cloud_hsm_cluster_not_active_exception;
 
+#[cfg(any(
+    feature = "op_create_custom_key_store",
+    feature = "op_update_custom_key_store"
+))]
 pub(crate) mod shape_cloud_hsm_cluster_not_found_exception;
 
+#[cfg(feature = "op_update_custom_key_store")]
 pub(crate) mod shape_cloud_hsm_cluster_not_related_exception;
 
+#[cfg(feature = "op_rotate_key_on_demand")]
 pub(crate) mod shape_conflict_exception;
 
 #[cfg(feature = "op_connect_custom_key_store")]
@@ -186,12 +253,34 @@ pub(crate) mod shape_create_grant_input;
 #[cfg(feature = "op_create_key")]
 pub(crate) mod shape_create_key_input;
 
+#[cfg(feature = "op_delete_custom_key_store")]
 pub(crate) mod shape_custom_key_store_has_cmks_exception;
 
+#[cfg(any(
+    feature = "op_connect_custom_key_store",
+    feature = "op_create_key",
+    feature = "op_delete_custom_key_store",
+    feature = "op_disconnect_custom_key_store",
+    feature = "op_generate_random",
+    feature = "op_update_custom_key_store"
+))]
 pub(crate) mod shape_custom_key_store_invalid_state_exception;
 
+#[cfg(any(
+    feature = "op_create_custom_key_store",
+    feature = "op_update_custom_key_store"
+))]
 pub(crate) mod shape_custom_key_store_name_in_use_exception;
 
+#[cfg(any(
+    feature = "op_connect_custom_key_store",
+    feature = "op_create_key",
+    feature = "op_delete_custom_key_store",
+    feature = "op_describe_custom_key_stores",
+    feature = "op_disconnect_custom_key_store",
+    feature = "op_generate_random",
+    feature = "op_update_custom_key_store"
+))]
 pub(crate) mod shape_custom_key_store_not_found_exception;
 
 #[cfg(feature = "op_decrypt")]
@@ -206,6 +295,48 @@ pub(crate) mod shape_delete_custom_key_store_input;
 #[cfg(feature = "op_delete_imported_key_material")]
 pub(crate) mod shape_delete_imported_key_material_input;
 
+#[cfg(any(
+    feature = "op_cancel_key_deletion",
+    feature = "op_create_alias",
+    feature = "op_create_grant",
+    feature = "op_create_key",
+    feature = "op_decrypt",
+    feature = "op_delete_alias",
+    feature = "op_delete_imported_key_material",
+    feature = "op_derive_shared_secret",
+    feature = "op_describe_key",
+    feature = "op_disable_key",
+    feature = "op_disable_key_rotation",
+    feature = "op_enable_key",
+    feature = "op_enable_key_rotation",
+    feature = "op_encrypt",
+    feature = "op_generate_data_key",
+    feature = "op_generate_data_key_pair",
+    feature = "op_generate_data_key_pair_without_plaintext",
+    feature = "op_generate_data_key_without_plaintext",
+    feature = "op_generate_random",
+    feature = "op_get_key_last_usage",
+    feature = "op_get_key_policy",
+    feature = "op_get_key_rotation_status",
+    feature = "op_get_parameters_for_import",
+    feature = "op_get_public_key",
+    feature = "op_import_key_material",
+    feature = "op_list_aliases",
+    feature = "op_list_grants",
+    feature = "op_list_key_policies",
+    feature = "op_list_keys",
+    feature = "op_list_retirable_grants",
+    feature = "op_put_key_policy",
+    feature = "op_re_encrypt",
+    feature = "op_retire_grant",
+    feature = "op_revoke_grant",
+    feature = "op_rotate_key_on_demand",
+    feature = "op_schedule_key_deletion",
+    feature = "op_sign",
+    feature = "op_update_alias",
+    feature = "op_update_key_description",
+    feature = "op_verify"
+))]
 pub(crate) mod shape_dependency_timeout_exception;
 
 #[cfg(feature = "op_derive_shared_secret")]
@@ -223,11 +354,49 @@ pub(crate) mod shape_disable_key_input;
 #[cfg(feature = "op_disable_key_rotation")]
 pub(crate) mod shape_disable_key_rotation_input;
 
+#[cfg(any(
+    feature = "op_create_grant",
+    feature = "op_decrypt",
+    feature = "op_derive_shared_secret",
+    feature = "op_disable_key_rotation",
+    feature = "op_enable_key_rotation",
+    feature = "op_encrypt",
+    feature = "op_generate_data_key",
+    feature = "op_generate_data_key_pair",
+    feature = "op_generate_data_key_pair_without_plaintext",
+    feature = "op_generate_data_key_without_plaintext",
+    feature = "op_generate_mac",
+    feature = "op_get_public_key",
+    feature = "op_re_encrypt",
+    feature = "op_replicate_key",
+    feature = "op_rotate_key_on_demand",
+    feature = "op_sign",
+    feature = "op_update_primary_region",
+    feature = "op_verify",
+    feature = "op_verify_mac"
+))]
 pub(crate) mod shape_disabled_exception;
 
 #[cfg(feature = "op_disconnect_custom_key_store")]
 pub(crate) mod shape_disconnect_custom_key_store_input;
 
+#[cfg(any(
+    feature = "op_create_grant",
+    feature = "op_decrypt",
+    feature = "op_derive_shared_secret",
+    feature = "op_encrypt",
+    feature = "op_generate_data_key",
+    feature = "op_generate_data_key_pair",
+    feature = "op_generate_data_key_pair_without_plaintext",
+    feature = "op_generate_data_key_without_plaintext",
+    feature = "op_generate_mac",
+    feature = "op_re_encrypt",
+    feature = "op_retire_grant",
+    feature = "op_revoke_grant",
+    feature = "op_sign",
+    feature = "op_verify",
+    feature = "op_verify_mac"
+))]
 pub(crate) mod shape_dry_run_operation_exception;
 
 #[cfg(feature = "op_enable_key")]
@@ -239,6 +408,7 @@ pub(crate) mod shape_enable_key_rotation_input;
 #[cfg(feature = "op_encrypt")]
 pub(crate) mod shape_encrypt_input;
 
+#[cfg(feature = "op_import_key_material")]
 pub(crate) mod shape_expired_import_token_exception;
 
 #[cfg(feature = "op_generate_data_key")]
@@ -277,38 +447,254 @@ pub(crate) mod shape_get_public_key_input;
 #[cfg(feature = "op_import_key_material")]
 pub(crate) mod shape_import_key_material_input;
 
+#[cfg(any(feature = "op_decrypt", feature = "op_re_encrypt"))]
 pub(crate) mod shape_incorrect_key_exception;
 
+#[cfg(feature = "op_import_key_material")]
 pub(crate) mod shape_incorrect_key_material_exception;
 
+#[cfg(feature = "op_create_custom_key_store")]
 pub(crate) mod shape_incorrect_trust_anchor_exception;
 
+#[cfg(feature = "op_create_alias")]
 pub(crate) mod shape_invalid_alias_name_exception;
 
+#[cfg(any(
+    feature = "op_cancel_key_deletion",
+    feature = "op_create_grant",
+    feature = "op_create_key",
+    feature = "op_delete_imported_key_material",
+    feature = "op_describe_key",
+    feature = "op_disable_key",
+    feature = "op_disable_key_rotation",
+    feature = "op_enable_key",
+    feature = "op_enable_key_rotation",
+    feature = "op_get_key_last_usage",
+    feature = "op_get_key_policy",
+    feature = "op_get_key_rotation_status",
+    feature = "op_get_parameters_for_import",
+    feature = "op_get_public_key",
+    feature = "op_import_key_material",
+    feature = "op_list_aliases",
+    feature = "op_list_grants",
+    feature = "op_list_key_policies",
+    feature = "op_list_key_rotations",
+    feature = "op_list_resource_tags",
+    feature = "op_list_retirable_grants",
+    feature = "op_put_key_policy",
+    feature = "op_replicate_key",
+    feature = "op_retire_grant",
+    feature = "op_revoke_grant",
+    feature = "op_rotate_key_on_demand",
+    feature = "op_schedule_key_deletion",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource",
+    feature = "op_update_key_description",
+    feature = "op_update_primary_region"
+))]
 pub(crate) mod shape_invalid_arn_exception;
 
+#[cfg(any(
+    feature = "op_decrypt",
+    feature = "op_import_key_material",
+    feature = "op_re_encrypt"
+))]
 pub(crate) mod shape_invalid_ciphertext_exception;
 
+#[cfg(any(
+    feature = "op_list_grants",
+    feature = "op_retire_grant",
+    feature = "op_revoke_grant"
+))]
 pub(crate) mod shape_invalid_grant_id_exception;
 
+#[cfg(any(
+    feature = "op_create_grant",
+    feature = "op_decrypt",
+    feature = "op_derive_shared_secret",
+    feature = "op_encrypt",
+    feature = "op_generate_data_key",
+    feature = "op_generate_data_key_pair",
+    feature = "op_generate_data_key_pair_without_plaintext",
+    feature = "op_generate_data_key_without_plaintext",
+    feature = "op_generate_mac",
+    feature = "op_get_public_key",
+    feature = "op_re_encrypt",
+    feature = "op_retire_grant",
+    feature = "op_sign",
+    feature = "op_verify",
+    feature = "op_verify_mac"
+))]
 pub(crate) mod shape_invalid_grant_token_exception;
 
+#[cfg(feature = "op_import_key_material")]
 pub(crate) mod shape_invalid_import_token_exception;
 
+#[cfg(any(
+    feature = "op_decrypt",
+    feature = "op_derive_shared_secret",
+    feature = "op_encrypt",
+    feature = "op_generate_data_key",
+    feature = "op_generate_data_key_pair",
+    feature = "op_generate_data_key_pair_without_plaintext",
+    feature = "op_generate_data_key_without_plaintext",
+    feature = "op_generate_mac",
+    feature = "op_get_public_key",
+    feature = "op_re_encrypt",
+    feature = "op_sign",
+    feature = "op_verify",
+    feature = "op_verify_mac"
+))]
 pub(crate) mod shape_invalid_key_usage_exception;
 
+#[cfg(any(
+    feature = "op_describe_custom_key_stores",
+    feature = "op_list_aliases",
+    feature = "op_list_grants",
+    feature = "op_list_key_rotations",
+    feature = "op_list_keys",
+    feature = "op_list_resource_tags",
+    feature = "op_list_retirable_grants"
+))]
 pub(crate) mod shape_invalid_marker_exception;
 
+#[cfg(any(
+    feature = "op_decrypt",
+    feature = "op_derive_shared_secret",
+    feature = "op_encrypt",
+    feature = "op_generate_data_key",
+    feature = "op_generate_data_key_pair",
+    feature = "op_generate_data_key_pair_without_plaintext",
+    feature = "op_generate_data_key_without_plaintext",
+    feature = "op_generate_mac",
+    feature = "op_get_public_key",
+    feature = "op_re_encrypt",
+    feature = "op_sign",
+    feature = "op_verify",
+    feature = "op_verify_mac"
+))]
 pub(crate) mod shape_key_unavailable_exception;
 
+#[cfg(any(
+    feature = "op_cancel_key_deletion",
+    feature = "op_connect_custom_key_store",
+    feature = "op_create_alias",
+    feature = "op_create_custom_key_store",
+    feature = "op_create_grant",
+    feature = "op_create_key",
+    feature = "op_decrypt",
+    feature = "op_delete_alias",
+    feature = "op_delete_custom_key_store",
+    feature = "op_delete_imported_key_material",
+    feature = "op_derive_shared_secret",
+    feature = "op_describe_custom_key_stores",
+    feature = "op_describe_key",
+    feature = "op_disable_key",
+    feature = "op_disable_key_rotation",
+    feature = "op_disconnect_custom_key_store",
+    feature = "op_enable_key",
+    feature = "op_enable_key_rotation",
+    feature = "op_encrypt",
+    feature = "op_generate_data_key",
+    feature = "op_generate_data_key_pair",
+    feature = "op_generate_data_key_pair_without_plaintext",
+    feature = "op_generate_data_key_without_plaintext",
+    feature = "op_generate_mac",
+    feature = "op_generate_random",
+    feature = "op_get_key_last_usage",
+    feature = "op_get_key_policy",
+    feature = "op_get_key_rotation_status",
+    feature = "op_get_parameters_for_import",
+    feature = "op_get_public_key",
+    feature = "op_import_key_material",
+    feature = "op_list_aliases",
+    feature = "op_list_grants",
+    feature = "op_list_key_policies",
+    feature = "op_list_key_rotations",
+    feature = "op_list_keys",
+    feature = "op_list_resource_tags",
+    feature = "op_list_retirable_grants",
+    feature = "op_put_key_policy",
+    feature = "op_re_encrypt",
+    feature = "op_replicate_key",
+    feature = "op_retire_grant",
+    feature = "op_revoke_grant",
+    feature = "op_rotate_key_on_demand",
+    feature = "op_schedule_key_deletion",
+    feature = "op_sign",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource",
+    feature = "op_update_alias",
+    feature = "op_update_custom_key_store",
+    feature = "op_update_key_description",
+    feature = "op_update_primary_region",
+    feature = "op_verify",
+    feature = "op_verify_mac"
+))]
 pub(crate) mod shape_kms_internal_exception;
 
+#[cfg(feature = "op_verify_mac")]
 pub(crate) mod shape_kms_invalid_mac_exception;
 
+#[cfg(feature = "op_verify")]
 pub(crate) mod shape_kms_invalid_signature_exception;
 
+#[cfg(any(
+    feature = "op_cancel_key_deletion",
+    feature = "op_create_alias",
+    feature = "op_create_grant",
+    feature = "op_decrypt",
+    feature = "op_delete_alias",
+    feature = "op_delete_imported_key_material",
+    feature = "op_derive_shared_secret",
+    feature = "op_disable_key",
+    feature = "op_disable_key_rotation",
+    feature = "op_enable_key",
+    feature = "op_enable_key_rotation",
+    feature = "op_encrypt",
+    feature = "op_generate_data_key",
+    feature = "op_generate_data_key_pair",
+    feature = "op_generate_data_key_pair_without_plaintext",
+    feature = "op_generate_data_key_without_plaintext",
+    feature = "op_generate_mac",
+    feature = "op_get_key_policy",
+    feature = "op_get_key_rotation_status",
+    feature = "op_get_parameters_for_import",
+    feature = "op_get_public_key",
+    feature = "op_import_key_material",
+    feature = "op_list_grants",
+    feature = "op_list_key_policies",
+    feature = "op_list_key_rotations",
+    feature = "op_put_key_policy",
+    feature = "op_re_encrypt",
+    feature = "op_replicate_key",
+    feature = "op_retire_grant",
+    feature = "op_revoke_grant",
+    feature = "op_rotate_key_on_demand",
+    feature = "op_schedule_key_deletion",
+    feature = "op_sign",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource",
+    feature = "op_update_alias",
+    feature = "op_update_key_description",
+    feature = "op_update_primary_region",
+    feature = "op_verify",
+    feature = "op_verify_mac"
+))]
 pub(crate) mod shape_kms_invalid_state_exception;
 
+#[cfg(any(
+    feature = "op_create_alias",
+    feature = "op_create_custom_key_store",
+    feature = "op_create_grant",
+    feature = "op_create_key",
+    feature = "op_enable_key",
+    feature = "op_put_key_policy",
+    feature = "op_replicate_key",
+    feature = "op_rotate_key_on_demand",
+    feature = "op_tag_resource",
+    feature = "op_update_alias"
+))]
 pub(crate) mod shape_limit_exceeded_exception;
 
 #[cfg(feature = "op_list_aliases")]
@@ -332,8 +718,60 @@ pub(crate) mod shape_list_resource_tags_input;
 #[cfg(feature = "op_list_retirable_grants")]
 pub(crate) mod shape_list_retirable_grants_input;
 
+#[cfg(any(
+    feature = "op_create_key",
+    feature = "op_put_key_policy",
+    feature = "op_replicate_key"
+))]
 pub(crate) mod shape_malformed_policy_document_exception;
 
+#[cfg(any(
+    feature = "op_cancel_key_deletion",
+    feature = "op_create_alias",
+    feature = "op_create_grant",
+    feature = "op_decrypt",
+    feature = "op_delete_alias",
+    feature = "op_delete_imported_key_material",
+    feature = "op_derive_shared_secret",
+    feature = "op_describe_key",
+    feature = "op_disable_key",
+    feature = "op_disable_key_rotation",
+    feature = "op_enable_key",
+    feature = "op_enable_key_rotation",
+    feature = "op_encrypt",
+    feature = "op_generate_data_key",
+    feature = "op_generate_data_key_pair",
+    feature = "op_generate_data_key_pair_without_plaintext",
+    feature = "op_generate_data_key_without_plaintext",
+    feature = "op_generate_mac",
+    feature = "op_get_key_last_usage",
+    feature = "op_get_key_policy",
+    feature = "op_get_key_rotation_status",
+    feature = "op_get_parameters_for_import",
+    feature = "op_get_public_key",
+    feature = "op_import_key_material",
+    feature = "op_list_aliases",
+    feature = "op_list_grants",
+    feature = "op_list_key_policies",
+    feature = "op_list_key_rotations",
+    feature = "op_list_resource_tags",
+    feature = "op_list_retirable_grants",
+    feature = "op_put_key_policy",
+    feature = "op_re_encrypt",
+    feature = "op_replicate_key",
+    feature = "op_retire_grant",
+    feature = "op_revoke_grant",
+    feature = "op_rotate_key_on_demand",
+    feature = "op_schedule_key_deletion",
+    feature = "op_sign",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource",
+    feature = "op_update_alias",
+    feature = "op_update_key_description",
+    feature = "op_update_primary_region",
+    feature = "op_verify",
+    feature = "op_verify_mac"
+))]
 pub(crate) mod shape_not_found_exception;
 
 #[cfg(feature = "op_put_key_policy")]
@@ -360,11 +798,35 @@ pub(crate) mod shape_schedule_key_deletion_input;
 #[cfg(feature = "op_sign")]
 pub(crate) mod shape_sign_input;
 
+#[cfg(any(
+    feature = "op_create_key",
+    feature = "op_replicate_key",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource"
+))]
 pub(crate) mod shape_tag_exception;
 
 #[cfg(feature = "op_tag_resource")]
 pub(crate) mod shape_tag_resource_input;
 
+#[cfg(any(
+    feature = "op_create_key",
+    feature = "op_delete_imported_key_material",
+    feature = "op_disable_key_rotation",
+    feature = "op_enable_key_rotation",
+    feature = "op_generate_data_key_pair",
+    feature = "op_generate_data_key_pair_without_plaintext",
+    feature = "op_generate_random",
+    feature = "op_get_key_rotation_status",
+    feature = "op_get_parameters_for_import",
+    feature = "op_get_public_key",
+    feature = "op_import_key_material",
+    feature = "op_list_key_rotations",
+    feature = "op_put_key_policy",
+    feature = "op_replicate_key",
+    feature = "op_rotate_key_on_demand",
+    feature = "op_update_primary_region"
+))]
 pub(crate) mod shape_unsupported_operation_exception;
 
 #[cfg(feature = "op_untag_resource")]
@@ -388,84 +850,315 @@ pub(crate) mod shape_verify_input;
 #[cfg(feature = "op_verify_mac")]
 pub(crate) mod shape_verify_mac_input;
 
+#[cfg(feature = "op_create_key")]
 pub(crate) mod shape_xks_key_already_in_use_exception;
 
+#[cfg(feature = "op_create_key")]
 pub(crate) mod shape_xks_key_invalid_configuration_exception;
 
+#[cfg(feature = "op_create_key")]
 pub(crate) mod shape_xks_key_not_found_exception;
 
+#[cfg(any(
+    feature = "op_create_custom_key_store",
+    feature = "op_update_custom_key_store"
+))]
 pub(crate) mod shape_xks_proxy_incorrect_authentication_credential_exception;
 
+#[cfg(any(
+    feature = "op_create_custom_key_store",
+    feature = "op_update_custom_key_store"
+))]
 pub(crate) mod shape_xks_proxy_invalid_configuration_exception;
 
+#[cfg(any(
+    feature = "op_create_custom_key_store",
+    feature = "op_update_custom_key_store"
+))]
 pub(crate) mod shape_xks_proxy_invalid_response_exception;
 
+#[cfg(any(
+    feature = "op_create_custom_key_store",
+    feature = "op_update_custom_key_store"
+))]
 pub(crate) mod shape_xks_proxy_uri_endpoint_in_use_exception;
 
+#[cfg(any(
+    feature = "op_create_custom_key_store",
+    feature = "op_update_custom_key_store"
+))]
 pub(crate) mod shape_xks_proxy_uri_in_use_exception;
 
+#[cfg(any(
+    feature = "op_create_custom_key_store",
+    feature = "op_update_custom_key_store"
+))]
 pub(crate) mod shape_xks_proxy_uri_unreachable_exception;
 
+#[cfg(any(
+    feature = "op_create_custom_key_store",
+    feature = "op_update_custom_key_store"
+))]
 pub(crate) mod shape_xks_proxy_vpc_endpoint_service_in_use_exception;
 
+#[cfg(any(
+    feature = "op_create_custom_key_store",
+    feature = "op_update_custom_key_store"
+))]
 pub(crate) mod shape_xks_proxy_vpc_endpoint_service_invalid_configuration_exception;
 
+#[cfg(any(
+    feature = "op_create_custom_key_store",
+    feature = "op_update_custom_key_store"
+))]
 pub(crate) mod shape_xks_proxy_vpc_endpoint_service_not_found_exception;
 
+#[cfg(feature = "op_list_aliases")]
 pub(crate) mod shape_alias_list;
 
+#[cfg(feature = "op_describe_custom_key_stores")]
 pub(crate) mod shape_custom_key_stores_list;
 
+#[cfg(any(
+    feature = "op_create_key",
+    feature = "op_describe_key",
+    feature = "op_get_public_key",
+    feature = "op_replicate_key"
+))]
 pub(crate) mod shape_encryption_algorithm_spec_list;
 
+#[cfg(any(
+    feature = "op_create_grant",
+    feature = "op_list_grants",
+    feature = "op_list_retirable_grants"
+))]
 pub(crate) mod shape_grant_constraints;
 
+#[cfg(any(feature = "op_list_grants", feature = "op_list_retirable_grants"))]
 pub(crate) mod shape_grant_list;
 
+#[cfg(any(
+    feature = "op_create_key",
+    feature = "op_describe_key",
+    feature = "op_get_public_key",
+    feature = "op_replicate_key"
+))]
 pub(crate) mod shape_key_agreement_algorithm_spec_list;
 
+#[cfg(feature = "op_get_key_last_usage")]
 pub(crate) mod shape_key_last_usage_data;
 
+#[cfg(feature = "op_list_keys")]
 pub(crate) mod shape_key_list;
 
+#[cfg(any(
+    feature = "op_create_key",
+    feature = "op_describe_key",
+    feature = "op_replicate_key"
+))]
 pub(crate) mod shape_key_metadata;
 
+#[cfg(feature = "op_list_key_policies")]
 pub(crate) mod shape_policy_name_list;
 
+#[cfg(any(
+    feature = "op_decrypt",
+    feature = "op_derive_shared_secret",
+    feature = "op_generate_data_key",
+    feature = "op_generate_data_key_pair",
+    feature = "op_generate_random"
+))]
 pub(crate) mod shape_recipient_info;
 
+#[cfg(feature = "op_list_key_rotations")]
 pub(crate) mod shape_rotations_list;
 
+#[cfg(any(
+    feature = "op_create_key",
+    feature = "op_describe_key",
+    feature = "op_get_public_key",
+    feature = "op_replicate_key"
+))]
 pub(crate) mod shape_signing_algorithm_spec_list;
 
+#[cfg(any(
+    feature = "op_create_key",
+    feature = "op_list_resource_tags",
+    feature = "op_replicate_key",
+    feature = "op_tag_resource"
+))]
 pub(crate) mod shape_tag;
 
+#[cfg(any(feature = "op_list_resource_tags", feature = "op_replicate_key"))]
 pub(crate) mod shape_tag_list;
 
+#[cfg(any(
+    feature = "op_create_custom_key_store",
+    feature = "op_update_custom_key_store"
+))]
 pub(crate) mod shape_xks_proxy_authentication_credential_type;
 
+#[cfg(feature = "op_list_aliases")]
 pub(crate) mod shape_alias_list_entry;
 
+#[cfg(feature = "op_describe_custom_key_stores")]
 pub(crate) mod shape_custom_key_stores_list_entry;
 
+#[cfg(any(feature = "op_list_grants", feature = "op_list_retirable_grants"))]
 pub(crate) mod shape_grant_list_entry;
 
+#[cfg(feature = "op_list_keys")]
 pub(crate) mod shape_key_list_entry;
 
+#[cfg(any(
+    feature = "op_create_key",
+    feature = "op_describe_key",
+    feature = "op_replicate_key"
+))]
 pub(crate) mod shape_mac_algorithm_spec_list;
 
+#[cfg(any(
+    feature = "op_create_key",
+    feature = "op_describe_key",
+    feature = "op_replicate_key"
+))]
 pub(crate) mod shape_multi_region_configuration;
 
+#[cfg(feature = "op_list_key_rotations")]
 pub(crate) mod shape_rotations_list_entry;
 
+#[cfg(any(
+    feature = "op_create_key",
+    feature = "op_describe_key",
+    feature = "op_replicate_key"
+))]
 pub(crate) mod shape_xks_key_configuration_type;
 
+#[cfg(any(feature = "op_list_grants", feature = "op_list_retirable_grants"))]
 pub(crate) mod shape_grant_operation_list;
 
+#[cfg(any(
+    feature = "op_cancel_key_deletion",
+    feature = "op_connect_custom_key_store",
+    feature = "op_create_alias",
+    feature = "op_create_custom_key_store",
+    feature = "op_create_grant",
+    feature = "op_create_key",
+    feature = "op_decrypt",
+    feature = "op_delete_alias",
+    feature = "op_delete_custom_key_store",
+    feature = "op_delete_imported_key_material",
+    feature = "op_derive_shared_secret",
+    feature = "op_describe_custom_key_stores",
+    feature = "op_describe_key",
+    feature = "op_disable_key",
+    feature = "op_disable_key_rotation",
+    feature = "op_disconnect_custom_key_store",
+    feature = "op_enable_key",
+    feature = "op_enable_key_rotation",
+    feature = "op_encrypt",
+    feature = "op_generate_data_key",
+    feature = "op_generate_data_key_pair",
+    feature = "op_generate_data_key_pair_without_plaintext",
+    feature = "op_generate_data_key_without_plaintext",
+    feature = "op_generate_mac",
+    feature = "op_generate_random",
+    feature = "op_get_key_last_usage",
+    feature = "op_get_key_policy",
+    feature = "op_get_key_rotation_status",
+    feature = "op_get_parameters_for_import",
+    feature = "op_get_public_key",
+    feature = "op_import_key_material",
+    feature = "op_list_aliases",
+    feature = "op_list_grants",
+    feature = "op_list_key_policies",
+    feature = "op_list_key_rotations",
+    feature = "op_list_keys",
+    feature = "op_list_resource_tags",
+    feature = "op_list_retirable_grants",
+    feature = "op_put_key_policy",
+    feature = "op_re_encrypt",
+    feature = "op_replicate_key",
+    feature = "op_retire_grant",
+    feature = "op_revoke_grant",
+    feature = "op_rotate_key_on_demand",
+    feature = "op_schedule_key_deletion",
+    feature = "op_sign",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource",
+    feature = "op_update_alias",
+    feature = "op_update_custom_key_store",
+    feature = "op_update_key_description",
+    feature = "op_update_primary_region",
+    feature = "op_verify",
+    feature = "op_verify_mac"
+))]
 pub(crate) mod shape_multi_region_key;
 
+#[cfg(any(
+    feature = "op_cancel_key_deletion",
+    feature = "op_connect_custom_key_store",
+    feature = "op_create_alias",
+    feature = "op_create_custom_key_store",
+    feature = "op_create_grant",
+    feature = "op_create_key",
+    feature = "op_decrypt",
+    feature = "op_delete_alias",
+    feature = "op_delete_custom_key_store",
+    feature = "op_delete_imported_key_material",
+    feature = "op_derive_shared_secret",
+    feature = "op_describe_custom_key_stores",
+    feature = "op_describe_key",
+    feature = "op_disable_key",
+    feature = "op_disable_key_rotation",
+    feature = "op_disconnect_custom_key_store",
+    feature = "op_enable_key",
+    feature = "op_enable_key_rotation",
+    feature = "op_encrypt",
+    feature = "op_generate_data_key",
+    feature = "op_generate_data_key_pair",
+    feature = "op_generate_data_key_pair_without_plaintext",
+    feature = "op_generate_data_key_without_plaintext",
+    feature = "op_generate_mac",
+    feature = "op_generate_random",
+    feature = "op_get_key_last_usage",
+    feature = "op_get_key_policy",
+    feature = "op_get_key_rotation_status",
+    feature = "op_get_parameters_for_import",
+    feature = "op_get_public_key",
+    feature = "op_import_key_material",
+    feature = "op_list_aliases",
+    feature = "op_list_grants",
+    feature = "op_list_key_policies",
+    feature = "op_list_key_rotations",
+    feature = "op_list_keys",
+    feature = "op_list_resource_tags",
+    feature = "op_list_retirable_grants",
+    feature = "op_put_key_policy",
+    feature = "op_re_encrypt",
+    feature = "op_replicate_key",
+    feature = "op_retire_grant",
+    feature = "op_revoke_grant",
+    feature = "op_rotate_key_on_demand",
+    feature = "op_schedule_key_deletion",
+    feature = "op_sign",
+    feature = "op_tag_resource",
+    feature = "op_untag_resource",
+    feature = "op_update_alias",
+    feature = "op_update_custom_key_store",
+    feature = "op_update_key_description",
+    feature = "op_update_primary_region",
+    feature = "op_verify",
+    feature = "op_verify_mac"
+))]
 pub(crate) mod shape_multi_region_key_list;
 
+#[cfg(feature = "op_describe_custom_key_stores")]
 pub(crate) mod shape_xks_proxy_configuration_type;
 
+#[cfg(any(
+    feature = "op_create_grant",
+    feature = "op_list_grants",
+    feature = "op_list_retirable_grants"
+))]
 pub(crate) mod shape_encryption_context_type;

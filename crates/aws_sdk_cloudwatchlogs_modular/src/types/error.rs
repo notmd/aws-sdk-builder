@@ -41,6 +41,7 @@ pub use crate::types::error::_malformed_query_exception::MalformedQueryException
 
 pub use crate::types::error::_too_many_tags_exception::TooManyTagsException;
 
+#[cfg(feature = "op_get_log_object")]
 /// Error type for the `GetLogObjectResponseStreamError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -58,6 +59,7 @@ pub enum GetLogObjectResponseStreamError {
     )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
+#[cfg(feature = "op_get_log_object")]
 impl GetLogObjectResponseStreamError {
     /// Creates the `GetLogObjectResponseStreamError::Unhandled` variant from any error type.
     pub fn unhandled(
@@ -97,6 +99,7 @@ impl GetLogObjectResponseStreamError {
         matches!(self, Self::InternalStreamingException(_))
     }
 }
+#[cfg(feature = "op_get_log_object")]
 impl ::std::error::Error for GetLogObjectResponseStreamError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
@@ -105,6 +108,7 @@ impl ::std::error::Error for GetLogObjectResponseStreamError {
         }
     }
 }
+#[cfg(feature = "op_get_log_object")]
 impl ::std::fmt::Display for GetLogObjectResponseStreamError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
@@ -121,6 +125,7 @@ impl ::std::fmt::Display for GetLogObjectResponseStreamError {
         }
     }
 }
+#[cfg(feature = "op_get_log_object")]
 impl ::aws_smithy_types::retry::ProvideErrorKind for GetLogObjectResponseStreamError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
@@ -129,6 +134,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for GetLogObjectResponseStreamE
         ::std::option::Option::None
     }
 }
+#[cfg(feature = "op_get_log_object")]
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetLogObjectResponseStreamError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
@@ -139,6 +145,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetLogObjectR
         }
     }
 }
+#[cfg(feature = "op_get_log_object")]
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
     for GetLogObjectResponseStreamError
 {
@@ -154,12 +161,14 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
         })
     }
 }
+#[cfg(feature = "op_get_log_object")]
 impl ::aws_types::request_id::RequestId for crate::types::error::GetLogObjectResponseStreamError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
+#[cfg(feature = "op_start_live_tail")]
 /// Error type for the `StartLiveTailResponseStreamError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -179,6 +188,7 @@ pub enum StartLiveTailResponseStreamError {
     )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
+#[cfg(feature = "op_start_live_tail")]
 impl StartLiveTailResponseStreamError {
     /// Creates the `StartLiveTailResponseStreamError::Unhandled` variant from any error type.
     pub fn unhandled(
@@ -225,6 +235,7 @@ impl StartLiveTailResponseStreamError {
         matches!(self, Self::SessionStreamingException(_))
     }
 }
+#[cfg(feature = "op_start_live_tail")]
 impl ::std::error::Error for StartLiveTailResponseStreamError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
@@ -234,6 +245,7 @@ impl ::std::error::Error for StartLiveTailResponseStreamError {
         }
     }
 }
+#[cfg(feature = "op_start_live_tail")]
 impl ::std::fmt::Display for StartLiveTailResponseStreamError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
@@ -251,6 +263,7 @@ impl ::std::fmt::Display for StartLiveTailResponseStreamError {
         }
     }
 }
+#[cfg(feature = "op_start_live_tail")]
 impl ::aws_smithy_types::retry::ProvideErrorKind for StartLiveTailResponseStreamError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
@@ -259,6 +272,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for StartLiveTailResponseStream
         ::std::option::Option::None
     }
 }
+#[cfg(feature = "op_start_live_tail")]
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
     for StartLiveTailResponseStreamError
 {
@@ -274,6 +288,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
         }
     }
 }
+#[cfg(feature = "op_start_live_tail")]
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
     for StartLiveTailResponseStreamError
 {
@@ -289,6 +304,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
         })
     }
 }
+#[cfg(feature = "op_start_live_tail")]
 impl ::aws_types::request_id::RequestId for crate::types::error::StartLiveTailResponseStreamError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()

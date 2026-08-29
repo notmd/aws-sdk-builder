@@ -8,6 +8,7 @@ impl InvokeModelWithBidirectionalStreamInputErrorMarshaller {
         InvokeModelWithBidirectionalStreamInputErrorMarshaller
     }
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl ::aws_smithy_eventstream::frame::MarshallMessage
     for InvokeModelWithBidirectionalStreamInputErrorMarshaller
 {
@@ -268,6 +269,7 @@ impl InvokeModelWithBidirectionalStreamOutputUnmarshaller {
         InvokeModelWithBidirectionalStreamOutputUnmarshaller
     }
 }
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 impl ::aws_smithy_eventstream::frame::UnmarshallMessage
     for InvokeModelWithBidirectionalStreamOutputUnmarshaller
 {
@@ -419,6 +421,7 @@ impl ResponseStreamUnmarshaller {
         ResponseStreamUnmarshaller
     }
 }
+#[cfg(feature = "op_invoke_model_with_response_stream")]
 impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ResponseStreamUnmarshaller {
     type Output = crate::types::ResponseStream;
     type Error = crate::types::error::ResponseStreamError;

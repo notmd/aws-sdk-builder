@@ -136,36 +136,29 @@ impl Client {
     }
 }
 
-#[cfg(any(
-    feature = "op_get_instance_profile",
-    feature = "op_get_policy",
-    feature = "op_get_role",
-    feature = "op_get_user"
-))]
 ///
 /// Waiter functions for the client.
 ///
 /// Import this trait to get `wait_until` methods on the client.
 ///
 pub trait Waiters {
+    #[cfg(feature = "op_get_instance_profile")]
     /// Wait for `instance_profile_exists`
     fn wait_until_instance_profile_exists(
         &self,
     ) -> crate::waiters::instance_profile_exists::InstanceProfileExistsFluentBuilder;
+    #[cfg(feature = "op_get_policy")]
     /// Wait for `policy_exists`
     fn wait_until_policy_exists(&self) -> crate::waiters::policy_exists::PolicyExistsFluentBuilder;
+    #[cfg(feature = "op_get_role")]
     /// Wait for `role_exists`
     fn wait_until_role_exists(&self) -> crate::waiters::role_exists::RoleExistsFluentBuilder;
+    #[cfg(feature = "op_get_user")]
     /// Wait for `user_exists`
     fn wait_until_user_exists(&self) -> crate::waiters::user_exists::UserExistsFluentBuilder;
 }
-#[cfg(any(
-    feature = "op_get_instance_profile",
-    feature = "op_get_policy",
-    feature = "op_get_role",
-    feature = "op_get_user"
-))]
 impl Waiters for Client {
+    #[cfg(feature = "op_get_instance_profile")]
     fn wait_until_instance_profile_exists(
         &self,
     ) -> crate::waiters::instance_profile_exists::InstanceProfileExistsFluentBuilder {
@@ -173,12 +166,15 @@ impl Waiters for Client {
             self.handle.clone(),
         )
     }
+    #[cfg(feature = "op_get_policy")]
     fn wait_until_policy_exists(&self) -> crate::waiters::policy_exists::PolicyExistsFluentBuilder {
         crate::waiters::policy_exists::PolicyExistsFluentBuilder::new(self.handle.clone())
     }
+    #[cfg(feature = "op_get_role")]
     fn wait_until_role_exists(&self) -> crate::waiters::role_exists::RoleExistsFluentBuilder {
         crate::waiters::role_exists::RoleExistsFluentBuilder::new(self.handle.clone())
     }
+    #[cfg(feature = "op_get_user")]
     fn wait_until_user_exists(&self) -> crate::waiters::user_exists::UserExistsFluentBuilder {
         crate::waiters::user_exists::UserExistsFluentBuilder::new(self.handle.clone())
     }

@@ -39,53 +39,73 @@ pub fn parse_http_error_metadata(
     Ok(builder)
 }
 
+#[cfg(feature = "op_add_permission")]
 pub(crate) mod shape_add_permission;
 
+#[cfg(feature = "op_cancel_message_move_task")]
 pub(crate) mod shape_cancel_message_move_task;
 
+#[cfg(feature = "op_change_message_visibility")]
 pub(crate) mod shape_change_message_visibility;
 
-#[cfg(feature = "op_change_message_visibility")]
+#[cfg(feature = "op_change_message_visibility_batch")]
 pub(crate) mod shape_change_message_visibility_batch;
 
+#[cfg(feature = "op_create_queue")]
 pub(crate) mod shape_create_queue;
 
+#[cfg(feature = "op_delete_message")]
 pub(crate) mod shape_delete_message;
 
-#[cfg(feature = "op_delete_message")]
+#[cfg(feature = "op_delete_message_batch")]
 pub(crate) mod shape_delete_message_batch;
 
+#[cfg(feature = "op_delete_queue")]
 pub(crate) mod shape_delete_queue;
 
+#[cfg(feature = "op_get_queue_attributes")]
 pub(crate) mod shape_get_queue_attributes;
 
+#[cfg(feature = "op_get_queue_url")]
 pub(crate) mod shape_get_queue_url;
 
+#[cfg(feature = "op_list_dead_letter_source_queues")]
 pub(crate) mod shape_list_dead_letter_source_queues;
 
+#[cfg(feature = "op_list_message_move_tasks")]
 pub(crate) mod shape_list_message_move_tasks;
 
+#[cfg(feature = "op_list_queue_tags")]
 pub(crate) mod shape_list_queue_tags;
 
+#[cfg(feature = "op_list_queues")]
 pub(crate) mod shape_list_queues;
 
+#[cfg(feature = "op_purge_queue")]
 pub(crate) mod shape_purge_queue;
 
+#[cfg(feature = "op_receive_message")]
 pub(crate) mod shape_receive_message;
 
+#[cfg(feature = "op_remove_permission")]
 pub(crate) mod shape_remove_permission;
 
+#[cfg(feature = "op_send_message")]
 pub(crate) mod shape_send_message;
 
-#[cfg(feature = "op_send_message")]
+#[cfg(feature = "op_send_message_batch")]
 pub(crate) mod shape_send_message_batch;
 
+#[cfg(feature = "op_set_queue_attributes")]
 pub(crate) mod shape_set_queue_attributes;
 
+#[cfg(feature = "op_start_message_move_task")]
 pub(crate) mod shape_start_message_move_task;
 
+#[cfg(feature = "op_tag_queue")]
 pub(crate) mod shape_tag_queue;
 
+#[cfg(feature = "op_untag_queue")]
 pub(crate) mod shape_untag_queue;
 
 #[cfg(feature = "op_add_permission")]
@@ -99,8 +119,14 @@ pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
     }
 }
 
+#[cfg(any(
+    feature = "op_change_message_visibility_batch",
+    feature = "op_delete_message_batch",
+    feature = "op_send_message_batch"
+))]
 pub(crate) mod shape_batch_entry_ids_not_distinct;
 
+#[cfg(feature = "op_send_message_batch")]
 pub(crate) mod shape_batch_request_too_long;
 
 #[cfg(feature = "op_cancel_message_move_task")]
@@ -124,6 +150,11 @@ pub(crate) mod shape_delete_message_input;
 #[cfg(feature = "op_delete_queue")]
 pub(crate) mod shape_delete_queue_input;
 
+#[cfg(any(
+    feature = "op_change_message_visibility_batch",
+    feature = "op_delete_message_batch",
+    feature = "op_send_message_batch"
+))]
 pub(crate) mod shape_empty_batch_request;
 
 #[cfg(feature = "op_get_queue_attributes")]
@@ -132,32 +163,130 @@ pub(crate) mod shape_get_queue_attributes_input;
 #[cfg(feature = "op_get_queue_url")]
 pub(crate) mod shape_get_queue_url_input;
 
+#[cfg(any(
+    feature = "op_add_permission",
+    feature = "op_cancel_message_move_task",
+    feature = "op_change_message_visibility",
+    feature = "op_change_message_visibility_batch",
+    feature = "op_create_queue",
+    feature = "op_delete_message",
+    feature = "op_delete_message_batch",
+    feature = "op_delete_queue",
+    feature = "op_get_queue_attributes",
+    feature = "op_get_queue_url",
+    feature = "op_list_dead_letter_source_queues",
+    feature = "op_list_message_move_tasks",
+    feature = "op_list_queue_tags",
+    feature = "op_list_queues",
+    feature = "op_purge_queue",
+    feature = "op_receive_message",
+    feature = "op_remove_permission",
+    feature = "op_send_message",
+    feature = "op_send_message_batch",
+    feature = "op_set_queue_attributes",
+    feature = "op_start_message_move_task",
+    feature = "op_tag_queue",
+    feature = "op_untag_queue"
+))]
 pub(crate) mod shape_invalid_address;
 
+#[cfg(any(
+    feature = "op_create_queue",
+    feature = "op_get_queue_attributes",
+    feature = "op_set_queue_attributes"
+))]
 pub(crate) mod shape_invalid_attribute_name;
 
+#[cfg(any(feature = "op_create_queue", feature = "op_set_queue_attributes"))]
 pub(crate) mod shape_invalid_attribute_value;
 
+#[cfg(any(
+    feature = "op_change_message_visibility_batch",
+    feature = "op_delete_message_batch",
+    feature = "op_send_message_batch"
+))]
 pub(crate) mod shape_invalid_batch_entry_id;
 
+#[cfg(feature = "op_delete_message")]
 pub(crate) mod shape_invalid_id_format;
 
+#[cfg(feature = "op_send_message")]
 pub(crate) mod shape_invalid_message_contents;
 
+#[cfg(any(
+    feature = "op_add_permission",
+    feature = "op_cancel_message_move_task",
+    feature = "op_change_message_visibility",
+    feature = "op_change_message_visibility_batch",
+    feature = "op_create_queue",
+    feature = "op_delete_message",
+    feature = "op_delete_message_batch",
+    feature = "op_delete_queue",
+    feature = "op_get_queue_attributes",
+    feature = "op_get_queue_url",
+    feature = "op_list_dead_letter_source_queues",
+    feature = "op_list_message_move_tasks",
+    feature = "op_list_queue_tags",
+    feature = "op_list_queues",
+    feature = "op_purge_queue",
+    feature = "op_receive_message",
+    feature = "op_remove_permission",
+    feature = "op_send_message",
+    feature = "op_send_message_batch",
+    feature = "op_set_queue_attributes",
+    feature = "op_start_message_move_task",
+    feature = "op_tag_queue",
+    feature = "op_untag_queue"
+))]
 pub(crate) mod shape_invalid_security;
 
+#[cfg(any(
+    feature = "op_receive_message",
+    feature = "op_send_message",
+    feature = "op_send_message_batch"
+))]
 pub(crate) mod shape_kms_access_denied;
 
+#[cfg(any(
+    feature = "op_receive_message",
+    feature = "op_send_message",
+    feature = "op_send_message_batch"
+))]
 pub(crate) mod shape_kms_disabled;
 
+#[cfg(any(
+    feature = "op_receive_message",
+    feature = "op_send_message",
+    feature = "op_send_message_batch"
+))]
 pub(crate) mod shape_kms_invalid_key_usage;
 
+#[cfg(any(
+    feature = "op_receive_message",
+    feature = "op_send_message",
+    feature = "op_send_message_batch"
+))]
 pub(crate) mod shape_kms_invalid_state;
 
+#[cfg(any(
+    feature = "op_receive_message",
+    feature = "op_send_message",
+    feature = "op_send_message_batch"
+))]
 pub(crate) mod shape_kms_not_found;
 
+#[cfg(any(
+    feature = "op_receive_message",
+    feature = "op_send_message",
+    feature = "op_send_message_batch"
+))]
 pub(crate) mod shape_kms_opt_in_required;
 
+#[cfg(any(
+    feature = "op_receive_message",
+    feature = "op_send_message",
+    feature = "op_send_message_batch"
+))]
 pub(crate) mod shape_kms_throttled;
 
 #[cfg(feature = "op_list_dead_letter_source_queues")]
@@ -172,8 +301,14 @@ pub(crate) mod shape_list_queue_tags_input;
 #[cfg(feature = "op_list_queues")]
 pub(crate) mod shape_list_queues_input;
 
+#[cfg(feature = "op_change_message_visibility")]
 pub(crate) mod shape_message_not_inflight;
 
+#[cfg(any(
+    feature = "op_add_permission",
+    feature = "op_receive_message",
+    feature = "op_set_queue_attributes"
+))]
 pub(crate) mod shape_over_limit;
 
 #[cfg(feature = "op_purge_queue")]
@@ -182,12 +317,38 @@ pub(crate) mod shape_purge_queue_in_progress;
 #[cfg(feature = "op_purge_queue")]
 pub(crate) mod shape_purge_queue_input;
 
+#[cfg(feature = "op_create_queue")]
 pub(crate) mod shape_queue_deleted_recently;
 
+#[cfg(any(
+    feature = "op_add_permission",
+    feature = "op_change_message_visibility",
+    feature = "op_change_message_visibility_batch",
+    feature = "op_delete_message",
+    feature = "op_delete_message_batch",
+    feature = "op_delete_queue",
+    feature = "op_get_queue_attributes",
+    feature = "op_get_queue_url",
+    feature = "op_list_dead_letter_source_queues",
+    feature = "op_list_queue_tags",
+    feature = "op_purge_queue",
+    feature = "op_receive_message",
+    feature = "op_remove_permission",
+    feature = "op_send_message",
+    feature = "op_send_message_batch",
+    feature = "op_set_queue_attributes",
+    feature = "op_tag_queue",
+    feature = "op_untag_queue"
+))]
 pub(crate) mod shape_queue_does_not_exist;
 
+#[cfg(feature = "op_create_queue")]
 pub(crate) mod shape_queue_name_exists;
 
+#[cfg(any(
+    feature = "op_change_message_visibility",
+    feature = "op_delete_message"
+))]
 pub(crate) mod shape_receipt_handle_is_invalid;
 
 #[cfg(feature = "op_receive_message")]
@@ -196,8 +357,38 @@ pub(crate) mod shape_receive_message_input;
 #[cfg(feature = "op_remove_permission")]
 pub(crate) mod shape_remove_permission_input;
 
+#[cfg(any(
+    feature = "op_add_permission",
+    feature = "op_cancel_message_move_task",
+    feature = "op_change_message_visibility",
+    feature = "op_change_message_visibility_batch",
+    feature = "op_create_queue",
+    feature = "op_delete_message",
+    feature = "op_delete_message_batch",
+    feature = "op_delete_queue",
+    feature = "op_get_queue_attributes",
+    feature = "op_get_queue_url",
+    feature = "op_list_dead_letter_source_queues",
+    feature = "op_list_message_move_tasks",
+    feature = "op_list_queue_tags",
+    feature = "op_list_queues",
+    feature = "op_purge_queue",
+    feature = "op_receive_message",
+    feature = "op_remove_permission",
+    feature = "op_send_message",
+    feature = "op_send_message_batch",
+    feature = "op_set_queue_attributes",
+    feature = "op_start_message_move_task",
+    feature = "op_tag_queue",
+    feature = "op_untag_queue"
+))]
 pub(crate) mod shape_request_throttled;
 
+#[cfg(any(
+    feature = "op_cancel_message_move_task",
+    feature = "op_list_message_move_tasks",
+    feature = "op_start_message_move_task"
+))]
 pub(crate) mod shape_resource_not_found_exception;
 
 #[cfg(feature = "op_send_message_batch")]
@@ -215,13 +406,48 @@ pub(crate) mod shape_start_message_move_task_input;
 #[cfg(feature = "op_tag_queue")]
 pub(crate) mod shape_tag_queue_input;
 
+#[cfg(any(
+    feature = "op_change_message_visibility_batch",
+    feature = "op_delete_message_batch",
+    feature = "op_send_message_batch"
+))]
 pub(crate) mod shape_too_many_entries_in_batch_request;
 
+#[cfg(any(
+    feature = "op_add_permission",
+    feature = "op_cancel_message_move_task",
+    feature = "op_change_message_visibility",
+    feature = "op_change_message_visibility_batch",
+    feature = "op_create_queue",
+    feature = "op_delete_message",
+    feature = "op_delete_message_batch",
+    feature = "op_delete_queue",
+    feature = "op_get_queue_attributes",
+    feature = "op_get_queue_url",
+    feature = "op_list_dead_letter_source_queues",
+    feature = "op_list_message_move_tasks",
+    feature = "op_list_queue_tags",
+    feature = "op_list_queues",
+    feature = "op_purge_queue",
+    feature = "op_receive_message",
+    feature = "op_remove_permission",
+    feature = "op_send_message",
+    feature = "op_send_message_batch",
+    feature = "op_set_queue_attributes",
+    feature = "op_start_message_move_task",
+    feature = "op_tag_queue",
+    feature = "op_untag_queue"
+))]
 pub(crate) mod shape_unsupported_operation;
 
 #[cfg(feature = "op_untag_queue")]
 pub(crate) mod shape_untag_queue_input;
 
+#[cfg(any(
+    feature = "op_change_message_visibility_batch",
+    feature = "op_delete_message_batch",
+    feature = "op_send_message_batch"
+))]
 pub(crate) mod shape_batch_result_error_entry_list;
 
 #[cfg(feature = "op_change_message_visibility_batch")]
@@ -239,14 +465,26 @@ pub(crate) mod shape_delete_message_batch_result_entry_list;
 #[cfg(feature = "op_list_message_move_tasks")]
 pub(crate) mod shape_list_message_move_tasks_result_entry_list;
 
+#[cfg(any(
+    feature = "op_receive_message",
+    feature = "op_send_message",
+    feature = "op_send_message_batch"
+))]
 pub(crate) mod shape_message_attribute_value;
 
+#[cfg(feature = "op_receive_message")]
 pub(crate) mod shape_message_list;
 
+#[cfg(any(feature = "op_send_message", feature = "op_send_message_batch"))]
 pub(crate) mod shape_message_system_attribute_value;
 
+#[cfg(feature = "op_get_queue_attributes")]
 pub(crate) mod shape_queue_attribute_map;
 
+#[cfg(any(
+    feature = "op_list_dead_letter_source_queues",
+    feature = "op_list_queues"
+))]
 pub(crate) mod shape_queue_url_list;
 
 #[cfg(feature = "op_send_message_batch")]
@@ -255,8 +493,14 @@ pub(crate) mod shape_send_message_batch_request_entry;
 #[cfg(feature = "op_send_message_batch")]
 pub(crate) mod shape_send_message_batch_result_entry_list;
 
+#[cfg(feature = "op_list_queue_tags")]
 pub(crate) mod shape_tag_map;
 
+#[cfg(any(
+    feature = "op_change_message_visibility_batch",
+    feature = "op_delete_message_batch",
+    feature = "op_send_message_batch"
+))]
 pub(crate) mod shape_batch_result_error_entry;
 
 #[cfg(feature = "op_change_message_visibility_batch")]
@@ -268,15 +512,28 @@ pub(crate) mod shape_delete_message_batch_result_entry;
 #[cfg(feature = "op_list_message_move_tasks")]
 pub(crate) mod shape_list_message_move_tasks_result_entry;
 
+#[cfg(feature = "op_receive_message")]
 pub(crate) mod shape_message;
 
 #[cfg(feature = "op_send_message_batch")]
 pub(crate) mod shape_send_message_batch_result_entry;
 
+#[cfg(feature = "op_receive_message")]
 pub(crate) mod shape_message_body_attribute_map;
 
+#[cfg(feature = "op_receive_message")]
 pub(crate) mod shape_message_system_attribute_map;
 
+#[cfg(any(
+    feature = "op_receive_message",
+    feature = "op_send_message",
+    feature = "op_send_message_batch"
+))]
 pub(crate) mod shape_binary_list;
 
+#[cfg(any(
+    feature = "op_receive_message",
+    feature = "op_send_message",
+    feature = "op_send_message_batch"
+))]
 pub(crate) mod shape_string_list;

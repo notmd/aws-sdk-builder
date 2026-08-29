@@ -54,7 +54,7 @@ impl
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-#[cfg(any(feature = "op_get_policy", feature = "op_put_resource_policy"))]
+#[cfg(feature = "op_put_resource_policy")]
 impl PutResourcePolicyFluentBuilder {
     /// Creates a new `PutResourcePolicyFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {

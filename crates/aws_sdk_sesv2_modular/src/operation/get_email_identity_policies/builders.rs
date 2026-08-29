@@ -56,10 +56,7 @@ impl
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-#[cfg(any(
-    feature = "op_get_email_identity",
-    feature = "op_get_email_identity_policies"
-))]
+#[cfg(feature = "op_get_email_identity_policies")]
 impl GetEmailIdentityPoliciesFluentBuilder {
     /// Creates a new `GetEmailIdentityPoliciesFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {

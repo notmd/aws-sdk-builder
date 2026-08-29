@@ -53,10 +53,7 @@ impl
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-#[cfg(any(
-    feature = "op_get_data_protection_policy",
-    feature = "op_put_data_protection_policy"
-))]
+#[cfg(feature = "op_put_data_protection_policy")]
 impl PutDataProtectionPolicyFluentBuilder {
     /// Creates a new `PutDataProtectionPolicyFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {

@@ -59,7 +59,7 @@ impl
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
-#[cfg(any(feature = "op_get_queue_url", feature = "op_send_message_batch"))]
+#[cfg(feature = "op_send_message_batch")]
 impl SendMessageBatchFluentBuilder {
     /// Creates a new `SendMessageBatchFluentBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {

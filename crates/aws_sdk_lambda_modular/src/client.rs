@@ -136,50 +136,57 @@ impl Client {
     }
 }
 
-#[cfg(any(feature = "op_get_function", feature = "op_get_function_configuration"))]
 ///
 /// Waiter functions for the client.
 ///
 /// Import this trait to get `wait_until` methods on the client.
 ///
 pub trait Waiters {
+    #[cfg(feature = "op_get_function")]
     /// Waits for the function's State to be Active. This waiter uses GetFunction API. This should be used after new function creation.
     fn wait_until_function_active_v2(
         &self,
     ) -> crate::waiters::function_active_v2::FunctionActiveV2FluentBuilder;
+    #[cfg(feature = "op_get_function")]
     /// Wait for `function_exists`
     fn wait_until_function_exists(
         &self,
     ) -> crate::waiters::function_exists::FunctionExistsFluentBuilder;
+    #[cfg(feature = "op_get_function")]
     /// Waits for the function's LastUpdateStatus to be Successful. This waiter uses GetFunction API. This should be used after function updates.
     fn wait_until_function_updated_v2(
         &self,
     ) -> crate::waiters::function_updated_v2::FunctionUpdatedV2FluentBuilder;
+    #[cfg(feature = "op_get_function_configuration")]
     /// Waits for the function's State to be Active. This waiter uses GetFunctionConfiguration API. This should be used after new function creation.
     fn wait_until_function_active(
         &self,
     ) -> crate::waiters::function_active::FunctionActiveFluentBuilder;
+    #[cfg(feature = "op_get_function_configuration")]
     /// Waits for the function's LastUpdateStatus to be Successful. This waiter uses GetFunctionConfiguration API. This should be used after function updates.
     fn wait_until_function_updated(
         &self,
     ) -> crate::waiters::function_updated::FunctionUpdatedFluentBuilder;
+    #[cfg(feature = "op_get_function_configuration")]
     /// Waits for the published version's State to be Active. This waiter uses GetFunctionConfiguration API. This should be used after new version is published.
     fn wait_until_published_version_active(
         &self,
     ) -> crate::waiters::published_version_active::PublishedVersionActiveFluentBuilder;
 }
-#[cfg(any(feature = "op_get_function", feature = "op_get_function_configuration"))]
 impl Waiters for Client {
+    #[cfg(feature = "op_get_function")]
     fn wait_until_function_active_v2(
         &self,
     ) -> crate::waiters::function_active_v2::FunctionActiveV2FluentBuilder {
         crate::waiters::function_active_v2::FunctionActiveV2FluentBuilder::new(self.handle.clone())
     }
+    #[cfg(feature = "op_get_function")]
     fn wait_until_function_exists(
         &self,
     ) -> crate::waiters::function_exists::FunctionExistsFluentBuilder {
         crate::waiters::function_exists::FunctionExistsFluentBuilder::new(self.handle.clone())
     }
+    #[cfg(feature = "op_get_function")]
     fn wait_until_function_updated_v2(
         &self,
     ) -> crate::waiters::function_updated_v2::FunctionUpdatedV2FluentBuilder {
@@ -187,16 +194,19 @@ impl Waiters for Client {
             self.handle.clone(),
         )
     }
+    #[cfg(feature = "op_get_function_configuration")]
     fn wait_until_function_active(
         &self,
     ) -> crate::waiters::function_active::FunctionActiveFluentBuilder {
         crate::waiters::function_active::FunctionActiveFluentBuilder::new(self.handle.clone())
     }
+    #[cfg(feature = "op_get_function_configuration")]
     fn wait_until_function_updated(
         &self,
     ) -> crate::waiters::function_updated::FunctionUpdatedFluentBuilder {
         crate::waiters::function_updated::FunctionUpdatedFluentBuilder::new(self.handle.clone())
     }
+    #[cfg(feature = "op_get_function_configuration")]
     fn wait_until_published_version_active(
         &self,
     ) -> crate::waiters::published_version_active::PublishedVersionActiveFluentBuilder {
@@ -236,10 +246,6 @@ mod create_alias;
 
 #[cfg(feature = "op_create_capacity_provider")]
 mod create_capacity_provider;
-
-mod create_code_signing_config;
-
-mod create_event_source_mapping;
 
 #[cfg(feature = "op_create_function")]
 mod create_function;
@@ -435,8 +441,6 @@ mod list_versions_by_function;
 
 #[cfg(feature = "op_publish_layer_version")]
 mod publish_layer_version;
-
-mod publish_version;
 
 #[cfg(feature = "op_put_function_code_signing_config")]
 mod put_function_code_signing_config;

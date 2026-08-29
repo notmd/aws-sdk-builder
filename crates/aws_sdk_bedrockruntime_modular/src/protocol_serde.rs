@@ -32,35 +32,43 @@ pub fn parse_http_error_metadata(
     crate::json_errors::parse_error_metadata(response_body, response_headers)
 }
 
+#[cfg(feature = "op_apply_guardrail")]
 pub(crate) mod shape_apply_guardrail;
 
+#[cfg(feature = "op_converse")]
 pub(crate) mod shape_converse;
 
-#[cfg(feature = "op_converse")]
+#[cfg(feature = "op_converse_stream")]
 pub(crate) mod shape_converse_stream;
 
+#[cfg(feature = "op_count_tokens")]
 pub(crate) mod shape_count_tokens;
 
+#[cfg(feature = "op_get_async_invoke")]
 pub(crate) mod shape_get_async_invoke;
 
+#[cfg(feature = "op_invoke_guardrail_checks")]
 pub(crate) mod shape_invoke_guardrail_checks;
 
+#[cfg(feature = "op_invoke_model")]
 pub(crate) mod shape_invoke_model;
 
 #[cfg(feature = "op_invoke_model")]
 pub(crate) mod shape_invoke_model_input;
 
-#[cfg(feature = "op_invoke_model")]
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 pub(crate) mod shape_invoke_model_with_bidirectional_stream;
 
-#[cfg(feature = "op_invoke_model")]
+#[cfg(feature = "op_invoke_model_with_response_stream")]
 pub(crate) mod shape_invoke_model_with_response_stream;
 
 #[cfg(feature = "op_invoke_model_with_response_stream")]
 pub(crate) mod shape_invoke_model_with_response_stream_input;
 
+#[cfg(feature = "op_list_async_invokes")]
 pub(crate) mod shape_list_async_invokes;
 
+#[cfg(feature = "op_start_async_invoke")]
 pub(crate) mod shape_start_async_invoke;
 
 pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
@@ -71,11 +79,25 @@ pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
     }
 }
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_access_denied_exception;
 
 #[cfg(feature = "op_apply_guardrail")]
 pub(crate) mod shape_apply_guardrail_input;
 
+#[cfg(feature = "op_start_async_invoke")]
 pub(crate) mod shape_conflict_exception;
 
 #[cfg(feature = "op_converse")]
@@ -90,6 +112,19 @@ pub(crate) mod shape_converse_stream_output;
 #[cfg(feature = "op_count_tokens")]
 pub(crate) mod shape_count_tokens_input;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_internal_server_exception;
 
 #[cfg(feature = "op_invoke_guardrail_checks")]
@@ -107,25 +142,105 @@ pub(crate) mod shape_invoke_model_with_bidirectional_stream_output;
 #[cfg(feature = "op_invoke_model_with_response_stream")]
 pub(crate) mod shape_invoke_model_with_response_stream_output;
 
+#[cfg(any(
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream"
+))]
 pub(crate) mod shape_model_error_exception;
 
+#[cfg(any(
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream"
+))]
 pub(crate) mod shape_model_not_ready_exception;
 
+#[cfg(any(
+    feature = "op_converse_stream",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream"
+))]
 pub(crate) mod shape_model_stream_error_exception;
 
+#[cfg(any(
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream"
+))]
 pub(crate) mod shape_model_timeout_exception;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_resource_not_found_exception;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_service_quota_exceeded_exception;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_service_unavailable_exception;
 
 #[cfg(feature = "op_start_async_invoke")]
 pub(crate) mod shape_start_async_invoke_input;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_throttling_exception;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_validation_exception;
 
 pub fn parse_event_stream_error_metadata(
@@ -140,10 +255,17 @@ pub fn parse_event_stream_error_metadata(
     )
 }
 
+#[cfg(any(
+    feature = "op_get_async_invoke",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_async_invoke_output_data_config;
 
+#[cfg(feature = "op_list_async_invokes")]
 pub(crate) mod shape_async_invoke_summaries;
 
+#[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
 pub(crate) mod shape_bidirectional_input_payload_part;
 
 #[cfg(feature = "op_converse")]
@@ -155,213 +277,1061 @@ pub(crate) mod shape_converse_output;
 #[cfg(feature = "op_converse")]
 pub(crate) mod shape_converse_trace;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_assessment_list;
 
+#[cfg(feature = "op_invoke_guardrail_checks")]
 pub(crate) mod shape_guardrail_checks_config;
 
+#[cfg(feature = "op_invoke_guardrail_checks")]
 pub(crate) mod shape_guardrail_checks_message;
 
+#[cfg(feature = "op_invoke_guardrail_checks")]
 pub(crate) mod shape_guardrail_checks_results;
 
+#[cfg(feature = "op_invoke_guardrail_checks")]
 pub(crate) mod shape_guardrail_checks_usage_results;
 
+#[cfg(feature = "op_converse")]
 pub(crate) mod shape_guardrail_configuration;
 
+#[cfg(feature = "op_apply_guardrail")]
 pub(crate) mod shape_guardrail_content_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_coverage;
 
+#[cfg(feature = "op_apply_guardrail")]
 pub(crate) mod shape_guardrail_output_content_list;
 
+#[cfg(feature = "op_converse_stream")]
 pub(crate) mod shape_guardrail_stream_configuration;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_usage;
 
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 pub(crate) mod shape_inference_configuration;
 
+#[cfg(any(
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens"
+))]
 pub(crate) mod shape_message;
 
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 pub(crate) mod shape_output_config;
 
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 pub(crate) mod shape_performance_configuration;
 
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 pub(crate) mod shape_prompt_variable_values;
 
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 pub(crate) mod shape_service_tier;
 
+#[cfg(any(
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens"
+))]
 pub(crate) mod shape_system_content_block;
 
+#[cfg(feature = "op_start_async_invoke")]
 pub(crate) mod shape_tag;
 
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 pub(crate) mod shape_token_usage;
 
+#[cfg(any(
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens"
+))]
 pub(crate) mod shape_tool_configuration;
 
+#[cfg(any(
+    feature = "op_get_async_invoke",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_async_invoke_s3_output_data_config;
 
+#[cfg(feature = "op_list_async_invokes")]
 pub(crate) mod shape_async_invoke_summary;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_bidirectional_output_payload_part;
 
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 pub(crate) mod shape_cache_details_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_cache_point_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_content_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_content_block_delta_event;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_content_block_start_event;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_content_block_stop_event;
 
 #[cfg(feature = "op_converse_stream")]
 pub(crate) mod shape_converse_stream_metadata_event;
 
-#[cfg(feature = "op_converse")]
+#[cfg(any(feature = "op_converse", feature = "op_count_tokens"))]
 pub(crate) mod shape_converse_tokens_request;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_assessment;
 
+#[cfg(feature = "op_invoke_guardrail_checks")]
 pub(crate) mod shape_guardrail_checks_content_block;
 
+#[cfg(feature = "op_invoke_guardrail_checks")]
 pub(crate) mod shape_guardrail_checks_content_filter_config;
 
+#[cfg(feature = "op_invoke_guardrail_checks")]
 pub(crate) mod shape_guardrail_checks_content_filter_result;
 
+#[cfg(feature = "op_invoke_guardrail_checks")]
 pub(crate) mod shape_guardrail_checks_content_filter_usage;
 
+#[cfg(feature = "op_invoke_guardrail_checks")]
 pub(crate) mod shape_guardrail_checks_prompt_attack_config;
 
+#[cfg(feature = "op_invoke_guardrail_checks")]
 pub(crate) mod shape_guardrail_checks_prompt_attack_result;
 
+#[cfg(feature = "op_invoke_guardrail_checks")]
 pub(crate) mod shape_guardrail_checks_prompt_attack_usage;
 
+#[cfg(feature = "op_invoke_guardrail_checks")]
 pub(crate) mod shape_guardrail_checks_sensitive_information_config;
 
+#[cfg(feature = "op_invoke_guardrail_checks")]
 pub(crate) mod shape_guardrail_checks_sensitive_information_result;
 
+#[cfg(feature = "op_invoke_guardrail_checks")]
 pub(crate) mod shape_guardrail_checks_sensitive_information_usage;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_converse_content_block;
 
+#[cfg(feature = "op_apply_guardrail")]
 pub(crate) mod shape_guardrail_image_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_image_coverage;
 
+#[cfg(feature = "op_apply_guardrail")]
 pub(crate) mod shape_guardrail_output_content;
 
+#[cfg(feature = "op_apply_guardrail")]
 pub(crate) mod shape_guardrail_text_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_text_characters_coverage;
 
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 pub(crate) mod shape_guardrail_trace_assessment;
 
-#[cfg(feature = "op_invoke_model")]
+#[cfg(any(feature = "op_count_tokens", feature = "op_invoke_model"))]
 pub(crate) mod shape_invoke_model_tokens_request;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_message_start_event;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_message_stop_event;
 
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 pub(crate) mod shape_output_format;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_payload_part;
 
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 pub(crate) mod shape_prompt_router_trace;
 
+#[cfg(any(
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens"
+))]
 pub(crate) mod shape_tool;
 
+#[cfg(any(
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens"
+))]
 pub(crate) mod shape_tool_choice;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_any_tool_choice;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_applied_guardrail_details;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_audio_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_auto_tool_choice;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_cache_detail;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_citations_content_block;
 
+#[cfg(any(
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens"
+))]
 pub(crate) mod shape_content_blocks;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_document_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_assessment_list_map;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_assessment_map;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_policy_assessment;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_checks_content_filter_category_config;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_checks_content_filter_result_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_checks_prompt_attack_category_config;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_checks_prompt_attack_result_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_checks_sensitive_information_entity_config;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_checks_sensitive_information_result_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_content_policy_assessment;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_contextual_grounding_policy_assessment;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_converse_image_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_converse_text_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_image_source;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_invocation_metrics;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_sensitive_information_policy_assessment;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_topic_policy_assessment;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_word_policy_assessment;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_image_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_model_outputs;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_output_format_structure;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_reasoning_content_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_search_result_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_specific_tool_choice;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_system_tool;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_tool_addition_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_tool_removal_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_tool_result_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_tool_specification;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_tool_use_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_video_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_audio_source;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_citation;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_citation_generated_content;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_citations_config;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_content_block_delta;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_content_block_start;
 
 #[cfg(feature = "op_converse_stream")]
@@ -370,158 +1340,1172 @@ pub(crate) mod shape_converse_stream_metrics;
 #[cfg(feature = "op_converse_stream")]
 pub(crate) mod shape_converse_stream_trace;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_document_source;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_error_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_finding_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_checks_content_filter_result_entry;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_checks_prompt_attack_result_entry;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_checks_sensitive_information_result_entry;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_content_filter_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_contextual_grounding_filters;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_converse_image_source;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_custom_word_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_managed_word_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_origin_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_pii_entity_filter_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_regex_filter_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_topic_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_image_source;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_json_schema_definition;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_reasoning_text_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_search_result_content_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_tool_input_schema;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_tool_reference;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_tool_result_content_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_video_source;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_citation_location;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_citation_source_content;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_citations_delta;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_document_content_block;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_finding;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_content_filter;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_contextual_grounding_filter;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_custom_word;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_managed_word;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_pii_entity_filter;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_regex_filter;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_topic;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_image_block_delta;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_image_block_start;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_reasoning_content_block_delta;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_s3_location;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_tool_result_block_start;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_tool_result_blocks_delta;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_tool_use_block_delta;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_tool_use_block_start;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_citation_generated_content_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_citation_source_content_list_delta;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_citations;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_document_char_location;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_document_chunk_location;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_document_page_location;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_impossible_finding;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_invalid_finding;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_no_translations_finding;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_satisfiable_finding;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_too_complex_finding;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_translation_ambiguous_finding;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_valid_finding;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_search_result_content_blocks;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_search_result_location;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_tool_result_block_delta;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_tool_result_content_blocks;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_web_location;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_citation_source_content_delta;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_document_content_blocks;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_difference_scenario_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_logic_warning;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_rule_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_scenario;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_translation;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_translation_option_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_converse_content_qualifier_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_citation_source_content_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_input_text_reference_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_rule;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_statement_list;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_translation_option;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_input_text_reference;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_statement;
 
+#[cfg(any(
+    feature = "op_apply_guardrail",
+    feature = "op_converse",
+    feature = "op_converse_stream",
+    feature = "op_count_tokens",
+    feature = "op_get_async_invoke",
+    feature = "op_invoke_guardrail_checks",
+    feature = "op_invoke_model",
+    feature = "op_invoke_model_with_bidirectional_stream",
+    feature = "op_invoke_model_with_response_stream",
+    feature = "op_list_async_invokes",
+    feature = "op_start_async_invoke"
+))]
 pub(crate) mod shape_guardrail_automated_reasoning_translation_list;

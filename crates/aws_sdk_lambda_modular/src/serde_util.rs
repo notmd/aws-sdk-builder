@@ -28,20 +28,6 @@ pub(crate) fn create_capacity_provider_output_output_correct_errors(
     builder
 }
 
-pub(crate) fn create_code_signing_config_output_output_correct_errors(
-    mut builder: crate::operation::create_code_signing_config::builders::CreateCodeSigningConfigOutputBuilder,
-) -> crate::operation::create_code_signing_config::builders::CreateCodeSigningConfigOutputBuilder {
-    if builder.code_signing_config.is_none() {
-        builder.code_signing_config = {
-            let builder = crate::types::builders::CodeSigningConfigBuilder::default();
-            crate::serde_util::code_signing_config_correct_errors(builder)
-                .build()
-                .ok()
-        }
-    }
-    builder
-}
-
 #[cfg(feature = "op_create_function_url_config")]
 pub(crate) fn create_function_url_config_output_output_correct_errors(
     mut builder: crate::operation::create_function_url_config::builders::CreateFunctionUrlConfigOutputBuilder,
