@@ -9,7 +9,7 @@ use aws_config::{BehaviorVersion, Region};
 use aws_credential_types::Credentials;
 use aws_sdk_s3::{primitives::ByteStream, Client};
 
-const PAYLOAD: &[u8] = b"aws-sdk-builder floci smoke payload";
+const PAYLOAD: &[u8] = b"better-aws floci smoke payload";
 const KEY: &str = "smoke/payload.txt";
 
 #[tokio::main]
@@ -20,7 +20,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let access_key = env::var("AWS_ACCESS_KEY_ID").unwrap_or_else(|_| "test".to_owned());
     let secret_key = env::var("AWS_SECRET_ACCESS_KEY").unwrap_or_else(|_| "test".to_owned());
     let bucket = format!(
-        "aws-sdk-builder-floci-{}-{}",
+        "better-aws-floci-{}-{}",
         SystemTime::now().duration_since(UNIX_EPOCH)?.as_nanos(),
         process::id()
     );
