@@ -1,5 +1,14 @@
 # AWS SDK modularizer checkpoint log
 
+## 2026-08-29 — documentation regeneration checkpoint
+
+- Objective: regenerate all modular SDK snapshots after the generic doctest crate-name rewrite.
+- Generic rule: keep generated service output in one reviewable commit per service, including its tracked diff artifacts.
+- Changed files: `crates/aws_sdk_*_modular/**` and `conformance/summary.md`.
+- Commands: `AWS_SDK_MODULARIZER_ARCHIVE=/tmp/aws-sdk-rust.tar.gz RUSTFLAGS='-Awarnings' just conformance` passed for all 15 services; every service has zero missing and zero ambiguous operations, coverage delta `+0`.
+- Remaining blocker: complete workspace compile/test verification.
+- Next action: run `cargo check --workspace`, `cargo test --workspace`, `cargo fmt --all -- --check`, and `git diff --check`.
+
 ## 2026-08-29 — documentation crate-name rewrite checkpoint
 
 - Objective: keep generated doctests valid after renaming each library to its modular crate name.

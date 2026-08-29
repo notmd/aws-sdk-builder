@@ -7,7 +7,7 @@
 - missing: 0
 - ambiguous: 0
 - coverage delta: +0
-- changed files: 11
+- changed files: 13
 
 ## bedrockruntime
 
@@ -16,7 +16,7 @@
 - missing: 0
 - ambiguous: 0
 - coverage delta: +0
-- changed files: 12
+- changed files: 14
 
 ## cloudwatchlogs
 
@@ -25,7 +25,7 @@
 - missing: 0
 - ambiguous: 0
 - coverage delta: +0
-- changed files: 12
+- changed files: 14
 
 ## codeartifact
 
@@ -34,7 +34,7 @@
 - missing: 0
 - ambiguous: 0
 - coverage delta: +0
-- changed files: 11
+- changed files: 13
 
 ## cognitoidentityprovider
 
@@ -43,7 +43,7 @@
 - missing: 0
 - ambiguous: 0
 - coverage delta: +0
-- changed files: 11
+- changed files: 13
 
 ## config
 
@@ -52,7 +52,7 @@
 - missing: 0
 - ambiguous: 0
 - coverage delta: +0
-- changed files: 11
+- changed files: 13
 
 ## dynamodb
 
@@ -61,7 +61,7 @@
 - missing: 0
 - ambiguous: 0
 - coverage delta: +0
-- changed files: 13
+- changed files: 15
 
 ## iam
 
@@ -70,7 +70,7 @@
 - missing: 0
 - ambiguous: 0
 - coverage delta: +0
-- changed files: 13
+- changed files: 15
 
 ## kms
 
@@ -79,7 +79,7 @@
 - missing: 0
 - ambiguous: 0
 - coverage delta: +0
-- changed files: 11
+- changed files: 13
 
 ## lambda
 
@@ -88,7 +88,7 @@
 - missing: 0
 - ambiguous: 0
 - coverage delta: +0
-- changed files: 35
+- changed files: 37
 
 ## s3
 
@@ -97,7 +97,7 @@
 - missing: 0
 - ambiguous: 0
 - coverage delta: +0
-- changed files: 17
+- changed files: 18
 
 ## sesv2
 
@@ -106,7 +106,7 @@
 - missing: 0
 - ambiguous: 0
 - coverage delta: +0
-- changed files: 11
+- changed files: 13
 
 ## sns
 
@@ -115,7 +115,7 @@
 - missing: 0
 - ambiguous: 0
 - coverage delta: +0
-- changed files: 11
+- changed files: 13
 
 ## sqs
 
@@ -124,7 +124,7 @@
 - missing: 0
 - ambiguous: 0
 - coverage delta: +0
-- changed files: 11
+- changed files: 13
 
 ## sts
 
@@ -133,5 +133,5 @@
 - missing: 0
 - ambiguous: 0
 - coverage delta: +0
-- changed files: 10
+- changed files: 12
 
