@@ -173,3 +173,37 @@ passed for transform commits, and conformance was rerun at the milestone commits
 - Operation coverage: unchanged; all 15 services remain mapped with zero missing and zero ambiguous operations.
 - Remaining blocker: generated SDK output still needs regeneration and conformance validation for these helper gates.
 - Next action: regenerate and commit each affected SDK service separately.
+
+## Final helper-gate regeneration checkpoints
+
+The following commits keep the generated service changes reviewable by service.
+Each service retained complete operation mapping and coverage delta `+0`.
+
+| Date / commit | Changed output | Verification / next action |
+| --- | --- | --- |
+| 2026-08-29 — `83d58e02d` | Narrow protocol symbol seeding so child-module cfgs remain precise. | 12 modularizer tests and formatting passed; regenerate SDK output. |
+| 2026-08-29 — `a8ac5b956` | Regenerate Batch protocol helper cfgs. | Generator completed; continue per-service commits. |
+| 2026-08-29 — `b4eb3980a` | Regenerate Bedrock Runtime protocol helper cfgs. | Generator completed; continue per-service commits. |
+| 2026-08-29 — `672c82244` | Regenerate CloudWatch Logs protocol helper cfgs. | Generator completed; continue per-service commits. |
+| 2026-08-29 — `8686ee358` | Regenerate CodeArtifact protocol helper cfgs. | Generator completed; continue per-service commits. |
+| 2026-08-29 — `978169a64` | Regenerate Cognito Identity Provider protocol helper cfgs. | Generator completed; continue per-service commits. |
+| 2026-08-29 — `918f13da9` | Regenerate Config protocol helper cfgs. | Generator completed; continue per-service commits. |
+| 2026-08-29 — `a3b71afdc` | Regenerate DynamoDB protocol helper cfgs. | Generator completed; continue per-service commits. |
+| 2026-08-29 — `a9c5a39f2` | Regenerate IAM protocol helper cfgs. | Generator completed; continue per-service commits. |
+| 2026-08-29 — `2a6f2a934` | Regenerate KMS protocol helper cfgs. | Generator completed; continue per-service commits. |
+| 2026-08-29 — `c958682db` | Regenerate Lambda protocol helper cfgs. | Generator completed; continue per-service commits. |
+| 2026-08-29 — `86be4e7c5` | Regenerate S3 protocol helper cfgs. | Generator completed; continue per-service commits. |
+| 2026-08-29 — `42ab177a3` | Regenerate SESv2 protocol helper cfgs. | Generator completed; continue per-service commits. |
+| 2026-08-29 — `db2321251` | Regenerate SNS protocol helper cfgs. | Generator completed; continue per-service commits. |
+| 2026-08-29 — `f4062c04d` | Regenerate SQS protocol helper cfgs. | Generator completed; continue per-service commits. |
+| 2026-08-29 — `10a6264c4` | Regenerate STS protocol helper cfgs. | Generator completed; run final conformance. |
+| 2026-08-29 — `43eb17d57` | Refresh `conformance/summary.md` after final regeneration. | All 15 services passed; coverage delta `+0`; complete workspace audits. |
+
+## Final verification for `43eb17d57`
+
+- `AWS_SDK_MODULARIZER_ARCHIVE=/tmp/aws-sdk-rust.tar.gz RUSTFLAGS='-Awarnings' just conformance` passed for all 15 services.
+- `cargo check --workspace` passed.
+- `cargo test --workspace --lib` passed.
+- `git diff --check` passed; no generated service `tests/` directories or stale builder/conformance workspace packages remain.
+- Full `cargo test --workspace` still fails in upstream-generated doctests that refer to deleted non-modular `aws_sdk_*` crates.
+- `cargo fmt --all -- --check` still reports upstream-generated formatting differences; generated files were left unformatted to preserve the source snapshot style.
