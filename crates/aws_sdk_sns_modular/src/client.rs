@@ -23,7 +23,7 @@ pub(crate) struct Handle {
 /// ```rust,no_run
 /// # async fn wrapper() {
 /// let config = aws_config::load_from_env().await;
-/// let client = aws_sdk_sns::Client::new(&config);
+/// let client = aws_sdk_sns_modular::Client::new(&config);
 /// # }
 /// ```
 ///
@@ -35,7 +35,7 @@ pub(crate) struct Handle {
 /// ```rust,no_run
 /// # async fn wrapper() {
 /// let sdk_config = ::aws_config::load_from_env().await;
-/// let config = aws_sdk_sns::config::Builder::from(&sdk_config)
+/// let config = aws_sdk_sns_modular::config::Builder::from(&sdk_config)
 /// # /*
 ///     .some_service_specific_setting("value")
 /// # */
@@ -164,8 +164,8 @@ mod create_topic;
 /// operation call. For example, this can be used to add an additional HTTP header:
 ///
 /// ```ignore
-/// # async fn wrapper() -> ::std::result::Result<(), aws_sdk_sns::Error> {
-/// # let client: aws_sdk_sns::Client = unimplemented!();
+/// # async fn wrapper() -> ::std::result::Result<(), aws_sdk_sns_modular::Error> {
+/// # let client: aws_sdk_sns_modular::Client = unimplemented!();
 /// use ::http_1x::header::{HeaderName, HeaderValue};
 ///
 /// let result = client.add_permission()
