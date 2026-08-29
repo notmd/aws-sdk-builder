@@ -15,18 +15,14 @@ impl ::aws_types::request_id::RequestId for UpdateSchedulingPolicyOutput {
 #[cfg(feature = "op_update_scheduling_policy")]
 impl UpdateSchedulingPolicyOutput {
     /// Creates a new builder-style object to manufacture [`UpdateSchedulingPolicyOutput`](crate::operation::update_scheduling_policy::UpdateSchedulingPolicyOutput).
-    pub fn builder(
-    ) -> crate::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyOutputBuilder
-    {
+    pub fn builder() -> crate::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyOutputBuilder {
         crate::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_update_scheduling_policy")]
 /// A builder for [`UpdateSchedulingPolicyOutput`](crate::operation::update_scheduling_policy::UpdateSchedulingPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateSchedulingPolicyOutputBuilder {
     _request_id: Option<String>,

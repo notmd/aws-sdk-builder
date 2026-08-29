@@ -9,8 +9,7 @@ pub struct AttemptEcsTaskDetails {
     /// <p>The ARN of the Amazon ECS task.</p>
     pub task_arn: ::std::option::Option<::std::string::String>,
     /// <p>A list of containers that are included in the <code>taskProperties</code> list.</p>
-    pub containers:
-        ::std::option::Option<::std::vec::Vec<crate::types::AttemptTaskContainerDetails>>,
+    pub containers: ::std::option::Option<::std::vec::Vec<crate::types::AttemptTaskContainerDetails>>,
 }
 impl AttemptEcsTaskDetails {
     /// <p>The Amazon Resource Name (ARN) of the container instance that hosts the task.</p>
@@ -36,30 +35,21 @@ impl AttemptEcsTaskDetails {
 }
 
 /// A builder for [`AttemptEcsTaskDetails`](crate::types::AttemptEcsTaskDetails).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AttemptEcsTaskDetailsBuilder {
     pub(crate) container_instance_arn: ::std::option::Option<::std::string::String>,
     pub(crate) task_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) containers:
-        ::std::option::Option<::std::vec::Vec<crate::types::AttemptTaskContainerDetails>>,
+    pub(crate) containers: ::std::option::Option<::std::vec::Vec<crate::types::AttemptTaskContainerDetails>>,
 }
 impl AttemptEcsTaskDetailsBuilder {
     /// <p>The Amazon Resource Name (ARN) of the container instance that hosts the task.</p>
-    pub fn container_instance_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn container_instance_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.container_instance_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the container instance that hosts the task.</p>
-    pub fn set_container_instance_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_container_instance_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.container_instance_arn = input;
         self
     }
@@ -93,17 +83,12 @@ impl AttemptEcsTaskDetailsBuilder {
         self
     }
     /// <p>A list of containers that are included in the <code>taskProperties</code> list.</p>
-    pub fn set_containers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::AttemptTaskContainerDetails>>,
-    ) -> Self {
+    pub fn set_containers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttemptTaskContainerDetails>>) -> Self {
         self.containers = input;
         self
     }
     /// <p>A list of containers that are included in the <code>taskProperties</code> list.</p>
-    pub fn get_containers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AttemptTaskContainerDetails>> {
+    pub fn get_containers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttemptTaskContainerDetails>> {
         &self.containers
     }
     /// Consumes the builder and constructs a [`AttemptEcsTaskDetails`](crate::types::AttemptEcsTaskDetails).

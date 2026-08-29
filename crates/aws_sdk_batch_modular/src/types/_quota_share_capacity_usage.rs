@@ -27,9 +27,7 @@ impl QuotaShareCapacityUsage {
 }
 
 /// A builder for [`QuotaShareCapacityUsage`](crate::types::QuotaShareCapacityUsage).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct QuotaShareCapacityUsageBuilder {
     pub(crate) capacity_unit: ::std::option::Option<::std::string::String>,
@@ -37,18 +35,12 @@ pub struct QuotaShareCapacityUsageBuilder {
 }
 impl QuotaShareCapacityUsageBuilder {
     /// <p>The unit of compute capacity for the capacity usage.</p>
-    pub fn capacity_unit(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn capacity_unit(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.capacity_unit = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unit of compute capacity for the capacity usage.</p>
-    pub fn set_capacity_unit(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_capacity_unit(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.capacity_unit = input;
         self
     }

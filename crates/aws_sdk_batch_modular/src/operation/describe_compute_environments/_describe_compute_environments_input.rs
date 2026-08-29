@@ -36,16 +36,14 @@ impl DescribeComputeEnvironmentsInput {
 #[cfg(feature = "op_describe_compute_environments")]
 impl DescribeComputeEnvironmentsInput {
     /// Creates a new builder-style object to manufacture [`DescribeComputeEnvironmentsInput`](crate::operation::describe_compute_environments::DescribeComputeEnvironmentsInput).
-    pub fn builder() -> crate::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsInputBuilder{
+    pub fn builder() -> crate::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsInputBuilder {
         crate::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_compute_environments")]
 /// A builder for [`DescribeComputeEnvironmentsInput`](crate::operation::describe_compute_environments::DescribeComputeEnvironmentsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeComputeEnvironmentsInputBuilder {
     pub(crate) compute_environments: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -59,27 +57,19 @@ impl DescribeComputeEnvironmentsInputBuilder {
     /// To override the contents of this collection use [`set_compute_environments`](Self::set_compute_environments).
     ///
     /// <p>A list of up to 100 compute environment names or full Amazon Resource Name (ARN) entries.</p>
-    pub fn compute_environments(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn compute_environments(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.compute_environments.unwrap_or_default();
         v.push(input.into());
         self.compute_environments = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of up to 100 compute environment names or full Amazon Resource Name (ARN) entries.</p>
-    pub fn set_compute_environments(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_compute_environments(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.compute_environments = input;
         self
     }
     /// <p>A list of up to 100 compute environment names or full Amazon Resource Name (ARN) entries.</p>
-    pub fn get_compute_environments(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_compute_environments(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.compute_environments
     }
     /// <p>The maximum number of cluster results returned by <code>DescribeComputeEnvironments</code> in paginated output. When this parameter is used, <code>DescribeComputeEnvironments</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeComputeEnvironments</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>DescribeComputeEnvironments</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
@@ -123,12 +113,10 @@ impl DescribeComputeEnvironmentsInputBuilder {
         crate::operation::describe_compute_environments::DescribeComputeEnvironmentsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_compute_environments::DescribeComputeEnvironmentsInput {
-                compute_environments: self.compute_environments,
-                max_results: self.max_results,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::describe_compute_environments::DescribeComputeEnvironmentsInput {
+            compute_environments: self.compute_environments,
+            max_results: self.max_results,
+            next_token: self.next_token,
+        })
     }
 }

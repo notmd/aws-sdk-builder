@@ -161,9 +161,7 @@ impl ListJobsInput {
 
 #[cfg(feature = "op_list_jobs")]
 /// A builder for [`ListJobsInput`](crate::operation::list_jobs::ListJobsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListJobsInputBuilder {
     pub(crate) job_queue: ::std::option::Option<::std::string::String>,
@@ -205,18 +203,12 @@ impl ListJobsInputBuilder {
         &self.array_job_id
     }
     /// <p>The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with this parameter lists all nodes that are associated with the specified job.</p>
-    pub fn multi_node_job_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn multi_node_job_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.multi_node_job_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with this parameter lists all nodes that are associated with the specified job.</p>
-    pub fn set_multi_node_job_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_multi_node_job_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.multi_node_job_id = input;
         self
     }
@@ -391,10 +383,7 @@ impl ListJobsInputBuilder {
     /// <p>The value for the filter is the fairshare scheduling share identifier.</p>
     /// </dd>
     /// </dl>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>>) -> Self {
         self.filters = input;
         self
     }
@@ -433,18 +422,11 @@ impl ListJobsInputBuilder {
     /// <p>The value for the filter is the fairshare scheduling share identifier.</p>
     /// </dd>
     /// </dl>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>> {
         &self.filters
     }
     /// Consumes the builder and constructs a [`ListJobsInput`](crate::operation::list_jobs::ListJobsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_jobs::ListJobsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_jobs::ListJobsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_jobs::ListJobsInput {
             job_queue: self.job_queue,
             array_job_id: self.array_job_id,

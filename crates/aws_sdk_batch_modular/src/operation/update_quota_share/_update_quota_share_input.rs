@@ -7,14 +7,11 @@ pub struct UpdateQuotaShareInput {
     /// <p>The Amazon Resource Name (ARN) of the quota share to update.</p>
     pub quota_share_arn: ::std::option::Option<::std::string::String>,
     /// <p>A list that specifies the quantity and type of compute capacity allocated to the quota share.</p>
-    pub capacity_limits:
-        ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>>,
+    pub capacity_limits: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>>,
     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
-    pub resource_sharing_configuration:
-        ::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration>,
+    pub resource_sharing_configuration: ::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration>,
     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
-    pub preemption_configuration:
-        ::std::option::Option<crate::types::QuotaSharePreemptionConfiguration>,
+    pub preemption_configuration: ::std::option::Option<crate::types::QuotaSharePreemptionConfiguration>,
     /// <p>The state of the quota share. If the quota share is <code>ENABLED</code>, it is able to accept jobs. If the quota share is <code>DISABLED</code>, new jobs won't be accepted but jobs already submitted can finish.</p>
     pub state: ::std::option::Option<crate::types::QuotaShareState>,
 }
@@ -31,15 +28,11 @@ impl UpdateQuotaShareInput {
         self.capacity_limits.as_deref().unwrap_or_default()
     }
     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
-    pub fn resource_sharing_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::QuotaShareResourceSharingConfiguration> {
+    pub fn resource_sharing_configuration(&self) -> ::std::option::Option<&crate::types::QuotaShareResourceSharingConfiguration> {
         self.resource_sharing_configuration.as_ref()
     }
     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
-    pub fn preemption_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::QuotaSharePreemptionConfiguration> {
+    pub fn preemption_configuration(&self) -> ::std::option::Option<&crate::types::QuotaSharePreemptionConfiguration> {
         self.preemption_configuration.as_ref()
     }
     /// <p>The state of the quota share. If the quota share is <code>ENABLED</code>, it is able to accept jobs. If the quota share is <code>DISABLED</code>, new jobs won't be accepted but jobs already submitted can finish.</p>
@@ -50,44 +43,32 @@ impl UpdateQuotaShareInput {
 #[cfg(feature = "op_update_quota_share")]
 impl UpdateQuotaShareInput {
     /// Creates a new builder-style object to manufacture [`UpdateQuotaShareInput`](crate::operation::update_quota_share::UpdateQuotaShareInput).
-    pub fn builder() -> crate::operation::update_quota_share::builders::UpdateQuotaShareInputBuilder
-    {
+    pub fn builder() -> crate::operation::update_quota_share::builders::UpdateQuotaShareInputBuilder {
         crate::operation::update_quota_share::builders::UpdateQuotaShareInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_update_quota_share")]
 /// A builder for [`UpdateQuotaShareInput`](crate::operation::update_quota_share::UpdateQuotaShareInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateQuotaShareInputBuilder {
     pub(crate) quota_share_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) capacity_limits:
-        ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>>,
-    pub(crate) resource_sharing_configuration:
-        ::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration>,
-    pub(crate) preemption_configuration:
-        ::std::option::Option<crate::types::QuotaSharePreemptionConfiguration>,
+    pub(crate) capacity_limits: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>>,
+    pub(crate) resource_sharing_configuration: ::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration>,
+    pub(crate) preemption_configuration: ::std::option::Option<crate::types::QuotaSharePreemptionConfiguration>,
     pub(crate) state: ::std::option::Option<crate::types::QuotaShareState>,
 }
 #[cfg(feature = "op_update_quota_share")]
 impl UpdateQuotaShareInputBuilder {
     /// <p>The Amazon Resource Name (ARN) of the quota share to update.</p>
     /// This field is required.
-    pub fn quota_share_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn quota_share_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.quota_share_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the quota share to update.</p>
-    pub fn set_quota_share_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_quota_share_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.quota_share_arn = input;
         self
     }
@@ -107,61 +88,40 @@ impl UpdateQuotaShareInputBuilder {
         self
     }
     /// <p>A list that specifies the quantity and type of compute capacity allocated to the quota share.</p>
-    pub fn set_capacity_limits(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>>,
-    ) -> Self {
+    pub fn set_capacity_limits(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>>) -> Self {
         self.capacity_limits = input;
         self
     }
     /// <p>A list that specifies the quantity and type of compute capacity allocated to the quota share.</p>
-    pub fn get_capacity_limits(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>> {
+    pub fn get_capacity_limits(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>> {
         &self.capacity_limits
     }
     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
-    pub fn resource_sharing_configuration(
-        mut self,
-        input: crate::types::QuotaShareResourceSharingConfiguration,
-    ) -> Self {
+    pub fn resource_sharing_configuration(mut self, input: crate::types::QuotaShareResourceSharingConfiguration) -> Self {
         self.resource_sharing_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
-    pub fn set_resource_sharing_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration>,
-    ) -> Self {
+    pub fn set_resource_sharing_configuration(mut self, input: ::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration>) -> Self {
         self.resource_sharing_configuration = input;
         self
     }
     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
-    pub fn get_resource_sharing_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration> {
+    pub fn get_resource_sharing_configuration(&self) -> &::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration> {
         &self.resource_sharing_configuration
     }
     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
-    pub fn preemption_configuration(
-        mut self,
-        input: crate::types::QuotaSharePreemptionConfiguration,
-    ) -> Self {
+    pub fn preemption_configuration(mut self, input: crate::types::QuotaSharePreemptionConfiguration) -> Self {
         self.preemption_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
-    pub fn set_preemption_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::QuotaSharePreemptionConfiguration>,
-    ) -> Self {
+    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<crate::types::QuotaSharePreemptionConfiguration>) -> Self {
         self.preemption_configuration = input;
         self
     }
     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
-    pub fn get_preemption_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::QuotaSharePreemptionConfiguration> {
+    pub fn get_preemption_configuration(&self) -> &::std::option::Option<crate::types::QuotaSharePreemptionConfiguration> {
         &self.preemption_configuration
     }
     /// <p>The state of the quota share. If the quota share is <code>ENABLED</code>, it is able to accept jobs. If the quota share is <code>DISABLED</code>, new jobs won't be accepted but jobs already submitted can finish.</p>
@@ -170,10 +130,7 @@ impl UpdateQuotaShareInputBuilder {
         self
     }
     /// <p>The state of the quota share. If the quota share is <code>ENABLED</code>, it is able to accept jobs. If the quota share is <code>DISABLED</code>, new jobs won't be accepted but jobs already submitted can finish.</p>
-    pub fn set_state(
-        mut self,
-        input: ::std::option::Option<crate::types::QuotaShareState>,
-    ) -> Self {
+    pub fn set_state(mut self, input: ::std::option::Option<crate::types::QuotaShareState>) -> Self {
         self.state = input;
         self
     }
@@ -184,18 +141,13 @@ impl UpdateQuotaShareInputBuilder {
     /// Consumes the builder and constructs a [`UpdateQuotaShareInput`](crate::operation::update_quota_share::UpdateQuotaShareInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::update_quota_share::UpdateQuotaShareInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::update_quota_share::UpdateQuotaShareInput {
-                quota_share_arn: self.quota_share_arn,
-                capacity_limits: self.capacity_limits,
-                resource_sharing_configuration: self.resource_sharing_configuration,
-                preemption_configuration: self.preemption_configuration,
-                state: self.state,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::update_quota_share::UpdateQuotaShareInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::update_quota_share::UpdateQuotaShareInput {
+            quota_share_arn: self.quota_share_arn,
+            capacity_limits: self.capacity_limits,
+            resource_sharing_configuration: self.resource_sharing_configuration,
+            preemption_configuration: self.preemption_configuration,
+            state: self.state,
+        })
     }
 }

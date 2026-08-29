@@ -9,19 +9,13 @@ pub fn ser_node_property_override(
     if let Some(var_2) = &input.container_overrides {
         #[allow(unused_mut)]
         let mut object_3 = object.key("containerOverrides").start_object();
-        crate::protocol_serde::shape_container_overrides::ser_container_overrides(
-            &mut object_3,
-            var_2,
-        )?;
+        crate::protocol_serde::shape_container_overrides::ser_container_overrides(&mut object_3, var_2)?;
         object_3.finish();
     }
     if let Some(var_4) = &input.ecs_properties_override {
         #[allow(unused_mut)]
         let mut object_5 = object.key("ecsPropertiesOverride").start_object();
-        crate::protocol_serde::shape_ecs_properties_override::ser_ecs_properties_override(
-            &mut object_5,
-            var_4,
-        )?;
+        crate::protocol_serde::shape_ecs_properties_override::ser_ecs_properties_override(&mut object_5, var_4)?;
         object_5.finish();
     }
     if let Some(var_6) = &input.instance_types {
@@ -36,17 +30,12 @@ pub fn ser_node_property_override(
     if let Some(var_9) = &input.eks_properties_override {
         #[allow(unused_mut)]
         let mut object_10 = object.key("eksPropertiesOverride").start_object();
-        crate::protocol_serde::shape_eks_properties_override::ser_eks_properties_override(
-            &mut object_10,
-            var_9,
-        )?;
+        crate::protocol_serde::shape_eks_properties_override::ser_eks_properties_override(&mut object_10, var_9)?;
         object_10.finish();
     }
     if let Some(var_11) = &input.consumable_resource_properties_override {
         #[allow(unused_mut)]
-        let mut object_12 = object
-            .key("consumableResourcePropertiesOverride")
-            .start_object();
+        let mut object_12 = object.key("consumableResourcePropertiesOverride").start_object();
         crate::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_12, var_11)?;
         object_12.finish();
     }

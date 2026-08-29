@@ -88,10 +88,7 @@ pub fn ser_compute_resource_update(
             {
                 #[allow(unused_mut)]
                 let mut object_27 = array_25.value().start_object();
-                crate::protocol_serde::shape_ec2_configuration::ser_ec2_configuration(
-                    &mut object_27,
-                    item_26,
-                )?;
+                crate::protocol_serde::shape_ec2_configuration::ser_ec2_configuration(&mut object_27, item_26)?;
                 object_27.finish();
             }
         }
@@ -109,10 +106,7 @@ pub fn ser_compute_resource_update(
     if let Some(var_31) = &input.scaling_policy {
         #[allow(unused_mut)]
         let mut object_32 = object.key("scalingPolicy").start_object();
-        crate::protocol_serde::shape_compute_scaling_policy::ser_compute_scaling_policy(
-            &mut object_32,
-            var_31,
-        )?;
+        crate::protocol_serde::shape_compute_scaling_policy::ser_compute_scaling_policy(&mut object_32, var_31)?;
         object_32.finish();
     }
     if let Some(var_33) = &input.managed_instances_provider {

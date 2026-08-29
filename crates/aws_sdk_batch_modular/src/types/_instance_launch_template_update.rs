@@ -7,13 +7,11 @@ pub struct InstanceLaunchTemplateUpdate {
     /// <p>The updated Amazon Resource Name (ARN) of the Amazon EC2 instance profile for the managed instances.</p>
     pub ec2_instance_profile_arn: ::std::option::Option<::std::string::String>,
     /// <p>The updated network configuration for the managed instances.</p>
-    pub network_configuration:
-        ::std::option::Option<crate::types::ManagedInstancesNetworkConfiguration>,
+    pub network_configuration: ::std::option::Option<crate::types::ManagedInstancesNetworkConfiguration>,
     /// <p>The updated instance type requirements for the capacity provider.</p>
     pub instance_requirements: ::std::option::Option<crate::types::InstanceRequirementsRequest>,
     /// <p>The updated storage configuration for the managed instances.</p>
-    pub storage_configuration:
-        ::std::option::Option<crate::types::ManagedInstancesStorageConfiguration>,
+    pub storage_configuration: ::std::option::Option<crate::types::ManagedInstancesStorageConfiguration>,
     /// <p>The updated monitoring level. Valid values are <code>BASIC</code> and <code>DETAILED</code>.</p>
     pub monitoring: ::std::option::Option<::std::string::String>,
     /// <p>The updated capacity reservation configuration.</p>
@@ -21,8 +19,7 @@ pub struct InstanceLaunchTemplateUpdate {
     /// <p>Specifies whether instance tags are accessible from the instance metadata service (IMDS).</p>
     pub instance_metadata_tags_propagation: ::std::option::Option<bool>,
     /// <p>The updated local storage configuration.</p>
-    pub local_storage_configuration:
-        ::std::option::Option<crate::types::ManagedInstancesLocalStorageConfiguration>,
+    pub local_storage_configuration: ::std::option::Option<crate::types::ManagedInstancesLocalStorageConfiguration>,
 }
 impl InstanceLaunchTemplateUpdate {
     /// <p>The updated Amazon Resource Name (ARN) of the Amazon EC2 instance profile for the managed instances.</p>
@@ -30,21 +27,15 @@ impl InstanceLaunchTemplateUpdate {
         self.ec2_instance_profile_arn.as_deref()
     }
     /// <p>The updated network configuration for the managed instances.</p>
-    pub fn network_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ManagedInstancesNetworkConfiguration> {
+    pub fn network_configuration(&self) -> ::std::option::Option<&crate::types::ManagedInstancesNetworkConfiguration> {
         self.network_configuration.as_ref()
     }
     /// <p>The updated instance type requirements for the capacity provider.</p>
-    pub fn instance_requirements(
-        &self,
-    ) -> ::std::option::Option<&crate::types::InstanceRequirementsRequest> {
+    pub fn instance_requirements(&self) -> ::std::option::Option<&crate::types::InstanceRequirementsRequest> {
         self.instance_requirements.as_ref()
     }
     /// <p>The updated storage configuration for the managed instances.</p>
-    pub fn storage_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ManagedInstancesStorageConfiguration> {
+    pub fn storage_configuration(&self) -> ::std::option::Option<&crate::types::ManagedInstancesStorageConfiguration> {
         self.storage_configuration.as_ref()
     }
     /// <p>The updated monitoring level. Valid values are <code>BASIC</code> and <code>DETAILED</code>.</p>
@@ -52,9 +43,7 @@ impl InstanceLaunchTemplateUpdate {
         self.monitoring.as_deref()
     }
     /// <p>The updated capacity reservation configuration.</p>
-    pub fn capacity_reservations(
-        &self,
-    ) -> ::std::option::Option<&crate::types::CapacityReservationRequest> {
+    pub fn capacity_reservations(&self) -> ::std::option::Option<&crate::types::CapacityReservationRequest> {
         self.capacity_reservations.as_ref()
     }
     /// <p>Specifies whether instance tags are accessible from the instance metadata service (IMDS).</p>
@@ -62,9 +51,7 @@ impl InstanceLaunchTemplateUpdate {
         self.instance_metadata_tags_propagation
     }
     /// <p>The updated local storage configuration.</p>
-    pub fn local_storage_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ManagedInstancesLocalStorageConfiguration> {
+    pub fn local_storage_configuration(&self) -> ::std::option::Option<&crate::types::ManagedInstancesLocalStorageConfiguration> {
         self.local_storage_configuration.as_ref()
     }
 }
@@ -76,39 +63,26 @@ impl InstanceLaunchTemplateUpdate {
 }
 
 /// A builder for [`InstanceLaunchTemplateUpdate`](crate::types::InstanceLaunchTemplateUpdate).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InstanceLaunchTemplateUpdateBuilder {
     pub(crate) ec2_instance_profile_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) network_configuration:
-        ::std::option::Option<crate::types::ManagedInstancesNetworkConfiguration>,
-    pub(crate) instance_requirements:
-        ::std::option::Option<crate::types::InstanceRequirementsRequest>,
-    pub(crate) storage_configuration:
-        ::std::option::Option<crate::types::ManagedInstancesStorageConfiguration>,
+    pub(crate) network_configuration: ::std::option::Option<crate::types::ManagedInstancesNetworkConfiguration>,
+    pub(crate) instance_requirements: ::std::option::Option<crate::types::InstanceRequirementsRequest>,
+    pub(crate) storage_configuration: ::std::option::Option<crate::types::ManagedInstancesStorageConfiguration>,
     pub(crate) monitoring: ::std::option::Option<::std::string::String>,
-    pub(crate) capacity_reservations:
-        ::std::option::Option<crate::types::CapacityReservationRequest>,
+    pub(crate) capacity_reservations: ::std::option::Option<crate::types::CapacityReservationRequest>,
     pub(crate) instance_metadata_tags_propagation: ::std::option::Option<bool>,
-    pub(crate) local_storage_configuration:
-        ::std::option::Option<crate::types::ManagedInstancesLocalStorageConfiguration>,
+    pub(crate) local_storage_configuration: ::std::option::Option<crate::types::ManagedInstancesLocalStorageConfiguration>,
 }
 impl InstanceLaunchTemplateUpdateBuilder {
     /// <p>The updated Amazon Resource Name (ARN) of the Amazon EC2 instance profile for the managed instances.</p>
-    pub fn ec2_instance_profile_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn ec2_instance_profile_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.ec2_instance_profile_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The updated Amazon Resource Name (ARN) of the Amazon EC2 instance profile for the managed instances.</p>
-    pub fn set_ec2_instance_profile_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_ec2_instance_profile_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.ec2_instance_profile_arn = input;
         self
     }
@@ -117,69 +91,45 @@ impl InstanceLaunchTemplateUpdateBuilder {
         &self.ec2_instance_profile_arn
     }
     /// <p>The updated network configuration for the managed instances.</p>
-    pub fn network_configuration(
-        mut self,
-        input: crate::types::ManagedInstancesNetworkConfiguration,
-    ) -> Self {
+    pub fn network_configuration(mut self, input: crate::types::ManagedInstancesNetworkConfiguration) -> Self {
         self.network_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>The updated network configuration for the managed instances.</p>
-    pub fn set_network_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::ManagedInstancesNetworkConfiguration>,
-    ) -> Self {
+    pub fn set_network_configuration(mut self, input: ::std::option::Option<crate::types::ManagedInstancesNetworkConfiguration>) -> Self {
         self.network_configuration = input;
         self
     }
     /// <p>The updated network configuration for the managed instances.</p>
-    pub fn get_network_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::ManagedInstancesNetworkConfiguration> {
+    pub fn get_network_configuration(&self) -> &::std::option::Option<crate::types::ManagedInstancesNetworkConfiguration> {
         &self.network_configuration
     }
     /// <p>The updated instance type requirements for the capacity provider.</p>
-    pub fn instance_requirements(
-        mut self,
-        input: crate::types::InstanceRequirementsRequest,
-    ) -> Self {
+    pub fn instance_requirements(mut self, input: crate::types::InstanceRequirementsRequest) -> Self {
         self.instance_requirements = ::std::option::Option::Some(input);
         self
     }
     /// <p>The updated instance type requirements for the capacity provider.</p>
-    pub fn set_instance_requirements(
-        mut self,
-        input: ::std::option::Option<crate::types::InstanceRequirementsRequest>,
-    ) -> Self {
+    pub fn set_instance_requirements(mut self, input: ::std::option::Option<crate::types::InstanceRequirementsRequest>) -> Self {
         self.instance_requirements = input;
         self
     }
     /// <p>The updated instance type requirements for the capacity provider.</p>
-    pub fn get_instance_requirements(
-        &self,
-    ) -> &::std::option::Option<crate::types::InstanceRequirementsRequest> {
+    pub fn get_instance_requirements(&self) -> &::std::option::Option<crate::types::InstanceRequirementsRequest> {
         &self.instance_requirements
     }
     /// <p>The updated storage configuration for the managed instances.</p>
-    pub fn storage_configuration(
-        mut self,
-        input: crate::types::ManagedInstancesStorageConfiguration,
-    ) -> Self {
+    pub fn storage_configuration(mut self, input: crate::types::ManagedInstancesStorageConfiguration) -> Self {
         self.storage_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>The updated storage configuration for the managed instances.</p>
-    pub fn set_storage_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::ManagedInstancesStorageConfiguration>,
-    ) -> Self {
+    pub fn set_storage_configuration(mut self, input: ::std::option::Option<crate::types::ManagedInstancesStorageConfiguration>) -> Self {
         self.storage_configuration = input;
         self
     }
     /// <p>The updated storage configuration for the managed instances.</p>
-    pub fn get_storage_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::ManagedInstancesStorageConfiguration> {
+    pub fn get_storage_configuration(&self) -> &::std::option::Option<crate::types::ManagedInstancesStorageConfiguration> {
         &self.storage_configuration
     }
     /// <p>The updated monitoring level. Valid values are <code>BASIC</code> and <code>DETAILED</code>.</p>
@@ -197,25 +147,17 @@ impl InstanceLaunchTemplateUpdateBuilder {
         &self.monitoring
     }
     /// <p>The updated capacity reservation configuration.</p>
-    pub fn capacity_reservations(
-        mut self,
-        input: crate::types::CapacityReservationRequest,
-    ) -> Self {
+    pub fn capacity_reservations(mut self, input: crate::types::CapacityReservationRequest) -> Self {
         self.capacity_reservations = ::std::option::Option::Some(input);
         self
     }
     /// <p>The updated capacity reservation configuration.</p>
-    pub fn set_capacity_reservations(
-        mut self,
-        input: ::std::option::Option<crate::types::CapacityReservationRequest>,
-    ) -> Self {
+    pub fn set_capacity_reservations(mut self, input: ::std::option::Option<crate::types::CapacityReservationRequest>) -> Self {
         self.capacity_reservations = input;
         self
     }
     /// <p>The updated capacity reservation configuration.</p>
-    pub fn get_capacity_reservations(
-        &self,
-    ) -> &::std::option::Option<crate::types::CapacityReservationRequest> {
+    pub fn get_capacity_reservations(&self) -> &::std::option::Option<crate::types::CapacityReservationRequest> {
         &self.capacity_reservations
     }
     /// <p>Specifies whether instance tags are accessible from the instance metadata service (IMDS).</p>
@@ -224,10 +166,7 @@ impl InstanceLaunchTemplateUpdateBuilder {
         self
     }
     /// <p>Specifies whether instance tags are accessible from the instance metadata service (IMDS).</p>
-    pub fn set_instance_metadata_tags_propagation(
-        mut self,
-        input: ::std::option::Option<bool>,
-    ) -> Self {
+    pub fn set_instance_metadata_tags_propagation(mut self, input: ::std::option::Option<bool>) -> Self {
         self.instance_metadata_tags_propagation = input;
         self
     }
@@ -236,25 +175,17 @@ impl InstanceLaunchTemplateUpdateBuilder {
         &self.instance_metadata_tags_propagation
     }
     /// <p>The updated local storage configuration.</p>
-    pub fn local_storage_configuration(
-        mut self,
-        input: crate::types::ManagedInstancesLocalStorageConfiguration,
-    ) -> Self {
+    pub fn local_storage_configuration(mut self, input: crate::types::ManagedInstancesLocalStorageConfiguration) -> Self {
         self.local_storage_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>The updated local storage configuration.</p>
-    pub fn set_local_storage_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::ManagedInstancesLocalStorageConfiguration>,
-    ) -> Self {
+    pub fn set_local_storage_configuration(mut self, input: ::std::option::Option<crate::types::ManagedInstancesLocalStorageConfiguration>) -> Self {
         self.local_storage_configuration = input;
         self
     }
     /// <p>The updated local storage configuration.</p>
-    pub fn get_local_storage_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::ManagedInstancesLocalStorageConfiguration> {
+    pub fn get_local_storage_configuration(&self) -> &::std::option::Option<crate::types::ManagedInstancesLocalStorageConfiguration> {
         &self.local_storage_configuration
     }
     /// Consumes the builder and constructs a [`InstanceLaunchTemplateUpdate`](crate::types::InstanceLaunchTemplateUpdate).

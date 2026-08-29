@@ -17,17 +17,14 @@ impl DescribeQuotaShareInput {
 #[cfg(feature = "op_describe_quota_share")]
 impl DescribeQuotaShareInput {
     /// Creates a new builder-style object to manufacture [`DescribeQuotaShareInput`](crate::operation::describe_quota_share::DescribeQuotaShareInput).
-    pub fn builder(
-    ) -> crate::operation::describe_quota_share::builders::DescribeQuotaShareInputBuilder {
+    pub fn builder() -> crate::operation::describe_quota_share::builders::DescribeQuotaShareInputBuilder {
         crate::operation::describe_quota_share::builders::DescribeQuotaShareInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_quota_share")]
 /// A builder for [`DescribeQuotaShareInput`](crate::operation::describe_quota_share::DescribeQuotaShareInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeQuotaShareInputBuilder {
     pub(crate) quota_share_arn: ::std::option::Option<::std::string::String>,
@@ -36,18 +33,12 @@ pub struct DescribeQuotaShareInputBuilder {
 impl DescribeQuotaShareInputBuilder {
     /// <p>The Amazon Resource Name (ARN) of the quota share.</p>
     /// This field is required.
-    pub fn quota_share_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn quota_share_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.quota_share_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the quota share.</p>
-    pub fn set_quota_share_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_quota_share_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.quota_share_arn = input;
         self
     }
@@ -58,14 +49,10 @@ impl DescribeQuotaShareInputBuilder {
     /// Consumes the builder and constructs a [`DescribeQuotaShareInput`](crate::operation::describe_quota_share::DescribeQuotaShareInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_quota_share::DescribeQuotaShareInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_quota_share::DescribeQuotaShareInput {
-                quota_share_arn: self.quota_share_arn,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::describe_quota_share::DescribeQuotaShareInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::describe_quota_share::DescribeQuotaShareInput {
+            quota_share_arn: self.quota_share_arn,
+        })
     }
 }

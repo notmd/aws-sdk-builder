@@ -5,8 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ConsumableResourceProperties {
     /// <p>The list of consumable resources required by a job.</p>
-    pub consumable_resource_list:
-        ::std::option::Option<::std::vec::Vec<crate::types::ConsumableResourceRequirement>>,
+    pub consumable_resource_list: ::std::option::Option<::std::vec::Vec<crate::types::ConsumableResourceRequirement>>,
 }
 impl ConsumableResourceProperties {
     /// <p>The list of consumable resources required by a job.</p>
@@ -24,13 +23,10 @@ impl ConsumableResourceProperties {
 }
 
 /// A builder for [`ConsumableResourceProperties`](crate::types::ConsumableResourceProperties).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ConsumableResourcePropertiesBuilder {
-    pub(crate) consumable_resource_list:
-        ::std::option::Option<::std::vec::Vec<crate::types::ConsumableResourceRequirement>>,
+    pub(crate) consumable_resource_list: ::std::option::Option<::std::vec::Vec<crate::types::ConsumableResourceRequirement>>,
 }
 impl ConsumableResourcePropertiesBuilder {
     /// Appends an item to `consumable_resource_list`.
@@ -38,10 +34,7 @@ impl ConsumableResourcePropertiesBuilder {
     /// To override the contents of this collection use [`set_consumable_resource_list`](Self::set_consumable_resource_list).
     ///
     /// <p>The list of consumable resources required by a job.</p>
-    pub fn consumable_resource_list(
-        mut self,
-        input: crate::types::ConsumableResourceRequirement,
-    ) -> Self {
+    pub fn consumable_resource_list(mut self, input: crate::types::ConsumableResourceRequirement) -> Self {
         let mut v = self.consumable_resource_list.unwrap_or_default();
         v.push(input);
         self.consumable_resource_list = ::std::option::Option::Some(v);
@@ -56,9 +49,7 @@ impl ConsumableResourcePropertiesBuilder {
         self
     }
     /// <p>The list of consumable resources required by a job.</p>
-    pub fn get_consumable_resource_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ConsumableResourceRequirement>> {
+    pub fn get_consumable_resource_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConsumableResourceRequirement>> {
         &self.consumable_resource_list
     }
     /// Consumes the builder and constructs a [`ConsumableResourceProperties`](crate::types::ConsumableResourceProperties).

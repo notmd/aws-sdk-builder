@@ -63,9 +63,7 @@ impl ListServiceJobsFluentBuilder {
         }
     }
     /// Access the ListServiceJobs as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_service_jobs::builders::ListServiceJobsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_service_jobs::builders::ListServiceJobsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,14 +87,12 @@ impl ListServiceJobsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_service_jobs::ListServiceJobs::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::list_service_jobs::ListServiceJobs::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::list_service_jobs::ListServiceJobs::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::list_service_jobs::ListServiceJobs::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -109,31 +105,20 @@ impl ListServiceJobsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_service_jobs::paginator::ListServiceJobsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_service_jobs::paginator::ListServiceJobsPaginator {
-        crate::operation::list_service_jobs::paginator::ListServiceJobsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_service_jobs::paginator::ListServiceJobsPaginator {
+        crate::operation::list_service_jobs::paginator::ListServiceJobsPaginator::new(self.handle, self.inner)
     }
     /// <p>The name or ARN of the job queue with which to list service jobs.</p>
     pub fn job_queue(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -159,10 +144,7 @@ impl ListServiceJobsFluentBuilder {
     /// <p>The job status used to filter service jobs in the specified queue. If the <code>filters</code> parameter is specified, the <code>jobStatus</code> parameter is ignored and jobs with any status are returned. The exceptions are the <code>SHARE_IDENTIFIER</code> filter and <code>QUOTA_SHARE_NAME</code> filter, which can be used with <code>jobStatus</code>. If you don't specify a status, only <code>RUNNING</code> jobs are returned.</p><note>
     /// <p>The <code>SHARE_IDENTIFIER</code> filter or <code>QUOTA_SHARE_NAME</code> filter can be used with the <code>jobStatus</code> field to filter results.</p>
     /// </note>
-    pub fn set_job_status(
-        mut self,
-        input: ::std::option::Option<crate::types::ServiceJobStatus>,
-    ) -> Self {
+    pub fn set_job_status(mut self, input: ::std::option::Option<crate::types::ServiceJobStatus>) -> Self {
         self.inner = self.inner.set_job_status(input);
         self
     }
@@ -285,10 +267,7 @@ impl ListServiceJobsFluentBuilder {
     /// <p>The value for the filter is the quota management share name.</p>
     /// </dd>
     /// </dl>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>>) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }
@@ -327,9 +306,7 @@ impl ListServiceJobsFluentBuilder {
     /// <p>The value for the filter is the quota management share name.</p>
     /// </dd>
     /// </dl>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>> {
         self.inner.get_filters()
     }
 }

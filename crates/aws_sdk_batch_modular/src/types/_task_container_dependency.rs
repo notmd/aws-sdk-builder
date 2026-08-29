@@ -43,9 +43,7 @@ impl TaskContainerDependency {
 }
 
 /// A builder for [`TaskContainerDependency`](crate::types::TaskContainerDependency).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TaskContainerDependencyBuilder {
     pub(crate) container_name: ::std::option::Option<::std::string::String>,
@@ -53,18 +51,12 @@ pub struct TaskContainerDependencyBuilder {
 }
 impl TaskContainerDependencyBuilder {
     /// <p>A unique identifier for the container.</p>
-    pub fn container_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn container_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.container_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A unique identifier for the container.</p>
-    pub fn set_container_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_container_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.container_name = input;
         self
     }

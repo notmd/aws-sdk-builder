@@ -49,8 +49,7 @@ pub struct TaskContainerDetails {
     /// <p>The private repository authentication credentials to use.</p>
     pub repository_credentials: ::std::option::Option<crate::types::RepositoryCredentials>,
     /// <p>The type and amount of a resource to assign to a container. The only supported resource is a GPU.</p>
-    pub resource_requirements:
-        ::std::option::Option<::std::vec::Vec<crate::types::ResourceRequirement>>,
+    pub resource_requirements: ::std::option::Option<::std::vec::Vec<crate::types::ResourceRequirement>>,
     /// <p>The secrets to pass to the container. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying Sensitive Data</a> in the Amazon Elastic Container Service Developer Guide.</p>
     pub secrets: ::std::option::Option<::std::vec::Vec<crate::types::Secret>>,
     /// <p>A list of <code>ulimits</code> to set in the container. If a <code>ulimit</code> value is specified in a task definition, it overrides the default values set by Docker. This parameter maps to <code>Ulimits</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--ulimit</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
@@ -122,9 +121,7 @@ impl TaskContainerDetails {
         self.essential
     }
     /// <p>The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">Custom log</a> routing in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-    pub fn firelens_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::FirelensConfiguration> {
+    pub fn firelens_configuration(&self) -> ::std::option::Option<&crate::types::FirelensConfiguration> {
         self.firelens_configuration.as_ref()
     }
     /// <p>The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either <code>repository-url/image:tag</code> or <code>repository-url/image@digest</code>. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to <code>Image</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>IMAGE</code> parameter of the <a href="https://docs.docker.com/engine/reference/run/#security-configuration"> <i>docker run</i> </a>.</p>
@@ -173,9 +170,7 @@ impl TaskContainerDetails {
         self.readonly_root_filesystem
     }
     /// <p>The private repository authentication credentials to use.</p>
-    pub fn repository_credentials(
-        &self,
-    ) -> ::std::option::Option<&crate::types::RepositoryCredentials> {
+    pub fn repository_credentials(&self) -> ::std::option::Option<&crate::types::RepositoryCredentials> {
         self.repository_credentials.as_ref()
     }
     /// <p>The type and amount of a resource to assign to a container. The only supported resource is a GPU.</p>
@@ -260,14 +255,11 @@ impl TaskContainerDetails {
 }
 
 /// A builder for [`TaskContainerDetails`](crate::types::TaskContainerDetails).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TaskContainerDetailsBuilder {
     pub(crate) command: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) depends_on:
-        ::std::option::Option<::std::vec::Vec<crate::types::TaskContainerDependency>>,
+    pub(crate) depends_on: ::std::option::Option<::std::vec::Vec<crate::types::TaskContainerDependency>>,
     pub(crate) environment: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuePair>>,
     pub(crate) essential: ::std::option::Option<bool>,
     pub(crate) firelens_configuration: ::std::option::Option<crate::types::FirelensConfiguration>,
@@ -279,8 +271,7 @@ pub struct TaskContainerDetailsBuilder {
     pub(crate) privileged: ::std::option::Option<bool>,
     pub(crate) readonly_root_filesystem: ::std::option::Option<bool>,
     pub(crate) repository_credentials: ::std::option::Option<crate::types::RepositoryCredentials>,
-    pub(crate) resource_requirements:
-        ::std::option::Option<::std::vec::Vec<crate::types::ResourceRequirement>>,
+    pub(crate) resource_requirements: ::std::option::Option<::std::vec::Vec<crate::types::ResourceRequirement>>,
     pub(crate) secrets: ::std::option::Option<::std::vec::Vec<crate::types::Secret>>,
     pub(crate) ulimits: ::std::option::Option<::std::vec::Vec<crate::types::Ulimit>>,
     pub(crate) user: ::std::option::Option<::std::string::String>,
@@ -289,8 +280,7 @@ pub struct TaskContainerDetailsBuilder {
     pub(crate) exit_code: ::std::option::Option<i32>,
     pub(crate) reason: ::std::option::Option<::std::string::String>,
     pub(crate) log_stream_name: ::std::option::Option<::std::string::String>,
-    pub(crate) network_interfaces:
-        ::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>>,
+    pub(crate) network_interfaces: ::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>>,
 }
 impl TaskContainerDetailsBuilder {
     /// Appends an item to `command`.
@@ -305,10 +295,7 @@ impl TaskContainerDetailsBuilder {
         self
     }
     /// <p>The command that's passed to the container. This parameter maps to <code>Cmd</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>COMMAND</code> parameter to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. For more information, see <a href="https://docs.docker.com/engine/reference/builder/#cmd">https://docs.docker.com/engine/reference/builder/#cmd</a>.</p>
-    pub fn set_command(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_command(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.command = input;
         self
     }
@@ -328,17 +315,12 @@ impl TaskContainerDetailsBuilder {
         self
     }
     /// <p>A list of containers that this container depends on.</p>
-    pub fn set_depends_on(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::TaskContainerDependency>>,
-    ) -> Self {
+    pub fn set_depends_on(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TaskContainerDependency>>) -> Self {
         self.depends_on = input;
         self
     }
     /// <p>A list of containers that this container depends on.</p>
-    pub fn get_depends_on(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::TaskContainerDependency>> {
+    pub fn get_depends_on(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TaskContainerDependency>> {
         &self.depends_on
     }
     /// Appends an item to `environment`.
@@ -357,19 +339,14 @@ impl TaskContainerDetailsBuilder {
     /// <p>The environment variables to pass to a container. This parameter maps to <code>Env</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--env</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p><important>
     /// <p>We don't recommend using plaintext environment variables for sensitive information, such as credential data.</p>
     /// </important>
-    pub fn set_environment(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuePair>>,
-    ) -> Self {
+    pub fn set_environment(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuePair>>) -> Self {
         self.environment = input;
         self
     }
     /// <p>The environment variables to pass to a container. This parameter maps to <code>Env</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--env</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p><important>
     /// <p>We don't recommend using plaintext environment variables for sensitive information, such as credential data.</p>
     /// </important>
-    pub fn get_environment(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuePair>> {
+    pub fn get_environment(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuePair>> {
         &self.environment
     }
     /// <p>If the essential parameter of a container is marked as <code>true</code>, and that container fails or stops for any reason, all other containers that are part of the task are stopped. If the <code>essential</code> parameter of a container is marked as false, its failure doesn't affect the rest of the containers in a task. If this parameter is omitted, a container is assumed to be essential.</p>
@@ -395,17 +372,12 @@ impl TaskContainerDetailsBuilder {
         self
     }
     /// <p>The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">Custom log</a> routing in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-    pub fn set_firelens_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::FirelensConfiguration>,
-    ) -> Self {
+    pub fn set_firelens_configuration(mut self, input: ::std::option::Option<crate::types::FirelensConfiguration>) -> Self {
         self.firelens_configuration = input;
         self
     }
     /// <p>The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">Custom log</a> routing in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-    pub fn get_firelens_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::FirelensConfiguration> {
+    pub fn get_firelens_configuration(&self) -> &::std::option::Option<crate::types::FirelensConfiguration> {
         &self.firelens_configuration
     }
     /// <p>The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either <code>repository-url/image:tag</code> or <code>repository-url/image@digest</code>. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to <code>Image</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>IMAGE</code> parameter of the <a href="https://docs.docker.com/engine/reference/run/#security-configuration"> <i>docker run</i> </a>.</p>
@@ -432,10 +404,7 @@ impl TaskContainerDetailsBuilder {
     /// <p>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html">KernelCapabilities</a>.</p><note>
     /// <p>This parameter is not supported for Windows containers.</p>
     /// </note>
-    pub fn set_linux_parameters(
-        mut self,
-        input: ::std::option::Option<crate::types::LinuxParameters>,
-    ) -> Self {
+    pub fn set_linux_parameters(mut self, input: ::std::option::Option<crate::types::LinuxParameters>) -> Self {
         self.linux_parameters = input;
         self
     }
@@ -465,10 +434,7 @@ impl TaskContainerDetailsBuilder {
     /// <p>This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: sudo docker version <code>--format '{{.Server.APIVersion}}'</code></p><note>
     /// <p>The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the <code>ECS_AVAILABLE_LOGGING_DRIVERS</code> environment variable before containers placed on that instance can use these log configuration options. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon ECS container agent configuration</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
     /// </note>
-    pub fn set_log_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::LogConfiguration>,
-    ) -> Self {
+    pub fn set_log_configuration(mut self, input: ::std::option::Option<crate::types::LogConfiguration>) -> Self {
         self.log_configuration = input;
         self
     }
@@ -499,19 +465,14 @@ impl TaskContainerDetailsBuilder {
     /// <p>The mount points for data volumes in your container.</p>
     /// <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--volume</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
     /// <p>Windows containers can mount whole directories on the same drive as <code>$env:ProgramData</code>. Windows containers can't mount directories on a different drive, and mount point can't be across drives.</p>
-    pub fn set_mount_points(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::MountPoint>>,
-    ) -> Self {
+    pub fn set_mount_points(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MountPoint>>) -> Self {
         self.mount_points = input;
         self
     }
     /// <p>The mount points for data volumes in your container.</p>
     /// <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--volume</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
     /// <p>Windows containers can mount whole directories on the same drive as <code>$env:ProgramData</code>. Windows containers can't mount directories on a different drive, and mount point can't be across drives.</p>
-    pub fn get_mount_points(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MountPoint>> {
+    pub fn get_mount_points(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MountPoint>> {
         &self.mount_points
     }
     /// <p>The name of a container.</p>
@@ -574,17 +535,12 @@ impl TaskContainerDetailsBuilder {
         self
     }
     /// <p>The private repository authentication credentials to use.</p>
-    pub fn set_repository_credentials(
-        mut self,
-        input: ::std::option::Option<crate::types::RepositoryCredentials>,
-    ) -> Self {
+    pub fn set_repository_credentials(mut self, input: ::std::option::Option<crate::types::RepositoryCredentials>) -> Self {
         self.repository_credentials = input;
         self
     }
     /// <p>The private repository authentication credentials to use.</p>
-    pub fn get_repository_credentials(
-        &self,
-    ) -> &::std::option::Option<crate::types::RepositoryCredentials> {
+    pub fn get_repository_credentials(&self) -> &::std::option::Option<crate::types::RepositoryCredentials> {
         &self.repository_credentials
     }
     /// Appends an item to `resource_requirements`.
@@ -599,17 +555,12 @@ impl TaskContainerDetailsBuilder {
         self
     }
     /// <p>The type and amount of a resource to assign to a container. The only supported resource is a GPU.</p>
-    pub fn set_resource_requirements(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceRequirement>>,
-    ) -> Self {
+    pub fn set_resource_requirements(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceRequirement>>) -> Self {
         self.resource_requirements = input;
         self
     }
     /// <p>The type and amount of a resource to assign to a container. The only supported resource is a GPU.</p>
-    pub fn get_resource_requirements(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceRequirement>> {
+    pub fn get_resource_requirements(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceRequirement>> {
         &self.resource_requirements
     }
     /// Appends an item to `secrets`.
@@ -624,10 +575,7 @@ impl TaskContainerDetailsBuilder {
         self
     }
     /// <p>The secrets to pass to the container. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying Sensitive Data</a> in the Amazon Elastic Container Service Developer Guide.</p>
-    pub fn set_secrets(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Secret>>,
-    ) -> Self {
+    pub fn set_secrets(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Secret>>) -> Self {
         self.secrets = input;
         self
     }
@@ -655,10 +603,7 @@ impl TaskContainerDetailsBuilder {
     /// <p>This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: sudo docker version <code>--format '{{.Server.APIVersion}}'</code></p><note>
     /// <p>This parameter is not supported for Windows containers.</p>
     /// </note>
-    pub fn set_ulimits(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Ulimit>>,
-    ) -> Self {
+    pub fn set_ulimits(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Ulimit>>) -> Self {
         self.ulimits = input;
         self
     }
@@ -804,18 +749,12 @@ impl TaskContainerDetailsBuilder {
         &self.reason
     }
     /// <p>The name of the CloudWatch Logs log stream that's associated with the container. The log group for Batch jobs is /aws/batch/job. Each container attempt receives a log stream name when they reach the <code>RUNNING</code> status.</p>
-    pub fn log_stream_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_stream_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_stream_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the CloudWatch Logs log stream that's associated with the container. The log group for Batch jobs is /aws/batch/job. Each container attempt receives a log stream name when they reach the <code>RUNNING</code> status.</p>
-    pub fn set_log_stream_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_stream_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_stream_name = input;
         self
     }
@@ -835,17 +774,12 @@ impl TaskContainerDetailsBuilder {
         self
     }
     /// <p>The network interfaces that are associated with the job.</p>
-    pub fn set_network_interfaces(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>>,
-    ) -> Self {
+    pub fn set_network_interfaces(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>>) -> Self {
         self.network_interfaces = input;
         self
     }
     /// <p>The network interfaces that are associated with the job.</p>
-    pub fn get_network_interfaces(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>> {
+    pub fn get_network_interfaces(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>> {
         &self.network_interfaces
     }
     /// Consumes the builder and constructs a [`TaskContainerDetails`](crate::types::TaskContainerDetails).

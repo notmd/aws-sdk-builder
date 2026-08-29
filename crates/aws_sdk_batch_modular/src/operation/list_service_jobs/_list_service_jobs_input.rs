@@ -126,9 +126,7 @@ impl ListServiceJobsInput {
 
 #[cfg(feature = "op_list_service_jobs")]
 /// A builder for [`ListServiceJobsInput`](crate::operation::list_service_jobs::ListServiceJobsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListServiceJobsInputBuilder {
     pub(crate) job_queue: ::std::option::Option<::std::string::String>,
@@ -163,10 +161,7 @@ impl ListServiceJobsInputBuilder {
     /// <p>The job status used to filter service jobs in the specified queue. If the <code>filters</code> parameter is specified, the <code>jobStatus</code> parameter is ignored and jobs with any status are returned. The exceptions are the <code>SHARE_IDENTIFIER</code> filter and <code>QUOTA_SHARE_NAME</code> filter, which can be used with <code>jobStatus</code>. If you don't specify a status, only <code>RUNNING</code> jobs are returned.</p><note>
     /// <p>The <code>SHARE_IDENTIFIER</code> filter or <code>QUOTA_SHARE_NAME</code> filter can be used with the <code>jobStatus</code> field to filter results.</p>
     /// </note>
-    pub fn set_job_status(
-        mut self,
-        input: ::std::option::Option<crate::types::ServiceJobStatus>,
-    ) -> Self {
+    pub fn set_job_status(mut self, input: ::std::option::Option<crate::types::ServiceJobStatus>) -> Self {
         self.job_status = input;
         self
     }
@@ -290,10 +285,7 @@ impl ListServiceJobsInputBuilder {
     /// <p>The value for the filter is the quota management share name.</p>
     /// </dd>
     /// </dl>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>>) -> Self {
         self.filters = input;
         self
     }
@@ -332,18 +324,13 @@ impl ListServiceJobsInputBuilder {
     /// <p>The value for the filter is the quota management share name.</p>
     /// </dd>
     /// </dl>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>> {
         &self.filters
     }
     /// Consumes the builder and constructs a [`ListServiceJobsInput`](crate::operation::list_service_jobs::ListServiceJobsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_service_jobs::ListServiceJobsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::list_service_jobs::ListServiceJobsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_service_jobs::ListServiceJobsInput {
             job_queue: self.job_queue,
             job_status: self.job_status,

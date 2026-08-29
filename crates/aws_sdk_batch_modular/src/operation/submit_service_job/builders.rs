@@ -63,9 +63,7 @@ impl SubmitServiceJobFluentBuilder {
         }
     }
     /// Access the SubmitServiceJob as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::submit_service_job::builders::SubmitServiceJobInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::submit_service_job::builders::SubmitServiceJobInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,14 +87,12 @@ impl SubmitServiceJobFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::submit_service_job::SubmitServiceJob::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::submit_service_job::SubmitServiceJob::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::submit_service_job::SubmitServiceJob::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::submit_service_job::SubmitServiceJob::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -109,18 +105,12 @@ impl SubmitServiceJobFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -158,17 +148,12 @@ impl SubmitServiceJobFluentBuilder {
         self
     }
     /// <p>The retry strategy to use for failed service jobs that are submitted with this service job request.</p>
-    pub fn set_retry_strategy(
-        mut self,
-        input: ::std::option::Option<crate::types::ServiceJobRetryStrategy>,
-    ) -> Self {
+    pub fn set_retry_strategy(mut self, input: ::std::option::Option<crate::types::ServiceJobRetryStrategy>) -> Self {
         self.inner = self.inner.set_retry_strategy(input);
         self
     }
     /// <p>The retry strategy to use for failed service jobs that are submitted with this service job request.</p>
-    pub fn get_retry_strategy(
-        &self,
-    ) -> &::std::option::Option<crate::types::ServiceJobRetryStrategy> {
+    pub fn get_retry_strategy(&self) -> &::std::option::Option<crate::types::ServiceJobRetryStrategy> {
         self.inner.get_retry_strategy()
     }
     /// <p>The scheduling priority of the service job. Valid values are integers between 0 and 9999.</p>
@@ -186,18 +171,12 @@ impl SubmitServiceJobFluentBuilder {
         self.inner.get_scheduling_priority()
     }
     /// <p>The request, in JSON, for the service that the SubmitServiceJob operation is queueing.</p>
-    pub fn service_request_payload(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_request_payload(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.service_request_payload(input.into());
         self
     }
     /// <p>The request, in JSON, for the service that the SubmitServiceJob operation is queueing.</p>
-    pub fn set_service_request_payload(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_request_payload(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_service_request_payload(input);
         self
     }
@@ -211,10 +190,7 @@ impl SubmitServiceJobFluentBuilder {
         self
     }
     /// <p>The type of service job. For SageMaker Training jobs, specify <code>SAGEMAKER_TRAINING</code>.</p>
-    pub fn set_service_job_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ServiceJobType>,
-    ) -> Self {
+    pub fn set_service_job_type(mut self, input: ::std::option::Option<crate::types::ServiceJobType>) -> Self {
         self.inner = self.inner.set_service_job_type(input);
         self
     }
@@ -223,18 +199,12 @@ impl SubmitServiceJobFluentBuilder {
         self.inner.get_service_job_type()
     }
     /// <p>The share identifier for the service job. Don't specify this parameter if the job queue doesn't have a fair-share scheduling policy. If the job queue has a fair-share scheduling policy, then this parameter must be specified.</p>
-    pub fn share_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn share_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.share_identifier(input.into());
         self
     }
     /// <p>The share identifier for the service job. Don't specify this parameter if the job queue doesn't have a fair-share scheduling policy. If the job queue has a fair-share scheduling policy, then this parameter must be specified.</p>
-    pub fn set_share_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_share_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_share_identifier(input);
         self
     }
@@ -243,18 +213,12 @@ impl SubmitServiceJobFluentBuilder {
         self.inner.get_share_identifier()
     }
     /// <p>The quota share for the service job. Don't specify this parameter if the job queue doesn't have a quota share scheduling policy. If the job queue has a quota share scheduling policy, then this parameter must be specified.</p>
-    pub fn quota_share_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn quota_share_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.quota_share_name(input.into());
         self
     }
     /// <p>The quota share for the service job. Don't specify this parameter if the job queue doesn't have a quota share scheduling policy. If the job queue has a quota share scheduling policy, then this parameter must be specified.</p>
-    pub fn set_quota_share_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_quota_share_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_quota_share_name(input);
         self
     }
@@ -263,25 +227,17 @@ impl SubmitServiceJobFluentBuilder {
         self.inner.get_quota_share_name()
     }
     /// <p>Specifies the service job behavior when preempted.</p>
-    pub fn preemption_configuration(
-        mut self,
-        input: crate::types::ServiceJobPreemptionConfiguration,
-    ) -> Self {
+    pub fn preemption_configuration(mut self, input: crate::types::ServiceJobPreemptionConfiguration) -> Self {
         self.inner = self.inner.preemption_configuration(input);
         self
     }
     /// <p>Specifies the service job behavior when preempted.</p>
-    pub fn set_preemption_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::ServiceJobPreemptionConfiguration>,
-    ) -> Self {
+    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<crate::types::ServiceJobPreemptionConfiguration>) -> Self {
         self.inner = self.inner.set_preemption_configuration(input);
         self
     }
     /// <p>Specifies the service job behavior when preempted.</p>
-    pub fn get_preemption_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::ServiceJobPreemptionConfiguration> {
+    pub fn get_preemption_configuration(&self) -> &::std::option::Option<crate::types::ServiceJobPreemptionConfiguration> {
         self.inner.get_preemption_configuration()
     }
     /// <p>The timeout configuration for the service job. If none is specified, Batch defers to the default timeout of the underlying service handling the job.</p>
@@ -290,10 +246,7 @@ impl SubmitServiceJobFluentBuilder {
         self
     }
     /// <p>The timeout configuration for the service job. If none is specified, Batch defers to the default timeout of the underlying service handling the job.</p>
-    pub fn set_timeout_config(
-        mut self,
-        input: ::std::option::Option<crate::types::ServiceJobTimeout>,
-    ) -> Self {
+    pub fn set_timeout_config(mut self, input: ::std::option::Option<crate::types::ServiceJobTimeout>) -> Self {
         self.inner = self.inner.set_timeout_config(input);
         self
     }
@@ -307,30 +260,17 @@ impl SubmitServiceJobFluentBuilder {
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
     /// <p>The tags that you apply to the service job request. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
-    pub fn tags(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.tags(k.into(), v.into());
         self
     }
     /// <p>The tags that you apply to the service job request. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
     /// <p>The tags that you apply to the service job request. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
-    pub fn get_tags(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_tags()
     }
     /// <p>A unique identifier for the request. This token is used to ensure idempotency of requests. If this parameter is specified and two submit requests with identical payloads and <code>clientToken</code>s are received, these requests are considered the same request and the second request is rejected.</p>

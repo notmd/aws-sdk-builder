@@ -33,9 +33,7 @@ pub struct CreateComputeEnvironmentInput {
     pub service_role: ::std::option::Option<::std::string::String>,
     /// <p>The tags that you apply to the compute environment to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General Reference</i>.</p>
     /// <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations. These tags don't propagate to the underlying compute resources.</p>
-    pub tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>The details for the Amazon EKS cluster that supports the compute environment.</p><note>
     /// <p>To create a compute environment that uses EKS resources, the caller must have permissions to call <code>eks:DescribeCluster</code>.</p>
     /// </note>
@@ -87,11 +85,7 @@ impl CreateComputeEnvironmentInput {
     }
     /// <p>The tags that you apply to the compute environment to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General Reference</i>.</p>
     /// <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations. These tags don't propagate to the underlying compute resources.</p>
-    pub fn tags(
-        &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
     /// <p>The details for the Amazon EKS cluster that supports the compute environment.</p><note>
@@ -112,18 +106,14 @@ impl CreateComputeEnvironmentInput {
 #[cfg(feature = "op_create_compute_environment")]
 impl CreateComputeEnvironmentInput {
     /// Creates a new builder-style object to manufacture [`CreateComputeEnvironmentInput`](crate::operation::create_compute_environment::CreateComputeEnvironmentInput).
-    pub fn builder(
-    ) -> crate::operation::create_compute_environment::builders::CreateComputeEnvironmentInputBuilder
-    {
+    pub fn builder() -> crate::operation::create_compute_environment::builders::CreateComputeEnvironmentInputBuilder {
         crate::operation::create_compute_environment::builders::CreateComputeEnvironmentInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_create_compute_environment")]
 /// A builder for [`CreateComputeEnvironmentInput`](crate::operation::create_compute_environment::CreateComputeEnvironmentInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateComputeEnvironmentInputBuilder {
     pub(crate) compute_environment_name: ::std::option::Option<::std::string::String>,
@@ -132,9 +122,7 @@ pub struct CreateComputeEnvironmentInputBuilder {
     pub(crate) unmanagedv_cpus: ::std::option::Option<i32>,
     pub(crate) compute_resources: ::std::option::Option<crate::types::ComputeResource>,
     pub(crate) service_role: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) eks_configuration: ::std::option::Option<crate::types::EksConfiguration>,
     pub(crate) context: ::std::option::Option<::std::string::String>,
     pub(crate) ecs_settings: ::std::option::Option<crate::types::EcsSettings>,
@@ -143,18 +131,12 @@ pub struct CreateComputeEnvironmentInputBuilder {
 impl CreateComputeEnvironmentInputBuilder {
     /// <p>The name for your compute environment. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
     /// This field is required.
-    pub fn compute_environment_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn compute_environment_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.compute_environment_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name for your compute environment. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
-    pub fn set_compute_environment_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_compute_environment_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.compute_environment_name = input;
         self
     }
@@ -235,10 +217,7 @@ impl CreateComputeEnvironmentInputBuilder {
         self
     }
     /// <p>Details about the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
-    pub fn set_compute_resources(
-        mut self,
-        input: ::std::option::Option<crate::types::ComputeResource>,
-    ) -> Self {
+    pub fn set_compute_resources(mut self, input: ::std::option::Option<crate::types::ComputeResource>) -> Self {
         self.compute_resources = input;
         self
     }
@@ -284,11 +263,7 @@ impl CreateComputeEnvironmentInputBuilder {
     ///
     /// <p>The tags that you apply to the compute environment to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General Reference</i>.</p>
     /// <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations. These tags don't propagate to the underlying compute resources.</p>
-    pub fn tags(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.tags.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.tags = ::std::option::Option::Some(hash_map);
@@ -296,22 +271,13 @@ impl CreateComputeEnvironmentInputBuilder {
     }
     /// <p>The tags that you apply to the compute environment to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General Reference</i>.</p>
     /// <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations. These tags don't propagate to the underlying compute resources.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.tags = input;
         self
     }
     /// <p>The tags that you apply to the compute environment to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General Reference</i>.</p>
     /// <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations. These tags don't propagate to the underlying compute resources.</p>
-    pub fn get_tags(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// <p>The details for the Amazon EKS cluster that supports the compute environment.</p><note>
@@ -324,10 +290,7 @@ impl CreateComputeEnvironmentInputBuilder {
     /// <p>The details for the Amazon EKS cluster that supports the compute environment.</p><note>
     /// <p>To create a compute environment that uses EKS resources, the caller must have permissions to call <code>eks:DescribeCluster</code>.</p>
     /// </note>
-    pub fn set_eks_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::EksConfiguration>,
-    ) -> Self {
+    pub fn set_eks_configuration(mut self, input: ::std::option::Option<crate::types::EksConfiguration>) -> Self {
         self.eks_configuration = input;
         self
     }
@@ -357,10 +320,7 @@ impl CreateComputeEnvironmentInputBuilder {
         self
     }
     /// <p>The Amazon ECS settings for the compute environment. These settings control CloudWatch Container Insights collection for the compute environment.</p>
-    pub fn set_ecs_settings(
-        mut self,
-        input: ::std::option::Option<crate::types::EcsSettings>,
-    ) -> Self {
+    pub fn set_ecs_settings(mut self, input: ::std::option::Option<crate::types::EcsSettings>) -> Self {
         self.ecs_settings = input;
         self
     }
@@ -375,19 +335,17 @@ impl CreateComputeEnvironmentInputBuilder {
         crate::operation::create_compute_environment::CreateComputeEnvironmentInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::create_compute_environment::CreateComputeEnvironmentInput {
-                compute_environment_name: self.compute_environment_name,
-                r#type: self.r#type,
-                state: self.state,
-                unmanagedv_cpus: self.unmanagedv_cpus,
-                compute_resources: self.compute_resources,
-                service_role: self.service_role,
-                tags: self.tags,
-                eks_configuration: self.eks_configuration,
-                context: self.context,
-                ecs_settings: self.ecs_settings,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::create_compute_environment::CreateComputeEnvironmentInput {
+            compute_environment_name: self.compute_environment_name,
+            r#type: self.r#type,
+            state: self.state,
+            unmanagedv_cpus: self.unmanagedv_cpus,
+            compute_resources: self.compute_resources,
+            service_role: self.service_role,
+            tags: self.tags,
+            eks_configuration: self.eks_configuration,
+            context: self.context,
+            ecs_settings: self.ecs_settings,
+        })
     }
 }

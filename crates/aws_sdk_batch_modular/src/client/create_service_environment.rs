@@ -12,10 +12,7 @@ impl super::Client {
     ///   - [`service_environment_name(Option<String>)`](crate::operation::create_service_environment::CreateServiceEnvironmentOutput::service_environment_name): <p>The name of the service environment.</p>
     ///   - [`service_environment_arn(Option<String>)`](crate::operation::create_service_environment::CreateServiceEnvironmentOutput::service_environment_arn): <p>The Amazon Resource Name (ARN) of the service environment.</p>
     /// - On failure, responds with [`SdkError<CreateServiceEnvironmentError>`](crate::operation::create_service_environment::CreateServiceEnvironmentError)
-    pub fn create_service_environment(
-        &self,
-    ) -> crate::operation::create_service_environment::builders::CreateServiceEnvironmentFluentBuilder
-    {
+    pub fn create_service_environment(&self) -> crate::operation::create_service_environment::builders::CreateServiceEnvironmentFluentBuilder {
         crate::operation::create_service_environment::builders::CreateServiceEnvironmentFluentBuilder::new(self.handle.clone())
     }
 }

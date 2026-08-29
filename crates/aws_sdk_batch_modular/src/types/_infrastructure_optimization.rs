@@ -21,9 +21,7 @@ impl InfrastructureOptimization {
 }
 
 /// A builder for [`InfrastructureOptimization`](crate::types::InfrastructureOptimization).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InfrastructureOptimizationBuilder {
     pub(crate) scale_in_after: ::std::option::Option<i32>,

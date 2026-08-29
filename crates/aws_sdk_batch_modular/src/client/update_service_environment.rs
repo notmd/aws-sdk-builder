@@ -10,10 +10,7 @@ impl super::Client {
     ///   - [`service_environment_name(Option<String>)`](crate::operation::update_service_environment::UpdateServiceEnvironmentOutput::service_environment_name): <p>The name of the service environment that was updated.</p>
     ///   - [`service_environment_arn(Option<String>)`](crate::operation::update_service_environment::UpdateServiceEnvironmentOutput::service_environment_arn): <p>The Amazon Resource Name (ARN) of the service environment that was updated.</p>
     /// - On failure, responds with [`SdkError<UpdateServiceEnvironmentError>`](crate::operation::update_service_environment::UpdateServiceEnvironmentError)
-    pub fn update_service_environment(
-        &self,
-    ) -> crate::operation::update_service_environment::builders::UpdateServiceEnvironmentFluentBuilder
-    {
+    pub fn update_service_environment(&self) -> crate::operation::update_service_environment::builders::UpdateServiceEnvironmentFluentBuilder {
         crate::operation::update_service_environment::builders::UpdateServiceEnvironmentFluentBuilder::new(self.handle.clone())
     }
 }

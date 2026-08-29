@@ -23,13 +23,10 @@ impl TaskPropertiesOverride {
 }
 
 /// A builder for [`TaskPropertiesOverride`](crate::types::TaskPropertiesOverride).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TaskPropertiesOverrideBuilder {
-    pub(crate) containers:
-        ::std::option::Option<::std::vec::Vec<crate::types::TaskContainerOverrides>>,
+    pub(crate) containers: ::std::option::Option<::std::vec::Vec<crate::types::TaskContainerOverrides>>,
 }
 impl TaskPropertiesOverrideBuilder {
     /// Appends an item to `containers`.
@@ -44,23 +41,16 @@ impl TaskPropertiesOverrideBuilder {
         self
     }
     /// <p>The overrides for the container definition of a job.</p>
-    pub fn set_containers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::TaskContainerOverrides>>,
-    ) -> Self {
+    pub fn set_containers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TaskContainerOverrides>>) -> Self {
         self.containers = input;
         self
     }
     /// <p>The overrides for the container definition of a job.</p>
-    pub fn get_containers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::TaskContainerOverrides>> {
+    pub fn get_containers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TaskContainerOverrides>> {
         &self.containers
     }
     /// Consumes the builder and constructs a [`TaskPropertiesOverride`](crate::types::TaskPropertiesOverride).
     pub fn build(self) -> crate::types::TaskPropertiesOverride {
-        crate::types::TaskPropertiesOverride {
-            containers: self.containers,
-        }
+        crate::types::TaskPropertiesOverride { containers: self.containers }
     }
 }

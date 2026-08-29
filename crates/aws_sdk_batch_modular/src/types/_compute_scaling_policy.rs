@@ -47,9 +47,7 @@ impl ComputeScalingPolicy {
 }
 
 /// A builder for [`ComputeScalingPolicy`](crate::types::ComputeScalingPolicy).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ComputeScalingPolicyBuilder {
     pub(crate) min_scale_down_delay_minutes: ::std::option::Option<i32>,

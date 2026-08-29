@@ -63,9 +63,7 @@ impl CreateQuotaShareFluentBuilder {
         }
     }
     /// Access the CreateQuotaShare as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::create_quota_share::builders::CreateQuotaShareInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::create_quota_share::builders::CreateQuotaShareInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,14 +87,12 @@ impl CreateQuotaShareFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::create_quota_share::CreateQuotaShare::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::create_quota_share::CreateQuotaShare::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::create_quota_share::CreateQuotaShare::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::create_quota_share::CreateQuotaShare::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -109,34 +105,22 @@ impl CreateQuotaShareFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
-    pub fn quota_share_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn quota_share_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.quota_share_name(input.into());
         self
     }
     /// <p>The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
-    pub fn set_quota_share_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_quota_share_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_quota_share_name(input);
         self
     }
@@ -169,61 +153,40 @@ impl CreateQuotaShareFluentBuilder {
         self
     }
     /// <p>A list that specifies the quantity and type of compute capacity allocated to the quota share.</p>
-    pub fn set_capacity_limits(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>>,
-    ) -> Self {
+    pub fn set_capacity_limits(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>>) -> Self {
         self.inner = self.inner.set_capacity_limits(input);
         self
     }
     /// <p>A list that specifies the quantity and type of compute capacity allocated to the quota share.</p>
-    pub fn get_capacity_limits(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>> {
+    pub fn get_capacity_limits(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>> {
         self.inner.get_capacity_limits()
     }
     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
-    pub fn resource_sharing_configuration(
-        mut self,
-        input: crate::types::QuotaShareResourceSharingConfiguration,
-    ) -> Self {
+    pub fn resource_sharing_configuration(mut self, input: crate::types::QuotaShareResourceSharingConfiguration) -> Self {
         self.inner = self.inner.resource_sharing_configuration(input);
         self
     }
     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
-    pub fn set_resource_sharing_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration>,
-    ) -> Self {
+    pub fn set_resource_sharing_configuration(mut self, input: ::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration>) -> Self {
         self.inner = self.inner.set_resource_sharing_configuration(input);
         self
     }
     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
-    pub fn get_resource_sharing_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration> {
+    pub fn get_resource_sharing_configuration(&self) -> &::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration> {
         self.inner.get_resource_sharing_configuration()
     }
     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
-    pub fn preemption_configuration(
-        mut self,
-        input: crate::types::QuotaSharePreemptionConfiguration,
-    ) -> Self {
+    pub fn preemption_configuration(mut self, input: crate::types::QuotaSharePreemptionConfiguration) -> Self {
         self.inner = self.inner.preemption_configuration(input);
         self
     }
     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
-    pub fn set_preemption_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::QuotaSharePreemptionConfiguration>,
-    ) -> Self {
+    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<crate::types::QuotaSharePreemptionConfiguration>) -> Self {
         self.inner = self.inner.set_preemption_configuration(input);
         self
     }
     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
-    pub fn get_preemption_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::QuotaSharePreemptionConfiguration> {
+    pub fn get_preemption_configuration(&self) -> &::std::option::Option<crate::types::QuotaSharePreemptionConfiguration> {
         self.inner.get_preemption_configuration()
     }
     /// <p>The state of the quota share. If the quota share is <code>ENABLED</code>, it is able to accept jobs. If the quota share is <code>DISABLED</code>, new jobs won't be accepted but jobs already submitted can finish. The default state is <code>ENABLED</code>.</p>
@@ -232,10 +195,7 @@ impl CreateQuotaShareFluentBuilder {
         self
     }
     /// <p>The state of the quota share. If the quota share is <code>ENABLED</code>, it is able to accept jobs. If the quota share is <code>DISABLED</code>, new jobs won't be accepted but jobs already submitted can finish. The default state is <code>ENABLED</code>.</p>
-    pub fn set_state(
-        mut self,
-        input: ::std::option::Option<crate::types::QuotaShareState>,
-    ) -> Self {
+    pub fn set_state(mut self, input: ::std::option::Option<crate::types::QuotaShareState>) -> Self {
         self.inner = self.inner.set_state(input);
         self
     }
@@ -249,30 +209,17 @@ impl CreateQuotaShareFluentBuilder {
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
     /// <p>The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a> in <i>Batch User Guide</i>.</p>
-    pub fn tags(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.tags(k.into(), v.into());
         self
     }
     /// <p>The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a> in <i>Batch User Guide</i>.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
     /// <p>The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a> in <i>Batch User Guide</i>.</p>
-    pub fn get_tags(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_tags()
     }
 }

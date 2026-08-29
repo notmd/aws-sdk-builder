@@ -33,9 +33,7 @@ impl ShareAttributes {
 }
 
 /// A builder for [`ShareAttributes`](crate::types::ShareAttributes).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ShareAttributesBuilder {
     pub(crate) share_identifier: ::std::option::Option<::std::string::String>,
@@ -46,20 +44,14 @@ impl ShareAttributesBuilder {
     /// <p>There can be no more than 500 share identifiers active in a job queue.</p>
     /// <p>The string is limited to 255 alphanumeric characters, and can be followed by an asterisk (*).</p>
     /// This field is required.
-    pub fn share_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn share_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.share_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A share identifier or share identifier prefix. If the string ends with an asterisk (*), this entry specifies the weight factor to use for share identifiers that start with that prefix. The list of share identifiers in a fair-share policy can't overlap. For example, you can't have one that specifies a <code>shareIdentifier</code> of <code>UserA*</code> and another that specifies a <code>shareIdentifier</code> of <code>UserA1</code>.</p>
     /// <p>There can be no more than 500 share identifiers active in a job queue.</p>
     /// <p>The string is limited to 255 alphanumeric characters, and can be followed by an asterisk (*).</p>
-    pub fn set_share_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_share_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.share_identifier = input;
         self
     }

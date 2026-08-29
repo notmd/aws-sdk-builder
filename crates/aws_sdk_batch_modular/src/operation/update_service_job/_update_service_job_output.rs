@@ -36,17 +36,14 @@ impl ::aws_types::request_id::RequestId for UpdateServiceJobOutput {
 #[cfg(feature = "op_update_service_job")]
 impl UpdateServiceJobOutput {
     /// Creates a new builder-style object to manufacture [`UpdateServiceJobOutput`](crate::operation::update_service_job::UpdateServiceJobOutput).
-    pub fn builder() -> crate::operation::update_service_job::builders::UpdateServiceJobOutputBuilder
-    {
+    pub fn builder() -> crate::operation::update_service_job::builders::UpdateServiceJobOutputBuilder {
         crate::operation::update_service_job::builders::UpdateServiceJobOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_update_service_job")]
 /// A builder for [`UpdateServiceJobOutput`](crate::operation::update_service_job::UpdateServiceJobOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateServiceJobOutputBuilder {
     pub(crate) job_arn: ::std::option::Option<::std::string::String>,

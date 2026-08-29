@@ -36,18 +36,14 @@ impl ::aws_types::request_id::RequestId for RegisterJobDefinitionOutput {
 #[cfg(feature = "op_register_job_definition")]
 impl RegisterJobDefinitionOutput {
     /// Creates a new builder-style object to manufacture [`RegisterJobDefinitionOutput`](crate::operation::register_job_definition::RegisterJobDefinitionOutput).
-    pub fn builder(
-    ) -> crate::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder
-    {
+    pub fn builder() -> crate::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder {
         crate::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_register_job_definition")]
 /// A builder for [`RegisterJobDefinitionOutput`](crate::operation::register_job_definition::RegisterJobDefinitionOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RegisterJobDefinitionOutputBuilder {
     pub(crate) job_definition_name: ::std::option::Option<::std::string::String>,
@@ -59,18 +55,12 @@ pub struct RegisterJobDefinitionOutputBuilder {
 impl RegisterJobDefinitionOutputBuilder {
     /// <p>The name of the job definition.</p>
     /// This field is required.
-    pub fn job_definition_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn job_definition_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.job_definition_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the job definition.</p>
-    pub fn set_job_definition_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_job_definition_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.job_definition_name = input;
         self
     }
@@ -80,18 +70,12 @@ impl RegisterJobDefinitionOutputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the job definition.</p>
     /// This field is required.
-    pub fn job_definition_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn job_definition_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.job_definition_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the job definition.</p>
-    pub fn set_job_definition_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_job_definition_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.job_definition_arn = input;
         self
     }

@@ -6,11 +6,7 @@ impl super::Client {
     ///   - [`quota_share_arn(impl Into<String>)`](crate::operation::delete_quota_share::builders::DeleteQuotaShareFluentBuilder::quota_share_arn) / [`set_quota_share_arn(Option<String>)`](crate::operation::delete_quota_share::builders::DeleteQuotaShareFluentBuilder::set_quota_share_arn):<br>required: **true**<br><p>The Amazon Resource Name (ARN) of the quota share.</p><br>
     /// - On success, responds with [`DeleteQuotaShareOutput`](crate::operation::delete_quota_share::DeleteQuotaShareOutput)
     /// - On failure, responds with [`SdkError<DeleteQuotaShareError>`](crate::operation::delete_quota_share::DeleteQuotaShareError)
-    pub fn delete_quota_share(
-        &self,
-    ) -> crate::operation::delete_quota_share::builders::DeleteQuotaShareFluentBuilder {
-        crate::operation::delete_quota_share::builders::DeleteQuotaShareFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn delete_quota_share(&self) -> crate::operation::delete_quota_share::builders::DeleteQuotaShareFluentBuilder {
+        crate::operation::delete_quota_share::builders::DeleteQuotaShareFluentBuilder::new(self.handle.clone())
     }
 }

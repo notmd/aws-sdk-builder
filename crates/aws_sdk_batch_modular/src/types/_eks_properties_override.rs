@@ -21,9 +21,7 @@ impl EksPropertiesOverride {
 }
 
 /// A builder for [`EksPropertiesOverride`](crate::types::EksPropertiesOverride).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EksPropertiesOverrideBuilder {
     pub(crate) pod_properties: ::std::option::Option<crate::types::EksPodPropertiesOverride>,
@@ -35,17 +33,12 @@ impl EksPropertiesOverrideBuilder {
         self
     }
     /// <p>The overrides for the Kubernetes pod resources of a job.</p>
-    pub fn set_pod_properties(
-        mut self,
-        input: ::std::option::Option<crate::types::EksPodPropertiesOverride>,
-    ) -> Self {
+    pub fn set_pod_properties(mut self, input: ::std::option::Option<crate::types::EksPodPropertiesOverride>) -> Self {
         self.pod_properties = input;
         self
     }
     /// <p>The overrides for the Kubernetes pod resources of a job.</p>
-    pub fn get_pod_properties(
-        &self,
-    ) -> &::std::option::Option<crate::types::EksPodPropertiesOverride> {
+    pub fn get_pod_properties(&self) -> &::std::option::Option<crate::types::EksPodPropertiesOverride> {
         &self.pod_properties
     }
     /// Consumes the builder and constructs a [`EksPropertiesOverride`](crate::types::EksPropertiesOverride).

@@ -12,9 +12,7 @@ pub struct QuotaShareResourceSharingConfiguration {
 }
 impl QuotaShareResourceSharingConfiguration {
     /// <p>The resource sharing strategy for the quota share. The <code>RESERVE</code> strategy allows a quota share to reserve idle capacity for itself. <code>LEND</code> configures the share to lend its idle capacity to another share in need of capacity. The <code>LEND_AND_BORROW</code> strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.</p>
-    pub fn strategy(
-        &self,
-    ) -> ::std::option::Option<&crate::types::QuotaShareResourceSharingStrategy> {
+    pub fn strategy(&self) -> ::std::option::Option<&crate::types::QuotaShareResourceSharingStrategy> {
         self.strategy.as_ref()
     }
     /// <p>The maximum percentage of additional capacity that the quota share can borrow from other shares. <code>borrowLimit</code> can only be applied to quota shares with a strategy of <code>LEND_AND_BORROW</code>. This value is expressed as a percentage of the quota share's configured <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_QuotaShareCapacityLimit.html">CapacityLimits</a>.</p>
@@ -31,9 +29,7 @@ impl QuotaShareResourceSharingConfiguration {
 }
 
 /// A builder for [`QuotaShareResourceSharingConfiguration`](crate::types::QuotaShareResourceSharingConfiguration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct QuotaShareResourceSharingConfigurationBuilder {
     pub(crate) strategy: ::std::option::Option<crate::types::QuotaShareResourceSharingStrategy>,
@@ -47,17 +43,12 @@ impl QuotaShareResourceSharingConfigurationBuilder {
         self
     }
     /// <p>The resource sharing strategy for the quota share. The <code>RESERVE</code> strategy allows a quota share to reserve idle capacity for itself. <code>LEND</code> configures the share to lend its idle capacity to another share in need of capacity. The <code>LEND_AND_BORROW</code> strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.</p>
-    pub fn set_strategy(
-        mut self,
-        input: ::std::option::Option<crate::types::QuotaShareResourceSharingStrategy>,
-    ) -> Self {
+    pub fn set_strategy(mut self, input: ::std::option::Option<crate::types::QuotaShareResourceSharingStrategy>) -> Self {
         self.strategy = input;
         self
     }
     /// <p>The resource sharing strategy for the quota share. The <code>RESERVE</code> strategy allows a quota share to reserve idle capacity for itself. <code>LEND</code> configures the share to lend its idle capacity to another share in need of capacity. The <code>LEND_AND_BORROW</code> strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.</p>
-    pub fn get_strategy(
-        &self,
-    ) -> &::std::option::Option<crate::types::QuotaShareResourceSharingStrategy> {
+    pub fn get_strategy(&self) -> &::std::option::Option<crate::types::QuotaShareResourceSharingStrategy> {
         &self.strategy
     }
     /// <p>The maximum percentage of additional capacity that the quota share can borrow from other shares. <code>borrowLimit</code> can only be applied to quota shares with a strategy of <code>LEND_AND_BORROW</code>. This value is expressed as a percentage of the quota share's configured <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_QuotaShareCapacityLimit.html">CapacityLimits</a>.</p>

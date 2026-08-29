@@ -7,8 +7,7 @@ pub struct QuotaShareCapacityUtilization {
     /// <p>The name of the quota share.</p>
     pub quota_share_name: ::std::option::Option<::std::string::String>,
     /// <p>The capacity usage information for this quota share, including the units of compute capacity and quantity being used.</p>
-    pub capacity_usage:
-        ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityUsage>>,
+    pub capacity_usage: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityUsage>>,
 }
 impl QuotaShareCapacityUtilization {
     /// <p>The name of the quota share.</p>
@@ -30,29 +29,20 @@ impl QuotaShareCapacityUtilization {
 }
 
 /// A builder for [`QuotaShareCapacityUtilization`](crate::types::QuotaShareCapacityUtilization).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct QuotaShareCapacityUtilizationBuilder {
     pub(crate) quota_share_name: ::std::option::Option<::std::string::String>,
-    pub(crate) capacity_usage:
-        ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityUsage>>,
+    pub(crate) capacity_usage: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityUsage>>,
 }
 impl QuotaShareCapacityUtilizationBuilder {
     /// <p>The name of the quota share.</p>
-    pub fn quota_share_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn quota_share_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.quota_share_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the quota share.</p>
-    pub fn set_quota_share_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_quota_share_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.quota_share_name = input;
         self
     }
@@ -72,17 +62,12 @@ impl QuotaShareCapacityUtilizationBuilder {
         self
     }
     /// <p>The capacity usage information for this quota share, including the units of compute capacity and quantity being used.</p>
-    pub fn set_capacity_usage(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityUsage>>,
-    ) -> Self {
+    pub fn set_capacity_usage(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityUsage>>) -> Self {
         self.capacity_usage = input;
         self
     }
     /// <p>The capacity usage information for this quota share, including the units of compute capacity and quantity being used.</p>
-    pub fn get_capacity_usage(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityUsage>> {
+    pub fn get_capacity_usage(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityUsage>> {
         &self.capacity_usage
     }
     /// Consumes the builder and constructs a [`QuotaShareCapacityUtilization`](crate::types::QuotaShareCapacityUtilization).

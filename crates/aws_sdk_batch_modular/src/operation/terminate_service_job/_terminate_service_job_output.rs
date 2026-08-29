@@ -15,18 +15,14 @@ impl ::aws_types::request_id::RequestId for TerminateServiceJobOutput {
 #[cfg(feature = "op_terminate_service_job")]
 impl TerminateServiceJobOutput {
     /// Creates a new builder-style object to manufacture [`TerminateServiceJobOutput`](crate::operation::terminate_service_job::TerminateServiceJobOutput).
-    pub fn builder(
-    ) -> crate::operation::terminate_service_job::builders::TerminateServiceJobOutputBuilder {
-        crate::operation::terminate_service_job::builders::TerminateServiceJobOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::terminate_service_job::builders::TerminateServiceJobOutputBuilder {
+        crate::operation::terminate_service_job::builders::TerminateServiceJobOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_terminate_service_job")]
 /// A builder for [`TerminateServiceJobOutput`](crate::operation::terminate_service_job::TerminateServiceJobOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TerminateServiceJobOutputBuilder {
     _request_id: Option<String>,

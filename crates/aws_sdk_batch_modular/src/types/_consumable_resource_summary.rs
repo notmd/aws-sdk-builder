@@ -57,9 +57,7 @@ impl ConsumableResourceSummary {
 }
 
 /// A builder for [`ConsumableResourceSummary`](crate::types::ConsumableResourceSummary).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ConsumableResourceSummaryBuilder {
     pub(crate) consumable_resource_arn: ::std::option::Option<::std::string::String>,
@@ -71,18 +69,12 @@ pub struct ConsumableResourceSummaryBuilder {
 impl ConsumableResourceSummaryBuilder {
     /// <p>The Amazon Resource Name (ARN) of the consumable resource.</p>
     /// This field is required.
-    pub fn consumable_resource_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn consumable_resource_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.consumable_resource_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the consumable resource.</p>
-    pub fn set_consumable_resource_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_consumable_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.consumable_resource_arn = input;
         self
     }
@@ -92,18 +84,12 @@ impl ConsumableResourceSummaryBuilder {
     }
     /// <p>The name of the consumable resource.</p>
     /// This field is required.
-    pub fn consumable_resource_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn consumable_resource_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.consumable_resource_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the consumable resource.</p>
-    pub fn set_consumable_resource_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_consumable_resource_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.consumable_resource_name = input;
         self
     }
@@ -146,10 +132,7 @@ impl ConsumableResourceSummaryBuilder {
     /// <li>
     /// <p><code>NON_REPLENISHABLE</code></p></li>
     /// </ul>
-    pub fn resource_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.resource_type = ::std::option::Option::Some(input.into());
         self
     }
@@ -160,10 +143,7 @@ impl ConsumableResourceSummaryBuilder {
     /// <li>
     /// <p><code>NON_REPLENISHABLE</code></p></li>
     /// </ul>
-    pub fn set_resource_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource_type = input;
         self
     }

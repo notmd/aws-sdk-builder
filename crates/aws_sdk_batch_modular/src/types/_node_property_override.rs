@@ -15,8 +15,7 @@ pub struct NodePropertyOverride {
     /// <p>An object that contains the properties that you want to replace for the existing Amazon EKS resources of a job.</p>
     pub eks_properties_override: ::std::option::Option<crate::types::EksPropertiesOverride>,
     /// <p>An object that contains overrides for the consumable resources of a job.</p>
-    pub consumable_resource_properties_override:
-        ::std::option::Option<crate::types::ConsumableResourceProperties>,
+    pub consumable_resource_properties_override: ::std::option::Option<crate::types::ConsumableResourceProperties>,
 }
 impl NodePropertyOverride {
     /// <p>The range of nodes, using node index values, that's used to override. A range of <code>0:3</code> indicates nodes with index values of <code>0</code> through <code>3</code>. If the starting range value is omitted (<code>:n</code>), then <code>0</code> is used to start the range. If the ending range value is omitted (<code>n:</code>), then the highest possible node index is used to end the range.</p>
@@ -28,9 +27,7 @@ impl NodePropertyOverride {
         self.container_overrides.as_ref()
     }
     /// <p>An object that contains the properties that you want to replace for the existing Amazon ECS resources of a job.</p>
-    pub fn ecs_properties_override(
-        &self,
-    ) -> ::std::option::Option<&crate::types::EcsPropertiesOverride> {
+    pub fn ecs_properties_override(&self) -> ::std::option::Option<&crate::types::EcsPropertiesOverride> {
         self.ecs_properties_override.as_ref()
     }
     /// <p>An object that contains the instance types that you want to replace for the existing resources of a job.</p>
@@ -40,15 +37,11 @@ impl NodePropertyOverride {
         self.instance_types.as_deref().unwrap_or_default()
     }
     /// <p>An object that contains the properties that you want to replace for the existing Amazon EKS resources of a job.</p>
-    pub fn eks_properties_override(
-        &self,
-    ) -> ::std::option::Option<&crate::types::EksPropertiesOverride> {
+    pub fn eks_properties_override(&self) -> ::std::option::Option<&crate::types::EksPropertiesOverride> {
         self.eks_properties_override.as_ref()
     }
     /// <p>An object that contains overrides for the consumable resources of a job.</p>
-    pub fn consumable_resource_properties_override(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ConsumableResourceProperties> {
+    pub fn consumable_resource_properties_override(&self) -> ::std::option::Option<&crate::types::ConsumableResourceProperties> {
         self.consumable_resource_properties_override.as_ref()
     }
 }
@@ -60,9 +53,7 @@ impl NodePropertyOverride {
 }
 
 /// A builder for [`NodePropertyOverride`](crate::types::NodePropertyOverride).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct NodePropertyOverrideBuilder {
     pub(crate) target_nodes: ::std::option::Option<::std::string::String>,
@@ -70,8 +61,7 @@ pub struct NodePropertyOverrideBuilder {
     pub(crate) ecs_properties_override: ::std::option::Option<crate::types::EcsPropertiesOverride>,
     pub(crate) instance_types: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) eks_properties_override: ::std::option::Option<crate::types::EksPropertiesOverride>,
-    pub(crate) consumable_resource_properties_override:
-        ::std::option::Option<crate::types::ConsumableResourceProperties>,
+    pub(crate) consumable_resource_properties_override: ::std::option::Option<crate::types::ConsumableResourceProperties>,
 }
 impl NodePropertyOverrideBuilder {
     /// <p>The range of nodes, using node index values, that's used to override. A range of <code>0:3</code> indicates nodes with index values of <code>0</code> through <code>3</code>. If the starting range value is omitted (<code>:n</code>), then <code>0</code> is used to start the range. If the ending range value is omitted (<code>n:</code>), then the highest possible node index is used to end the range.</p>
@@ -95,17 +85,12 @@ impl NodePropertyOverrideBuilder {
         self
     }
     /// <p>The overrides that are sent to a node range.</p>
-    pub fn set_container_overrides(
-        mut self,
-        input: ::std::option::Option<crate::types::ContainerOverrides>,
-    ) -> Self {
+    pub fn set_container_overrides(mut self, input: ::std::option::Option<crate::types::ContainerOverrides>) -> Self {
         self.container_overrides = input;
         self
     }
     /// <p>The overrides that are sent to a node range.</p>
-    pub fn get_container_overrides(
-        &self,
-    ) -> &::std::option::Option<crate::types::ContainerOverrides> {
+    pub fn get_container_overrides(&self) -> &::std::option::Option<crate::types::ContainerOverrides> {
         &self.container_overrides
     }
     /// <p>An object that contains the properties that you want to replace for the existing Amazon ECS resources of a job.</p>
@@ -114,17 +99,12 @@ impl NodePropertyOverrideBuilder {
         self
     }
     /// <p>An object that contains the properties that you want to replace for the existing Amazon ECS resources of a job.</p>
-    pub fn set_ecs_properties_override(
-        mut self,
-        input: ::std::option::Option<crate::types::EcsPropertiesOverride>,
-    ) -> Self {
+    pub fn set_ecs_properties_override(mut self, input: ::std::option::Option<crate::types::EcsPropertiesOverride>) -> Self {
         self.ecs_properties_override = input;
         self
     }
     /// <p>An object that contains the properties that you want to replace for the existing Amazon ECS resources of a job.</p>
-    pub fn get_ecs_properties_override(
-        &self,
-    ) -> &::std::option::Option<crate::types::EcsPropertiesOverride> {
+    pub fn get_ecs_properties_override(&self) -> &::std::option::Option<crate::types::EcsPropertiesOverride> {
         &self.ecs_properties_override
     }
     /// Appends an item to `instance_types`.
@@ -132,27 +112,19 @@ impl NodePropertyOverrideBuilder {
     /// To override the contents of this collection use [`set_instance_types`](Self::set_instance_types).
     ///
     /// <p>An object that contains the instance types that you want to replace for the existing resources of a job.</p>
-    pub fn instance_types(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn instance_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.instance_types.unwrap_or_default();
         v.push(input.into());
         self.instance_types = ::std::option::Option::Some(v);
         self
     }
     /// <p>An object that contains the instance types that you want to replace for the existing resources of a job.</p>
-    pub fn set_instance_types(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_instance_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.instance_types = input;
         self
     }
     /// <p>An object that contains the instance types that you want to replace for the existing resources of a job.</p>
-    pub fn get_instance_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_instance_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.instance_types
     }
     /// <p>An object that contains the properties that you want to replace for the existing Amazon EKS resources of a job.</p>
@@ -161,39 +133,26 @@ impl NodePropertyOverrideBuilder {
         self
     }
     /// <p>An object that contains the properties that you want to replace for the existing Amazon EKS resources of a job.</p>
-    pub fn set_eks_properties_override(
-        mut self,
-        input: ::std::option::Option<crate::types::EksPropertiesOverride>,
-    ) -> Self {
+    pub fn set_eks_properties_override(mut self, input: ::std::option::Option<crate::types::EksPropertiesOverride>) -> Self {
         self.eks_properties_override = input;
         self
     }
     /// <p>An object that contains the properties that you want to replace for the existing Amazon EKS resources of a job.</p>
-    pub fn get_eks_properties_override(
-        &self,
-    ) -> &::std::option::Option<crate::types::EksPropertiesOverride> {
+    pub fn get_eks_properties_override(&self) -> &::std::option::Option<crate::types::EksPropertiesOverride> {
         &self.eks_properties_override
     }
     /// <p>An object that contains overrides for the consumable resources of a job.</p>
-    pub fn consumable_resource_properties_override(
-        mut self,
-        input: crate::types::ConsumableResourceProperties,
-    ) -> Self {
+    pub fn consumable_resource_properties_override(mut self, input: crate::types::ConsumableResourceProperties) -> Self {
         self.consumable_resource_properties_override = ::std::option::Option::Some(input);
         self
     }
     /// <p>An object that contains overrides for the consumable resources of a job.</p>
-    pub fn set_consumable_resource_properties_override(
-        mut self,
-        input: ::std::option::Option<crate::types::ConsumableResourceProperties>,
-    ) -> Self {
+    pub fn set_consumable_resource_properties_override(mut self, input: ::std::option::Option<crate::types::ConsumableResourceProperties>) -> Self {
         self.consumable_resource_properties_override = input;
         self
     }
     /// <p>An object that contains overrides for the consumable resources of a job.</p>
-    pub fn get_consumable_resource_properties_override(
-        &self,
-    ) -> &::std::option::Option<crate::types::ConsumableResourceProperties> {
+    pub fn get_consumable_resource_properties_override(&self) -> &::std::option::Option<crate::types::ConsumableResourceProperties> {
         &self.consumable_resource_properties_override
     }
     /// Consumes the builder and constructs a [`NodePropertyOverride`](crate::types::NodePropertyOverride).

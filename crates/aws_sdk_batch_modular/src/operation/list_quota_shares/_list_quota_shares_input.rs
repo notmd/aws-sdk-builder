@@ -40,9 +40,7 @@ impl ListQuotaSharesInput {
 
 #[cfg(feature = "op_list_quota_shares")]
 /// A builder for [`ListQuotaSharesInput`](crate::operation::list_quota_shares::ListQuotaSharesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListQuotaSharesInputBuilder {
     pub(crate) job_queue: ::std::option::Option<::std::string::String>,
@@ -103,10 +101,7 @@ impl ListQuotaSharesInputBuilder {
     /// Consumes the builder and constructs a [`ListQuotaSharesInput`](crate::operation::list_quota_shares::ListQuotaSharesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_quota_shares::ListQuotaSharesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::list_quota_shares::ListQuotaSharesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_quota_shares::ListQuotaSharesInput {
             job_queue: self.job_queue,
             max_results: self.max_results,

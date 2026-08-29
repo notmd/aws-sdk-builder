@@ -43,9 +43,7 @@ impl CapacityReservationRequest {
 }
 
 /// A builder for [`CapacityReservationRequest`](crate::types::CapacityReservationRequest).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CapacityReservationRequestBuilder {
     pub(crate) reservation_group_arn: ::std::option::Option<::std::string::String>,
@@ -53,18 +51,12 @@ pub struct CapacityReservationRequestBuilder {
 }
 impl CapacityReservationRequestBuilder {
     /// <p>The Amazon Resource Name (ARN) of the capacity reservation group to target.</p>
-    pub fn reservation_group_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn reservation_group_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.reservation_group_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the capacity reservation group to target.</p>
-    pub fn set_reservation_group_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_reservation_group_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.reservation_group_arn = input;
         self
     }
@@ -81,10 +73,7 @@ impl CapacityReservationRequestBuilder {
     /// <li>
     /// <p><code>RESERVATIONS_EXCLUDED</code> — Do not use capacity reservations.</p></li>
     /// </ul>
-    pub fn reservation_preference(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn reservation_preference(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.reservation_preference = ::std::option::Option::Some(input.into());
         self
     }
@@ -97,10 +86,7 @@ impl CapacityReservationRequestBuilder {
     /// <li>
     /// <p><code>RESERVATIONS_EXCLUDED</code> — Do not use capacity reservations.</p></li>
     /// </ul>
-    pub fn set_reservation_preference(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_reservation_preference(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.reservation_preference = input;
         self
     }

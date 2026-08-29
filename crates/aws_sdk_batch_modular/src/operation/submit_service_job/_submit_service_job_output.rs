@@ -36,17 +36,14 @@ impl ::aws_types::request_id::RequestId for SubmitServiceJobOutput {
 #[cfg(feature = "op_submit_service_job")]
 impl SubmitServiceJobOutput {
     /// Creates a new builder-style object to manufacture [`SubmitServiceJobOutput`](crate::operation::submit_service_job::SubmitServiceJobOutput).
-    pub fn builder() -> crate::operation::submit_service_job::builders::SubmitServiceJobOutputBuilder
-    {
+    pub fn builder() -> crate::operation::submit_service_job::builders::SubmitServiceJobOutputBuilder {
         crate::operation::submit_service_job::builders::SubmitServiceJobOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_submit_service_job")]
 /// A builder for [`SubmitServiceJobOutput`](crate::operation::submit_service_job::SubmitServiceJobOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SubmitServiceJobOutputBuilder {
     pub(crate) job_arn: ::std::option::Option<::std::string::String>,

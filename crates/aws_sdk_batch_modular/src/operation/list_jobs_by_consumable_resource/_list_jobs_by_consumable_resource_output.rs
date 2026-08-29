@@ -5,8 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListJobsByConsumableResourceOutput {
     /// <p>The list of jobs that require the specified consumable resources.</p>
-    pub jobs:
-        ::std::option::Option<::std::vec::Vec<crate::types::ListJobsByConsumableResourceSummary>>,
+    pub jobs: ::std::option::Option<::std::vec::Vec<crate::types::ListJobsByConsumableResourceSummary>>,
     /// <p>The <code>nextToken</code> value to include in a future <code>ListJobsByConsumableResource</code> request. When the results of a <code>ListJobsByConsumableResource</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -33,20 +32,17 @@ impl ::aws_types::request_id::RequestId for ListJobsByConsumableResourceOutput {
 #[cfg(feature = "op_list_jobs_by_consumable_resource")]
 impl ListJobsByConsumableResourceOutput {
     /// Creates a new builder-style object to manufacture [`ListJobsByConsumableResourceOutput`](crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput).
-    pub fn builder() -> crate::operation::list_jobs_by_consumable_resource::builders::ListJobsByConsumableResourceOutputBuilder{
+    pub fn builder() -> crate::operation::list_jobs_by_consumable_resource::builders::ListJobsByConsumableResourceOutputBuilder {
         crate::operation::list_jobs_by_consumable_resource::builders::ListJobsByConsumableResourceOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_jobs_by_consumable_resource")]
 /// A builder for [`ListJobsByConsumableResourceOutput`](crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListJobsByConsumableResourceOutputBuilder {
-    pub(crate) jobs:
-        ::std::option::Option<::std::vec::Vec<crate::types::ListJobsByConsumableResourceSummary>>,
+    pub(crate) jobs: ::std::option::Option<::std::vec::Vec<crate::types::ListJobsByConsumableResourceSummary>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -64,20 +60,12 @@ impl ListJobsByConsumableResourceOutputBuilder {
         self
     }
     /// <p>The list of jobs that require the specified consumable resources.</p>
-    pub fn set_jobs(
-        mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::ListJobsByConsumableResourceSummary>,
-        >,
-    ) -> Self {
+    pub fn set_jobs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ListJobsByConsumableResourceSummary>>) -> Self {
         self.jobs = input;
         self
     }
     /// <p>The list of jobs that require the specified consumable resources.</p>
-    pub fn get_jobs(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ListJobsByConsumableResourceSummary>>
-    {
+    pub fn get_jobs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ListJobsByConsumableResourceSummary>> {
         &self.jobs
     }
     /// <p>The <code>nextToken</code> value to include in a future <code>ListJobsByConsumableResource</code> request. When the results of a <code>ListJobsByConsumableResource</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -104,10 +92,7 @@ impl ListJobsByConsumableResourceOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListJobsByConsumableResourceOutput`](crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput
-    {
+    pub fn build(self) -> crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput {
         crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput {
             jobs: self.jobs,
             next_token: self.next_token,

@@ -38,9 +38,7 @@ impl Secret {
 }
 
 /// A builder for [`Secret`](crate::types::Secret).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SecretBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,

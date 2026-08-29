@@ -43,20 +43,14 @@ pub struct ListJobsFluentBuilder {
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_list_jobs")]
-impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::list_jobs::ListJobsOutput,
-        crate::operation::list_jobs::ListJobsError,
-    > for ListJobsFluentBuilder
+impl crate::client::customize::internal::CustomizableSend<crate::operation::list_jobs::ListJobsOutput, crate::operation::list_jobs::ListJobsError>
+    for ListJobsFluentBuilder
 {
     fn send(
         self,
         config_override: crate::config::Builder,
     ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::list_jobs::ListJobsOutput,
-            crate::operation::list_jobs::ListJobsError,
-        >,
+        crate::client::customize::internal::SendResult<crate::operation::list_jobs::ListJobsOutput, crate::operation::list_jobs::ListJobsError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -107,25 +101,16 @@ impl ListJobsFluentBuilder {
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
     pub fn customize(
         self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::list_jobs::ListJobsOutput,
-        crate::operation::list_jobs::ListJobsError,
-        Self,
-    > {
+    ) -> crate::client::customize::CustomizableOperation<crate::operation::list_jobs::ListJobsOutput, crate::operation::list_jobs::ListJobsError, Self>
+    {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -164,18 +149,12 @@ impl ListJobsFluentBuilder {
         self.inner.get_array_job_id()
     }
     /// <p>The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with this parameter lists all nodes that are associated with the specified job.</p>
-    pub fn multi_node_job_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn multi_node_job_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.multi_node_job_id(input.into());
         self
     }
     /// <p>The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with this parameter lists all nodes that are associated with the specified job.</p>
-    pub fn set_multi_node_job_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_multi_node_job_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_multi_node_job_id(input);
         self
     }
@@ -349,10 +328,7 @@ impl ListJobsFluentBuilder {
     /// <p>The value for the filter is the fairshare scheduling share identifier.</p>
     /// </dd>
     /// </dl>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>>) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }
@@ -391,9 +367,7 @@ impl ListJobsFluentBuilder {
     /// <p>The value for the filter is the fairshare scheduling share identifier.</p>
     /// </dd>
     /// </dl>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>> {
         self.inner.get_filters()
     }
 }

@@ -5,14 +5,11 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct QuotaSharePolicy {
     /// <p>The strategy that determines how idle resources are assigned to quota shares that are borrowing capacity. Currently, only <code>FIFO</code> is supported.</p>
-    pub idle_resource_assignment_strategy:
-        ::std::option::Option<crate::types::QuotaShareIdleResourceAssignmentStrategy>,
+    pub idle_resource_assignment_strategy: ::std::option::Option<crate::types::QuotaShareIdleResourceAssignmentStrategy>,
 }
 impl QuotaSharePolicy {
     /// <p>The strategy that determines how idle resources are assigned to quota shares that are borrowing capacity. Currently, only <code>FIFO</code> is supported.</p>
-    pub fn idle_resource_assignment_strategy(
-        &self,
-    ) -> ::std::option::Option<&crate::types::QuotaShareIdleResourceAssignmentStrategy> {
+    pub fn idle_resource_assignment_strategy(&self) -> ::std::option::Option<&crate::types::QuotaShareIdleResourceAssignmentStrategy> {
         self.idle_resource_assignment_strategy.as_ref()
     }
 }
@@ -24,21 +21,15 @@ impl QuotaSharePolicy {
 }
 
 /// A builder for [`QuotaSharePolicy`](crate::types::QuotaSharePolicy).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct QuotaSharePolicyBuilder {
-    pub(crate) idle_resource_assignment_strategy:
-        ::std::option::Option<crate::types::QuotaShareIdleResourceAssignmentStrategy>,
+    pub(crate) idle_resource_assignment_strategy: ::std::option::Option<crate::types::QuotaShareIdleResourceAssignmentStrategy>,
 }
 impl QuotaSharePolicyBuilder {
     /// <p>The strategy that determines how idle resources are assigned to quota shares that are borrowing capacity. Currently, only <code>FIFO</code> is supported.</p>
     /// This field is required.
-    pub fn idle_resource_assignment_strategy(
-        mut self,
-        input: crate::types::QuotaShareIdleResourceAssignmentStrategy,
-    ) -> Self {
+    pub fn idle_resource_assignment_strategy(mut self, input: crate::types::QuotaShareIdleResourceAssignmentStrategy) -> Self {
         self.idle_resource_assignment_strategy = ::std::option::Option::Some(input);
         self
     }
@@ -51,9 +42,7 @@ impl QuotaSharePolicyBuilder {
         self
     }
     /// <p>The strategy that determines how idle resources are assigned to quota shares that are borrowing capacity. Currently, only <code>FIFO</code> is supported.</p>
-    pub fn get_idle_resource_assignment_strategy(
-        &self,
-    ) -> &::std::option::Option<crate::types::QuotaShareIdleResourceAssignmentStrategy> {
+    pub fn get_idle_resource_assignment_strategy(&self) -> &::std::option::Option<crate::types::QuotaShareIdleResourceAssignmentStrategy> {
         &self.idle_resource_assignment_strategy
     }
     /// Consumes the builder and constructs a [`QuotaSharePolicy`](crate::types::QuotaSharePolicy).

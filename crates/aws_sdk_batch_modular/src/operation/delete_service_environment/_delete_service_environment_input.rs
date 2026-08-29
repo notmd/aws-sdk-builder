@@ -17,18 +17,14 @@ impl DeleteServiceEnvironmentInput {
 #[cfg(feature = "op_delete_service_environment")]
 impl DeleteServiceEnvironmentInput {
     /// Creates a new builder-style object to manufacture [`DeleteServiceEnvironmentInput`](crate::operation::delete_service_environment::DeleteServiceEnvironmentInput).
-    pub fn builder(
-    ) -> crate::operation::delete_service_environment::builders::DeleteServiceEnvironmentInputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_service_environment::builders::DeleteServiceEnvironmentInputBuilder {
         crate::operation::delete_service_environment::builders::DeleteServiceEnvironmentInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_service_environment")]
 /// A builder for [`DeleteServiceEnvironmentInput`](crate::operation::delete_service_environment::DeleteServiceEnvironmentInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteServiceEnvironmentInputBuilder {
     pub(crate) service_environment: ::std::option::Option<::std::string::String>,
@@ -37,18 +33,12 @@ pub struct DeleteServiceEnvironmentInputBuilder {
 impl DeleteServiceEnvironmentInputBuilder {
     /// <p>The name or ARN of the service environment to delete.</p>
     /// This field is required.
-    pub fn service_environment(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_environment(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.service_environment = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name or ARN of the service environment to delete.</p>
-    pub fn set_service_environment(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_environment(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.service_environment = input;
         self
     }
@@ -63,10 +53,8 @@ impl DeleteServiceEnvironmentInputBuilder {
         crate::operation::delete_service_environment::DeleteServiceEnvironmentInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_service_environment::DeleteServiceEnvironmentInput {
-                service_environment: self.service_environment,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_service_environment::DeleteServiceEnvironmentInput {
+            service_environment: self.service_environment,
+        })
     }
 }

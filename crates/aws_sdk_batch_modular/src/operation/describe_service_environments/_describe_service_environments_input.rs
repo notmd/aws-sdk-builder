@@ -35,16 +35,14 @@ impl DescribeServiceEnvironmentsInput {
 #[cfg(feature = "op_describe_service_environments")]
 impl DescribeServiceEnvironmentsInput {
     /// Creates a new builder-style object to manufacture [`DescribeServiceEnvironmentsInput`](crate::operation::describe_service_environments::DescribeServiceEnvironmentsInput).
-    pub fn builder() -> crate::operation::describe_service_environments::builders::DescribeServiceEnvironmentsInputBuilder{
+    pub fn builder() -> crate::operation::describe_service_environments::builders::DescribeServiceEnvironmentsInputBuilder {
         crate::operation::describe_service_environments::builders::DescribeServiceEnvironmentsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_service_environments")]
 /// A builder for [`DescribeServiceEnvironmentsInput`](crate::operation::describe_service_environments::DescribeServiceEnvironmentsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeServiceEnvironmentsInputBuilder {
     pub(crate) service_environments: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -58,27 +56,19 @@ impl DescribeServiceEnvironmentsInputBuilder {
     /// To override the contents of this collection use [`set_service_environments`](Self::set_service_environments).
     ///
     /// <p>An array of service environment names or ARN entries.</p>
-    pub fn service_environments(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_environments(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.service_environments.unwrap_or_default();
         v.push(input.into());
         self.service_environments = ::std::option::Option::Some(v);
         self
     }
     /// <p>An array of service environment names or ARN entries.</p>
-    pub fn set_service_environments(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_service_environments(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.service_environments = input;
         self
     }
     /// <p>An array of service environment names or ARN entries.</p>
-    pub fn get_service_environments(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_service_environments(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.service_environments
     }
     /// <p>The maximum number of results returned by <code>DescribeServiceEnvironments</code> in paginated output. When this parameter is used, <code>DescribeServiceEnvironments</code> only returns <code>maxResults</code> results in a single page and a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeServiceEnvironments</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>DescribeServiceEnvironments</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
@@ -122,12 +112,10 @@ impl DescribeServiceEnvironmentsInputBuilder {
         crate::operation::describe_service_environments::DescribeServiceEnvironmentsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_service_environments::DescribeServiceEnvironmentsInput {
-                service_environments: self.service_environments,
-                max_results: self.max_results,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::describe_service_environments::DescribeServiceEnvironmentsInput {
+            service_environments: self.service_environments,
+            max_results: self.max_results,
+            next_token: self.next_token,
+        })
     }
 }

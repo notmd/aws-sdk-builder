@@ -18,10 +18,7 @@ pub fn ser_update_managed_instances_provider_configuration(
     if let Some(var_5) = &input.infrastructure_optimization {
         #[allow(unused_mut)]
         let mut object_6 = object.key("infrastructureOptimization").start_object();
-        crate::protocol_serde::shape_infrastructure_optimization::ser_infrastructure_optimization(
-            &mut object_6,
-            var_5,
-        )?;
+        crate::protocol_serde::shape_infrastructure_optimization::ser_infrastructure_optimization(&mut object_6, var_5)?;
         object_6.finish();
     }
     Ok(())

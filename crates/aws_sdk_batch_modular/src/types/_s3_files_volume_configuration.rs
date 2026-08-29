@@ -39,9 +39,7 @@ impl S3FilesVolumeConfiguration {
 }
 
 /// A builder for [`S3FilesVolumeConfiguration`](crate::types::S3FilesVolumeConfiguration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct S3FilesVolumeConfigurationBuilder {
     pub(crate) file_system_arn: ::std::option::Option<::std::string::String>,
@@ -52,18 +50,12 @@ pub struct S3FilesVolumeConfigurationBuilder {
 impl S3FilesVolumeConfigurationBuilder {
     /// <p>The Amazon Resource Name (ARN) of the S3Files file system to use.</p>
     /// This field is required.
-    pub fn file_system_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn file_system_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.file_system_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the S3Files file system to use.</p>
-    pub fn set_file_system_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_file_system_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.file_system_arn = input;
         self
     }
@@ -72,18 +64,12 @@ impl S3FilesVolumeConfigurationBuilder {
         &self.file_system_arn
     }
     /// <p>The directory within the S3Files file system to mount as the root directory.</p>
-    pub fn root_directory(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn root_directory(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.root_directory = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The directory within the S3Files file system to mount as the root directory.</p>
-    pub fn set_root_directory(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_root_directory(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.root_directory = input;
         self
     }
@@ -106,18 +92,12 @@ impl S3FilesVolumeConfigurationBuilder {
         &self.transit_encryption_port
     }
     /// <p>The Amazon Resource Name (ARN) of the S3Files access point to use.</p>
-    pub fn access_point_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn access_point_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.access_point_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the S3Files access point to use.</p>
-    pub fn set_access_point_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_access_point_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.access_point_arn = input;
         self
     }

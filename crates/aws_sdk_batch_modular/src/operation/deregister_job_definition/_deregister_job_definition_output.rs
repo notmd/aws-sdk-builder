@@ -15,18 +15,14 @@ impl ::aws_types::request_id::RequestId for DeregisterJobDefinitionOutput {
 #[cfg(feature = "op_deregister_job_definition")]
 impl DeregisterJobDefinitionOutput {
     /// Creates a new builder-style object to manufacture [`DeregisterJobDefinitionOutput`](crate::operation::deregister_job_definition::DeregisterJobDefinitionOutput).
-    pub fn builder(
-    ) -> crate::operation::deregister_job_definition::builders::DeregisterJobDefinitionOutputBuilder
-    {
+    pub fn builder() -> crate::operation::deregister_job_definition::builders::DeregisterJobDefinitionOutputBuilder {
         crate::operation::deregister_job_definition::builders::DeregisterJobDefinitionOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_deregister_job_definition")]
 /// A builder for [`DeregisterJobDefinitionOutput`](crate::operation::deregister_job_definition::DeregisterJobDefinitionOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeregisterJobDefinitionOutputBuilder {
     _request_id: Option<String>,
@@ -43,9 +39,7 @@ impl DeregisterJobDefinitionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeregisterJobDefinitionOutput`](crate::operation::deregister_job_definition::DeregisterJobDefinitionOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::deregister_job_definition::DeregisterJobDefinitionOutput {
+    pub fn build(self) -> crate::operation::deregister_job_definition::DeregisterJobDefinitionOutput {
         crate::operation::deregister_job_definition::DeregisterJobDefinitionOutput {
             _request_id: self._request_id,
         }

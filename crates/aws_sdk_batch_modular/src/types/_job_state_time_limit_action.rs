@@ -39,9 +39,7 @@ impl JobStateTimeLimitAction {
 }
 
 /// A builder for [`JobStateTimeLimitAction`](crate::types::JobStateTimeLimitAction).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct JobStateTimeLimitActionBuilder {
     pub(crate) reason: ::std::option::Option<::std::string::String>,
@@ -72,10 +70,7 @@ impl JobStateTimeLimitActionBuilder {
         self
     }
     /// <p>The state of the job needed to trigger the action. The only supported value is <code>RUNNABLE</code>.</p>
-    pub fn set_state(
-        mut self,
-        input: ::std::option::Option<crate::types::JobStateTimeLimitActionsState>,
-    ) -> Self {
+    pub fn set_state(mut self, input: ::std::option::Option<crate::types::JobStateTimeLimitActionsState>) -> Self {
         self.state = input;
         self
     }
@@ -105,17 +100,12 @@ impl JobStateTimeLimitActionBuilder {
         self
     }
     /// <p>The action to take when a job is at the head of the job queue in the specified state for the specified period of time. For job queues connected to a <code>ECS</code>, <code>FARGATE</code> or <code>EKS</code> compute environment, the only supported value is <code>CANCEL</code>, which will cancel the job. For job queues connected to a <code>SAGEMAKER_TRAINING</code> service environment, the only supported value is <code>TERMINATE</code>, which will terminate the job.</p>
-    pub fn set_action(
-        mut self,
-        input: ::std::option::Option<crate::types::JobStateTimeLimitActionsAction>,
-    ) -> Self {
+    pub fn set_action(mut self, input: ::std::option::Option<crate::types::JobStateTimeLimitActionsAction>) -> Self {
         self.action = input;
         self
     }
     /// <p>The action to take when a job is at the head of the job queue in the specified state for the specified period of time. For job queues connected to a <code>ECS</code>, <code>FARGATE</code> or <code>EKS</code> compute environment, the only supported value is <code>CANCEL</code>, which will cancel the job. For job queues connected to a <code>SAGEMAKER_TRAINING</code> service environment, the only supported value is <code>TERMINATE</code>, which will terminate the job.</p>
-    pub fn get_action(
-        &self,
-    ) -> &::std::option::Option<crate::types::JobStateTimeLimitActionsAction> {
+    pub fn get_action(&self) -> &::std::option::Option<crate::types::JobStateTimeLimitActionsAction> {
         &self.action
     }
     /// Consumes the builder and constructs a [`JobStateTimeLimitAction`](crate::types::JobStateTimeLimitAction).

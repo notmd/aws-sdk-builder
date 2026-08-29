@@ -15,18 +15,14 @@ impl ::aws_types::request_id::RequestId for DeleteConsumableResourceOutput {
 #[cfg(feature = "op_delete_consumable_resource")]
 impl DeleteConsumableResourceOutput {
     /// Creates a new builder-style object to manufacture [`DeleteConsumableResourceOutput`](crate::operation::delete_consumable_resource::DeleteConsumableResourceOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_consumable_resource::builders::DeleteConsumableResourceOutputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_consumable_resource::builders::DeleteConsumableResourceOutputBuilder {
         crate::operation::delete_consumable_resource::builders::DeleteConsumableResourceOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_consumable_resource")]
 /// A builder for [`DeleteConsumableResourceOutput`](crate::operation::delete_consumable_resource::DeleteConsumableResourceOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteConsumableResourceOutputBuilder {
     _request_id: Option<String>,
@@ -43,9 +39,7 @@ impl DeleteConsumableResourceOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteConsumableResourceOutput`](crate::operation::delete_consumable_resource::DeleteConsumableResourceOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::delete_consumable_resource::DeleteConsumableResourceOutput {
+    pub fn build(self) -> crate::operation::delete_consumable_resource::DeleteConsumableResourceOutput {
         crate::operation::delete_consumable_resource::DeleteConsumableResourceOutput {
             _request_id: self._request_id,
         }

@@ -29,9 +29,7 @@ impl FrontOfQueueDetail {
 }
 
 /// A builder for [`FrontOfQueueDetail`](crate::types::FrontOfQueueDetail).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct FrontOfQueueDetailBuilder {
     pub(crate) jobs: ::std::option::Option<::std::vec::Vec<crate::types::FrontOfQueueJobSummary>>,
@@ -50,17 +48,12 @@ impl FrontOfQueueDetailBuilder {
         self
     }
     /// <p>The Amazon Resource Names (ARNs) of the first 100 <code>RUNNABLE</code> jobs in a named job queue. For first-in-first-out (FIFO) job queues, jobs are ordered based on their submission time. For fair-share scheduling (FSS) job queues, jobs are ordered based on their job priority and share usage.</p>
-    pub fn set_jobs(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::FrontOfQueueJobSummary>>,
-    ) -> Self {
+    pub fn set_jobs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FrontOfQueueJobSummary>>) -> Self {
         self.jobs = input;
         self
     }
     /// <p>The Amazon Resource Names (ARNs) of the first 100 <code>RUNNABLE</code> jobs in a named job queue. For first-in-first-out (FIFO) job queues, jobs are ordered based on their submission time. For fair-share scheduling (FSS) job queues, jobs are ordered based on their job priority and share usage.</p>
-    pub fn get_jobs(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::FrontOfQueueJobSummary>> {
+    pub fn get_jobs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FrontOfQueueJobSummary>> {
         &self.jobs
     }
     /// <p>The Unix timestamp (in milliseconds) for when each of the first 100 <code>RUNNABLE</code> jobs were last updated.</p>

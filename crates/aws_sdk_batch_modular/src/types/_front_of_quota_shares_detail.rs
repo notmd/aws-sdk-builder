@@ -5,12 +5,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct FrontOfQuotaSharesDetail {
     /// <p>Contains a list of the first <code>RUNNABLE</code> job in each named quota share.</p>
-    pub quota_shares: ::std::option::Option<
-        ::std::collections::HashMap<
-            ::std::string::String,
-            ::std::vec::Vec<crate::types::FrontOfQuotaShareJobSummary>,
-        >,
-    >,
+    pub quota_shares:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::FrontOfQuotaShareJobSummary>>>,
     /// <p>The Unix timestamp (in milliseconds) for when the first <code>RUNNABLE</code> job per quota share were all last updated.</p>
     pub last_updated_at: ::std::option::Option<i64>,
 }
@@ -18,12 +14,7 @@ impl FrontOfQuotaSharesDetail {
     /// <p>Contains a list of the first <code>RUNNABLE</code> job in each named quota share.</p>
     pub fn quota_shares(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<
-            ::std::string::String,
-            ::std::vec::Vec<crate::types::FrontOfQuotaShareJobSummary>,
-        >,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::FrontOfQuotaShareJobSummary>>> {
         self.quota_shares.as_ref()
     }
     /// <p>The Unix timestamp (in milliseconds) for when the first <code>RUNNABLE</code> job per quota share were all last updated.</p>
@@ -39,17 +30,11 @@ impl FrontOfQuotaSharesDetail {
 }
 
 /// A builder for [`FrontOfQuotaSharesDetail`](crate::types::FrontOfQuotaSharesDetail).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct FrontOfQuotaSharesDetailBuilder {
-    pub(crate) quota_shares: ::std::option::Option<
-        ::std::collections::HashMap<
-            ::std::string::String,
-            ::std::vec::Vec<crate::types::FrontOfQuotaShareJobSummary>,
-        >,
-    >,
+    pub(crate) quota_shares:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::FrontOfQuotaShareJobSummary>>>,
     pub(crate) last_updated_at: ::std::option::Option<i64>,
 }
 impl FrontOfQuotaSharesDetailBuilder {
@@ -71,12 +56,7 @@ impl FrontOfQuotaSharesDetailBuilder {
     /// <p>Contains a list of the first <code>RUNNABLE</code> job in each named quota share.</p>
     pub fn set_quota_shares(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<
-                ::std::string::String,
-                ::std::vec::Vec<crate::types::FrontOfQuotaShareJobSummary>,
-            >,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::FrontOfQuotaShareJobSummary>>>,
     ) -> Self {
         self.quota_shares = input;
         self
@@ -84,12 +64,7 @@ impl FrontOfQuotaSharesDetailBuilder {
     /// <p>Contains a list of the first <code>RUNNABLE</code> job in each named quota share.</p>
     pub fn get_quota_shares(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<
-            ::std::string::String,
-            ::std::vec::Vec<crate::types::FrontOfQuotaShareJobSummary>,
-        >,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::FrontOfQuotaShareJobSummary>>> {
         &self.quota_shares
     }
     /// <p>The Unix timestamp (in milliseconds) for when the first <code>RUNNABLE</code> job per quota share were all last updated.</p>

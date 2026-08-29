@@ -28,18 +28,14 @@ impl ListSchedulingPoliciesInput {
 #[cfg(feature = "op_list_scheduling_policies")]
 impl ListSchedulingPoliciesInput {
     /// Creates a new builder-style object to manufacture [`ListSchedulingPoliciesInput`](crate::operation::list_scheduling_policies::ListSchedulingPoliciesInput).
-    pub fn builder(
-    ) -> crate::operation::list_scheduling_policies::builders::ListSchedulingPoliciesInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_scheduling_policies::builders::ListSchedulingPoliciesInputBuilder {
         crate::operation::list_scheduling_policies::builders::ListSchedulingPoliciesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_scheduling_policies")]
 /// A builder for [`ListSchedulingPoliciesInput`](crate::operation::list_scheduling_policies::ListSchedulingPoliciesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListSchedulingPoliciesInputBuilder {
     pub(crate) max_results: ::std::option::Option<i32>,
@@ -88,11 +84,9 @@ impl ListSchedulingPoliciesInputBuilder {
         crate::operation::list_scheduling_policies::ListSchedulingPoliciesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_scheduling_policies::ListSchedulingPoliciesInput {
-                max_results: self.max_results,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_scheduling_policies::ListSchedulingPoliciesInput {
+            max_results: self.max_results,
+            next_token: self.next_token,
+        })
     }
 }

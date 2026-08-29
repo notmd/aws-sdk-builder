@@ -11,22 +11,17 @@ pub struct DescribeQuotaShareOutput {
     /// <p>The ARN of the job queue associated with the quota share.</p>
     pub job_queue_arn: ::std::option::Option<::std::string::String>,
     /// <p>A list that specifies the quantity and type of compute capacity allocated to the quota share.</p>
-    pub capacity_limits:
-        ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>>,
+    pub capacity_limits: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>>,
     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
-    pub resource_sharing_configuration:
-        ::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration>,
+    pub resource_sharing_configuration: ::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration>,
     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
-    pub preemption_configuration:
-        ::std::option::Option<crate::types::QuotaSharePreemptionConfiguration>,
+    pub preemption_configuration: ::std::option::Option<crate::types::QuotaSharePreemptionConfiguration>,
     /// <p>The state of the quota share.</p>
     pub state: ::std::option::Option<crate::types::QuotaShareState>,
     /// <p>The current status of the quota share.</p>
     pub status: ::std::option::Option<crate::types::QuotaShareStatus>,
     /// <p>The tags applied to the quota share.</p>
-    pub tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_describe_quota_share")]
@@ -50,15 +45,11 @@ impl DescribeQuotaShareOutput {
         self.capacity_limits.as_deref().unwrap_or_default()
     }
     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
-    pub fn resource_sharing_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::QuotaShareResourceSharingConfiguration> {
+    pub fn resource_sharing_configuration(&self) -> ::std::option::Option<&crate::types::QuotaShareResourceSharingConfiguration> {
         self.resource_sharing_configuration.as_ref()
     }
     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
-    pub fn preemption_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::QuotaSharePreemptionConfiguration> {
+    pub fn preemption_configuration(&self) -> ::std::option::Option<&crate::types::QuotaSharePreemptionConfiguration> {
         self.preemption_configuration.as_ref()
     }
     /// <p>The state of the quota share.</p>
@@ -70,11 +61,7 @@ impl DescribeQuotaShareOutput {
         self.status.as_ref()
     }
     /// <p>The tags applied to the quota share.</p>
-    pub fn tags(
-        &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
 }
@@ -87,50 +74,36 @@ impl ::aws_types::request_id::RequestId for DescribeQuotaShareOutput {
 #[cfg(feature = "op_describe_quota_share")]
 impl DescribeQuotaShareOutput {
     /// Creates a new builder-style object to manufacture [`DescribeQuotaShareOutput`](crate::operation::describe_quota_share::DescribeQuotaShareOutput).
-    pub fn builder(
-    ) -> crate::operation::describe_quota_share::builders::DescribeQuotaShareOutputBuilder {
+    pub fn builder() -> crate::operation::describe_quota_share::builders::DescribeQuotaShareOutputBuilder {
         crate::operation::describe_quota_share::builders::DescribeQuotaShareOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_quota_share")]
 /// A builder for [`DescribeQuotaShareOutput`](crate::operation::describe_quota_share::DescribeQuotaShareOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeQuotaShareOutputBuilder {
     pub(crate) quota_share_name: ::std::option::Option<::std::string::String>,
     pub(crate) quota_share_arn: ::std::option::Option<::std::string::String>,
     pub(crate) job_queue_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) capacity_limits:
-        ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>>,
-    pub(crate) resource_sharing_configuration:
-        ::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration>,
-    pub(crate) preemption_configuration:
-        ::std::option::Option<crate::types::QuotaSharePreemptionConfiguration>,
+    pub(crate) capacity_limits: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>>,
+    pub(crate) resource_sharing_configuration: ::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration>,
+    pub(crate) preemption_configuration: ::std::option::Option<crate::types::QuotaSharePreemptionConfiguration>,
     pub(crate) state: ::std::option::Option<crate::types::QuotaShareState>,
     pub(crate) status: ::std::option::Option<crate::types::QuotaShareStatus>,
-    pub(crate) tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_describe_quota_share")]
 impl DescribeQuotaShareOutputBuilder {
     /// <p>The name of the quota share.</p>
-    pub fn quota_share_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn quota_share_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.quota_share_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the quota share.</p>
-    pub fn set_quota_share_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_quota_share_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.quota_share_name = input;
         self
     }
@@ -139,18 +112,12 @@ impl DescribeQuotaShareOutputBuilder {
         &self.quota_share_name
     }
     /// <p>The Amazon Resource Name (ARN) of the quota share.</p>
-    pub fn quota_share_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn quota_share_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.quota_share_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the quota share.</p>
-    pub fn set_quota_share_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_quota_share_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.quota_share_arn = input;
         self
     }
@@ -159,18 +126,12 @@ impl DescribeQuotaShareOutputBuilder {
         &self.quota_share_arn
     }
     /// <p>The ARN of the job queue associated with the quota share.</p>
-    pub fn job_queue_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn job_queue_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.job_queue_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the job queue associated with the quota share.</p>
-    pub fn set_job_queue_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_job_queue_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.job_queue_arn = input;
         self
     }
@@ -190,61 +151,40 @@ impl DescribeQuotaShareOutputBuilder {
         self
     }
     /// <p>A list that specifies the quantity and type of compute capacity allocated to the quota share.</p>
-    pub fn set_capacity_limits(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>>,
-    ) -> Self {
+    pub fn set_capacity_limits(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>>) -> Self {
         self.capacity_limits = input;
         self
     }
     /// <p>A list that specifies the quantity and type of compute capacity allocated to the quota share.</p>
-    pub fn get_capacity_limits(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>> {
+    pub fn get_capacity_limits(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityLimit>> {
         &self.capacity_limits
     }
     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
-    pub fn resource_sharing_configuration(
-        mut self,
-        input: crate::types::QuotaShareResourceSharingConfiguration,
-    ) -> Self {
+    pub fn resource_sharing_configuration(mut self, input: crate::types::QuotaShareResourceSharingConfiguration) -> Self {
         self.resource_sharing_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
-    pub fn set_resource_sharing_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration>,
-    ) -> Self {
+    pub fn set_resource_sharing_configuration(mut self, input: ::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration>) -> Self {
         self.resource_sharing_configuration = input;
         self
     }
     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
-    pub fn get_resource_sharing_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration> {
+    pub fn get_resource_sharing_configuration(&self) -> &::std::option::Option<crate::types::QuotaShareResourceSharingConfiguration> {
         &self.resource_sharing_configuration
     }
     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
-    pub fn preemption_configuration(
-        mut self,
-        input: crate::types::QuotaSharePreemptionConfiguration,
-    ) -> Self {
+    pub fn preemption_configuration(mut self, input: crate::types::QuotaSharePreemptionConfiguration) -> Self {
         self.preemption_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
-    pub fn set_preemption_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::QuotaSharePreemptionConfiguration>,
-    ) -> Self {
+    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<crate::types::QuotaSharePreemptionConfiguration>) -> Self {
         self.preemption_configuration = input;
         self
     }
     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
-    pub fn get_preemption_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::QuotaSharePreemptionConfiguration> {
+    pub fn get_preemption_configuration(&self) -> &::std::option::Option<crate::types::QuotaSharePreemptionConfiguration> {
         &self.preemption_configuration
     }
     /// <p>The state of the quota share.</p>
@@ -253,10 +193,7 @@ impl DescribeQuotaShareOutputBuilder {
         self
     }
     /// <p>The state of the quota share.</p>
-    pub fn set_state(
-        mut self,
-        input: ::std::option::Option<crate::types::QuotaShareState>,
-    ) -> Self {
+    pub fn set_state(mut self, input: ::std::option::Option<crate::types::QuotaShareState>) -> Self {
         self.state = input;
         self
     }
@@ -270,10 +207,7 @@ impl DescribeQuotaShareOutputBuilder {
         self
     }
     /// <p>The current status of the quota share.</p>
-    pub fn set_status(
-        mut self,
-        input: ::std::option::Option<crate::types::QuotaShareStatus>,
-    ) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::QuotaShareStatus>) -> Self {
         self.status = input;
         self
     }
@@ -286,32 +220,19 @@ impl DescribeQuotaShareOutputBuilder {
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
     /// <p>The tags applied to the quota share.</p>
-    pub fn tags(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.tags.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.tags = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>The tags applied to the quota share.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.tags = input;
         self
     }
     /// <p>The tags applied to the quota share.</p>
-    pub fn get_tags(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

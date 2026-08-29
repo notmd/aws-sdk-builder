@@ -91,9 +91,7 @@ impl LaunchTemplateSpecificationOverride {
 }
 
 /// A builder for [`LaunchTemplateSpecificationOverride`](crate::types::LaunchTemplateSpecificationOverride).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct LaunchTemplateSpecificationOverrideBuilder {
     pub(crate) launch_template_id: ::std::option::Option<::std::string::String>,
@@ -105,19 +103,13 @@ pub struct LaunchTemplateSpecificationOverrideBuilder {
 impl LaunchTemplateSpecificationOverrideBuilder {
     /// <p>The ID of the launch template.</p>
     /// <p><b>Note:</b> If you specify the <code>launchTemplateId</code> you can't specify the <code>launchTemplateName</code> as well.</p>
-    pub fn launch_template_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn launch_template_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.launch_template_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ID of the launch template.</p>
     /// <p><b>Note:</b> If you specify the <code>launchTemplateId</code> you can't specify the <code>launchTemplateName</code> as well.</p>
-    pub fn set_launch_template_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_launch_template_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.launch_template_id = input;
         self
     }
@@ -128,19 +120,13 @@ impl LaunchTemplateSpecificationOverrideBuilder {
     }
     /// <p>The name of the launch template.</p>
     /// <p><b>Note:</b> If you specify the <code>launchTemplateName</code> you can't specify the <code>launchTemplateId</code> as well.</p>
-    pub fn launch_template_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn launch_template_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.launch_template_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the launch template.</p>
     /// <p><b>Note:</b> If you specify the <code>launchTemplateName</code> you can't specify the <code>launchTemplateId</code> as well.</p>
-    pub fn set_launch_template_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_launch_template_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.launch_template_name = input;
         self
     }
@@ -195,10 +181,7 @@ impl LaunchTemplateSpecificationOverrideBuilder {
     /// <li>
     /// <p><code>targetInstanceTypes</code> included within the same launch template override or across launch template overrides can't overlap for the same compute environment. For example, you can't define one launch template override to target an instance family and another define an instance type within this same family.</p></li>
     /// </ul>
-    pub fn target_instance_types(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn target_instance_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.target_instance_types.unwrap_or_default();
         v.push(input.into());
         self.target_instance_types = ::std::option::Option::Some(v);
@@ -217,10 +200,7 @@ impl LaunchTemplateSpecificationOverrideBuilder {
     /// <li>
     /// <p><code>targetInstanceTypes</code> included within the same launch template override or across launch template overrides can't overlap for the same compute environment. For example, you can't define one launch template override to target an instance family and another define an instance type within this same family.</p></li>
     /// </ul>
-    pub fn set_target_instance_types(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_target_instance_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.target_instance_types = input;
         self
     }
@@ -237,9 +217,7 @@ impl LaunchTemplateSpecificationOverrideBuilder {
     /// <li>
     /// <p><code>targetInstanceTypes</code> included within the same launch template override or across launch template overrides can't overlap for the same compute environment. For example, you can't define one launch template override to target an instance family and another define an instance type within this same family.</p></li>
     /// </ul>
-    pub fn get_target_instance_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_target_instance_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.target_instance_types
     }
     /// <p>The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is <code>EKS_BOOTSTRAP_SH</code>. If <i>imageType</i> is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose <code>EKS_NODEADM</code>.</p>
@@ -248,10 +226,7 @@ impl LaunchTemplateSpecificationOverrideBuilder {
         self
     }
     /// <p>The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is <code>EKS_BOOTSTRAP_SH</code>. If <i>imageType</i> is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose <code>EKS_NODEADM</code>.</p>
-    pub fn set_userdata_type(
-        mut self,
-        input: ::std::option::Option<crate::types::UserdataType>,
-    ) -> Self {
+    pub fn set_userdata_type(mut self, input: ::std::option::Option<crate::types::UserdataType>) -> Self {
         self.userdata_type = input;
         self
     }

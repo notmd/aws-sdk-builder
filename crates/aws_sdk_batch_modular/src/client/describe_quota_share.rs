@@ -15,11 +15,7 @@ impl super::Client {
     ///   - [`status(Option<QuotaShareStatus>)`](crate::operation::describe_quota_share::DescribeQuotaShareOutput::status): <p>The current status of the quota share.</p>
     ///   - [`tags(Option<HashMap::<String, String>>)`](crate::operation::describe_quota_share::DescribeQuotaShareOutput::tags): <p>The tags applied to the quota share.</p>
     /// - On failure, responds with [`SdkError<DescribeQuotaShareError>`](crate::operation::describe_quota_share::DescribeQuotaShareError)
-    pub fn describe_quota_share(
-        &self,
-    ) -> crate::operation::describe_quota_share::builders::DescribeQuotaShareFluentBuilder {
-        crate::operation::describe_quota_share::builders::DescribeQuotaShareFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn describe_quota_share(&self) -> crate::operation::describe_quota_share::builders::DescribeQuotaShareFluentBuilder {
+        crate::operation::describe_quota_share::builders::DescribeQuotaShareFluentBuilder::new(self.handle.clone())
     }
 }

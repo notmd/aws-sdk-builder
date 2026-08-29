@@ -8,10 +8,7 @@ impl super::Client {
     ///   - [`fairshare_policy(FairsharePolicy)`](crate::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyFluentBuilder::fairshare_policy) / [`set_fairshare_policy(Option<FairsharePolicy>)`](crate::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyFluentBuilder::set_fairshare_policy):<br>required: **false**<br><p>The fair-share policy scheduling details. Once set during creation, a fairsharePolicy cannot be removed or changed to a quotaSharePolicy.</p><br>
     /// - On success, responds with [`UpdateSchedulingPolicyOutput`](crate::operation::update_scheduling_policy::UpdateSchedulingPolicyOutput)
     /// - On failure, responds with [`SdkError<UpdateSchedulingPolicyError>`](crate::operation::update_scheduling_policy::UpdateSchedulingPolicyError)
-    pub fn update_scheduling_policy(
-        &self,
-    ) -> crate::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyFluentBuilder
-    {
+    pub fn update_scheduling_policy(&self) -> crate::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyFluentBuilder {
         crate::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyFluentBuilder::new(self.handle.clone())
     }
 }

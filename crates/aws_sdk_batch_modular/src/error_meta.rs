@@ -3,30 +3,30 @@
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum Error {
-    /// <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+    #[cfg(any(feature = "op_cancel_job", feature = "op_create_compute_environment", feature = "op_create_consumable_resource", feature = "op_create_job_queue", feature = "op_create_quota_share", feature = "op_create_scheduling_policy", feature = "op_create_service_environment", feature = "op_delete_compute_environment", feature = "op_delete_consumable_resource", feature = "op_delete_job_queue", feature = "op_delete_quota_share", feature = "op_delete_scheduling_policy", feature = "op_delete_service_environment", feature = "op_deregister_job_definition", feature = "op_describe_compute_environments", feature = "op_describe_consumable_resource", feature = "op_describe_job_definitions", feature = "op_describe_job_queues", feature = "op_describe_jobs", feature = "op_describe_quota_share", feature = "op_describe_scheduling_policies", feature = "op_describe_service_environments", feature = "op_describe_service_job", feature = "op_get_job_queue_snapshot", feature = "op_list_consumable_resources", feature = "op_list_jobs", feature = "op_list_jobs_by_consumable_resource", feature = "op_list_quota_shares", feature = "op_list_scheduling_policies", feature = "op_list_service_jobs", feature = "op_list_tags_for_resource", feature = "op_register_job_definition", feature = "op_submit_job", feature = "op_submit_service_job", feature = "op_tag_resource", feature = "op_terminate_job", feature = "op_terminate_service_job", feature = "op_untag_resource", feature = "op_update_compute_environment", feature = "op_update_consumable_resource", feature = "op_update_job_queue", feature = "op_update_quota_share", feature = "op_update_scheduling_policy", feature = "op_update_service_environment", feature = "op_update_service_job"))]
+/// <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
     ClientException(crate::types::error::ClientException),
-    /// <p>These errors are usually caused by a server issue.</p>
+    #[cfg(any(feature = "op_cancel_job", feature = "op_create_compute_environment", feature = "op_create_consumable_resource", feature = "op_create_job_queue", feature = "op_create_quota_share", feature = "op_create_scheduling_policy", feature = "op_create_service_environment", feature = "op_delete_compute_environment", feature = "op_delete_consumable_resource", feature = "op_delete_job_queue", feature = "op_delete_quota_share", feature = "op_delete_scheduling_policy", feature = "op_delete_service_environment", feature = "op_deregister_job_definition", feature = "op_describe_compute_environments", feature = "op_describe_consumable_resource", feature = "op_describe_job_definitions", feature = "op_describe_job_queues", feature = "op_describe_jobs", feature = "op_describe_quota_share", feature = "op_describe_scheduling_policies", feature = "op_describe_service_environments", feature = "op_describe_service_job", feature = "op_get_job_queue_snapshot", feature = "op_list_consumable_resources", feature = "op_list_jobs", feature = "op_list_jobs_by_consumable_resource", feature = "op_list_quota_shares", feature = "op_list_scheduling_policies", feature = "op_list_service_jobs", feature = "op_list_tags_for_resource", feature = "op_register_job_definition", feature = "op_submit_job", feature = "op_submit_service_job", feature = "op_tag_resource", feature = "op_terminate_job", feature = "op_terminate_service_job", feature = "op_untag_resource", feature = "op_update_compute_environment", feature = "op_update_consumable_resource", feature = "op_update_job_queue", feature = "op_update_quota_share", feature = "op_update_scheduling_policy", feature = "op_update_service_environment", feature = "op_update_service_job"))]
+/// <p>These errors are usually caused by a server issue.</p>
     ServerException(crate::types::error::ServerException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(
-        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error."
-    )]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Error::ClientException(inner) => inner.fmt(f),
-            Error::ServerException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_cancel_job", feature = "op_create_compute_environment", feature = "op_create_consumable_resource", feature = "op_create_job_queue", feature = "op_create_quota_share", feature = "op_create_scheduling_policy", feature = "op_create_service_environment", feature = "op_delete_compute_environment", feature = "op_delete_consumable_resource", feature = "op_delete_job_queue", feature = "op_delete_quota_share", feature = "op_delete_scheduling_policy", feature = "op_delete_service_environment", feature = "op_deregister_job_definition", feature = "op_describe_compute_environments", feature = "op_describe_consumable_resource", feature = "op_describe_job_definitions", feature = "op_describe_job_queues", feature = "op_describe_jobs", feature = "op_describe_quota_share", feature = "op_describe_scheduling_policies", feature = "op_describe_service_environments", feature = "op_describe_service_job", feature = "op_get_job_queue_snapshot", feature = "op_list_consumable_resources", feature = "op_list_jobs", feature = "op_list_jobs_by_consumable_resource", feature = "op_list_quota_shares", feature = "op_list_scheduling_policies", feature = "op_list_service_jobs", feature = "op_list_tags_for_resource", feature = "op_register_job_definition", feature = "op_submit_job", feature = "op_submit_service_job", feature = "op_tag_resource", feature = "op_terminate_job", feature = "op_terminate_service_job", feature = "op_untag_resource", feature = "op_update_compute_environment", feature = "op_update_consumable_resource", feature = "op_update_job_queue", feature = "op_update_quota_share", feature = "op_update_scheduling_policy", feature = "op_update_service_environment", feature = "op_update_service_job"))]
+Error::ClientException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_cancel_job", feature = "op_create_compute_environment", feature = "op_create_consumable_resource", feature = "op_create_job_queue", feature = "op_create_quota_share", feature = "op_create_scheduling_policy", feature = "op_create_service_environment", feature = "op_delete_compute_environment", feature = "op_delete_consumable_resource", feature = "op_delete_job_queue", feature = "op_delete_quota_share", feature = "op_delete_scheduling_policy", feature = "op_delete_service_environment", feature = "op_deregister_job_definition", feature = "op_describe_compute_environments", feature = "op_describe_consumable_resource", feature = "op_describe_job_definitions", feature = "op_describe_job_queues", feature = "op_describe_jobs", feature = "op_describe_quota_share", feature = "op_describe_scheduling_policies", feature = "op_describe_service_environments", feature = "op_describe_service_job", feature = "op_get_job_queue_snapshot", feature = "op_list_consumable_resources", feature = "op_list_jobs", feature = "op_list_jobs_by_consumable_resource", feature = "op_list_quota_shares", feature = "op_list_scheduling_policies", feature = "op_list_service_jobs", feature = "op_list_tags_for_resource", feature = "op_register_job_definition", feature = "op_submit_job", feature = "op_submit_service_job", feature = "op_tag_resource", feature = "op_terminate_job", feature = "op_terminate_service_job", feature = "op_untag_resource", feature = "op_update_compute_environment", feature = "op_update_consumable_resource", feature = "op_update_job_queue", feature = "op_update_quota_share", feature = "op_update_scheduling_policy", feature = "op_update_service_environment", feature = "op_update_service_job"))]
+Error::ServerException(inner) => inner.fmt(f),
             Error::Unhandled(_) => {
-                if let ::std::option::Option::Some(code) =
-                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
-                {
+                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -46,33 +46,22 @@ impl From<::aws_smithy_types::error::operation::BuildError> for Error {
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
     fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
         match self {
-            Self::ClientException(inner) => inner.meta(),
-            Self::ServerException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_cancel_job", feature = "op_create_compute_environment", feature = "op_create_consumable_resource", feature = "op_create_job_queue", feature = "op_create_quota_share", feature = "op_create_scheduling_policy", feature = "op_create_service_environment", feature = "op_delete_compute_environment", feature = "op_delete_consumable_resource", feature = "op_delete_job_queue", feature = "op_delete_quota_share", feature = "op_delete_scheduling_policy", feature = "op_delete_service_environment", feature = "op_deregister_job_definition", feature = "op_describe_compute_environments", feature = "op_describe_consumable_resource", feature = "op_describe_job_definitions", feature = "op_describe_job_queues", feature = "op_describe_jobs", feature = "op_describe_quota_share", feature = "op_describe_scheduling_policies", feature = "op_describe_service_environments", feature = "op_describe_service_job", feature = "op_get_job_queue_snapshot", feature = "op_list_consumable_resources", feature = "op_list_jobs", feature = "op_list_jobs_by_consumable_resource", feature = "op_list_quota_shares", feature = "op_list_scheduling_policies", feature = "op_list_service_jobs", feature = "op_list_tags_for_resource", feature = "op_register_job_definition", feature = "op_submit_job", feature = "op_submit_service_job", feature = "op_tag_resource", feature = "op_terminate_job", feature = "op_terminate_service_job", feature = "op_untag_resource", feature = "op_update_compute_environment", feature = "op_update_consumable_resource", feature = "op_update_job_queue", feature = "op_update_quota_share", feature = "op_update_scheduling_policy", feature = "op_update_service_environment", feature = "op_update_service_job"))]
+Self::ClientException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_cancel_job", feature = "op_create_compute_environment", feature = "op_create_consumable_resource", feature = "op_create_job_queue", feature = "op_create_quota_share", feature = "op_create_scheduling_policy", feature = "op_create_service_environment", feature = "op_delete_compute_environment", feature = "op_delete_consumable_resource", feature = "op_delete_job_queue", feature = "op_delete_quota_share", feature = "op_delete_scheduling_policy", feature = "op_delete_service_environment", feature = "op_deregister_job_definition", feature = "op_describe_compute_environments", feature = "op_describe_consumable_resource", feature = "op_describe_job_definitions", feature = "op_describe_job_queues", feature = "op_describe_jobs", feature = "op_describe_quota_share", feature = "op_describe_scheduling_policies", feature = "op_describe_service_environments", feature = "op_describe_service_job", feature = "op_get_job_queue_snapshot", feature = "op_list_consumable_resources", feature = "op_list_jobs", feature = "op_list_jobs_by_consumable_resource", feature = "op_list_quota_shares", feature = "op_list_scheduling_policies", feature = "op_list_service_jobs", feature = "op_list_tags_for_resource", feature = "op_register_job_definition", feature = "op_submit_job", feature = "op_submit_service_job", feature = "op_tag_resource", feature = "op_terminate_job", feature = "op_terminate_service_job", feature = "op_untag_resource", feature = "op_update_compute_environment", feature = "op_update_consumable_resource", feature = "op_update_job_queue", feature = "op_update_quota_share", feature = "op_update_scheduling_policy", feature = "op_update_service_environment", feature = "op_update_service_job"))]
+Self::ServerException(inner) => inner.meta(),
             Self::Unhandled(inner) => &inner.meta,
         }
     }
 }
 #[cfg(feature = "op_cancel_job")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::cancel_job::CancelJobError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::cancel_job::CancelJobError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::cancel_job::CancelJobError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::cancel_job::CancelJobError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -84,39 +73,23 @@ where
 impl From<crate::operation::cancel_job::CancelJobError> for Error {
     fn from(err: crate::operation::cancel_job::CancelJobError) -> Self {
         match err {
-            crate::operation::cancel_job::CancelJobError::ClientException(inner) => {
-                Error::ClientException(inner)
-            }
-            crate::operation::cancel_job::CancelJobError::ServerException(inner) => {
-                Error::ServerException(inner)
-            }
-            crate::operation::cancel_job::CancelJobError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::cancel_job::CancelJobError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::cancel_job::CancelJobError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::cancel_job::CancelJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_create_compute_environment")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_compute_environment::CreateComputeEnvironmentError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_compute_environment::CreateComputeEnvironmentError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_compute_environment::CreateComputeEnvironmentError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_compute_environment::CreateComputeEnvironmentError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -126,9 +99,7 @@ where
 }
 #[cfg(feature = "op_create_compute_environment")]
 impl From<crate::operation::create_compute_environment::CreateComputeEnvironmentError> for Error {
-    fn from(
-        err: crate::operation::create_compute_environment::CreateComputeEnvironmentError,
-    ) -> Self {
+    fn from(err: crate::operation::create_compute_environment::CreateComputeEnvironmentError) -> Self {
         match err {
             crate::operation::create_compute_environment::CreateComputeEnvironmentError::ClientException(inner) => Error::ClientException(inner),
             crate::operation::create_compute_environment::CreateComputeEnvironmentError::ServerException(inner) => Error::ServerException(inner),
@@ -137,26 +108,16 @@ impl From<crate::operation::create_compute_environment::CreateComputeEnvironment
     }
 }
 #[cfg(feature = "op_create_consumable_resource")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_consumable_resource::CreateConsumableResourceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_consumable_resource::CreateConsumableResourceError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_consumable_resource::CreateConsumableResourceError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_consumable_resource::CreateConsumableResourceError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -166,9 +127,7 @@ where
 }
 #[cfg(feature = "op_create_consumable_resource")]
 impl From<crate::operation::create_consumable_resource::CreateConsumableResourceError> for Error {
-    fn from(
-        err: crate::operation::create_consumable_resource::CreateConsumableResourceError,
-    ) -> Self {
+    fn from(err: crate::operation::create_consumable_resource::CreateConsumableResourceError) -> Self {
         match err {
             crate::operation::create_consumable_resource::CreateConsumableResourceError::ClientException(inner) => Error::ClientException(inner),
             crate::operation::create_consumable_resource::CreateConsumableResourceError::ServerException(inner) => Error::ServerException(inner),
@@ -177,26 +136,13 @@ impl From<crate::operation::create_consumable_resource::CreateConsumableResource
     }
 }
 #[cfg(feature = "op_create_job_queue")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_job_queue::CreateJobQueueError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_job_queue::CreateJobQueueError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_job_queue::CreateJobQueueError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_job_queue::CreateJobQueueError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -208,39 +154,20 @@ where
 impl From<crate::operation::create_job_queue::CreateJobQueueError> for Error {
     fn from(err: crate::operation::create_job_queue::CreateJobQueueError) -> Self {
         match err {
-            crate::operation::create_job_queue::CreateJobQueueError::ClientException(inner) => {
-                Error::ClientException(inner)
-            }
-            crate::operation::create_job_queue::CreateJobQueueError::ServerException(inner) => {
-                Error::ServerException(inner)
-            }
-            crate::operation::create_job_queue::CreateJobQueueError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_job_queue::CreateJobQueueError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::create_job_queue::CreateJobQueueError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::create_job_queue::CreateJobQueueError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_create_quota_share")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_quota_share::CreateQuotaShareError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_quota_share::CreateQuotaShareError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_quota_share::CreateQuotaShareError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_quota_share::CreateQuotaShareError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -252,39 +179,22 @@ where
 impl From<crate::operation::create_quota_share::CreateQuotaShareError> for Error {
     fn from(err: crate::operation::create_quota_share::CreateQuotaShareError) -> Self {
         match err {
-            crate::operation::create_quota_share::CreateQuotaShareError::ClientException(inner) => {
-                Error::ClientException(inner)
-            }
-            crate::operation::create_quota_share::CreateQuotaShareError::ServerException(inner) => {
-                Error::ServerException(inner)
-            }
-            crate::operation::create_quota_share::CreateQuotaShareError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_quota_share::CreateQuotaShareError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::create_quota_share::CreateQuotaShareError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::create_quota_share::CreateQuotaShareError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_create_scheduling_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_scheduling_policy::CreateSchedulingPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_scheduling_policy::CreateSchedulingPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_scheduling_policy::CreateSchedulingPolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_scheduling_policy::CreateSchedulingPolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -303,26 +213,16 @@ impl From<crate::operation::create_scheduling_policy::CreateSchedulingPolicyErro
     }
 }
 #[cfg(feature = "op_create_service_environment")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_service_environment::CreateServiceEnvironmentError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_service_environment::CreateServiceEnvironmentError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_service_environment::CreateServiceEnvironmentError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_service_environment::CreateServiceEnvironmentError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -332,9 +232,7 @@ where
 }
 #[cfg(feature = "op_create_service_environment")]
 impl From<crate::operation::create_service_environment::CreateServiceEnvironmentError> for Error {
-    fn from(
-        err: crate::operation::create_service_environment::CreateServiceEnvironmentError,
-    ) -> Self {
+    fn from(err: crate::operation::create_service_environment::CreateServiceEnvironmentError) -> Self {
         match err {
             crate::operation::create_service_environment::CreateServiceEnvironmentError::ClientException(inner) => Error::ClientException(inner),
             crate::operation::create_service_environment::CreateServiceEnvironmentError::ServerException(inner) => Error::ServerException(inner),
@@ -343,26 +241,16 @@ impl From<crate::operation::create_service_environment::CreateServiceEnvironment
     }
 }
 #[cfg(feature = "op_delete_compute_environment")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_compute_environment::DeleteComputeEnvironmentError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_compute_environment::DeleteComputeEnvironmentError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_compute_environment::DeleteComputeEnvironmentError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_compute_environment::DeleteComputeEnvironmentError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -372,9 +260,7 @@ where
 }
 #[cfg(feature = "op_delete_compute_environment")]
 impl From<crate::operation::delete_compute_environment::DeleteComputeEnvironmentError> for Error {
-    fn from(
-        err: crate::operation::delete_compute_environment::DeleteComputeEnvironmentError,
-    ) -> Self {
+    fn from(err: crate::operation::delete_compute_environment::DeleteComputeEnvironmentError) -> Self {
         match err {
             crate::operation::delete_compute_environment::DeleteComputeEnvironmentError::ClientException(inner) => Error::ClientException(inner),
             crate::operation::delete_compute_environment::DeleteComputeEnvironmentError::ServerException(inner) => Error::ServerException(inner),
@@ -383,26 +269,16 @@ impl From<crate::operation::delete_compute_environment::DeleteComputeEnvironment
     }
 }
 #[cfg(feature = "op_delete_consumable_resource")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_consumable_resource::DeleteConsumableResourceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_consumable_resource::DeleteConsumableResourceError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_consumable_resource::DeleteConsumableResourceError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_consumable_resource::DeleteConsumableResourceError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -412,9 +288,7 @@ where
 }
 #[cfg(feature = "op_delete_consumable_resource")]
 impl From<crate::operation::delete_consumable_resource::DeleteConsumableResourceError> for Error {
-    fn from(
-        err: crate::operation::delete_consumable_resource::DeleteConsumableResourceError,
-    ) -> Self {
+    fn from(err: crate::operation::delete_consumable_resource::DeleteConsumableResourceError) -> Self {
         match err {
             crate::operation::delete_consumable_resource::DeleteConsumableResourceError::ClientException(inner) => Error::ClientException(inner),
             crate::operation::delete_consumable_resource::DeleteConsumableResourceError::ServerException(inner) => Error::ServerException(inner),
@@ -423,26 +297,13 @@ impl From<crate::operation::delete_consumable_resource::DeleteConsumableResource
     }
 }
 #[cfg(feature = "op_delete_job_queue")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_job_queue::DeleteJobQueueError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_job_queue::DeleteJobQueueError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_job_queue::DeleteJobQueueError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_job_queue::DeleteJobQueueError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -454,39 +315,20 @@ where
 impl From<crate::operation::delete_job_queue::DeleteJobQueueError> for Error {
     fn from(err: crate::operation::delete_job_queue::DeleteJobQueueError) -> Self {
         match err {
-            crate::operation::delete_job_queue::DeleteJobQueueError::ClientException(inner) => {
-                Error::ClientException(inner)
-            }
-            crate::operation::delete_job_queue::DeleteJobQueueError::ServerException(inner) => {
-                Error::ServerException(inner)
-            }
-            crate::operation::delete_job_queue::DeleteJobQueueError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_job_queue::DeleteJobQueueError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::delete_job_queue::DeleteJobQueueError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::delete_job_queue::DeleteJobQueueError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_delete_quota_share")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_quota_share::DeleteQuotaShareError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_quota_share::DeleteQuotaShareError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_quota_share::DeleteQuotaShareError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_quota_share::DeleteQuotaShareError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -498,39 +340,22 @@ where
 impl From<crate::operation::delete_quota_share::DeleteQuotaShareError> for Error {
     fn from(err: crate::operation::delete_quota_share::DeleteQuotaShareError) -> Self {
         match err {
-            crate::operation::delete_quota_share::DeleteQuotaShareError::ClientException(inner) => {
-                Error::ClientException(inner)
-            }
-            crate::operation::delete_quota_share::DeleteQuotaShareError::ServerException(inner) => {
-                Error::ServerException(inner)
-            }
-            crate::operation::delete_quota_share::DeleteQuotaShareError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_quota_share::DeleteQuotaShareError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::delete_quota_share::DeleteQuotaShareError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::delete_quota_share::DeleteQuotaShareError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_delete_scheduling_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_scheduling_policy::DeleteSchedulingPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_scheduling_policy::DeleteSchedulingPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_scheduling_policy::DeleteSchedulingPolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_scheduling_policy::DeleteSchedulingPolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -549,26 +374,16 @@ impl From<crate::operation::delete_scheduling_policy::DeleteSchedulingPolicyErro
     }
 }
 #[cfg(feature = "op_delete_service_environment")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_service_environment::DeleteServiceEnvironmentError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_service_environment::DeleteServiceEnvironmentError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_service_environment::DeleteServiceEnvironmentError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_service_environment::DeleteServiceEnvironmentError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -578,9 +393,7 @@ where
 }
 #[cfg(feature = "op_delete_service_environment")]
 impl From<crate::operation::delete_service_environment::DeleteServiceEnvironmentError> for Error {
-    fn from(
-        err: crate::operation::delete_service_environment::DeleteServiceEnvironmentError,
-    ) -> Self {
+    fn from(err: crate::operation::delete_service_environment::DeleteServiceEnvironmentError) -> Self {
         match err {
             crate::operation::delete_service_environment::DeleteServiceEnvironmentError::ClientException(inner) => Error::ClientException(inner),
             crate::operation::delete_service_environment::DeleteServiceEnvironmentError::ServerException(inner) => Error::ServerException(inner),
@@ -589,26 +402,16 @@ impl From<crate::operation::delete_service_environment::DeleteServiceEnvironment
     }
 }
 #[cfg(feature = "op_deregister_job_definition")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::deregister_job_definition::DeregisterJobDefinitionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::deregister_job_definition::DeregisterJobDefinitionError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::deregister_job_definition::DeregisterJobDefinitionError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::deregister_job_definition::DeregisterJobDefinitionError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -618,9 +421,7 @@ where
 }
 #[cfg(feature = "op_deregister_job_definition")]
 impl From<crate::operation::deregister_job_definition::DeregisterJobDefinitionError> for Error {
-    fn from(
-        err: crate::operation::deregister_job_definition::DeregisterJobDefinitionError,
-    ) -> Self {
+    fn from(err: crate::operation::deregister_job_definition::DeregisterJobDefinitionError) -> Self {
         match err {
             crate::operation::deregister_job_definition::DeregisterJobDefinitionError::ClientException(inner) => Error::ClientException(inner),
             crate::operation::deregister_job_definition::DeregisterJobDefinitionError::ServerException(inner) => Error::ServerException(inner),
@@ -629,26 +430,16 @@ impl From<crate::operation::deregister_job_definition::DeregisterJobDefinitionEr
     }
 }
 #[cfg(feature = "op_describe_compute_environments")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_compute_environments::DescribeComputeEnvironmentsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_compute_environments::DescribeComputeEnvironmentsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_compute_environments::DescribeComputeEnvironmentsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_compute_environments::DescribeComputeEnvironmentsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -657,12 +448,8 @@ where
     }
 }
 #[cfg(feature = "op_describe_compute_environments")]
-impl From<crate::operation::describe_compute_environments::DescribeComputeEnvironmentsError>
-    for Error
-{
-    fn from(
-        err: crate::operation::describe_compute_environments::DescribeComputeEnvironmentsError,
-    ) -> Self {
+impl From<crate::operation::describe_compute_environments::DescribeComputeEnvironmentsError> for Error {
+    fn from(err: crate::operation::describe_compute_environments::DescribeComputeEnvironmentsError) -> Self {
         match err {
             crate::operation::describe_compute_environments::DescribeComputeEnvironmentsError::ClientException(inner) => {
                 Error::ClientException(inner)
@@ -675,26 +462,16 @@ impl From<crate::operation::describe_compute_environments::DescribeComputeEnviro
     }
 }
 #[cfg(feature = "op_describe_consumable_resource")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_consumable_resource::DescribeConsumableResourceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_consumable_resource::DescribeConsumableResourceError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_consumable_resource::DescribeConsumableResourceError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_consumable_resource::DescribeConsumableResourceError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -703,12 +480,8 @@ where
     }
 }
 #[cfg(feature = "op_describe_consumable_resource")]
-impl From<crate::operation::describe_consumable_resource::DescribeConsumableResourceError>
-    for Error
-{
-    fn from(
-        err: crate::operation::describe_consumable_resource::DescribeConsumableResourceError,
-    ) -> Self {
+impl From<crate::operation::describe_consumable_resource::DescribeConsumableResourceError> for Error {
+    fn from(err: crate::operation::describe_consumable_resource::DescribeConsumableResourceError) -> Self {
         match err {
             crate::operation::describe_consumable_resource::DescribeConsumableResourceError::ClientException(inner) => Error::ClientException(inner),
             crate::operation::describe_consumable_resource::DescribeConsumableResourceError::ServerException(inner) => Error::ServerException(inner),
@@ -717,26 +490,15 @@ impl From<crate::operation::describe_consumable_resource::DescribeConsumableReso
     }
 }
 #[cfg(feature = "op_describe_job_definitions")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_job_definitions::DescribeJobDefinitionsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_job_definitions::DescribeJobDefinitionsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_job_definitions::DescribeJobDefinitionsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_job_definitions::DescribeJobDefinitionsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -755,26 +517,13 @@ impl From<crate::operation::describe_job_definitions::DescribeJobDefinitionsErro
     }
 }
 #[cfg(feature = "op_describe_job_queues")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_job_queues::DescribeJobQueuesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_job_queues::DescribeJobQueuesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_job_queues::DescribeJobQueuesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_job_queues::DescribeJobQueuesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -786,39 +535,20 @@ where
 impl From<crate::operation::describe_job_queues::DescribeJobQueuesError> for Error {
     fn from(err: crate::operation::describe_job_queues::DescribeJobQueuesError) -> Self {
         match err {
-            crate::operation::describe_job_queues::DescribeJobQueuesError::ClientException(
-                inner,
-            ) => Error::ClientException(inner),
-            crate::operation::describe_job_queues::DescribeJobQueuesError::ServerException(
-                inner,
-            ) => Error::ServerException(inner),
-            crate::operation::describe_job_queues::DescribeJobQueuesError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::describe_job_queues::DescribeJobQueuesError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::describe_job_queues::DescribeJobQueuesError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::describe_job_queues::DescribeJobQueuesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_describe_jobs")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_jobs::DescribeJobsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_jobs::DescribeJobsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_jobs::DescribeJobsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_jobs::DescribeJobsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -830,39 +560,20 @@ where
 impl From<crate::operation::describe_jobs::DescribeJobsError> for Error {
     fn from(err: crate::operation::describe_jobs::DescribeJobsError) -> Self {
         match err {
-            crate::operation::describe_jobs::DescribeJobsError::ClientException(inner) => {
-                Error::ClientException(inner)
-            }
-            crate::operation::describe_jobs::DescribeJobsError::ServerException(inner) => {
-                Error::ServerException(inner)
-            }
-            crate::operation::describe_jobs::DescribeJobsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::describe_jobs::DescribeJobsError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::describe_jobs::DescribeJobsError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::describe_jobs::DescribeJobsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_describe_quota_share")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_quota_share::DescribeQuotaShareError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_quota_share::DescribeQuotaShareError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_quota_share::DescribeQuotaShareError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_quota_share::DescribeQuotaShareError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -874,39 +585,23 @@ where
 impl From<crate::operation::describe_quota_share::DescribeQuotaShareError> for Error {
     fn from(err: crate::operation::describe_quota_share::DescribeQuotaShareError) -> Self {
         match err {
-            crate::operation::describe_quota_share::DescribeQuotaShareError::ClientException(
-                inner,
-            ) => Error::ClientException(inner),
-            crate::operation::describe_quota_share::DescribeQuotaShareError::ServerException(
-                inner,
-            ) => Error::ServerException(inner),
-            crate::operation::describe_quota_share::DescribeQuotaShareError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::describe_quota_share::DescribeQuotaShareError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::describe_quota_share::DescribeQuotaShareError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::describe_quota_share::DescribeQuotaShareError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_describe_scheduling_policies")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -915,12 +610,8 @@ where
     }
 }
 #[cfg(feature = "op_describe_scheduling_policies")]
-impl From<crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesError>
-    for Error
-{
-    fn from(
-        err: crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesError,
-    ) -> Self {
+impl From<crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesError> for Error {
+    fn from(err: crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesError) -> Self {
         match err {
             crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesError::ClientException(inner) => Error::ClientException(inner),
             crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesError::ServerException(inner) => Error::ServerException(inner),
@@ -929,26 +620,16 @@ impl From<crate::operation::describe_scheduling_policies::DescribeSchedulingPoli
     }
 }
 #[cfg(feature = "op_describe_service_environments")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_service_environments::DescribeServiceEnvironmentsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_service_environments::DescribeServiceEnvironmentsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_service_environments::DescribeServiceEnvironmentsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_service_environments::DescribeServiceEnvironmentsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -957,12 +638,8 @@ where
     }
 }
 #[cfg(feature = "op_describe_service_environments")]
-impl From<crate::operation::describe_service_environments::DescribeServiceEnvironmentsError>
-    for Error
-{
-    fn from(
-        err: crate::operation::describe_service_environments::DescribeServiceEnvironmentsError,
-    ) -> Self {
+impl From<crate::operation::describe_service_environments::DescribeServiceEnvironmentsError> for Error {
+    fn from(err: crate::operation::describe_service_environments::DescribeServiceEnvironmentsError) -> Self {
         match err {
             crate::operation::describe_service_environments::DescribeServiceEnvironmentsError::ClientException(inner) => {
                 Error::ClientException(inner)
@@ -975,26 +652,13 @@ impl From<crate::operation::describe_service_environments::DescribeServiceEnviro
     }
 }
 #[cfg(feature = "op_describe_service_job")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_service_job::DescribeServiceJobError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_service_job::DescribeServiceJobError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_service_job::DescribeServiceJobError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_service_job::DescribeServiceJobError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1006,39 +670,20 @@ where
 impl From<crate::operation::describe_service_job::DescribeServiceJobError> for Error {
     fn from(err: crate::operation::describe_service_job::DescribeServiceJobError) -> Self {
         match err {
-            crate::operation::describe_service_job::DescribeServiceJobError::ClientException(
-                inner,
-            ) => Error::ClientException(inner),
-            crate::operation::describe_service_job::DescribeServiceJobError::ServerException(
-                inner,
-            ) => Error::ServerException(inner),
-            crate::operation::describe_service_job::DescribeServiceJobError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::describe_service_job::DescribeServiceJobError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::describe_service_job::DescribeServiceJobError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::describe_service_job::DescribeServiceJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_job_queue_snapshot")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1050,39 +695,23 @@ where
 impl From<crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotError> for Error {
     fn from(err: crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotError) -> Self {
         match err {
-            crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotError::ClientException(
-                inner,
-            ) => Error::ClientException(inner),
-            crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotError::ServerException(
-                inner,
-            ) => Error::ServerException(inner),
-            crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotError::Unhandled(
-                inner,
-            ) => Error::Unhandled(inner),
+            crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_consumable_resources")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_consumable_resources::ListConsumableResourcesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_consumable_resources::ListConsumableResourcesError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_consumable_resources::ListConsumableResourcesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_consumable_resources::ListConsumableResourcesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1092,9 +721,7 @@ where
 }
 #[cfg(feature = "op_list_consumable_resources")]
 impl From<crate::operation::list_consumable_resources::ListConsumableResourcesError> for Error {
-    fn from(
-        err: crate::operation::list_consumable_resources::ListConsumableResourcesError,
-    ) -> Self {
+    fn from(err: crate::operation::list_consumable_resources::ListConsumableResourcesError) -> Self {
         match err {
             crate::operation::list_consumable_resources::ListConsumableResourcesError::ClientException(inner) => Error::ClientException(inner),
             crate::operation::list_consumable_resources::ListConsumableResourcesError::ServerException(inner) => Error::ServerException(inner),
@@ -1103,26 +730,13 @@ impl From<crate::operation::list_consumable_resources::ListConsumableResourcesEr
     }
 }
 #[cfg(feature = "op_list_jobs")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_jobs::ListJobsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_jobs::ListJobsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_jobs::ListJobsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_jobs::ListJobsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1134,24 +748,16 @@ where
 impl From<crate::operation::list_jobs::ListJobsError> for Error {
     fn from(err: crate::operation::list_jobs::ListJobsError) -> Self {
         match err {
-            crate::operation::list_jobs::ListJobsError::ClientException(inner) => {
-                Error::ClientException(inner)
-            }
-            crate::operation::list_jobs::ListJobsError::ServerException(inner) => {
-                Error::ServerException(inner)
-            }
+            crate::operation::list_jobs::ListJobsError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::list_jobs::ListJobsError::ServerException(inner) => Error::ServerException(inner),
             crate::operation::list_jobs::ListJobsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_jobs_by_consumable_resource")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -1162,9 +768,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1173,12 +777,8 @@ where
     }
 }
 #[cfg(feature = "op_list_jobs_by_consumable_resource")]
-impl From<crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceError,
-    ) -> Self {
+impl From<crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceError> for Error {
+    fn from(err: crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceError) -> Self {
         match err {
             crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceError::ClientException(inner) => {
                 Error::ClientException(inner)
@@ -1191,26 +791,13 @@ impl From<crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumab
     }
 }
 #[cfg(feature = "op_list_quota_shares")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_quota_shares::ListQuotaSharesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_quota_shares::ListQuotaSharesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_quota_shares::ListQuotaSharesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_quota_shares::ListQuotaSharesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1222,39 +809,22 @@ where
 impl From<crate::operation::list_quota_shares::ListQuotaSharesError> for Error {
     fn from(err: crate::operation::list_quota_shares::ListQuotaSharesError) -> Self {
         match err {
-            crate::operation::list_quota_shares::ListQuotaSharesError::ClientException(inner) => {
-                Error::ClientException(inner)
-            }
-            crate::operation::list_quota_shares::ListQuotaSharesError::ServerException(inner) => {
-                Error::ServerException(inner)
-            }
-            crate::operation::list_quota_shares::ListQuotaSharesError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_quota_shares::ListQuotaSharesError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::list_quota_shares::ListQuotaSharesError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::list_quota_shares::ListQuotaSharesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_scheduling_policies")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_scheduling_policies::ListSchedulingPoliciesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_scheduling_policies::ListSchedulingPoliciesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_scheduling_policies::ListSchedulingPoliciesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_scheduling_policies::ListSchedulingPoliciesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1273,26 +843,13 @@ impl From<crate::operation::list_scheduling_policies::ListSchedulingPoliciesErro
     }
 }
 #[cfg(feature = "op_list_service_jobs")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_service_jobs::ListServiceJobsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_service_jobs::ListServiceJobsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_service_jobs::ListServiceJobsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_service_jobs::ListServiceJobsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1304,39 +861,20 @@ where
 impl From<crate::operation::list_service_jobs::ListServiceJobsError> for Error {
     fn from(err: crate::operation::list_service_jobs::ListServiceJobsError) -> Self {
         match err {
-            crate::operation::list_service_jobs::ListServiceJobsError::ClientException(inner) => {
-                Error::ClientException(inner)
-            }
-            crate::operation::list_service_jobs::ListServiceJobsError::ServerException(inner) => {
-                Error::ServerException(inner)
-            }
-            crate::operation::list_service_jobs::ListServiceJobsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_service_jobs::ListServiceJobsError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::list_service_jobs::ListServiceJobsError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::list_service_jobs::ListServiceJobsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_tags_for_resource")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_tags_for_resource::ListTagsForResourceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags_for_resource::ListTagsForResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_tags_for_resource::ListTagsForResourceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags_for_resource::ListTagsForResourceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1348,39 +886,22 @@ where
 impl From<crate::operation::list_tags_for_resource::ListTagsForResourceError> for Error {
     fn from(err: crate::operation::list_tags_for_resource::ListTagsForResourceError) -> Self {
         match err {
-            crate::operation::list_tags_for_resource::ListTagsForResourceError::ClientException(
-                inner,
-            ) => Error::ClientException(inner),
-            crate::operation::list_tags_for_resource::ListTagsForResourceError::ServerException(
-                inner,
-            ) => Error::ServerException(inner),
-            crate::operation::list_tags_for_resource::ListTagsForResourceError::Unhandled(
-                inner,
-            ) => Error::Unhandled(inner),
+            crate::operation::list_tags_for_resource::ListTagsForResourceError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::list_tags_for_resource::ListTagsForResourceError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::list_tags_for_resource::ListTagsForResourceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_register_job_definition")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::register_job_definition::RegisterJobDefinitionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::register_job_definition::RegisterJobDefinitionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::register_job_definition::RegisterJobDefinitionError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::register_job_definition::RegisterJobDefinitionError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1399,26 +920,13 @@ impl From<crate::operation::register_job_definition::RegisterJobDefinitionError>
     }
 }
 #[cfg(feature = "op_submit_job")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::submit_job::SubmitJobError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::submit_job::SubmitJobError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::submit_job::SubmitJobError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::submit_job::SubmitJobError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1430,39 +938,20 @@ where
 impl From<crate::operation::submit_job::SubmitJobError> for Error {
     fn from(err: crate::operation::submit_job::SubmitJobError) -> Self {
         match err {
-            crate::operation::submit_job::SubmitJobError::ClientException(inner) => {
-                Error::ClientException(inner)
-            }
-            crate::operation::submit_job::SubmitJobError::ServerException(inner) => {
-                Error::ServerException(inner)
-            }
-            crate::operation::submit_job::SubmitJobError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::submit_job::SubmitJobError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::submit_job::SubmitJobError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::submit_job::SubmitJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_submit_service_job")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::submit_service_job::SubmitServiceJobError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::submit_service_job::SubmitServiceJobError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::submit_service_job::SubmitServiceJobError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::submit_service_job::SubmitServiceJobError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1474,39 +963,20 @@ where
 impl From<crate::operation::submit_service_job::SubmitServiceJobError> for Error {
     fn from(err: crate::operation::submit_service_job::SubmitServiceJobError) -> Self {
         match err {
-            crate::operation::submit_service_job::SubmitServiceJobError::ClientException(inner) => {
-                Error::ClientException(inner)
-            }
-            crate::operation::submit_service_job::SubmitServiceJobError::ServerException(inner) => {
-                Error::ServerException(inner)
-            }
-            crate::operation::submit_service_job::SubmitServiceJobError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::submit_service_job::SubmitServiceJobError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::submit_service_job::SubmitServiceJobError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::submit_service_job::SubmitServiceJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_tag_resource")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_resource::TagResourceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_resource::TagResourceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1518,39 +988,20 @@ where
 impl From<crate::operation::tag_resource::TagResourceError> for Error {
     fn from(err: crate::operation::tag_resource::TagResourceError) -> Self {
         match err {
-            crate::operation::tag_resource::TagResourceError::ClientException(inner) => {
-                Error::ClientException(inner)
-            }
-            crate::operation::tag_resource::TagResourceError::ServerException(inner) => {
-                Error::ServerException(inner)
-            }
-            crate::operation::tag_resource::TagResourceError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::tag_resource::TagResourceError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::tag_resource::TagResourceError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::tag_resource::TagResourceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_terminate_job")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::terminate_job::TerminateJobError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::terminate_job::TerminateJobError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::terminate_job::TerminateJobError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::terminate_job::TerminateJobError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1562,39 +1013,20 @@ where
 impl From<crate::operation::terminate_job::TerminateJobError> for Error {
     fn from(err: crate::operation::terminate_job::TerminateJobError) -> Self {
         match err {
-            crate::operation::terminate_job::TerminateJobError::ClientException(inner) => {
-                Error::ClientException(inner)
-            }
-            crate::operation::terminate_job::TerminateJobError::ServerException(inner) => {
-                Error::ServerException(inner)
-            }
-            crate::operation::terminate_job::TerminateJobError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::terminate_job::TerminateJobError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::terminate_job::TerminateJobError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::terminate_job::TerminateJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_terminate_service_job")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::terminate_service_job::TerminateServiceJobError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::terminate_service_job::TerminateServiceJobError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::terminate_service_job::TerminateServiceJobError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::terminate_service_job::TerminateServiceJobError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1606,39 +1038,20 @@ where
 impl From<crate::operation::terminate_service_job::TerminateServiceJobError> for Error {
     fn from(err: crate::operation::terminate_service_job::TerminateServiceJobError) -> Self {
         match err {
-            crate::operation::terminate_service_job::TerminateServiceJobError::ClientException(
-                inner,
-            ) => Error::ClientException(inner),
-            crate::operation::terminate_service_job::TerminateServiceJobError::ServerException(
-                inner,
-            ) => Error::ServerException(inner),
-            crate::operation::terminate_service_job::TerminateServiceJobError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::terminate_service_job::TerminateServiceJobError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::terminate_service_job::TerminateServiceJobError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::terminate_service_job::TerminateServiceJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_untag_resource")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_resource::UntagResourceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_resource::UntagResourceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1650,39 +1063,23 @@ where
 impl From<crate::operation::untag_resource::UntagResourceError> for Error {
     fn from(err: crate::operation::untag_resource::UntagResourceError) -> Self {
         match err {
-            crate::operation::untag_resource::UntagResourceError::ClientException(inner) => {
-                Error::ClientException(inner)
-            }
-            crate::operation::untag_resource::UntagResourceError::ServerException(inner) => {
-                Error::ServerException(inner)
-            }
-            crate::operation::untag_resource::UntagResourceError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::untag_resource::UntagResourceError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::untag_resource::UntagResourceError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::untag_resource::UntagResourceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_update_compute_environment")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_compute_environment::UpdateComputeEnvironmentError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_compute_environment::UpdateComputeEnvironmentError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_compute_environment::UpdateComputeEnvironmentError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_compute_environment::UpdateComputeEnvironmentError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1692,9 +1089,7 @@ where
 }
 #[cfg(feature = "op_update_compute_environment")]
 impl From<crate::operation::update_compute_environment::UpdateComputeEnvironmentError> for Error {
-    fn from(
-        err: crate::operation::update_compute_environment::UpdateComputeEnvironmentError,
-    ) -> Self {
+    fn from(err: crate::operation::update_compute_environment::UpdateComputeEnvironmentError) -> Self {
         match err {
             crate::operation::update_compute_environment::UpdateComputeEnvironmentError::ClientException(inner) => Error::ClientException(inner),
             crate::operation::update_compute_environment::UpdateComputeEnvironmentError::ServerException(inner) => Error::ServerException(inner),
@@ -1703,26 +1098,16 @@ impl From<crate::operation::update_compute_environment::UpdateComputeEnvironment
     }
 }
 #[cfg(feature = "op_update_consumable_resource")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_consumable_resource::UpdateConsumableResourceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_consumable_resource::UpdateConsumableResourceError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_consumable_resource::UpdateConsumableResourceError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_consumable_resource::UpdateConsumableResourceError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1732,9 +1117,7 @@ where
 }
 #[cfg(feature = "op_update_consumable_resource")]
 impl From<crate::operation::update_consumable_resource::UpdateConsumableResourceError> for Error {
-    fn from(
-        err: crate::operation::update_consumable_resource::UpdateConsumableResourceError,
-    ) -> Self {
+    fn from(err: crate::operation::update_consumable_resource::UpdateConsumableResourceError) -> Self {
         match err {
             crate::operation::update_consumable_resource::UpdateConsumableResourceError::ClientException(inner) => Error::ClientException(inner),
             crate::operation::update_consumable_resource::UpdateConsumableResourceError::ServerException(inner) => Error::ServerException(inner),
@@ -1743,26 +1126,13 @@ impl From<crate::operation::update_consumable_resource::UpdateConsumableResource
     }
 }
 #[cfg(feature = "op_update_job_queue")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_job_queue::UpdateJobQueueError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_job_queue::UpdateJobQueueError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_job_queue::UpdateJobQueueError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_job_queue::UpdateJobQueueError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1774,39 +1144,20 @@ where
 impl From<crate::operation::update_job_queue::UpdateJobQueueError> for Error {
     fn from(err: crate::operation::update_job_queue::UpdateJobQueueError) -> Self {
         match err {
-            crate::operation::update_job_queue::UpdateJobQueueError::ClientException(inner) => {
-                Error::ClientException(inner)
-            }
-            crate::operation::update_job_queue::UpdateJobQueueError::ServerException(inner) => {
-                Error::ServerException(inner)
-            }
-            crate::operation::update_job_queue::UpdateJobQueueError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::update_job_queue::UpdateJobQueueError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::update_job_queue::UpdateJobQueueError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::update_job_queue::UpdateJobQueueError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_update_quota_share")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_quota_share::UpdateQuotaShareError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_quota_share::UpdateQuotaShareError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_quota_share::UpdateQuotaShareError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_quota_share::UpdateQuotaShareError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1818,39 +1169,22 @@ where
 impl From<crate::operation::update_quota_share::UpdateQuotaShareError> for Error {
     fn from(err: crate::operation::update_quota_share::UpdateQuotaShareError) -> Self {
         match err {
-            crate::operation::update_quota_share::UpdateQuotaShareError::ClientException(inner) => {
-                Error::ClientException(inner)
-            }
-            crate::operation::update_quota_share::UpdateQuotaShareError::ServerException(inner) => {
-                Error::ServerException(inner)
-            }
-            crate::operation::update_quota_share::UpdateQuotaShareError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::update_quota_share::UpdateQuotaShareError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::update_quota_share::UpdateQuotaShareError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::update_quota_share::UpdateQuotaShareError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_update_scheduling_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_scheduling_policy::UpdateSchedulingPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_scheduling_policy::UpdateSchedulingPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_scheduling_policy::UpdateSchedulingPolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_scheduling_policy::UpdateSchedulingPolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1869,26 +1203,16 @@ impl From<crate::operation::update_scheduling_policy::UpdateSchedulingPolicyErro
     }
 }
 #[cfg(feature = "op_update_service_environment")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_service_environment::UpdateServiceEnvironmentError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_service_environment::UpdateServiceEnvironmentError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_service_environment::UpdateServiceEnvironmentError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_service_environment::UpdateServiceEnvironmentError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1898,9 +1222,7 @@ where
 }
 #[cfg(feature = "op_update_service_environment")]
 impl From<crate::operation::update_service_environment::UpdateServiceEnvironmentError> for Error {
-    fn from(
-        err: crate::operation::update_service_environment::UpdateServiceEnvironmentError,
-    ) -> Self {
+    fn from(err: crate::operation::update_service_environment::UpdateServiceEnvironmentError) -> Self {
         match err {
             crate::operation::update_service_environment::UpdateServiceEnvironmentError::ClientException(inner) => Error::ClientException(inner),
             crate::operation::update_service_environment::UpdateServiceEnvironmentError::ServerException(inner) => Error::ServerException(inner),
@@ -1909,26 +1231,13 @@ impl From<crate::operation::update_service_environment::UpdateServiceEnvironment
     }
 }
 #[cfg(feature = "op_update_service_job")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_service_job::UpdateServiceJobError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_service_job::UpdateServiceJobError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_service_job::UpdateServiceJobError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_service_job::UpdateServiceJobError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1940,23 +1249,19 @@ where
 impl From<crate::operation::update_service_job::UpdateServiceJobError> for Error {
     fn from(err: crate::operation::update_service_job::UpdateServiceJobError) -> Self {
         match err {
-            crate::operation::update_service_job::UpdateServiceJobError::ClientException(inner) => {
-                Error::ClientException(inner)
-            }
-            crate::operation::update_service_job::UpdateServiceJobError::ServerException(inner) => {
-                Error::ServerException(inner)
-            }
-            crate::operation::update_service_job::UpdateServiceJobError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::update_service_job::UpdateServiceJobError::ClientException(inner) => Error::ClientException(inner),
+            crate::operation::update_service_job::UpdateServiceJobError::ServerException(inner) => Error::ServerException(inner),
+            crate::operation::update_service_job::UpdateServiceJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 impl ::std::error::Error for Error {
     fn source(&self) -> std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            Error::ClientException(inner) => inner.source(),
-            Error::ServerException(inner) => inner.source(),
+            #[cfg(any(feature = "op_cancel_job", feature = "op_create_compute_environment", feature = "op_create_consumable_resource", feature = "op_create_job_queue", feature = "op_create_quota_share", feature = "op_create_scheduling_policy", feature = "op_create_service_environment", feature = "op_delete_compute_environment", feature = "op_delete_consumable_resource", feature = "op_delete_job_queue", feature = "op_delete_quota_share", feature = "op_delete_scheduling_policy", feature = "op_delete_service_environment", feature = "op_deregister_job_definition", feature = "op_describe_compute_environments", feature = "op_describe_consumable_resource", feature = "op_describe_job_definitions", feature = "op_describe_job_queues", feature = "op_describe_jobs", feature = "op_describe_quota_share", feature = "op_describe_scheduling_policies", feature = "op_describe_service_environments", feature = "op_describe_service_job", feature = "op_get_job_queue_snapshot", feature = "op_list_consumable_resources", feature = "op_list_jobs", feature = "op_list_jobs_by_consumable_resource", feature = "op_list_quota_shares", feature = "op_list_scheduling_policies", feature = "op_list_service_jobs", feature = "op_list_tags_for_resource", feature = "op_register_job_definition", feature = "op_submit_job", feature = "op_submit_service_job", feature = "op_tag_resource", feature = "op_terminate_job", feature = "op_terminate_service_job", feature = "op_untag_resource", feature = "op_update_compute_environment", feature = "op_update_consumable_resource", feature = "op_update_job_queue", feature = "op_update_quota_share", feature = "op_update_scheduling_policy", feature = "op_update_service_environment", feature = "op_update_service_job"))]
+Error::ClientException(inner) => inner.source(),
+            #[cfg(any(feature = "op_cancel_job", feature = "op_create_compute_environment", feature = "op_create_consumable_resource", feature = "op_create_job_queue", feature = "op_create_quota_share", feature = "op_create_scheduling_policy", feature = "op_create_service_environment", feature = "op_delete_compute_environment", feature = "op_delete_consumable_resource", feature = "op_delete_job_queue", feature = "op_delete_quota_share", feature = "op_delete_scheduling_policy", feature = "op_delete_service_environment", feature = "op_deregister_job_definition", feature = "op_describe_compute_environments", feature = "op_describe_consumable_resource", feature = "op_describe_job_definitions", feature = "op_describe_job_queues", feature = "op_describe_jobs", feature = "op_describe_quota_share", feature = "op_describe_scheduling_policies", feature = "op_describe_service_environments", feature = "op_describe_service_job", feature = "op_get_job_queue_snapshot", feature = "op_list_consumable_resources", feature = "op_list_jobs", feature = "op_list_jobs_by_consumable_resource", feature = "op_list_quota_shares", feature = "op_list_scheduling_policies", feature = "op_list_service_jobs", feature = "op_list_tags_for_resource", feature = "op_register_job_definition", feature = "op_submit_job", feature = "op_submit_service_job", feature = "op_tag_resource", feature = "op_terminate_job", feature = "op_terminate_service_job", feature = "op_untag_resource", feature = "op_update_compute_environment", feature = "op_update_consumable_resource", feature = "op_update_job_queue", feature = "op_update_quota_share", feature = "op_update_scheduling_policy", feature = "op_update_service_environment", feature = "op_update_service_job"))]
+Error::ServerException(inner) => inner.source(),
             Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source),
         }
     }
@@ -1964,8 +1269,10 @@ impl ::std::error::Error for Error {
 impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
-            Self::ClientException(e) => e.request_id(),
-            Self::ServerException(e) => e.request_id(),
+            #[cfg(any(feature = "op_cancel_job", feature = "op_create_compute_environment", feature = "op_create_consumable_resource", feature = "op_create_job_queue", feature = "op_create_quota_share", feature = "op_create_scheduling_policy", feature = "op_create_service_environment", feature = "op_delete_compute_environment", feature = "op_delete_consumable_resource", feature = "op_delete_job_queue", feature = "op_delete_quota_share", feature = "op_delete_scheduling_policy", feature = "op_delete_service_environment", feature = "op_deregister_job_definition", feature = "op_describe_compute_environments", feature = "op_describe_consumable_resource", feature = "op_describe_job_definitions", feature = "op_describe_job_queues", feature = "op_describe_jobs", feature = "op_describe_quota_share", feature = "op_describe_scheduling_policies", feature = "op_describe_service_environments", feature = "op_describe_service_job", feature = "op_get_job_queue_snapshot", feature = "op_list_consumable_resources", feature = "op_list_jobs", feature = "op_list_jobs_by_consumable_resource", feature = "op_list_quota_shares", feature = "op_list_scheduling_policies", feature = "op_list_service_jobs", feature = "op_list_tags_for_resource", feature = "op_register_job_definition", feature = "op_submit_job", feature = "op_submit_service_job", feature = "op_tag_resource", feature = "op_terminate_job", feature = "op_terminate_service_job", feature = "op_untag_resource", feature = "op_update_compute_environment", feature = "op_update_consumable_resource", feature = "op_update_job_queue", feature = "op_update_quota_share", feature = "op_update_scheduling_policy", feature = "op_update_service_environment", feature = "op_update_service_job"))]
+Self::ClientException(e) => e.request_id(),
+            #[cfg(any(feature = "op_cancel_job", feature = "op_create_compute_environment", feature = "op_create_consumable_resource", feature = "op_create_job_queue", feature = "op_create_quota_share", feature = "op_create_scheduling_policy", feature = "op_create_service_environment", feature = "op_delete_compute_environment", feature = "op_delete_consumable_resource", feature = "op_delete_job_queue", feature = "op_delete_quota_share", feature = "op_delete_scheduling_policy", feature = "op_delete_service_environment", feature = "op_deregister_job_definition", feature = "op_describe_compute_environments", feature = "op_describe_consumable_resource", feature = "op_describe_job_definitions", feature = "op_describe_job_queues", feature = "op_describe_jobs", feature = "op_describe_quota_share", feature = "op_describe_scheduling_policies", feature = "op_describe_service_environments", feature = "op_describe_service_job", feature = "op_get_job_queue_snapshot", feature = "op_list_consumable_resources", feature = "op_list_jobs", feature = "op_list_jobs_by_consumable_resource", feature = "op_list_quota_shares", feature = "op_list_scheduling_policies", feature = "op_list_service_jobs", feature = "op_list_tags_for_resource", feature = "op_register_job_definition", feature = "op_submit_job", feature = "op_submit_service_job", feature = "op_tag_resource", feature = "op_terminate_job", feature = "op_terminate_service_job", feature = "op_untag_resource", feature = "op_update_compute_environment", feature = "op_update_consumable_resource", feature = "op_update_job_queue", feature = "op_update_quota_share", feature = "op_update_scheduling_policy", feature = "op_update_service_environment", feature = "op_update_service_job"))]
+Self::ServerException(e) => e.request_id(),
             Self::Unhandled(e) => e.meta.request_id(),
         }
     }

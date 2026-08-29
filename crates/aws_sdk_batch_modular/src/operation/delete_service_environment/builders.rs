@@ -63,10 +63,7 @@ impl DeleteServiceEnvironmentFluentBuilder {
         }
     }
     /// Access the DeleteServiceEnvironment as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::delete_service_environment::builders::DeleteServiceEnvironmentInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::delete_service_environment::builders::DeleteServiceEnvironmentInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -95,11 +92,7 @@ impl DeleteServiceEnvironmentFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_service_environment::DeleteServiceEnvironment::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::delete_service_environment::DeleteServiceEnvironment::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -112,34 +105,22 @@ impl DeleteServiceEnvironmentFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name or ARN of the service environment to delete.</p>
-    pub fn service_environment(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_environment(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.service_environment(input.into());
         self
     }
     /// <p>The name or ARN of the service environment to delete.</p>
-    pub fn set_service_environment(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_environment(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_service_environment(input);
         self
     }

@@ -54,8 +54,7 @@ pub(crate) fn create_service_environment_output_output_correct_errors(
 #[cfg(feature = "op_describe_consumable_resource")]
 pub(crate) fn describe_consumable_resource_output_output_correct_errors(
     mut builder: crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceOutputBuilder,
-) -> crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceOutputBuilder
-{
+) -> crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceOutputBuilder {
     if builder.consumable_resource_name.is_none() {
         builder.consumable_resource_name = Some(Default::default())
     }
@@ -79,17 +78,13 @@ pub(crate) fn describe_service_job_output_output_correct_errors(
         builder.job_queue = Some(Default::default())
     }
     if builder.service_job_type.is_none() {
-        builder.service_job_type = "no value was set"
-            .parse::<crate::types::ServiceJobType>()
-            .ok()
+        builder.service_job_type = "no value was set".parse::<crate::types::ServiceJobType>().ok()
     }
     if builder.started_at.is_none() {
         builder.started_at = Some(Default::default())
     }
     if builder.status.is_none() {
-        builder.status = "no value was set"
-            .parse::<crate::types::ServiceJobStatus>()
-            .ok()
+        builder.status = "no value was set".parse::<crate::types::ServiceJobStatus>().ok()
     }
     builder
 }
@@ -117,7 +112,7 @@ pub(crate) fn list_jobs_output_output_correct_errors(
 #[cfg(feature = "op_list_jobs_by_consumable_resource")]
 pub(crate) fn list_jobs_by_consumable_resource_output_output_correct_errors(
     mut builder: crate::operation::list_jobs_by_consumable_resource::builders::ListJobsByConsumableResourceOutputBuilder,
-) -> crate::operation::list_jobs_by_consumable_resource::builders::ListJobsByConsumableResourceOutputBuilder{
+) -> crate::operation::list_jobs_by_consumable_resource::builders::ListJobsByConsumableResourceOutputBuilder {
     if builder.jobs.is_none() {
         builder.jobs = Some(Default::default())
     }
@@ -202,28 +197,27 @@ pub(crate) fn update_service_environment_output_output_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_create_quota_share", feature = "op_describe_quota_share", feature = "op_list_quota_shares", feature = "op_update_quota_share"))]
 pub(crate) fn quota_share_preemption_configuration_correct_errors(
     mut builder: crate::types::builders::QuotaSharePreemptionConfigurationBuilder,
 ) -> crate::types::builders::QuotaSharePreemptionConfigurationBuilder {
     if builder.in_share_preemption.is_none() {
-        builder.in_share_preemption = "no value was set"
-            .parse::<crate::types::QuotaShareInSharePreemptionState>()
-            .ok()
+        builder.in_share_preemption = "no value was set".parse::<crate::types::QuotaShareInSharePreemptionState>().ok()
     }
     builder
 }
 
+#[cfg(any(feature = "op_create_quota_share", feature = "op_describe_quota_share", feature = "op_list_quota_shares", feature = "op_update_quota_share"))]
 pub(crate) fn quota_share_resource_sharing_configuration_correct_errors(
     mut builder: crate::types::builders::QuotaShareResourceSharingConfigurationBuilder,
 ) -> crate::types::builders::QuotaShareResourceSharingConfigurationBuilder {
     if builder.strategy.is_none() {
-        builder.strategy = "no value was set"
-            .parse::<crate::types::QuotaShareResourceSharingStrategy>()
-            .ok()
+        builder.strategy = "no value was set".parse::<crate::types::QuotaShareResourceSharingStrategy>().ok()
     }
     builder
 }
 
+#[cfg(any(feature = "op_describe_service_job", feature = "op_submit_service_job"))]
 pub(crate) fn service_job_retry_strategy_correct_errors(
     mut builder: crate::types::builders::ServiceJobRetryStrategyBuilder,
 ) -> crate::types::builders::ServiceJobRetryStrategyBuilder {
@@ -233,6 +227,7 @@ pub(crate) fn service_job_retry_strategy_correct_errors(
     builder
 }
 
+#[cfg(feature = "op_describe_compute_environments")]
 pub(crate) fn compute_environment_detail_correct_errors(
     mut builder: crate::types::builders::ComputeEnvironmentDetailBuilder,
 ) -> crate::types::builders::ComputeEnvironmentDetailBuilder {
@@ -245,6 +240,7 @@ pub(crate) fn compute_environment_detail_correct_errors(
     builder
 }
 
+#[cfg(feature = "op_list_consumable_resources")]
 pub(crate) fn consumable_resource_summary_correct_errors(
     mut builder: crate::types::builders::ConsumableResourceSummaryBuilder,
 ) -> crate::types::builders::ConsumableResourceSummaryBuilder {
@@ -257,6 +253,7 @@ pub(crate) fn consumable_resource_summary_correct_errors(
     builder
 }
 
+#[cfg(feature = "op_describe_job_definitions")]
 pub(crate) fn job_definition_correct_errors(
     mut builder: crate::types::builders::JobDefinitionBuilder,
 ) -> crate::types::builders::JobDefinitionBuilder {
@@ -275,9 +272,8 @@ pub(crate) fn job_definition_correct_errors(
     builder
 }
 
-pub(crate) fn job_detail_correct_errors(
-    mut builder: crate::types::builders::JobDetailBuilder,
-) -> crate::types::builders::JobDetailBuilder {
+#[cfg(feature = "op_describe_jobs")]
+pub(crate) fn job_detail_correct_errors(mut builder: crate::types::builders::JobDetailBuilder) -> crate::types::builders::JobDetailBuilder {
     if builder.job_name.is_none() {
         builder.job_name = Some(Default::default())
     }
@@ -299,6 +295,7 @@ pub(crate) fn job_detail_correct_errors(
     builder
 }
 
+#[cfg(feature = "op_describe_job_queues")]
 pub(crate) fn job_queue_detail_correct_errors(
     mut builder: crate::types::builders::JobQueueDetailBuilder,
 ) -> crate::types::builders::JobQueueDetailBuilder {
@@ -320,9 +317,8 @@ pub(crate) fn job_queue_detail_correct_errors(
     builder
 }
 
-pub(crate) fn job_summary_correct_errors(
-    mut builder: crate::types::builders::JobSummaryBuilder,
-) -> crate::types::builders::JobSummaryBuilder {
+#[cfg(feature = "op_list_jobs")]
+pub(crate) fn job_summary_correct_errors(mut builder: crate::types::builders::JobSummaryBuilder) -> crate::types::builders::JobSummaryBuilder {
     if builder.job_id.is_none() {
         builder.job_id = Some(Default::default())
     }
@@ -332,6 +328,7 @@ pub(crate) fn job_summary_correct_errors(
     builder
 }
 
+#[cfg(feature = "op_list_jobs_by_consumable_resource")]
 pub(crate) fn list_jobs_by_consumable_resource_summary_correct_errors(
     mut builder: crate::types::builders::ListJobsByConsumableResourceSummaryBuilder,
 ) -> crate::types::builders::ListJobsByConsumableResourceSummaryBuilder {
@@ -362,6 +359,7 @@ pub(crate) fn list_jobs_by_consumable_resource_summary_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_create_quota_share", feature = "op_describe_quota_share", feature = "op_list_quota_shares", feature = "op_update_quota_share"))]
 pub(crate) fn quota_share_capacity_limit_correct_errors(
     mut builder: crate::types::builders::QuotaShareCapacityLimitBuilder,
 ) -> crate::types::builders::QuotaShareCapacityLimitBuilder {
@@ -374,6 +372,7 @@ pub(crate) fn quota_share_capacity_limit_correct_errors(
     builder
 }
 
+#[cfg(feature = "op_describe_scheduling_policies")]
 pub(crate) fn scheduling_policy_detail_correct_errors(
     mut builder: crate::types::builders::SchedulingPolicyDetailBuilder,
 ) -> crate::types::builders::SchedulingPolicyDetailBuilder {
@@ -386,6 +385,7 @@ pub(crate) fn scheduling_policy_detail_correct_errors(
     builder
 }
 
+#[cfg(feature = "op_list_scheduling_policies")]
 pub(crate) fn scheduling_policy_listing_detail_correct_errors(
     mut builder: crate::types::builders::SchedulingPolicyListingDetailBuilder,
 ) -> crate::types::builders::SchedulingPolicyListingDetailBuilder {
@@ -395,6 +395,7 @@ pub(crate) fn scheduling_policy_listing_detail_correct_errors(
     builder
 }
 
+#[cfg(feature = "op_describe_service_environments")]
 pub(crate) fn service_environment_detail_correct_errors(
     mut builder: crate::types::builders::ServiceEnvironmentDetailBuilder,
 ) -> crate::types::builders::ServiceEnvironmentDetailBuilder {
@@ -405,9 +406,7 @@ pub(crate) fn service_environment_detail_correct_errors(
         builder.service_environment_arn = Some(Default::default())
     }
     if builder.service_environment_type.is_none() {
-        builder.service_environment_type = "no value was set"
-            .parse::<crate::types::ServiceEnvironmentType>()
-            .ok()
+        builder.service_environment_type = "no value was set".parse::<crate::types::ServiceEnvironmentType>().ok()
     }
     if builder.capacity_limits.is_none() {
         builder.capacity_limits = Some(Default::default())
@@ -415,6 +414,7 @@ pub(crate) fn service_environment_detail_correct_errors(
     builder
 }
 
+#[cfg(feature = "op_list_service_jobs")]
 pub(crate) fn service_job_summary_correct_errors(
     mut builder: crate::types::builders::ServiceJobSummaryBuilder,
 ) -> crate::types::builders::ServiceJobSummaryBuilder {
@@ -425,20 +425,17 @@ pub(crate) fn service_job_summary_correct_errors(
         builder.job_name = Some(Default::default())
     }
     if builder.service_job_type.is_none() {
-        builder.service_job_type = "no value was set"
-            .parse::<crate::types::ServiceJobType>()
-            .ok()
+        builder.service_job_type = "no value was set".parse::<crate::types::ServiceJobType>().ok()
     }
     builder
 }
 
+#[cfg(any(feature = "op_describe_service_job", feature = "op_list_service_jobs"))]
 pub(crate) fn service_resource_id_correct_errors(
     mut builder: crate::types::builders::ServiceResourceIdBuilder,
 ) -> crate::types::builders::ServiceResourceIdBuilder {
     if builder.name.is_none() {
-        builder.name = "no value was set"
-            .parse::<crate::types::ServiceResourceIdName>()
-            .ok()
+        builder.name = "no value was set".parse::<crate::types::ServiceResourceIdName>().ok()
     }
     if builder.value.is_none() {
         builder.value = Some(Default::default())
@@ -446,6 +443,7 @@ pub(crate) fn service_resource_id_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_create_compute_environment", feature = "op_describe_compute_environments"))]
 pub(crate) fn compute_resource_correct_errors(
     mut builder: crate::types::builders::ComputeResourceBuilder,
 ) -> crate::types::builders::ComputeResourceBuilder {
@@ -458,6 +456,7 @@ pub(crate) fn compute_resource_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
 pub(crate) fn ecs_properties_correct_errors(
     mut builder: crate::types::builders::EcsPropertiesBuilder,
 ) -> crate::types::builders::EcsPropertiesBuilder {
@@ -467,6 +466,7 @@ pub(crate) fn ecs_properties_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_create_compute_environment", feature = "op_describe_compute_environments"))]
 pub(crate) fn eks_configuration_correct_errors(
     mut builder: crate::types::builders::EksConfigurationBuilder,
 ) -> crate::types::builders::EksConfigurationBuilder {
@@ -479,6 +479,7 @@ pub(crate) fn eks_configuration_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
 pub(crate) fn node_properties_correct_errors(
     mut builder: crate::types::builders::NodePropertiesBuilder,
 ) -> crate::types::builders::NodePropertiesBuilder {
@@ -494,17 +495,17 @@ pub(crate) fn node_properties_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_create_scheduling_policy", feature = "op_describe_scheduling_policies", feature = "op_update_scheduling_policy"))]
 pub(crate) fn quota_share_policy_correct_errors(
     mut builder: crate::types::builders::QuotaSharePolicyBuilder,
 ) -> crate::types::builders::QuotaSharePolicyBuilder {
     if builder.idle_resource_assignment_strategy.is_none() {
-        builder.idle_resource_assignment_strategy = "no value was set"
-            .parse::<crate::types::QuotaShareIdleResourceAssignmentStrategy>()
-            .ok()
+        builder.idle_resource_assignment_strategy = "no value was set".parse::<crate::types::QuotaShareIdleResourceAssignmentStrategy>().ok()
     }
     builder
 }
 
+#[cfg(any(feature = "op_create_job_queue", feature = "op_describe_job_queues", feature = "op_update_job_queue"))]
 pub(crate) fn compute_environment_order_correct_errors(
     mut builder: crate::types::builders::ComputeEnvironmentOrderBuilder,
 ) -> crate::types::builders::ComputeEnvironmentOrderBuilder {
@@ -517,6 +518,7 @@ pub(crate) fn compute_environment_order_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
 pub(crate) fn ephemeral_storage_correct_errors(
     mut builder: crate::types::builders::EphemeralStorageBuilder,
 ) -> crate::types::builders::EphemeralStorageBuilder {
@@ -526,6 +528,7 @@ pub(crate) fn ephemeral_storage_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_create_job_queue", feature = "op_describe_job_queues", feature = "op_update_job_queue"))]
 pub(crate) fn job_state_time_limit_action_correct_errors(
     mut builder: crate::types::builders::JobStateTimeLimitActionBuilder,
 ) -> crate::types::builders::JobStateTimeLimitActionBuilder {
@@ -533,21 +536,18 @@ pub(crate) fn job_state_time_limit_action_correct_errors(
         builder.reason = Some(Default::default())
     }
     if builder.state.is_none() {
-        builder.state = "no value was set"
-            .parse::<crate::types::JobStateTimeLimitActionsState>()
-            .ok()
+        builder.state = "no value was set".parse::<crate::types::JobStateTimeLimitActionsState>().ok()
     }
     if builder.max_time_seconds.is_none() {
         builder.max_time_seconds = Some(Default::default())
     }
     if builder.action.is_none() {
-        builder.action = "no value was set"
-            .parse::<crate::types::JobStateTimeLimitActionsAction>()
-            .ok()
+        builder.action = "no value was set".parse::<crate::types::JobStateTimeLimitActionsAction>().ok()
     }
     builder
 }
 
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
 pub(crate) fn log_configuration_correct_errors(
     mut builder: crate::types::builders::LogConfigurationBuilder,
 ) -> crate::types::builders::LogConfigurationBuilder {
@@ -557,6 +557,7 @@ pub(crate) fn log_configuration_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_create_compute_environment", feature = "op_describe_compute_environments"))]
 pub(crate) fn managed_instances_provider_correct_errors(
     mut builder: crate::types::builders::ManagedInstancesProviderBuilder,
 ) -> crate::types::builders::ManagedInstancesProviderBuilder {
@@ -572,6 +573,7 @@ pub(crate) fn managed_instances_provider_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
 pub(crate) fn repository_credentials_correct_errors(
     mut builder: crate::types::builders::RepositoryCredentialsBuilder,
 ) -> crate::types::builders::RepositoryCredentialsBuilder {
@@ -581,6 +583,7 @@ pub(crate) fn repository_credentials_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_create_job_queue", feature = "op_describe_job_queues", feature = "op_update_job_queue"))]
 pub(crate) fn service_environment_order_correct_errors(
     mut builder: crate::types::builders::ServiceEnvironmentOrderBuilder,
 ) -> crate::types::builders::ServiceEnvironmentOrderBuilder {
@@ -593,6 +596,7 @@ pub(crate) fn service_environment_order_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_create_compute_environment", feature = "op_describe_compute_environments", feature = "op_update_compute_environment"))]
 pub(crate) fn ec2_configuration_correct_errors(
     mut builder: crate::types::builders::Ec2ConfigurationBuilder,
 ) -> crate::types::builders::Ec2ConfigurationBuilder {
@@ -602,6 +606,7 @@ pub(crate) fn ec2_configuration_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
 pub(crate) fn ecs_task_properties_correct_errors(
     mut builder: crate::types::builders::EcsTaskPropertiesBuilder,
 ) -> crate::types::builders::EcsTaskPropertiesBuilder {
@@ -611,6 +616,7 @@ pub(crate) fn ecs_task_properties_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition", feature = "op_submit_job"))]
 pub(crate) fn evaluate_on_exit_correct_errors(
     mut builder: crate::types::builders::EvaluateOnExitBuilder,
 ) -> crate::types::builders::EvaluateOnExitBuilder {
@@ -620,6 +626,7 @@ pub(crate) fn evaluate_on_exit_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_create_compute_environment", feature = "op_describe_compute_environments"))]
 pub(crate) fn instance_launch_template_correct_errors(
     mut builder: crate::types::builders::InstanceLaunchTemplateBuilder,
 ) -> crate::types::builders::InstanceLaunchTemplateBuilder {
@@ -628,17 +635,14 @@ pub(crate) fn instance_launch_template_correct_errors(
     }
     if builder.network_configuration.is_none() {
         builder.network_configuration = {
-            let builder =
-                crate::types::builders::ManagedInstancesNetworkConfigurationBuilder::default();
-            Some(
-                crate::serde_util::managed_instances_network_configuration_correct_errors(builder)
-                    .build(),
-            )
+            let builder = crate::types::builders::ManagedInstancesNetworkConfigurationBuilder::default();
+            Some(crate::serde_util::managed_instances_network_configuration_correct_errors(builder).build())
         }
     }
     builder
 }
 
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
 pub(crate) fn node_range_property_correct_errors(
     mut builder: crate::types::builders::NodeRangePropertyBuilder,
 ) -> crate::types::builders::NodeRangePropertyBuilder {
@@ -648,6 +652,7 @@ pub(crate) fn node_range_property_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition", feature = "op_submit_job"))]
 pub(crate) fn resource_requirement_correct_errors(
     mut builder: crate::types::builders::ResourceRequirementBuilder,
 ) -> crate::types::builders::ResourceRequirementBuilder {
@@ -655,16 +660,13 @@ pub(crate) fn resource_requirement_correct_errors(
         builder.value = Some(Default::default())
     }
     if builder.r#type.is_none() {
-        builder.r#type = "no value was set"
-            .parse::<crate::types::ResourceType>()
-            .ok()
+        builder.r#type = "no value was set".parse::<crate::types::ResourceType>().ok()
     }
     builder
 }
 
-pub(crate) fn secret_correct_errors(
-    mut builder: crate::types::builders::SecretBuilder,
-) -> crate::types::builders::SecretBuilder {
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
+pub(crate) fn secret_correct_errors(mut builder: crate::types::builders::SecretBuilder) -> crate::types::builders::SecretBuilder {
     if builder.name.is_none() {
         builder.name = Some(Default::default())
     }
@@ -674,6 +676,7 @@ pub(crate) fn secret_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_create_scheduling_policy", feature = "op_describe_scheduling_policies", feature = "op_update_scheduling_policy"))]
 pub(crate) fn share_attributes_correct_errors(
     mut builder: crate::types::builders::ShareAttributesBuilder,
 ) -> crate::types::builders::ShareAttributesBuilder {
@@ -683,9 +686,8 @@ pub(crate) fn share_attributes_correct_errors(
     builder
 }
 
-pub(crate) fn ulimit_correct_errors(
-    mut builder: crate::types::builders::UlimitBuilder,
-) -> crate::types::builders::UlimitBuilder {
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
+pub(crate) fn ulimit_correct_errors(mut builder: crate::types::builders::UlimitBuilder) -> crate::types::builders::UlimitBuilder {
     if builder.hard_limit.is_none() {
         builder.hard_limit = Some(Default::default())
     }
@@ -698,15 +700,15 @@ pub(crate) fn ulimit_correct_errors(
     builder
 }
 
-pub(crate) fn device_correct_errors(
-    mut builder: crate::types::builders::DeviceBuilder,
-) -> crate::types::builders::DeviceBuilder {
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
+pub(crate) fn device_correct_errors(mut builder: crate::types::builders::DeviceBuilder) -> crate::types::builders::DeviceBuilder {
     if builder.host_path.is_none() {
         builder.host_path = Some(Default::default())
     }
     builder
 }
 
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
 pub(crate) fn efs_volume_configuration_correct_errors(
     mut builder: crate::types::builders::EfsVolumeConfigurationBuilder,
 ) -> crate::types::builders::EfsVolumeConfigurationBuilder {
@@ -716,24 +718,23 @@ pub(crate) fn efs_volume_configuration_correct_errors(
     builder
 }
 
-pub(crate) fn eks_container_correct_errors(
-    mut builder: crate::types::builders::EksContainerBuilder,
-) -> crate::types::builders::EksContainerBuilder {
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
+pub(crate) fn eks_container_correct_errors(mut builder: crate::types::builders::EksContainerBuilder) -> crate::types::builders::EksContainerBuilder {
     if builder.image.is_none() {
         builder.image = Some(Default::default())
     }
     builder
 }
 
-pub(crate) fn eks_volume_correct_errors(
-    mut builder: crate::types::builders::EksVolumeBuilder,
-) -> crate::types::builders::EksVolumeBuilder {
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
+pub(crate) fn eks_volume_correct_errors(mut builder: crate::types::builders::EksVolumeBuilder) -> crate::types::builders::EksVolumeBuilder {
     if builder.name.is_none() {
         builder.name = Some(Default::default())
     }
     builder
 }
 
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
 pub(crate) fn image_pull_secret_correct_errors(
     mut builder: crate::types::builders::ImagePullSecretBuilder,
 ) -> crate::types::builders::ImagePullSecretBuilder {
@@ -743,6 +744,7 @@ pub(crate) fn image_pull_secret_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_create_compute_environment", feature = "op_describe_compute_environments", feature = "op_update_compute_environment"))]
 pub(crate) fn managed_instances_network_configuration_correct_errors(
     mut builder: crate::types::builders::ManagedInstancesNetworkConfigurationBuilder,
 ) -> crate::types::builders::ManagedInstancesNetworkConfigurationBuilder {
@@ -755,6 +757,7 @@ pub(crate) fn managed_instances_network_configuration_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
 pub(crate) fn s3_files_volume_configuration_correct_errors(
     mut builder: crate::types::builders::S3FilesVolumeConfigurationBuilder,
 ) -> crate::types::builders::S3FilesVolumeConfigurationBuilder {
@@ -764,9 +767,8 @@ pub(crate) fn s3_files_volume_configuration_correct_errors(
     builder
 }
 
-pub(crate) fn tmpfs_correct_errors(
-    mut builder: crate::types::builders::TmpfsBuilder,
-) -> crate::types::builders::TmpfsBuilder {
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
+pub(crate) fn tmpfs_correct_errors(mut builder: crate::types::builders::TmpfsBuilder) -> crate::types::builders::TmpfsBuilder {
     if builder.container_path.is_none() {
         builder.container_path = Some(Default::default())
     }
@@ -776,6 +778,7 @@ pub(crate) fn tmpfs_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
 pub(crate) fn eks_persistent_volume_claim_correct_errors(
     mut builder: crate::types::builders::EksPersistentVolumeClaimBuilder,
 ) -> crate::types::builders::EksPersistentVolumeClaimBuilder {
@@ -785,15 +788,15 @@ pub(crate) fn eks_persistent_volume_claim_correct_errors(
     builder
 }
 
-pub(crate) fn eks_secret_correct_errors(
-    mut builder: crate::types::builders::EksSecretBuilder,
-) -> crate::types::builders::EksSecretBuilder {
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
+pub(crate) fn eks_secret_correct_errors(mut builder: crate::types::builders::EksSecretBuilder) -> crate::types::builders::EksSecretBuilder {
     if builder.secret_name.is_none() {
         builder.secret_name = Some(Default::default())
     }
     builder
 }
 
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
 pub(crate) fn task_container_properties_correct_errors(
     mut builder: crate::types::builders::TaskContainerPropertiesBuilder,
 ) -> crate::types::builders::TaskContainerPropertiesBuilder {
@@ -803,6 +806,7 @@ pub(crate) fn task_container_properties_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition", feature = "op_submit_job"))]
 pub(crate) fn eks_container_environment_variable_correct_errors(
     mut builder: crate::types::builders::EksContainerEnvironmentVariableBuilder,
 ) -> crate::types::builders::EksContainerEnvironmentVariableBuilder {
@@ -812,13 +816,12 @@ pub(crate) fn eks_container_environment_variable_correct_errors(
     builder
 }
 
+#[cfg(any(feature = "op_describe_job_definitions", feature = "op_describe_jobs", feature = "op_register_job_definition"))]
 pub(crate) fn firelens_configuration_correct_errors(
     mut builder: crate::types::builders::FirelensConfigurationBuilder,
 ) -> crate::types::builders::FirelensConfigurationBuilder {
     if builder.r#type.is_none() {
-        builder.r#type = "no value was set"
-            .parse::<crate::types::FirelensConfigurationType>()
-            .ok()
+        builder.r#type = "no value was set".parse::<crate::types::FirelensConfigurationType>().ok()
     }
     builder
 }
