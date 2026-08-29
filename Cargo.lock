@@ -436,123 +436,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "aws-sdk-builder"
-version = "0.1.0"
-dependencies = [
- "proc-macro2",
- "serde_json",
- "sha2 0.10.9",
- "syn 3.0.3",
- "tempfile",
- "thiserror",
-]
-
-[[package]]
-name = "aws-sdk-builder-batch"
-version = "0.1.0"
-dependencies = [
- "aws-sdk-builder",
-]
-
-[[package]]
-name = "aws-sdk-builder-bedrockruntime"
-version = "0.1.0"
-dependencies = [
- "aws-sdk-builder",
-]
-
-[[package]]
-name = "aws-sdk-builder-cloudwatchlogs"
-version = "0.1.0"
-dependencies = [
- "aws-sdk-builder",
-]
-
-[[package]]
-name = "aws-sdk-builder-codeartifact"
-version = "0.1.0"
-dependencies = [
- "aws-sdk-builder",
-]
-
-[[package]]
-name = "aws-sdk-builder-cognitoidentityprovider"
-version = "0.1.0"
-dependencies = [
- "aws-sdk-builder",
-]
-
-[[package]]
-name = "aws-sdk-builder-config"
-version = "0.1.0"
-dependencies = [
- "aws-sdk-builder",
-]
-
-[[package]]
-name = "aws-sdk-builder-dynamodb"
-version = "0.1.0"
-dependencies = [
- "aws-sdk-builder",
-]
-
-[[package]]
-name = "aws-sdk-builder-iam"
-version = "0.1.0"
-dependencies = [
- "aws-sdk-builder",
-]
-
-[[package]]
-name = "aws-sdk-builder-kms"
-version = "0.1.0"
-dependencies = [
- "aws-sdk-builder",
-]
-
-[[package]]
-name = "aws-sdk-builder-lambda"
-version = "0.1.0"
-dependencies = [
- "aws-sdk-builder",
-]
-
-[[package]]
-name = "aws-sdk-builder-s3"
-version = "0.1.0"
-dependencies = [
- "aws-sdk-builder",
-]
-
-[[package]]
-name = "aws-sdk-builder-sesv2"
-version = "0.1.0"
-dependencies = [
- "aws-sdk-builder",
-]
-
-[[package]]
-name = "aws-sdk-builder-sns"
-version = "0.1.0"
-dependencies = [
- "aws-sdk-builder",
-]
-
-[[package]]
-name = "aws-sdk-builder-sqs"
-version = "0.1.0"
-dependencies = [
- "aws-sdk-builder",
-]
-
-[[package]]
-name = "aws-sdk-builder-sts"
-version = "0.1.0"
-dependencies = [
- "aws-sdk-builder",
-]
-
-[[package]]
 name = "aws-sdk-cloudwatchlogs-modular"
 version = "1.147.0"
 dependencies = [
@@ -664,36 +547,6 @@ dependencies = [
  "regex-lite",
  "tokio",
  "tracing",
-]
-
-[[package]]
-name = "aws-sdk-conformance"
-version = "0.1.0"
-dependencies = [
- "aws-sdk-builder",
- "aws-sdk-builder-batch",
- "aws-sdk-builder-bedrockruntime",
- "aws-sdk-builder-cloudwatchlogs",
- "aws-sdk-builder-codeartifact",
- "aws-sdk-builder-cognitoidentityprovider",
- "aws-sdk-builder-config",
- "aws-sdk-builder-dynamodb",
- "aws-sdk-builder-iam",
- "aws-sdk-builder-kms",
- "aws-sdk-builder-lambda",
- "aws-sdk-builder-s3",
- "aws-sdk-builder-sesv2",
- "aws-sdk-builder-sns",
- "aws-sdk-builder-sqs",
- "aws-sdk-builder-sts",
- "diffy",
- "proc-macro2",
- "quote",
- "rayon",
- "serde",
- "serde_json",
- "syn 3.0.3",
- "tempfile",
 ]
 
 [[package]]
@@ -882,7 +735,7 @@ dependencies = [
  "http 1.5.0",
  "http-body 1.1.0",
  "http-body-util",
- "lru 0.16.4",
+ "lru",
  "percent-encoding",
  "pin-project-lite",
  "pretty_assertions",
@@ -2293,8 +2146,6 @@ version = "0.17.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ed5909b6e89a2db4456e54cd5f673791d7eca6732202bbf2a9cc504fe2f9b84a"
 dependencies = [
- "allocator-api2",
- "equivalent",
  "foldhash",
 ]
 
@@ -2777,15 +2628,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "lru"
-version = "0.18.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5d2f2f9b4ba7e6b24d95e7e899329d35be83bcded72c8540cdd5368932d1d90a"
-dependencies = [
- "hashbrown 0.17.1",
-]
-
-[[package]]
 name = "matchers"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2835,80 +2677,6 @@ dependencies = [
  "libc",
  "wasi",
  "windows-sys 0.61.2",
-]
-
-[[package]]
-name = "multi_service"
-version = "0.1.0"
-dependencies = [
- "arc-swap",
- "aws-credential-types",
- "aws-runtime",
- "aws-sdk-builder-s3",
- "aws-sdk-builder-sqs",
- "aws-sigv4",
- "aws-smithy-async",
- "aws-smithy-checksums",
- "aws-smithy-http",
- "aws-smithy-http-client",
- "aws-smithy-json",
- "aws-smithy-observability",
- "aws-smithy-runtime",
- "aws-smithy-runtime-api",
- "aws-smithy-schema",
- "aws-smithy-types",
- "aws-smithy-xml",
- "aws-types",
- "bytes",
- "fastrand 2.5.0",
- "hex",
- "hmac 0.13.0",
- "http 0.2.12",
- "http 1.5.0",
- "http-body 1.1.0",
- "lru 0.18.2",
- "percent-encoding",
- "regex-lite",
- "sha2 0.11.0",
- "tracing",
- "url",
-]
-
-[[package]]
-name = "my_aws_sdk"
-version = "0.1.0"
-dependencies = [
- "arc-swap",
- "aws-credential-types",
- "aws-runtime",
- "aws-sdk-builder-s3",
- "aws-sigv4",
- "aws-smithy-async",
- "aws-smithy-checksums",
- "aws-smithy-http",
- "aws-smithy-http-client",
- "aws-smithy-json",
- "aws-smithy-observability",
- "aws-smithy-runtime",
- "aws-smithy-runtime-api",
- "aws-smithy-schema",
- "aws-smithy-types",
- "aws-smithy-xml",
- "aws-types",
- "bytes",
- "fastrand 2.5.0",
- "hex",
- "hmac 0.13.0",
- "http 0.2.12",
- "http 1.5.0",
- "http-body 1.1.0",
- "lru 0.18.2",
- "percent-encoding",
- "regex-lite",
- "sha2 0.11.0",
- "tokio",
- "tracing",
- "url",
 ]
 
 [[package]]
