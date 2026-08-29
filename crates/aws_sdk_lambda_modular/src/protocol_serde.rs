@@ -47,10 +47,6 @@ pub(crate) mod shape_create_alias;
 #[cfg(feature = "op_create_capacity_provider")]
 pub(crate) mod shape_create_capacity_provider;
 
-pub(crate) mod shape_create_code_signing_config;
-
-pub(crate) mod shape_create_event_source_mapping;
-
 #[cfg(feature = "op_create_function")]
 pub(crate) mod shape_create_function;
 
@@ -228,8 +224,6 @@ pub(crate) mod shape_list_versions_by_function;
 #[cfg(feature = "op_publish_layer_version")]
 pub(crate) mod shape_publish_layer_version;
 
-pub(crate) mod shape_publish_version;
-
 #[cfg(feature = "op_put_function_code_signing_config")]
 pub(crate) mod shape_put_function_code_signing_config;
 
@@ -383,10 +377,6 @@ pub(crate) mod shape_create_alias_input;
 
 #[cfg(feature = "op_create_capacity_provider")]
 pub(crate) mod shape_create_capacity_provider_input;
-
-pub(crate) mod shape_create_code_signing_config_input;
-
-pub(crate) mod shape_create_event_source_mapping_input;
 
 #[cfg(feature = "op_create_function")]
 pub(crate) mod shape_create_function_input;
@@ -684,8 +674,6 @@ pub(crate) mod shape_public_policy_exception;
 
 #[cfg(feature = "op_publish_layer_version")]
 pub(crate) mod shape_publish_layer_version_input;
-
-pub(crate) mod shape_publish_version_input;
 
 #[cfg(feature = "op_put_function_code_signing_config")]
 pub(crate) mod shape_put_function_code_signing_config_input;
