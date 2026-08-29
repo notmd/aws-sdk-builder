@@ -4,24 +4,15 @@ pub fn de_delete_message_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::delete_message::DeleteMessageOutput,
-    crate::operation::delete_message::DeleteMessageError,
-> {
+) -> std::result::Result<crate::operation::delete_message::DeleteMessageOutput, crate::operation::delete_message::DeleteMessageError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::delete_message::DeleteMessageError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(crate::operation::delete_message::DeleteMessageError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::delete_message::DeleteMessageError::unhandled(generic))
-        }
+        None => return Err(crate::operation::delete_message::DeleteMessageError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -31,11 +22,8 @@ pub fn de_delete_message_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::InvalidAddressBuilder::default();
-                output = crate::protocol_serde::shape_invalid_address::de_invalid_address_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(crate::operation::delete_message::DeleteMessageError::unhandled)?;
+                output = crate::protocol_serde::shape_invalid_address::de_invalid_address_json_err(_response_body, output)
+                    .map_err(crate::operation::delete_message::DeleteMessageError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -44,114 +32,96 @@ pub fn de_delete_message_http_error(
             }
             tmp
         }),
-        "InvalidIdFormat" => {
-            crate::operation::delete_message::DeleteMessageError::InvalidIdFormat({
+        "InvalidIdFormat" => crate::operation::delete_message::DeleteMessageError::InvalidIdFormat({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidIdFormatBuilder::default();
-                    output = crate::protocol_serde::shape_invalid_id_format::de_invalid_id_format_json_err(_response_body, output)
+                let mut output = crate::types::error::builders::InvalidIdFormatBuilder::default();
+                output = crate::protocol_serde::shape_invalid_id_format::de_invalid_id_format_json_err(_response_body, output)
                     .map_err(crate::operation::delete_message::DeleteMessageError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "InvalidSecurity" => {
-            crate::operation::delete_message::DeleteMessageError::InvalidSecurity({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidSecurity" => crate::operation::delete_message::DeleteMessageError::InvalidSecurity({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidSecurityBuilder::default();
-                    output = crate::protocol_serde::shape_invalid_security::de_invalid_security_json_err(_response_body, output)
+                let mut output = crate::types::error::builders::InvalidSecurityBuilder::default();
+                output = crate::protocol_serde::shape_invalid_security::de_invalid_security_json_err(_response_body, output)
                     .map_err(crate::operation::delete_message::DeleteMessageError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "AWS.SimpleQueueService.NonExistentQueue" => {
-            crate::operation::delete_message::DeleteMessageError::QueueDoesNotExist({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::delete_message::DeleteMessageError::QueueDoesNotExist({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::QueueDoesNotExistBuilder::default();
-                    output = crate::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
+                let mut output = crate::types::error::builders::QueueDoesNotExistBuilder::default();
+                output = crate::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
                     .map_err(crate::operation::delete_message::DeleteMessageError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ReceiptHandleIsInvalid" => {
-            crate::operation::delete_message::DeleteMessageError::ReceiptHandleIsInvalid({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ReceiptHandleIsInvalid" => crate::operation::delete_message::DeleteMessageError::ReceiptHandleIsInvalid({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ReceiptHandleIsInvalidBuilder::default();
-                    output = crate::protocol_serde::shape_receipt_handle_is_invalid::de_receipt_handle_is_invalid_json_err(_response_body, output)
+                let mut output = crate::types::error::builders::ReceiptHandleIsInvalidBuilder::default();
+                output = crate::protocol_serde::shape_receipt_handle_is_invalid::de_receipt_handle_is_invalid_json_err(_response_body, output)
                     .map_err(crate::operation::delete_message::DeleteMessageError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "RequestThrottled" => {
-            crate::operation::delete_message::DeleteMessageError::RequestThrottled({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "RequestThrottled" => crate::operation::delete_message::DeleteMessageError::RequestThrottled({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::RequestThrottledBuilder::default();
-                    output = crate::protocol_serde::shape_request_throttled::de_request_throttled_json_err(_response_body, output)
+                let mut output = crate::types::error::builders::RequestThrottledBuilder::default();
+                output = crate::protocol_serde::shape_request_throttled::de_request_throttled_json_err(_response_body, output)
                     .map_err(crate::operation::delete_message::DeleteMessageError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "AWS.SimpleQueueService.UnsupportedOperation" => {
-            crate::operation::delete_message::DeleteMessageError::UnsupportedOperation({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::delete_message::DeleteMessageError::UnsupportedOperation({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::UnsupportedOperationBuilder::default();
-                    output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+                let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
+                output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
                     .map_err(crate::operation::delete_message::DeleteMessageError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => crate::operation::delete_message::DeleteMessageError::generic(generic),
     })
 }
@@ -161,33 +131,21 @@ pub fn de_delete_message_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::delete_message::DeleteMessageOutput,
-    crate::operation::delete_message::DeleteMessageError,
-> {
+) -> std::result::Result<crate::operation::delete_message::DeleteMessageOutput, crate::operation::delete_message::DeleteMessageError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::delete_message::builders::DeleteMessageOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::delete_message::builders::DeleteMessageOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_delete_message_input(
     input: &crate::operation::delete_message::DeleteMessageInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_delete_message_input::ser_delete_message_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_delete_message_input::ser_delete_message_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

@@ -17,18 +17,14 @@ impl CancelMessageMoveTaskInput {
 #[cfg(feature = "op_cancel_message_move_task")]
 impl CancelMessageMoveTaskInput {
     /// Creates a new builder-style object to manufacture [`CancelMessageMoveTaskInput`](crate::operation::cancel_message_move_task::CancelMessageMoveTaskInput).
-    pub fn builder(
-    ) -> crate::operation::cancel_message_move_task::builders::CancelMessageMoveTaskInputBuilder
-    {
+    pub fn builder() -> crate::operation::cancel_message_move_task::builders::CancelMessageMoveTaskInputBuilder {
         crate::operation::cancel_message_move_task::builders::CancelMessageMoveTaskInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_cancel_message_move_task")]
 /// A builder for [`CancelMessageMoveTaskInput`](crate::operation::cancel_message_move_task::CancelMessageMoveTaskInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CancelMessageMoveTaskInputBuilder {
     pub(crate) task_handle: ::std::option::Option<::std::string::String>,
@@ -53,14 +49,10 @@ impl CancelMessageMoveTaskInputBuilder {
     /// Consumes the builder and constructs a [`CancelMessageMoveTaskInput`](crate::operation::cancel_message_move_task::CancelMessageMoveTaskInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::cancel_message_move_task::CancelMessageMoveTaskInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::cancel_message_move_task::CancelMessageMoveTaskInput {
-                task_handle: self.task_handle,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::cancel_message_move_task::CancelMessageMoveTaskInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::cancel_message_move_task::CancelMessageMoveTaskInput {
+            task_handle: self.task_handle,
+        })
     }
 }

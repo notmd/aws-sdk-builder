@@ -4,26 +4,15 @@ pub fn de_send_message_batch_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::send_message_batch::SendMessageBatchOutput,
-    crate::operation::send_message_batch::SendMessageBatchError,
-> {
+) -> std::result::Result<crate::operation::send_message_batch::SendMessageBatchOutput, crate::operation::send_message_batch::SendMessageBatchError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(
-                crate::operation::send_message_batch::SendMessageBatchError::unhandled(generic),
-            )
-        }
+        None => return Err(crate::operation::send_message_batch::SendMessageBatchError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -297,23 +286,13 @@ pub fn de_send_message_batch_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::send_message_batch::SendMessageBatchOutput,
-    crate::operation::send_message_batch::SendMessageBatchError,
-> {
+) -> std::result::Result<crate::operation::send_message_batch::SendMessageBatchOutput, crate::operation::send_message_batch::SendMessageBatchError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::send_message_batch::builders::SendMessageBatchOutputBuilder::default(
-            );
-        output = crate::protocol_serde::shape_send_message_batch::de_send_message_batch(
-            _response_body,
-            output,
-        )
-        .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::send_message_batch::builders::SendMessageBatchOutputBuilder::default();
+        output = crate::protocol_serde::shape_send_message_batch::de_send_message_batch(_response_body, output)
+            .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::send_message_batch_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?
@@ -322,16 +301,10 @@ pub fn de_send_message_batch_http_response(
 
 pub fn ser_send_message_batch_input(
     input: &crate::operation::send_message_batch::SendMessageBatchInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_send_message_batch_input::ser_send_message_batch_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_send_message_batch_input::ser_send_message_batch_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -343,10 +316,7 @@ pub(crate) fn de_send_message_batch(
     crate::operation::send_message_batch::builders::SendMessageBatchOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -354,40 +324,34 @@ pub(crate) fn de_send_message_batch(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "Successful" => {
-                        builder = builder.set_successful(
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "Successful" => {
+                    builder = builder.set_successful(
                         crate::protocol_serde::shape_send_message_batch_result_entry_list::de_send_message_batch_result_entry_list(
                             tokens,
                             _value,
                             depth + 1,
                         )?,
                     );
-                    }
-                    "Failed" => {
-                        builder = builder.set_failed(
+                }
+                "Failed" => {
+                    builder = builder.set_failed(
                         crate::protocol_serde::shape_batch_result_error_entry_list::de_batch_result_error_entry_list(tokens, _value, depth + 1)?,
                     );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-            }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                    "expected object key or end object, found: {other:?}"
+                )))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

@@ -222,7 +222,317 @@ diff --git a/src/client.rs b/src/client.rs
 diff --git a/src/error_meta.rs b/src/error_meta.rs
 --- a/src/error_meta.rs
 +++ b/src/error_meta.rs
-@@ -165,6 +165,7 @@
+@@ -3,32 +3,45 @@
+ #[non_exhaustive]
+ #[derive(::std::fmt::Debug)]
+ pub enum Error {
+-    /// <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
++    #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++/// <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
+     BatchEntryIdsNotDistinct(crate::types::error::BatchEntryIdsNotDistinct),
+-    /// <p>The length of all the messages put together is more than the limit.</p>
++    #[cfg(feature = "op_send_message_batch")]
++/// <p>The length of all the messages put together is more than the limit.</p>
+     BatchRequestTooLong(crate::types::error::BatchRequestTooLong),
+-    /// <p>The batch request doesn't contain any entries.</p>
++    #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++/// <p>The batch request doesn't contain any entries.</p>
+     EmptyBatchRequest(crate::types::error::EmptyBatchRequest),
+-    /// <p>The specified ID is invalid.</p>
++    #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++/// <p>The specified ID is invalid.</p>
+     InvalidAddress(crate::types::error::InvalidAddress),
+-    /// <p>The specified attribute doesn't exist.</p>
++    #[cfg(any(feature = "op_create_queue", feature = "op_get_queue_attributes", feature = "op_set_queue_attributes"))]
++/// <p>The specified attribute doesn't exist.</p>
+     InvalidAttributeName(crate::types::error::InvalidAttributeName),
+-    /// <p>A queue attribute value is invalid.</p>
++    #[cfg(any(feature = "op_create_queue", feature = "op_set_queue_attributes"))]
++/// <p>A queue attribute value is invalid.</p>
+     InvalidAttributeValue(crate::types::error::InvalidAttributeValue),
+-    /// <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
++    #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++/// <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
+     InvalidBatchEntryId(crate::types::error::InvalidBatchEntryId),
+-    /// <p>The specified receipt handle isn't valid for the current version.</p>
++    #[cfg(feature = "op_delete_message")]
++/// <p>The specified receipt handle isn't valid for the current version.</p>
+     #[deprecated(note = "exception has been included in ReceiptHandleIsInvalid")]
+     InvalidIdFormat(crate::types::error::InvalidIdFormat),
+-    /// <p>The message contains characters outside the allowed set.</p>
++    #[cfg(feature = "op_send_message")]
++/// <p>The message contains characters outside the allowed set.</p>
+     InvalidMessageContents(crate::types::error::InvalidMessageContents),
+-    /// <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
++    #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++/// <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
+     InvalidSecurity(crate::types::error::InvalidSecurity),
+-    /// <p>The caller doesn't have the required KMS access.</p>
++    #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++/// <p>The caller doesn't have the required KMS access.</p>
+     KmsAccessDenied(crate::types::error::KmsAccessDenied),
+-    /// <p>The request was denied due to request throttling.</p>
++    #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++/// <p>The request was denied due to request throttling.</p>
+     KmsDisabled(crate::types::error::KmsDisabled),
+-    /// <p>The request was rejected for one of the following reasons:</p>
++    #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++/// <p>The request was rejected for one of the following reasons:</p>
+     /// <ul>
+     /// <li>
+     /// <p>The KeyUsage value of the KMS key is incompatible with the API operation.</p></li>
+@@ -36,29 +49,41 @@
+     /// <p>The encryption algorithm or signing algorithm specified for the operation is incompatible with the type of key material in the KMS key (KeySpec).</p></li>
+     /// </ul>
+     KmsInvalidKeyUsage(crate::types::error::KmsInvalidKeyUsage),
+-    /// <p>The request was rejected because the state of the specified resource is not valid for this request.</p>
++    #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++/// <p>The request was rejected because the state of the specified resource is not valid for this request.</p>
+     KmsInvalidState(crate::types::error::KmsInvalidState),
+-    /// <p>The request was rejected because the specified entity or resource could not be found.</p>
++    #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++/// <p>The request was rejected because the specified entity or resource could not be found.</p>
+     KmsNotFound(crate::types::error::KmsNotFound),
+-    /// <p>The request was rejected because the specified key policy isn't syntactically or semantically correct.</p>
++    #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++/// <p>The request was rejected because the specified key policy isn't syntactically or semantically correct.</p>
+     KmsOptInRequired(crate::types::error::KmsOptInRequired),
+-    /// <p>Amazon Web Services KMS throttles requests for the following conditions.</p>
++    #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++/// <p>Amazon Web Services KMS throttles requests for the following conditions.</p>
+     KmsThrottled(crate::types::error::KmsThrottled),
+-    /// <p>The specified message isn't in flight.</p>
++    #[cfg(feature = "op_change_message_visibility")]
++/// <p>The specified message isn't in flight.</p>
+     MessageNotInflight(crate::types::error::MessageNotInflight),
+-    /// <p>The specified action violates a limit. For example, <code>ReceiveMessage</code> returns this error if the maximum number of in flight messages is reached and <code>AddPermission</code> returns this error if the maximum number of permissions for the queue is reached.</p>
++    #[cfg(any(feature = "op_add_permission", feature = "op_receive_message", feature = "op_set_queue_attributes"))]
++/// <p>The specified action violates a limit. For example, <code>ReceiveMessage</code> returns this error if the maximum number of in flight messages is reached and <code>AddPermission</code> returns this error if the maximum number of permissions for the queue is reached.</p>
+     OverLimit(crate::types::error::OverLimit),
+-    /// <p>Indicates that the specified queue previously received a <code>PurgeQueue</code> request within the last 60 seconds (the time it can take to delete the messages in the queue).</p>
++    #[cfg(feature = "op_purge_queue")]
++/// <p>Indicates that the specified queue previously received a <code>PurgeQueue</code> request within the last 60 seconds (the time it can take to delete the messages in the queue).</p>
+     PurgeQueueInProgress(crate::types::error::PurgeQueueInProgress),
+-    /// <p>You must wait 60 seconds after deleting a queue before you can create another queue with the same name.</p>
++    #[cfg(feature = "op_create_queue")]
++/// <p>You must wait 60 seconds after deleting a queue before you can create another queue with the same name.</p>
+     QueueDeletedRecently(crate::types::error::QueueDeletedRecently),
+-    /// <p>Ensure that the <code>QueueUrl</code> is correct and that the queue has not been deleted.</p>
++    #[cfg(any(feature = "op_add_permission", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_queue_tags", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_tag_queue", feature = "op_untag_queue"))]
++/// <p>Ensure that the <code>QueueUrl</code> is correct and that the queue has not been deleted.</p>
+     QueueDoesNotExist(crate::types::error::QueueDoesNotExist),
+-    /// <p>A queue with this name already exists. Amazon SQS returns this error only if the request includes attributes whose values differ from those of the existing queue.</p>
++    #[cfg(feature = "op_create_queue")]
++/// <p>A queue with this name already exists. Amazon SQS returns this error only if the request includes attributes whose values differ from those of the existing queue.</p>
+     QueueNameExists(crate::types::error::QueueNameExists),
+-    /// <p>The specified receipt handle isn't valid.</p>
++    #[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
++/// <p>The specified receipt handle isn't valid.</p>
+     ReceiptHandleIsInvalid(crate::types::error::ReceiptHandleIsInvalid),
+-    /// <p>The request was denied due to request throttling.</p>
++    #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++/// <p>The request was denied due to request throttling.</p>
+     /// <ul>
+     /// <li>
+     /// <p>Exceeds the permitted request rate for the queue or for the recipient of the request.</p></li>
+@@ -66,11 +91,14 @@
+     /// <p>Ensure that the request rate is within the Amazon SQS limits for sending messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests">Amazon SQS quotas</a> in the <i>Amazon SQS Developer Guide</i>.</p></li>
+     /// </ul>
+     RequestThrottled(crate::types::error::RequestThrottled),
+-    /// <p>One or more specified resources don't exist.</p>
++    #[cfg(any(feature = "op_cancel_message_move_task", feature = "op_list_message_move_tasks", feature = "op_start_message_move_task"))]
++/// <p>One or more specified resources don't exist.</p>
+     ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
+-    /// <p>The batch request contains more entries than permissible. For Amazon SQS, the maximum number of entries you can include in a single <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html">SendMessageBatch</a>, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html">DeleteMessageBatch</a>, or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html">ChangeMessageVisibilityBatch</a> request is 10.</p>
++    #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++/// <p>The batch request contains more entries than permissible. For Amazon SQS, the maximum number of entries you can include in a single <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html">SendMessageBatch</a>, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html">DeleteMessageBatch</a>, or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html">ChangeMessageVisibilityBatch</a> request is 10.</p>
+     TooManyEntriesInBatchRequest(crate::types::error::TooManyEntriesInBatchRequest),
+-    /// <p>Error code 400. Unsupported operation.</p>
++    #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++/// <p>Error code 400. Unsupported operation.</p>
+     UnsupportedOperation(crate::types::error::UnsupportedOperation),
+     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
+     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+@@ -84,34 +112,62 @@
+ impl ::std::fmt::Display for Error {
+     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+         match self {
+-            Error::BatchEntryIdsNotDistinct(inner) => inner.fmt(f),
+-            Error::BatchRequestTooLong(inner) => inner.fmt(f),
+-            Error::EmptyBatchRequest(inner) => inner.fmt(f),
+-            Error::InvalidAddress(inner) => inner.fmt(f),
+-            Error::InvalidAttributeName(inner) => inner.fmt(f),
+-            Error::InvalidAttributeValue(inner) => inner.fmt(f),
+-            Error::InvalidBatchEntryId(inner) => inner.fmt(f),
+-            Error::InvalidIdFormat(inner) => inner.fmt(f),
+-            Error::InvalidMessageContents(inner) => inner.fmt(f),
+-            Error::InvalidSecurity(inner) => inner.fmt(f),
+-            Error::KmsAccessDenied(inner) => inner.fmt(f),
+-            Error::KmsDisabled(inner) => inner.fmt(f),
+-            Error::KmsInvalidKeyUsage(inner) => inner.fmt(f),
+-            Error::KmsInvalidState(inner) => inner.fmt(f),
+-            Error::KmsNotFound(inner) => inner.fmt(f),
+-            Error::KmsOptInRequired(inner) => inner.fmt(f),
+-            Error::KmsThrottled(inner) => inner.fmt(f),
+-            Error::MessageNotInflight(inner) => inner.fmt(f),
+-            Error::OverLimit(inner) => inner.fmt(f),
+-            Error::PurgeQueueInProgress(inner) => inner.fmt(f),
+-            Error::QueueDeletedRecently(inner) => inner.fmt(f),
+-            Error::QueueDoesNotExist(inner) => inner.fmt(f),
+-            Error::QueueNameExists(inner) => inner.fmt(f),
+-            Error::ReceiptHandleIsInvalid(inner) => inner.fmt(f),
+-            Error::RequestThrottled(inner) => inner.fmt(f),
+-            Error::ResourceNotFoundException(inner) => inner.fmt(f),
+-            Error::TooManyEntriesInBatchRequest(inner) => inner.fmt(f),
+-            Error::UnsupportedOperation(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++Error::BatchEntryIdsNotDistinct(inner) => inner.fmt(f),
++            #[cfg(feature = "op_send_message_batch")]
++Error::BatchRequestTooLong(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++Error::EmptyBatchRequest(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Error::InvalidAddress(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_create_queue", feature = "op_get_queue_attributes", feature = "op_set_queue_attributes"))]
++Error::InvalidAttributeName(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_create_queue", feature = "op_set_queue_attributes"))]
++Error::InvalidAttributeValue(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++Error::InvalidBatchEntryId(inner) => inner.fmt(f),
++            #[cfg(feature = "op_delete_message")]
++Error::InvalidIdFormat(inner) => inner.fmt(f),
++            #[cfg(feature = "op_send_message")]
++Error::InvalidMessageContents(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Error::InvalidSecurity(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Error::KmsAccessDenied(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Error::KmsDisabled(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Error::KmsInvalidKeyUsage(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Error::KmsInvalidState(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Error::KmsNotFound(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Error::KmsOptInRequired(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Error::KmsThrottled(inner) => inner.fmt(f),
++            #[cfg(feature = "op_change_message_visibility")]
++Error::MessageNotInflight(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_add_permission", feature = "op_receive_message", feature = "op_set_queue_attributes"))]
++Error::OverLimit(inner) => inner.fmt(f),
++            #[cfg(feature = "op_purge_queue")]
++Error::PurgeQueueInProgress(inner) => inner.fmt(f),
++            #[cfg(feature = "op_create_queue")]
++Error::QueueDeletedRecently(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_add_permission", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_queue_tags", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Error::QueueDoesNotExist(inner) => inner.fmt(f),
++            #[cfg(feature = "op_create_queue")]
++Error::QueueNameExists(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
++Error::ReceiptHandleIsInvalid(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Error::RequestThrottled(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_cancel_message_move_task", feature = "op_list_message_move_tasks", feature = "op_start_message_move_task"))]
++Error::ResourceNotFoundException(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++Error::TooManyEntriesInBatchRequest(inner) => inner.fmt(f),
++            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Error::UnsupportedOperation(inner) => inner.fmt(f),
+             Error::Unhandled(_) => {
+                 if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                     write!(f, "unhandled error ({code})")
+@@ -133,38 +189,67 @@
+ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
+     fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
+         match self {
+-            Self::BatchEntryIdsNotDistinct(inner) => inner.meta(),
+-            Self::BatchRequestTooLong(inner) => inner.meta(),
+-            Self::EmptyBatchRequest(inner) => inner.meta(),
+-            Self::InvalidAddress(inner) => inner.meta(),
+-            Self::InvalidAttributeName(inner) => inner.meta(),
+-            Self::InvalidAttributeValue(inner) => inner.meta(),
+-            Self::InvalidBatchEntryId(inner) => inner.meta(),
+-            Self::InvalidIdFormat(inner) => inner.meta(),
+-            Self::InvalidMessageContents(inner) => inner.meta(),
+-            Self::InvalidSecurity(inner) => inner.meta(),
+-            Self::KmsAccessDenied(inner) => inner.meta(),
+-            Self::KmsDisabled(inner) => inner.meta(),
+-            Self::KmsInvalidKeyUsage(inner) => inner.meta(),
+-            Self::KmsInvalidState(inner) => inner.meta(),
+-            Self::KmsNotFound(inner) => inner.meta(),
+-            Self::KmsOptInRequired(inner) => inner.meta(),
+-            Self::KmsThrottled(inner) => inner.meta(),
+-            Self::MessageNotInflight(inner) => inner.meta(),
+-            Self::OverLimit(inner) => inner.meta(),
+-            Self::PurgeQueueInProgress(inner) => inner.meta(),
+-            Self::QueueDeletedRecently(inner) => inner.meta(),
+-            Self::QueueDoesNotExist(inner) => inner.meta(),
+-            Self::QueueNameExists(inner) => inner.meta(),
+-            Self::ReceiptHandleIsInvalid(inner) => inner.meta(),
+-            Self::RequestThrottled(inner) => inner.meta(),
+-            Self::ResourceNotFoundException(inner) => inner.meta(),
+-            Self::TooManyEntriesInBatchRequest(inner) => inner.meta(),
+-            Self::UnsupportedOperation(inner) => inner.meta(),
++            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++Self::BatchEntryIdsNotDistinct(inner) => inner.meta(),
++            #[cfg(feature = "op_send_message_batch")]
++Self::BatchRequestTooLong(inner) => inner.meta(),
++            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++Self::EmptyBatchRequest(inner) => inner.meta(),
++            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Self::InvalidAddress(inner) => inner.meta(),
++            #[cfg(any(feature = "op_create_queue", feature = "op_get_queue_attributes", feature = "op_set_queue_attributes"))]
++Self::InvalidAttributeName(inner) => inner.meta(),
++            #[cfg(any(feature = "op_create_queue", feature = "op_set_queue_attributes"))]
++Self::InvalidAttributeValue(inner) => inner.meta(),
++            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++Self::InvalidBatchEntryId(inner) => inner.meta(),
++            #[cfg(feature = "op_delete_message")]
++Self::InvalidIdFormat(inner) => inner.meta(),
++            #[cfg(feature = "op_send_message")]
++Self::InvalidMessageContents(inner) => inner.meta(),
++            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Self::InvalidSecurity(inner) => inner.meta(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Self::KmsAccessDenied(inner) => inner.meta(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Self::KmsDisabled(inner) => inner.meta(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Self::KmsInvalidKeyUsage(inner) => inner.meta(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Self::KmsInvalidState(inner) => inner.meta(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Self::KmsNotFound(inner) => inner.meta(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Self::KmsOptInRequired(inner) => inner.meta(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Self::KmsThrottled(inner) => inner.meta(),
++            #[cfg(feature = "op_change_message_visibility")]
++Self::MessageNotInflight(inner) => inner.meta(),
++            #[cfg(any(feature = "op_add_permission", feature = "op_receive_message", feature = "op_set_queue_attributes"))]
++Self::OverLimit(inner) => inner.meta(),
++            #[cfg(feature = "op_purge_queue")]
++Self::PurgeQueueInProgress(inner) => inner.meta(),
++            #[cfg(feature = "op_create_queue")]
++Self::QueueDeletedRecently(inner) => inner.meta(),
++            #[cfg(any(feature = "op_add_permission", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_queue_tags", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Self::QueueDoesNotExist(inner) => inner.meta(),
++            #[cfg(feature = "op_create_queue")]
++Self::QueueNameExists(inner) => inner.meta(),
++            #[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
++Self::ReceiptHandleIsInvalid(inner) => inner.meta(),
++            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Self::RequestThrottled(inner) => inner.meta(),
++            #[cfg(any(feature = "op_cancel_message_move_task", feature = "op_list_message_move_tasks", feature = "op_start_message_move_task"))]
++Self::ResourceNotFoundException(inner) => inner.meta(),
++            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++Self::TooManyEntriesInBatchRequest(inner) => inner.meta(),
++            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Self::UnsupportedOperation(inner) => inner.meta(),
+             Self::Unhandled(inner) => &inner.meta,
          }
      }
  }
@@ -230,7 +540,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_permission::AddPermissionError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -179,6 +180,7 @@
+@@ -179,6 +264,7 @@
          }
      }
  }
@@ -238,7 +548,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::add_permission::AddPermissionError> for Error {
      fn from(err: crate::operation::add_permission::AddPermissionError) -> Self {
          match err {
-@@ -192,6 +194,7 @@
+@@ -192,6 +278,7 @@
          }
      }
  }
@@ -246,7 +556,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::cancel_message_move_task::CancelMessageMoveTaskError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -208,6 +211,7 @@
+@@ -208,6 +295,7 @@
          }
      }
  }
@@ -254,7 +564,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::cancel_message_move_task::CancelMessageMoveTaskError> for Error {
      fn from(err: crate::operation::cancel_message_move_task::CancelMessageMoveTaskError) -> Self {
          match err {
-@@ -222,6 +226,7 @@
+@@ -222,6 +310,7 @@
          }
      }
  }
@@ -262,7 +572,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::change_message_visibility::ChangeMessageVisibilityError, R>>
      for Error
  where
-@@ -239,6 +244,7 @@
+@@ -239,6 +328,7 @@
          }
      }
  }
@@ -270,7 +580,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::change_message_visibility::ChangeMessageVisibilityError> for Error {
      fn from(err: crate::operation::change_message_visibility::ChangeMessageVisibilityError) -> Self {
          match err {
-@@ -257,6 +263,7 @@
+@@ -257,6 +347,7 @@
          }
      }
  }
@@ -278,7 +588,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R>
      From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError, R>>
      for Error
-@@ -278,6 +285,7 @@
+@@ -278,6 +369,7 @@
          }
      }
  }
@@ -286,7 +596,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError> for Error {
      fn from(err: crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError) -> Self {
          match err {
-@@ -312,6 +320,7 @@
+@@ -312,6 +404,7 @@
          }
      }
  }
@@ -294,7 +604,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_queue::CreateQueueError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -326,6 +335,7 @@
+@@ -326,6 +419,7 @@
          }
      }
  }
@@ -302,7 +612,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::create_queue::CreateQueueError> for Error {
      fn from(err: crate::operation::create_queue::CreateQueueError) -> Self {
          match err {
-@@ -341,6 +351,7 @@
+@@ -341,6 +435,7 @@
          }
      }
  }
@@ -310,7 +620,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_message::DeleteMessageError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -355,6 +366,7 @@
+@@ -355,6 +450,7 @@
          }
      }
  }
@@ -318,7 +628,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::delete_message::DeleteMessageError> for Error {
      fn from(err: crate::operation::delete_message::DeleteMessageError) -> Self {
          match err {
-@@ -369,6 +381,7 @@
+@@ -369,6 +465,7 @@
          }
      }
  }
@@ -326,7 +636,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_message_batch::DeleteMessageBatchError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -383,6 +396,7 @@
+@@ -383,6 +480,7 @@
          }
      }
  }
@@ -334,7 +644,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::delete_message_batch::DeleteMessageBatchError> for Error {
      fn from(err: crate::operation::delete_message_batch::DeleteMessageBatchError) -> Self {
          match err {
-@@ -403,6 +417,7 @@
+@@ -403,6 +501,7 @@
          }
      }
  }
@@ -342,7 +652,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_queue::DeleteQueueError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -417,6 +432,7 @@
+@@ -417,6 +516,7 @@
          }
      }
  }
@@ -350,7 +660,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::delete_queue::DeleteQueueError> for Error {
      fn from(err: crate::operation::delete_queue::DeleteQueueError) -> Self {
          match err {
-@@ -429,6 +445,7 @@
+@@ -429,6 +529,7 @@
          }
      }
  }
@@ -358,7 +668,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_queue_attributes::GetQueueAttributesError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -443,6 +460,7 @@
+@@ -443,6 +544,7 @@
          }
      }
  }
@@ -366,7 +676,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::get_queue_attributes::GetQueueAttributesError> for Error {
      fn from(err: crate::operation::get_queue_attributes::GetQueueAttributesError) -> Self {
          match err {
-@@ -456,6 +474,7 @@
+@@ -456,6 +558,7 @@
          }
      }
  }
@@ -374,7 +684,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_queue_url::GetQueueUrlError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -470,6 +489,7 @@
+@@ -470,6 +573,7 @@
          }
      }
  }
@@ -382,7 +692,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::get_queue_url::GetQueueUrlError> for Error {
      fn from(err: crate::operation::get_queue_url::GetQueueUrlError) -> Self {
          match err {
-@@ -482,6 +502,7 @@
+@@ -482,6 +586,7 @@
          }
      }
  }
@@ -390,7 +700,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError, R>>
      for Error
  where
-@@ -499,6 +520,7 @@
+@@ -499,6 +604,7 @@
          }
      }
  }
@@ -398,7 +708,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError> for Error {
      fn from(err: crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError) -> Self {
          match err {
-@@ -519,6 +541,7 @@
+@@ -519,6 +625,7 @@
          }
      }
  }
@@ -406,7 +716,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_message_move_tasks::ListMessageMoveTasksError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -535,6 +558,7 @@
+@@ -535,6 +642,7 @@
          }
      }
  }
@@ -414,7 +724,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::list_message_move_tasks::ListMessageMoveTasksError> for Error {
      fn from(err: crate::operation::list_message_move_tasks::ListMessageMoveTasksError) -> Self {
          match err {
-@@ -549,6 +573,7 @@
+@@ -549,6 +657,7 @@
          }
      }
  }
@@ -422,7 +732,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_queues::ListQueuesError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -563,6 +588,7 @@
+@@ -563,6 +672,7 @@
          }
      }
  }
@@ -430,7 +740,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::list_queues::ListQueuesError> for Error {
      fn from(err: crate::operation::list_queues::ListQueuesError) -> Self {
          match err {
-@@ -574,6 +600,7 @@
+@@ -574,6 +684,7 @@
          }
      }
  }
@@ -438,7 +748,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_queue_tags::ListQueueTagsError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -588,6 +615,7 @@
+@@ -588,6 +699,7 @@
          }
      }
  }
@@ -446,7 +756,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::list_queue_tags::ListQueueTagsError> for Error {
      fn from(err: crate::operation::list_queue_tags::ListQueueTagsError) -> Self {
          match err {
-@@ -600,6 +628,7 @@
+@@ -600,6 +712,7 @@
          }
      }
  }
@@ -454,7 +764,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::purge_queue::PurgeQueueError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -614,6 +643,7 @@
+@@ -614,6 +727,7 @@
          }
      }
  }
@@ -462,7 +772,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::purge_queue::PurgeQueueError> for Error {
      fn from(err: crate::operation::purge_queue::PurgeQueueError) -> Self {
          match err {
-@@ -627,6 +657,7 @@
+@@ -627,6 +741,7 @@
          }
      }
  }
@@ -470,7 +780,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::receive_message::ReceiveMessageError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -641,6 +672,7 @@
+@@ -641,6 +756,7 @@
          }
      }
  }
@@ -478,7 +788,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::receive_message::ReceiveMessageError> for Error {
      fn from(err: crate::operation::receive_message::ReceiveMessageError) -> Self {
          match err {
-@@ -661,6 +693,7 @@
+@@ -661,6 +777,7 @@
          }
      }
  }
@@ -486,7 +796,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::remove_permission::RemovePermissionError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -675,6 +708,7 @@
+@@ -675,6 +792,7 @@
          }
      }
  }
@@ -494,7 +804,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::remove_permission::RemovePermissionError> for Error {
      fn from(err: crate::operation::remove_permission::RemovePermissionError) -> Self {
          match err {
-@@ -687,6 +721,7 @@
+@@ -687,6 +805,7 @@
          }
      }
  }
@@ -502,7 +812,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::send_message::SendMessageError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -701,6 +736,7 @@
+@@ -701,6 +820,7 @@
          }
      }
  }
@@ -510,7 +820,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::send_message::SendMessageError> for Error {
      fn from(err: crate::operation::send_message::SendMessageError) -> Self {
          match err {
-@@ -721,6 +757,7 @@
+@@ -721,6 +841,7 @@
          }
      }
  }
@@ -518,7 +828,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::send_message_batch::SendMessageBatchError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -735,6 +772,7 @@
+@@ -735,6 +856,7 @@
          }
      }
  }
@@ -526,7 +836,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::send_message_batch::SendMessageBatchError> for Error {
      fn from(err: crate::operation::send_message_batch::SendMessageBatchError) -> Self {
          match err {
-@@ -761,6 +799,7 @@
+@@ -761,6 +883,7 @@
          }
      }
  }
@@ -534,7 +844,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_queue_attributes::SetQueueAttributesError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -775,6 +814,7 @@
+@@ -775,6 +898,7 @@
          }
      }
  }
@@ -542,7 +852,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::set_queue_attributes::SetQueueAttributesError> for Error {
      fn from(err: crate::operation::set_queue_attributes::SetQueueAttributesError) -> Self {
          match err {
-@@ -790,6 +830,7 @@
+@@ -790,6 +914,7 @@
          }
      }
  }
@@ -550,7 +860,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_message_move_task::StartMessageMoveTaskError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -806,6 +847,7 @@
+@@ -806,6 +931,7 @@
          }
      }
  }
@@ -558,7 +868,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::start_message_move_task::StartMessageMoveTaskError> for Error {
      fn from(err: crate::operation::start_message_move_task::StartMessageMoveTaskError) -> Self {
          match err {
-@@ -820,6 +862,7 @@
+@@ -820,6 +946,7 @@
          }
      }
  }
@@ -566,7 +876,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_queue::TagQueueError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -834,6 +877,7 @@
+@@ -834,6 +961,7 @@
          }
      }
  }
@@ -574,7 +884,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::tag_queue::TagQueueError> for Error {
      fn from(err: crate::operation::tag_queue::TagQueueError) -> Self {
          match err {
-@@ -846,6 +890,7 @@
+@@ -846,6 +974,7 @@
          }
      }
  }
@@ -582,7 +892,7 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_queue::UntagQueueError, R>> for Error
  where
      R: Send + Sync + std::fmt::Debug + 'static,
-@@ -860,6 +905,7 @@
+@@ -860,6 +989,7 @@
          }
      }
  }
@@ -590,6 +900,188 @@ diff --git a/src/error_meta.rs b/src/error_meta.rs
  impl From<crate::operation::untag_queue::UntagQueueError> for Error {
      fn from(err: crate::operation::untag_queue::UntagQueueError) -> Self {
          match err {
+@@ -875,34 +1005,62 @@
+ impl ::std::error::Error for Error {
+     fn source(&self) -> std::option::Option<&(dyn ::std::error::Error + 'static)> {
+         match self {
+-            Error::BatchEntryIdsNotDistinct(inner) => inner.source(),
+-            Error::BatchRequestTooLong(inner) => inner.source(),
+-            Error::EmptyBatchRequest(inner) => inner.source(),
+-            Error::InvalidAddress(inner) => inner.source(),
+-            Error::InvalidAttributeName(inner) => inner.source(),
+-            Error::InvalidAttributeValue(inner) => inner.source(),
+-            Error::InvalidBatchEntryId(inner) => inner.source(),
+-            Error::InvalidIdFormat(inner) => inner.source(),
+-            Error::InvalidMessageContents(inner) => inner.source(),
+-            Error::InvalidSecurity(inner) => inner.source(),
+-            Error::KmsAccessDenied(inner) => inner.source(),
+-            Error::KmsDisabled(inner) => inner.source(),
+-            Error::KmsInvalidKeyUsage(inner) => inner.source(),
+-            Error::KmsInvalidState(inner) => inner.source(),
+-            Error::KmsNotFound(inner) => inner.source(),
+-            Error::KmsOptInRequired(inner) => inner.source(),
+-            Error::KmsThrottled(inner) => inner.source(),
+-            Error::MessageNotInflight(inner) => inner.source(),
+-            Error::OverLimit(inner) => inner.source(),
+-            Error::PurgeQueueInProgress(inner) => inner.source(),
+-            Error::QueueDeletedRecently(inner) => inner.source(),
+-            Error::QueueDoesNotExist(inner) => inner.source(),
+-            Error::QueueNameExists(inner) => inner.source(),
+-            Error::ReceiptHandleIsInvalid(inner) => inner.source(),
+-            Error::RequestThrottled(inner) => inner.source(),
+-            Error::ResourceNotFoundException(inner) => inner.source(),
+-            Error::TooManyEntriesInBatchRequest(inner) => inner.source(),
+-            Error::UnsupportedOperation(inner) => inner.source(),
++            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++Error::BatchEntryIdsNotDistinct(inner) => inner.source(),
++            #[cfg(feature = "op_send_message_batch")]
++Error::BatchRequestTooLong(inner) => inner.source(),
++            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++Error::EmptyBatchRequest(inner) => inner.source(),
++            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Error::InvalidAddress(inner) => inner.source(),
++            #[cfg(any(feature = "op_create_queue", feature = "op_get_queue_attributes", feature = "op_set_queue_attributes"))]
++Error::InvalidAttributeName(inner) => inner.source(),
++            #[cfg(any(feature = "op_create_queue", feature = "op_set_queue_attributes"))]
++Error::InvalidAttributeValue(inner) => inner.source(),
++            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++Error::InvalidBatchEntryId(inner) => inner.source(),
++            #[cfg(feature = "op_delete_message")]
++Error::InvalidIdFormat(inner) => inner.source(),
++            #[cfg(feature = "op_send_message")]
++Error::InvalidMessageContents(inner) => inner.source(),
++            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Error::InvalidSecurity(inner) => inner.source(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Error::KmsAccessDenied(inner) => inner.source(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Error::KmsDisabled(inner) => inner.source(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Error::KmsInvalidKeyUsage(inner) => inner.source(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Error::KmsInvalidState(inner) => inner.source(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Error::KmsNotFound(inner) => inner.source(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Error::KmsOptInRequired(inner) => inner.source(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Error::KmsThrottled(inner) => inner.source(),
++            #[cfg(feature = "op_change_message_visibility")]
++Error::MessageNotInflight(inner) => inner.source(),
++            #[cfg(any(feature = "op_add_permission", feature = "op_receive_message", feature = "op_set_queue_attributes"))]
++Error::OverLimit(inner) => inner.source(),
++            #[cfg(feature = "op_purge_queue")]
++Error::PurgeQueueInProgress(inner) => inner.source(),
++            #[cfg(feature = "op_create_queue")]
++Error::QueueDeletedRecently(inner) => inner.source(),
++            #[cfg(any(feature = "op_add_permission", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_queue_tags", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Error::QueueDoesNotExist(inner) => inner.source(),
++            #[cfg(feature = "op_create_queue")]
++Error::QueueNameExists(inner) => inner.source(),
++            #[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
++Error::ReceiptHandleIsInvalid(inner) => inner.source(),
++            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Error::RequestThrottled(inner) => inner.source(),
++            #[cfg(any(feature = "op_cancel_message_move_task", feature = "op_list_message_move_tasks", feature = "op_start_message_move_task"))]
++Error::ResourceNotFoundException(inner) => inner.source(),
++            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++Error::TooManyEntriesInBatchRequest(inner) => inner.source(),
++            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Error::UnsupportedOperation(inner) => inner.source(),
+             Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source),
+         }
+     }
+@@ -910,34 +1068,62 @@
+ impl ::aws_types::request_id::RequestId for Error {
+     fn request_id(&self) -> Option<&str> {
+         match self {
+-            Self::BatchEntryIdsNotDistinct(e) => e.request_id(),
+-            Self::BatchRequestTooLong(e) => e.request_id(),
+-            Self::EmptyBatchRequest(e) => e.request_id(),
+-            Self::InvalidAddress(e) => e.request_id(),
+-            Self::InvalidAttributeName(e) => e.request_id(),
+-            Self::InvalidAttributeValue(e) => e.request_id(),
+-            Self::InvalidBatchEntryId(e) => e.request_id(),
+-            Self::InvalidIdFormat(e) => e.request_id(),
+-            Self::InvalidMessageContents(e) => e.request_id(),
+-            Self::InvalidSecurity(e) => e.request_id(),
+-            Self::KmsAccessDenied(e) => e.request_id(),
+-            Self::KmsDisabled(e) => e.request_id(),
+-            Self::KmsInvalidKeyUsage(e) => e.request_id(),
+-            Self::KmsInvalidState(e) => e.request_id(),
+-            Self::KmsNotFound(e) => e.request_id(),
+-            Self::KmsOptInRequired(e) => e.request_id(),
+-            Self::KmsThrottled(e) => e.request_id(),
+-            Self::MessageNotInflight(e) => e.request_id(),
+-            Self::OverLimit(e) => e.request_id(),
+-            Self::PurgeQueueInProgress(e) => e.request_id(),
+-            Self::QueueDeletedRecently(e) => e.request_id(),
+-            Self::QueueDoesNotExist(e) => e.request_id(),
+-            Self::QueueNameExists(e) => e.request_id(),
+-            Self::ReceiptHandleIsInvalid(e) => e.request_id(),
+-            Self::RequestThrottled(e) => e.request_id(),
+-            Self::ResourceNotFoundException(e) => e.request_id(),
+-            Self::TooManyEntriesInBatchRequest(e) => e.request_id(),
+-            Self::UnsupportedOperation(e) => e.request_id(),
++            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++Self::BatchEntryIdsNotDistinct(e) => e.request_id(),
++            #[cfg(feature = "op_send_message_batch")]
++Self::BatchRequestTooLong(e) => e.request_id(),
++            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++Self::EmptyBatchRequest(e) => e.request_id(),
++            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Self::InvalidAddress(e) => e.request_id(),
++            #[cfg(any(feature = "op_create_queue", feature = "op_get_queue_attributes", feature = "op_set_queue_attributes"))]
++Self::InvalidAttributeName(e) => e.request_id(),
++            #[cfg(any(feature = "op_create_queue", feature = "op_set_queue_attributes"))]
++Self::InvalidAttributeValue(e) => e.request_id(),
++            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++Self::InvalidBatchEntryId(e) => e.request_id(),
++            #[cfg(feature = "op_delete_message")]
++Self::InvalidIdFormat(e) => e.request_id(),
++            #[cfg(feature = "op_send_message")]
++Self::InvalidMessageContents(e) => e.request_id(),
++            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Self::InvalidSecurity(e) => e.request_id(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Self::KmsAccessDenied(e) => e.request_id(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Self::KmsDisabled(e) => e.request_id(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Self::KmsInvalidKeyUsage(e) => e.request_id(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Self::KmsInvalidState(e) => e.request_id(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Self::KmsNotFound(e) => e.request_id(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Self::KmsOptInRequired(e) => e.request_id(),
++            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
++Self::KmsThrottled(e) => e.request_id(),
++            #[cfg(feature = "op_change_message_visibility")]
++Self::MessageNotInflight(e) => e.request_id(),
++            #[cfg(any(feature = "op_add_permission", feature = "op_receive_message", feature = "op_set_queue_attributes"))]
++Self::OverLimit(e) => e.request_id(),
++            #[cfg(feature = "op_purge_queue")]
++Self::PurgeQueueInProgress(e) => e.request_id(),
++            #[cfg(feature = "op_create_queue")]
++Self::QueueDeletedRecently(e) => e.request_id(),
++            #[cfg(any(feature = "op_add_permission", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_queue_tags", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Self::QueueDoesNotExist(e) => e.request_id(),
++            #[cfg(feature = "op_create_queue")]
++Self::QueueNameExists(e) => e.request_id(),
++            #[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
++Self::ReceiptHandleIsInvalid(e) => e.request_id(),
++            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Self::RequestThrottled(e) => e.request_id(),
++            #[cfg(any(feature = "op_cancel_message_move_task", feature = "op_list_message_move_tasks", feature = "op_start_message_move_task"))]
++Self::ResourceNotFoundException(e) => e.request_id(),
++            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
++Self::TooManyEntriesInBatchRequest(e) => e.request_id(),
++            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
++Self::UnsupportedOperation(e) => e.request_id(),
+             Self::Unhandled(e) => e.meta.request_id(),
+         }
+     }
 diff --git a/src/lens.rs b/src/lens.rs
 --- a/src/lens.rs
 +++ b/src/lens.rs
@@ -3996,3 +4488,432 @@ diff --git a/src/serde_util.rs b/src/serde_util.rs
  pub(crate) fn send_message_batch_output_output_correct_errors(
      mut builder: crate::operation::send_message_batch::builders::SendMessageBatchOutputBuilder,
  ) -> crate::operation::send_message_batch::builders::SendMessageBatchOutputBuilder {
+@@ -44,6 +48,7 @@
+     builder
+ }
+
++#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+ pub(crate) fn batch_result_error_entry_correct_errors(
+     mut builder: crate::types::builders::BatchResultErrorEntryBuilder,
+ ) -> crate::types::builders::BatchResultErrorEntryBuilder {
+@@ -59,6 +64,7 @@
+     builder
+ }
+
++#[cfg(feature = "op_change_message_visibility_batch")]
+ pub(crate) fn change_message_visibility_batch_result_entry_correct_errors(
+     mut builder: crate::types::builders::ChangeMessageVisibilityBatchResultEntryBuilder,
+ ) -> crate::types::builders::ChangeMessageVisibilityBatchResultEntryBuilder {
+@@ -68,6 +74,7 @@
+     builder
+ }
+
++#[cfg(feature = "op_delete_message_batch")]
+ pub(crate) fn delete_message_batch_result_entry_correct_errors(
+     mut builder: crate::types::builders::DeleteMessageBatchResultEntryBuilder,
+ ) -> crate::types::builders::DeleteMessageBatchResultEntryBuilder {
+@@ -77,6 +84,7 @@
+     builder
+ }
+
++#[cfg(feature = "op_send_message_batch")]
+ pub(crate) fn send_message_batch_result_entry_correct_errors(
+     mut builder: crate::types::builders::SendMessageBatchResultEntryBuilder,
+ ) -> crate::types::builders::SendMessageBatchResultEntryBuilder {
+@@ -92,6 +100,7 @@
+     builder
+ }
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub(crate) fn message_attribute_value_correct_errors(
+     mut builder: crate::types::builders::MessageAttributeValueBuilder,
+ ) -> crate::types::builders::MessageAttributeValueBuilder {
+diff --git a/src/types.rs b/src/types.rs
+--- a/src/types.rs
++++ b/src/types.rs
+@@ -1,58 +1,86 @@
+ // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
++#[cfg(feature = "op_change_message_visibility_batch")]
+ pub use crate::types::_change_message_visibility_batch_request_entry::ChangeMessageVisibilityBatchRequestEntry;
+
++#[cfg(feature = "op_change_message_visibility_batch")]
+ pub use crate::types::_change_message_visibility_batch_result_entry::ChangeMessageVisibilityBatchResultEntry;
+
++#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+ pub use crate::types::_batch_result_error_entry::BatchResultErrorEntry;
+
++#[cfg(any(feature = "op_create_queue", feature = "op_get_queue_attributes", feature = "op_receive_message", feature = "op_set_queue_attributes"))]
+ pub use crate::types::_queue_attribute_name::QueueAttributeName;
+
++#[cfg(feature = "op_delete_message_batch")]
+ pub use crate::types::_delete_message_batch_request_entry::DeleteMessageBatchRequestEntry;
+
++#[cfg(feature = "op_delete_message_batch")]
+ pub use crate::types::_delete_message_batch_result_entry::DeleteMessageBatchResultEntry;
+
++#[cfg(feature = "op_list_message_move_tasks")]
+ pub use crate::types::_list_message_move_tasks_result_entry::ListMessageMoveTasksResultEntry;
+
++#[cfg(feature = "op_receive_message")]
+ pub use crate::types::_message_system_attribute_name::MessageSystemAttributeName;
+
++#[cfg(feature = "op_receive_message")]
+ pub use crate::types::_message::Message;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub use crate::types::_message_attribute_value::MessageAttributeValue;
+
++#[cfg(any(feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub use crate::types::_message_system_attribute_name_for_sends::MessageSystemAttributeNameForSends;
+
++#[cfg(any(feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub use crate::types::_message_system_attribute_value::MessageSystemAttributeValue;
+
++#[cfg(feature = "op_send_message_batch")]
+ pub use crate::types::_send_message_batch_request_entry::SendMessageBatchRequestEntry;
+
++#[cfg(feature = "op_send_message_batch")]
+ pub use crate::types::_send_message_batch_result_entry::SendMessageBatchResultEntry;
+
++#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+ mod _batch_result_error_entry;
+
++#[cfg(feature = "op_change_message_visibility_batch")]
+ mod _change_message_visibility_batch_request_entry;
+
++#[cfg(feature = "op_change_message_visibility_batch")]
+ mod _change_message_visibility_batch_result_entry;
+
++#[cfg(feature = "op_delete_message_batch")]
+ mod _delete_message_batch_request_entry;
+
++#[cfg(feature = "op_delete_message_batch")]
+ mod _delete_message_batch_result_entry;
+
++#[cfg(feature = "op_list_message_move_tasks")]
+ mod _list_message_move_tasks_result_entry;
+
++#[cfg(feature = "op_receive_message")]
+ mod _message;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ mod _message_attribute_value;
+
++#[cfg(feature = "op_receive_message")]
+ mod _message_system_attribute_name;
+
++#[cfg(any(feature = "op_send_message", feature = "op_send_message_batch"))]
+ mod _message_system_attribute_name_for_sends;
+
++#[cfg(any(feature = "op_send_message", feature = "op_send_message_batch"))]
+ mod _message_system_attribute_value;
+
++#[cfg(any(feature = "op_create_queue", feature = "op_get_queue_attributes", feature = "op_receive_message", feature = "op_set_queue_attributes"))]
+ mod _queue_attribute_name;
+
++#[cfg(feature = "op_send_message_batch")]
+ mod _send_message_batch_request_entry;
+
++#[cfg(feature = "op_send_message_batch")]
+ mod _send_message_batch_result_entry;
+
+ /// Builders
+diff --git a/src/types/builders.rs b/src/types/builders.rs
+--- a/src/types/builders.rs
++++ b/src/types/builders.rs
+@@ -1,22 +1,33 @@
+ // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
++#[cfg(feature = "op_change_message_visibility_batch")]
+ pub use crate::types::_change_message_visibility_batch_request_entry::ChangeMessageVisibilityBatchRequestEntryBuilder;
+
++#[cfg(feature = "op_change_message_visibility_batch")]
+ pub use crate::types::_change_message_visibility_batch_result_entry::ChangeMessageVisibilityBatchResultEntryBuilder;
+
++#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+ pub use crate::types::_batch_result_error_entry::BatchResultErrorEntryBuilder;
+
++#[cfg(feature = "op_delete_message_batch")]
+ pub use crate::types::_delete_message_batch_request_entry::DeleteMessageBatchRequestEntryBuilder;
+
++#[cfg(feature = "op_delete_message_batch")]
+ pub use crate::types::_delete_message_batch_result_entry::DeleteMessageBatchResultEntryBuilder;
+
++#[cfg(feature = "op_list_message_move_tasks")]
+ pub use crate::types::_list_message_move_tasks_result_entry::ListMessageMoveTasksResultEntryBuilder;
+
++#[cfg(feature = "op_receive_message")]
+ pub use crate::types::_message::MessageBuilder;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub use crate::types::_message_attribute_value::MessageAttributeValueBuilder;
+
++#[cfg(any(feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub use crate::types::_message_system_attribute_value::MessageSystemAttributeValueBuilder;
+
++#[cfg(feature = "op_send_message_batch")]
+ pub use crate::types::_send_message_batch_request_entry::SendMessageBatchRequestEntryBuilder;
+
++#[cfg(feature = "op_send_message_batch")]
+ pub use crate::types::_send_message_batch_result_entry::SendMessageBatchResultEntryBuilder;
+diff --git a/src/types/error.rs b/src/types/error.rs
+--- a/src/types/error.rs
++++ b/src/types/error.rs
+@@ -1,114 +1,170 @@
+ // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
++#[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+ pub use crate::types::error::_invalid_address::InvalidAddress;
+
++#[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+ pub use crate::types::error::_invalid_security::InvalidSecurity;
+
++#[cfg(any(feature = "op_add_permission", feature = "op_receive_message", feature = "op_set_queue_attributes"))]
+ pub use crate::types::error::_over_limit::OverLimit;
+
++#[cfg(any(feature = "op_add_permission", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_queue_tags", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_tag_queue", feature = "op_untag_queue"))]
+ pub use crate::types::error::_queue_does_not_exist::QueueDoesNotExist;
+
++#[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+ pub use crate::types::error::_request_throttled::RequestThrottled;
+
++#[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+ pub use crate::types::error::_unsupported_operation::UnsupportedOperation;
+
++#[cfg(any(feature = "op_cancel_message_move_task", feature = "op_list_message_move_tasks", feature = "op_start_message_move_task"))]
+ pub use crate::types::error::_resource_not_found_exception::ResourceNotFoundException;
+
++#[cfg(feature = "op_change_message_visibility")]
+ pub use crate::types::error::_message_not_inflight::MessageNotInflight;
+
++#[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
+ pub use crate::types::error::_receipt_handle_is_invalid::ReceiptHandleIsInvalid;
+
++#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_batch_entry_ids_not_distinct::BatchEntryIdsNotDistinct;
+
++#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_empty_batch_request::EmptyBatchRequest;
+
++#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_invalid_batch_entry_id::InvalidBatchEntryId;
+
++#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_too_many_entries_in_batch_request::TooManyEntriesInBatchRequest;
+
++#[cfg(any(feature = "op_create_queue", feature = "op_get_queue_attributes", feature = "op_set_queue_attributes"))]
+ pub use crate::types::error::_invalid_attribute_name::InvalidAttributeName;
+
++#[cfg(any(feature = "op_create_queue", feature = "op_set_queue_attributes"))]
+ pub use crate::types::error::_invalid_attribute_value::InvalidAttributeValue;
+
++#[cfg(feature = "op_create_queue")]
+ pub use crate::types::error::_queue_deleted_recently::QueueDeletedRecently;
+
++#[cfg(feature = "op_create_queue")]
+ pub use crate::types::error::_queue_name_exists::QueueNameExists;
+
++#[cfg(feature = "op_delete_message")]
+ pub use crate::types::error::_invalid_id_format::InvalidIdFormat;
+
++#[cfg(feature = "op_purge_queue")]
+ pub use crate::types::error::_purge_queue_in_progress::PurgeQueueInProgress;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_kms_access_denied::KmsAccessDenied;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_kms_disabled::KmsDisabled;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_kms_invalid_key_usage::KmsInvalidKeyUsage;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_kms_invalid_state::KmsInvalidState;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_kms_not_found::KmsNotFound;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_kms_opt_in_required::KmsOptInRequired;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_kms_throttled::KmsThrottled;
+
++#[cfg(feature = "op_send_message")]
+ pub use crate::types::error::_invalid_message_contents::InvalidMessageContents;
+
++#[cfg(feature = "op_send_message_batch")]
+ pub use crate::types::error::_batch_request_too_long::BatchRequestTooLong;
+
++#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+ mod _batch_entry_ids_not_distinct;
+
++#[cfg(feature = "op_send_message_batch")]
+ mod _batch_request_too_long;
+
++#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+ mod _empty_batch_request;
+
++#[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+ mod _invalid_address;
+
++#[cfg(any(feature = "op_create_queue", feature = "op_get_queue_attributes", feature = "op_set_queue_attributes"))]
+ mod _invalid_attribute_name;
+
++#[cfg(any(feature = "op_create_queue", feature = "op_set_queue_attributes"))]
+ mod _invalid_attribute_value;
+
++#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+ mod _invalid_batch_entry_id;
+
++#[cfg(feature = "op_delete_message")]
+ mod _invalid_id_format;
+
++#[cfg(feature = "op_send_message")]
+ mod _invalid_message_contents;
+
++#[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+ mod _invalid_security;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ mod _kms_access_denied;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ mod _kms_disabled;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ mod _kms_invalid_key_usage;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ mod _kms_invalid_state;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ mod _kms_not_found;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ mod _kms_opt_in_required;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ mod _kms_throttled;
+
++#[cfg(feature = "op_change_message_visibility")]
+ mod _message_not_inflight;
+
++#[cfg(any(feature = "op_add_permission", feature = "op_receive_message", feature = "op_set_queue_attributes"))]
+ mod _over_limit;
+
++#[cfg(feature = "op_purge_queue")]
+ mod _purge_queue_in_progress;
+
++#[cfg(feature = "op_create_queue")]
+ mod _queue_deleted_recently;
+
++#[cfg(any(feature = "op_add_permission", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_queue_tags", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_tag_queue", feature = "op_untag_queue"))]
+ mod _queue_does_not_exist;
+
++#[cfg(feature = "op_create_queue")]
+ mod _queue_name_exists;
+
++#[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
+ mod _receipt_handle_is_invalid;
+
++#[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+ mod _request_throttled;
+
++#[cfg(any(feature = "op_cancel_message_move_task", feature = "op_list_message_move_tasks", feature = "op_start_message_move_task"))]
+ mod _resource_not_found_exception;
+
++#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+ mod _too_many_entries_in_batch_request;
+
++#[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+ mod _unsupported_operation;
+
+ /// Builders
+diff --git a/src/types/error/builders.rs b/src/types/error/builders.rs
+--- a/src/types/error/builders.rs
++++ b/src/types/error/builders.rs
+@@ -1,56 +1,84 @@
+ // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
++#[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+ pub use crate::types::error::_invalid_address::InvalidAddressBuilder;
+
++#[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+ pub use crate::types::error::_invalid_security::InvalidSecurityBuilder;
+
++#[cfg(any(feature = "op_add_permission", feature = "op_receive_message", feature = "op_set_queue_attributes"))]
+ pub use crate::types::error::_over_limit::OverLimitBuilder;
+
++#[cfg(any(feature = "op_add_permission", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_queue_tags", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_tag_queue", feature = "op_untag_queue"))]
+ pub use crate::types::error::_queue_does_not_exist::QueueDoesNotExistBuilder;
+
++#[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+ pub use crate::types::error::_request_throttled::RequestThrottledBuilder;
+
++#[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+ pub use crate::types::error::_unsupported_operation::UnsupportedOperationBuilder;
+
++#[cfg(any(feature = "op_cancel_message_move_task", feature = "op_list_message_move_tasks", feature = "op_start_message_move_task"))]
+ pub use crate::types::error::_resource_not_found_exception::ResourceNotFoundExceptionBuilder;
+
++#[cfg(feature = "op_change_message_visibility")]
+ pub use crate::types::error::_message_not_inflight::MessageNotInflightBuilder;
+
++#[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
+ pub use crate::types::error::_receipt_handle_is_invalid::ReceiptHandleIsInvalidBuilder;
+
++#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_batch_entry_ids_not_distinct::BatchEntryIdsNotDistinctBuilder;
+
++#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_empty_batch_request::EmptyBatchRequestBuilder;
+
++#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_invalid_batch_entry_id::InvalidBatchEntryIdBuilder;
+
++#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_too_many_entries_in_batch_request::TooManyEntriesInBatchRequestBuilder;
+
++#[cfg(any(feature = "op_create_queue", feature = "op_get_queue_attributes", feature = "op_set_queue_attributes"))]
+ pub use crate::types::error::_invalid_attribute_name::InvalidAttributeNameBuilder;
+
++#[cfg(any(feature = "op_create_queue", feature = "op_set_queue_attributes"))]
+ pub use crate::types::error::_invalid_attribute_value::InvalidAttributeValueBuilder;
+
++#[cfg(feature = "op_create_queue")]
+ pub use crate::types::error::_queue_deleted_recently::QueueDeletedRecentlyBuilder;
+
++#[cfg(feature = "op_create_queue")]
+ pub use crate::types::error::_queue_name_exists::QueueNameExistsBuilder;
+
++#[cfg(feature = "op_delete_message")]
+ pub use crate::types::error::_invalid_id_format::InvalidIdFormatBuilder;
+
++#[cfg(feature = "op_purge_queue")]
+ pub use crate::types::error::_purge_queue_in_progress::PurgeQueueInProgressBuilder;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_kms_access_denied::KmsAccessDeniedBuilder;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_kms_disabled::KmsDisabledBuilder;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_kms_invalid_key_usage::KmsInvalidKeyUsageBuilder;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_kms_invalid_state::KmsInvalidStateBuilder;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_kms_not_found::KmsNotFoundBuilder;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_kms_opt_in_required::KmsOptInRequiredBuilder;
+
++#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+ pub use crate::types::error::_kms_throttled::KmsThrottledBuilder;
+
++#[cfg(feature = "op_send_message")]
+ pub use crate::types::error::_invalid_message_contents::InvalidMessageContentsBuilder;
+
++#[cfg(feature = "op_send_message_batch")]
+ pub use crate::types::error::_batch_request_too_long::BatchRequestTooLongBuilder;

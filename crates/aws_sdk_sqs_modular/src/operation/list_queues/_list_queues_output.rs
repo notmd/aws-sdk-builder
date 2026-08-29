@@ -40,9 +40,7 @@ impl ListQueuesOutput {
 
 #[cfg(feature = "op_list_queues")]
 /// A builder for [`ListQueuesOutput`](crate::operation::list_queues::ListQueuesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListQueuesOutputBuilder {
     pub(crate) queue_urls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -63,10 +61,7 @@ impl ListQueuesOutputBuilder {
         self
     }
     /// <p>A list of queue URLs, up to 1,000 entries, or the value of <code>MaxResults</code> that you sent in the request.</p>
-    pub fn set_queue_urls(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_queue_urls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.queue_urls = input;
         self
     }

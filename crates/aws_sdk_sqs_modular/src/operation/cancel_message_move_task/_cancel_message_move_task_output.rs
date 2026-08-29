@@ -24,18 +24,14 @@ impl ::aws_types::request_id::RequestId for CancelMessageMoveTaskOutput {
 #[cfg(feature = "op_cancel_message_move_task")]
 impl CancelMessageMoveTaskOutput {
     /// Creates a new builder-style object to manufacture [`CancelMessageMoveTaskOutput`](crate::operation::cancel_message_move_task::CancelMessageMoveTaskOutput).
-    pub fn builder(
-    ) -> crate::operation::cancel_message_move_task::builders::CancelMessageMoveTaskOutputBuilder
-    {
+    pub fn builder() -> crate::operation::cancel_message_move_task::builders::CancelMessageMoveTaskOutputBuilder {
         crate::operation::cancel_message_move_task::builders::CancelMessageMoveTaskOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_cancel_message_move_task")]
 /// A builder for [`CancelMessageMoveTaskOutput`](crate::operation::cancel_message_move_task::CancelMessageMoveTaskOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CancelMessageMoveTaskOutputBuilder {
     pub(crate) approximate_number_of_messages_moved: ::std::option::Option<i64>,
@@ -49,10 +45,7 @@ impl CancelMessageMoveTaskOutputBuilder {
         self
     }
     /// <p>The approximate number of messages already moved to the destination queue.</p>
-    pub fn set_approximate_number_of_messages_moved(
-        mut self,
-        input: ::std::option::Option<i64>,
-    ) -> Self {
+    pub fn set_approximate_number_of_messages_moved(mut self, input: ::std::option::Option<i64>) -> Self {
         self.approximate_number_of_messages_moved = input;
         self
     }
@@ -72,9 +65,7 @@ impl CancelMessageMoveTaskOutputBuilder {
     /// Consumes the builder and constructs a [`CancelMessageMoveTaskOutput`](crate::operation::cancel_message_move_task::CancelMessageMoveTaskOutput).
     pub fn build(self) -> crate::operation::cancel_message_move_task::CancelMessageMoveTaskOutput {
         crate::operation::cancel_message_move_task::CancelMessageMoveTaskOutput {
-            approximate_number_of_messages_moved: self
-                .approximate_number_of_messages_moved
-                .unwrap_or_default(),
+            approximate_number_of_messages_moved: self.approximate_number_of_messages_moved.unwrap_or_default(),
             _request_id: self._request_id,
         }
     }

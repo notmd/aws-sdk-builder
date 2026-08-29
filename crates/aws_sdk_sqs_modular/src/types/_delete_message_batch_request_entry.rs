@@ -35,9 +35,7 @@ impl DeleteMessageBatchRequestEntry {
 }
 
 /// A builder for [`DeleteMessageBatchRequestEntry`](crate::types::DeleteMessageBatchRequestEntry).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteMessageBatchRequestEntryBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
@@ -70,18 +68,12 @@ impl DeleteMessageBatchRequestEntryBuilder {
     }
     /// <p>A receipt handle.</p>
     /// This field is required.
-    pub fn receipt_handle(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn receipt_handle(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.receipt_handle = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A receipt handle.</p>
-    pub fn set_receipt_handle(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.receipt_handle = input;
         self
     }
@@ -93,12 +85,7 @@ impl DeleteMessageBatchRequestEntryBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`id`](crate::types::builders::DeleteMessageBatchRequestEntryBuilder::id)
     /// - [`receipt_handle`](crate::types::builders::DeleteMessageBatchRequestEntryBuilder::receipt_handle)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::DeleteMessageBatchRequestEntry,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::DeleteMessageBatchRequestEntry, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::DeleteMessageBatchRequestEntry {
             id: self.id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

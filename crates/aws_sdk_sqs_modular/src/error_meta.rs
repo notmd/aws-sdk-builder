@@ -3,32 +3,45 @@
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum Error {
-    /// <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
+    #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+/// <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
     BatchEntryIdsNotDistinct(crate::types::error::BatchEntryIdsNotDistinct),
-    /// <p>The length of all the messages put together is more than the limit.</p>
+    #[cfg(feature = "op_send_message_batch")]
+/// <p>The length of all the messages put together is more than the limit.</p>
     BatchRequestTooLong(crate::types::error::BatchRequestTooLong),
-    /// <p>The batch request doesn't contain any entries.</p>
+    #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+/// <p>The batch request doesn't contain any entries.</p>
     EmptyBatchRequest(crate::types::error::EmptyBatchRequest),
-    /// <p>The specified ID is invalid.</p>
+    #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+/// <p>The specified ID is invalid.</p>
     InvalidAddress(crate::types::error::InvalidAddress),
-    /// <p>The specified attribute doesn't exist.</p>
+    #[cfg(any(feature = "op_create_queue", feature = "op_get_queue_attributes", feature = "op_set_queue_attributes"))]
+/// <p>The specified attribute doesn't exist.</p>
     InvalidAttributeName(crate::types::error::InvalidAttributeName),
-    /// <p>A queue attribute value is invalid.</p>
+    #[cfg(any(feature = "op_create_queue", feature = "op_set_queue_attributes"))]
+/// <p>A queue attribute value is invalid.</p>
     InvalidAttributeValue(crate::types::error::InvalidAttributeValue),
-    /// <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
+    #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+/// <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
     InvalidBatchEntryId(crate::types::error::InvalidBatchEntryId),
-    /// <p>The specified receipt handle isn't valid for the current version.</p>
+    #[cfg(feature = "op_delete_message")]
+/// <p>The specified receipt handle isn't valid for the current version.</p>
     #[deprecated(note = "exception has been included in ReceiptHandleIsInvalid")]
     InvalidIdFormat(crate::types::error::InvalidIdFormat),
-    /// <p>The message contains characters outside the allowed set.</p>
+    #[cfg(feature = "op_send_message")]
+/// <p>The message contains characters outside the allowed set.</p>
     InvalidMessageContents(crate::types::error::InvalidMessageContents),
-    /// <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
+    #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+/// <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
     InvalidSecurity(crate::types::error::InvalidSecurity),
-    /// <p>The caller doesn't have the required KMS access.</p>
+    #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+/// <p>The caller doesn't have the required KMS access.</p>
     KmsAccessDenied(crate::types::error::KmsAccessDenied),
-    /// <p>The request was denied due to request throttling.</p>
+    #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+/// <p>The request was denied due to request throttling.</p>
     KmsDisabled(crate::types::error::KmsDisabled),
-    /// <p>The request was rejected for one of the following reasons:</p>
+    #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+/// <p>The request was rejected for one of the following reasons:</p>
     /// <ul>
     /// <li>
     /// <p>The KeyUsage value of the KMS key is incompatible with the API operation.</p></li>
@@ -36,29 +49,41 @@ pub enum Error {
     /// <p>The encryption algorithm or signing algorithm specified for the operation is incompatible with the type of key material in the KMS key (KeySpec).</p></li>
     /// </ul>
     KmsInvalidKeyUsage(crate::types::error::KmsInvalidKeyUsage),
-    /// <p>The request was rejected because the state of the specified resource is not valid for this request.</p>
+    #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+/// <p>The request was rejected because the state of the specified resource is not valid for this request.</p>
     KmsInvalidState(crate::types::error::KmsInvalidState),
-    /// <p>The request was rejected because the specified entity or resource could not be found.</p>
+    #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+/// <p>The request was rejected because the specified entity or resource could not be found.</p>
     KmsNotFound(crate::types::error::KmsNotFound),
-    /// <p>The request was rejected because the specified key policy isn't syntactically or semantically correct.</p>
+    #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+/// <p>The request was rejected because the specified key policy isn't syntactically or semantically correct.</p>
     KmsOptInRequired(crate::types::error::KmsOptInRequired),
-    /// <p>Amazon Web Services KMS throttles requests for the following conditions.</p>
+    #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+/// <p>Amazon Web Services KMS throttles requests for the following conditions.</p>
     KmsThrottled(crate::types::error::KmsThrottled),
-    /// <p>The specified message isn't in flight.</p>
+    #[cfg(feature = "op_change_message_visibility")]
+/// <p>The specified message isn't in flight.</p>
     MessageNotInflight(crate::types::error::MessageNotInflight),
-    /// <p>The specified action violates a limit. For example, <code>ReceiveMessage</code> returns this error if the maximum number of in flight messages is reached and <code>AddPermission</code> returns this error if the maximum number of permissions for the queue is reached.</p>
+    #[cfg(any(feature = "op_add_permission", feature = "op_receive_message", feature = "op_set_queue_attributes"))]
+/// <p>The specified action violates a limit. For example, <code>ReceiveMessage</code> returns this error if the maximum number of in flight messages is reached and <code>AddPermission</code> returns this error if the maximum number of permissions for the queue is reached.</p>
     OverLimit(crate::types::error::OverLimit),
-    /// <p>Indicates that the specified queue previously received a <code>PurgeQueue</code> request within the last 60 seconds (the time it can take to delete the messages in the queue).</p>
+    #[cfg(feature = "op_purge_queue")]
+/// <p>Indicates that the specified queue previously received a <code>PurgeQueue</code> request within the last 60 seconds (the time it can take to delete the messages in the queue).</p>
     PurgeQueueInProgress(crate::types::error::PurgeQueueInProgress),
-    /// <p>You must wait 60 seconds after deleting a queue before you can create another queue with the same name.</p>
+    #[cfg(feature = "op_create_queue")]
+/// <p>You must wait 60 seconds after deleting a queue before you can create another queue with the same name.</p>
     QueueDeletedRecently(crate::types::error::QueueDeletedRecently),
-    /// <p>Ensure that the <code>QueueUrl</code> is correct and that the queue has not been deleted.</p>
+    #[cfg(any(feature = "op_add_permission", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_queue_tags", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_tag_queue", feature = "op_untag_queue"))]
+/// <p>Ensure that the <code>QueueUrl</code> is correct and that the queue has not been deleted.</p>
     QueueDoesNotExist(crate::types::error::QueueDoesNotExist),
-    /// <p>A queue with this name already exists. Amazon SQS returns this error only if the request includes attributes whose values differ from those of the existing queue.</p>
+    #[cfg(feature = "op_create_queue")]
+/// <p>A queue with this name already exists. Amazon SQS returns this error only if the request includes attributes whose values differ from those of the existing queue.</p>
     QueueNameExists(crate::types::error::QueueNameExists),
-    /// <p>The specified receipt handle isn't valid.</p>
+    #[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
+/// <p>The specified receipt handle isn't valid.</p>
     ReceiptHandleIsInvalid(crate::types::error::ReceiptHandleIsInvalid),
-    /// <p>The request was denied due to request throttling.</p>
+    #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+/// <p>The request was denied due to request throttling.</p>
     /// <ul>
     /// <li>
     /// <p>Exceeds the permitted request rate for the queue or for the recipient of the request.</p></li>
@@ -66,58 +91,85 @@ pub enum Error {
     /// <p>Ensure that the request rate is within the Amazon SQS limits for sending messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests">Amazon SQS quotas</a> in the <i>Amazon SQS Developer Guide</i>.</p></li>
     /// </ul>
     RequestThrottled(crate::types::error::RequestThrottled),
-    /// <p>One or more specified resources don't exist.</p>
+    #[cfg(any(feature = "op_cancel_message_move_task", feature = "op_list_message_move_tasks", feature = "op_start_message_move_task"))]
+/// <p>One or more specified resources don't exist.</p>
     ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
-    /// <p>The batch request contains more entries than permissible. For Amazon SQS, the maximum number of entries you can include in a single <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html">SendMessageBatch</a>, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html">DeleteMessageBatch</a>, or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html">ChangeMessageVisibilityBatch</a> request is 10.</p>
+    #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+/// <p>The batch request contains more entries than permissible. For Amazon SQS, the maximum number of entries you can include in a single <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html">SendMessageBatch</a>, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html">DeleteMessageBatch</a>, or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html">ChangeMessageVisibilityBatch</a> request is 10.</p>
     TooManyEntriesInBatchRequest(crate::types::error::TooManyEntriesInBatchRequest),
-    /// <p>Error code 400. Unsupported operation.</p>
+    #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+/// <p>Error code 400. Unsupported operation.</p>
     UnsupportedOperation(crate::types::error::UnsupportedOperation),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(
-        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error."
-    )]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Error::BatchEntryIdsNotDistinct(inner) => inner.fmt(f),
-            Error::BatchRequestTooLong(inner) => inner.fmt(f),
-            Error::EmptyBatchRequest(inner) => inner.fmt(f),
-            Error::InvalidAddress(inner) => inner.fmt(f),
-            Error::InvalidAttributeName(inner) => inner.fmt(f),
-            Error::InvalidAttributeValue(inner) => inner.fmt(f),
-            Error::InvalidBatchEntryId(inner) => inner.fmt(f),
-            Error::InvalidIdFormat(inner) => inner.fmt(f),
-            Error::InvalidMessageContents(inner) => inner.fmt(f),
-            Error::InvalidSecurity(inner) => inner.fmt(f),
-            Error::KmsAccessDenied(inner) => inner.fmt(f),
-            Error::KmsDisabled(inner) => inner.fmt(f),
-            Error::KmsInvalidKeyUsage(inner) => inner.fmt(f),
-            Error::KmsInvalidState(inner) => inner.fmt(f),
-            Error::KmsNotFound(inner) => inner.fmt(f),
-            Error::KmsOptInRequired(inner) => inner.fmt(f),
-            Error::KmsThrottled(inner) => inner.fmt(f),
-            Error::MessageNotInflight(inner) => inner.fmt(f),
-            Error::OverLimit(inner) => inner.fmt(f),
-            Error::PurgeQueueInProgress(inner) => inner.fmt(f),
-            Error::QueueDeletedRecently(inner) => inner.fmt(f),
-            Error::QueueDoesNotExist(inner) => inner.fmt(f),
-            Error::QueueNameExists(inner) => inner.fmt(f),
-            Error::ReceiptHandleIsInvalid(inner) => inner.fmt(f),
-            Error::RequestThrottled(inner) => inner.fmt(f),
-            Error::ResourceNotFoundException(inner) => inner.fmt(f),
-            Error::TooManyEntriesInBatchRequest(inner) => inner.fmt(f),
-            Error::UnsupportedOperation(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+Error::BatchEntryIdsNotDistinct(inner) => inner.fmt(f),
+            #[cfg(feature = "op_send_message_batch")]
+Error::BatchRequestTooLong(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+Error::EmptyBatchRequest(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Error::InvalidAddress(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_queue", feature = "op_get_queue_attributes", feature = "op_set_queue_attributes"))]
+Error::InvalidAttributeName(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_queue", feature = "op_set_queue_attributes"))]
+Error::InvalidAttributeValue(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+Error::InvalidBatchEntryId(inner) => inner.fmt(f),
+            #[cfg(feature = "op_delete_message")]
+Error::InvalidIdFormat(inner) => inner.fmt(f),
+            #[cfg(feature = "op_send_message")]
+Error::InvalidMessageContents(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Error::InvalidSecurity(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Error::KmsAccessDenied(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Error::KmsDisabled(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Error::KmsInvalidKeyUsage(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Error::KmsInvalidState(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Error::KmsNotFound(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Error::KmsOptInRequired(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Error::KmsThrottled(inner) => inner.fmt(f),
+            #[cfg(feature = "op_change_message_visibility")]
+Error::MessageNotInflight(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_add_permission", feature = "op_receive_message", feature = "op_set_queue_attributes"))]
+Error::OverLimit(inner) => inner.fmt(f),
+            #[cfg(feature = "op_purge_queue")]
+Error::PurgeQueueInProgress(inner) => inner.fmt(f),
+            #[cfg(feature = "op_create_queue")]
+Error::QueueDeletedRecently(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_add_permission", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_queue_tags", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Error::QueueDoesNotExist(inner) => inner.fmt(f),
+            #[cfg(feature = "op_create_queue")]
+Error::QueueNameExists(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
+Error::ReceiptHandleIsInvalid(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Error::RequestThrottled(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_cancel_message_move_task", feature = "op_list_message_move_tasks", feature = "op_start_message_move_task"))]
+Error::ResourceNotFoundException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+Error::TooManyEntriesInBatchRequest(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Error::UnsupportedOperation(inner) => inner.fmt(f),
             Error::Unhandled(_) => {
-                if let ::std::option::Option::Some(code) =
-                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
-                {
+                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -137,59 +189,74 @@ impl From<::aws_smithy_types::error::operation::BuildError> for Error {
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
     fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
         match self {
-            Self::BatchEntryIdsNotDistinct(inner) => inner.meta(),
-            Self::BatchRequestTooLong(inner) => inner.meta(),
-            Self::EmptyBatchRequest(inner) => inner.meta(),
-            Self::InvalidAddress(inner) => inner.meta(),
-            Self::InvalidAttributeName(inner) => inner.meta(),
-            Self::InvalidAttributeValue(inner) => inner.meta(),
-            Self::InvalidBatchEntryId(inner) => inner.meta(),
-            Self::InvalidIdFormat(inner) => inner.meta(),
-            Self::InvalidMessageContents(inner) => inner.meta(),
-            Self::InvalidSecurity(inner) => inner.meta(),
-            Self::KmsAccessDenied(inner) => inner.meta(),
-            Self::KmsDisabled(inner) => inner.meta(),
-            Self::KmsInvalidKeyUsage(inner) => inner.meta(),
-            Self::KmsInvalidState(inner) => inner.meta(),
-            Self::KmsNotFound(inner) => inner.meta(),
-            Self::KmsOptInRequired(inner) => inner.meta(),
-            Self::KmsThrottled(inner) => inner.meta(),
-            Self::MessageNotInflight(inner) => inner.meta(),
-            Self::OverLimit(inner) => inner.meta(),
-            Self::PurgeQueueInProgress(inner) => inner.meta(),
-            Self::QueueDeletedRecently(inner) => inner.meta(),
-            Self::QueueDoesNotExist(inner) => inner.meta(),
-            Self::QueueNameExists(inner) => inner.meta(),
-            Self::ReceiptHandleIsInvalid(inner) => inner.meta(),
-            Self::RequestThrottled(inner) => inner.meta(),
-            Self::ResourceNotFoundException(inner) => inner.meta(),
-            Self::TooManyEntriesInBatchRequest(inner) => inner.meta(),
-            Self::UnsupportedOperation(inner) => inner.meta(),
+            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+Self::BatchEntryIdsNotDistinct(inner) => inner.meta(),
+            #[cfg(feature = "op_send_message_batch")]
+Self::BatchRequestTooLong(inner) => inner.meta(),
+            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+Self::EmptyBatchRequest(inner) => inner.meta(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Self::InvalidAddress(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_queue", feature = "op_get_queue_attributes", feature = "op_set_queue_attributes"))]
+Self::InvalidAttributeName(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_queue", feature = "op_set_queue_attributes"))]
+Self::InvalidAttributeValue(inner) => inner.meta(),
+            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+Self::InvalidBatchEntryId(inner) => inner.meta(),
+            #[cfg(feature = "op_delete_message")]
+Self::InvalidIdFormat(inner) => inner.meta(),
+            #[cfg(feature = "op_send_message")]
+Self::InvalidMessageContents(inner) => inner.meta(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Self::InvalidSecurity(inner) => inner.meta(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Self::KmsAccessDenied(inner) => inner.meta(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Self::KmsDisabled(inner) => inner.meta(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Self::KmsInvalidKeyUsage(inner) => inner.meta(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Self::KmsInvalidState(inner) => inner.meta(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Self::KmsNotFound(inner) => inner.meta(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Self::KmsOptInRequired(inner) => inner.meta(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Self::KmsThrottled(inner) => inner.meta(),
+            #[cfg(feature = "op_change_message_visibility")]
+Self::MessageNotInflight(inner) => inner.meta(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_receive_message", feature = "op_set_queue_attributes"))]
+Self::OverLimit(inner) => inner.meta(),
+            #[cfg(feature = "op_purge_queue")]
+Self::PurgeQueueInProgress(inner) => inner.meta(),
+            #[cfg(feature = "op_create_queue")]
+Self::QueueDeletedRecently(inner) => inner.meta(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_queue_tags", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Self::QueueDoesNotExist(inner) => inner.meta(),
+            #[cfg(feature = "op_create_queue")]
+Self::QueueNameExists(inner) => inner.meta(),
+            #[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
+Self::ReceiptHandleIsInvalid(inner) => inner.meta(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Self::RequestThrottled(inner) => inner.meta(),
+            #[cfg(any(feature = "op_cancel_message_move_task", feature = "op_list_message_move_tasks", feature = "op_start_message_move_task"))]
+Self::ResourceNotFoundException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+Self::TooManyEntriesInBatchRequest(inner) => inner.meta(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Self::UnsupportedOperation(inner) => inner.meta(),
             Self::Unhandled(inner) => &inner.meta,
         }
     }
 }
 #[cfg(feature = "op_add_permission")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::add_permission::AddPermissionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_permission::AddPermissionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::add_permission::AddPermissionError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_permission::AddPermissionError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -201,51 +268,26 @@ where
 impl From<crate::operation::add_permission::AddPermissionError> for Error {
     fn from(err: crate::operation::add_permission::AddPermissionError) -> Self {
         match err {
-            crate::operation::add_permission::AddPermissionError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
-            crate::operation::add_permission::AddPermissionError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
-            crate::operation::add_permission::AddPermissionError::OverLimit(inner) => {
-                Error::OverLimit(inner)
-            }
-            crate::operation::add_permission::AddPermissionError::QueueDoesNotExist(inner) => {
-                Error::QueueDoesNotExist(inner)
-            }
-            crate::operation::add_permission::AddPermissionError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
-            crate::operation::add_permission::AddPermissionError::UnsupportedOperation(inner) => {
-                Error::UnsupportedOperation(inner)
-            }
-            crate::operation::add_permission::AddPermissionError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::add_permission::AddPermissionError::InvalidAddress(inner) => Error::InvalidAddress(inner),
+            crate::operation::add_permission::AddPermissionError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
+            crate::operation::add_permission::AddPermissionError::OverLimit(inner) => Error::OverLimit(inner),
+            crate::operation::add_permission::AddPermissionError::QueueDoesNotExist(inner) => Error::QueueDoesNotExist(inner),
+            crate::operation::add_permission::AddPermissionError::RequestThrottled(inner) => Error::RequestThrottled(inner),
+            crate::operation::add_permission::AddPermissionError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
+            crate::operation::add_permission::AddPermissionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_cancel_message_move_task")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::cancel_message_move_task::CancelMessageMoveTaskError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::cancel_message_move_task::CancelMessageMoveTaskError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::cancel_message_move_task::CancelMessageMoveTaskError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::cancel_message_move_task::CancelMessageMoveTaskError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -269,26 +311,16 @@ impl From<crate::operation::cancel_message_move_task::CancelMessageMoveTaskError
     }
 }
 #[cfg(feature = "op_change_message_visibility")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::change_message_visibility::ChangeMessageVisibilityError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::change_message_visibility::ChangeMessageVisibilityError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::change_message_visibility::ChangeMessageVisibilityError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::change_message_visibility::ChangeMessageVisibilityError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -298,9 +330,7 @@ where
 }
 #[cfg(feature = "op_change_message_visibility")]
 impl From<crate::operation::change_message_visibility::ChangeMessageVisibilityError> for Error {
-    fn from(
-        err: crate::operation::change_message_visibility::ChangeMessageVisibilityError,
-    ) -> Self {
+    fn from(err: crate::operation::change_message_visibility::ChangeMessageVisibilityError) -> Self {
         match err {
             crate::operation::change_message_visibility::ChangeMessageVisibilityError::InvalidAddress(inner) => Error::InvalidAddress(inner),
             crate::operation::change_message_visibility::ChangeMessageVisibilityError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
@@ -319,12 +349,8 @@ impl From<crate::operation::change_message_visibility::ChangeMessageVisibilityEr
 }
 #[cfg(feature = "op_change_message_visibility_batch")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -335,9 +361,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -346,12 +370,8 @@ where
     }
 }
 #[cfg(feature = "op_change_message_visibility_batch")]
-impl From<crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError>
-    for Error
-{
-    fn from(
-        err: crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError,
-    ) -> Self {
+impl From<crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError> for Error {
+    fn from(err: crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError) -> Self {
         match err {
             crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::BatchEntryIdsNotDistinct(inner) => {
                 Error::BatchEntryIdsNotDistinct(inner)
@@ -385,26 +405,13 @@ impl From<crate::operation::change_message_visibility_batch::ChangeMessageVisibi
     }
 }
 #[cfg(feature = "op_create_queue")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_queue::CreateQueueError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_queue::CreateQueueError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_queue::CreateQueueError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_queue::CreateQueueError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -416,57 +423,26 @@ where
 impl From<crate::operation::create_queue::CreateQueueError> for Error {
     fn from(err: crate::operation::create_queue::CreateQueueError) -> Self {
         match err {
-            crate::operation::create_queue::CreateQueueError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
-            crate::operation::create_queue::CreateQueueError::InvalidAttributeName(inner) => {
-                Error::InvalidAttributeName(inner)
-            }
-            crate::operation::create_queue::CreateQueueError::InvalidAttributeValue(inner) => {
-                Error::InvalidAttributeValue(inner)
-            }
-            crate::operation::create_queue::CreateQueueError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
-            crate::operation::create_queue::CreateQueueError::QueueDeletedRecently(inner) => {
-                Error::QueueDeletedRecently(inner)
-            }
-            crate::operation::create_queue::CreateQueueError::QueueNameExists(inner) => {
-                Error::QueueNameExists(inner)
-            }
-            crate::operation::create_queue::CreateQueueError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
-            crate::operation::create_queue::CreateQueueError::UnsupportedOperation(inner) => {
-                Error::UnsupportedOperation(inner)
-            }
-            crate::operation::create_queue::CreateQueueError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_queue::CreateQueueError::InvalidAddress(inner) => Error::InvalidAddress(inner),
+            crate::operation::create_queue::CreateQueueError::InvalidAttributeName(inner) => Error::InvalidAttributeName(inner),
+            crate::operation::create_queue::CreateQueueError::InvalidAttributeValue(inner) => Error::InvalidAttributeValue(inner),
+            crate::operation::create_queue::CreateQueueError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
+            crate::operation::create_queue::CreateQueueError::QueueDeletedRecently(inner) => Error::QueueDeletedRecently(inner),
+            crate::operation::create_queue::CreateQueueError::QueueNameExists(inner) => Error::QueueNameExists(inner),
+            crate::operation::create_queue::CreateQueueError::RequestThrottled(inner) => Error::RequestThrottled(inner),
+            crate::operation::create_queue::CreateQueueError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
+            crate::operation::create_queue::CreateQueueError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_delete_message")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_message::DeleteMessageError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_message::DeleteMessageError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_message::DeleteMessageError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_message::DeleteMessageError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -478,54 +454,25 @@ where
 impl From<crate::operation::delete_message::DeleteMessageError> for Error {
     fn from(err: crate::operation::delete_message::DeleteMessageError) -> Self {
         match err {
-            crate::operation::delete_message::DeleteMessageError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
-            crate::operation::delete_message::DeleteMessageError::InvalidIdFormat(inner) => {
-                Error::InvalidIdFormat(inner)
-            }
-            crate::operation::delete_message::DeleteMessageError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
-            crate::operation::delete_message::DeleteMessageError::QueueDoesNotExist(inner) => {
-                Error::QueueDoesNotExist(inner)
-            }
-            crate::operation::delete_message::DeleteMessageError::ReceiptHandleIsInvalid(inner) => {
-                Error::ReceiptHandleIsInvalid(inner)
-            }
-            crate::operation::delete_message::DeleteMessageError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
-            crate::operation::delete_message::DeleteMessageError::UnsupportedOperation(inner) => {
-                Error::UnsupportedOperation(inner)
-            }
-            crate::operation::delete_message::DeleteMessageError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_message::DeleteMessageError::InvalidAddress(inner) => Error::InvalidAddress(inner),
+            crate::operation::delete_message::DeleteMessageError::InvalidIdFormat(inner) => Error::InvalidIdFormat(inner),
+            crate::operation::delete_message::DeleteMessageError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
+            crate::operation::delete_message::DeleteMessageError::QueueDoesNotExist(inner) => Error::QueueDoesNotExist(inner),
+            crate::operation::delete_message::DeleteMessageError::ReceiptHandleIsInvalid(inner) => Error::ReceiptHandleIsInvalid(inner),
+            crate::operation::delete_message::DeleteMessageError::RequestThrottled(inner) => Error::RequestThrottled(inner),
+            crate::operation::delete_message::DeleteMessageError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
+            crate::operation::delete_message::DeleteMessageError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_delete_message_batch")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_message_batch::DeleteMessageBatchError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_message_batch::DeleteMessageBatchError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_message_batch::DeleteMessageBatchError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_message_batch::DeleteMessageBatchError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -555,26 +502,13 @@ impl From<crate::operation::delete_message_batch::DeleteMessageBatchError> for E
     }
 }
 #[cfg(feature = "op_delete_queue")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_queue::DeleteQueueError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_queue::DeleteQueueError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_queue::DeleteQueueError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_queue::DeleteQueueError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -586,48 +520,23 @@ where
 impl From<crate::operation::delete_queue::DeleteQueueError> for Error {
     fn from(err: crate::operation::delete_queue::DeleteQueueError) -> Self {
         match err {
-            crate::operation::delete_queue::DeleteQueueError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
-            crate::operation::delete_queue::DeleteQueueError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
-            crate::operation::delete_queue::DeleteQueueError::QueueDoesNotExist(inner) => {
-                Error::QueueDoesNotExist(inner)
-            }
-            crate::operation::delete_queue::DeleteQueueError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
-            crate::operation::delete_queue::DeleteQueueError::UnsupportedOperation(inner) => {
-                Error::UnsupportedOperation(inner)
-            }
-            crate::operation::delete_queue::DeleteQueueError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_queue::DeleteQueueError::InvalidAddress(inner) => Error::InvalidAddress(inner),
+            crate::operation::delete_queue::DeleteQueueError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
+            crate::operation::delete_queue::DeleteQueueError::QueueDoesNotExist(inner) => Error::QueueDoesNotExist(inner),
+            crate::operation::delete_queue::DeleteQueueError::RequestThrottled(inner) => Error::RequestThrottled(inner),
+            crate::operation::delete_queue::DeleteQueueError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
+            crate::operation::delete_queue::DeleteQueueError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_queue_attributes")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_queue_attributes::GetQueueAttributesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_queue_attributes::GetQueueAttributesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_queue_attributes::GetQueueAttributesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_queue_attributes::GetQueueAttributesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -650,26 +559,13 @@ impl From<crate::operation::get_queue_attributes::GetQueueAttributesError> for E
     }
 }
 #[cfg(feature = "op_get_queue_url")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_queue_url::GetQueueUrlError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_queue_url::GetQueueUrlError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_queue_url::GetQueueUrlError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_queue_url::GetQueueUrlError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -681,48 +577,26 @@ where
 impl From<crate::operation::get_queue_url::GetQueueUrlError> for Error {
     fn from(err: crate::operation::get_queue_url::GetQueueUrlError) -> Self {
         match err {
-            crate::operation::get_queue_url::GetQueueUrlError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
-            crate::operation::get_queue_url::GetQueueUrlError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
-            crate::operation::get_queue_url::GetQueueUrlError::QueueDoesNotExist(inner) => {
-                Error::QueueDoesNotExist(inner)
-            }
-            crate::operation::get_queue_url::GetQueueUrlError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
-            crate::operation::get_queue_url::GetQueueUrlError::UnsupportedOperation(inner) => {
-                Error::UnsupportedOperation(inner)
-            }
-            crate::operation::get_queue_url::GetQueueUrlError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_queue_url::GetQueueUrlError::InvalidAddress(inner) => Error::InvalidAddress(inner),
+            crate::operation::get_queue_url::GetQueueUrlError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
+            crate::operation::get_queue_url::GetQueueUrlError::QueueDoesNotExist(inner) => Error::QueueDoesNotExist(inner),
+            crate::operation::get_queue_url::GetQueueUrlError::RequestThrottled(inner) => Error::RequestThrottled(inner),
+            crate::operation::get_queue_url::GetQueueUrlError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
+            crate::operation::get_queue_url::GetQueueUrlError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_dead_letter_source_queues")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -731,12 +605,8 @@ where
     }
 }
 #[cfg(feature = "op_list_dead_letter_source_queues")]
-impl From<crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError,
-    ) -> Self {
+impl From<crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError> for Error {
+    fn from(err: crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError) -> Self {
         match err {
             crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::InvalidAddress(inner) => Error::InvalidAddress(inner),
             crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::InvalidSecurity(inner) => {
@@ -756,26 +626,15 @@ impl From<crate::operation::list_dead_letter_source_queues::ListDeadLetterSource
     }
 }
 #[cfg(feature = "op_list_message_move_tasks")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_message_move_tasks::ListMessageMoveTasksError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_message_move_tasks::ListMessageMoveTasksError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_message_move_tasks::ListMessageMoveTasksError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_message_move_tasks::ListMessageMoveTasksError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -799,26 +658,13 @@ impl From<crate::operation::list_message_move_tasks::ListMessageMoveTasksError> 
     }
 }
 #[cfg(feature = "op_list_queues")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_queues::ListQueuesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_queues::ListQueuesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_queues::ListQueuesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_queues::ListQueuesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -830,45 +676,22 @@ where
 impl From<crate::operation::list_queues::ListQueuesError> for Error {
     fn from(err: crate::operation::list_queues::ListQueuesError) -> Self {
         match err {
-            crate::operation::list_queues::ListQueuesError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
-            crate::operation::list_queues::ListQueuesError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
-            crate::operation::list_queues::ListQueuesError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
-            crate::operation::list_queues::ListQueuesError::UnsupportedOperation(inner) => {
-                Error::UnsupportedOperation(inner)
-            }
-            crate::operation::list_queues::ListQueuesError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_queues::ListQueuesError::InvalidAddress(inner) => Error::InvalidAddress(inner),
+            crate::operation::list_queues::ListQueuesError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
+            crate::operation::list_queues::ListQueuesError::RequestThrottled(inner) => Error::RequestThrottled(inner),
+            crate::operation::list_queues::ListQueuesError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
+            crate::operation::list_queues::ListQueuesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_queue_tags")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_queue_tags::ListQueueTagsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_queue_tags::ListQueueTagsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_queue_tags::ListQueueTagsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_queue_tags::ListQueueTagsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -880,48 +703,23 @@ where
 impl From<crate::operation::list_queue_tags::ListQueueTagsError> for Error {
     fn from(err: crate::operation::list_queue_tags::ListQueueTagsError) -> Self {
         match err {
-            crate::operation::list_queue_tags::ListQueueTagsError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
-            crate::operation::list_queue_tags::ListQueueTagsError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
-            crate::operation::list_queue_tags::ListQueueTagsError::QueueDoesNotExist(inner) => {
-                Error::QueueDoesNotExist(inner)
-            }
-            crate::operation::list_queue_tags::ListQueueTagsError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
-            crate::operation::list_queue_tags::ListQueueTagsError::UnsupportedOperation(inner) => {
-                Error::UnsupportedOperation(inner)
-            }
-            crate::operation::list_queue_tags::ListQueueTagsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_queue_tags::ListQueueTagsError::InvalidAddress(inner) => Error::InvalidAddress(inner),
+            crate::operation::list_queue_tags::ListQueueTagsError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
+            crate::operation::list_queue_tags::ListQueueTagsError::QueueDoesNotExist(inner) => Error::QueueDoesNotExist(inner),
+            crate::operation::list_queue_tags::ListQueueTagsError::RequestThrottled(inner) => Error::RequestThrottled(inner),
+            crate::operation::list_queue_tags::ListQueueTagsError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
+            crate::operation::list_queue_tags::ListQueueTagsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_purge_queue")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::purge_queue::PurgeQueueError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::purge_queue::PurgeQueueError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::purge_queue::PurgeQueueError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::purge_queue::PurgeQueueError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -933,51 +731,24 @@ where
 impl From<crate::operation::purge_queue::PurgeQueueError> for Error {
     fn from(err: crate::operation::purge_queue::PurgeQueueError) -> Self {
         match err {
-            crate::operation::purge_queue::PurgeQueueError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
-            crate::operation::purge_queue::PurgeQueueError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
-            crate::operation::purge_queue::PurgeQueueError::PurgeQueueInProgress(inner) => {
-                Error::PurgeQueueInProgress(inner)
-            }
-            crate::operation::purge_queue::PurgeQueueError::QueueDoesNotExist(inner) => {
-                Error::QueueDoesNotExist(inner)
-            }
-            crate::operation::purge_queue::PurgeQueueError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
-            crate::operation::purge_queue::PurgeQueueError::UnsupportedOperation(inner) => {
-                Error::UnsupportedOperation(inner)
-            }
-            crate::operation::purge_queue::PurgeQueueError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::purge_queue::PurgeQueueError::InvalidAddress(inner) => Error::InvalidAddress(inner),
+            crate::operation::purge_queue::PurgeQueueError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
+            crate::operation::purge_queue::PurgeQueueError::PurgeQueueInProgress(inner) => Error::PurgeQueueInProgress(inner),
+            crate::operation::purge_queue::PurgeQueueError::QueueDoesNotExist(inner) => Error::QueueDoesNotExist(inner),
+            crate::operation::purge_queue::PurgeQueueError::RequestThrottled(inner) => Error::RequestThrottled(inner),
+            crate::operation::purge_queue::PurgeQueueError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
+            crate::operation::purge_queue::PurgeQueueError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_receive_message")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::receive_message::ReceiveMessageError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::receive_message::ReceiveMessageError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::receive_message::ReceiveMessageError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::receive_message::ReceiveMessageError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -989,72 +760,31 @@ where
 impl From<crate::operation::receive_message::ReceiveMessageError> for Error {
     fn from(err: crate::operation::receive_message::ReceiveMessageError) -> Self {
         match err {
-            crate::operation::receive_message::ReceiveMessageError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
-            crate::operation::receive_message::ReceiveMessageError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
-            crate::operation::receive_message::ReceiveMessageError::KmsAccessDenied(inner) => {
-                Error::KmsAccessDenied(inner)
-            }
-            crate::operation::receive_message::ReceiveMessageError::KmsDisabled(inner) => {
-                Error::KmsDisabled(inner)
-            }
-            crate::operation::receive_message::ReceiveMessageError::KmsInvalidKeyUsage(inner) => {
-                Error::KmsInvalidKeyUsage(inner)
-            }
-            crate::operation::receive_message::ReceiveMessageError::KmsInvalidState(inner) => {
-                Error::KmsInvalidState(inner)
-            }
-            crate::operation::receive_message::ReceiveMessageError::KmsNotFound(inner) => {
-                Error::KmsNotFound(inner)
-            }
-            crate::operation::receive_message::ReceiveMessageError::KmsOptInRequired(inner) => {
-                Error::KmsOptInRequired(inner)
-            }
-            crate::operation::receive_message::ReceiveMessageError::KmsThrottled(inner) => {
-                Error::KmsThrottled(inner)
-            }
-            crate::operation::receive_message::ReceiveMessageError::OverLimit(inner) => {
-                Error::OverLimit(inner)
-            }
-            crate::operation::receive_message::ReceiveMessageError::QueueDoesNotExist(inner) => {
-                Error::QueueDoesNotExist(inner)
-            }
-            crate::operation::receive_message::ReceiveMessageError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
-            crate::operation::receive_message::ReceiveMessageError::UnsupportedOperation(inner) => {
-                Error::UnsupportedOperation(inner)
-            }
-            crate::operation::receive_message::ReceiveMessageError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::receive_message::ReceiveMessageError::InvalidAddress(inner) => Error::InvalidAddress(inner),
+            crate::operation::receive_message::ReceiveMessageError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
+            crate::operation::receive_message::ReceiveMessageError::KmsAccessDenied(inner) => Error::KmsAccessDenied(inner),
+            crate::operation::receive_message::ReceiveMessageError::KmsDisabled(inner) => Error::KmsDisabled(inner),
+            crate::operation::receive_message::ReceiveMessageError::KmsInvalidKeyUsage(inner) => Error::KmsInvalidKeyUsage(inner),
+            crate::operation::receive_message::ReceiveMessageError::KmsInvalidState(inner) => Error::KmsInvalidState(inner),
+            crate::operation::receive_message::ReceiveMessageError::KmsNotFound(inner) => Error::KmsNotFound(inner),
+            crate::operation::receive_message::ReceiveMessageError::KmsOptInRequired(inner) => Error::KmsOptInRequired(inner),
+            crate::operation::receive_message::ReceiveMessageError::KmsThrottled(inner) => Error::KmsThrottled(inner),
+            crate::operation::receive_message::ReceiveMessageError::OverLimit(inner) => Error::OverLimit(inner),
+            crate::operation::receive_message::ReceiveMessageError::QueueDoesNotExist(inner) => Error::QueueDoesNotExist(inner),
+            crate::operation::receive_message::ReceiveMessageError::RequestThrottled(inner) => Error::RequestThrottled(inner),
+            crate::operation::receive_message::ReceiveMessageError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
+            crate::operation::receive_message::ReceiveMessageError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_remove_permission")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::remove_permission::RemovePermissionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::remove_permission::RemovePermissionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::remove_permission::RemovePermissionError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::remove_permission::RemovePermissionError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1066,48 +796,23 @@ where
 impl From<crate::operation::remove_permission::RemovePermissionError> for Error {
     fn from(err: crate::operation::remove_permission::RemovePermissionError) -> Self {
         match err {
-            crate::operation::remove_permission::RemovePermissionError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
-            crate::operation::remove_permission::RemovePermissionError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
-            crate::operation::remove_permission::RemovePermissionError::QueueDoesNotExist(
-                inner,
-            ) => Error::QueueDoesNotExist(inner),
-            crate::operation::remove_permission::RemovePermissionError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
-            crate::operation::remove_permission::RemovePermissionError::UnsupportedOperation(
-                inner,
-            ) => Error::UnsupportedOperation(inner),
-            crate::operation::remove_permission::RemovePermissionError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::remove_permission::RemovePermissionError::InvalidAddress(inner) => Error::InvalidAddress(inner),
+            crate::operation::remove_permission::RemovePermissionError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
+            crate::operation::remove_permission::RemovePermissionError::QueueDoesNotExist(inner) => Error::QueueDoesNotExist(inner),
+            crate::operation::remove_permission::RemovePermissionError::RequestThrottled(inner) => Error::RequestThrottled(inner),
+            crate::operation::remove_permission::RemovePermissionError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
+            crate::operation::remove_permission::RemovePermissionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_send_message")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::send_message::SendMessageError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::send_message::SendMessageError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::send_message::SendMessageError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::send_message::SendMessageError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1119,72 +824,31 @@ where
 impl From<crate::operation::send_message::SendMessageError> for Error {
     fn from(err: crate::operation::send_message::SendMessageError) -> Self {
         match err {
-            crate::operation::send_message::SendMessageError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
-            crate::operation::send_message::SendMessageError::InvalidMessageContents(inner) => {
-                Error::InvalidMessageContents(inner)
-            }
-            crate::operation::send_message::SendMessageError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
-            crate::operation::send_message::SendMessageError::KmsAccessDenied(inner) => {
-                Error::KmsAccessDenied(inner)
-            }
-            crate::operation::send_message::SendMessageError::KmsDisabled(inner) => {
-                Error::KmsDisabled(inner)
-            }
-            crate::operation::send_message::SendMessageError::KmsInvalidKeyUsage(inner) => {
-                Error::KmsInvalidKeyUsage(inner)
-            }
-            crate::operation::send_message::SendMessageError::KmsInvalidState(inner) => {
-                Error::KmsInvalidState(inner)
-            }
-            crate::operation::send_message::SendMessageError::KmsNotFound(inner) => {
-                Error::KmsNotFound(inner)
-            }
-            crate::operation::send_message::SendMessageError::KmsOptInRequired(inner) => {
-                Error::KmsOptInRequired(inner)
-            }
-            crate::operation::send_message::SendMessageError::KmsThrottled(inner) => {
-                Error::KmsThrottled(inner)
-            }
-            crate::operation::send_message::SendMessageError::QueueDoesNotExist(inner) => {
-                Error::QueueDoesNotExist(inner)
-            }
-            crate::operation::send_message::SendMessageError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
-            crate::operation::send_message::SendMessageError::UnsupportedOperation(inner) => {
-                Error::UnsupportedOperation(inner)
-            }
-            crate::operation::send_message::SendMessageError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::send_message::SendMessageError::InvalidAddress(inner) => Error::InvalidAddress(inner),
+            crate::operation::send_message::SendMessageError::InvalidMessageContents(inner) => Error::InvalidMessageContents(inner),
+            crate::operation::send_message::SendMessageError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
+            crate::operation::send_message::SendMessageError::KmsAccessDenied(inner) => Error::KmsAccessDenied(inner),
+            crate::operation::send_message::SendMessageError::KmsDisabled(inner) => Error::KmsDisabled(inner),
+            crate::operation::send_message::SendMessageError::KmsInvalidKeyUsage(inner) => Error::KmsInvalidKeyUsage(inner),
+            crate::operation::send_message::SendMessageError::KmsInvalidState(inner) => Error::KmsInvalidState(inner),
+            crate::operation::send_message::SendMessageError::KmsNotFound(inner) => Error::KmsNotFound(inner),
+            crate::operation::send_message::SendMessageError::KmsOptInRequired(inner) => Error::KmsOptInRequired(inner),
+            crate::operation::send_message::SendMessageError::KmsThrottled(inner) => Error::KmsThrottled(inner),
+            crate::operation::send_message::SendMessageError::QueueDoesNotExist(inner) => Error::QueueDoesNotExist(inner),
+            crate::operation::send_message::SendMessageError::RequestThrottled(inner) => Error::RequestThrottled(inner),
+            crate::operation::send_message::SendMessageError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
+            crate::operation::send_message::SendMessageError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_send_message_batch")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::send_message_batch::SendMessageBatchError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::send_message_batch::SendMessageBatchError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::send_message_batch::SendMessageBatchError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::send_message_batch::SendMessageBatchError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1220,26 +884,13 @@ impl From<crate::operation::send_message_batch::SendMessageBatchError> for Error
     }
 }
 #[cfg(feature = "op_set_queue_attributes")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::set_queue_attributes::SetQueueAttributesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_queue_attributes::SetQueueAttributesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::set_queue_attributes::SetQueueAttributesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_queue_attributes::SetQueueAttributesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1264,26 +915,15 @@ impl From<crate::operation::set_queue_attributes::SetQueueAttributesError> for E
     }
 }
 #[cfg(feature = "op_start_message_move_task")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::start_message_move_task::StartMessageMoveTaskError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_message_move_task::StartMessageMoveTaskError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::start_message_move_task::StartMessageMoveTaskError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_message_move_task::StartMessageMoveTaskError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1307,26 +947,13 @@ impl From<crate::operation::start_message_move_task::StartMessageMoveTaskError> 
     }
 }
 #[cfg(feature = "op_tag_queue")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_queue::TagQueueError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_queue::TagQueueError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_queue::TagQueueError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_queue::TagQueueError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1338,46 +965,23 @@ where
 impl From<crate::operation::tag_queue::TagQueueError> for Error {
     fn from(err: crate::operation::tag_queue::TagQueueError) -> Self {
         match err {
-            crate::operation::tag_queue::TagQueueError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
-            crate::operation::tag_queue::TagQueueError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
-            crate::operation::tag_queue::TagQueueError::QueueDoesNotExist(inner) => {
-                Error::QueueDoesNotExist(inner)
-            }
-            crate::operation::tag_queue::TagQueueError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
-            crate::operation::tag_queue::TagQueueError::UnsupportedOperation(inner) => {
-                Error::UnsupportedOperation(inner)
-            }
+            crate::operation::tag_queue::TagQueueError::InvalidAddress(inner) => Error::InvalidAddress(inner),
+            crate::operation::tag_queue::TagQueueError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
+            crate::operation::tag_queue::TagQueueError::QueueDoesNotExist(inner) => Error::QueueDoesNotExist(inner),
+            crate::operation::tag_queue::TagQueueError::RequestThrottled(inner) => Error::RequestThrottled(inner),
+            crate::operation::tag_queue::TagQueueError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
             crate::operation::tag_queue::TagQueueError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_untag_queue")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_queue::UntagQueueError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_queue::UntagQueueError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_queue::UntagQueueError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_queue::UntagQueueError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1389,58 +993,74 @@ where
 impl From<crate::operation::untag_queue::UntagQueueError> for Error {
     fn from(err: crate::operation::untag_queue::UntagQueueError) -> Self {
         match err {
-            crate::operation::untag_queue::UntagQueueError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
-            crate::operation::untag_queue::UntagQueueError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
-            crate::operation::untag_queue::UntagQueueError::QueueDoesNotExist(inner) => {
-                Error::QueueDoesNotExist(inner)
-            }
-            crate::operation::untag_queue::UntagQueueError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
-            crate::operation::untag_queue::UntagQueueError::UnsupportedOperation(inner) => {
-                Error::UnsupportedOperation(inner)
-            }
-            crate::operation::untag_queue::UntagQueueError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::untag_queue::UntagQueueError::InvalidAddress(inner) => Error::InvalidAddress(inner),
+            crate::operation::untag_queue::UntagQueueError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
+            crate::operation::untag_queue::UntagQueueError::QueueDoesNotExist(inner) => Error::QueueDoesNotExist(inner),
+            crate::operation::untag_queue::UntagQueueError::RequestThrottled(inner) => Error::RequestThrottled(inner),
+            crate::operation::untag_queue::UntagQueueError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
+            crate::operation::untag_queue::UntagQueueError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 impl ::std::error::Error for Error {
     fn source(&self) -> std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            Error::BatchEntryIdsNotDistinct(inner) => inner.source(),
-            Error::BatchRequestTooLong(inner) => inner.source(),
-            Error::EmptyBatchRequest(inner) => inner.source(),
-            Error::InvalidAddress(inner) => inner.source(),
-            Error::InvalidAttributeName(inner) => inner.source(),
-            Error::InvalidAttributeValue(inner) => inner.source(),
-            Error::InvalidBatchEntryId(inner) => inner.source(),
-            Error::InvalidIdFormat(inner) => inner.source(),
-            Error::InvalidMessageContents(inner) => inner.source(),
-            Error::InvalidSecurity(inner) => inner.source(),
-            Error::KmsAccessDenied(inner) => inner.source(),
-            Error::KmsDisabled(inner) => inner.source(),
-            Error::KmsInvalidKeyUsage(inner) => inner.source(),
-            Error::KmsInvalidState(inner) => inner.source(),
-            Error::KmsNotFound(inner) => inner.source(),
-            Error::KmsOptInRequired(inner) => inner.source(),
-            Error::KmsThrottled(inner) => inner.source(),
-            Error::MessageNotInflight(inner) => inner.source(),
-            Error::OverLimit(inner) => inner.source(),
-            Error::PurgeQueueInProgress(inner) => inner.source(),
-            Error::QueueDeletedRecently(inner) => inner.source(),
-            Error::QueueDoesNotExist(inner) => inner.source(),
-            Error::QueueNameExists(inner) => inner.source(),
-            Error::ReceiptHandleIsInvalid(inner) => inner.source(),
-            Error::RequestThrottled(inner) => inner.source(),
-            Error::ResourceNotFoundException(inner) => inner.source(),
-            Error::TooManyEntriesInBatchRequest(inner) => inner.source(),
-            Error::UnsupportedOperation(inner) => inner.source(),
+            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+Error::BatchEntryIdsNotDistinct(inner) => inner.source(),
+            #[cfg(feature = "op_send_message_batch")]
+Error::BatchRequestTooLong(inner) => inner.source(),
+            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+Error::EmptyBatchRequest(inner) => inner.source(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Error::InvalidAddress(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_queue", feature = "op_get_queue_attributes", feature = "op_set_queue_attributes"))]
+Error::InvalidAttributeName(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_queue", feature = "op_set_queue_attributes"))]
+Error::InvalidAttributeValue(inner) => inner.source(),
+            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+Error::InvalidBatchEntryId(inner) => inner.source(),
+            #[cfg(feature = "op_delete_message")]
+Error::InvalidIdFormat(inner) => inner.source(),
+            #[cfg(feature = "op_send_message")]
+Error::InvalidMessageContents(inner) => inner.source(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Error::InvalidSecurity(inner) => inner.source(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Error::KmsAccessDenied(inner) => inner.source(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Error::KmsDisabled(inner) => inner.source(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Error::KmsInvalidKeyUsage(inner) => inner.source(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Error::KmsInvalidState(inner) => inner.source(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Error::KmsNotFound(inner) => inner.source(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Error::KmsOptInRequired(inner) => inner.source(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Error::KmsThrottled(inner) => inner.source(),
+            #[cfg(feature = "op_change_message_visibility")]
+Error::MessageNotInflight(inner) => inner.source(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_receive_message", feature = "op_set_queue_attributes"))]
+Error::OverLimit(inner) => inner.source(),
+            #[cfg(feature = "op_purge_queue")]
+Error::PurgeQueueInProgress(inner) => inner.source(),
+            #[cfg(feature = "op_create_queue")]
+Error::QueueDeletedRecently(inner) => inner.source(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_queue_tags", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Error::QueueDoesNotExist(inner) => inner.source(),
+            #[cfg(feature = "op_create_queue")]
+Error::QueueNameExists(inner) => inner.source(),
+            #[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
+Error::ReceiptHandleIsInvalid(inner) => inner.source(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Error::RequestThrottled(inner) => inner.source(),
+            #[cfg(any(feature = "op_cancel_message_move_task", feature = "op_list_message_move_tasks", feature = "op_start_message_move_task"))]
+Error::ResourceNotFoundException(inner) => inner.source(),
+            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+Error::TooManyEntriesInBatchRequest(inner) => inner.source(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Error::UnsupportedOperation(inner) => inner.source(),
             Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source),
         }
     }
@@ -1448,34 +1068,62 @@ impl ::std::error::Error for Error {
 impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
-            Self::BatchEntryIdsNotDistinct(e) => e.request_id(),
-            Self::BatchRequestTooLong(e) => e.request_id(),
-            Self::EmptyBatchRequest(e) => e.request_id(),
-            Self::InvalidAddress(e) => e.request_id(),
-            Self::InvalidAttributeName(e) => e.request_id(),
-            Self::InvalidAttributeValue(e) => e.request_id(),
-            Self::InvalidBatchEntryId(e) => e.request_id(),
-            Self::InvalidIdFormat(e) => e.request_id(),
-            Self::InvalidMessageContents(e) => e.request_id(),
-            Self::InvalidSecurity(e) => e.request_id(),
-            Self::KmsAccessDenied(e) => e.request_id(),
-            Self::KmsDisabled(e) => e.request_id(),
-            Self::KmsInvalidKeyUsage(e) => e.request_id(),
-            Self::KmsInvalidState(e) => e.request_id(),
-            Self::KmsNotFound(e) => e.request_id(),
-            Self::KmsOptInRequired(e) => e.request_id(),
-            Self::KmsThrottled(e) => e.request_id(),
-            Self::MessageNotInflight(e) => e.request_id(),
-            Self::OverLimit(e) => e.request_id(),
-            Self::PurgeQueueInProgress(e) => e.request_id(),
-            Self::QueueDeletedRecently(e) => e.request_id(),
-            Self::QueueDoesNotExist(e) => e.request_id(),
-            Self::QueueNameExists(e) => e.request_id(),
-            Self::ReceiptHandleIsInvalid(e) => e.request_id(),
-            Self::RequestThrottled(e) => e.request_id(),
-            Self::ResourceNotFoundException(e) => e.request_id(),
-            Self::TooManyEntriesInBatchRequest(e) => e.request_id(),
-            Self::UnsupportedOperation(e) => e.request_id(),
+            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+Self::BatchEntryIdsNotDistinct(e) => e.request_id(),
+            #[cfg(feature = "op_send_message_batch")]
+Self::BatchRequestTooLong(e) => e.request_id(),
+            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+Self::EmptyBatchRequest(e) => e.request_id(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Self::InvalidAddress(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_queue", feature = "op_get_queue_attributes", feature = "op_set_queue_attributes"))]
+Self::InvalidAttributeName(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_queue", feature = "op_set_queue_attributes"))]
+Self::InvalidAttributeValue(e) => e.request_id(),
+            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+Self::InvalidBatchEntryId(e) => e.request_id(),
+            #[cfg(feature = "op_delete_message")]
+Self::InvalidIdFormat(e) => e.request_id(),
+            #[cfg(feature = "op_send_message")]
+Self::InvalidMessageContents(e) => e.request_id(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Self::InvalidSecurity(e) => e.request_id(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Self::KmsAccessDenied(e) => e.request_id(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Self::KmsDisabled(e) => e.request_id(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Self::KmsInvalidKeyUsage(e) => e.request_id(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Self::KmsInvalidState(e) => e.request_id(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Self::KmsNotFound(e) => e.request_id(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Self::KmsOptInRequired(e) => e.request_id(),
+            #[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+Self::KmsThrottled(e) => e.request_id(),
+            #[cfg(feature = "op_change_message_visibility")]
+Self::MessageNotInflight(e) => e.request_id(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_receive_message", feature = "op_set_queue_attributes"))]
+Self::OverLimit(e) => e.request_id(),
+            #[cfg(feature = "op_purge_queue")]
+Self::PurgeQueueInProgress(e) => e.request_id(),
+            #[cfg(feature = "op_create_queue")]
+Self::QueueDeletedRecently(e) => e.request_id(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_queue_tags", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Self::QueueDoesNotExist(e) => e.request_id(),
+            #[cfg(feature = "op_create_queue")]
+Self::QueueNameExists(e) => e.request_id(),
+            #[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
+Self::ReceiptHandleIsInvalid(e) => e.request_id(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Self::RequestThrottled(e) => e.request_id(),
+            #[cfg(any(feature = "op_cancel_message_move_task", feature = "op_list_message_move_tasks", feature = "op_start_message_move_task"))]
+Self::ResourceNotFoundException(e) => e.request_id(),
+            #[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+Self::TooManyEntriesInBatchRequest(e) => e.request_id(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_cancel_message_move_task", feature = "op_change_message_visibility", feature = "op_change_message_visibility_batch", feature = "op_create_queue", feature = "op_delete_message", feature = "op_delete_message_batch", feature = "op_delete_queue", feature = "op_get_queue_attributes", feature = "op_get_queue_url", feature = "op_list_dead_letter_source_queues", feature = "op_list_message_move_tasks", feature = "op_list_queue_tags", feature = "op_list_queues", feature = "op_purge_queue", feature = "op_receive_message", feature = "op_remove_permission", feature = "op_send_message", feature = "op_send_message_batch", feature = "op_set_queue_attributes", feature = "op_start_message_move_task", feature = "op_tag_queue", feature = "op_untag_queue"))]
+Self::UnsupportedOperation(e) => e.request_id(),
             Self::Unhandled(e) => e.meta.request_id(),
         }
     }

@@ -22,9 +22,7 @@ impl DeleteQueueOutput {
 
 #[cfg(feature = "op_delete_queue")]
 /// A builder for [`DeleteQueueOutput`](crate::operation::delete_queue::DeleteQueueOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteQueueOutputBuilder {
     _request_id: Option<String>,

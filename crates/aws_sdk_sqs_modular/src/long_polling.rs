@@ -35,8 +35,7 @@ impl Intercept for LongPollingInterceptor {
         if let Some(rc) = cfg.load::<RetryConfig>().cloned() {
             if let Some(spec) = rc.retry_spec().cloned() {
                 if spec.is_at_least(RetrySpec::V2_1) {
-                    cfg.interceptor_state()
-                        .store_put(rc.with_retry_spec(spec.with_long_polling(true)));
+                    cfg.interceptor_state().store_put(rc.with_retry_spec(spec.with_long_polling(true)));
                 }
             }
         }

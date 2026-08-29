@@ -15,18 +15,14 @@ impl ::aws_types::request_id::RequestId for ChangeMessageVisibilityOutput {
 #[cfg(feature = "op_change_message_visibility")]
 impl ChangeMessageVisibilityOutput {
     /// Creates a new builder-style object to manufacture [`ChangeMessageVisibilityOutput`](crate::operation::change_message_visibility::ChangeMessageVisibilityOutput).
-    pub fn builder(
-    ) -> crate::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder
-    {
+    pub fn builder() -> crate::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder {
         crate::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_change_message_visibility")]
 /// A builder for [`ChangeMessageVisibilityOutput`](crate::operation::change_message_visibility::ChangeMessageVisibilityOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ChangeMessageVisibilityOutputBuilder {
     _request_id: Option<String>,
@@ -43,9 +39,7 @@ impl ChangeMessageVisibilityOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ChangeMessageVisibilityOutput`](crate::operation::change_message_visibility::ChangeMessageVisibilityOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::change_message_visibility::ChangeMessageVisibilityOutput {
+    pub fn build(self) -> crate::operation::change_message_visibility::ChangeMessageVisibilityOutput {
         crate::operation::change_message_visibility::ChangeMessageVisibilityOutput {
             _request_id: self._request_id,
         }

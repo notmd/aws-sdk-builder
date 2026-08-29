@@ -28,22 +28,18 @@ impl SendMessageBatchInput {
 #[cfg(feature = "op_send_message_batch")]
 impl SendMessageBatchInput {
     /// Creates a new builder-style object to manufacture [`SendMessageBatchInput`](crate::operation::send_message_batch::SendMessageBatchInput).
-    pub fn builder() -> crate::operation::send_message_batch::builders::SendMessageBatchInputBuilder
-    {
+    pub fn builder() -> crate::operation::send_message_batch::builders::SendMessageBatchInputBuilder {
         crate::operation::send_message_batch::builders::SendMessageBatchInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_send_message_batch")]
 /// A builder for [`SendMessageBatchInput`](crate::operation::send_message_batch::SendMessageBatchInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SendMessageBatchInputBuilder {
     pub(crate) queue_url: ::std::option::Option<::std::string::String>,
-    pub(crate) entries:
-        ::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchRequestEntry>>,
+    pub(crate) entries: ::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchRequestEntry>>,
 }
 #[cfg(feature = "op_send_message_batch")]
 impl SendMessageBatchInputBuilder {
@@ -77,31 +73,21 @@ impl SendMessageBatchInputBuilder {
         self
     }
     /// <p>A list of <code> <code>SendMessageBatchRequestEntry</code> </code> items.</p>
-    pub fn set_entries(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchRequestEntry>>,
-    ) -> Self {
+    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchRequestEntry>>) -> Self {
         self.entries = input;
         self
     }
     /// <p>A list of <code> <code>SendMessageBatchRequestEntry</code> </code> items.</p>
-    pub fn get_entries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchRequestEntry>> {
+    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchRequestEntry>> {
         &self.entries
     }
     /// Consumes the builder and constructs a [`SendMessageBatchInput`](crate::operation::send_message_batch::SendMessageBatchInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::send_message_batch::SendMessageBatchInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::send_message_batch::SendMessageBatchInput {
-                queue_url: self.queue_url,
-                entries: self.entries,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::send_message_batch::SendMessageBatchInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::send_message_batch::SendMessageBatchInput {
+            queue_url: self.queue_url,
+            entries: self.entries,
+        })
     }
 }

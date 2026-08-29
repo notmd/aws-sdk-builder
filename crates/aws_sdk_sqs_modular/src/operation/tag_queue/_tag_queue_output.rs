@@ -22,9 +22,7 @@ impl TagQueueOutput {
 
 #[cfg(feature = "op_tag_queue")]
 /// A builder for [`TagQueueOutput`](crate::operation::tag_queue::TagQueueOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TagQueueOutputBuilder {
     _request_id: Option<String>,
