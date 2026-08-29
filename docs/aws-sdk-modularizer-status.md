@@ -59,3 +59,13 @@
 - Operation coverage: unchanged; all 15 services remain mapped.
 - Remaining blocker: validate the corrected error conversion gates and then handle redundant child-module cfg cleanup.
 - Next action: run the required conformance command.
+
+## 2026-08-29 — `f80f54ed8`
+
+- Objective: remove redundant operation feature gates from files already included by a gated parent module.
+- Generic rule: use `syn` spans to remove only matching `op_*` attributes from operation child files and protocol child files; preserve unrelated attributes such as `#[cfg(test)]`.
+- Changed files: `crates/aws-sdk-modularizer/src/transform.rs`.
+- Commands: `cargo test -p aws-sdk-modularizer` passed (11/11); `just conformance` passed for all 15 services; `cargo fmt --all -- --check` passed; `git diff --check` passed; `cargo check --workspace` and `cargo test --workspace` remain blocked by obsolete builder crates that include missing `model.json` files.
+- Operation coverage: before and after, all 15 services had complete model coverage with zero missing and zero ambiguous operations; coverage delta `+0`.
+- Remaining blocker: obsolete builder/conformance infrastructure still prevents workspace-wide checks.
+- Next action: add feature gates for operation-owned types and modeled errors, then regenerate SDK crates in a separate commit.
