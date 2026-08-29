@@ -38,17 +38,14 @@ impl ::aws_types::request_id::RequestId for ListKeyPoliciesOutput {
 #[cfg(feature = "op_list_key_policies")]
 impl ListKeyPoliciesOutput {
     /// Creates a new builder-style object to manufacture [`ListKeyPoliciesOutput`](crate::operation::list_key_policies::ListKeyPoliciesOutput).
-    pub fn builder() -> crate::operation::list_key_policies::builders::ListKeyPoliciesOutputBuilder
-    {
+    pub fn builder() -> crate::operation::list_key_policies::builders::ListKeyPoliciesOutputBuilder {
         crate::operation::list_key_policies::builders::ListKeyPoliciesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_key_policies")]
 /// A builder for [`ListKeyPoliciesOutput`](crate::operation::list_key_policies::ListKeyPoliciesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListKeyPoliciesOutputBuilder {
     pub(crate) policy_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -70,17 +67,12 @@ impl ListKeyPoliciesOutputBuilder {
         self
     }
     /// <p>A list of key policy names. The only valid value is <code>default</code>.</p>
-    pub fn set_policy_names(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_policy_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.policy_names = input;
         self
     }
     /// <p>A list of key policy names. The only valid value is <code>default</code>.</p>
-    pub fn get_policy_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_policy_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.policy_names
     }
     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>

@@ -47,16 +47,14 @@ impl DeleteImportedKeyMaterialInput {
 #[cfg(feature = "op_delete_imported_key_material")]
 impl DeleteImportedKeyMaterialInput {
     /// Creates a new builder-style object to manufacture [`DeleteImportedKeyMaterialInput`](crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialInput).
-    pub fn builder() -> crate::operation::delete_imported_key_material::builders::DeleteImportedKeyMaterialInputBuilder{
+    pub fn builder() -> crate::operation::delete_imported_key_material::builders::DeleteImportedKeyMaterialInputBuilder {
         crate::operation::delete_imported_key_material::builders::DeleteImportedKeyMaterialInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_imported_key_material")]
 /// A builder for [`DeleteImportedKeyMaterialInput`](crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteImportedKeyMaterialInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -110,10 +108,7 @@ impl DeleteImportedKeyMaterialInputBuilder {
     /// <p>If no KeyMaterialId is specified, KMS deletes the current key material.</p>
     /// </important>
     /// <p>To get the list of key material IDs associated with a KMS key, use <code>ListKeyRotations</code>.</p>
-    pub fn key_material_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn key_material_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key_material_id = ::std::option::Option::Some(input.into());
         self
     }
@@ -121,10 +116,7 @@ impl DeleteImportedKeyMaterialInputBuilder {
     /// <p>If no KeyMaterialId is specified, KMS deletes the current key material.</p>
     /// </important>
     /// <p>To get the list of key material IDs associated with a KMS key, use <code>ListKeyRotations</code>.</p>
-    pub fn set_key_material_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_material_id = input;
         self
     }
@@ -142,11 +134,9 @@ impl DeleteImportedKeyMaterialInputBuilder {
         crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialInput {
-                key_id: self.key_id,
-                key_material_id: self.key_material_id,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialInput {
+            key_id: self.key_id,
+            key_material_id: self.key_material_id,
+        })
     }
 }

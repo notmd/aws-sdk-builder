@@ -48,18 +48,14 @@ impl ::aws_types::request_id::RequestId for ScheduleKeyDeletionOutput {
 #[cfg(feature = "op_schedule_key_deletion")]
 impl ScheduleKeyDeletionOutput {
     /// Creates a new builder-style object to manufacture [`ScheduleKeyDeletionOutput`](crate::operation::schedule_key_deletion::ScheduleKeyDeletionOutput).
-    pub fn builder(
-    ) -> crate::operation::schedule_key_deletion::builders::ScheduleKeyDeletionOutputBuilder {
-        crate::operation::schedule_key_deletion::builders::ScheduleKeyDeletionOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::schedule_key_deletion::builders::ScheduleKeyDeletionOutputBuilder {
+        crate::operation::schedule_key_deletion::builders::ScheduleKeyDeletionOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_schedule_key_deletion")]
 /// A builder for [`ScheduleKeyDeletionOutput`](crate::operation::schedule_key_deletion::ScheduleKeyDeletionOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ScheduleKeyDeletionOutputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -92,10 +88,7 @@ impl ScheduleKeyDeletionOutputBuilder {
     }
     /// <p>The date and time after which KMS deletes the KMS key.</p>
     /// <p>If the KMS key is a multi-Region primary key with replica keys, this field does not appear. The deletion date for the primary key isn't known until its last replica key is deleted.</p>
-    pub fn set_deletion_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_deletion_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.deletion_date = input;
         self
     }

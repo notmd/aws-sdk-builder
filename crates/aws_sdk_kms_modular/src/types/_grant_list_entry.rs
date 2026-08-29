@@ -85,9 +85,7 @@ impl GrantListEntry {
 }
 
 /// A builder for [`GrantListEntry`](crate::types::GrantListEntry).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GrantListEntryBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -151,10 +149,7 @@ impl GrantListEntryBuilder {
         self
     }
     /// <p>The date and time when the grant was created.</p>
-    pub fn set_creation_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.creation_date = input;
         self
     }
@@ -164,19 +159,13 @@ impl GrantListEntryBuilder {
     }
     /// <p>The identity that gets the permissions in the grant.</p>
     /// <p>When a grant is created with the <code>GranteePrincipal</code> field, the <code>ListGrants</code> response usually contains the user or role designated as the grantee principal in the grant. However, if the grantee principal is an Amazon Web Services service, the <code>GranteePrincipal</code> field contains an Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a>, which might correspond to several different grantee principals, such as an IAM user, IAM role, or Amazon Web Services account.</p>
-    pub fn grantee_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn grantee_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.grantee_principal = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The identity that gets the permissions in the grant.</p>
     /// <p>When a grant is created with the <code>GranteePrincipal</code> field, the <code>ListGrants</code> response usually contains the user or role designated as the grantee principal in the grant. However, if the grantee principal is an Amazon Web Services service, the <code>GranteePrincipal</code> field contains an Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a>, which might correspond to several different grantee principals, such as an IAM user, IAM role, or Amazon Web Services account.</p>
-    pub fn set_grantee_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_grantee_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.grantee_principal = input;
         self
     }
@@ -186,18 +175,12 @@ impl GrantListEntryBuilder {
         &self.grantee_principal
     }
     /// <p>The principal that can retire the grant.</p>
-    pub fn retiring_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn retiring_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.retiring_principal = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The principal that can retire the grant.</p>
-    pub fn set_retiring_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_retiring_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.retiring_principal = input;
         self
     }
@@ -206,18 +189,12 @@ impl GrantListEntryBuilder {
         &self.retiring_principal
     }
     /// <p>The Amazon Web Services account under which the grant was issued.</p>
-    pub fn issuing_account(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn issuing_account(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.issuing_account = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Web Services account under which the grant was issued.</p>
-    pub fn set_issuing_account(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_issuing_account(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.issuing_account = input;
         self
     }
@@ -237,17 +214,12 @@ impl GrantListEntryBuilder {
         self
     }
     /// <p>The list of operations permitted by the grant.</p>
-    pub fn set_operations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::GrantOperation>>,
-    ) -> Self {
+    pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GrantOperation>>) -> Self {
         self.operations = input;
         self
     }
     /// <p>The list of operations permitted by the grant.</p>
-    pub fn get_operations(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GrantOperation>> {
+    pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GrantOperation>> {
         &self.operations
     }
     /// <p>The constraints on the grant, such as encryption context pairs or a SourceArn, that restrict the subsequent operations the grant allows.</p>
@@ -256,10 +228,7 @@ impl GrantListEntryBuilder {
         self
     }
     /// <p>The constraints on the grant, such as encryption context pairs or a SourceArn, that restrict the subsequent operations the grant allows.</p>
-    pub fn set_constraints(
-        mut self,
-        input: ::std::option::Option<crate::types::GrantConstraints>,
-    ) -> Self {
+    pub fn set_constraints(mut self, input: ::std::option::Option<crate::types::GrantConstraints>) -> Self {
         self.constraints = input;
         self
     }
@@ -268,18 +237,12 @@ impl GrantListEntryBuilder {
         &self.constraints
     }
     /// <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a> that gets the permissions in the grant.</p>
-    pub fn grantee_service_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn grantee_service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.grantee_service_principal = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a> that gets the permissions in the grant.</p>
-    pub fn set_grantee_service_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_grantee_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.grantee_service_principal = input;
         self
     }
@@ -288,18 +251,12 @@ impl GrantListEntryBuilder {
         &self.grantee_service_principal
     }
     /// <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a> that can retire the grant.</p>
-    pub fn retiring_service_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn retiring_service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.retiring_service_principal = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a> that can retire the grant.</p>
-    pub fn set_retiring_service_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_retiring_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.retiring_service_principal = input;
         self
     }

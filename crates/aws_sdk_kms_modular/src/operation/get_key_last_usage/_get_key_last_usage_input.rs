@@ -35,17 +35,14 @@ impl GetKeyLastUsageInput {
 #[cfg(feature = "op_get_key_last_usage")]
 impl GetKeyLastUsageInput {
     /// Creates a new builder-style object to manufacture [`GetKeyLastUsageInput`](crate::operation::get_key_last_usage::GetKeyLastUsageInput).
-    pub fn builder() -> crate::operation::get_key_last_usage::builders::GetKeyLastUsageInputBuilder
-    {
+    pub fn builder() -> crate::operation::get_key_last_usage::builders::GetKeyLastUsageInputBuilder {
         crate::operation::get_key_last_usage::builders::GetKeyLastUsageInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_key_last_usage")]
 /// A builder for [`GetKeyLastUsageInput`](crate::operation::get_key_last_usage::GetKeyLastUsageInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetKeyLastUsageInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -97,12 +94,7 @@ impl GetKeyLastUsageInputBuilder {
     /// Consumes the builder and constructs a [`GetKeyLastUsageInput`](crate::operation::get_key_last_usage::GetKeyLastUsageInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_key_last_usage::GetKeyLastUsageInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::get_key_last_usage::GetKeyLastUsageInput {
-            key_id: self.key_id,
-        })
+    ) -> ::std::result::Result<crate::operation::get_key_last_usage::GetKeyLastUsageInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::get_key_last_usage::GetKeyLastUsageInput { key_id: self.key_id })
     }
 }

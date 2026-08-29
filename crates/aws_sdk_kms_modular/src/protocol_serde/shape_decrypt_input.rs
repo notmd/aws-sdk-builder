@@ -4,9 +4,7 @@ pub fn ser_decrypt_input_input(
     input: &crate::operation::decrypt::DecryptInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     if let Some(var_1) = &input.ciphertext_blob {
-        object
-            .key("CiphertextBlob")
-            .string_unchecked(&::aws_smithy_types::base64::encode(var_1));
+        object.key("CiphertextBlob").string_unchecked(&::aws_smithy_types::base64::encode(var_1));
     }
     if let Some(var_2) = &input.encryption_context {
         #[allow(unused_mut)]

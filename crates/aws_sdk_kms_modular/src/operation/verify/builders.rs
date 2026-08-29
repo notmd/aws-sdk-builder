@@ -45,20 +45,14 @@ pub struct VerifyFluentBuilder {
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_verify")]
-impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::verify::VerifyOutput,
-        crate::operation::verify::VerifyError,
-    > for VerifyFluentBuilder
+impl crate::client::customize::internal::CustomizableSend<crate::operation::verify::VerifyOutput, crate::operation::verify::VerifyError>
+    for VerifyFluentBuilder
 {
     fn send(
         self,
         config_override: crate::config::Builder,
     ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::verify::VerifyOutput,
-            crate::operation::verify::VerifyError,
-        >,
+        crate::client::customize::internal::SendResult<crate::operation::verify::VerifyOutput, crate::operation::verify::VerifyError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -98,36 +92,23 @@ impl VerifyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::verify::Verify::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::verify::Verify::operation_runtime_plugins(self.handle.runtime_plugins.clone(), &self.handle.conf, self.config_override);
         crate::operation::verify::Verify::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
     pub fn customize(
         self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::verify::VerifyOutput,
-        crate::operation::verify::VerifyError,
-        Self,
-    > {
+    ) -> crate::client::customize::CustomizableOperation<crate::operation::verify::VerifyOutput, crate::operation::verify::VerifyError, Self> {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -263,10 +244,7 @@ impl VerifyFluentBuilder {
     /// <li>
     /// <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline verification with SM2 key pairs</a>.</p></li>
     /// </ul>
-    pub fn set_message_type(
-        mut self,
-        input: ::std::option::Option<crate::types::MessageType>,
-    ) -> Self {
+    pub fn set_message_type(mut self, input: ::std::option::Option<crate::types::MessageType>) -> Self {
         self.inner = self.inner.set_message_type(input);
         self
     }
@@ -322,17 +300,12 @@ impl VerifyFluentBuilder {
         self
     }
     /// <p>The signing algorithm that was used to sign the message. If you submit a different algorithm, the signature verification fails.</p>
-    pub fn set_signing_algorithm(
-        mut self,
-        input: ::std::option::Option<crate::types::SigningAlgorithmSpec>,
-    ) -> Self {
+    pub fn set_signing_algorithm(mut self, input: ::std::option::Option<crate::types::SigningAlgorithmSpec>) -> Self {
         self.inner = self.inner.set_signing_algorithm(input);
         self
     }
     /// <p>The signing algorithm that was used to sign the message. If you submit a different algorithm, the signature verification fails.</p>
-    pub fn get_signing_algorithm(
-        &self,
-    ) -> &::std::option::Option<crate::types::SigningAlgorithmSpec> {
+    pub fn get_signing_algorithm(&self) -> &::std::option::Option<crate::types::SigningAlgorithmSpec> {
         self.inner.get_signing_algorithm()
     }
     ///
@@ -348,18 +321,13 @@ impl VerifyFluentBuilder {
     }
     /// <p>A list of grant tokens.</p>
     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn set_grant_tokens(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_grant_tokens(input);
         self
     }
     /// <p>A list of grant tokens.</p>
     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn get_grant_tokens(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_grant_tokens()
     }
     /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>

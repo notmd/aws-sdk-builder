@@ -30,16 +30,14 @@ impl ::aws_types::request_id::RequestId for DeleteImportedKeyMaterialOutput {
 #[cfg(feature = "op_delete_imported_key_material")]
 impl DeleteImportedKeyMaterialOutput {
     /// Creates a new builder-style object to manufacture [`DeleteImportedKeyMaterialOutput`](crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialOutput).
-    pub fn builder() -> crate::operation::delete_imported_key_material::builders::DeleteImportedKeyMaterialOutputBuilder{
+    pub fn builder() -> crate::operation::delete_imported_key_material::builders::DeleteImportedKeyMaterialOutputBuilder {
         crate::operation::delete_imported_key_material::builders::DeleteImportedKeyMaterialOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_imported_key_material")]
 /// A builder for [`DeleteImportedKeyMaterialOutput`](crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteImportedKeyMaterialOutputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -63,18 +61,12 @@ impl DeleteImportedKeyMaterialOutputBuilder {
         &self.key_id
     }
     /// <p>Identifies the deleted key material.</p>
-    pub fn key_material_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn key_material_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key_material_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Identifies the deleted key material.</p>
-    pub fn set_key_material_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_material_id = input;
         self
     }
@@ -92,9 +84,7 @@ impl DeleteImportedKeyMaterialOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteImportedKeyMaterialOutput`](crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialOutput {
+    pub fn build(self) -> crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialOutput {
         crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialOutput {
             key_id: self.key_id,
             key_material_id: self.key_material_id,

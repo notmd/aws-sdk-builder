@@ -17,18 +17,14 @@ impl ConnectCustomKeyStoreInput {
 #[cfg(feature = "op_connect_custom_key_store")]
 impl ConnectCustomKeyStoreInput {
     /// Creates a new builder-style object to manufacture [`ConnectCustomKeyStoreInput`](crate::operation::connect_custom_key_store::ConnectCustomKeyStoreInput).
-    pub fn builder(
-    ) -> crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreInputBuilder
-    {
+    pub fn builder() -> crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreInputBuilder {
         crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_connect_custom_key_store")]
 /// A builder for [`ConnectCustomKeyStoreInput`](crate::operation::connect_custom_key_store::ConnectCustomKeyStoreInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ConnectCustomKeyStoreInputBuilder {
     pub(crate) custom_key_store_id: ::std::option::Option<::std::string::String>,
@@ -37,18 +33,12 @@ pub struct ConnectCustomKeyStoreInputBuilder {
 impl ConnectCustomKeyStoreInputBuilder {
     /// <p>Enter the key store ID of the custom key store that you want to connect. To find the ID of a custom key store, use the <code>DescribeCustomKeyStores</code> operation.</p>
     /// This field is required.
-    pub fn custom_key_store_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn custom_key_store_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.custom_key_store_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Enter the key store ID of the custom key store that you want to connect. To find the ID of a custom key store, use the <code>DescribeCustomKeyStores</code> operation.</p>
-    pub fn set_custom_key_store_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.custom_key_store_id = input;
         self
     }
@@ -59,14 +49,10 @@ impl ConnectCustomKeyStoreInputBuilder {
     /// Consumes the builder and constructs a [`ConnectCustomKeyStoreInput`](crate::operation::connect_custom_key_store::ConnectCustomKeyStoreInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::connect_custom_key_store::ConnectCustomKeyStoreInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::connect_custom_key_store::ConnectCustomKeyStoreInput {
-                custom_key_store_id: self.custom_key_store_id,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::connect_custom_key_store::ConnectCustomKeyStoreInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::connect_custom_key_store::ConnectCustomKeyStoreInput {
+            custom_key_store_id: self.custom_key_store_id,
+        })
     }
 }

@@ -15,18 +15,14 @@ impl ::aws_types::request_id::RequestId for UpdateCustomKeyStoreOutput {
 #[cfg(feature = "op_update_custom_key_store")]
 impl UpdateCustomKeyStoreOutput {
     /// Creates a new builder-style object to manufacture [`UpdateCustomKeyStoreOutput`](crate::operation::update_custom_key_store::UpdateCustomKeyStoreOutput).
-    pub fn builder(
-    ) -> crate::operation::update_custom_key_store::builders::UpdateCustomKeyStoreOutputBuilder
-    {
+    pub fn builder() -> crate::operation::update_custom_key_store::builders::UpdateCustomKeyStoreOutputBuilder {
         crate::operation::update_custom_key_store::builders::UpdateCustomKeyStoreOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_update_custom_key_store")]
 /// A builder for [`UpdateCustomKeyStoreOutput`](crate::operation::update_custom_key_store::UpdateCustomKeyStoreOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateCustomKeyStoreOutputBuilder {
     _request_id: Option<String>,

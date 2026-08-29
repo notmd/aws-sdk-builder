@@ -31,9 +31,7 @@ impl DescribeKeyOutput {
 
 #[cfg(feature = "op_describe_key")]
 /// A builder for [`DescribeKeyOutput`](crate::operation::describe_key::DescribeKeyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeKeyOutputBuilder {
     pub(crate) key_metadata: ::std::option::Option<crate::types::KeyMetadata>,
@@ -47,10 +45,7 @@ impl DescribeKeyOutputBuilder {
         self
     }
     /// <p>Metadata associated with the key.</p>
-    pub fn set_key_metadata(
-        mut self,
-        input: ::std::option::Option<crate::types::KeyMetadata>,
-    ) -> Self {
+    pub fn set_key_metadata(mut self, input: ::std::option::Option<crate::types::KeyMetadata>) -> Self {
         self.key_metadata = input;
         self
     }

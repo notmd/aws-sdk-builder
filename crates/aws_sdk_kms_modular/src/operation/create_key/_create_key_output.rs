@@ -31,9 +31,7 @@ impl CreateKeyOutput {
 
 #[cfg(feature = "op_create_key")]
 /// A builder for [`CreateKeyOutput`](crate::operation::create_key::CreateKeyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateKeyOutputBuilder {
     pub(crate) key_metadata: ::std::option::Option<crate::types::KeyMetadata>,
@@ -47,10 +45,7 @@ impl CreateKeyOutputBuilder {
         self
     }
     /// <p>Metadata associated with the KMS key.</p>
-    pub fn set_key_metadata(
-        mut self,
-        input: ::std::option::Option<crate::types::KeyMetadata>,
-    ) -> Self {
+    pub fn set_key_metadata(mut self, input: ::std::option::Option<crate::types::KeyMetadata>) -> Self {
         self.key_metadata = input;
         self
     }

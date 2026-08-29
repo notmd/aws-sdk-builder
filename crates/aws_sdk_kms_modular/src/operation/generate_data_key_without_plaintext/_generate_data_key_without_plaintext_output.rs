@@ -36,16 +36,14 @@ impl ::aws_types::request_id::RequestId for GenerateDataKeyWithoutPlaintextOutpu
 #[cfg(feature = "op_generate_data_key_without_plaintext")]
 impl GenerateDataKeyWithoutPlaintextOutput {
     /// Creates a new builder-style object to manufacture [`GenerateDataKeyWithoutPlaintextOutput`](crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextOutput).
-    pub fn builder() -> crate::operation::generate_data_key_without_plaintext::builders::GenerateDataKeyWithoutPlaintextOutputBuilder{
+    pub fn builder() -> crate::operation::generate_data_key_without_plaintext::builders::GenerateDataKeyWithoutPlaintextOutputBuilder {
         crate::operation::generate_data_key_without_plaintext::builders::GenerateDataKeyWithoutPlaintextOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_generate_data_key_without_plaintext")]
 /// A builder for [`GenerateDataKeyWithoutPlaintextOutput`](crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GenerateDataKeyWithoutPlaintextOutputBuilder {
     pub(crate) ciphertext_blob: ::std::option::Option<::aws_smithy_types::Blob>,
@@ -61,10 +59,7 @@ impl GenerateDataKeyWithoutPlaintextOutputBuilder {
         self
     }
     /// <p>The encrypted data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn set_ciphertext_blob(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::Blob>,
-    ) -> Self {
+    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.ciphertext_blob = input;
         self
     }
@@ -87,18 +82,12 @@ impl GenerateDataKeyWithoutPlaintextOutputBuilder {
         &self.key_id
     }
     /// <p>The identifier of the key material used to encrypt the data key.</p>
-    pub fn key_material_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn key_material_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key_material_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The identifier of the key material used to encrypt the data key.</p>
-    pub fn set_key_material_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_material_id = input;
         self
     }
@@ -116,10 +105,7 @@ impl GenerateDataKeyWithoutPlaintextOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GenerateDataKeyWithoutPlaintextOutput`](crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextOutput
-    {
+    pub fn build(self) -> crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextOutput {
         crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextOutput {
             ciphertext_blob: self.ciphertext_blob,
             key_id: self.key_id,

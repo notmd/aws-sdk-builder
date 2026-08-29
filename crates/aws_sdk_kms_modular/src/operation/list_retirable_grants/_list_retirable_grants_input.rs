@@ -43,18 +43,14 @@ impl ListRetirableGrantsInput {
 #[cfg(feature = "op_list_retirable_grants")]
 impl ListRetirableGrantsInput {
     /// Creates a new builder-style object to manufacture [`ListRetirableGrantsInput`](crate::operation::list_retirable_grants::ListRetirableGrantsInput).
-    pub fn builder(
-    ) -> crate::operation::list_retirable_grants::builders::ListRetirableGrantsInputBuilder {
-        crate::operation::list_retirable_grants::builders::ListRetirableGrantsInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::list_retirable_grants::builders::ListRetirableGrantsInputBuilder {
+        crate::operation::list_retirable_grants::builders::ListRetirableGrantsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_retirable_grants")]
 /// A builder for [`ListRetirableGrantsInput`](crate::operation::list_retirable_grants::ListRetirableGrantsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListRetirableGrantsInputBuilder {
     pub(crate) limit: ::std::option::Option<i32>,
@@ -98,20 +94,14 @@ impl ListRetirableGrantsInputBuilder {
     /// <p>The retiring principal for which to list grants. Enter a principal in your Amazon Web Services account.</p>
     /// <p>To specify the retiring principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles, federated users, and assumed role users. For help with the ARN syntax for a principal, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i> <i>Identity and Access Management User Guide</i> </i>.</p>
     /// <p>You must specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
-    pub fn retiring_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn retiring_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.retiring_principal = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The retiring principal for which to list grants. Enter a principal in your Amazon Web Services account.</p>
     /// <p>To specify the retiring principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles, federated users, and assumed role users. For help with the ARN syntax for a principal, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i> <i>Identity and Access Management User Guide</i> </i>.</p>
     /// <p>You must specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
-    pub fn set_retiring_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_retiring_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.retiring_principal = input;
         self
     }
@@ -123,19 +113,13 @@ impl ListRetirableGrantsInputBuilder {
     }
     /// <p>The retiring service principal for which to list grants. This filter is only usable by callers in a service principal.</p>
     /// <p>You must specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
-    pub fn retiring_service_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn retiring_service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.retiring_service_principal = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The retiring service principal for which to list grants. This filter is only usable by callers in a service principal.</p>
     /// <p>You must specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
-    pub fn set_retiring_service_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_retiring_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.retiring_service_principal = input;
         self
     }
@@ -147,17 +131,13 @@ impl ListRetirableGrantsInputBuilder {
     /// Consumes the builder and constructs a [`ListRetirableGrantsInput`](crate::operation::list_retirable_grants::ListRetirableGrantsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_retirable_grants::ListRetirableGrantsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::list_retirable_grants::ListRetirableGrantsInput {
-                limit: self.limit,
-                marker: self.marker,
-                retiring_principal: self.retiring_principal,
-                retiring_service_principal: self.retiring_service_principal,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::list_retirable_grants::ListRetirableGrantsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::list_retirable_grants::ListRetirableGrantsInput {
+            limit: self.limit,
+            marker: self.marker,
+            retiring_principal: self.retiring_principal,
+            retiring_service_principal: self.retiring_service_principal,
+        })
     }
 }

@@ -44,9 +44,7 @@ impl GenerateRandomInput {
 
 #[cfg(feature = "op_generate_random")]
 /// A builder for [`GenerateRandomInput`](crate::operation::generate_random::GenerateRandomInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GenerateRandomInputBuilder {
     pub(crate) number_of_bytes: ::std::option::Option<i32>,
@@ -71,19 +69,13 @@ impl GenerateRandomInputBuilder {
     }
     /// <p>Generates the random byte string in the CloudHSM cluster that is associated with the specified CloudHSM key store. To find the ID of a custom key store, use the <code>DescribeCustomKeyStores</code> operation.</p>
     /// <p>External key store IDs are not valid for this parameter. If you specify the ID of an external key store, <code>GenerateRandom</code> throws an <code>UnsupportedOperationException</code>.</p>
-    pub fn custom_key_store_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn custom_key_store_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.custom_key_store_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Generates the random byte string in the CloudHSM cluster that is associated with the specified CloudHSM key store. To find the ID of a custom key store, use the <code>DescribeCustomKeyStores</code> operation.</p>
     /// <p>External key store IDs are not valid for this parameter. If you specify the ID of an external key store, <code>GenerateRandom</code> throws an <code>UnsupportedOperationException</code>.</p>
-    pub fn set_custom_key_store_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.custom_key_store_id = input;
         self
     }
@@ -104,10 +96,7 @@ impl GenerateRandomInputBuilder {
     /// <p>This parameter supports the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK for Amazon Web Services Nitro Enclaves. It supports any Amazon Web Services SDK for Amazon Web Services NitroTPM.</p>
     /// <p>When you use this parameter, instead of returning plaintext bytes, KMS encrypts the plaintext bytes under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the attested environment. The <code>Plaintext</code> field in the response is null or empty.</p>
     /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn set_recipient(
-        mut self,
-        input: ::std::option::Option<crate::types::RecipientInfo>,
-    ) -> Self {
+    pub fn set_recipient(mut self, input: ::std::option::Option<crate::types::RecipientInfo>) -> Self {
         self.recipient = input;
         self
     }
@@ -121,10 +110,7 @@ impl GenerateRandomInputBuilder {
     /// Consumes the builder and constructs a [`GenerateRandomInput`](crate::operation::generate_random::GenerateRandomInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::generate_random::GenerateRandomInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::generate_random::GenerateRandomInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::generate_random::GenerateRandomInput {
             number_of_bytes: self.number_of_bytes,
             custom_key_store_id: self.custom_key_store_id,

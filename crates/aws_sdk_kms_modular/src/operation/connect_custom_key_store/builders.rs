@@ -93,10 +93,7 @@ impl ConnectCustomKeyStoreFluentBuilder {
         }
     }
     /// Access the ConnectCustomKeyStore as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -125,11 +122,7 @@ impl ConnectCustomKeyStoreFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::connect_custom_key_store::ConnectCustomKeyStore::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::connect_custom_key_store::ConnectCustomKeyStore::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -142,34 +135,22 @@ impl ConnectCustomKeyStoreFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>Enter the key store ID of the custom key store that you want to connect. To find the ID of a custom key store, use the <code>DescribeCustomKeyStores</code> operation.</p>
-    pub fn custom_key_store_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn custom_key_store_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.custom_key_store_id(input.into());
         self
     }
     /// <p>Enter the key store ID of the custom key store that you want to connect. To find the ID of a custom key store, use the <code>DescribeCustomKeyStores</code> operation.</p>
-    pub fn set_custom_key_store_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_custom_key_store_id(input);
         self
     }

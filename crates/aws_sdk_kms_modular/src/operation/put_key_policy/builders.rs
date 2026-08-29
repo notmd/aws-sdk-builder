@@ -68,9 +68,7 @@ impl PutKeyPolicyFluentBuilder {
         }
     }
     /// Access the PutKeyPolicy as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_key_policy::builders::PutKeyPolicyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_key_policy::builders::PutKeyPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -94,12 +92,11 @@ impl PutKeyPolicyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::put_key_policy::PutKeyPolicy::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::put_key_policy::PutKeyPolicy::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::put_key_policy::PutKeyPolicy::orchestrate(&runtime_plugins, input).await
     }
 
@@ -113,18 +110,12 @@ impl PutKeyPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -277,10 +268,7 @@ impl PutKeyPolicyFluentBuilder {
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
     /// </important>
     /// <p>Use this parameter only when you intend to prevent the principal that is making the request from making a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a> request on the KMS key.</p>
-    pub fn set_bypass_policy_lockout_safety_check(
-        mut self,
-        input: ::std::option::Option<bool>,
-    ) -> Self {
+    pub fn set_bypass_policy_lockout_safety_check(mut self, input: ::std::option::Option<bool>) -> Self {
         self.inner = self.inner.set_bypass_policy_lockout_safety_check(input);
         self
     }

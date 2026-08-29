@@ -58,9 +58,7 @@ impl ListAliasesInput {
 
 #[cfg(feature = "op_list_aliases")]
 /// A builder for [`ListAliasesInput`](crate::operation::list_aliases::ListAliasesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListAliasesInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -145,12 +143,7 @@ impl ListAliasesInputBuilder {
         &self.marker
     }
     /// Consumes the builder and constructs a [`ListAliasesInput`](crate::operation::list_aliases::ListAliasesInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_aliases::ListAliasesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_aliases::ListAliasesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_aliases::ListAliasesInput {
             key_id: self.key_id,
             limit: self.limit,

@@ -30,17 +30,14 @@ impl ::aws_types::request_id::RequestId for ImportKeyMaterialOutput {
 #[cfg(feature = "op_import_key_material")]
 impl ImportKeyMaterialOutput {
     /// Creates a new builder-style object to manufacture [`ImportKeyMaterialOutput`](crate::operation::import_key_material::ImportKeyMaterialOutput).
-    pub fn builder(
-    ) -> crate::operation::import_key_material::builders::ImportKeyMaterialOutputBuilder {
+    pub fn builder() -> crate::operation::import_key_material::builders::ImportKeyMaterialOutputBuilder {
         crate::operation::import_key_material::builders::ImportKeyMaterialOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_import_key_material")]
 /// A builder for [`ImportKeyMaterialOutput`](crate::operation::import_key_material::ImportKeyMaterialOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ImportKeyMaterialOutputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -64,18 +61,12 @@ impl ImportKeyMaterialOutputBuilder {
         &self.key_id
     }
     /// <p>Identifies the imported key material.</p>
-    pub fn key_material_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn key_material_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key_material_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Identifies the imported key material.</p>
-    pub fn set_key_material_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_material_id = input;
         self
     }

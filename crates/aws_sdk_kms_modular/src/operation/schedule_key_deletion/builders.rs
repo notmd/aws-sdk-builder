@@ -79,9 +79,7 @@ impl ScheduleKeyDeletionFluentBuilder {
         }
     }
     /// Access the ScheduleKeyDeletion as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::schedule_key_deletion::builders::ScheduleKeyDeletionInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::schedule_key_deletion::builders::ScheduleKeyDeletionInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -105,17 +103,12 @@ impl ScheduleKeyDeletionFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::schedule_key_deletion::ScheduleKeyDeletion::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::schedule_key_deletion::ScheduleKeyDeletion::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::schedule_key_deletion::ScheduleKeyDeletion::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::schedule_key_deletion::ScheduleKeyDeletion::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -128,18 +121,12 @@ impl ScheduleKeyDeletionFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }

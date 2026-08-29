@@ -56,9 +56,7 @@ impl UpdateAliasInput {
 
 #[cfg(feature = "op_update_alias")]
 /// A builder for [`UpdateAliasInput`](crate::operation::update_alias::UpdateAliasInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateAliasInputBuilder {
     pub(crate) alias_name: ::std::option::Option<::std::string::String>,
@@ -100,10 +98,7 @@ impl UpdateAliasInputBuilder {
     /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
     /// <p>To verify that the alias is mapped to the correct KMS key, use <code>ListAliases</code>.</p>
     /// This field is required.
-    pub fn target_key_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn target_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.target_key_id = ::std::option::Option::Some(input.into());
         self
     }
@@ -119,10 +114,7 @@ impl UpdateAliasInputBuilder {
     /// </ul>
     /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
     /// <p>To verify that the alias is mapped to the correct KMS key, use <code>ListAliases</code>.</p>
-    pub fn set_target_key_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_target_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.target_key_id = input;
         self
     }
@@ -142,12 +134,7 @@ impl UpdateAliasInputBuilder {
         &self.target_key_id
     }
     /// Consumes the builder and constructs a [`UpdateAliasInput`](crate::operation::update_alias::UpdateAliasInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::update_alias::UpdateAliasInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_alias::UpdateAliasInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::update_alias::UpdateAliasInput {
             alias_name: self.alias_name,
             target_key_id: self.target_key_id,

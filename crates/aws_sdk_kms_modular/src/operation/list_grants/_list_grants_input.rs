@@ -78,9 +78,7 @@ impl ListGrantsInput {
 
 #[cfg(feature = "op_list_grants")]
 /// A builder for [`ListGrantsInput`](crate::operation::list_grants::ListGrantsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListGrantsInputBuilder {
     pub(crate) limit: ::std::option::Option<i32>,
@@ -181,19 +179,13 @@ impl ListGrantsInputBuilder {
     }
     /// <p>Returns only grants where the specified principal is the grantee principal for the grant.</p>
     /// <p>You can specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
-    pub fn grantee_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn grantee_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.grantee_principal = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Returns only grants where the specified principal is the grantee principal for the grant.</p>
     /// <p>You can specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
-    pub fn set_grantee_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_grantee_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.grantee_principal = input;
         self
     }
@@ -204,19 +196,13 @@ impl ListGrantsInputBuilder {
     }
     /// <p>Returns only grants where the specified Amazon Web Services service principal is the grantee service principal for the grant. This filter is only usable by callers in a service principal.</p>
     /// <p>You can specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
-    pub fn grantee_service_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn grantee_service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.grantee_service_principal = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Returns only grants where the specified Amazon Web Services service principal is the grantee service principal for the grant. This filter is only usable by callers in a service principal.</p>
     /// <p>You can specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
-    pub fn set_grantee_service_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_grantee_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.grantee_service_principal = input;
         self
     }
@@ -226,12 +212,7 @@ impl ListGrantsInputBuilder {
         &self.grantee_service_principal
     }
     /// Consumes the builder and constructs a [`ListGrantsInput`](crate::operation::list_grants::ListGrantsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_grants::ListGrantsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_grants::ListGrantsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_grants::ListGrantsInput {
             limit: self.limit,
             marker: self.marker,

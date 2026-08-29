@@ -15,11 +15,7 @@ impl super::Client {
     ///   - [`key_id(Option<String>)`](crate::operation::import_key_material::ImportKeyMaterialOutput::key_id): <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key into which key material was imported.</p>
     ///   - [`key_material_id(Option<String>)`](crate::operation::import_key_material::ImportKeyMaterialOutput::key_material_id): <p>Identifies the imported key material.</p>
     /// - On failure, responds with [`SdkError<ImportKeyMaterialError>`](crate::operation::import_key_material::ImportKeyMaterialError)
-    pub fn import_key_material(
-        &self,
-    ) -> crate::operation::import_key_material::builders::ImportKeyMaterialFluentBuilder {
-        crate::operation::import_key_material::builders::ImportKeyMaterialFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn import_key_material(&self) -> crate::operation::import_key_material::builders::ImportKeyMaterialFluentBuilder {
+        crate::operation::import_key_material::builders::ImportKeyMaterialFluentBuilder::new(self.handle.clone())
     }
 }

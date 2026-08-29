@@ -62,8 +62,7 @@ impl crate::operation::get_parameters_for_import::builders::GetParametersForImpo
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetParametersForImportFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::get_parameters_for_import::builders::GetParametersForImportInputBuilder,
+    inner: crate::operation::get_parameters_for_import::builders::GetParametersForImportInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_get_parameters_for_import")]
@@ -96,10 +95,7 @@ impl GetParametersForImportFluentBuilder {
         }
     }
     /// Access the GetParametersForImport as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_parameters_for_import::builders::GetParametersForImportInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::get_parameters_for_import::builders::GetParametersForImportInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -128,11 +124,7 @@ impl GetParametersForImportFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_parameters_for_import::GetParametersForImport::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::get_parameters_for_import::GetParametersForImport::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -145,18 +137,12 @@ impl GetParametersForImportFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -242,10 +228,7 @@ impl GetParametersForImportFluentBuilder {
     /// <li>
     /// <p><b>RSAES_PKCS1_V1_5</b> (Deprecated) — As of October 10, 2023, KMS does not support the RSAES_PKCS1_V1_5 wrapping algorithm.</p></li>
     /// </ul>
-    pub fn set_wrapping_algorithm(
-        mut self,
-        input: ::std::option::Option<crate::types::AlgorithmSpec>,
-    ) -> Self {
+    pub fn set_wrapping_algorithm(mut self, input: ::std::option::Option<crate::types::AlgorithmSpec>) -> Self {
         self.inner = self.inner.set_wrapping_algorithm(input);
         self
     }
@@ -279,10 +262,7 @@ impl GetParametersForImportFluentBuilder {
     /// <p>The type of RSA public key to return in the response. You will use this wrapping key with the specified wrapping algorithm to protect your key material during import.</p>
     /// <p>Use the longest RSA wrapping key that is practical.</p>
     /// <p>You cannot use an RSA_2048 public key to directly wrap an ECC_NIST_P521 private key. Instead, use an RSA_AES wrapping algorithm or choose a longer RSA public key.</p>
-    pub fn set_wrapping_key_spec(
-        mut self,
-        input: ::std::option::Option<crate::types::WrappingKeySpec>,
-    ) -> Self {
+    pub fn set_wrapping_key_spec(mut self, input: ::std::option::Option<crate::types::WrappingKeySpec>) -> Self {
         self.inner = self.inner.set_wrapping_key_spec(input);
         self
     }
