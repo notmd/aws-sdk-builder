@@ -103,9 +103,11 @@
 - `src/client/create_code_signing_config.rs`
 - `src/client/create_event_source_mapping.rs`
 - `src/client/publish_version.rs`
+- `src/config.rs`
 - `src/error_meta.rs`
 - `src/event_stream_serde.rs`
 - `src/lens.rs`
+- `src/lib.rs`
 - `src/operation.rs`
 - `src/operation/create_code_signing_config.rs`
 - `src/operation/create_code_signing_config/_create_code_signing_config_input.rs`
