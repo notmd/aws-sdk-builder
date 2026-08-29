@@ -7,8 +7,9 @@
 - Changed files: `crates/aws-sdk-modularizer/src/conformance.rs`.
 - Commands: `cargo fmt --package aws-sdk-modularizer`, `cargo test -p aws-sdk-modularizer` (14 tests), and `AWS_SDK_MODULARIZER_ARCHIVE=/tmp/aws-sdk-rust.tar.gz RUSTFLAGS='-Awarnings' just conformance` (15 services) passed.
 - Operation coverage: 1,130/1,130 operations, zero missing, zero ambiguous, coverage delta `+0`.
-- Remaining blocker: complete the workspace checks against this verifier change.
-- Next action: run `cargo check --workspace`, `cargo test --workspace`, `cargo fmt --all -- --check`, and `git diff --check`.
+- Commands after the checkpoint: `cargo check --workspace`, `cargo test --workspace`, `cargo fmt --all -- --check`, and `git diff --check` all passed.
+- Remaining blocker: none.
+- Next action: complete the final requirement-by-requirement audit.
 
 ## 2026-08-29 — `c1a0b5106` — public API probe verification
 
