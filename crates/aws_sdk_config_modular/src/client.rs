@@ -23,7 +23,7 @@ pub(crate) struct Handle {
 /// ```rust,no_run
 /// # async fn wrapper() {
 /// let config = aws_config::load_from_env().await;
-/// let client = aws_sdk_config::Client::new(&config);
+/// let client = aws_sdk_config_modular::Client::new(&config);
 /// # }
 /// ```
 ///
@@ -35,7 +35,7 @@ pub(crate) struct Handle {
 /// ```rust,no_run
 /// # async fn wrapper() {
 /// let sdk_config = ::aws_config::load_from_env().await;
-/// let config = aws_sdk_config::config::Builder::from(&sdk_config)
+/// let config = aws_sdk_config_modular::config::Builder::from(&sdk_config)
 /// # /*
 ///     .some_service_specific_setting("value")
 /// # */
@@ -152,8 +152,8 @@ mod batch_get_resource_config;
 /// operation call. For example, this can be used to add an additional HTTP header:
 ///
 /// ```ignore
-/// # async fn wrapper() -> ::std::result::Result<(), aws_sdk_config::Error> {
-/// # let client: aws_sdk_config::Client = unimplemented!();
+/// # async fn wrapper() -> ::std::result::Result<(), aws_sdk_config_modular::Error> {
+/// # let client: aws_sdk_config_modular::Client = unimplemented!();
 /// use ::http_1x::header::{HeaderName, HeaderValue};
 ///
 /// let result = client.associate_resource_types()
