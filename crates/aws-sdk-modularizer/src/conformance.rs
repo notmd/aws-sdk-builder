@@ -706,8 +706,13 @@ fn run_public_probe(
     let manifest_path = manifest_path
         .to_str()
         .ok_or_else(|| ConformanceError::Message("probe manifest path is not UTF-8".to_owned()))?;
+    let mut arguments = vec!["check"];
+    if !expect_success {
+        arguments.push("--bins");
+    }
+    arguments.extend(["--manifest-path", manifest_path]);
     let output = Command::new("cargo")
-        .args(["check", "--manifest-path", manifest_path])
+        .args(arguments)
         .env("CARGO_TARGET_DIR", &target)
         .output()
         .map_err(|source| {
