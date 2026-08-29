@@ -1,5 +1,25 @@
 # AWS SDK modularizer checkpoint log
 
+## 2026-08-29 — working tree — modular `aws-config` provider
+
+- Objective: port the Smithy-RS `aws-config` provider crate onto the modular STS, SSO, SSO OIDC, and Sign-In service crates.
+- Generic rule: preserve the pinned upstream provider source and enable only the operation features used by the provider; omit upstream fixture data and do not create provider `DIFF.MD` or `DIFF.diff` artifacts.
+- Changed files: `crates/aws_config_modular/**` (without `test-data/`) and `Cargo.lock`.
+- Commands: `just conformance` passed for all 18 services; `cargo test -p aws-config-modular --lib` passed (186 passed, 58 intentionally ignored); `cargo check --workspace`, `cargo fmt --all -- --check`, and `git diff --check` passed.
+- Operation coverage: unchanged at 1,149 operations, with zero missing and zero ambiguous mappings; `aws-config` contains provider logic rather than a Smithy operation model.
+- Remaining blocker: none for this provider port.
+- Next action: commit the modular provider crate with the existing workspace changes.
+
+## 2026-08-29 — `c0fc09fa4` — modular config dependencies
+
+- Objective: add the modular `signin`, `sso`, and `ssooidc` service crates required by `aws-config`.
+- Generic rule: extend the sorted manifest with model-driven service entries; generate each pinned upstream crate with one non-default `op_*` feature per reachable Smithy operation and preserve upstream formatting for generated snapshots.
+- Changed files: `services-manifest.json`, `models/{signin,sso,ssooidc}.json`, `crates/aws_sdk_{signin,sso,ssooidc}_modular/**`, `Cargo.lock`, `conformance/summary.md`, and `rustfmt.toml`.
+- Commands: `AWS_SDK_MODULARIZER_ARCHIVE=/tmp/aws-sdk-rust.tar.gz RUSTFLAGS='-Awarnings' just conformance` passed for all 18 services; `cargo check --workspace`, `cargo test --workspace`, `cargo fmt --all -- --check`, and `git diff --check` passed.
+- Operation coverage: 1,130 -> 1,149 operations, coverage delta `+19` (`signin` +11, `sso` +4, `ssooidc` +4); zero missing and zero ambiguous operations.
+- Remaining blocker: port the provider crate at `sdk/aws-config` and wire its STS, SSO, SSO OIDC, and Sign-In features to these modular dependencies.
+- Next action: add the manifest-defined/provider-crate integration for `aws-config` with only the dependency operation features it actually uses.
+
 ## 2026-08-29 — `d59956da0` — completion audit
 
 - Objective: complete the requirement-by-requirement audit after exact feature-matrix reporting.
