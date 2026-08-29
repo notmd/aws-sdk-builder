@@ -356,6 +356,14 @@ pub fn transform_tree(
                         &operation_error_names,
                     ));
                 }
+                if owners.is_empty()
+                    && source_file.relative == "src/protocol_serde.rs"
+                    && let Item::Fn(function) = item
+                    && let Some(helper_owners) =
+                        symbol_owners.get(&format!("protocol_serde::{}", function.sig.ident))
+                {
+                    owners.extend(helper_owners.iter().cloned());
+                }
                 if owners.is_empty() {
                     owners.extend(protocol_reference_owners(
                         &item_visitor.references,
@@ -879,7 +887,7 @@ fn operation_symbols(
     let mut symbols = BTreeMap::<String, BTreeSet<String>>::new();
     for file in files {
         let module_path = source_module_path(&file.relative);
-        if module_path.contains("::") || file.relative == "src/protocol_serde.rs" {
+        if module_path.contains("::") {
             symbols.entry(module_path.clone()).or_default();
         }
         if file.relative == "src/protocol_serde.rs" {
