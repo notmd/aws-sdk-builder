@@ -270,6 +270,7 @@ pub fn transform_tree(
     let type_owners = build_type_owners(&source_files, operations);
     let operation_error_names = operation_error_names(&source_files);
     let symbol_owners = operation_symbols(&source_files, operations, &waiter_owners, &type_owners);
+    let local_module_roots = local_module_roots(&source_files);
     let mut edits = BTreeMap::<String, BTreeMap<usize, BTreeSet<String>>>::new();
     let mut statement_edits = StatementEdits::new();
     for source_file in &source_files {
@@ -429,6 +430,7 @@ pub fn transform_tree(
                         operations,
                         &waiter_owners,
                         &symbol_owners,
+                        &local_module_roots,
                         &mut statement_edits,
                     )?;
                 }
@@ -1181,9 +1183,11 @@ fn is_protocol_shape_symbol(symbol: &str) -> bool {
 fn operation_symbol_reference_owners(
     references: &BTreeSet<String>,
     symbol_owners: &BTreeMap<String, BTreeSet<String>>,
+    local_module_roots: &BTreeSet<String>,
 ) -> BTreeSet<String> {
     references
         .iter()
+        .filter(|reference| is_local_symbol_reference(reference, local_module_roots))
         .filter(|reference| {
             !is_operation_or_client_symbol(reference)
                 && !matches!(
@@ -1194,6 +1198,15 @@ fn operation_symbol_reference_owners(
         .filter_map(|reference| symbol_owners.get(reference))
         .flat_map(|owners| owners.iter().cloned())
         .collect()
+}
+
+fn is_local_symbol_reference(reference: &str, local_module_roots: &BTreeSet<String>) -> bool {
+    let mut segments = reference.split("::");
+    match segments.next() {
+        Some("crate" | "self" | "super") => true,
+        Some(root) => segments.next().is_none() || local_module_roots.contains(root),
+        None => false,
+    }
 }
 
 fn join_symbol_path(parent: &str, name: &str) -> String {
@@ -1224,6 +1237,19 @@ fn source_module_path(relative: &str) -> String {
 fn is_protocol_serde_path(relative: &str) -> bool {
     let path = relative.strip_prefix("src/").unwrap_or(relative);
     path == "protocol_serde.rs" || path.starts_with("protocol_serde/")
+}
+
+fn local_module_roots(files: &[SourceFile]) -> BTreeSet<String> {
+    files
+        .iter()
+        .filter_map(|file| {
+            source_module_path(&file.relative)
+                .split("::")
+                .next()
+                .map(str::to_owned)
+        })
+        .filter(|root| !root.is_empty())
+        .collect()
 }
 
 fn waiter_owners(
@@ -1424,6 +1450,7 @@ struct StatementCfgVisitor<'a> {
     operations: &'a [Operation],
     waiter_owners: &'a BTreeMap<String, BTreeSet<String>>,
     symbol_owners: &'a BTreeMap<String, BTreeSet<String>>,
+    local_module_roots: &'a BTreeSet<String>,
     edits: &'a mut StatementEdits,
     error: Option<TransformError>,
 }
@@ -1439,7 +1466,11 @@ impl<'ast> Visit<'ast> for StatementCfgVisitor<'_> {
             references: BTreeSet::new(),
         };
         visitor.visit_stmt(statement);
-        let owners = operation_symbol_reference_owners(&visitor.references, self.symbol_owners);
+        let owners = operation_symbol_reference_owners(
+            &visitor.references,
+            self.symbol_owners,
+            self.local_module_roots,
+        );
         if !owners.is_empty() && !has_matching_cfg(statement_attrs(statement), &owners) {
             match statement_range(statement, self.source) {
                 Ok((start, end)) => self
@@ -1465,6 +1496,7 @@ fn collect_statement_edits(
     operations: &[Operation],
     waiter_owners: &BTreeMap<String, BTreeSet<String>>,
     symbol_owners: &BTreeMap<String, BTreeSet<String>>,
+    local_module_roots: &BTreeSet<String>,
     statement_edits: &mut StatementEdits,
 ) -> Result<(), TransformError> {
     let mut visitor = StatementCfgVisitor {
@@ -1473,6 +1505,7 @@ fn collect_statement_edits(
         operations,
         waiter_owners,
         symbol_owners,
+        local_module_roots,
         edits: statement_edits,
         error: None,
     };
@@ -2278,6 +2311,7 @@ mod tests {
             operation_symbol_reference_owners(
                 &BTreeSet::from(["error::sealed_unhandled".to_owned()]),
                 &owners,
+                &BTreeSet::from(["error".to_owned()]),
             )
             .is_empty()
         );
@@ -2285,8 +2319,17 @@ mod tests {
             operation_symbol_reference_owners(
                 &BTreeSet::from(["s3_express::runtime_plugin".to_owned()]),
                 &owners,
+                &BTreeSet::from(["s3_express".to_owned()]),
             ),
             BTreeSet::from(["op_get_thing".to_owned()]),
+        );
+        assert!(
+            operation_symbol_reference_owners(
+                &BTreeSet::from(["aws_types::service_config::ServiceConfigKey".to_owned()]),
+                &owners,
+                &BTreeSet::from(["s3_express".to_owned()]),
+            )
+            .is_empty()
         );
     }
 
