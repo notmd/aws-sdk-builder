@@ -1,5 +1,14 @@
 # AWS SDK modularizer checkpoint log
 
+## 2026-08-29 — final verification checkpoint
+
+- Objective: complete the feature-gated modular SDK transformation and workspace validation.
+- Generic rule: keep operation ownership in the generator, gate shared protocol/type/error surfaces only when their AST ownership requires it, and commit generated SDK changes per service.
+- Commands: `just conformance` passed for all 15 services with zero missing and zero ambiguous operations; `cargo check --workspace`, `cargo test --workspace`, `cargo fmt --all -- --check`, and `git diff --check` all passed.
+- Operation coverage: every service retained complete model-operation coverage with delta `+0`.
+- Remaining blocker: none.
+- Next action: review the per-service SDK commits and the generator checkpoints above.
+
 ## 2026-08-29 — documentation regeneration checkpoint
 
 - Objective: regenerate all modular SDK snapshots after the generic doctest crate-name rewrite.
