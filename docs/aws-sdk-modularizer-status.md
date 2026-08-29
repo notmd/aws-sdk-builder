@@ -1,5 +1,14 @@
 # AWS SDK modularizer checkpoint log
 
+## 2026-08-29 — `c1a0b5106` — public API probe verification
+
+- Objective: verify enabled operation imports/client methods and independently reject every disabled operation API from an external crate.
+- Generic rule: run one Cargo check per disabled operation so all negative probes are compiled and their diagnostics are attributable.
+- Changed files: `crates/aws-sdk-modularizer/src/conformance.rs`.
+- Commands: `AWS_SDK_MODULARIZER_ARCHIVE=/tmp/aws-sdk-rust.tar.gz RUSTFLAGS='-Awarnings' just conformance` passed for all 15 services; coverage unchanged.
+- Operation coverage: zero missing operations, zero ambiguous operations, and coverage delta `+0`.
+- Next action: complete the final workspace checks and inspect the generated SDK diff/status.
+
 ## 2026-08-29 — `0c8274550` — disabled probe diagnostics checkpoint
 
 - Objective: expose bounded compiler diagnostics when a disabled public-API probe’s expected source marker is not found.
