@@ -63,18 +63,12 @@ pub struct CredentialsBuilder {
 impl CredentialsBuilder {
     /// <p>The access key ID that identifies the temporary security credentials.</p>
     /// This field is required.
-    pub fn access_key_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn access_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.access_key_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The access key ID that identifies the temporary security credentials.</p>
-    pub fn set_access_key_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.access_key_id = input;
         self
     }
@@ -84,18 +78,12 @@ impl CredentialsBuilder {
     }
     /// <p>The secret access key that can be used to sign requests.</p>
     /// This field is required.
-    pub fn secret_access_key(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn secret_access_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.secret_access_key = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The secret access key that can be used to sign requests.</p>
-    pub fn set_secret_access_key(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_secret_access_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.secret_access_key = input;
         self
     }
@@ -105,18 +93,12 @@ impl CredentialsBuilder {
     }
     /// <p>The token that users must pass to the service API to use the temporary credentials.</p>
     /// This field is required.
-    pub fn session_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn session_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.session_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The token that users must pass to the service API to use the temporary credentials.</p>
-    pub fn set_session_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_session_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.session_token = input;
         self
     }
@@ -131,10 +113,7 @@ impl CredentialsBuilder {
         self
     }
     /// <p>The date on which the current credentials expire.</p>
-    pub fn set_expiration(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_expiration(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.expiration = input;
         self
     }
@@ -148,12 +127,7 @@ impl CredentialsBuilder {
     /// - [`secret_access_key`](crate::types::builders::CredentialsBuilder::secret_access_key)
     /// - [`session_token`](crate::types::builders::CredentialsBuilder::session_token)
     /// - [`expiration`](crate::types::builders::CredentialsBuilder::expiration)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::Credentials,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::Credentials, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Credentials {
             access_key_id: self.access_key_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

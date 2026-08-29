@@ -17,16 +17,14 @@ impl DecodeAuthorizationMessageInput {
 #[cfg(feature = "op_decode_authorization_message")]
 impl DecodeAuthorizationMessageInput {
     /// Creates a new builder-style object to manufacture [`DecodeAuthorizationMessageInput`](crate::operation::decode_authorization_message::DecodeAuthorizationMessageInput).
-    pub fn builder() -> crate::operation::decode_authorization_message::builders::DecodeAuthorizationMessageInputBuilder{
+    pub fn builder() -> crate::operation::decode_authorization_message::builders::DecodeAuthorizationMessageInputBuilder {
         crate::operation::decode_authorization_message::builders::DecodeAuthorizationMessageInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_decode_authorization_message")]
 /// A builder for [`DecodeAuthorizationMessageInput`](crate::operation::decode_authorization_message::DecodeAuthorizationMessageInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DecodeAuthorizationMessageInputBuilder {
     pub(crate) encoded_message: ::std::option::Option<::std::string::String>,
@@ -35,18 +33,12 @@ pub struct DecodeAuthorizationMessageInputBuilder {
 impl DecodeAuthorizationMessageInputBuilder {
     /// <p>The encoded message that was returned with the response.</p>
     /// This field is required.
-    pub fn encoded_message(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn encoded_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.encoded_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The encoded message that was returned with the response.</p>
-    pub fn set_encoded_message(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_encoded_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.encoded_message = input;
         self
     }
@@ -61,10 +53,8 @@ impl DecodeAuthorizationMessageInputBuilder {
         crate::operation::decode_authorization_message::DecodeAuthorizationMessageInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::decode_authorization_message::DecodeAuthorizationMessageInput {
-                encoded_message: self.encoded_message,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::decode_authorization_message::DecodeAuthorizationMessageInput {
+            encoded_message: self.encoded_message,
+        })
     }
 }

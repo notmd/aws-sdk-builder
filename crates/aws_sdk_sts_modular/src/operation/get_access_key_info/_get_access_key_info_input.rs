@@ -19,17 +19,14 @@ impl GetAccessKeyInfoInput {
 #[cfg(feature = "op_get_access_key_info")]
 impl GetAccessKeyInfoInput {
     /// Creates a new builder-style object to manufacture [`GetAccessKeyInfoInput`](crate::operation::get_access_key_info::GetAccessKeyInfoInput).
-    pub fn builder() -> crate::operation::get_access_key_info::builders::GetAccessKeyInfoInputBuilder
-    {
+    pub fn builder() -> crate::operation::get_access_key_info::builders::GetAccessKeyInfoInputBuilder {
         crate::operation::get_access_key_info::builders::GetAccessKeyInfoInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_access_key_info")]
 /// A builder for [`GetAccessKeyInfoInput`](crate::operation::get_access_key_info::GetAccessKeyInfoInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetAccessKeyInfoInputBuilder {
     pub(crate) access_key_id: ::std::option::Option<::std::string::String>,
@@ -39,19 +36,13 @@ impl GetAccessKeyInfoInputBuilder {
     /// <p>The identifier of an access key.</p>
     /// <p>This parameter allows (through its regex pattern) a string of characters that can consist of any upper- or lowercase letter or digit.</p>
     /// This field is required.
-    pub fn access_key_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn access_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.access_key_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The identifier of an access key.</p>
     /// <p>This parameter allows (through its regex pattern) a string of characters that can consist of any upper- or lowercase letter or digit.</p>
-    pub fn set_access_key_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.access_key_id = input;
         self
     }
@@ -63,14 +54,9 @@ impl GetAccessKeyInfoInputBuilder {
     /// Consumes the builder and constructs a [`GetAccessKeyInfoInput`](crate::operation::get_access_key_info::GetAccessKeyInfoInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_access_key_info::GetAccessKeyInfoInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::get_access_key_info::GetAccessKeyInfoInput {
-                access_key_id: self.access_key_id,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::get_access_key_info::GetAccessKeyInfoInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::get_access_key_info::GetAccessKeyInfoInput {
+            access_key_id: self.access_key_id,
+        })
     }
 }

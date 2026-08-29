@@ -39,18 +39,14 @@ impl GetWebIdentityTokenInput {
 #[cfg(feature = "op_get_web_identity_token")]
 impl GetWebIdentityTokenInput {
     /// Creates a new builder-style object to manufacture [`GetWebIdentityTokenInput`](crate::operation::get_web_identity_token::GetWebIdentityTokenInput).
-    pub fn builder(
-    ) -> crate::operation::get_web_identity_token::builders::GetWebIdentityTokenInputBuilder {
-        crate::operation::get_web_identity_token::builders::GetWebIdentityTokenInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::get_web_identity_token::builders::GetWebIdentityTokenInputBuilder {
+        crate::operation::get_web_identity_token::builders::GetWebIdentityTokenInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_web_identity_token")]
 /// A builder for [`GetWebIdentityTokenInput`](crate::operation::get_web_identity_token::GetWebIdentityTokenInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetWebIdentityTokenInputBuilder {
     pub(crate) audience: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -72,10 +68,7 @@ impl GetWebIdentityTokenInputBuilder {
         self
     }
     /// <p>The intended recipient of the web identity token. This value populates the <code>aud</code> claim in the JWT and should identify the service or application that will validate and use the token. The external service should verify this claim to ensure the token was intended for their use.</p>
-    pub fn set_audience(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_audience(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.audience = input;
         self
     }
@@ -99,18 +92,12 @@ impl GetWebIdentityTokenInputBuilder {
     }
     /// <p>The cryptographic algorithm to use for signing the JSON Web Token (JWT). Valid values are RS256 (RSA with SHA-256) and ES384 (ECDSA using P-384 curve with SHA-384).</p>
     /// This field is required.
-    pub fn signing_algorithm(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn signing_algorithm(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.signing_algorithm = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The cryptographic algorithm to use for signing the JSON Web Token (JWT). Valid values are RS256 (RSA with SHA-256) and ES384 (ECDSA using P-384 curve with SHA-384).</p>
-    pub fn set_signing_algorithm(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_signing_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.signing_algorithm = input;
         self
     }
@@ -130,10 +117,7 @@ impl GetWebIdentityTokenInputBuilder {
         self
     }
     /// <p>An optional list of tags to include in the JSON Web Token (JWT). These tags are added as custom claims to the JWT and can be used by the downstream service for authorization decisions.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
@@ -144,17 +128,13 @@ impl GetWebIdentityTokenInputBuilder {
     /// Consumes the builder and constructs a [`GetWebIdentityTokenInput`](crate::operation::get_web_identity_token::GetWebIdentityTokenInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_web_identity_token::GetWebIdentityTokenInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::get_web_identity_token::GetWebIdentityTokenInput {
-                audience: self.audience,
-                duration_seconds: self.duration_seconds,
-                signing_algorithm: self.signing_algorithm,
-                tags: self.tags,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::get_web_identity_token::GetWebIdentityTokenInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::get_web_identity_token::GetWebIdentityTokenInput {
+            audience: self.audience,
+            duration_seconds: self.duration_seconds,
+            signing_algorithm: self.signing_algorithm,
+            tags: self.tags,
+        })
     }
 }

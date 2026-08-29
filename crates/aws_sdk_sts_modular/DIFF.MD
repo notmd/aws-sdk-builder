@@ -62,6 +62,11 @@
 - `src/operation/get_web_identity_token/_get_web_identity_token_output.rs`
 - `src/operation/get_web_identity_token/builders.rs`
 - `src/protocol_serde.rs`
+- `src/serde_util.rs`
+- `src/types.rs`
+- `src/types/builders.rs`
+- `src/types/error.rs`
+- `src/types/error/builders.rs`
 
 ## Customizations
 

@@ -40,8 +40,7 @@ impl ::aws_types::request_id::RequestId for GetWebIdentityTokenOutput {
 #[cfg(feature = "op_get_web_identity_token")]
 impl GetWebIdentityTokenOutput {
     /// Creates a new builder-style object to manufacture [`GetWebIdentityTokenOutput`](crate::operation::get_web_identity_token::GetWebIdentityTokenOutput).
-    pub fn builder(
-    ) -> crate::operation::get_web_identity_token::builders::GetWebIdentityTokenOutputBuilder {
+    pub fn builder() -> crate::operation::get_web_identity_token::builders::GetWebIdentityTokenOutputBuilder {
         crate::operation::get_web_identity_token::builders::GetWebIdentityTokenOutputBuilder::default()
     }
 }
@@ -58,18 +57,12 @@ pub struct GetWebIdentityTokenOutputBuilder {
 #[cfg(feature = "op_get_web_identity_token")]
 impl GetWebIdentityTokenOutputBuilder {
     /// <p>A signed JSON Web Token (JWT) that represents the caller's Amazon Web Services identity. The token contains standard JWT claims such as subject, audience, expiration time, and additional identity attributes added by STS as custom claims. You can also add your own custom claims to the token by passing tags as request parameters to the <code>GetWebIdentityToken</code> API. The token is signed using the specified signing algorithm and can be verified using the verification keys available at the issuer's JWKS endpoint.</p>
-    pub fn web_identity_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn web_identity_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.web_identity_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A signed JSON Web Token (JWT) that represents the caller's Amazon Web Services identity. The token contains standard JWT claims such as subject, audience, expiration time, and additional identity attributes added by STS as custom claims. You can also add your own custom claims to the token by passing tags as request parameters to the <code>GetWebIdentityToken</code> API. The token is signed using the specified signing algorithm and can be verified using the verification keys available at the issuer's JWKS endpoint.</p>
-    pub fn set_web_identity_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_web_identity_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.web_identity_token = input;
         self
     }
@@ -83,10 +76,7 @@ impl GetWebIdentityTokenOutputBuilder {
         self
     }
     /// <p>The date and time when the web identity token expires, in UTC. The expiration is determined by adding the <code>DurationSeconds</code> value to the time the token was issued. After this time, the token should no longer be considered valid.</p>
-    pub fn set_expiration(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_expiration(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.expiration = input;
         self
     }
