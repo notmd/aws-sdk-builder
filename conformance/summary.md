@@ -168,6 +168,20 @@
   - all: `[op_batch_get_metric_data, op_cancel_export_job, op_create_configuration_set, op_create_configuration_set_event_destination, op_create_contact, op_create_contact_list, op_create_custom_verification_email_template, op_create_dedicated_ip_pool, op_create_deliverability_test_report, op_create_email_identity, op_create_email_identity_policy, op_create_email_template, op_create_export_job, op_create_import_job, op_create_multi_region_endpoint, op_create_tenant, op_create_tenant_resource_association, op_delete_configuration_set, op_delete_configuration_set_event_destination, op_delete_contact, op_delete_contact_list, op_delete_custom_verification_email_template, op_delete_dedicated_ip_pool, op_delete_email_identity, op_delete_email_identity_policy, op_delete_email_template, op_delete_multi_region_endpoint, op_delete_suppressed_destination, op_delete_tenant, op_delete_tenant_resource_association, op_get_account, op_get_blacklist_reports, op_get_configuration_set, op_get_configuration_set_event_destinations, op_get_contact, op_get_contact_list, op_get_custom_verification_email_template, op_get_dedicated_ip, op_get_dedicated_ip_pool, op_get_dedicated_ips, op_get_deliverability_dashboard_options, op_get_deliverability_test_report, op_get_domain_deliverability_campaign, op_get_domain_statistics_report, op_get_email_address_insights, op_get_email_identity, op_get_email_identity_policies, op_get_email_template, op_get_export_job, op_get_import_job, op_get_message_insights, op_get_multi_region_endpoint, op_get_reputation_entity, op_get_suppressed_destination, op_get_tenant, op_list_configuration_sets, op_list_contact_lists, op_list_contacts, op_list_custom_verification_email_templates, op_list_dedicated_ip_pools, op_list_deliverability_test_reports, op_list_domain_deliverability_campaigns, op_list_email_identities, op_list_email_templates, op_list_export_jobs, op_list_import_jobs, op_list_multi_region_endpoints, op_list_recommendations, op_list_reputation_entities, op_list_resource_tenants, op_list_suppressed_destinations, op_list_tags_for_resource, op_list_tenant_resources, op_list_tenants, op_put_account_dedicated_ip_warmup_attributes, op_put_account_details, op_put_account_pricing_attributes, op_put_account_sending_attributes, op_put_account_suppression_attributes, op_put_account_vdm_attributes, op_put_configuration_set_archiving_options, op_put_configuration_set_delivery_options, op_put_configuration_set_reputation_options, op_put_configuration_set_sending_options, op_put_configuration_set_suppression_options, op_put_configuration_set_tracking_options, op_put_configuration_set_vdm_options, op_put_dedicated_ip_in_pool, op_put_dedicated_ip_pool_scaling_attributes, op_put_dedicated_ip_warmup_attributes, op_put_deliverability_dashboard_option, op_put_email_identity_configuration_set_attributes, op_put_email_identity_dkim_attributes, op_put_email_identity_dkim_signing_attributes, op_put_email_identity_feedback_attributes, op_put_email_identity_mail_from_attributes, op_put_suppressed_destination, op_put_tenant_suppression_attributes, op_send_bulk_email, op_send_custom_verification_email, op_send_email, op_tag_resource, op_test_render_email_template, op_untag_resource, op_update_configuration_set_event_destination, op_update_contact, op_update_contact_list, op_update_custom_verification_email_template, op_update_email_identity_policy, op_update_email_template, op_update_reputation_entity_customer_managed_status, op_update_reputation_entity_policy]`
   - shared groups: `none`
 
+## signin
+
+- total: 11
+- transformed: 11
+- missing: 0
+- ambiguous: 0
+- coverage delta: +0
+- changed files: 13
+- feature selections:
+  - zero: `[]`
+  - singleton: `[op_create_o_auth2_token], [op_create_o_auth2_token_with_iam], [op_delete_console_authorization_configuration], [op_delete_resource_permission_statement], [op_get_console_authorization_configuration], [op_get_resource_policy], [op_introspect_o_auth2_token_with_iam], [op_list_resource_permission_statements], [op_put_console_authorization_configuration], [op_put_resource_permission_statement], [op_revoke_o_auth2_token_with_iam]`
+  - all: `[op_create_o_auth2_token, op_create_o_auth2_token_with_iam, op_delete_console_authorization_configuration, op_delete_resource_permission_statement, op_get_console_authorization_configuration, op_get_resource_policy, op_introspect_o_auth2_token_with_iam, op_list_resource_permission_statements, op_put_console_authorization_configuration, op_put_resource_permission_statement, op_revoke_o_auth2_token_with_iam]`
+  - shared groups: `none`
+
 ## sns
 
 - total: 42
@@ -195,6 +209,34 @@
   - singleton: `[op_add_permission], [op_cancel_message_move_task], [op_change_message_visibility], [op_change_message_visibility_batch], [op_create_queue], [op_delete_message], [op_delete_message_batch], [op_delete_queue], [op_get_queue_attributes], [op_get_queue_url], [op_list_dead_letter_source_queues], [op_list_message_move_tasks], [op_list_queues], [op_list_queue_tags], [op_purge_queue], [op_receive_message], [op_remove_permission], [op_send_message], [op_send_message_batch], [op_set_queue_attributes], [op_start_message_move_task], [op_tag_queue], [op_untag_queue]`
   - all: `[op_add_permission, op_cancel_message_move_task, op_change_message_visibility, op_change_message_visibility_batch, op_create_queue, op_delete_message, op_delete_message_batch, op_delete_queue, op_get_queue_attributes, op_get_queue_url, op_list_dead_letter_source_queues, op_list_message_move_tasks, op_list_queues, op_list_queue_tags, op_purge_queue, op_receive_message, op_remove_permission, op_send_message, op_send_message_batch, op_set_queue_attributes, op_start_message_move_task, op_tag_queue, op_untag_queue]`
   - shared groups: `[op_add_permission, op_change_message_visibility, op_delete_message, op_delete_queue, op_purge_queue, op_remove_permission, op_set_queue_attributes, op_tag_queue, op_untag_queue]`
+
+## sso
+
+- total: 4
+- transformed: 4
+- missing: 0
+- ambiguous: 0
+- coverage delta: +0
+- changed files: 12
+- feature selections:
+  - zero: `[]`
+  - singleton: `[op_get_role_credentials], [op_list_account_roles], [op_list_accounts], [op_logout]`
+  - all: `[op_get_role_credentials, op_list_account_roles, op_list_accounts, op_logout]`
+  - shared groups: `none`
+
+## ssooidc
+
+- total: 4
+- transformed: 4
+- missing: 0
+- ambiguous: 0
+- coverage delta: +0
+- changed files: 11
+- feature selections:
+  - zero: `[]`
+  - singleton: `[op_create_token], [op_create_token_with_iam], [op_register_client], [op_start_device_authorization]`
+  - all: `[op_create_token, op_create_token_with_iam, op_register_client, op_start_device_authorization]`
+  - shared groups: `none`
 
 ## sts
 

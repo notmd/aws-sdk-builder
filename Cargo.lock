@@ -781,6 +781,32 @@ dependencies = [
 ]
 
 [[package]]
+name = "aws-sdk-signin-modular"
+version = "1.20.0"
+dependencies = [
+ "arc-swap",
+ "aws-credential-types",
+ "aws-runtime",
+ "aws-smithy-async",
+ "aws-smithy-http",
+ "aws-smithy-json",
+ "aws-smithy-observability",
+ "aws-smithy-runtime",
+ "aws-smithy-runtime-api",
+ "aws-smithy-schema",
+ "aws-smithy-types",
+ "aws-types",
+ "bytes",
+ "fastrand 2.5.0",
+ "http 0.2.12",
+ "http 1.5.0",
+ "proptest",
+ "regex-lite",
+ "tokio",
+ "tracing",
+]
+
+[[package]]
 name = "aws-sdk-sns-modular"
 version = "1.109.0"
 dependencies = [
@@ -867,6 +893,32 @@ dependencies = [
 ]
 
 [[package]]
+name = "aws-sdk-sso-modular"
+version = "1.107.0"
+dependencies = [
+ "arc-swap",
+ "aws-credential-types",
+ "aws-runtime",
+ "aws-smithy-async",
+ "aws-smithy-http",
+ "aws-smithy-json",
+ "aws-smithy-observability",
+ "aws-smithy-runtime",
+ "aws-smithy-runtime-api",
+ "aws-smithy-schema",
+ "aws-smithy-types",
+ "aws-types",
+ "bytes",
+ "fastrand 2.5.0",
+ "http 0.2.12",
+ "http 1.5.0",
+ "proptest",
+ "regex-lite",
+ "tokio",
+ "tracing",
+]
+
+[[package]]
 name = "aws-sdk-ssooidc"
 version = "1.110.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -889,6 +941,32 @@ dependencies = [
  "http 0.2.12",
  "http 1.5.0",
  "regex-lite",
+ "tracing",
+]
+
+[[package]]
+name = "aws-sdk-ssooidc-modular"
+version = "1.109.0"
+dependencies = [
+ "arc-swap",
+ "aws-credential-types",
+ "aws-runtime",
+ "aws-smithy-async",
+ "aws-smithy-http",
+ "aws-smithy-json",
+ "aws-smithy-observability",
+ "aws-smithy-runtime",
+ "aws-smithy-runtime-api",
+ "aws-smithy-schema",
+ "aws-smithy-types",
+ "aws-types",
+ "bytes",
+ "fastrand 2.5.0",
+ "http 0.2.12",
+ "http 1.5.0",
+ "proptest",
+ "regex-lite",
+ "tokio",
  "tracing",
 ]
 

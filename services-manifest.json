@@ -122,6 +122,16 @@
       "library_name": "aws_sdk_sesv2_modular"
     },
     {
+      "key": "signin",
+      "repository": "https://github.com/awslabs/aws-sdk-rust",
+      "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
+      "upstream_path": "sdk/signin",
+      "model_path": "models/signin.json",
+      "output_dir": "crates/aws_sdk_signin_modular",
+      "package_name": "aws-sdk-signin-modular",
+      "library_name": "aws_sdk_signin_modular"
+    },
+    {
       "key": "sns",
       "repository": "https://github.com/awslabs/aws-sdk-rust",
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
@@ -140,6 +150,26 @@
       "output_dir": "crates/aws_sdk_sqs_modular",
       "package_name": "aws-sdk-sqs-modular",
       "library_name": "aws_sdk_sqs_modular"
+    },
+    {
+      "key": "sso",
+      "repository": "https://github.com/awslabs/aws-sdk-rust",
+      "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
+      "upstream_path": "sdk/sso",
+      "model_path": "models/sso.json",
+      "output_dir": "crates/aws_sdk_sso_modular",
+      "package_name": "aws-sdk-sso-modular",
+      "library_name": "aws_sdk_sso_modular"
+    },
+    {
+      "key": "ssooidc",
+      "repository": "https://github.com/awslabs/aws-sdk-rust",
+      "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
+      "upstream_path": "sdk/ssooidc",
+      "model_path": "models/ssooidc.json",
+      "output_dir": "crates/aws_sdk_ssooidc_modular",
+      "package_name": "aws-sdk-ssooidc-modular",
+      "library_name": "aws_sdk_ssooidc_modular"
     },
     {
       "key": "sts",
